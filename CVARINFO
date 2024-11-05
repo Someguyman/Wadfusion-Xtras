@@ -1,0 +1,22 @@
+
+server bool always_pistol_start = false;
+server bool keep_inventory_items = false;
+server bool fs_toggle = true;
+server bool ns_toggle = false;
+server bool ED_toggle = false;
+server bool dcx_playstationmaps = true;
+server bool dcx_TextureFixes = true;
+server bool dcx_TextureEchancements = true;
+server bool dcx_D64D2Xtras = true;
+server bool dcx_CustomMonsters = false;
+server bool dcx_3DO_Music = false;
+
+server int ssgtoggle = 0;
+server int hud_toggle = 0;
+server int Plu_Hud_toggle = 0;
+server int Tnt_Hud_toggle = 0;
+server int Health_Cross_Toggle = 0;
+server int D64_Hud_toggle = 0;
+server int W3D_Text_toggle = 0;
+
+

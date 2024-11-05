@@ -1,0 +1,1040 @@
+#library "XtraMonsters"
+#include "zcommon.acs"
+
+function bool IsDebug(void)
+{
+    if (GetCVar("dc_debug") > 0)
+        return true;
+    return false;
+}
+
+script "Check_Difficulty" (Void)
+{
+	if ((GameSkill () <= 4))
+	{
+		SetResultValue(1);
+		terminate;
+	}
+	
+	if ((GameSkill () == 5))
+	{
+		SetResultValue(2);
+		terminate;
+	}
+}
+
+script "Xtra_Monster_Placements" enter
+{
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	if (GameType() == GAME_TITLE_MAP)
+    terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if (StrICmp(mapName, "map02") == 0)
+	{
+		Add("Shotgunguy",944,912,90,0,0);
+	}
+	
+	if (GetCVar ("dcx_D64D2Xtras"))	
+	{
+	
+	if ((GameSkill () >= SKILL_HARD))
+	{
+		if (StrICmp(mapName, "ab_map27") == 0)
+		{
+			while (IsDoorClosed(20)) { Delay(10); }
+
+			//wait a couple of seconds
+			Delay(70);
+			
+			Add("SpiderMastermind",1024,2240,270,0,99);
+		}
+	}
+	
+	}
+	
+	if ((GameSkill () == 5))
+	{	
+		if (StrICmp(mapName, "e1m1") == 0)
+		{
+			AddDeco("ColonGibs",1088,-3264,0);
+			Replace("ChaingunGuy",2464,-2432,180,0,0); //Replaces the Shotgunner in the computer room
+			Add("Painelemental",3644,-3136,315,0,0); //Adds a Pain Elemental in the secret tunnel with the armor bonuses
+		}	
+		if (StrICmp(mapName, "e1m2") == 0)
+		{
+			Add("ChaingunGuy",-1535,1375,270,0,0);
+			Add("ChaingunGuy",0,864,270,0,0);
+			Add("ChaingunGuy",2238,1279,225,0,0);
+			Add("ChaingunGuy",-2080,800,270,0,0);
+			
+			Add("Spectre",-544,896,180,0,0); //In the toxic waste room with the switch to the maze
+			Add("Spectre",-800,1248,270,0,0);
+			
+			Add("ChaingunGuy",-1312,2016,180,0,0); //near the end in the dark room the elevator drops into
+			Add("ChaingunGuy",-1312,1952,180,0,0); //near the end in the dark room the elevator drops into
+			Add("StealthChaingunGuy",192,-928,0,0,0); //In the maze, alcove next to backpack secret
+			Add("StealthChaingunGuy",192,-864,0,0,0); //In the maze, alcove next to backpack secret
+			Replace("ChaingunGuy",944,-304,0,0,0); //replaces the chaingun
+
+			Add("ChaingunGuy",-512,2240,135,0,0); //exit room
+
+			AddDeco("TechLamp2",-336,2288,0); //exit room near the exit switch
+			AddDeco("TechLamp2",-336,2384,0); //exit room near the exit switch
+		}	
+		if (StrICmp(mapName, "e1m3") == 0)
+		{
+			Add("ChaingunGuy",-3040,-766,270,0,0);
+			Add("ChaingunGuy",-1504,-1759,270,0,0);
+			Replace("ChaingunGuy",-1088,-1152,90,0,0);
+			
+			Add("ChaingunGuy",-1600,-1536,270,0,0); //circular room before the secret exit
+			Add("ChaingunGuy",-1408,-1536,270,0,0); //circular room before the secret exit
+			Add("ChaingunGuy",-128,-704,90,0,0); //blue key room
+			Add("ChaingunGuy",-64,-704,90,0,0); //blue key room
+			Add("ChaingunGuy",-320,-1792,135,0,0); //room before regular exit with building stairs
+			Add("ChaingunGuy",-320,-1440,225,0,0); //room before regular exit with building stairs
+			Add("SuperShotgun",-992,-768,180,0,0); //green pit with health and switch
+			Add("Revenant",-992,-768,180,0,0); //green pit with health and switch
+		}	
+		if (StrICmp(mapName, "e1m4") == 0)
+		{
+			Add("Painelemental",-672, 672,0,0,0);
+			Add("Painelemental",-928, 800,270,0,0);
+			
+			Add("HellKnight",-1536,1888,0,0,0); //Exit room
+			Add("ChaingunGuy",-1408,1280,0,0,0); //Next to the Yellow keycard
+			Add("ChaingunGuy",-1056,1440,270,0,0); //Cage northeast of the Yellow keycard
+			Add("ChaingunGuy",-992,1440,270,0,0); //Cage northeast of the Yellow keycard
+			Add("ChaingunGuy",-32,736,180,0,0); //Blue keycard room
+			Add("ChaingunGuy",-96,576,180,0,0); //Blue keycard room
+			Add("ChaingunGuy",192,640,0,0,0); //Blue keycard room
+			Add("ChaingunGuy",96,704,0,0,0); //Blue keycard room
+			Add("Stimpack",-64,576,0,0,0); //Blue keycard room
+			Add("ChaingunGuy",-576,-64,135,0,0); //ashphalt thing just before the maze area
+			Add("ChaingunGuy",-480,0,135,0,0); //ashphalt thing just before the maze area
+			Add("ChaingunGuy",832,1888,315,0,0); //blue room near the starting zone
+			Add("ChaingunGuy",1536,1888,225,0,0); //blue room near the starting zone
+			Add("Stimpack",736,1504,0,0,0); //blue room near the starting zone
+			Add("ChaingunGuy",-416,1632,0,0,0); //swastika room
+		
+			AddDeco("TechLamp",1120,608,0); //metal/gray elevator room near the start
+			AddDeco("TechLamp",1120,928,0); //metal/gray elevator room near the start
+			AddDeco("TechLamp",672,800,0); //metal/gray elevator room near the start
+			AddDeco("TechLamp",672,480,0); //metal/gray elevator room near the start
+		}
+		if (StrICmp(mapName, "e1m5") == 0)
+		{
+			Replace("DCX_NightmareSpectre",-64,256,270,0,0);
+			Replace("DCX_NightmareSpectre",288,2128,270,0,0);
+			Replace("DCX_NightmareSpectre",-320,2000,270,0,0);
+			Replace("DCX_NightmareSpectre",896,176,180,0,0);
+			
+			Replace("ChaingunGuy",-1376,992,0,0,0);
+			Replace("ChaingunGuy",-1376,672,0,0,0);
+			Replace("ChaingunGuy",1072,832,270,0,0);
+			
+			Add("ChaingunGuy",-1200,560,135,0,0); //nukage room with 2 pillars
+			Add("ChaingunGuy",-1200,1104,225,0,0); //nukage room with 2 pillars
+			Add("ChaingunGuy",448,832,180,0,0); //room across from yellow key
+			Add("ChaingunGuy",448,1240,270,0,0); //room across from yellow key, up the stairs
+			Add("ChaingunGuy",0,1856,270,0,0); //dark rooom before exit
+			Add("SuperShotgun",912,288,270,0,0); //green lava room with raising bridge
+			Add("HellKnight",0,1696,270,0,0); //dark room before exit
+		}
+		if (StrICmp(mapName, "e1m6") == 0)
+		{
+			Replace("DCX_NightmareSpectre",1792,-1360,180,0,0);
+			Replace("DCX_NightmareSpectre",1184,-880,270,0,0);
+			Replace("DCX_NightmareSpectre",1184,-1920,90,0,0);
+			Replace("DCX_NightmareSpectre",656,-1696,0,0,0);			
+			Replace("DCX_NightmareSpectre",-256,1472,270,0,0);
+			Replace("DCX_NightmareSpectre",-1408,960,180,0,0);		
+			Replace("ChaingunGuy",1680,-1824,135,0,0);
+			
+			Add("ChaingunGuy", -272, -768,0,0,0);
+			Add("ChaingunGuy",512, 1424,270,0,0);
+			Add("ChaingunGuy",648, 1392,270,0,0);
+			Add("ChaingunGuy",3200,-1664,45,0,0);
+			Add("DCX_NightmareSpectre",2496,-960,180,0,0);
+			
+			Add("ChaingunGuy",1192,-972,270,0,0);
+			Add("ChaingunGuy",1344,-1954,135,0,0);
+			Add("Megasphere",1592,-1344,180,0,0);
+			Add("ChaingunGuy",1040,-616,135,0,0); //Yellow Key room
+			Add("ChaingunGuy",1088,-560,135,0,0); //Yellow Key room
+			Add("SuperShotgun",-64,-128,0,0,0); //blue room
+        
+			Add("Revenant",-896,1216,0,0,0); //stairs room next to nukage room above blue room
+			Add("Revenant",-896,1336,0,0,0); //stairs room next to nukage room above blue room
+        
+			Add("Arachnotron",-1856,-1728,45,0,0); //the big pit of nukage near the blue key
+			Add("Arachnotron",-1536,-1984,90,0,0); //the big pit of nukage near the blue key
+
+			//spawn some enemies after the trap room goes off
+			while (IsDoorClosed(10)) { Delay(10); }
+
+			Delay(35); //wait a couple of seconds
+
+			//Doors are opened. Spawn some evil archviles!
+			Add("ArchVile",1424,-1576,90,0,99);
+			Add("Painelemental",1008,-1576,90,0,99);
+			
+		}
+		if (StrICmp(mapName, "e1m7") == 0)
+		{
+			Replace("DCX_NightmareSpectre",-1504,128,315,0,0);
+			Replace("DCX_NightmareSpectre",192,-192,90,0,0);
+			Replace("Revenant",-944,-1088,270,0,0);
+			Add("Revenant",352,-1792,270,0,0);
+			
+			Add("ChaingunGuy",128,64,90,0,0);
+			Add("ChaingunGuy",256,64,90,0,0);
+			Add("HellKnight",-480,-2080,0,0,0);
+			Add("Revenant",-1312,-2656,90,0,0);
+			Add("Fatso",1152,-1664,90,0,0);
+			Add("Fatso",1280,-1664,90,0,0);
+			Add("Fatso",1408,-1664,90,0,0);
+			Add("Arachnotron",1088,-1344,90,0,0);
+			Add("Arachnotron",1280,-1344,90,0,0);
+			Add("Arachnotron",1440,-1344,90,0,0);
+			Add("Blursphere",864,-992,90,0,0);
+			Replace("Megasphere",1248,-1120,0,0,0); //replace normal Blursphere with a Megasphere since we are spawning enemies outside
+			Add("PainElemental",-384,-1728,270,0,0);
+		
+			//wait for the door that opens when we pick up the red key to open
+			while (IsDoorClosed(12)) { Delay(10); }
+
+			//Then spawn a hell knight
+			Add("HellKnight",-656,-1040,135,0,0);
+		}	
+		if (StrICmp(mapName, "e1m8") == 0)
+		{		
+			Replace("DCX_NightmareSpectre",-128,2288,45,0,0);
+			Replace("DCX_NightmareSpectre",-160,2208,45,0,0);
+			Replace("DCX_NightmareSpectre",992,2208,135,0,0);
+			Replace("DCX_NightmareSpectre",960,2272,135,0,0);
+			Replace("DCX_NightmareSpectre",1232,3280,225,0,0);
+			Replace("DCX_NightmareSpectre",1312,3328,225,0,0);
+			Replace("DCX_NightmareSpectre",416,3936,270,0,0);
+			Replace("DCX_NightmareSpectre",416,4000,270,0,0);
+			Replace("DCX_NightmareSpectre",-128,3200,315,0,0);
+			Replace("DCX_NightmareSpectre",-192,3136,315,0,0);
+		
+			Add("Medikit",416,2656,0,0,0); //baron of hell chambers
+			Add("SuperShotgun",416,2464,270,0,0); //red elevator
+
+			//wait until the barons are released
+			while (IsDoorClosed(5)) { Delay(10); }
+
+			//wait a couple of seconds
+			Delay(70);
+
+            Add("HellKnight",416,3008,270,0,99); //baron of hell chambers
+            Add("HellKnight",256,2656,315,0,99); //baron of hell chambers
+            Add("HellKnight",560,2656,225,0,99); //baron of hell chambers
+            Add("HellKnight",64,2752,0,0,99); //baron of hell chambers
+            Add("HellKnight",768,2752,180,0,99); //baron of hell chambers
+		}
+		if (StrICmp(mapName, "e1m9") == 0)
+		{
+			Replace("Painelemental",624,1488,270,0,0);
+			Add("Painelemental",2464,544,270,0,99);
+			
+			Add("ChaingunGuy",2040,-1308,135,0,0);
+			Replace("ChaingunGuy",2400,96,180,0,0); //pillars where the imps normally stand
+			Replace("ChaingunGuy",2592,160,180,0,0); //pillars where the imps normally stand
+			Replace("ChaingunGuy",2528,-32,180,0,0); //pillars where the imps normally stand
+			Add("Revenant",2048,64,128,0,0);
+			Add("HellKnight",-128,1344,225,0,0);
+			Add("SuperShotgun",-576,-1312,0,0,0);
+
+			//wait until we have the Red key
+			while (IsDoorClosed(8)) { Delay(10); }    
+
+			//Spawn an ArchVile
+			Add("ArchVile",704,64,270,0,99);
+		}
+		
+		if (StrICmp(mapName, "e2m1") == 0)
+		{
+			Add("HellKnight",1024,-160,315,0,99);
+		
+			Add("HellKnight",2240,-1024,90,0,0);
+			Add("HellKnight",2048,-1024,90,0,0);
+			Add("PainElemental",2144,-768,90,0,0);
+			Add("SuperShotgun",1280,0,90,0,0);
+		}
+		if (StrICmp(mapName, "e2m2") == 0)
+		{
+			Replace("DCX_NightmareSpectre",2496,1808,45,0,0);
+			Replace("DCX_NightmareSpectre",720,560,180,0,0);
+			Replace("DCX_NightmareSpectre",1008,4096,315,0,0);
+			
+			Add("ChaingunGuy",32,3552,90,0,0);
+			Add("ChaingunGuy",544,3040,270,0,0);
+			Add("HellKnight",1088,3072,135,0,0);
+			Add("Stimpaick",1088,3072,135,0,0);
+			Add("SuperShotgun",1376,2016,135,0,0);
+			Add("Arachnotron",1376,1024,90,0,0);
+			Add("HellKnight",640,192,0,0,0);
+			Add("Revenant",-288,-64,0,0,0);
+			Add("Revenant",-288,-128,0,0,0);
+			Add("Revenant",-352,-96,0,0,0);
+			Add("Megasphere",-288,-224,0,0,0);
+			Add("HellKnight",512,-352,180,0,0);
+		}
+		if (StrICmp(mapName, "e2m3") == 0)
+		{
+			Replace("DCX_NightmareSpectre",672,-32,90,0,0);
+			Replace("DCX_NightmareSpectre",-864,400,0,0,0);
+			Replace("DCX_NightmareSpectre",1280,112,90,0,0);
+			Replace("DCX_NightmareSpectre",2128,-336,180,0,0);
+			Replace("DCX_NightmareSpectre",-320,1088,270,0,0);
+			Replace("DCX_NightmareSpectre",-448,928,270,0,0);
+			Replace("DCX_NightmareSpectre",2048,704,135,0,0);
+			
+			Add("Lostsoul",864,-64,270,0,0);
+			
+			Add("Arachnotron",384,96,270,0,0);
+			
+			Add("Cacodemon",320,-384,90,0,0);
+			Add("Cacodemon",-704,416,0,0,0);
+			
+			Add("Hellknight",864,-384,90,0,0);
+			Add("Hellknight",1152,1376,270,0,0);
+			
+			Add("PainElemental",416,928,90,0,0);
+			Add("PainElemental",544,928,90,0,0);
+			Add("SuperShotgun",432,-256,90,0,0);
+			Add("HellKnight",352,480,270,0,0);
+			Add("Revenant",192,-192,180,0,0);
+			Add("Arachnotron",-320,448,270,0,0);
+			Add("ArchVile",-1088,400,0,0,0);
+			Add("Medikit",-1088,352,0,0,0);
+		}
+		if (StrICmp(mapName, "e2m4") == 0)
+		{
+			Add("SuperShotgun",-416,-2656,0,0,0);
+			Add("ChaingunGuy",-928,-1536,0,0,0);
+			Add("ChaingunGuy",-832,-1536,0,0,0);
+			Add("ChaingunGuy",-736,-1536,0,0,0);
+			Add("Mancubus",0,-1152,0,0,0);
+			Add("Revenant",1472,-1792,0,0,0);
+			Add("Revenant",1472,-1856,0,0,0);
+			Add("ChaingunGuy",2496,-1792,270,0,0);
+			Add("ChaingunGuy",2560,-1792,270,0,0);
+			Add("ChaingunGuy",2624,-1792,270,0,0);
+			Add("Megasphere",1472,-1984,270,0,0);
+			Add("Arachnotron",1088,-1824,0,0,0);
+			Add("Arachnotron",1088,-1664,0,0,0);
+			Add("Arachnotron",1088,-1984,0,0,0);
+			Add("PainElemental",-960,-1152,90,0,0);
+			Add("PainElemental",-960,-1248,90,0,0);
+			Add("ArchVile",2176,-2368,90,0,0);
+		}
+		if (StrICmp(mapName, "e2m5") == 0)
+		{
+			Add("PainElemental",-2048,1600,270,0,0);
+			Add("PainElemental",256,1280,270,0,0);
+		
+			Add("PainElemental",-1568,1568,90,0,0);
+			Add("ChaingunGuy",-2592,928,90,0,0);
+			Add("ChaingunGuy",-2592,992,90,0,0);
+			Add("ChaingunGuy",-2944,192,270,0,0);
+			Add("ChaingunGuy",-3200,192,270,0,0);
+			Add("Revenant",-3488,96,0,0,0);
+			Add("Revenant",-3424,96,0,0,0);
+			Add("Fatso",-3072,32,90,0,0);
+			Add("Megasphere",-2944,320,90,0,0);
+
+			while (IsDoorClosed(3)) { Delay(10); }
+
+			Add("ArchVile",-3072,-64,270,0,99);
+		}
+		if (StrICmp(mapName, "e2m6") == 0)
+		{	
+			Add("HellKnight",640,1472,270,0,0);
+			Add("HellKnight",832,1472,270,0,0);
+			Add("HellKnight",736,1376,270,0,0);
+			Add("Revenant",864,1376,270,0,0);
+			Add("Revenant",608,1376,270,0,0);
+        
+			//Wait for door leading to exit doors to open up
+			while (IsDoorClosed(2)) { Delay(10); }
+
+			Add("ArchVile",640,1472,270,0,99);
+			Add("HellKnight",640,1376,270,0,99);
+        
+			while (IsDoorClosed(22)) { Delay(10); }
+
+			Add("ArchVile",640,1472,270,0,99);
+			Add("ArchVile",640,1376,270,0,99);
+			Add("HellKnight",864,1376,270,0,0);
+			Add("HellKnight",608,1376,270,0,0);
+			Add("Megasphere",608,1376,270,0,0);
+		}
+		if (StrICmp(mapName, "e2m7") == 0)
+		{
+			Add("Fatso",96,1600,270,0,0);
+			Add("Fatso",768,160,180,0,0);
+			Add("Fatso",2080,-64,90,0,0);
+		
+			Add("HellKnight",544,416,90,0,0);
+			Add("HellKnight",416,416,90,0,0);
+			Add("ChaingunGuy",480,-352,90,0,0);
+			Add("ChaingunGuy",352,-352,90,0,0);
+			Add("ChaingunGuy",608,-352,90,0,0);
+			Add("ChaingunGuy",736,-224,180,0,0);
+			Add("ChaingunGuy",736,-96,180,0,0);
+			Add("ChaingunGuy",224,-96,0,0,0);
+			Add("ChaingunGuy",224,-224,0,0,0);
+			Add("Medikit",480,-256,0,0,0);
+			Add("Revenant",1056,-512,90,0,0);
+			Add("ArchVile",2360,488,180,0,0);
+			Add("Arachnotron",3480,-224,90,0,0);
+			Add("Arachnotron",3240,-224,90,0,0);
+			Add("PainElemental",3672,304,135,0,0);
+			Add("Medikit",3816,-296,135,0,0);
+			Add("ArchVile",2720,96,180,0,0);
+        
+			while (!IsFloorLevel(1,48)) { Delay(10); }
+
+			Add ("ArchVile",1920,-224,180,0,99);
+			Add ("ChaingunGuy",1920,-128,180,0,99);
+			Add ("ChaingunGuy",1920,-320,180,0,99);
+
+			Delay(35 * 5);
+
+			Add ("Megasphere",1760,-224,180,0,99);
+		}
+		if (StrICmp(mapName, "e2m8") == 0)
+		{
+			Add("Fatso",-104,440, 270,0,0);
+			Add("Fatso", 80, 408, 270,0,0);
+			Add("Fatso",-1288, -792,0,0,0);
+			Add("Fatso",-1216,-1008,0,0,0);
+			Add("Fatso",-96,-1976, 90,0,0);
+			Add("Fatso",136,-1960, 90,0,0);
+			Add("Fatso",1096,-792,180,0,0);
+			Add("Fatso",1136,-944,180,0,0);
+		
+			Add("SuperShotgun",-96,-936,0,0,0);
+			Add("SuperShotgun",-96,-664,0,0,0);
+			Add("SuperShotgun",-232,-800,0,0,0);
+			Add("SuperShotgun",40,-800,0,0,0);
+			Add("Megasphere",-88,1632,0,0,0);
+		}
+		if (StrICmp(mapName, "e2m9") == 0)
+		{
+			Add("SuperShotgun",736,-384,0,0,0);
+			Add("Revenant",1664,416,270,0,0);
+			Add("Revenant",1664,-1184,90,0,0);
+			Add("PainElemental",1984,-384,180,0,0);
+			Add("Arachnotron",2112,-384,180,0,0);
+			Add("HellKnight",2496,-352,180,0,0);
+			Add("HellKnight",2496,-416,180,0,0);
+			Add("ArchVile",2592,-384,180,0,0);
+			Add("Megasphere",2544,-384,180,0,0);
+		}	
+		if (StrICmp(mapName, "e3m1") == 0)
+		{	
+			Add("SuperShotgun",-800,1376,0,0,0); 
+			Add("ChaingunGuy",-896,1568,270,0,0); 
+			Add("ChaingunGuy",-704,1568,270,0,0);
+			
+			Add("Demon",-512,-752,315,0,0);
+			
+			Add("Doomimp",-312, -792,315,0,0);
+			Add("Doomimp",-440, -920,315,0,0);
+			Add("Doomimp",-312, -920,315,0,0);
+			Add("Doomimp",-440, -792,315,0,0);
+			
+			Add("Demon",1064,-792,225,0,0);
+			
+			Add("Doomimp",856, -1000,225,0,0);
+			Add("Doomimp",728, -1128,225,0,0);
+			Add("Doomimp",856, -1128,225,0,0);
+			Add("Doomimp",728, -1000,225,0,0);
+			
+			Add("Cacodemon",232,616,315,0,0);
+			
+			while (!IsFloorLevel(8,0)) { Delay(10); } 
+			
+			Add("Hellknight",-800,2184,270,0,99);
+		}
+		if (StrICmp(mapName, "e3m2") == 0)
+		{
+			Add("PainElemental",-96,2304,270,0,0);
+		
+			Add("PainElemental",576,2016,315,0,0);
+			Add("PainElemental",160,1696,315,0,0);
+			Add("HellKnight",128,1792,315,0,0);
+			Add("HellKnight",32,1696,315,0,0);
+			Add("Stimpack",32,1696,315,0,0);
+		}
+		if (StrICmp(mapName, "e3m3") == 0)
+		{			
+			Add("Revenant",-352,-160,270,0,0);
+			Add("Revenant", 696, 280,270,0,0);			
+			Add("Revenant", 576,-928,270,0,0);
+			
+			Add("Hellknight",-160,1136,270,0,0);
+			
+			Add("HellKnight",-480,-288,270,0,0);
+			Add("HellKnight",-128,1104,270,0,0);
+			Add("HellKnight",-352,1248,270,0,0);
+		
+			Add("PainElemental",-1184,-160,0,0,0);
+			Add("Revenant",-384,128,270,0,0);
+			Add("Revenant",-320,128,270,0,0);
+			Add("SuperSHotgun",-352,-992,270,0,0);
+			Add("Arachnotron",-640,544,90,0,0);
+		}
+		if (StrICmp(mapName, "e3m4") == 0)
+		{
+			Add("ChaingunGuy",896,448,180,0,0); 
+			Add("ChaingunGuy",896,384,180,0,0);
+			
+			Add("HellKnight",72,-2440,180,0,0);
+			Add("HellKnight",72,-2572,180,0,0);
+			Add("HellKnight",864,-1540,270,0,0);
+			
+			Add("HellKnight",80,-680,90,0,0);
+			Add("HellKnight",-152,-680,90,0,0);
+			
+			Add("Cacodemon",780,16,270,0,0); 
+			Add("Cacodemon",1240,92,270,0,0);
+		}
+		if (StrICmp(mapName, "e3m5") == 0)
+		{
+			Add("HellKnight",960,320,180,0,0);
+			Add("HellKnight",2016,864,225,0,0);
+			Add("HellKnight",2016,672,135,0,0);
+			
+			Add("Revenant",-320,1632,270,0,0);
+			Add("Revenant",-128,1632,270,0,0);
+			
+			Add("Fatso",-928,288,90,0,0);
+			Add("Fatso",480,288,90,180,0);
+			
+			Add("DCX_NightmareSpectre",-1328,-368,0,0,0); 
+			Add("DCX_NightmareSpectre",-1248,1312,0,0,0); 
+			Add("DCX_NightmareSpectre",-1424,1136,0,0,0); 
+			
+			Add("SuperShotgun",-224,-96,0,0,0); 
+			Add("HellKnight",-384,1280,270,0,0); 
+			Add("HellKnight",-64,1280,270,0,0); 
+			Add("Megasphere",-224,2240,270,0,0); 
+
+			while (!IsFloorLevel(10,0)) { Delay(10); }
+
+			Add("Fatso",-224,2240,90,0,99); 
+			Add("Revenant",-96,2240,90,0,99); 
+			Add("Revenant",-352,2240,90,0,99); 
+			Add("ArchVile",1024,288,180,0,99);			
+		}
+		if (StrICmp(mapName, "e3m6") == 0)
+		{
+			Add("Fatso",-1152,-1296,0,0,0);
+			
+			Add("Fatso",-224, -160,0,0,0);
+			Add("Arachnotron",1280,-544,0,0,0);
+			Add("Arachnotron", 224, 960,0,0,0);
+			Add("Arachnotron",1408,1184,0,0,0);
+			
+			Add("Fatso",-1152,-1296,0,0,0);
+			
+			Add("SuperShotgun",-128,192,315,0,0); 
+			while (IsFloorLevel(17,200)) { Delay(10); } 
+			Add("Revenant",-96,1152,180,0,99); 
+			Delay(70);
+			Add("MediKit",-32,1152,180,0,99);
+		}
+		if (StrICmp(mapName, "e3m7") == 0)
+		{
+			Add("HellKnight",1856,-1088,135,0,0);
+			Add("HellKnight",1696,-1472,135,0,0);
+			
+			Add("Baronofhell",1856,-1216,135,0,0);
+			
+			Add("Archvile",-1120,1632,270,0,0);
+			
+			Add("Arachnotron",96,-1056,180,0,0);
+			Add("Arachnotron",1440,-960,90,0,0);
+			Add("Fatso",1440,1280,270,0,0);
+		}
+		if (StrICmp(mapName, "e3m8") == 0)
+		{
+			Add("Arachnotron",-384,64,315,0,0);
+			Add("Arachnotron",192,96,270,0,0);
+			Add("Arachnotron",704,0,225,0,0);
+			Add("Arachnotron",544,384,225,0,0);
+			Add("Arachnotron",-288,448,315,0,0);
+			Add("Arachnotron",-192,832,270,0,0);
+			Add("Arachnotron",576,864,270,0,0);
+			Add("Arachnotron",192,1056,270,0,0);
+			Add("Megasphere",160,640,225,0,0);
+		}
+		if (StrICmp(mapName, "e3m9") == 0)
+		{			
+			Add("SuperShotgun",-672,1376,0,0,0); 
+			Add("ChaingunGuy",-768,1568,270,0,0); 
+			Add("ChaingunGuy",-576,1568,270,0,0);
+			
+			Add("Demon",-384,-752,315,0,0);
+			
+			Add("Doomimp",-312, -792,315,0,0);
+			Add("Doomimp",-184, -792,315,0,0);
+			Add("Doomimp",-320, -912,315,0,0);
+			Add("Doomimp",-184, -920,315,0,0);
+			
+			Add("Demon",1192,-792,225,0,0);
+			
+			Add("Doomimp",856, -1000,225,0,0);
+			Add("Doomimp",984, -1128,225,0,0);
+			Add("Doomimp",856, -1128,225,0,0);
+			Add("Doomimp",984, -1000,225,0,0);
+			
+			Add("Cacodemon",360,616,315,0,0);
+			
+			Add("Hellknight",3712,384,225,0,0);
+			Add("Hellknight",3712,128,135,0,0);
+			
+			Add("Hellknight",3464,288,180,0,0);
+			Add("Hellknight",3464,224,180,0,0);
+			
+			Add("Hellknight",-192,1600,180,0,0);
+			Add("Hellknight",-192,1344,180,0,0);
+			Add("Hellknight",-88,1536,180,0,0);
+			Add("Hellknight",-88,1408,180,0,0);
+			
+			Add("Painelemental",-200,2112,315,0,0);
+			Add("Painelemental",-248,2024,0,0,0);
+			
+			Add("Fatso",-720,3648,270,0,0);
+			Add("Fatso",-568,3648,270,0,0);
+			Add("Fatso",-640,3512,270,0,0);
+			
+			while (!IsFloorLevel(16,0)) { Delay(10); } 
+			
+			Add("Hellknight",-672,2184,270,0,99);
+			
+			while (!IsFloorLevel(12,0)) { Delay(10); } 
+			
+			Add("Archvile",1736,296,315,0,99);
+			
+			Add("Arachnotron",2176,320,0,0,99);
+			
+			Add("Arachnotron",2176,192,0,0,99);
+		}		
+		if (StrICmp(mapName, "e4m1") == 0)
+		{		
+			Add("SuperShotgun",-432,-128,0,0,0); //on the raised platform near the red key
+			Add("Revenant",-1056,-128,0,0,0); //exit room
+			Add("ChaingunGuy",-416,-576,90,0,0); //red key
+			Add("ChaingunGuy",-352,-576,90,0,0); //red key
+			Add("ChaingunGuy",-288,-576,90,0,0); //red key
+			Add("ChaingunGuy",-992,-608,0,0,0); //baron ambush
+			Add("ChaingunGuy",-864,-640,0,0,0); //baron ambush
+			Add("ChaingunGuy",-448,-256,90,0,0); //inside red key bunker near double barrel shotgun
+			Add("Stimpack",-640,-256,90,0,0); //inside red key bunker near double barrel shotgun
+		}
+		if (StrICmp(mapName, "e4m2") == 0)
+		{
+			Add("SuperShotgun",160,256,270,0,0);
+			Add("HellKnight",-544,1312,270,0,0);
+			Add("Arachnotron",-640,512,45,0,0);
+			Add("Arachnotron",-384,352,90,0,0);
+		}
+		if (StrICmp(mapName, "e4m3") == 0)
+		{
+			Add("SuperShotgun",928,992,270,0,0);
+			Add("HellKnight",320,800,270,0,0);
+        
+			while (IsDoorClosed(3)) { Delay(10); }
+		
+			Add("Archvile",1728,-576,135,0,99);
+			Add("Medikit",1728,-576,135,0,99);
+		}
+		if (StrICmp(mapName, "e4m4") == 0)
+		{
+			Add("SuperShotgun",32,-1440,270,0,0);
+			Add("Fatso",160,-544,270,0,0);
+		}
+		if (StrICmp(mapName, "e4m5") == 0)
+		{
+		
+		}
+		if (StrICmp(mapName, "e4m6") == 0)
+		{
+		
+		}
+		if (StrICmp(mapName, "e4m7") == 0)
+		{
+		
+		}
+		if (StrICmp(mapName, "e4m8") == 0)
+		{
+			Add("SuperShotgun",-1664,32,270,0,0);
+		}
+		if (StrICmp(mapName, "e4m9") == 0)
+		{
+			Add("SuperShotgun",128,-192,270,0,0);
+		}
+		if (StrICmp(mapName, "map01") == 0)
+		{
+			Add("Shotgunguy",-112,1216,90,0,0);
+			Add("Shotgunguy",-16,1136,90,0,0);
+			
+			Add("Shotgunguy",352,1376,90,0,0);
+			Add("Shotgunguy",416,1312,90,0,0);
+			
+			Add("Revenant",384,288,0,0,0);
+			Add("Revenant",288,160,0,0,0);
+			Add("Revenant",872,1600,180,0,0);
+			Add("Revenant",560,2600,225,0,0);
+		}
+		if (StrICmp(mapName, "map02") == 0)
+		{
+			Add("Revenant",1920,1144,270,0,0);
+			Add("Shotgunguy",984,1488,270,0,0);
+			Add("Shotgunguy",1216,1520,270,0,0);
+			Add("Spectre",536,1576,90,0,0);
+			Add("Spectre",488,1504,90,0,0);
+			
+			while (!IsFloorLevel(8,-24)) { Delay(10); }
+			
+			Add("Chaingunguy",960,1824,270,0,99);
+			Add("Chaingunguy",1152,1824,270,0,99);
+			
+			
+			while (IsDoorClosed(1)) { Delay(10); }
+			
+			Delay(35);
+			
+			Add("Revenant",1088,1088,270,0,99);
+			Add("Revenant",1280,1088,270,0,99);
+			
+			while (IsDoorClosed(12)) { Delay(10); }
+			
+			Delay(10);
+			
+			Add("Revenant",480,1600,270,0,99);
+			Add("Revenant",544,1600,270,0,99);
+		}
+		if (StrICmp(mapName, "map03") == 0)
+		{
+			Add("Arachnotron",4224,3680,180,0,0);
+			Add("Arachnotron",4224,3040,180,0,0);
+			
+			Add("Fatso",3872,3360,180,0,0);
+			
+			Add("Revenant",3576,3696,180,0,0);
+		}
+		if (StrICmp(mapName, "map04") == 0)
+		{
+			Add("Fatso",-944,576,45,0,0);
+			Add("Fatso",-728,600,90,0,0);
+			
+			Add("Doomimp",-416,608,45,0,0);
+			Add("Doomimp",-352,576,45,0,0);
+			Add("Doomimp",-296,536,45,0,0);
+			
+			Add("Revenant",-480,1696,270,0,0);
+			Add("Revenant",-104,1112,180,0,0);
+			
+			Add("RocketLauncher",-992,384,270,0,0);
+			Add("RocketAmmo",-936,384,270,0,0);
+			Add("RocketAmmo",-992,328,270,0,0);
+		
+			while (IsDoorClosed(16)) { Delay(10); }
+			
+			Add("Revenant",-1824,1440,0,0,99);
+			Add("Revenant",-1824,1184,0,0,99);
+			
+			Add("Chaingunguy",-1248,1376,180,0,99);
+			Add("Chaingunguy",-1248,1248,180,0,99);
+		}
+		if (StrICmp(mapName, "map05") == 0)
+		{
+			Add("Arachnotron",2048,52,180,0,0);
+			Add("Arachnotron",2304,124,180,0,0);
+			Add("Arachnotron",2304,-64,180,0,0);
+			
+			Add("Hellknight",1392,-564,315,0,0);
+			Add("Hellknight",1392,-684,45,0,0);
+			
+			Add("Painelemental",2880,-636,135,0,0);
+			
+			Add("Cacodemon",672,-1440,90,0,0);
+			Add("Cacodemon",224,-1440,90,0,0);
+			Add("Cacodemon",96,-1440,90,0,0);
+			
+			Add("Painelemental",384,-1472,45,0,0);
+		}
+		if (StrICmp(mapName, "map06") == 0)
+		{
+		
+		}
+		if (StrICmp(mapName, "map07") == 0)
+		{		
+			Add("Cyberdemon",-1584,-1104,45,0,0);
+			Add("Cyberdemon",304,624,225,0,0);
+			
+			Add("Fatso",-320,-224,0,0,0);
+			Add("Fatso",-608,-576,270,0,0);
+			Add("Fatso",-896,-224,180,0,0);
+			Add("Fatso",-608,128,90,0,0);
+			
+			while (!IsFloorLevel(666,32)) { Delay(10); } 
+			
+			Add("Archvile",-768,-208,180,0,99);
+			Add("Archvile",-448,-208,0,0,99);
+			Add("Archvile",-608,0,90,0,99);
+			//Add("Archvile",-608,-336,270,0,99);
+		}
+		if (StrICmp(mapName, "map08") == 0)
+		{
+			Add("Hellknight",872,3808,270,0,0);
+			Add("Hellknight",936,3856,270,0,0);
+			Add("Hellknight",1552,3808,270,0,0);
+			Add("Hellknight",1496,3856,270,0,0);
+			
+			Add("Revenant",664,2384,0,0,0);
+			
+			Add("Cacodemon",3640,1984,45,0,0);
+			Add("Cacodemon",3520,2104,45,0,0);
+			Add("Cacodemon",3520,2576,315,0,0);
+			Add("Cacodemon",3648,2688,315,0,0);
+			
+			while (IsDoorClosed(10)) { Delay(10); }
+			
+			Add("Arachnotron",1944,2720,90,0,99);
+			Add("Arachnotron",2072,2720,90,0,99);
+			Add("Arachnotron",2016,2576,90,0,99);
+			
+			while (IsDoorClosed(9)) { Delay(10); }
+			
+			Delay(200); 
+			
+			Add("Archvile",2872,2808,90,0,99);
+			Add("Archvile",3144,2816,90,0,99);
+		}
+		if (StrICmp(mapName, "map16") == 0)
+		{
+			Add("Cyberdemon",832,1216,45,0,0);
+		}
+		if (StrICmp(mapName, "tn_map28") == 0)
+		{
+			Add("Megasphere",-288,224,270,0,0);
+		}
+		
+		if (GetCVar ("dcx_D64D2Xtras"))	
+		{
+		
+		if (StrICmp(mapName, "ab_map26") == 0)
+		{
+			while (IsDoorClosed(666)) { Delay(10); }
+
+			//wait a couple of seconds
+			Delay(50);
+			
+			Add("SpiderMastermind",-768,-576,0,0,99);
+		}
+		
+		if (StrICmp(mapName, "ab_map27") == 0)
+		{
+			while (IsDoorClosed(20)) { Delay(10); }
+
+			//wait a couple of seconds
+			Delay(70);
+			
+			Add("SpiderMastermind",448,1696,0,0,99);
+		}
+		
+		if (StrICmp(mapName, "ab_map29") == 0)
+		{
+			while (!IsFloorLevel(9,0)) { Delay(10); }
+
+			//wait a couple of seconds
+			Delay(70);
+			
+			Add("SpiderMastermind",720,752,45,0,99);
+		}
+		
+		}
+		
+		terminate;
+	}
+}
+
+function bool IsDoorOpen(int tag)
+{
+    int height = GetSectorCeilingZ(tag,0,0) >> 16;
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    
+    if (height > flr)
+        return 1;
+    return 0;
+}
+
+//Check if the floor of a sector is at a certain value
+function bool IsFloorLevel(int tag, int level)
+{
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    if (flr == level)
+        return 1;
+    return 0;
+}
+
+function bool IsDoorClosed(int tag)
+{
+    return IsDoorOpen(tag) == 0;
+}
+
+function void AddDeco(str class,int x, int y,int object_properties)
+{
+
+	int fixed_x = x << 16;
+	int fixed_y = y << 16;
+    int fixed_z = GetSectorFloorZ(0,x,y);
+
+    //spawn object
+	SpawnForced(class,fixed_x,fixed_y,fixed_z,0,0);
+
+	if (object_properties == 99)
+		SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,0);
+}
+
+function void Add(str class,int x, int y, int angle, int minimum_skill, int object_properties)
+{
+	int byte_angle = 0;
+
+	int fixed_x = x << 16;
+	int fixed_y = y << 16;
+    int fixed_z = GetSectorFloorZ(0,x,y);
+
+	if (angle == 45)
+		byte_angle = 32;
+	else if (angle == 90)
+		byte_angle = 64;
+	else if (angle == 135)
+		byte_angle = 96;
+	else if (angle == 180)
+		byte_angle = 128;
+	else if (angle == 225)
+		byte_angle = 160;
+	else if (angle == 270)
+		byte_angle = 192;
+	else if (angle == 315)
+		byte_angle = 224;
+	else
+		byte_angle = 0;
+
+    //spawn object
+	if (Spawn(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
+    {
+        if (IsDebug())
+            Log(s:"Could not spawn ",s:class,s:" at ",i:x,s:", ",i:y,s:", ",i:(fixed_z >> 16));
+    }
+    else
+    {
+        SetActorProperty(17391,APROP_Ambush,1);
+
+	    if (object_properties == 99)
+		    SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,byte_angle);
+    }
+}
+
+Script "DeleteMe" (void)
+{
+    PrintBold(s:"A replacement object was given to ", s:GetActorClass(0));
+    Thing_Remove(0);
+}
+
+function void Replace(str class, int x, int y, int angle, int minimum_skill, int object_properties)
+{       
+	int byte_angle = 0;
+
+	int fixed_x = x << 16;
+	int fixed_y = y << 16;
+    int fixed_z = GetSectorFloorZ(0,x,y);
+
+	if (angle == 45)
+		byte_angle = 32;
+	else if (angle == 90)
+		byte_angle = 64;
+	else if (angle == 135)
+		byte_angle = 96;
+	else if (angle == 180)
+		byte_angle = 128;
+	else if (angle == 225)
+		byte_angle = 160;
+	else if (angle == 270)
+		byte_angle = 192;
+	else if (angle == 315)
+		byte_angle = 224;
+	else
+		byte_angle = 0;
+
+    //spawn the dummy "replacer" object
+    bool removed = false;
+
+	SpawnForced("DC_Replacer",fixed_x,fixed_y,fixed_z,17399,byte_angle);
+    while (CheckProximity (17399, "Actor", 8.0, 1, CPXF_ANCESTOR|CPXF_SETTARGET))
+    {
+        //We succesfully found the object we are trying to replace, so remove it
+        //Log(s:"We found a ");
+        SetActivator(17399,AAPTR_TARGET);
+        Thing_Remove(0);
+        removed = true;
+    }
+
+    if (removed)
+    {
+        //spawn new object and give it the ambush flag
+	    if (SpawnForced(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
+        {
+            if (IsDebug())
+                Log(s:"Could not spawn ",s:class,s:" at ",i:x,s:", ",i:y,s:", ",i:(fixed_z >> 16),s:" (replacement)");
+        }
+        else
+        {
+            SetActorProperty(17391,APROP_Ambush,1);
+        }
+    }
+    else
+    {
+        If (IsDebug())
+            Log(s:"WARNING: Replacement failed for object ",s:class,s:" at ",i:x,s:", ",i:y);
+    }
+    
+
+	if (object_properties == 99)
+		SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,byte_angle);
+}
+
+Script "TestTID" (void)
+{
+	Thing_ChangeTID(0,9999);
+	while (true)
+	{
+		SetActivatorToTarget(9999);
+
+		if (ActivatorTID() != 9999)
+        {
+            if (IsDebug())
+    			Log(s:GetActorClass(0), s:" with tid ", i:ActivatorTID());
+        }
+		else if (IsDebug())
+			Log(s:"No TID under cursor");
+
+		Delay(35);
+	}
+}

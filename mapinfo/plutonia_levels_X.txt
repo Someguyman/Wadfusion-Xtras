@@ -1,0 +1,400 @@
+// Plutonia maps
+
+defaultmap
+{
+	SuckTime = 1
+	ExitPic = "PLUINTER"
+	InterMusic = "$MUSIC_PLUINTER"
+	NoJump
+	NoCrouch
+}
+
+// Episode 1 Part 1
+
+adddefaultmap
+{
+	Cluster = 18
+	Sky1 = "PSKY1"
+}
+
+map PL_MAP01 "$PHUSTR_1"
+{
+	Label = "Map01"
+	Next = "PL_MAP02"
+	TitlePatch = "PWILV00"
+	music = "$MUSIC_PLUMAP01"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP02 "$PHUSTR_2"
+{
+	Label = "Map02"
+	Next = "PL_MAP03"
+	TitlePatch = "PWILV01"
+	music = "$MUSIC_PLUMAP02"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP03 "$PHUSTR_3"
+{
+	Label = "Map03"
+	Next = "PL_MAP04"
+	TitlePatch = "PWILV02"
+	music = "$MUSIC_PLUMAP03"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP04 "$PHUSTR_4"
+{
+	Label = "Map04"
+	Next = "PL_MAP05"
+	TitlePatch = "PWILV03"
+	music = "$MUSIC_PLUMAP04"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP05 "$PHUSTR_5"
+{
+	Label = "Map05"
+	Next = "PL_MAP06"
+	TitlePatch = "PWILV04"
+	music = "$MUSIC_PLUMAP05"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP06 "$PHUSTR_6"
+{
+	Label = "Map06"
+	Next = "PL_MAP07"
+	TitlePatch = "PWILV05"
+	music = "$MUSIC_PLUMAP06"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+// Episode 1 Part 2
+
+adddefaultmap
+{
+	Cluster = 19
+}
+
+map PL_MAP07 "$PHUSTR_7"
+{
+	Label = "Map07"
+	Next = "PL_MAP08"
+	TitlePatch = "PWILV06"
+	music = "$MUSIC_PLUMAP07"
+	Map07Special
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP08 "$PHUSTR_8"
+{
+	Label = "Map08"
+	Next = "PL_MAP09"
+	TitlePatch = "PWILV07"
+	Music = "$MUSIC_PLUMAP08"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP09 "$PHUSTR_9"
+{
+	Label = "Map09"
+	Next = "PL_MAP10"
+	TitlePatch = "PWILV08"
+	music = "$MUSIC_PLUMAP09"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP10 "$PHUSTR_10"
+{
+	Label = "Map10"
+	Next = "PL_MAP11"
+	TitlePatch = "PWILV09"
+	music = "$MUSIC_PLUMAP10"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP11 "$PHUSTR_11"
+{
+	Label = "Map11"
+	//Next = "PL_MAP12"
+	Next = endpic, "PLCRED"
+	TitlePatch = "PWILV10"
+	music = "$MUSIC_PLUMAP11"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+// Episode 2
+
+adddefaultmap
+{
+	Cluster = 20
+	Sky1 = "PSKY2"
+}
+
+map PL_MAP12 "$PHUSTR_12"
+{	
+	Label = "Map12"
+	Next = "PL_MAP13"
+	TitlePatch = "PWILV11"
+	music = "$MUSIC_PLUMAP12"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP13 "$PHUSTR_13"
+{
+	Label = "Map13"
+	Next = "PL_MAP14"
+	TitlePatch = "PWILV12"
+	music = "$MUSIC_PLUMAP13"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP14 "$PHUSTR_14"
+{
+	Label = "Map14"
+	Next = "PL_MAP15"
+	TitlePatch = "PWILV13"
+	music = "$MUSIC_PLUMAP14"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP15 "$PHUSTR_15"
+{
+	Label = "Map04"
+	Next = "PL_MAP16"
+	SecretNext = "PL_MAP31"
+	TitlePatch = "PWILV14"
+	music = "$MUSIC_PLUMAP15"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP16 "$PHUSTR_16"
+{
+	Label = "Map16"
+	Next = "PL_MAP17"
+	TitlePatch = "PWILV15"
+	music = "$MUSIC_PLUMAP16"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP17 "$PHUSTR_17"
+{
+	Label = "Map17"
+	Next = "PL_MAP18"
+	TitlePatch = "PWILV16"
+	music = "$MUSIC_PLUMAP17"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP18 "$PHUSTR_18"
+{
+	Label = "Map18"
+	Next = "PL_MAP19"
+	TitlePatch = "PWILV17"
+	music = "$MUSIC_PLUMAP18"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP19 "$PHUSTR_19"
+{
+	Label = "Map19"
+	Next = "PL_MAP20"
+	TitlePatch = "PWILV18"
+	music = "$MUSIC_PLUMAP19"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP20 "$PHUSTR_20"
+{
+	Label = "Map20"
+	//Next = "PL_MAP21"
+	Next = endpic, "PLCRED"
+	TitlePatch = "PWILV19"
+	music = "$MUSIC_PLUMAP20"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+// Episode 3
+
+adddefaultmap
+{
+	Cluster = 21
+	Sky1 = "PSKY3"
+}
+
+map PL_MAP21 "$PHUSTR_21"
+{
+	Label = "Map21"
+	Next = "PL_MAP22"
+	TitlePatch = "PWILV20"
+	music = "$MUSIC_PLUMAP21"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP22 "$PHUSTR_22"
+{
+	Label = "Map22"
+	Next = "PL_MAP23"
+	TitlePatch = "PWILV21"
+	music = "$MUSIC_PLUMAP22"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP23 "$PHUSTR_23"
+{
+	Label = "Map23"
+	Next = "PL_MAP24"
+	TitlePatch = "PWILV22"
+	music = "$MUSIC_PLUMAP23"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP24 "$PHUSTR_24"
+{
+	Label = "Map24"
+	Next = "PL_MAP25"
+	TitlePatch = "PWILV23"
+	music = "$MUSIC_PLUMAP24"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP25 "$PHUSTR_25"
+{
+	Label = "Map25"
+	Next = "PL_MAP26"
+	TitlePatch = "PWILV24"
+	music = "$MUSIC_PLUMAP25"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP26 "$PHUSTR_26"
+{
+	Label = "Map26"
+	Next = "PL_MAP27"
+	TitlePatch = "PWILV25"
+	Music = "P_MESSG2"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP27 "$PHUSTR_27"
+{
+	Label = "Map27"
+	Next = "PL_MAP28"
+	TitlePatch = "PWILV26"
+	music = "$MUSIC_PLUMAP27"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP28 "$PHUSTR_28"
+{
+	Label = "Map28"
+	Next = "PL_MAP29"
+	TitlePatch = "PWILV27"
+	music = "$MUSIC_PLUMAP28"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP29 "$PHUSTR_29"
+{
+	Label = "Map29"
+	Next = "PL_MAP30"
+	TitlePatch = "PWILV28"
+	music = "$MUSIC_PLUMAP29"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+map PL_MAP30 "$PHUSTR_30"
+{
+	Next = EndGame
+	{
+		Pic = "PLUBOSS"
+		Music = "$MUSIC_PLUMAP31"
+		Cast
+	}
+	Label = "Map30"
+	nointermission
+	NoSoundClipping
+	TitlePatch = "PWILV29"
+	music = "$MUSIC_PLUMAP30"
+	AllowMonsterTelefrags
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+// Secret maps
+
+map PL_MAP31 "$PHUSTR_31"
+{
+	Label = "Map31"
+	Next = "PL_MAP16"
+	SecretNext = "PL_MAP32"
+	Cluster = 22
+	TitlePatch = "PWILV30"
+	music = "$MUSIC_PLUMAP31"
+	Author = "$WF_AU_DARIO_CASALI"
+}
+
+map PL_MAP32 "$PHUSTR_32"
+{
+	Label = "Map32"
+	Next = "PL_MAP16"
+	Cluster = 23
+	TitlePatch = "PWILV31"
+	music = "$MUSIC_PLUMAP32"
+	Author = "$WF_AU_MILO_CASALI"
+}
+
+// Plutonia first cluster (up thru level 6)
+
+cluster 18
+{
+	ExitText = "$P1TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT06"
+}
+
+// Plutonia second cluster (up thru level 11)
+
+cluster 19
+{
+	ExitText = "$P2TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT11"
+}
+
+// Plutonia third cluster (up thru level 20)
+
+cluster 20
+{
+	ExitText = "$P3TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT20"
+}
+
+// Plutonia fourth cluster (up thru level 30)
+
+cluster 21
+{
+	ExitText = "$P4TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT30"
+}
+
+// Plutonia fifth cluster (level 31)
+
+cluster 22
+{
+	EnterText = "$P5TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT15"
+}
+
+// Plutonia sixth cluster (level 32)
+
+cluster 23
+{
+	EnterText = "$P6TEXT"
+	music = "$MUSIC_PLUTEXT"
+	Flat = "$BGFLAT31"
+}

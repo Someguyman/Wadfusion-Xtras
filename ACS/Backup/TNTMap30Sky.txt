@@ -1,0 +1,15 @@
+#include "zcommon.acs"
+
+script 1 KILL
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if((!CheckActorClass(95, "Bossbrain")) && StrICmp(mapName, "tn_map30") != 0)
+	{
+		terminate;
+	}
+
+	ChangeSky("RSKY3","RSKY3");
+}

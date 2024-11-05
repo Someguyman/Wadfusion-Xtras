@@ -1,0 +1,138 @@
+
+OptionValue SSGtweaks
+{
+	0.0, "Vanilla"
+	1.0, "Playstation"
+	2.0, "Hybrid"
+}
+
+OptionValue Wolf3DTextureTweaks
+{
+	0.0, "Original (Uncensored)"
+	1.0, "Unity (Censored)"
+	2.0, "GBA (Censored Alt)"
+	3.0, "BFG Edition (Removed)"
+}
+
+OptionValue HealthCrossTweaks
+{
+	0.0, "Vanilla (Red Cross)"
+	1.0, "BFG edition (Pill)"
+	2.0, "Unity Port (Green Cross)"
+	3.0, "Doom Eternal (White Inverted Cross)"
+}
+
+OptionValue HUDtweaks
+{
+	0.0, "Default hud"
+	1.0, "Playstation hud"
+	2.0, "Sega Saturn hud"
+	3.0, "Jaguar hud"
+	4.0, "Different one per game"
+}
+
+OptionValue PLUHUDtweaks
+{
+	0.0, "Custom hud"
+	1.0, "Plutonia 2 hud"
+	2.0, "Plutonia revisited hud"
+}
+
+OptionValue TNTHUDtweaks
+{
+	0.0, "Custom hud"
+	1.0, "TNT Revolution hud"
+	2.0, "Plutonia 2 hud"
+}
+
+OptionValue D64HUDtweaks
+{
+	0.0, "Original Hud"
+	1.0, "Demonic Hud"
+}
+
+AddOptionMenu "OptionsMenu"
+{
+Submenu "DCX Options","DCXOptions"
+}
+
+OptionMenu "DCXOptions"
+{
+	Title "DCX Options"
+	StaticText "Graphic options", "Gold"
+	StaticText " "
+	Submenu "Status Bar Options","DCXHudOptions"
+	Submenu "Texture Options","DCXSKYOptions"
+	StaticText " "
+	option "Super shotgun sprite:", "ssgtoggle", "SSGtweaks"
+	StaticText "Toggles the sprite the super shotgun uses to ether the PSX version or a vanilla hybird style.", "Red"
+	StaticText " "
+	option "Health Cross Appearence", "Health_Cross_Toggle", "HealthCrossTweaks"
+	StaticText "Changes the appearence of crosses on the health/berserk packs to your choice.", "Red"
+	StaticText " "
+	StaticText "Music Options", "Gold"
+	StaticText " "
+	Option "3DO remixes for Doom 1", "dcx_3DO_Music", "OnOff"
+	StaticText "Replaces tracks in doom 1 with the 3do version remixes", "Red"
+	StaticText " "
+	StaticText "Gameplay options", "Gold"
+	StaticText " "
+	Option "Additional Console maps", "dcx_playstationmaps", "OnOff"
+	StaticText "When enabled, you will be able to acess the maps from the playstation version", "Red"
+	StaticText " "
+	Option "Wolfenstein 3D Textures and Enemies", "W3D_Text_toggle", "Wolf3DTextureTweaks"
+	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "Red"
+	StaticText " "
+	StaticText "Compatibility", "Gold"
+	StaticText " "
+	Option "Doom 64 for Doom 2 Xtras", "dcx_D64D2Xtras", "OnOff"
+	StaticText "Disables the new doom 64 for doom 2 additions like the unmaker and demon keys.", "Red"
+	StaticText " "
+	Option "Disable Custom Actors", "dcx_CustomMonsters", "OnOff"
+	StaticText "Replaces every new actor with a vanilla equivilant.", "Red"
+	StaticText "(Example: The Legacy of Rust and the Doom 64 for Doom 2 exclusive monsters)", "Red"
+	StaticText "(Only enable if the gameplay mod in question doesn't support them)", "Red"
+}
+
+OptionMenu "DCXHudOptions"
+{
+	Title "Status Bar Options"
+	StaticText " "
+	StaticText "Universal", "Gold"
+	StaticText " "
+	option "Status bar graphic", "HUD_toggle", "HUDtweaks"
+	StaticText "Changes the appearence of the status bar."
+	StaticText " "
+	StaticText "Game Specific", "Gold"
+	StaticText " "
+	option "Tnt status bar", "TNT_HUD_toggle", "TNTHUDtweaks"
+	StaticText "Alters the Tnt hud depending on the setting"
+	StaticText " "
+	option "Plutonia status bar", "Plu_Hud_toggle", "PLUHUDtweaks"
+	StaticText "Alters the plutonia hud depending on the setting"
+	StaticText " "
+	option "Doom 64 for Doom 2", "D64_Hud_toggle", "D64HUDtweaks"
+	StaticText "Alters the Doom 64 for Doom 2 hud depending on the setting"
+}
+
+OptionMenu "DCXSKYOptions"
+{
+	Title "Texture Options"
+	StaticText " "
+	StaticText "General", "Gold"
+	StaticText " "
+	Option "Texture Fixes", "dcx_TextureFixes", "OnOff"
+	StaticText "Fixes minor texture bugs in the various levels."
+	StaticText "Example: Doom 2 Icon of sin's misalined horn"
+	StaticText " "
+	Option "Texture Enchancements", "dcx_TextureEchancements", "OnOff"
+	StaticText "Adds/Replaces various textures in the maps to improve them."
+	StaticText " "
+	StaticText "Sky Textures", "Gold"
+	StaticText " "
+	Option "Playstation sky textures", "fs_toggle", "OnOff"
+	StaticText "Changes the sky textures to match the playstation version, IE: fire skys for episode 3."
+	StaticText " "
+	option "Matching sky textures", "ns_toggle", "OnOff"
+	StaticText "Makes the skyboxes for the knee deep in the dead and the shores of hell to match their respective intermission screens."
+}

@@ -1,0 +1,82 @@
+// Master Levels for Doom 2 maps - Jim Flynn's Titan
+
+defaultmap
+{
+	SuckTime = 1
+	NoJump
+	NoCrouch
+	ResetHealth
+	ResetInventory
+	Author = "$WF_AU_FLYNN"
+	InterMusic = "$MUSIC_MASTERINT"
+	ExitPic = "JFINTERP"
+	Cluster = 37
+}
+
+map ML_MAP29 "$ML_MINES" // bonus level
+{
+	Label = "Titan01"
+	Next = "ML_MAP30"
+	Sky1 = "MSKY4"
+	TitlePatch = "MWILV28"
+	Music = "$MUSIC_MINES"
+}
+
+map ML_MAP30 "$ML_ANOMALY" // bonus level
+{
+	Label = "Titan02"
+	Next = "ML_MAP31"
+	Sky1 = "MSKY5"
+	TitlePatch = "MWILV29"
+	Music = "$MUSIC_ANOMALY"
+}
+
+map ML_MAP31 "$ML_FARSIDE" // bonus level
+{
+	Label = "Titan03"
+	Next = "ML_MAP16"
+	Sky1 = "MSKY6"
+	TitlePatch = "MWILV30"
+	Music = "$MUSIC_FARSIDE"
+}
+
+map ML_MAP16 "$ML_MANOR"
+{
+	Label = "Titan04"
+	Next = "ML_MAP17"
+	Sky1 = "MSKY3"
+	TitlePatch = "MWILV15"
+	Music = "$MUSIC_MANOR"
+}
+
+map ML_MAP17 "$ML_TTRAP"
+{
+	Label = "Titan05"
+	Next = "ML_MAP32"
+	nointermission
+	NoSoundClipping
+	Sky1 = "MSKY3"
+	TitlePatch = "MWILV16"
+	Music = "$MUSIC_TRAPPED"
+}
+
+map ML_MAP32 "$ML_TROUBLE" // bonus level
+{
+	Label = "Titan06"
+	Next = EndGame
+	{
+		Pic = "JFBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	Sky1 = "MSKY5"
+	TitlePatch = "MWILV31"
+	Music = "$MUSIC_TROUBLE"
+}
+
+Cluster 37
+{
+	music = "$MUSIC_MASTERTXT"
+	pic = "MLINTERP"
+	ExitText = "$GENERIC_TXT"
+}

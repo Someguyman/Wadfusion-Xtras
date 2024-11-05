@@ -1,0 +1,151 @@
+weapons/unmaker	DSLASER
+
+Marine/Sight dstant2
+$Random Marine/Death { *death *xdeath }
+Marine/Active dstaunt
+
+$Random Surfer1/Sight { Surfer1/Sight1 Surfer1/Sight2 }
+Surfer1/Sight1 DSSMSIT1
+Surfer1/Sight2 DSSMSIT2
+Surfer1/Active DSSMACT
+Surfer1/Pain DSSMPAIN
+$Random Surfer1/Death { Surfer1/Death1 Surfer1/Death2 }
+Surfer1/Death1 DSSMDTH1
+Surfer1/Death2 DSSMDTH2
+
+Spewball/Shot DSSPEWST
+Spewball/ShotX DSSPEWXP
+
+$Random Surfer2/Sight { Surfer2/Sight1 Surfer2/Sight2 Surfer2/Sight3 }
+Surfer2/Sight1 DSSMSIT3
+Surfer2/Sight2 DSSMSIT4
+Surfer2/Sight3 DSSMSIT5
+Surfer2/Active DSSMAC2
+Surfer2/Pain DSSMPAIN
+$Random Surfer2/Death { Surfer2/Death1 Surfer2/Death2 Surfer2/Death3 }
+Surfer2/Death1 DSSMDTH3
+Surfer2/Death2 DSSMDTH4
+Surfer2/Death3 DSSMDTH5
+
+Singer/Sight DSLSTSIT
+Singer/Pain DSLSPAIN
+Singer/Melee DSLSTATK
+Singer/Active DSLSTACT
+Singer/Death DSLSTDTH
+
+//Thunder sfx that's used with the cloudy blue sky
+world/thunder		dsthundr
+
+// Motherdemon sounds
+$limit mother/sight 4
+$limit mother/death 4
+mother/sight			dsmothsi
+mother/active			dsmothac
+mother/pain				dsmothpn
+mother/death			dsmothdt
+
+$random imp2/sight		{ imp2/sight1  imp2/sight2 }
+$random imp2/death		{ imp2/death1  imp2/death2 }
+imp2/sight1	dsbgsit1
+imp2/sight2	dsbgsit2
+imp2/pain dspopain
+imp2/active	dsbgact
+imp2/death1 dsbgdth1
+imp2/death2 dsbgdth2
+imp/attack2 DSFIRSHT
+imp/shotx2 DSFIRXPL
+$limit imp2/active 6
+
+$pitchset imp2/sight1 0.9
+$pitchset imp2/sight2 0.9
+$pitchset imp2/death1 0.9
+$pitchset imp2/death2 0.9
+$pitchset imp2/active 0.9
+$pitchset imp2/pain  0.9
+
+demon2/sight dssgtsit
+demon2/active dsdmact
+demon2/pain dsdmpain
+demon2/melee dssgtatk
+demon2/death dssgtdth
+
+$pitchset demon2/sight 0.9
+$pitchset demon2/active 0.9
+$pitchset demon2/pain 0.9
+$pitchset demon2/melee 0.9
+$pitchset demon2/death 0.9
+
+caco2/sight	dscacsit
+caco2/active dsdmact
+caco2/pain dsdmpain
+caco2/death dscacdth
+caco/attack2 DSFIRSHT
+caco/shotx2 DSFIRXPL
+
+$pitchset caco2/sight 0.9
+$pitchset caco2/active 0.9
+$pitchset caco2/pain 0.9
+$pitchset caco2/death 0.9
+
+wolfss/sight2 DSUSSSE
+
+baby/sight2		dsbspsit
+baby/active2	dsbspact
+baby/pain2		dsdmpain
+baby/death2		dsbspdth
+baby/walk2		dsbspwlk
+baby/attack2	dsplasma
+baby/shotx2 	DSFIRXPL
+
+$limit baby/attack2 0
+
+$pitchset baby/sight2 0.9
+$pitchset baby/active2 0.9
+$pitchset baby/pain2 0.9
+$pitchset baby/death2 0.8
+$pitchset baby/walk2 0.8
+
+$pitchset baby/attack2 0.9
+
+pain/sight2			dspesit
+pain/pain2			dspepain
+pain/active2		dsdmact
+pain/death2			dspedth
+
+$pitchset pain/sight2 0.9
+$pitchset pain/pain2  0.9
+$pitchset pain/active2  0.9
+$pitchset pain/death2 0.9
+
+skull/melee2		dssklatk
+skull/death2		dsfirxpl
+skull/active2			dsdmact
+skull/pain2			dsdmpain
+
+$pitchset skull/melee2 0.9
+$pitchset skull/death2 0.9
+$pitchset skull/active2 0.9
+$pitchset skull/pain2 0.9	
+
+Tyrant/sight DSTYRSIT
+Tyrant/active DSCYBACT
+Tyrant/hoof DSTYRWLK
+$alias Tyrant/pain cyber/pain
+Tyrant/death DSTYRDTH
+
+LesserCyber/sight DSLCYSIT
+LesserCyber/pain DSLCYPIN
+LesserCyber/death DSLCYDTH
+
+LesserSpider/sight DSWIDSIT
+LesserSpider/pain DSWIDPIN
+LesserSpider/death DSWIDDTH
+
+$limit LesserSpider/sight 4
+$limit LesserSpider/death 4
+
+$pitchshiftrange 4
+weapons/saw2up			dssa2up
+weapons/saw2idle		dssa2idl
+weapons/saw2full		dssa2ful
+weapons/saw2hit			dssa2hit

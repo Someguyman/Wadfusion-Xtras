@@ -1,0 +1,129 @@
+// Master Levels for Doom 2 maps - Christen Klie's master level submissions
+
+defaultmap
+{
+	sky1 = "RSKY1"
+	SuckTime = 1
+	NoJump
+	NoCrouch
+	ResetHealth
+	ResetInventory
+	InterMusic = "$MUSIC_MASTERINT"
+	ExitPic = "MLINTERP"
+	Author = "$WF_AU_KLIE"
+	Cluster = 35
+}
+
+map ML_MAP22 "$ML_CPU" // reject level
+{
+	Label = "Kiletech01"
+	Next = "ML_MAP06"
+	TitlePatch = "MWILV21"
+	Music = "$MUSIC_CPU"
+}
+
+map ML_MAP06 "$ML_SUBSPACE"
+{
+	Label = "Kiletech02"
+	Next = "ML_MAP05"
+	TitlePatch = "MWILV05"
+	Music = "$MUSIC_SUBSPACE"
+}
+
+map ML_MAP05 "$ML_COMBINE"
+{
+	Label = "Kiletech03"
+	Next = "ML_MAP23"
+	Sky1 = "MSKY1"
+	TitlePatch = "MWILV04"
+	Music = "$MUSIC_COMBINE"
+}
+
+map ML_MAP23 "$ML_DEVICE1" // reject level
+{
+	Label = "Kiletech04"
+	Next = "ML_MAP04"
+	TitlePatch = "MWILV22"
+	Music = "$MUSIC_DEVICEONE"
+}
+
+map ML_MAP04 "$ML_FISTULA"
+{
+	Label = "Kiletech05"
+	Next = "ML_MAP08"
+	Sky1 = "MSKY1"
+	TitlePatch = "MWILV03"
+	Music = "$MUSIC_FISTULA"
+}
+
+map ML_MAP08 "$ML_SUBTERRA"
+{
+	Label = "Kiletech06"
+	Next = "ML_MAP24"
+	TitlePatch = "MWILV07"
+	Music = "$MUSIC_SUBTERRA"
+}
+
+map ML_MAP24 "$ML_DMZ" // reject level
+{
+	Label = "Kiletech07"
+	Next = "ML_MAP03"
+	TitlePatch = "MWILV23"
+	Music = "$MUSIC_DMZ"
+}
+
+map ML_MAP03 "$ML_CATWALK"
+{
+	Label = "Kiletech08"
+	Next = "ML_MAP25"
+	TitlePatch = "MWILV02"
+	Music = "$MUSIC_CATWALK"
+}
+
+map ML_MAP25 "$ML_FURY" // reject level
+{
+	Label = "Kiletech09"
+	Next = "ML_MAP09"
+	TitlePatch = "MWILV24"
+	Music = "$MUSIC_FURY"
+}
+
+map ML_MAP09 "$ML_GARRISON"
+{
+	Label = "Kiletech10"
+	Next = "ML_MAP26"
+	TitlePatch = "MWILV08"
+	Music = "$MUSIC_GARRISON"
+}
+
+map ML_MAP26 "$ML_EINSIDE" // reject level
+{
+	Label = "Kiletech11"
+	Next = "ML_MAP27"
+	Sky1 = "PSKY3"
+	TitlePatch = "MWILV25"
+	Music = "$MUSIC_ENEMY"
+}
+
+map ML_MAP27 "$ML_HIVE" // reject level
+{
+	Label = "Kiletech12"
+	Next = EndGame
+	{
+		Pic = "MLBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	Sky1 = "PSKY3"
+	TitlePatch = "MWILV26"
+	Music = "$MUSIC_HIVE"
+	nointermission
+	NoSoundClipping
+}
+
+Cluster 35
+{
+	music = "$MUSIC_MASTERTXT"
+	pic = "MLINTERP"
+	ExitText = "$GENERIC_TXT2" //Due to a lack of any supplmental stuff for any of these, I just used the ending to psx doom for now.
+}

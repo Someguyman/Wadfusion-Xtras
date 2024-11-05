@@ -1,0 +1,445 @@
+// Ultimate Doom maps
+
+defaultmap
+{
+	SuckTime = 1
+	InterMusic = "$MUSIC_INTER"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+}
+
+// Registered/Retail Episode 1
+
+adddefaultmap
+{
+	Sky1 = "SKY1"
+	Cluster = 1
+	ExitPic = "$IN_EPI1"
+}
+
+map E1M1 "$HUSTR_E1M1"
+{
+	LevelNum = 1
+	Next = "E1M2"
+	SecretNext = "E1M10"
+	TitlePatch = "WILV00"
+	Par = 30
+	Music = "$MUSIC_E1M1"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M2 "$HUSTR_E1M2"
+{
+	LevelNum = 2
+	Next = "E1M3"
+	TitlePatch = "WILV01"
+	Par = 75
+	Music = "$MUSIC_E1M2"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M3 "$HUSTR_E1M3"
+{
+	LevelNum = 3
+	Next = "E1M4"
+	SecretNext = "E1M9"
+	TitlePatch = "WILV02"
+	Par = 120
+	Music = "$MUSIC_E1M3"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M4 "$HUSTR_E1M4"
+{
+	LevelNum = 4
+	Next = "E1M5"
+	TitlePatch = "WILV03"
+	Par = 90
+	Music = "$MUSIC_E1M4"
+	Author = "$WF_AU_ROMERO_HALL"
+}
+
+map E1M4b "$HUSTR_E1M4B"
+{
+	levelnum = 4
+	next = "E1M5"
+	par = 90
+	Cluster = 30
+	Music = "$MUSIC_E1M4"
+	Author = "$WS_AU_ROMERO"
+}
+
+map E1M5 "$HUSTR_E1M5"
+{
+	LevelNum = 5
+	Next = "E1M6"
+	TitlePatch = "WILV04"
+	Par = 165
+	Music = "$MUSIC_E1M5"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M6 "$HUSTR_E1M6"
+{
+	LevelNum = 6
+	Next = "E1M7"
+	TitlePatch = "WILV05"
+	Par = 180
+	Music = "$MUSIC_E1M6"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M7 "$HUSTR_E1M7"
+{
+	LevelNum = 7
+	Next = "E1M8"
+	TitlePatch = "WILV06"
+	Par = 180
+	Music = "$MUSIC_E1M7"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M8 "$HUSTR_E1M8"
+{
+	LevelNum = 8
+	Next = endpic, "UDCRED"
+	TitlePatch = "WILV07"
+	Par = 165
+	Music = "$MUSIC_E1M8"
+	NoIntermission
+	BaronSpecial
+	SpecialAction_LowerFloor
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E1M8b "$HUSTR_E1M8B"
+{
+	levelnum = 8
+	par = 165
+	Cluster = 31
+	Next = endpic, "UDCRED"
+	nointermission
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
+	Music = "$MUSIC_E1M8"
+	Author = "$WS_AU_ROMERO"
+}
+
+map E1M9 "$HUSTR_E1M9"
+{
+	LevelNum = 9
+	Next = "E1M4"
+	TitlePatch = "WILV08"
+	Par = 165
+	Music = "$MUSIC_E1M9"
+	Author = "$WF_AU_ROMERO"
+}
+
+map E1M10 "$HUSTR_E1M10"
+{
+	LevelNum = 10
+	Next = "E1M2"
+	Cluster = 1
+	Sky1 = "SKY3"
+	TitlePatch = "WILV39"
+	Par = 150
+	Music = "$MUSIC_E2M1"
+	ExitPic = "$IN_EPI1"
+	InterMusic = "$MUSIC_INTER"
+	BorderTexture = "FLOOR7_2"
+	Author = "$WF_AU_CALVIN_BLANSHINE"
+}
+
+// Registered/Retail Episode 2
+
+adddefaultmap
+{
+	Sky1 = "SKY2"
+	Cluster = 2
+	ExitPic = "$IN_EPI2"
+}
+
+map E2M1 "$HUSTR_E2M1"
+{
+	LevelNum = 11
+	Next = "E2M2"
+	TitlePatch = "WILV10"
+	Par = 90
+	Music = "$MUSIC_E2M1"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E2M2 "$HUSTR_E2M2"
+{
+	LevelNum = 12
+	Next = "E2M3"
+	TitlePatch = "WILV11"
+	Par = 90
+	Music = "$MUSIC_E2M2"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E2M3 "$HUSTR_E2M3"
+{
+	LevelNum = 13
+	Next = "E2M4"
+	TitlePatch = "WILV12"
+	Par = 90
+	Music = "$MUSIC_E2M3"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E2M4 "$HUSTR_E2M4"
+{
+	LevelNum = 14
+	Next = "E2M5"
+	TitlePatch = "WILV13"
+	Par = 120
+	Music = "$MUSIC_E2M4"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E2M5 "$HUSTR_E2M5"
+{
+	LevelNum = 15
+	Next = "E2M5b"
+	SecretNext = "E2M9"
+	TitlePatch = "WILV14"
+	Par = 90
+	Music = "$MUSIC_E2M5"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E2M5b lookup "HUSTR_E2M5b"
+{
+	levelnum = 15
+	next = "E2M6"
+	par = 90
+	Music = "$MUSIC_E1M2"
+	Author = "$WS_AU_MCGEE"
+}
+
+map E2M6 "$HUSTR_E2M6"
+{
+	LevelNum = 16
+	Next = "E2M7"
+	TitlePatch = "WILV15"
+	Par = 360
+	Music = "$MUSIC_E2M6"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E2M7 "$HUSTR_E2M7"
+{
+	LevelNum = 17
+	Next = "E2M8"
+	TitlePatch = "WILV16"
+	Par = 240
+	Music = "$MUSIC_E2M7"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E2M8 "$HUSTR_E2M8"
+{
+	LevelNum = 18
+	Next = "EndGame2"
+	TitlePatch = "WILV17"
+	Par = 135
+	Music = "$MUSIC_E2M8"
+	NoIntermission
+	CyberdemonSpecial
+	SpecialAction_ExitLevel
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E2M9 "$HUSTR_E2M9"
+{
+	LevelNum = 19
+	next = "E2M5"
+	TitlePatch = "WILV18"
+	Par = 170
+	Music = "$MUSIC_E2M9"
+	Author = "$WF_AU_PETERSEN"
+}
+
+// Registered/Retail Episode 3
+
+adddefaultmap
+{
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+map E3M1 "$HUSTR_E3M1"
+{
+	LevelNum = 21
+	Next = "E3M2"
+	TitlePatch = "WILV20"
+	Par = 90
+	Music = "$MUSIC_E3M1"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map PSX01 "Hell Gate"
+{
+	levelnum = 18
+	next = "PSX02"
+	Music = "$MUSIC_E2M6"
+	Author = "$WS_AU_MCGEE"
+}
+
+map PSX02 "Forbiden Keep"
+{
+	levelnum = 21
+	next = "E3M2"
+	par = 90
+	Music = "$MUSIC_E2M2"
+	Author = "$WS_AU_MCGEE"
+}
+
+map PSX01B "Hell Gate"
+{
+	levelnum = 18
+	next = "PSX02B"
+	Music = "$MUSIC_E2M6"
+	Author = "Manardo Lenari"
+}
+
+map PSX02B "Forbiden Keep"
+{
+	levelnum = 21
+	next = "E3M2"
+	par = 90
+	Music = "$MUSIC_E2M2"
+	Author = "Manardo Lenari"
+}
+
+map E3M2 "$HUSTR_E3M2"
+{
+	LevelNum = 22
+	Next = "E3M3"
+	TitlePatch = "WILV21"
+	Par = 45
+	Music = "$MUSIC_E3M2"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E3M3 "$HUSTR_E3M3"
+{
+	LevelNum = 23
+	Next = "E3M4"
+	TitlePatch = "WILV22"
+	Par = 90
+	Music = "$MUSIC_E3M3"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E3M4 "$HUSTR_E3M4"
+{
+	LevelNum = 24
+	Next = "E3M5"
+	TitlePatch = "WILV23"
+	Par = 150
+	Music = "$MUSIC_E3M4"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E3M5 "$HUSTR_E3M5"
+{
+	LevelNum = 25
+	Next = "E3M6"
+	TitlePatch = "WILV24"
+	Par = 90
+	Music = "$MUSIC_E3M5"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E3M6 "$HUSTR_E3M6"
+{
+	LevelNum = 26
+	Next = "E3M7"
+	SecretNext = "E3M9"
+	TitlePatch = "WILV25"
+	Par = 90
+	Music = "$MUSIC_E3M6"
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E3M7 "$HUSTR_E3M7"
+{
+	LevelNum = 27
+	Next = "E3M8"
+	TitlePatch = "WILV26"
+	Par = 165
+	Music = "$MUSIC_E3M7"
+	Author = "$WF_AU_PETERSEN_HALL"
+}
+
+map E3M8 "$HUSTR_E3M8"
+{
+	LevelNum = 28
+	Next = "endbunny"
+	TitlePatch = "WILV27"
+	Par = 105
+	Music = "$MUSIC_E3M8"
+	NoIntermission
+	SpiderMastermindSpecial
+	SpecialAction_ExitLevel
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN"
+}
+
+map E3M9 "$HUSTR_E3M9"
+{
+	LevelNum = 29
+	Next = "E3M7"
+	TitlePatch = "WILV28"
+	Par = 135
+	Music = "$MUSIC_E3M9"
+	Author = "$WF_AU_PETERSEN"
+}
+
+// Retail Episode 4
+
+// Clusters (correspond with same-numbered episode)
+
+cluster 1
+{
+	ExitText = "$E1TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE1"
+}
+
+cluster 2
+{
+	ExitText = "$E2TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE2"
+}
+
+cluster 3
+{
+	ExitText = "$E3TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE3"
+}
+
+cluster 30
+{
+	EnterText = "$E1M4BTEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE1"
+}
+
+cluster 31
+{
+	EnterText = "$E1M8BTEXT"
+	ExitText = "$E1TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE1"
+}

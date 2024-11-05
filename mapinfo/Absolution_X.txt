@@ -1,0 +1,582 @@
+//Default properties applied to each map
+//compats are for vanilla-like behavior
+defaultmap
+{
+	nocrouch
+	nojump
+	forcenoskystretch
+	compat_crossdropoff = "1"
+	compat_dehhealth = "1"
+	compat_light = "1"
+	compat_missileclip = "1"
+	compat_nodoorlight = "1"
+	compat_shorttex = "1"
+	compat_soundtarget = "1"
+	compat_spritesort = "1"
+	compat_stairs = "1"
+	compat_trace = "1"
+	compat_useblocking = "1"
+	compat_floormove = "1"
+	compat_maskedmidtex = "1"
+	compat_corpsegibs = "1"
+	compat_invisibility = "1"
+	compat_notossdrops = "1"
+	compat_sectorsounds = "1"
+	InterMusic = "$MUSIC_D64INTER"
+	ExitPic = "D64inter"
+	enterpic = "D64inter"
+}
+
+//Intermission texts
+
+/*
+cluster 32
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C1A"
+}
+
+cluster 33
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C1B"
+}
+
+cluster 34
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C2"
+}
+
+cluster 35
+{
+	pic = "D64End"
+    music = "$MUSIC_D64TEXT2"
+    exittext = lookup, "IN_C3"
+}
+
+cluster 36
+{
+    pic = "D64boss2"
+    music = "$MUSIC_D64TEXT"
+    entertext = lookup, "IN_S1"
+}
+
+cluster 37
+{
+    pic = "D64boss3"
+    music = "$MUSIC_D64TEXT"
+    entertext = lookup, "IN_S2"
+}
+
+adddefaultmap
+{
+	//cluster = 32
+	sky1 = "SKY1TLA1"
+}
+*/
+
+//Map definitions
+map AB_MAP01 lookup "ABHUSTR_1"
+{
+	Label = "Map01"
+	next = "AB_MAP02"
+	secretnext = "AB_MAP02B"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP01"
+}
+
+map AB_MAP02 lookup "ABHUSTR_2"
+{
+	Label = "Map02"
+	next = "AB_MAP03"
+	secretnext = "AB_MAP03"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP02"
+}
+
+map AB_MAP03 lookup "ABHUSTR_3"
+{
+	Label = "Map03"
+	next = "AB_MAP04"
+	secretnext = "AB_MAP04"
+	sky1 = "SKY1TLA1"
+	par = 120
+	music = "$MUSIC_D64MAP03"
+}
+
+map AB_MAP04 lookup "ABHUSTR_4"
+{
+	Label = "Map04"
+	next = "AB_MAP05"
+	secretnext = "AB_MAP05"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP04"
+}
+
+map AB_MAP05 lookup "ABHUSTR_5"
+{
+	Label = "Map05"
+	next = "AB_MAP06"
+	secretnext = "AB_MAP06"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP05"
+}
+
+map AB_MAP06 lookup "ABHUSTR_6"
+{
+	Label = "Map06"
+	next = "AB_MAP07"
+	secretnext = "AB_MAP07"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP06"
+}
+
+adddefaultmap
+{
+	//cluster = 33
+	sky1 = "SKY1TLA1"
+}
+
+map AB_MAP07 lookup "ABHUSTR_7"
+{
+	Label = "Map07"
+	next = "AB_MAP08"
+	secretnext = "AB_MAP08"
+	sky1 = "SKY1TLA1"
+	map07special
+	music = "$MUSIC_D64MAP07"
+}
+
+map AB_MAP08 lookup "ABHUSTR_8"
+{
+	Label = "Map08"
+	next = "AB_MAP09"
+	secretnext = "AB_MAP09"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP08"
+}
+
+map AB_MAP09 lookup "ABHUSTR_9"
+{
+	Label = "Map09"
+	titlepatch = "CWILV08"
+	next = "AB_MAP10"
+	secretnext = "AB_MAP10"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP09"
+}
+
+map AB_MAP10 lookup "ABHUSTR_10"
+{
+	Label = "Map10"
+	next = "AB_MAP11"
+	secretnext = "AB_MAP11"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP10"
+    compat_silent_instant_floors = 1
+}
+
+map AB_MAP11 lookup "ABHUSTR_11"
+{
+	Label = "Map11"
+	next = "AB_MAP12"
+	secretnext = "AB_MAP12"
+	sky1 = "SKY1TLA1"
+	music = "$MUSIC_D64MAP11"
+	cyberdemonspecial
+	specialaction_opendoor
+}
+
+adddefaultmap
+{
+	//cluster = 34
+	sky1 = "RSKY2TAL"
+}
+
+map AB_MAP12 lookup "ABHUSTR_12"
+{
+	Label = "Map12"
+	next = "AB_MAP13"
+	secretnext = "AB_MAP13"
+	sky1 = "SKY5TALL"
+	music = "$MUSIC_D64MAP12"
+}
+
+map AB_MAP13 lookup "ABHUSTR_13"
+{
+	Label = "Map13"
+	next = "AB_MAP14"
+	secretnext = "AB_MAP14"
+	sky1 = "SKY4TALL"
+	sky2 = "SKY4TALT"
+	lightning
+	music = "$MUSIC_D64MAP13"
+}
+
+map AB_MAP14 lookup "ABHUSTR_14"
+{
+	Label = "Map14"
+	next = "AB_MAP15"
+	secretnext = "AB_MAP15"
+	sky1 = "SKY4TALL"
+	sky2 = "SKY4TALT"
+	lightning
+	music = "$MUSIC_D64MAP14"
+	compat_silent_instant_floors = 1
+}
+
+map AB_MAP15 lookup "ABHUSTR_15"
+{
+	Label = "Map15"
+	next = "AB_MAP16"
+	secretnext = "AB_MAP31"
+	sky1 = "SKY4TALL"
+	sky2 = "SKY4TALT"
+	lightning
+	music = "$MUSIC_D64MAP15"
+}
+
+map AB_MAP16 lookup "ABHUSTR_16"
+{
+	Label = "Map16"
+	next = "AB_MAP17"
+	secretnext = "AB_MAP17"
+	sky1 = "SKY6TALL", 0.1
+	music = "$MUSIC_D64MAP16"
+}
+
+map AB_MAP17 lookup "ABHUSTR_17"
+{
+	Label = "Map17"
+	next = "AB_MAP18"
+	secretnext = "AB_MAP18"
+	sky1 = "SKY4TALL"
+	sky2 = "SKY4TALT"
+	lightning
+	music = "$MUSIC_D64MAP17"
+}
+
+map AB_MAP18 lookup "ABHUSTR_18"
+{
+	Label = "Map18"
+	next = "AB_MAP19"
+	secretnext = "AB_MAP19"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP18"
+}
+
+map AB_MAP19 lookup "ABHUSTR_19"
+{
+	Label = "Map19"
+	next = "AB_MAP20"
+	secretnext = "AB_MAP20"
+	sky1 = "SKY5TALL"
+	music = "$MUSIC_D64MAP19"
+}
+
+map AB_MAP20 lookup "ABHUSTR_20"
+{
+	Label = "Map20"
+	next = "AB_MAP21"
+	secretnext = "AB_MAP21"
+	//Next = endpic, "D64cre"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP20"
+	cyberdemonspecial
+	specialaction_opendoor
+}
+
+adddefaultmap
+{
+	//cluster = 35
+	sky1 = "SKY3TALS"
+}
+
+map AB_MAP21 lookup "ABHUSTR_21"
+{
+	Label = "Map21"
+	next = "AB_MAP22"
+	secretnext = "AB_MAP22"
+	sky1 = "SKY5TALL"
+	music = "$MUSIC_D64MAP21"
+	cyberdemonspecial
+	specialaction_opendoor
+}
+
+map AB_MAP22 lookup "ABHUSTR_22"
+{
+	Label = "Map22"
+	next = "AB_MAP23"
+	secretnext = "AB_MAP23"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP22"
+}
+
+map AB_MAP23 lookup "ABHUSTR_23"
+{
+	Label = "Map23"
+	next = "AB_MAP24"
+	secretnext = "AB_MAP24"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP23"
+}
+
+map AB_MAP24 lookup "ABHUSTR_24"
+{
+	Label = "Map24"
+	next = "AB_MAP25"
+	secretnext = "AB_MAP25"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP24"
+}
+
+map AB_MAP25 lookup "ABHUSTR_25"
+{
+	Label = "Map25"
+	next = "AB_MAP26"
+	secretnext = "AB_MAP26"
+	sky1 = "SKY2TALL"
+	music = "$MUSIC_D64MAP25"
+}
+
+map AB_MAP26 lookup "ABHUSTR_26"
+{
+	Label = "Map26"
+	next = "AB_MAP27"
+	secretnext = "AB_MAP27"
+	sky1 = "SKY3TALS"
+	music = "$MUSIC_D64MAP26"
+	cyberdemonspecial
+	specialaction_opendoor
+}
+
+map AB_MAP27 lookup "ABHUSTR_27"
+{
+	Label = "Map27"
+	next = "AB_MAP28"
+	secretnext = "AB_MAP28"
+	sky1 = "SKY3TALS"
+	music = "$MUSIC_D64MAP27"
+}
+
+map AB_MAP28 lookup "ABHUSTR_28"
+{
+	Label = "Map28"
+	next = "AB_MAP29"
+	secretnext = "AB_MAP29"
+	sky1 = "SKY3ATAS"
+	music = "$MUSIC_D64MAP28"
+}
+
+map AB_MAP29 lookup "ABHUSTR_29"
+{
+	Label = "Map29"
+	next = "AB_MAP30"
+	secretnext = "AB_MAP30"
+	sky1 = "SKY3ATAS"
+	music = "$MUSIC_D64MAP29"
+	cyberdemonspecial
+	specialaction_opendoor
+}
+
+map AB_MAP30 lookup "ABHUSTR_30"
+{
+	Label = "Map30"
+	next = EndSequence, "D64Inter_Cast"
+	secretnext = EndSequence, "D64Inter_Cast"
+	sky1 = "SKY3ATAS"
+	allowmonstertelefrags
+	NoIntermission
+	SpiderMastermindSpecial
+	SpecialAction_ExitLevel
+	NoSoundClipping
+	music = "$MUSIC_D64MAP30"
+}
+
+map AB_MAP31 lookup "ABHUSTR_31"
+{
+	Label = "Map31"
+	next = "AB_MAP16"
+	secretnext = "AB_MAP32"
+	sky1 = "SKY6TALL"
+	//cluster = 36
+	music = "$MUSIC_D64MAP31"
+}
+
+map AB_MAP32 lookup "ABHUSTR_32"
+{
+	Label = "Map32"
+	next = "AB_MAP16"
+	secretnext = "AB_MAP16"
+	sky1 = "ZZZBLACK"
+	//cluster = 37
+	music = "$MUSIC_D64MAP32"
+}
+
+map AB_MAP33 lookup "ABHUSTR_33"
+{
+	Label = "Bonus"
+	Next = endsequence, "D64D2Map33End"
+	sky1 = "SKY6TALL", 0.1
+	music = "$MUSIC_D64MAP33"
+	nointermission
+	nosoundclipping
+}
+
+Intermission D64D2Map33End
+{
+	Image
+	{
+		Background = "D64title"
+		music = "$MUSIC_D64MAP33"
+	}
+}
+
+//Updated cast call
+Intermission D64Inter_Cast
+{
+	Image
+	{
+		Background = "D64bossb"
+		Time = -1
+		music = "$MUSIC_D64END"
+	}
+	Link = Doom64Doom2Cast
+}
+
+Intermission Doom64Doom2Cast
+{
+	Cast
+	{
+		CastClass = "Zombieman"
+		CastName = "$CC_ZOMBIE"
+		AttackSound = "Missile", 1, "grunt/attack"
+	}
+	Cast
+	{
+		CastClass = "ShotgunGuy"
+		CastName = "$CC_SHOTGUN"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		CastClass = "ChaingunGuy"
+		CastName = "$CC_HEAVY"
+		AttackSound = "Missile", 1, "chainguy/attack"
+		AttackSound = "Missile", 2, "chainguy/attack"
+		AttackSound = "Missile", 3, "chainguy/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomImp"
+		CastName = "$CC_IMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_NightmareImp"
+		CastName = "$CC_NIMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "Demon"
+		CastName = "$CC_DEMON"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "Spectre"
+		CastName = "$CC_Spectre"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "DCX_ForgottenSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee2"
+	}
+	Cast
+	{
+		CastClass = "Cacodemon"
+		CastName = "$CC_CACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_NightmareCacodemon"
+		CastName = "$CC_NCACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "HellKnight"
+		CastName = "$CC_HELL"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "BaronOfHell"
+		CastName = "$CC_BARON"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_DualArachnotron"
+		CastName = "$CC_ARACH"
+		AttackSound = "Missile", 1, "baby/attack2"
+	}
+	Cast
+	{
+		CastClass = "DCX_DualPainElemental"
+		CastName = "$CC_PAIN"
+		AttackSound = "Missile", 2, "skull/melee2"
+	}
+	Cast
+	{
+		CastClass = "Revenant"
+		CastName = "$CC_REVEN"
+		AttackSound = "Missile", 1, "skeleton/attack"
+		AttackSound = "Melee", 1, "skeleton/swing"
+		AttackSound = "Melee", 3, "skeleton/melee"
+	}
+	Cast
+	{
+		CastClass = "Fatso"
+		CastName = "$CC_MANCU"
+		AttackSound = "Missile", 1, "fatso/attack"
+		AttackSound = "Missile", 4, "fatso/attack"
+		AttackSound = "Missile", 7, "fatso/attack"
+	}
+	Cast
+	{
+		CastClass = "Archvile"
+		CastName = "$CC_ARCH"
+		AttackSound = "Missile", 1, "vile/start"
+	}
+	Cast
+	{
+		CastClass = "Cyberdemon"
+		CastName = "$CC_CYBER"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "DCX_Motherdemon"
+		CastName = "$CC_MOTHER"
+		AttackSound = "Missile", 1, "fatso/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "$CC_HERO"
+		AttackSound = "Missile", 1, "weapons/sshotf"
+	}
+	Link = Doom64Doom2Cast
+}

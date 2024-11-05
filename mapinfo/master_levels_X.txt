@@ -1,0 +1,154 @@
+// Misc maps that aren't part of a particular set.
+//Includes the fallowing: 
+//Tom Mustains master level submssions (Both accepted and rejected, inclusing those that made it into TNT),
+//Tim Wilitz submissions plus an extra promotional wad he designed called "Kick Attack",
+//And fixed up versions of the beta Doom 64 maps so they're actually beatable. 
+
+defaultmap
+{
+	Sky1 = "RSKY1"
+	SuckTime = 1
+	NoJump
+	NoCrouch
+	ResetHealth
+	ResetInventory
+	InterMusic = "$MUSIC_MASTERINT"
+	ExitPic = "MLINTERP"
+	Cluster = 34
+}
+
+// Tim Willits's Master Levels
+
+adddefaultmap
+{
+	Author = "$WF_AU_WILLITS_CHASAR"
+}
+
+map ML_MAP01 "$ML_ATTACK"
+{
+	Label = "TIM01"
+	Next = "ML_MAP02"
+	TitlePatch = "MWILV00"
+	Music = "$MUSIC_ATTACK"
+}
+
+map ML_MAP02 "$ML_CANYON"
+{
+	Label = "TIM02"
+	Next = "KICKATK"
+	TitlePatch = "MWILV01"
+	Music = "$MUSIC_CANYON"
+}
+
+map KICKATK "Boot Assault" //KICK ATTACK
+{
+	Label = "TIM03"
+	Next = "SYSTEM"
+	music = "$MUSIC_KICKATK"
+	Author = "$WS_AU_WILLITS_COLA"
+}
+
+// Tom Mustaines's Master Levels
+
+adddefaultmap
+{
+	Author = "$WF_AU_MUSTAINE"
+	Sky1 = "SKY1"
+}
+
+map SYSTEM "$THUSTR_1"
+{
+	Label = "TOM04"
+	Next = "PROCESS"
+	TitlePatch = "TWILV00"
+	Music = "T_STLKS3"
+	Author = "$WF_AU_MUSTAINE"
+}
+
+map PROCESS "$THUSTR_17"
+{
+	Label = "TOM05"
+	Next = "ML_MAP28"
+	TitlePatch = "TWILV16"
+	Author = "$WF_AU_MUSTAINE"
+	Music = "T_DDTBL3"
+}
+
+map ML_MAP28 "Masters Den" // reject level
+{
+	Label = "TOM06"
+	Next = "ML_MAP07"
+	//TitlePatch = "MWILV27"
+	Music = "$MUSIC_MASTERDEN"
+	Music = "T_MESSAG"
+}
+
+map ML_MAP07 "$ML_PARADOX"
+{
+	Label = "TOM07"
+	Next = "HACK2"
+	TitlePatch = "MWILV06"
+	Music = "$MUSIC_PARADOX"
+	Author = "$WF_AU_MUSTAINES"
+}
+
+//		Beta Doom 64 Maps		//
+
+adddefaultmap
+{
+	Author = "$WS_AU_MIDWAY"
+}
+
+map HACK2 "Hacked Together" 
+{
+	Label = "MID08"
+	next = "CANYON"
+	sky1 = "SKY1"
+	music = "$MUSIC_HACK2"
+}
+
+map CANYON "Grand Entrance to Hell" //CANYON
+{
+	Label = "MID09"
+	next = "MEE2"
+	sky1 = "SKY1"
+	music = "$MUSIC_HELLCAN"
+}
+
+map MEE2 "Moping in Sarrow" // MEE2
+{
+	Label = "MID10"
+	next = "NEWCAT3"
+	sky1 = "RSKY3"
+	music = "$MUSIC_MEE2"
+}
+
+map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
+{
+	Label = "MID11"
+	next = "TUFF"
+	Sky1 =  "SKYX5A"
+	music = "$MUSIC_NEWCAT3"
+}
+
+map TUFF "Tuff stuff" //TUFF
+{
+	Label = "MID12"
+	Next = EndGame
+	{
+		Pic = "MLBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	nointermission
+	NoSoundClipping
+	Sky1 =  "SKYX4A"
+	music = "$MUSIC_TUFF"
+}
+
+Cluster 34
+{
+	music = "$MUSIC_MASTERTXT"
+	pic = "MLINTERP"
+	ExitText = "$M1TEXT" //Due to a lack of any supplmental stuff for any of these, I just use the psx master levels end text for now
+}

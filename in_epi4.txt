@@ -1,0 +1,47 @@
+NoAutoStartMap
+Background WIMAP3
+Splat wisplat
+Pointer wiurh0 wiurh1
+
+Spots
+{
+	E4M1 50 88
+	E4M2 47 155
+	E4M3 132 152
+	E4M4 78 125
+	E4M5 181 185
+	E4M6 211 105
+	E4M7 172 97
+	E4M8 241 145
+	E4M9 285 172
+}
+
+Animation 66 106 9
+{
+	WIA30000
+	WIA30001
+	WIA30002
+}
+Animation 229 98 9
+{
+	WIA30100
+	WIA30101
+	WIA30102
+}
+Animation 277 162 9
+{
+	WIA30200
+	WIA30201
+	WIA30202
+}
+Animation 115 47 9
+{
+	WIA30300
+	WIA30301
+	WIA30302
+}
+Animation 231 132 9
+{
+	WIA30400
+	WIA30401
+}

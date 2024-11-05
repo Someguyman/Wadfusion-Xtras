@@ -1,0 +1,1882 @@
+Class DC_Replacer : Actor {}
+
+class DCX_ArchvileFire : ArchvileFire replaces ArchvileFire
+{
+	void A_StartFire()
+	{
+		A_Fire();
+		A_Startsound("vile/firestrt", CHAN_AUTO);
+	}
+	States
+	{
+	Spawn:
+		FIRE A 1 BRIGHT;
+		FIRE A 1 BRIGHT  A_StartFire();
+		FIRE BAB 2 BRIGHT  A_Fire;
+		FIRE C 2 BRIGHT  A_FireCrackle;
+		FIRE BCBCDCDCDEDED 2 BRIGHT  A_Fire;
+		FIRE E 2 BRIGHT  A_FireCrackle;
+		FIRE FEFEFGHGHGH 2 BRIGHT  A_Fire;
+		Stop;
+	}
+}
+
+Class DCX_MarineBotGreen : Actor
+{
+	Default
+	{
+		Health 100;
+		Gibhealth 20;
+		Radius 20;
+		Height 56;
+		Speed 8;
+		PainChance 256;
+		Monster;
+		+FLOORCLIP
+		+HARMFRIENDS
+        +DROPOFF
+		-COUNTKILL
+		-ISMONSTER
+		+AVOIDMELEE
+		AttackSound "grunt/attack";
+		DeathSound "Marine/Death";
+		PainSound "*pain50";
+		Tag "Helper Marine";
+		DropItem "Clip";
+	}
+	States
+	{
+		Spawn:
+			PLAY AB 10 A_Look;
+			Loop;
+		See:
+			PLAY AABBCCDD 2 A_Chase;
+			Loop;
+		Missile:
+			PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+            PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+            PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+			Goto See;
+		Missile.Plasma:
+			PLAY E 10 A_FaceTarget;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 3;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 4;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 4 ;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 3 ;
+			goto see;
+		Pain:
+			PLAY G 4;
+			PLAY G 4 A_Pain;
+			Goto See;
+		Death:
+			PLAY H 10;
+			PLAY I 10 A_Scream;
+			PLAY J 10 A_NoBlocking;
+			PLAY KLM 10;
+			PLAY N -1;
+			Stop;
+		XDeath:
+			PLAY O 5;
+			PLAY P 5 A_XScream;
+			PLAY Q 5 A_NoBlocking;
+			PLAY RSTUV 5;
+			PLAY W -1;
+			Stop;
+	}	
+}
+
+Class DCX_MarineBotGrey : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 0;
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_MarineBotBrown : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 1;
+	}
+}
+
+Class DCX_MarineBotRed : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 2;
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_MarineBotSpawner : RandomSpawner
+{
+	Default
+	{
+		DropItem "DCX_MarineBotGreen";
+        DropItem "DCX_MarineBotBrown";
+        DropItem "DCX_MarineBotGrey";
+        DropItem "DCX_MarineBotRed";
+	}
+}
+
+//for deathmatch type maps only
+
+Class DCX_DM_Marinebot : Actor
+{
+	Default
+	{
+		Health 500;
+		Radius 20;
+		Height 56;
+		Speed 16;
+		Mass 100;
+		PainChance 30;
+		Gibhealth 20;
+		Monster;
+		+FLOORCLIP
+		+AVOIDMELEE
+		+HARMFRIENDS
+		+DOHARMSPECIES
+		+FORCEINFIGHTING
+		+QUICKTORETALIATE
+		+AVOIDHAZARDS
+		+SEEFRIENDLYMONSTERS
+		+TELESTOMP
+		+NOBLOCKMONST
+		+LOOKALLAROUND
+		+ALWAYSTELEFRAG
+		MissileChanceMult 0.5;
+		//SeeSound "Marine/Sight";
+		ActiveSound "Marine/Active";
+		DeathSound "Marine/Death";
+		PainSound "*pain50";
+		Tag "Deathmatch Marine";
+	}
+	
+	States
+	{
+		Spawn:
+			PLAY AABBCCDD 2 { A_Look(); A_Wander(); }
+			Loop;
+		See:
+			PLAY AABBCCDD 2 A_Chase;
+			Loop;
+		Melee:
+		Melee.Fist:		
+			PLAY E 4 A_FaceTarget;
+			PLAY E 4 A_CustomMeleeAttack(2 * random(1, 10),"*fist");
+			PLAY A 9 A_FaceTarget;
+			Goto See;
+		Melee.Berserk:
+			PLAY E 4 A_FaceTarget;
+			PLAY E 4 A_CustomMeleeAttack(20 * random(1, 10),"*fist");
+			PLAY A 9 A_FaceTarget;
+			Goto See;
+		Melee.Chainsaw:
+			PLAY E 2 A_FaceTarget(); //{ A_Startsound("weapons/sawfull"); A_FaceTarget(); }
+			PLAY E 2 { A_CustomMeleeAttack(2 * random(1, 10),"weapons/sawhit"); A_FaceTarget(); }
+			Goto See;
+		Missile:
+			PLAY E 0 A_Jump(20, "Missile.BFG9000");
+			PLAY E 0 A_Jump(40, "Missile.Rocket");
+			PLAY E 0 A_Jump(100, "Missile.Plasma");
+			PLAY E 0 A_Jump(25, "Missile.SuperShotgun");
+			PLAY E 0 A_Jump(100, "Missile.Shotgun");
+			PLAY E 0 A_Jump(125, "Missile.RapidFire");
+		Missile.Pistol:
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT { A_CustomBulletAttack(22.5, 0, 1, random(1,5) * 3, flags: CBAF_NORANDOM); A_StartSound ("weapons/pistol", CHAN_WEAPON); A_FaceTarget();}
+			PLAY E 8 A_FaceTarget;
+			Goto See;
+		Missile.Shotgun:
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT { A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM); A_StartSound ("weapons/shotgf", CHAN_WEAPON); A_FaceTarget(); }
+			PLAY E 10 A_FaceTarget;
+			Goto See;
+		Missile.SuperShotgun:
+			PLAY A 0 A_JumpIfCloser(500,1); //Will only use when up close
+			Goto Missile.Shotgun;
+			PLAY A 0 A_Startsound("Marine/Sight", CHAN_BODY);
+			PLAY AABBCCDDAABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT 
+			{ A_Startsound("weapons/sshotf", CHAN_WEAPON); A_CustomBulletAttack(11.2, 7.1, 20, 3, "Bulletpuff"); A_FaceTarget(); }
+			PLAY E 12 A_FaceTarget;
+			PLAY E 10 { A_FaceTarget(); A_Startsound("weapons/sshoto", CHAN_BODY); }
+			PLAY A 10 { A_FaceTarget(); A_Startsound("weapons/sshotl", CHAN_BODY); }
+			PLAY B 2 { A_FaceTarget(); A_Startsound("weapons/sshotc", CHAN_BODY); }
+			Goto See;
+		Missile.RapidFire:
+			PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+			PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_PosAttack;
+			Goto See;
+		Missile.Rocket:
+			PLAY A 0 A_JumpIfCloser(100,"Missile.Shotgun"); //Don't use when up close
+			PLAY E 6 A_FaceTarget;
+            PLAY F 6 BRIGHT A_CyberAttack;
+			PLAY E 14 A_FaceTarget;
+			Goto See;
+		Missile.Plasma:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("plasmaball", 32); A_FaceTarget(); }
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("plasmaball", 32); A_FaceTarget(); }
+		Missile.Plasma.Repeat:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("plasmaball", 32); A_FaceTarget(); }
+			PLAY E 0 A_Jump(50, "Missile.Plasma.Repeat");
+			Goto See;
+		Missile.Plasma.Green:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("ArachnotronPlasma", 32); A_FaceTarget(); }
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("ArachnotronPlasma", 32); A_FaceTarget(); }
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT { A_SpawnProjectile("ArachnotronPlasma", 32); A_FaceTarget(); }
+			Goto See;
+		Missile.BFG9000:
+			PLAY A 0 A_JumpIfCloser(500,1); //Will only use when up close
+			Goto Missile.Plasma.Green;
+			PLAY E 4 { A_FaceTarget(); A_Startsound("weapons/bfgf", CHAN_BODY); } //weapons/bfgf
+			PLAY AABBCCDDAABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY F 8 BRIGHT A_FaceTarget;
+            PLAY F 6 BRIGHT
+			{ A_SpawnProjectile("BFGBall", 32); A_FaceTarget(); }
+			PLAY E 20 A_FaceTarget;
+			Goto See;
+		Pain:
+			PLAY G 3 A_StopSound(CHAN_BODY);
+			PLAY G 3 A_Pain;
+			Goto See;
+		Death:
+			PLAY H 10 A_StopSound(CHAN_BODY);
+			PLAY I 10 A_Scream;
+			PLAY J 10 A_NoBlocking;
+			PLAY KLM 10;
+			PLAY N -1;
+			Stop;
+		XDeath:
+			PLAY O 5 A_StopSound(CHAN_BODY);
+			PLAY P 5 A_XScream;
+			PLAY Q 5 A_NoBlocking;
+			PLAY RSTUV 5;
+			PLAY W -1;
+			Stop;
+		Raise:
+			PLAY M 5;
+			PLAY LKJIH 5;
+			Goto See ;
+	}
+}
+
+Class DCX_DM_Marinebot_Pistol : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 100;
+		PainChance 200;
+		MissileChanceMult 0.125;
+		Translation "112:127=144:151";
+		Dropitem "Clip";
+		-AVOIDMELEE
+		Tag "Pistol Marine";
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Pistol;
+		Melee:
+			Goto Super::Melee.Fist;
+	}
+}
+
+Class DCX_DM_Marinebot_Shotgun : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 100;
+		PainChance 170;
+		MissileChanceMult 0.5;
+		Translation "112:127=96:111";
+		Dropitem "Shotgun";
+		Tag "Shotgun Marine";
+	}
+	States
+	{
+		Melee:
+		Missile:
+			Goto Super::Missile.Shotgun;
+	}
+}
+
+Class DCX_DM_Marinebot_RapidFire : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 100;
+		MissileChanceMult 0.5;
+		Translation "112:127=32:47";
+		Dropitem "Chaingun";
+		Tag "Chaingun Marine";
+	}
+	States
+	{
+		Melee:
+		Missile:
+			Goto Super::Missile.RapidFire;
+	}
+}
+
+Class DCX_DM_Marinebot_SuperShotgun : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 150;
+		PainChance 200;
+		MissileChanceMult 0.5;
+		Translation "112:127=[63,63,63]:[0,0,0]";
+		Dropitem "SuperShotgun";
+		Tag "SuperShotgun Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.SuperShotgun;
+	}
+}
+
+Class DCX_DM_Marinebot_Rocket : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 200;
+		MissileChanceMult 0.5;
+		Translation "112:127=[162,104,53]:[0,0,0]";
+		Dropitem "RocketLauncher";
+		Tag "RocketLauncher Marine";
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Rocket;
+	}
+}
+
+Class DCX_DM_Marinebot_Plasma : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 90;
+		MissileChanceMult 0.5;
+		Translation "112:127=[70,70,255]:[0,0,64]";
+		Dropitem "Plasmarifle";
+		Tag "PlasmaRifle Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_DM_Marinebot_BFG9000 : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 20;
+		MissileChanceMult 1.5;
+		Translation "112:127=[0,128,0]:[0,0,0]";
+		Dropitem "BFG9000";
+		Tag "BFG9000 Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.BFG9000;
+	}
+}
+
+Class DCX_DM_Marinebot_Berserk : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 80;
+		MissileChanceMult 2.0;
+		Translation "112:127=[255,0,0]:[64,0,0]";
+		Dropitem "Berserk";
+		Speed 20;
+		-AVOIDMELEE
+		ActiveSound "";
+		Tag "Berserk Marine";
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Pistol;
+		Melee:
+			Goto Super::Melee.Berserk;
+	}
+}
+
+Class DCX_DM_Marinebot_Chainsaw : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 200;
+		MissileChanceMult 2.0;
+		Translation "112:127=160:167";
+		Dropitem "Chainsaw";
+		Speed 20;
+		ActiveSound "";
+		-AVOIDMELEE
+		Tag "Chainsaw Marine";
+	}
+	
+	override void PostBeginPlay()
+	{
+		A_StartSound("weapons/sawup",CHAN_7);
+	}
+	
+	override void Tick()  
+	{
+		Super.Tick();
+		if (health > 0 && !isFrozen() && GetAge() % 8 == 0)
+		{
+			A_StartSound("weapons/sawidle", Chan_Body);
+		}
+	}
+	
+	States
+	{
+		Missile:
+			Goto Super::Missile.Shotgun;
+		Melee:
+			Goto Super::Melee.Chainsaw;
+	}
+}
+
+///*
+Class DCX_DM_MarineBotSpawner : Actor
+{
+	Bool A; //Returns 1 or 0 for succes or fail.
+	Actor B; //Pointer to actor
+	Actor C;
+	Actor D;
+	
+	bool BotBDead;
+	bool BotCDead; 
+	bool BotDDead; 
+	
+	Default
+	{
+		-COUNTKILL
+		+ISMONSTER
+		+NOBLOCKMAP
+		+NOSECTOR
+		+BOSSDEATH
+		+LOOKALLAROUND
+		+NEVERRESPAWN
+	}
+	
+	States
+	{
+		Spawn:
+		See:
+			PLAY A 20;
+			PLAY A 5 A_Jumpif(BotDDead == true, "Suicide");
+			TNT1 A 0
+			{
+				String SpawnNames1[4] = {"DCX_DM_Marinebot_Pistol", "DCX_DM_Marinebot_Shotgun", "DCX_DM_Marinebot_RapidFire", "DCX_DM_Marinebot_Chainsaw"};
+				String SpawnNames2[6] = {"DCX_DM_Marinebot_Shotgun", "DCX_DM_Marinebot_RapidFire", "DCX_DM_Marinebot_SuperShotgun", "DCX_DM_Marinebot_Plasma", "DCX_DM_Marinebot_Chainsaw" , "DCX_DM_Marinebot_Berserk"};
+				String SpawnNames3[6] = {"DCX_DM_Marinebot_RapidFire", "DCX_DM_Marinebot_SuperShotgun", "DCX_DM_Marinebot_Plasma", "DCX_DM_Marinebot_Rocket", "DCX_DM_Marinebot_BFG9000", "DCX_DM_Marinebot_Berserk"};
+				A_SpawnItemEx("TeleportFog",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid);
+				if (BotBDead != True)
+				{ [A,B] = A_SpawnItemEx(SpawnNames1[Random(0,3)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+				else if(BotCDead != True)
+				{ [A,C] = A_SpawnItemEx(SpawnNames2[Random(0,5)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+				else if(BotDDead != True)
+				{ [A,D] = A_SpawnItemEx(SpawnNames3[Random(0,5)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+			}
+			Goto WaitUntilDeath;
+		WaitUntilDeath:
+			PLAY A 10;
+			TNT1 A 0
+			{
+				If(B)
+				{
+					if(B.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotBDead != True)
+						{ BotBDead = true; }
+					}
+				}
+				
+				If(C)
+				{
+					if(C.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotCDead != True)
+						{ BotCDead = true; }
+					}
+				}
+				
+				If(D)
+				{
+					if(D.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotDDead != True)
+						{ BotDDead = true; }
+					}
+				}
+				
+				Return ResolveState(null);				
+			}
+			Goto See;
+		Suicide:
+			PLAY N 1 A_Die("Death");
+			Goto Death;
+		Death:
+			PLAY N 30;
+			PLAY N 5 A_NoBlocking;
+			PLAY N 0 A_BossDeath;
+			Stop;
+	}
+}
+//*/
+
+class DCX_ZombieMan : ZombieMan Replaces ZombieMan
+{
+	States
+	{
+	Missile:
+		POSS E 10 A_FaceTarget;
+		POSS F 8 Bright A_PosAttack;
+		POSS E 8;
+		Goto See;
+	}
+}
+
+Class DCX_NightmareImp : Doomimp
+{
+	Default
+	{
+		Bloodcolor "f707ef";
+		RenderStyle "Translucent";
+		//Alpha 0.80;
+		Alpha 180/255.;
+		Speed 16;
+		PainChance 128;
+		Translation "NightmareImp";
+		HitObituary "$OB_NITIMPHIT";
+		Obituary "$OB_NITIMP";
+		SeeSound "imp2/sight";
+		ActiveSound "imp2/Active";
+		PainSound "Imp2/Pain";
+		DeathSound "imp2/Death";
+	}
+	States
+	{
+	Melee:
+	Missile:
+		TROO EF 8 A_FaceTarget;
+		TROO G 6 { A_CustomComboAttack("DCX_NightmareImpBall", 32, 10 * random(1, 6), "imp/melee"); A_FaceTarget(); }
+		Goto See;
+	}
+}
+
+Class DCX_NightmareImpBall : CacodemonBall 
+{
+	Default
+	{
+		SeeSound "imp/attack2";
+		DeathSound "imp/shotx2";
+		Speed 20;
+		FastSpeed 35;
+		Damage 3;
+	}
+	States
+	{
+		Spawn:
+			BALN AB 4 Bright;
+			Loop;
+		Death:
+			BALN CDE 6 Bright;
+			Stop;
+	}
+}
+
+class DCX_Spectre : Spectre replaces Spectre
+{
+	default
+	{
+		RenderStyle "OptFuzzy";
+		Alpha 0.3;
+		Translation "SpectreColor";
+	}
+}
+
+Class DCX_NightmareSpectre : Demon 
+{
+	Default
+	{
+		SeeSound "demon2/sight";
+		AttackSound "demon2/melee";
+		PainSound "demon2/pain";
+		DeathSound "demon2/death";
+		ActiveSound "demon2/active";
+		Health 300;
+		+SHADOW
+		RenderStyle "Subtract";
+		BloodColor "Blue";
+		Obituary "%o was devoured by a nightmare spectre.";
+		Translation "NightmareSpectre";
+	}
+}
+
+class DCX_LostSoul : LostSoul replaces LostSoul
+{
+	Default
+	{
+		-COUNTKILL
+	}
+}
+
+class DCX_ForgottenSoul : DCX_Lostsoul
+{
+	Default
+	{
+		Health 60;
+		Radius 16;
+		Height 56;
+		Mass 50;
+		Speed 8;
+		Monster;
+		AttackSound "skull/melee2";
+		DeathSound "skull/death2";
+		PainSound "skull/pain2";
+		ActiveSound "skull/active2";
+		MissileChanceMult 0.5;
+		-COUNTKILL
+	}
+	States
+	{
+	Spawn:
+		SKL2 ABAB 5 BRIGHT A_Look;
+		Loop;
+	See:
+		SKL2 ABAB 5 BRIGHT A_Chase;
+		Loop;
+	Missile:
+		SKL2 C 10 BRIGHT A_FaceTarget;
+		SKL2 D 4 BRIGHT A_SkullAttack(30);
+		SKL2 CD 4 BRIGHT;
+		Goto Missile+2;
+	Pain:
+		SKL2 E 3 BRIGHT;
+		SKL2 E 3 BRIGHT A_Pain;
+		Goto See;
+	Death:
+		SKL2 F 6 BRIGHT;
+		SKL2 G 6 BRIGHT A_Scream;
+		SKL2 H 6 BRIGHT;
+		SKL2 I 6 BRIGHT A_NoBlocking;
+		SKL2 J 6;
+		SKL2 K 6;
+		TNT1 A 1;
+		Stop;
+	}
+}
+
+Class DCX_NightmareCacodemon : Cacodemon
+{
+	Default
+	{
+		SeeSound "caco2/sight";
+		PainSound "caco2/pain";
+		DeathSound "caco2/death";
+		ActiveSound "caco2/active";
+		Health 700;
+		//Speed 12;
+		Speed 24;
+		PainChance 96;
+		+SHADOW
+		+NOSPRITESHADOW
+		MissileChanceMult 1.5;
+		RenderStyle "Add";
+		BloodColor "Orange";
+		Obituary "$OB_NITCACO";
+		HitObituary "$OB_NITCACOHIT";
+		Translation "NightmareCaco";
+		Alpha 0.666;
+	}
+	States
+	{
+	Missile:
+		HEAD BC 4 A_FaceTarget;
+		HEAD D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+		HEAD BC 3 A_FaceTarget;
+		HEAD D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+		HEAD BC 3 A_FaceTarget;
+		HEAD D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+		Goto See;
+	}
+}
+
+class DCX_NightmareCacodemonBall : CacodemonBall
+{
+	Default
+	{
+		Radius 6;
+		Height 8;
+		Speed 10;
+		FastSpeed 20;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE
+		+ZDOOMTRANS
+		RenderStyle "Add";
+		Alpha 0.666;
+		SeeSound "caco/attack2";
+		DeathSound "caco/shotx2";
+	}
+	States
+	{
+	Spawn:
+		BLN2 AB 4 BRIGHT;
+		Loop;
+	Death:
+		BLN2 CDE 6 BRIGHT;
+		Stop;
+	}
+}
+
+class DCX_Arachnotron : Arachnotron Replaces Arachnotron
+{
+	States
+	{
+	Missile:
+		BSPI A 20 A_FaceTarget;
+		BSPI G 4 BRIGHT A_BspiAttack;
+		BSPI H 4 BRIGHT;
+		BSPI H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	}
+}
+
+class DCX_DualArachnotron : Arachnotron
+{
+	Default
+	{
+		SeeSound "baby/sight2";
+		PainSound "baby/pain2";
+		DeathSound "baby/death2";
+		ActiveSound "baby/active2";
+		ReactionTime 5;
+	}
+	
+	int userReactionTime;
+	
+	void A_BspiFaceTarget()
+    {
+        userReactionTime = 5;
+        A_FaceTarget();
+    }
+
+    void A_64BspiAttack()
+    {
+        A_SpawnProjectile("DCX_DualArachnotronPlasma", 28,-11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
+        A_SpawnProjectile("DCX_DualArachnotronPlasma", 28, 11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
+    }
+
+    void A_64SpidRefire()
+    {
+        super.A_SpidRefire();
+        if (userReactionTime == 0) SetStateLabel("Missile");
+        userReactionTime--;
+    }
+	
+	void A_64BabyMetal()
+	{
+		A_StartSound("baby/walk2", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_IDLE);
+		A_Chase();
+	}
+	
+	States
+	{
+	Spawn:
+		BSP2 AB 10 A_Look;
+		Loop;
+	See:
+		BSP2 A 20;
+		BSP2 A 3 A_64BabyMetal();
+		BSP2 ABBCCBB 3 A_Chase;
+		Goto See+1;
+	Missile:
+		BSP2 A 15 A_BspiFaceTarget();
+		BSP2 D 3 BRIGHT A_64BspiAttack();
+		BSP2 E 3 BRIGHT;
+		BSP2 E 1 BRIGHT A_64SpidRefire();
+		Goto Missile+1;
+	Pain:
+		BSP2 F 3;
+		BSP2 F 3 A_Pain;
+		Goto See+1;
+	Death:
+		BSP2 G 20 A_Scream;
+		BSP2 H 7 A_NoBlocking;
+		BSP2 IJK 7;
+		BSP2 L -1 A_BossDeath;
+		Stop;
+    Raise:
+		BSP2 L 5;
+		BSP2 KJIHG 5;
+		Goto See+1;
+	}
+}
+
+class DCX_DualArachnotronPlasma : ArachnotronPlasma
+{
+	Default
+	{
+		SeeSound "baby/attack2";
+		deathsound "baby/shotx2";
+		Alpha 0.95;
+        Damage 3;
+		-RANDOMIZE
+	}
+	States
+	{
+	Spawn:
+		PRED AB 5 BRIGHT;
+		Loop;
+	Death:
+		PRDX ABCDE 5 BRIGHT;
+		Stop;
+	}
+}
+
+class DCX_DualPainElemental : PainElemental
+{
+	Default
+	{
+		SeeSound "pain/sight2";
+		DeathSound "pain/death2";
+		PainSound "pain/pain2";
+		ActiveSound "pain/active2";
+		Tag "$FN_PAIN";
+		+DONTGIB
+	}
+	
+	void A_64DualPainAttack(class<Actor> spawntype = "LostSoul", double addangle = 29.970703, int flags = 0, int limit = -1)
+    {
+		if (target)
+		{
+			A_FaceTarget();
+			A_64PainShootSkull(spawntype, angle + addangle, flags, limit);
+			A_64PainShootSkull(spawntype, angle - addangle, flags, limit);
+		}
+    }
+	
+	void A_64PainDie(class<Actor> spawntype = "LostSoul", int flags = 0, int limit = -1)
+	{
+		if (target && IsFriend(target))
+		{ // And I thought you were my friend!
+			bFriendly = false;
+		}
+		A_NoBlocking();
+		A_64PainShootSkull(spawntype, angle + 90, flags, limit);
+		A_64PainShootSkull(spawntype, angle + 180, flags, limit);
+		A_64PainShootSkull(spawntype, angle + 270, flags, limit);
+	}
+	
+	void A_64PainShootSkull(Class<Actor> spawntype, double ang, int flags = 0, int limit = -1)
+	{
+        if (DamageType == 'Massacre') return;
+
+        if (spawntype == null) spawntype = "LostSoul";
+		spawntype = Actor.GetReplacement(spawntype);
+
+        if (pos.z + height + 8 > ceilingz)
+        {
+            if (bFloat)
+            {
+                Vel.Z -= 2;
+                bInFloat = true;
+                bVFriction = true;
+            }
+            return;
+         }
+         
+		if (limit < 0 && (Level.compatflags & COMPATF_LIMITPAIN))
+			limit = 21;
+
+        if (limit > 0)
+        {
+            int count = limit;
+            ThinkerIterator it = ThinkerIterator.Create(spawntype);
+            Thinker othink;
+
+            while ( (othink = it.Next ()) )
+            {
+                if (--count == 0)
+                    return;
+            }
+        }
+
+        double otherradius = GetDefaultByType(spawntype).radius;
+        double prestep = 4 + (radius + otherradius) * 1.5;
+
+        Vector2 move = AngleToVector(ang, prestep);
+        Vector3 spawnpos = pos + (0,0,16);
+        Vector3 destpos = spawnpos + move;
+
+        Actor other = Spawn(spawntype, spawnpos, ALLOW_REPLACE);
+
+        if (other != null)
+        {
+            double maxmove = other.radius - 1;
+
+            if (maxmove <= 0) maxmove = 16;
+
+            double xspeed = abs(move.X);
+            double yspeed = abs(move.Y);
+
+            int steps = 1;
+
+            if (xspeed > yspeed)
+            {
+                if (xspeed > maxmove)
+                {
+                    steps = int(1 + xspeed / maxmove);
+                }
+            }
+            else
+            {
+                if (yspeed > maxmove)
+                {
+                    steps = int(1 + yspeed / maxmove);
+                }
+            }
+
+            Vector2 stepmove = move / steps;
+            bool savedsolid = bSolid;
+            bool savednoteleport = other.bNoTeleport;
+                
+            bSolid = false;
+            other.bNoTeleport = true;
+            for (int i = 0; i < steps; i++)
+            {
+                Vector2 ptry = other.pos.xy + stepmove;
+                double oldangle = other.angle;
+                if (!other.TryMove(ptry, 0))
+                {
+                    other.ClearCounters();
+                    other.DamageMobj(self, self, TELEFRAG_DAMAGE, 'None');
+                    RadiusAttack(other, 128, 128, 'none', RADF_NOIMPACTDAMAGE); //[GEC]
+
+                    bSolid = savedsolid;
+                    other.bNoTeleport = savednoteleport;
+                    return;
+                }
+
+                if (other.pos.xy != ptry)
+                {
+                    double anglediff = deltaangle(oldangle, other.angle);
+                    if (anglediff != 0)
+                    {
+                       stepmove = RotateVector(stepmove, anglediff);
+                    }
+                }
+            }
+            bSolid = savedsolid;
+            other.bNoTeleport = savednoteleport;
+            other.CopyFriendliness (self, !(flags & PAF_NOTARGET));
+
+            if (!(flags & PAF_NOSKULLATTACK))
+			{
+				other.A_SkullAttack();
+			}
+		}
+	}
+	
+	States
+	{
+	Spawn:
+		DPIN A 10 A_Look;
+		Loop;
+	See:
+		DPIN A 3 A_Chase;
+		Loop;
+	Missile:
+		DPIN B 5 Bright A_FaceTarget;
+		DPIN C 5 Bright A_FaceTarget;
+		DPIN D 5 BRIGHT A_FaceTarget;
+		DPIN D 0 BRIGHT A_64DualPainAttack("DCX_ForgottenSoul");
+		Goto See;
+	Pain:
+		DPIN E 6;
+		DPIN E 6 A_Pain;
+		Goto See;
+	Death:
+		DPIN F 8 BRIGHT;
+		DPIN G 8 BRIGHT A_Scream;
+		DPIN HI 8 BRIGHT;
+		DPIN J 8 BRIGHT A_64PainDie("DCX_ForgottenSoul");
+		DPIN K 8 BRIGHT;
+		Stop;
+	Raise:
+		Stop;
+	}
+}
+
+Class DCX_Hellknight : Hellknight Replaces Hellknight
+{
+	Default
+	{
+		BloodColor "30 67 23";
+	}
+	void A_BruiserAttack()
+	{
+		A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee");
+		A_FaceTarget();
+	}
+	States
+	{
+	Missile:
+		BOS2 EF 8 A_FaceTarget;
+		BOS2 G 8 A_BruiserAttack();
+		Goto See;
+	}
+}
+
+Class DCX_Baronofhell : Baronofhell Replaces Baronofhell
+{
+	Default
+	{
+		BloodColor "30 67 23";
+	}
+	void A_BruiserAttack()
+	{
+		A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee");
+		A_FaceTarget();
+	}
+	States
+	{
+	Missile:
+		BOSS EF 8 A_FaceTarget;
+		BOSS G 8 A_BruiserAttack();
+		Goto See;
+	}
+}
+
+class DCX_Cyberdemon : Cyberdemon Replaces Cyberdemon
+{		
+	States
+	{
+	Missile:
+		CYBR E 6 A_FaceTarget;
+		CYBR F 12 Bright A_CyberAttack;
+		CYBR E 12 A_FaceTarget;
+		CYBR F 12 Bright A_CyberAttack;
+		CYBR E 12 A_FaceTarget;
+		CYBR F 12 Bright A_CyberAttack;
+		Goto See;
+	Death:
+		CYBR H 10 Bright;
+		CYBR I 10 Bright A_Scream;
+		CYBR JKL 10 Bright;
+		CYBR M 10 Bright A_NoBlocking;
+		CYBR NO 10 Bright;
+		CYBR P 30;
+		CYBR P -1 A_BossDeath;
+		Stop;
+	}
+}
+
+Class DCX_LesserCyber : DCX_Cyberdemon
+{
+	Default
+	{
+		Health 2000;
+		Scale 0.95;
+		SeeSound "LesserCyber/sight";
+		PainSound "LesserCyber/pain";
+		DeathSound "LesserCyber/death";
+		Tag "Lesser Cyberdemon";
+		BloodColor "30 67 23";
+	}
+	States
+	{
+	Spawn:
+		LCYB AB 10 A_Look;
+		Loop;
+	See:
+		LCYB A 3 A_Hoof;
+		LCYB ABBCC 3 A_Chase;
+		LCYB D 3 A_Metal;
+		LCYB D 3 A_Chase;
+		Loop;
+	Missile:
+		LCYB E 6 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		LCYB E 12 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		LCYB E 12 A_FaceTarget;
+		LCYB F 12 Bright A_CyberAttack;
+		Goto See;
+	Pain:
+		LCYB G 10 A_Pain;
+		Goto See;
+	Death:
+		LCYB H 10 Bright;
+		LCYB I 10 Bright A_Scream;
+		LCYB JKL 10 Bright;
+		LCYB M 10 Bright A_NoBlocking;
+		LCYB NO 10 Bright;
+		LCYB P 30;
+		LCYB P -1 A_BossDeath;
+		Stop;
+	}
+}
+
+Class DCX_NightmareCyberdemon : DCX_Cyberdemon
+{
+	Default
+	{
+		Health 8000;
+		+SHADOW
+		BloodColor "Cyan";
+		RenderStyle "Subtract";
+	}
+}
+
+class DCX_SpiderMastermind : SpiderMastermind Replaces SpiderMastermind
+{
+	States
+	{
+	Missile:
+		SPID A 20 A_FaceTarget;
+		SPID G 4 BRIGHT A_SPosAttackUseAtkSound;
+		SPID H 4 BRIGHT A_SposAttackUseAtkSound;
+		SPID H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Death:
+		SPID J 1;
+		SPID J 19 A_Scream;
+		SPID K 10 A_NoBlocking;
+		SPID LMNOPQR 10 Bright;
+		SPID S 30;
+		SPID S -1 A_BossDeath;
+		Stop;
+	}
+}
+
+class DCX_LesserMastermind : DCX_SpiderMastermind
+{
+	Default
+	{
+		Health 1500;
+		Scale 0.9;
+		SeeSound "LesserSpider/sight";
+		PainSound "LesserSpider/pain";
+		DeathSound "LesserSpider/death";
+		Obituary "$OB_SPIDER";
+		Tag "$FN_SPIDER";
+		BloodColor "30 67 23";
+	}
+	States
+	{
+	Spawn:
+		LSPI AB 10 A_Look;
+		Loop;
+	See:
+		LSPI A 3 A_Metal;
+		LSPI ABB 3 A_Chase;
+		LSPI C 3 A_Metal;
+		LSPI CDD 3 A_Chase;
+		LSPI E 3 A_Metal;
+		LSPI EFF 3 A_Chase;
+		Loop;
+	Missile:
+		LSPI A 20 A_FaceTarget;
+		LSPI G 4 BRIGHT A_SPosAttackUseAtkSound;
+		LSPI H 4 BRIGHT A_SposAttackUseAtkSound;
+		LSPI H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		LSPI I 3;
+		LSPI I 3 A_Pain;
+		Goto See;
+	Death:
+		LSPI J 1;
+		LSPI J 19 A_Scream;
+		LSPI K 10 A_NoBlocking;
+		LSPI LMNOPQR 10 Bright;
+		LSPI S 30;
+		LSPI S -1 A_BossDeath;
+		Stop;
+	}
+}
+
+Class DCX_Motherdemon : Actor
+{
+	Default
+	{
+		Health 9000;
+		Radius 40;
+		Height 105;
+		Mass 10000;
+		Speed 25;
+		PainChance 4;
+		Monster;
+		MinMissileChance 160;
+		MissileChanceMult 0.5;
+		+BOSS
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
+		+FLOAT
+		+NOGRAVITY
+		+NOTELEFRAG
+		SeeSound "mother/sight";
+		AttackSound "";
+		PainSound "mother/pain";
+		DeathSound "mother/death";
+		ActiveSound "mother/active";
+		Obituary "$OB_MOTHER";
+	}
+	States
+	{
+		Spawn:
+			MOTH AB 10 A_Look;
+			Loop;
+		See:
+			MOTH AAABBBCCCDDD 2 A_Chase;
+			Loop;
+		Missile:
+			MOTH E 10 A_FaceTarget;
+			MOTH FF 2 Bright A_SkelMissile;
+			MOTH F 0 Bright A_FatAttack3;
+			MOTH G 2 Bright A_SkelMissile;
+			MOTH G 0 Bright A_FatAttack3;
+			MOTH G 1 Bright A_FatAttack1;
+			MOTH G 1 Bright A_FatAttack2;
+			MOTH H 0 Bright A_VileStart;
+			MOTH H 10 Bright A_FaceTarget;
+			MOTH H 8 Bright A_VileTarget;
+			MOTH HH 8 Bright A_FaceTarget;
+			MOTH IIII 8 Bright A_FaceTarget;
+			MOTH J 8 Bright A_VileAttack;
+			MOTH J 20 Bright;
+			Goto See;
+		Pain:
+			MOTH K 40 A_Pain;
+			MOTH H 4 Bright A_FaceTarget;
+			MOTH I 6 Bright A_FaceTarget;
+			MOTH JJJJ 4 Bright A_PainAttack;
+			Goto See;
+		Death:
+			MOTH L 1;
+			MOTH L 19 A_Scream;
+			MOTH M 10 A_Fall;
+			MOTH NO 8;
+			MOTH PQRS 6;
+			MOTH T 48;
+			MOTH T -1 A_BossDeath;
+			Stop;
+	}
+}
+
+class DCX_BossEye : BossEye Replaces BossEye
+{
+	default
+	{
+		Seesound "brain/sight";
+	}
+	void A_BrainAwake()
+	{
+		A_StartSound(self.seesound, CHAN_VOICE, CHANF_DEFAULT, 1, ATTN_NONE);
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 10 A_Look;
+		Loop;
+	See:
+		TNT1 A 181 A_BrainAwake;
+		TNT1 A 150 A_BrainSpit;
+		Wait;
+	}
+}
+
+class DCX_BossBrain : BossBrain replaces BossBrain
+{
+	default
+	{
+		PainSound "brain/pain";
+		DeathSound "brain/death";
+	}
+	private static void BrainishExplosion(vector3 pos)
+	{
+		Actor boom = Actor.Spawn("Rocket", pos, NO_REPLACE);
+		if (boom)
+		{
+			boom.DeathSound = "misc/brainexplode";
+			boom.Vel.z = random[BrainScream](0, 255)/128.;
+
+			boom.SetStateLabel ("Brainexplode");
+			boom.bRocketTrail = false;
+			boom.SetDamage(0);	// disables collision detection which is not wanted here
+			boom.tics -= random[BrainScream](0, 7);
+			if (boom.tics < 1) boom.tics = 1;
+		}
+	}
+	
+	void A_BrainScream()
+	{
+		for (double x = -280; x < +280; x += 8)
+		{
+			BrainishExplosion(Vec2OffsetZ(x, -320, (1 / 512.) + random[BrainExplode](0, 255) * 2));
+		}
+		A_StartSound(self.Deathsound, CHAN_VOICE, CHANF_DEFAULT, 1., ATTN_NONE);
+	}
+
+	void A_BrainPain()
+	{
+		A_StartSound(self.Painsound, CHAN_VOICE, CHANF_DEFAULT, 1, ATTN_NONE);
+	}
+	
+	/*
+	override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
+	{
+		String mapName = level.MapName.MakeLower();
+		if(mapName == "tn_map30")
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("DOHBLU1",TexMan.Type_Any),TexMan.CheckForTexture("DOHBLU1",TexMan.Type_Any));
+		}
+		super.Die(source, inflictor, dmgflags, MeansOfDeath);
+	}
+	*/
+	
+	states
+	{
+		Death:
+			BBRN B 100 A_BrainScream();
+			BBRN BB 10;
+			BBRN B -1 A_BrainDie;
+			Stop;
+	}
+}
+
+Class Flames : BurningBarrel
+{
+	Default
+	{
+		-SOLID
+	}
+	States
+	{
+		Spawn:
+			FCAN DEF 4 Bright;
+			Loop;
+	}
+}
+
+
+/*
+These are the Doom 2 hanging body gore objects that have been made non-solid.
+*/
+Class HangBNoBrainNS : HangBNoBrain{ Default { -SOLID } }
+
+Class HangNoGutsNS : HangNoGuts{ Default { -SOLID } }
+
+Class HangTLookingDownNS : HangTLookingDown{ Default { -SOLID } }
+
+Class HangTLookingUpNS : HangTLookingUp{ Default { -SOLID } }
+
+Class HangTNoBrainNS : HangTNoBrain{ Default { -SOLID } }
+
+Class HangTSkullNS : HangTSkull{ Default { -SOLID } }
+
+/*
+A faster flying, soundless version of the Demon Spawn Cube along with a Spawner 
+that doesn't make awakening sounds.
+*/
+Class FasterSpawnShot : SpawnShot 
+{
+	Default
+	{
+		Speed 30;
+		SeeSound "";
+		DeathSound "";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 3 Bright;
+			TNT1 BCD 3 Bright A_SpawnFly("TeleportFog");
+			Loop;
+	}
+}
+
+
+/*
+Altered demons spawner object.  These changes allow it to be killed.
+*/
+Class D64D2BossEye : BossEye
+{
+	Default
+	{
+	Health 10;
+	Radius 20;
+	Height 32;
+	Mass 100;
+	AttackSound "";
+	SeeSound "";
+	+ISMONSTER
+	+SHOOTABLE
+	+SOLID
+	-NOBLOCKMAP
+    -NOSECTOR
+	+DONTGIB
+	DropItem "DoomImp", 	 		   255,50;
+	DropItem "DCX_NightmareImp", 	   255,40;
+	DropItem "Demon",		 		   255,40;
+	DropItem "Spectre",		 		   255,30;
+	DropItem "DCX_NightmareSpectre",   255,20;
+	DropItem "PainElemental",		   255,10;
+	DropItem "Cacodemon",	 		   255,30;
+	DropItem "DCX_NightmareCacodemon", 255,20;
+	DropItem "Archvile",	 		   255, 2;
+	DropItem "Revenant",	 		   255,10;
+	DropItem "Arachnotron",	 		   255,20;
+	DropItem "Fatso",		 		   255,30;
+	DropItem "HellKnight",	 		   255,24;
+	DropItem "BaronOfHell",	 		   255,10;
+	}
+	States
+	{
+		Spawn:
+			SSWV A 10 A_Look;
+			Loop;
+		See:
+			SSWV A 10;
+			SSWV A 150 A_BrainSpit("FasterSpawnShot");
+			Wait;
+	}
+}
+
+
+/*
+An exploder object that constantly calls A_Explode every tic.  Used for
+voodoo doll setups (better than crushing a barrel).
+*/
+Class VoodooExploder : Actor
+{
+	Default
+	{
+	Height 16;
+	Radius 32;
+	}
+	States
+	{
+		Spawn:
+			MISL B 1 Bright A_Explode;
+			Loop;
+	}
+}
+
+
+/*
+A special behind-the-scenes demon which helps a player choose their destiny...
+*/
+Class ChooserDemon : Actor
+{
+	Default
+	{
+	Health 10;
+	Height 56;
+	Radius 20;
+	Mass 500;
+	Speed 15;
+	PainChance 0;
+	RenderStyle "OptFuzzy";
+	Alpha 0.5;
+	+QUICKTORETALIATE
+	+FLOORCLIP
+	+NOTARGET
+	+SHOOTABLE
+	+SOLID
+	+CANPUSHWALLS
+	+CANUSEWALLS
+	+ACTIVATEMCROSS
+	+CANPASS
+	+SHADOW
+	}
+	States
+	{
+		Spawn:
+			VILE AB 10 A_Look;
+			Loop;
+		See:
+			VILE AABBCCDDEEFF 2 A_VileChase;
+			Loop;
+		Death:
+			VILE QR 7;
+			VILE S 7 A_NoBlocking;
+			VILE TUVWXY 7;
+			VILE Z -1;
+			Stop;
+	}
+}
+
+//		Alpine Spew Bastards		//
+
+Class SurferMutant1 : Doomimp
+{
+	Default
+	{
+		SeeSound "Surfer1/Sight";
+		PainSound "Surfer1/Pain";
+		DeathSound "Surfer1/Death";
+		ActiveSound "Surfer1/Active";
+		Tag "Red Surfer Mutant";
+		HitObituary "%o was pwned by a Red Surfer Mutant";
+		Obituary "%o was spewed by a Red Surfer Mutant";
+	}
+	
+	void A_SpewAttack()
+	{
+		A_CustomComboAttack("BallOSpew", 32, 3 * random(1, 8), "baron/melee");
+		A_FaceTarget();
+	}
+	
+	States
+	{
+	Spawn:
+		SFM1 AB 10 A_Look;
+		Loop;
+	See:
+		SFM1 AABBCCDD 3 A_Chase;
+		Loop;
+	Melee:
+	Missile:
+		SFM1 EF 8 A_FaceTarget;
+		SFM1 G 6 A_SpewAttack();
+		Goto See;
+	Pain:
+		SFM1 H 2;
+		SFM1 H 2 A_Pain;
+		Goto See;
+	Death:
+		SFM1 I 8;
+		SFM1 J 8 A_Scream;
+		SFM1 K 6;
+		SFM1 L 6 A_NoBlocking;
+		SFM1 M -1;
+		Stop;
+	XDeath:
+		SFM1 N 5;
+		SFM1 O 5 A_XScream;
+		SFM1 P 5;
+		SFM1 Q 5 A_NoBlocking;
+		SFM1 RST 5;
+		SFM1 U -1;
+		Stop;
+	Raise:
+		SFM1 MLKJI 8;
+		Goto See;
+	}
+}
+
+Class BallOSpew : DoomImpBall
+{
+	Default
+	{
+		SeeSound "Spewball/Shot";
+		DeathSound "Spewball/ShotX";
+	}
+	States
+	{
+	Spawn:
+		BOSW AB 4 BRIGHT;
+		Loop;
+	Death:
+		BOSW CDE 6 BRIGHT;
+		Stop;
+	}
+}
+
+Class SurferMutant2 : Shotgunguy 
+{
+	Default
+	{
+		SeeSound "Surfer2/Sight";
+		AttackSound "shotguy/attack";
+		PainSound "Surfer2/Pain";
+		DeathSound "Surfer2/Death";
+		ActiveSound "Surfer2/Active";
+		Obituary "%o was blasted by a Yellow Surfer Mutant";
+		Tag "Yellow Surfer Mutant";
+		DropItem "Shotgun";
+	}
+	States
+	{
+	Spawn:
+		SFM2 AB 10 A_Look;
+		Loop;
+	See:
+		SFM2 AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		SFM2 E 10 A_FaceTarget;
+		SFM2 F 10 BRIGHT A_SposAttackUseAtkSound;
+		SFM2 E 10;
+		Goto See;
+	Pain:
+		SFM2 G 3;
+		SFM2 G 3 A_Pain;
+		Goto See;
+	Death:
+		SFM2 H 5;
+		SFM2 I 5 A_Scream;
+		SFM2 J 5 A_NoBlocking;
+		SFM2 K 5;
+		SFM2 L -1;
+		Stop;
+	XDeath:
+		SFM2 M 5;
+		SFM2 N 5 A_XScream;
+		SFM2 O 5 A_NoBlocking;
+		SFM2 PQRST 5;
+		SFM2 U -1;
+		Stop;
+	Raise:
+		SFM2 L 5;
+		SFM2 KJIH 5;
+		Goto See;
+	}
+}
+
+Class LoungeSinger : Demon 
+{
+	Default
+	{
+		SeeSound "Singer/Sight";
+		AttackSound "Singer/Melee";
+		PainSound "Singer/pain";
+		DeathSound "Singer/death";
+		ActiveSound "Singer/active";
+		Obituary "%o was sung to death by a Lounge Singer";
+		Tag "Lounge Singer";
+	}
+	States
+	{
+	Spawn:
+		SNGR AB 10 A_Look;
+		Loop;
+	See:
+		SNGR AABBCCDD 2 Fast A_Chase;
+		Loop;
+	Melee:
+		SNGR EF 8 Fast A_FaceTarget;
+		SNGR G 8 Fast A_SargAttack;
+		Goto See;
+	Pain:
+		SNGR H 2 Fast;
+		SNGR H 2 Fast A_Pain;
+		Goto See;
+	Death:
+		SNGR I 8;
+		SNGR J 8 A_Scream;
+		SNGR K 4;
+		SNGR L 4 A_NoBlocking;
+		SNGR M 4;
+		SNGR N -1;
+		Stop;
+	Raise:
+		SNGR N 5;
+		SNGR MLKJI 5;
+		Goto See;
+	}
+}
+
+Class SpectreSinger : LoungeSinger
+{
+	Default
+	{
+		+SHADOW
+		RenderStyle "OptFuzzy";
+		Alpha 0.5;
+	}
+}
+
+Class NightmareSinger : LoungeSinger
+{
+	Default
+	{
+		Health 300;
+		+SHADOW
+		RenderStyle "Subtract";
+		BloodColor "Blue";
+	}
+}
+
+Class BottleOfSpew : Lostsoul 
+{
+	Default
+	{
+		Obituary "%o was eaten by a bottle of Spew";
+		Tag "Bottle of Alpine Spew^tm";
+		DeathSound "Spewball/ShotX";
+	}
+	States
+	{
+	Spawn:
+		SPWB AB 10 BRIGHT A_Look;
+		Loop;
+	See:
+		SPWB AB 6 BRIGHT A_Chase;
+		Loop;
+	Missile:
+		SPWB C 10 BRIGHT A_FaceTarget;
+		SPWB D 4 BRIGHT A_SkullAttack;
+		SPWB CD 4 BRIGHT;
+		Goto Missile+2;
+	Pain:
+		SPWB E 3 BRIGHT;
+		SPWB E 3 BRIGHT A_Pain;
+		Goto See;
+	Death:
+		SPWB F 6 BRIGHT;
+		SPWB G 6 BRIGHT A_Scream;
+		SPWB H 6 BRIGHT;
+		SPWB I 6 BRIGHT A_NoBlocking;
+		SPWB J 6;
+		SPWB K 6;
+		Stop;
+	}
+}
+
+Class GiantCanOfSpew : SpiderMastermind 
+{
+	Default
+	{
+		Obituary "%o was downed by a can of Alpine Spew^tm";
+		Tag "Giant can of Alpine Spew";
+	}
+	States
+	{
+	Spawn:
+		COAS AB 10 A_Look;
+		Loop;
+	See:
+		COAS A 3 A_Metal;
+		COAS ABB 3 A_Chase;
+		COAS C 3 A_Metal;
+		COAS CDD 3 A_Chase;
+		COAS E 3 A_Metal;
+		COAS EFF 3 A_Chase;
+		Loop;
+	Missile:
+		COAS A 20 A_FaceTarget  ;
+		COAS G 4 BRIGHT A_SPosAttackUseAtkSound;
+		COAS H 4 BRIGHT A_SposAttackUseAtkSound;
+		COAS H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		COAS I 3;
+		COAS I 3 A_Pain;
+		Goto See;
+	Death:
+		COAS J 20 A_Scream;
+		COAS K 10 A_NoBlocking;
+		COAS LMNOPQRS 10 bright;
+		TNT1 A 20;
+		TNT1 A 0 A_BossDeath;
+		Stop;
+	}
+}
+
+Class Kick_Column : Column
+{
+	States
+	{
+	Spawn:
+		KCOL A -1 BRIGHT;
+		Stop;
+	}
+}
+
+Class Kick_TechPillar : TechPillar
+{
+	States
+	{
+	Spawn:
+		KELC A -1;
+		Stop;
+	}
+}
+
+Class Kick_TechLamp : TechLamp
+{
+	States
+	{
+	Spawn:
+		KTLP ABCD 4 BRIGHT;
+		Loop;
+	}
+}

@@ -1,0 +1,198 @@
+
+Class Stimpack_BFG : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM B -1;
+		Stop;
+	}
+}
+
+Class Medikit_BFG : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI B -1;
+		Stop;
+	}
+}
+
+Class Berserk_BFG : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR B -1 bright;
+		Stop;
+	}
+}
+
+Class Stimpack_Unity : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM C -1;
+		Stop;
+	}
+}
+
+Class Medikit_Unity : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI C -1;
+		Stop;
+	}
+}
+
+Class Berserk_Unity : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR C -1 bright;
+		Stop;
+	}
+}
+
+Class Stimpack_Eternal : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM D -1;
+		Stop;
+	}
+}
+
+Class Medikit_Eternal : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI D -1;
+		Stop;
+	}
+}
+
+Class Berserk_Eternal : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR D -1 bright;
+		Stop;
+	}
+}
+
+Class DCX_Demonkey1 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY O -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Orangekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Orangekeyicon", 1);
+		TNT1 A 0 A_Print("You have the feeling that it wasn't to be touched...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Orangekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey2 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY P -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Purplekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Purplekeyicon", 1);
+		TNT1 A 0 A_Print("Whatever it is, it doesn't belong in this world...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Purplekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey3 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY C -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Cyankeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Cyankeyicon", 1);
+		TNT1 A 0 A_Print("It must do something...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Cyankeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}

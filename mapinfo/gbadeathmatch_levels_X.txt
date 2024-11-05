@@ -1,0 +1,74 @@
+//
+defaultmap
+{
+	SuckTime = 1
+	InterMusic = "$MUSIC_INTER"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+	NoIntermission
+	NoSoundClipping
+	AllowRespawn 
+	Sky1 = "SKY1"
+	ExitPic = "DMVICTOR"
+	Cluster = 666
+	SpecialAction = "DCX_DM_MarineBotSpawner", EXIT_NORMAL, 0, 1
+	ResetHealth
+    ResetInventory
+}
+
+Map GBA_DM1 "GBA DeathMatch 1"
+{
+	Music = "$MUSIC_E1M4"
+	Label = "DM01"
+	Next = "GBA_DM2"
+}
+
+Map GBA_DM2 "GBA DeathMatch 2"
+{
+	Music = "$MUSIC_E1M2"
+	Label = "DM02"
+	Next = "GBA_DM3"
+}
+
+Map GBA_DM3 "GBA DeathMatch 3"
+{
+	Music = "$MUSIC_E1M1"
+	Label = "DM03"
+	Next = "GBA_DM4"
+}
+
+Map GBA_DM4 "GBA DeathMatch 4"
+{
+	Music = "$MUSIC_E1M7"
+	Label = "DM04"
+	Next = "GBA_DM5"
+}
+
+Map GBA_DM5 "GBA DeathMatch 5"
+{
+	Music = "$MUSIC_E1M5"
+	Label = "DM05"
+	Next = "GBA_DM6"
+}
+
+Map GBA_DM6 "GBA DeathMatch 6"
+{
+	Music = "$MUSIC_E2M7"
+	Label = "DM06"
+	Next = "GBA_DM7"
+}
+
+Map GBA_DM7 "GBA DeathMatch 7"
+{
+	Music = "$MUSIC_E1M8"
+	Label = "DM07"
+	Next = "GBA_DM8"
+}
+
+Map GBA_DM8 "GBA DeathMatch 8"
+{
+	Music = "$MUSIC_E1M3"
+	Label = "DM08"
+	Next = endpic, "JAGTITLE"
+}

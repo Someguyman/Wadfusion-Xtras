@@ -1,0 +1,530 @@
+===========================================================================
+Advanced engine needed  : Vanilla
+Primary purpose         : Single + coop play
+===========================================================================
+Title                   : Doom 64 for Doom II
+Filename                : D64D2_v1.3.wad
+Release date            : [v1.0] July 13th, 2018
+                          [v1.1] July 21st, 2018
+                          [v1.2] July 29th, 2018
+                          [v1.3] December 18th, 2019
+                          [v1.4] December 31th, 2019
+Author                  : Various (see below for full credits)
+Email Address           : mekaddonn@gmail.com
+Other Files By Author   : -/-
+Misc. Author Info       : -/-
+
+Description             : Doom 64 maps recreated or reimagined with vanilla
+                          Doom II assets, and made to run within the
+                          original vanilla limits.  Not all maps are
+                          perfect recreations; the goal was to recreate
+                          the major aspects of the maps while allowing for
+                          creative liberties where needed or wanted.
+
+                          In addition to the maps, there are some new 
+                          graphics, new sky textures, a few new textures
+                          where needed, some new music tracks, and a few
+                          new monsters.
+
+                          This project was a community effort and was
+                          started by Death Egg in May 2013.  Sometime
+                          later the project was handed off to BaronOfStuff
+                          but was abandoned not too long after that.
+                          In February 2017, Death Egg stepped back in to
+                          hand the project's leadership over to Mechadon,
+                          and it was finished a year and a half later.
+
+Additional Credits to   : See below
+---------------------------------------------------------------------------
+Project Founder         : Death Egg
+
+Project Leader          : Mechadon
+
+Mappers                 : _bruce_
+                          ArchvileHunter
+                          BaronOfStuff
+                          Blastfrog
+                          C30N9
+                          Da Werecat
+                          DeXiaZ
+                          Death Egg
+                          DILDOMASTER666
+                          dt_
+                          Mechadon
+                          Megalyth
+                          MinerOfWorlds
+                          Nevander
+                          Pedro VC
+                          Saint_Guy
+                          TwinBeast
+                          Z86
+
+Musicians               : CoTeCiO
+                          DILDOMASTER666
+                          Jimmy
+                          Michael Barrette
+                          Robert Prince
+                          Viscra Maelstrom
+
+Graphics                : Cage
+                             - Motherdemon sprites
+                             - M_DOOM (final)
+                             - TITLEPIC
+                             - INTERPIC
+                             - BOSSBACK
+                             - CREDIT
+                             - HELP
+                             - CONBACK
+                             - Statusbar
+                             - MARBFAC5 texture
+                             - DEM2_# flat
+                             - Super-secret textures
+                          Blastfrog
+                             - M_DOOM
+                          Da Werecat
+                             - Sky textures
+                             - Texture fixes
+                             - TEKLONG texture
+                             - Flame sprites
+                          DILDOMASTER666
+                             - MAP32 textures
+                          id Software
+                             - Statusbar
+                             - TITLEPIC
+                             - INTERPIC
+                             - M_DOOM
+                             - COOP sign texture
+                             - WFALL# textures
+                             - Nightmare Imp fireball
+                             - M_SKULL
+                          Mechadon
+                             - Sky textures
+                             - COOP sign texture
+                             - Texture fixes
+                             - Statusbar
+                             - BOSSBACK
+                             - HELP
+                             - CREDIT
+                             - ENDOOM
+                             - CONBACK
+                             - Thermo-slider
+                             - Screen borders
+                             - Save/Load background
+                             - M_SKULL
+                             - Disk icon
+                             - Nightmare Imp fireball
+                             - D64* textures
+                             - Super-secret textures
+                          Midway
+                             - M_DOOM
+                             - TITLEPIC
+                             - INTERPIC
+                             - MARBFAC5 texture
+                             - DEM2_# flat
+                             - D64* textures
+                          Nevander
+                             - CWILV## graphics
+
+Sound Effects           : CoTeCiO (blank sfx)
+                          DeXiaZ
+                          Mechadon
+                          Skulltag (thunder sfx)
+
+Dehacked & DECORATE     : Da Werecat
+                          Mechadon
+                          Obsidian
+                          Revenant100
+
+Testers                 : AlexMax
+                          antares031
+                          Bashe
+                          CoTeCiO
+                          Da Werecat
+                          DeXiaZ
+                          EtherBot
+                          FearTheReaper
+                          Flambeau
+                          guitardz
+                          Keyboard_Doomer
+                          Mechadon
+                          Memfis
+                          Nevander
+                          Pablo_Doom_Guy
+                          Prologue-9
+                          Quantum Dranger
+                          Rosh Fragger
+                          TheWolfman00001
+                          TwinBeast
+                          Valboom
+                          Woolie Wool
+                          damo2k
+                          rhinoduck
+                          valkiriforce
+
+Opening Demos           : Main Engineering - Mechadon
+                          Even Simpler     - DeXiaZ
+                          Watch Your Step  - CoTeCiO
+
+Extra Demos             : Hectic (no secrets) - CoTeCiO
+                          Hectic (w/ secrets) - Mechadon
+
+Special Thanks          : Death Egg for coming up with the idea for the
+                          project and allowing me to help finish it.
+
+                          BaronOfStuff for helping keep the project alive
+                          after Death Egg couldn't.
+
+                          CoTeCiO and Nevander for helping put together
+                          builds before the project was reorganized and
+                          for helping keep the project alive.
+
+                          Da Werecat for helping me out with some of the
+                          more obscure dehacked changes, doing some
+                          excellent work prettying up the sky textures,
+                          helping with the blank sfx, and doing a bunch
+                          of other helpful things!
+
+                          Cage for doing some amazing graphic work
+                          towards the end of the project despite being
+                          super busy.  And a HUGE thanks for the brand
+                          new Motherdemon sprites (which he made from
+                          scratch by the way)!
+
+                          Devalaous for helping come up with the final
+                          map order.
+
+                          damo2k for making a fixed MAPINFO that works
+                          in ZDaemon, and for all his ZDaemon-related
+                          testing help.
+
+                          The TNS Team and the players for the testing
+                          help, especially for the COOP reports!
+
+                          Linguica, Jayextee, leileilol, FearTheReaper,
+                          FrenchGuy, Jimmy, Bashe, Blue Shadow, SiFi270,
+                          Randy87, Scotty, CoTeCiO, Archvile Hunter,
+                          TheWolfman00001, and MegaBlast for finding and 
+                          reporting post-release bugs!  Especially to 
+                          Randy87 and Bashe for helping me with the 
+                          Motherdemon bug in DOS Doom!
+
+                          DeXiaZ, TROJAN719, Humzah Hashmi, Dean Salter 
+                          (DeanoSauruzRex), Aquapunk, and Daimonas for
+                          making the kickass release trailer!
+
+                          Fraggle and the other contributers for creating
+                          Chocolate Doom.
+
+                          RestlessRodent for creating chocorenderlimits.
+
+                          Kaiser for creating Doom64EX which was super
+                          useful when recreating and testing the maps.
+
+                          Wartorn for providing me file hosting which
+                          easily allowed me to distribute project-
+                          related materials.
+
+                          The contributors and maintainers of the Doom,
+                          ZDoom, and Eternity wikis.
+
+                          Doomworld and its staff for providing us with
+                          a place to organize and create this project.
+
+                          The creators of Doom 64 for making a fantastic
+                          entry into the Doom series!
+---------------------------------------------------------------------------
+Maplist                 : MAP01     : Staging Area
+                          Author(s) : Death Egg & DILDOMASTER666
+                          Music     : Extradimensional Beings by CoTeCiO
+
+                          MAP02     : The Terraformer
+                          Author(s) : Blastfrog & Mechadon
+                          Music     : Dark Halls by Robert Prince
+
+                          MAP03     : Main Engineering
+                          Author(s) : Mechadon
+                          Music     : The Demons from Adrian's Pen
+                                      by Robert Prince
+
+                          MAP04     : Holding Area
+                          Author(s) : Da Werecat
+                          Music     : Blackness Ahead by CoTeCiO
+
+                          MAP05     : Tech Center
+                          Author(s) : Z86 & Mechadon
+                          Music     : The Imp's Song by Robert Prince
+
+                          MAP06     : Outpost Omega
+                          Author(s) : dt_
+                          Music     : Fear by CoTeCiO
+
+                          MAP07     : Even Simpler
+                          Author(s) : DeXiaZ & Mechadon
+                          Music     : On the Edge by CoTeCiO
+
+                          MAP08     : Alpha Quadrant
+                          Author(s) : ArchvileHunter & Da Werecat
+                          Music     : Zephyr Zone Infiltration Method
+                                      by Viscra Maelstrom
+
+                          MAP09     : Research Lab
+                          Author(s) : Da Werecat
+                          Music     : The Dark City by Viscra Maelstrom
+
+                          MAP10     : Final Outpost
+                          Author(s) : Da Werecat
+                          Music     : Suspense by Robert Prince
+
+                          MAP11     : Cat and Mouse
+                          Author(s) : BaronOfStuff & Mechadon
+                          Music     : Sanity Decay by CoTeCiO
+
+                          MAP12     : The Bleeding
+                          Author(s) : Saint_Guy
+                          Music     : Opening to Hell by Robert Prince
+
+                          MAP13     : Terror Core
+                          Author(s) : MinerOfWorlds & Mechadon
+                          Music     : Sinister from Robert Prince
+
+                          MAP14     : The Lair
+                          Author(s) : Death Egg & DILDOMASTER666
+                                      & Da Werecat
+                          Music     : Painful Dreams by CoTeCiO
+
+                          MAP15     : Altar of Pain
+                          Author(s) : Pedro VC & Mechadon
+                          Music     : Adrian's Asleep by Robert Prince
+
+                          MAP16     : Dark Citadel
+                          Author(s) : Nevander & DeXiaZ & Mechadon
+                          Music     : They're Going to Get You
+                                      by Robert Prince
+
+                          MAP17     : Eye of the Storm
+                          Author(s) : Nevander & Mechadon
+                          Music     : Sanity Slip by Viscra Maelstrom
+
+                          MAP18     : Dark Entries
+                          Author(s) : Megalyth
+                          Music     : Butt Clencher by Jimmy
+
+                          MAP19     : Blood Keep
+                          Author(s) : BaronOfStuff & Mechadon
+                                      & DILDOMASTER666
+                          Music     : Lurking by CoTeCiO
+
+                          MAP20     : Hardcore
+                          Author(s) : BaronOfStuff & Mechadon
+                          Music     : Inappropriate Behavior by CoTeCiO
+
+                          MAP21     : Watch Your Step
+                          Author(s) : _bruce_ & C30N9
+                          Music     : Watch Your Rock by CoTeCiO
+
+                          MAP22     : Spawned Fear
+                          Author(s) : Pedro VC & Mechadon
+                          Music     : Waltz of the Demons by Robert Prince
+
+                          MAP23     : The Spiral
+                          Author(s) : BaronOfStuff & Mechadon
+                          Music     : Defensive Personalities (from Death)
+                                      by DILDOMASTER666
+
+                          MAP24     : Breakdown
+                          Author(s) : _bruce_
+                          Music     : Can You Hold The Scream
+                                      by CoTeCiO
+
+                          MAP25     : Pitfalls
+                          Author(s) : DeXiaZ & Mechadon
+                          Music     : Getting Too Tense by Robert Prince
+
+                          MAP26     : Playground
+                          Author(s) : BaronOfStuff & Mechadon
+                          Music     : Animated Specter by DILDOMASTER666
+
+                          MAP27     : Burnt Offerings
+                          Author(s) : BaronOfStuff & Mechadon
+                          Music     : Sign of Evil by Robert Prince
+
+                          MAP28     : Unholy Temple
+                          Author(s) : _bruce_ & Mechadon & DILDOMASTER666
+                          Music     : Demons on the Prey by Robert Prince
+
+                          MAP29     : No Escape
+                          Author(s) : DILDOMASTER666 & Mechadon
+                          Music     : A Lot to Learn by DILDOMASTER666
+
+                          MAP30     : The Absolution
+                          Author(s) : Mechadon
+                          Music     : Aubrey's Dilemma by DILDOMASTER666
+
+                          MAP31     : Hectic
+                          Author(s) : TwinBeast
+                          Music     : Dream, Dream Eternal
+                                      by DILDOMASTER666
+
+                          MAP32     : In the Void
+                          Author(s) : DILDOMASTER666 & Mechadon
+                          Music     : Blood Red Shadows
+                                      (from Aubrey Hodges)
+                                      by Michael Barrette
+                                      (modified by DILDOMASTER666)
+
+                          MAP33     : Title
+                          Author(s) : Nevander & Mechadon
+                          Music     : Doom 64: Main Theme
+                                      (from Aubrey Hodges)
+                                      by Michael Barrette
+                                      modified by DILDOMASTER666)
+
+Extra Music Credits  : Title        : Doom 64: Main Theme [shortened]
+                                      (from Aubrey Hodges) by CoTeCiO
+                       Stats        : Doom 64: Stats Screen
+                                      (from Aubrey Hodges) by CoTeCiO
+                       Intermission : First Departure by CoTeCiO
+                       GENMIDI lump : CoTeCiO
+===========================================================================
+* What is included *
+
+New levels              : 33
+Sounds                  : Yes
+Music                   : Yes
+Graphics                : Yes
+Dehacked/BEX Patch      : Yes
+Demos                   : Yes
+Other                   : d64d2_bar_ws.wad (wide-screen statusbar)
+                          d64d2_hellbar.wad (alternate statusbar graphics)
+                          d64d2_hellbar_ws.wad (wide-screen variant)
+Other files required    : None
+
+
+* Play Information *
+
+Game                    : Doom 2
+Map #                   : MAP01 - MAP32 (+MAP33 as a bonus)
+Single Player           : Designed for
+Cooperative 2-4 Player  : Designed for
+Deathmatch 2-4 Player   : Player starts only
+Other game styles       : None
+Difficulty Settings     : Yes
+Additional Notes        : If you're playing in Chocolate Doom, be sure to
+                          apply the .deh file and use -merge.
+
+                          MAP02B, MAP19B, MAP27B, and MAP30B are the map
+                          lump names for the Boom-format variants of those
+                          particular maps.  Use those names when warping
+                          to them via console or command line.
+
+                          MAP33 can only be warped to, there is no exit
+                          that leads to it.  Some ports will allow you
+                          to use idclev, but others may require that you
+                          use the -warp command or the console.
+
+                          MAP11, MAP21, MAP26, MAP29, and MAP30 can not
+                          be exited when using the -nomonsters flag.  This
+                          is because the Cyberdemon(s)/Motherdemon
+                          (on MAP30) must be killed in order to progress.
+
+                          If you see a sign that says 'COOP', this means
+                          that the switch or teleporter is meant for
+                          cooperative play (for areas that other players
+                          might get locked out of).  I did my best to hide
+                          them from the player in singleplayer games, but
+                          you may still notice a couple of them.
+
+
+* Construction *
+
+Base                    : Some maps directly based off of their Doom 64
+                          counterparts, others are recreated from scratch.
+Build Time              : 5 years & 2 months
+Editor(s) used          : Doom Builder 2, GZDoom Builder, SLADE, XWE,
+                          WhackEd4, GIMP, Photoshop, playscii, DoomWriter,
+                          Audacity, Google Docs, FL Studio, Guitar Pro 5.2,
+                          Anvil Studio, 3DS Studio Max
+Known Bugs              : Voodoo doll setups make use of an exploding
+                          object to push the player object.  This causes
+                          the player to take a small amount of damage,
+                          meaning it's possible that a player could be
+                          killed out of the blue or put into an undead
+                          state.  We have tried to mitigate this possiblity
+                          as much as possible, but it could still happen.
+
+                          A few maps have seg overflows in areas, but they
+                          should be pretty hard to spot for the most part.
+
+                          Mouselook may make certain shootable triggers
+                          too easy to hit or may break something.  Playing
+                          with mouselook is discouraged if it allows you
+                          to fire weapons in the direction you look.
+
+                          Some maps make use of instant raise/lower
+                          sectors.  Because it's possible to do linedef
+                          skips accidentally, you may run into areas
+                          where the floor may not raise/lower properly.
+                          You should still be able to continue with the
+                          map when this occurs though.
+
+                          Saving/Loading may break in some maps because
+                          of vanilla limits.  This shouldn't be a problem
+                          if played in an advanced port.
+
+                          MAP33's name will show up as 'Congo' in some
+                          ports.  This is a limitation of the dehacked
+                          format, so just ignore it.
+
+                          The Nightmare Imp will not make a melee attack
+                          sound in vanilla.  This is a limitation of the
+                          dehacked and not a bug.  It was given a melee
+                          attack sound in (G)ZDoom-based ports as a
+                          quality-of-life change.
+
+                          The wide-screen version of the statusbar may
+                          not work in all ports.  I don't know if this
+                          is a problem with the statusbar, or if it's a
+                          lack of support issue.
+
+                          In the end-game casting call in (G)ZDoom ports,
+                          the Motherdemon's sight sound will get cut off
+                          as she does her attack animation.  This seems to
+                          be a limitation with how the engine handles UI
+                          sound effects.
+
+                          For the end-game casting call in certain ports
+                          (Vanilla/Chocolate, PrBoom+), the Motherdemon's
+                          attack sound is the chaingun.  This appears to be
+                          hardcoded behavior and thus cannot be changed.
+
+                          ZDaemon has a few issues:
+                              - There are some visual errors that may pop
+                                up in some maps (ie. MAP30).
+                              - Some music tracks were reported as not
+                                playing back correctly.
+                              - The end game text won't display.
+                              - The warping fire sky textures do not work.
+May Not Run With        : Nothing that I'm aware of
+Tested With             : Chocolate Doom, chocorenderlimits, (G)ZDoom,
+                          ZDaemon, Zandronum, & PrBoom-Plus
+
+
+* Copyright / Permissions *
+
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by-sa/4.0/
+
+You are free to copy and redistribute the material in any medium or format;
+and remix, transform, and build upon the material for any purpose, even
+commercially. If you do so, you must give appropriate credit, provide a link
+to the license, and indicate if changes were made. You may do so in any
+reasonable manner, but not in any way that suggests the licensor endorses you
+or your use. If you remix, transform, or build upon the material, you must
+distribute your contributions under the same license as the original.
+
+* Where to get the file that this text file describes *
+
+The Usual: ftp://archives.gamers.org/pub/idgames/ and mirrors
+Web sites: https://www.doomworld.com/files/
+           http://mekworx.the-powerhouse.net/

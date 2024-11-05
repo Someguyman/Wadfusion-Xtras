@@ -1,0 +1,834 @@
+
+class DCX_PlaystationSecrets : LevelPostProcessor
+{
+	protected void Apply(Name checksum, String mapname)
+	{
+		switch (checksum)
+		{
+			case '6b60f37b91309dff1cdf02e5e476210d':
+			{
+				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+				{
+					SetLineActivation(574, SPAC_Use);
+					SetLineSpecial(574, Exit_Secret, 0);
+				}
+				break;
+			}
+		}
+	}
+}
+
+// Fixes the minor bugs in the maps
+Class DCX_MapFixes : LevelPostProcessor
+{
+	protected void Apply(Name checksum, String mapname)
+	{
+		for (int i = 0; i < GetThingCount(); i++)
+		{
+			let flags = GetThingFlags(i);
+			int ednum = GetThingEdNum(i);
+			String mapPrefix = level.MapName.Left(3);
+			mapPrefix = mapPrefix.MakeLower();
+			String mapName = level.MapName.MakeLower();
+			
+			if ( mapName == "e1m7" )
+			{
+				AddThing(2035, (-1088, -64, -999), 0,MODES_ALL | MTF_AMBUSH);
+			}
+			
+			// Removes the extra pinky, now everything will be able to move
+			if ( mapName == "e2m6" )
+			{
+				SetThingEdNum(71,0);
+			}
+			
+			// Removes the two secrets blocked by the torches
+			if ( mapName == "e4m3" )
+			{
+				SetSectorSpecial(124,0);
+				SetSectorSpecial(125,0);
+			}
+			
+			if ( mapName == "map02" )
+			{
+				SetThingEdNum(85,0);
+				SetThingEdNum(69,0);
+				
+				AddThing(2035, (464, 800, -999), 45);
+			}
+			
+			//	Replaces the two nukeage tiles with the blood tiles for consistancy
+			if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
+			{
+				If ( mapName == "e2m4" )
+				{
+					SetSectorTexture(173,0,"BLOOD3");
+					SetSectorTexture(177,0,"BLOOD3");
+				}
+			}
+			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+			{
+				if ((mapName == "e4m7") || (mapName == "ml_map35") )
+				{
+					SetWallTexture(595,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(582,line.front,side.mid,"DOORBLU2");
+						
+					SetWallTexture(388,line.front,side.top,"DOORYEL2");
+					SetWallTexture(1325,line.front,side.top,"DOORYEL2");
+					SetWallTexture(1053,line.front,side.top,"DOORYEL2");
+					SetWallTexture(1324,line.front,side.top,"DOORYEL2");
+						
+					SetWallTexture(1329,line.front,side.top,"DOORYEL2");
+					SetWallTexture(210,line.front,side.top,"DOORYEL2");
+					SetWallTexture(1056,line.front,side.top,"DOORYEL2");
+					SetWallTexture(1327,line.front,side.top,"DOORYEL2");
+						
+					SetWallTexture(64,line.front,side.mid,"DOORRED2");
+					SetWallTexture(68,line.front,side.mid,"DOORRED2");
+				}
+				if ( mapName == "map31" )
+				{
+					SetWallTexture(666,line.front,side.mid,"LITE5");
+					SetWallTexture(668,line.front,side.mid,"LITE5");
+					SetWallTexture(670,line.front,side.mid,"LITE5");
+					SetWallTexture(672,line.front,side.mid,"LITE5");
+				}
+				if ( mapName == "ml_map33" )
+				{
+					SetWallTexture(345,line.front,side.mid,"DOORYEL2");
+					SetWallTexture(347,line.front,side.mid,"DOORYEL2");						
+					SetWallTexture(351,line.front,side.mid,"DOORYEL2");
+					SetWallTexture(353,line.front,side.mid,"DOORYEL2");						
+							
+					SetWallTexture(566,line.front,side.top,"DOORBLU2");
+					SetWallTexture(1167,line.front,side.top,"DOORBLU2");					
+					SetWallTexture(563,line.front,side.top,"DOORBLU2");
+					SetWallTexture(1165,line.front,side.top,"DOORBLU2");
+							
+					SetWallTexture(1025,line.front,side.top,"DOORBLU2");
+					SetWallTexture(1464,line.front,side.top,"DOORBLU2");
+					SetWallTexture(1466,line.front,side.top,"DOORBLU2");
+					SetWallTexture(1467,line.front,side.top,"DOORBLU2");
+				}
+				if ( mapName == "ml_map34" )
+				{
+					SetWallTexture(370,line.front,side.top,"MARBFRED");
+					SetWallTexture(380,line.front,side.top,"MARBFRED");
+					
+					SetWallTexture(788,line.front,side.mid,"DOORYEL");
+					SetWallTexture(790,line.front,side.mid,"DOORYEL");
+				}
+				if ( mapName == "ml_map11" )
+				{
+					SetWallTexture(338,line.front,side.top,"DOORBLU2");
+					SetWallTexture(341,line.front,side.top,"DOORBLU2");
+					SetWallTexture(538,line.front,side.top,"DOORBLU2");
+					SetWallTexture(540,line.front,side.top,"DOORBLU2");
+					
+					SetWallTexture(534,line.front,side.top,"DOORYEL2");
+					SetWallTexture(464,line.front,side.top,"DOORYEL2");
+					SetWallTexture(537,line.front,side.top,"DOORYEL2");
+					SetWallTexture(461,line.front,side.top,"DOORYEL2");
+					
+					SetWallTexture(301,line.front,side.mid,"DOORYEL2");
+					SetWallTexture(699,line.front,side.mid,"DOORYEL2");
+					
+					SetWallTexture(286,line.front,side.mid,"DOORYEL");
+					SetWallTexture(931,line.front,side.mid,"DOORYEL");
+				}
+				if ( mapName == "ml_map12" )
+				{
+					SetWallTexture(157,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(831,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(344,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(345,line.front,side.mid,"DOORBLU2");
+					
+					SetWallTexture(332,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(204,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(206,line.front,side.mid,"DOORBLU");
+					SetWallTexture(328,line.front,side.mid,"DOORBLU");
+					
+					SetWallTexture(670,line.front,side.mid,"DOORRED2");
+					SetWallTexture(740,line.front,side.mid,"DOORRED2");
+					SetWallTexture(923,line.front,side.top,"DOORRED2");
+					SetWallTexture(816,line.front,side.top,"DOORRED2");
+				}
+				if ( mapName == "ml_map15" )
+				{
+					SetWallTexture(27,line.front,side.mid,"DOORBLU2");
+					SetWallTexture(244,line.front,side.mid,"DOORBLU2");
+					
+					SetWallTexture(667,line.front,side.mid,"DOORRED2");
+					SetWallTexture(1108,line.front,side.mid,"DOORRED2");
+				}
+				if ( mapName == "ml_map36" )
+				{
+					SetWallTexture(3694,line.front,side.mid,"DOORRED");
+					SetWallTexture(3673,line.front,side.mid,"DOORRED");
+					SetWallTexture(3691,line.front,side.mid,"DOORRED");
+					SetWallTexture(1530,line.front,side.mid,"DOORRED");
+				}			
+			}
+			Break;
+		}
+	}
+}
+
+class DCX_Multiplayerweaponremoveal : LevelPostProcessor 
+{
+		protected void Apply(Name checksum, String mapname)
+		{
+			for (int i = 0; i < GetThingCount(); i++)
+			{
+				let flags = GetThingFlags(i);
+				int ednum = GetThingEdNum(i);
+				String mapPrefix = level.MapName.Left(3);
+				mapPrefix = mapPrefix.MakeLower();
+				String mapName = level.MapName.MakeLower();
+				
+				if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
+				{
+					if (ednum == 11)
+					SetThingEdNum(i, 7734); 
+				}
+				
+					if(flags & MTF_COOPERATIVE && !(flags & MTF_SINGLE))
+					{
+					if ( mapPrefix != "dm_" )
+					{
+					if ( mapPrefix != "ab_" )
+					{
+						if ( mapPrefix != "pl_" )
+						{
+							if ( (mapName != "tn_map28") || (mapName != "tn_map31") || (mapName != "tn_map32") )
+							{
+								if ( mapName != "psx02" )
+								{
+									if (ednum == 2007 || ednum == 2048 || ednum == 2008 || ednum == 2049 || ednum == 2010 || ednum == 2046 || ednum == 2047 || ednum == 17 || ednum == 8)
+									SetThingEdNum(i, 0); 
+								}
+								
+								if (ednum == 2001)
+								SetThingEdNum(i, 0); 
+								
+								if (ednum == 2002)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2003)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2004)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2005)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2006)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2035)
+								SetThingEdNum(i, 0); 
+
+								if (mapName != "tn_map01")
+								{
+									if (mapName != "psx02")
+									{
+										if (ednum == 82)
+										SetThingEdNum(i, 0); 
+									}
+								}
+							}
+						}
+						}
+					}
+					//Health
+					if (ednum == 2012)
+					SetThingEdNum(i, 2014); 
+					
+					//Weapons
+					if (ednum == 8)
+					SetThingEdNum(i, 2011); 
+					
+					//Powerups
+					if (ednum == 2024 || ednum == 2026 || ednum == 2025 || ednum == 2018 || ednum == 2019 || ednum == 2045)
+					SetThingEdNum(i, 0); 
+					
+					if (ednum == 14)
+					SetThingEdNum(i, 0);
+					
+					if (ednum == 2013 || ednum == 83 || ednum == 2022 || ednum == 2026 || ednum == 2023)
+					SetThingEdNum(i, 2014); 
+					
+					if (ednum == 16 && mapPrefix != "map")
+					SetThingEdNum(i, 616); 
+					
+					if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
+					SetThingEdNum(i, 607); 
+			}
+		}
+	}
+}
+
+//Used in case the ACS script has trouble spawning in a particular actor or two
+
+class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor 
+{
+		protected void Apply(Name checksum, String mapname)
+		{
+			for (int i = 0; i < GetThingCount(); i++)
+			{
+				let flags = GetThingFlags(i);
+				int ednum = GetThingEdNum(i);
+				String mapPrefix = level.MapName.Left(3);
+				mapPrefix = mapPrefix.MakeLower();
+				String mapName = level.MapName.MakeLower();
+				
+				//Adding the unmaker and demonkeys into the maps.
+				
+				if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
+				{					
+					if ( mapName == "ab_map06" )
+					{
+						SetThingEdNum(81,666); //Replaces secret plasmagun
+						AddThing(667, (-1184, 1376, -999), 270,MODES_ALL | MTF_AMBUSH); //Adds demonkey to the button secret
+					}				
+					if ( mapName == "ab_map14" )
+					SetThingEdNum(137,668);	//Replaces the megasphere that stood where it was in doom 64.
+				
+					if ( mapName == "ab_map32" )
+					SetThingEdNum(106,669);	//Replaces the megasphere on top of the platform
+				
+					if ( mapName == "ab_map15" )
+					SetThingEdNum(291,666);	//Replaces the bfg in the red key room where the unmaker was in the original doom 64
+				
+					if ( mapName == "ab_map28" )
+					SetThingEdNum(73,666);	//Replaces the plasmagun on the secret lift
+					
+					if ( mapName == "ab_map30" )
+					{
+						SetThingEdNum(6,666);  //Replaces the backpack in penultimate room
+						AddThing(8, (0, -3308, -999), 270,MODES_ALL | MTF_AMBUSH);  //Adds a backpack with the rest of the ammo cashe
+					}			
+				}
+				
+				//This will only activeate when the appropriate value is called
+				If (CallACS("Check_Difficulty") == 1)
+				{
+					if ( mapName == "e4m1" )
+					{
+						SetThingEdNum(29,69);
+						SetThingEdNum(30,69);
+						SetThingEdNum(31,69);
+						SetThingEdNum(32,69);
+						SetThingEdNum(87,69); 
+					}
+					if ( mapName == "e4m2" )
+					{
+						SetThingEdNum(22,69);
+						SetThingEdNum(24,69);
+						SetThingEdNum(25,69);
+						SetThingEdNum(26,69);
+						SetThingEdNum(39,69);
+						SetThingEdNum(40,69);
+						SetThingEdNum(90,69);
+						SetThingEdNum(91,69);
+						SetThingEdNum(92,69);
+						SetThingEdNum(133,69);
+						SetThingEdNum(134,69);
+						SetThingEdNum(223,69);
+					}	
+					if ( mapName == "e4m3" )
+					{
+						SetThingEdNum(238,69);
+						SetThingEdNum(239,69);
+						SetThingEdNum(326,69);
+						SetThingEdNum(327,69);
+						SetThingEdNum(368,69);
+					}
+					if ( mapName == "e4m7" )
+					{
+						SetThingEdNum(131,69);
+						SetThingEdNum(126,69);
+					}
+					if ( mapNAme == "e4m8" )
+					{
+						SetThingEdNum(105,69);
+						SetThingEdNum(106,69);
+						SetThingEdNum(120,69);
+					}
+				}
+				
+				//Will only activeate on "Total Carnage" and "ULTRA NIGHTMARE!" difficulties. 
+				If (CallACS("Check_Difficulty") == 2)
+				{
+					if ( mapName == "e1m8" )
+					{
+						AddThing(697, (48, 688, 999), 45);
+						AddThing(697, (784, 688, 999), 135);
+					}
+					if ( mapName == "e2m3" )
+					{
+						AddThing(2006, (864, -64, -999), 270,MODES_ALL | MTF_AMBUSH);
+					}
+					if ( mapName == "e3m3" )
+					{
+						SetThingEdNum(71,697);
+						SetThingEdNum(97,697);
+						SetThingEdNum(139,697);
+						SetThingEdNum(151,697);
+						SetThingEdNum(198,697);
+					}
+					if ( mapNAme == "e3m5" )
+					{
+						SetThingEdNum(217,64);
+						
+						SetThingEdNum(160,69);
+						SetThingEdNum(161,69);
+						
+						//;)
+						
+						SetThingEdNum(4,697);
+						SetThingEdNum(5,697);
+						SetThingEdNum(6,697);
+						SetThingEdNum(7,697);
+						SetThingEdNum(8,697);
+						SetThingEdNum(9,697);
+						SetThingEdNum(108,697);
+					}
+					if ( mapName == "e4m7" )
+					{
+						SetThingEdNum(131,69);
+						
+						SetThingEdNum(170,66);
+						SetThingEdNum(171,66);
+						
+						SetThingEdNum(49,65);
+						
+						SetThingEdNum(42,66);
+						SetThingEdNum(43,66);
+						
+						SetThingEdNum(10,66);
+						SetThingEdNum(11,66);
+						
+						SetThingEdNum(176,71);
+						
+						SetThingEdNum(62,82);
+					}
+					if ( mapName == "psx04" )
+					{
+						SetThingEdNum(304,3003);
+						SetThingEdNum(305,3003);
+						SetThingEdNum(306,3003);
+						SetThingEdNum(307,3003);
+						SetThingEdNum(308,3003);
+						SetThingEdNum(309,3003);
+						SetThingEdNum(310,3003);
+						SetThingEdNum(311,3003);
+						SetThingEdNum(312,3003);
+					}
+					if ( mapName == "e5m1" )
+					{
+						SetThingEdNum(157,697);
+					}
+					if ( mapName == "e5m3" )
+					{
+						SetThingEdNum(67,710);
+				
+						AddThing(697,(-448,-2016,-999),135);
+						AddThing(697,(-800,-2016,-999),45);
+				
+						AddThing(697,(-704,-2432,-999),45);
+						AddThing(697,(-512,-2432,-999),135);
+					}
+					if ( mapName == "e5m4" )
+					{
+						SetThingEdNum(37,686);
+						SetThingEdNum(89,686);
+						SetThingEdNum(261,686);
+						SetThingEdNum(268,686);
+					}
+					if ( mapName == "e5m5" )
+					{
+						SetThingEdNum(23,69);
+						SetThingEdNum(110,69);
+						SetThingEdNum(109,69);
+						SetThingEdNum(354,69);
+					}
+					if ( mapName == "e5m6" )
+					{
+						SetThingEdNum(31,69);
+						SetThingEdNum(32,69);
+						SetThingEdNum(33,69);
+				
+						SetThingEdNum(80,69);
+						SetThingEdNum(116,69);
+						SetThingEdNum(181,69);
+					}
+					if ( mapName == "e5m7" )
+					{
+						SetThingEdNum(55,685);
+				
+						SetThingEdNum(104,686);				
+						SetThingEdNum(214,686);
+						SetThingEdNum(215,686);
+						SetThingEdNum(372,686);
+					}
+					if ( mapName == "e5m8" )
+					{
+						SetThingEdNum(55,685);
+				
+						SetThingEdNum(201,697);			
+						SetThingEdNum(204,697);
+				
+						SetThingEdNum(206,697);
+						SetThingEdNum(208,697);
+				
+						AddThing(82,(1472,-552,999),90,MODES_ALL | MTF_AMBUSH);
+					}		
+					if ( mapName == "e5m9" )
+					{
+						SetThingEdNum(164,697);
+				
+						AddThing(58,(-1824,24,999),90,MODES_ALL | MTF_AMBUSH);
+						AddThing(58,(-1440,24,999),90,MODES_ALL | MTF_AMBUSH);
+						AddThing(697,(-1632,24,-999),90,MODES_ALL | MTF_AMBUSH);
+					}
+					if ( mapName == "map01" )
+					{						
+						SetThingEdNum(20,9);
+						SetThingEdNum(21,9);
+						SetThingEdNum(22,9);
+						
+						SetThingEdNum(11,65);
+						SetThingEdNum(12,65);
+						SetThingEdNum(13,65);
+						SetThingEdNum(14,65);
+						SetThingEdNum(31,65);
+						SetThingEdNum(48,65);
+						SetThingEdNum(32,65);
+						
+						SetThingEdNum(51,66);
+					}
+					if ( mapName == "map02" )
+					{
+						SetThingEdNum(35,65);
+						SetThingEdNum(145,65);
+						
+						SetThingEdNum(17,66);
+						SetThingEdNum(18,66);
+						
+						SetThingEdNum(19,65);
+						SetThingEdNum(20,65);
+						
+						SetThingEdNum(33,65);
+						
+						SetThingEdNum(46,69);
+						SetThingEdNum(47,69);
+						SetThingEdNum(48,69);
+						
+						SetThingEdNum(151,69);
+						SetThingEdNum(152,69);
+						
+						AddThing(65,(1440,1360,-999),0);
+					}
+					if ( mapName == "map03" )
+					{
+						SetThingEdNum(103,3003);
+						
+						SetThingEdNum(108,69);
+						SetThingEdNum(109,69);
+						
+						SetThingEdNum(142,66);
+						SetThingEdNum(143,66);
+						
+						SetThingEdNum(144,66);
+						
+						SetThingEdNum(121,69);
+						AddThing(69,(2624,2016,-999),90);
+						AddThing(69,(2816,2016,-999),90);
+						
+						SetThingEdNum(107,697);
+						AddThing(697,(3040,2336,-999),90);
+					}
+					if ( mapName == "map04" )
+					{
+						SetThingEdNum(15,65);
+						
+						SetThingEdNum(64,697);
+						
+						SetThingEdNum(73,66);
+						
+						SetThingEdNum(22,66);
+						SetThingEdNum(23,66);
+						SetThingEdNum(24,66);
+						SetThingEdNum(84,66);
+						SetThingEdNum(132,69);
+					}					
+					if ( mapName == "map05" )
+					{
+						SetThingEdNum(22,66);
+						SetThingEdNum(23,66);
+						SetThingEdNum(24,66);
+						
+						//AddThing(64,(3040,2336,-999),90);
+						
+						SetThingEdNum(56,2023);
+						SetThingEdNum(215,2013);
+					}
+					if ( mapName == "map06" )
+					{
+						AddThing(697,(2144,1664,-999),180);
+						AddThing(697,(2240,1760,-999),180);
+						AddThing(697,(2240,1568,-999),180);
+						
+						SetThingEdNum(245,697);
+						
+						SetThingEdNum(220,9);
+						SetThingEdNum(221,9);
+					}
+					if ( mapName == "map07" )
+					{
+						AddThing(17,(-672,-96,-999),135);
+						AddThing(17,(-544,-224,-999),315);
+						AddThing(17,(-672,-224,-999),225);
+						AddThing(17,(-544,-96,-999),45);
+						
+						/*					
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿⣿
+						⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿
+						⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿
+						⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿⣿⣿
+						⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿⣿⣿
+						⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿⣿
+						⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿⣿
+						⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿
+						⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
+						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿
+						*/
+					}
+					if ( mapName == "map11" )
+					{
+						SetThingEdNum(190,697);
+					}
+					if ( mapName == "map13" )
+					{
+						SetThingEdNum(11,697);
+						SetThingEdNum(13,697);
+						SetThingEdNum(17,697);
+						
+						SetThingEdNum(166,697);
+						
+						AddThing(697,(1552,-3072,-999),180);
+					}
+					if ( mapName == "map14" )
+					{
+						SetThingEdNum(92,697);
+					}
+					if ( mapName == "map17" )
+					{
+						AddThing(686,(-2336,-1472,-999),0);
+					}
+					if ( mapName == "map27" )
+					{
+						SetThingEdNum(74,697);
+						SetThingEdNum(75,697);
+						SetThingEdNum(76,697);
+						SetThingEdNum(77,697);
+					}
+					if ( mapName == "map31" )
+					{
+						AddThing(65,(-4000,-1184,-999),0);
+						AddThing(65,(-4000,-1248,-999),0);
+						AddThing(65,(-3936,-1184,-999),0);
+						AddThing(65,(-3936,-1248,-999),0);
+						
+						AddThing(697,(-4160,-1216,-999),0);
+					}
+					if ( mapName == "map32" )
+					{
+						SetThingEdNum(60,711);
+						
+						AddThing(3003,(416,7720,-999),270);
+						AddThing(3003,(480,7720,-999),270);
+						AddThing(3003,(352,7776,-999),270);
+						AddThing(3003,(416,7776,-999),270);
+						AddThing(3003,(480,7776,-999),270);
+						AddThing(3003,(544,7776,-999),270);
+						AddThing(3003,(384,7840,-999),270);
+						AddThing(3003,(448,7840,-999),270);
+						AddThing(3003,(512,7840,-999),270);
+					}
+					if ( mapName == "nv_map08" )
+					{
+						SetThingEdNum(59,711);
+					}
+				}
+				
+				Break;
+			}
+		}
+}
+
+//		List of Standard Editor Numbers for convience sake.		//
+
+
+//	Zombieman = 			3004
+//	ShotgunGuy = 		   	   9
+//	ChaingunGuy = 		  	  65
+//	DoomImp = 				3001
+//	PinkyDemon = 			3002
+//	SpectreDemon = 		  	  58
+//	LostSoul = 				3006
+//	Cacodemon = 			3005
+//	Hellknight = 		 	  69
+//	Baronofhell = 			3003
+//	Arachnotron = 		  	  68
+//	Painelemental = 	  	  71
+//	Revenant = 			  	  66
+//	Mancubus/Fatso = 	  	  67
+//	Archvile = 			  	  64
+//	SpiderMastermind = 	   	   7
+//	Cyberdemon = 		  	  16
+//	WolfensteinSS = 	  	  84
+//	CommanderKeen = 	  	  72
+//	BossBrain =				  88
+
+//	NightmareImp = 		 	 685
+//	NightmareDemon = 	 	 697
+//	NightmareCacodemon = 	 686	
+
+//	Ghoul = 				3007
+//	Banshee = 				3008
+//	Mindweaver = 			3009
+//	ShockTropper = 			3010
+//	Vassago = 				3011
+//	Tyrant = 				3012
+
+
+//	Pistol = 				5010
+//	Shotgun = 				2001
+//	SuperShotgun = 		  	  82
+//	Chaingun = 				2002
+//	RocketLauncher = 		2003
+//	PlasmaRifle = 			2004
+//	BFG9000 = 				2006
+//	Incenerator = 			3145
+//	Calamity Blade = 		3146
+
+
+//	Clip = 					2007
+//	Clipbox = 				2048
+//	Shell = 				2008
+//	ShellBox =  			2049
+//	Rocket = 				2010
+//	RocketBox = 			2046
+//	Cell = 					2047
+//	CellPack = 	  		  	  17
+//	GasCan = 				3143
+//	GasTank = 				3144
+//	BackPack = 	   		       8
+
+
+//	SoulSphere = 			2013
+//	BlurSphere = 			2024
+//	InvulnerabilitySphere = 2022
+//	MegaSphere = 			  83
+
+//	Berserk = 				2023
+//	Radsuit = 				2025
+//	ComputerAreaMap = 		2026
+//	LightAmplification = 	2045
+
+
+//	ArmorBonus = 			2015
+//	GreenArmor =			2018
+//	BlueArmor = 			2019
+
+//	HealthBonus =			2014
+//	StimPack =				2011
+//	MedKit =				2012
+
+//	ExplosiveBarrel = 		2035
+
+//	Stalagmite = 			  47
+//	ShortGreyTree = 		  43
+//	TallBrownTree =			  54
+//	TechnoPillar =			  48
+
+//	BurningBarrel = 		  70
+//	FloorLamp = 			2028
+//	ShortTechnoLamp = 		  86
+//	TallTechnoLamp =		  85
+
+//	ShortGreenPillar = 		  31
+//	PillarBeatingHeart = 	  36
+//	TallGreenPillar = 		  30
+//	ShortRedPillar = 		  33
+//	SkullPillar =			  37
+//	TallRedPillar =			  32
+
+//	Candle = 				  34
+//	Candlelabra = 			  35
+
+//	ShortBlueFireStick = 	  55
+//	TallBlueFireStick = 	  44
+//	ShortGreenFireStick = 	  56
+//	TallGreenFireStick = 	  45
+//	ShortRedFireStick = 	  57
+//	TallRedFireStick = 	  	  46
+
+//	EvilEye = 				  41
+//	SkullRock =				  42
+
+//	PoolOfBlood =			  80
+//	PoolOfBrains =			  81
+//	PoolOfBlood&Guts =		  79
+//	PoolOfBlood&Bones = 	  24
+
+//	DeadZombie = 			  18
+//	DeadSeregant = 			  19
+//	DeadImp = 				  20
+//	DeadLostsoul = 			  23
+//	DeadPinkyDemon = 		  21
+//	DeadCacodemon = 		  22
+//	DeadPlayer = 			  15
+//	BloodyMess1 = 			  10
+//	BloodyMess2 = 			  12
+
+//	SkullCandle =			  29
+//	SkullPole = 			  27
+//	SkullKebob =			  28
+//	ImpailedBody =			  25
+//	TwitchingBody =			  26
+
+//	HangingLeg =			  62
+//	BlockingLeg =			  53
+//	HangingPairOfLegs =		  60
+//	BlockingPairOfLegs =	  52
+//	HangingDudeLeg =		  61
+//	BlockingDudeLeg =		  61
+//	HangingDudeArms =		  59
+//	BlockingDudeArms =		  50
+//	HangingDudeTwitch =		  63
+//	BlockingDudeTwitch =	  49
+
+//	TorsoNoBrain = 			  78
+//	TorsoOpenSkull =		  76
+//	TorsoLookingDown =		  75
+//	TorsoLookingup =		  77
+//	VictimNoguts = 			  73
+//	VictimNoguts&Brain =	  74
+
+//	HangingBaron =			3110
+//	BlockingBaron =			3111

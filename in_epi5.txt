@@ -1,0 +1,70 @@
+NoAutoStartMap
+Background SIGMAP00
+Splat wisplat
+Pointer wiurh0 wiurh1
+
+Spots
+{
+	E5M1 120 137
+	E5M2 16 115
+	E5M3 49 108
+	E5M4 219 63
+	E5M5 130 189
+	E5M6 16 169
+	E5M7 51 37
+	E5M8 261 90
+	E5M9 202 139
+}
+
+Animation -53 0 4
+{
+	SIGMAP01
+	SIGMAP02
+	SIGMAP03
+	SIGMAP04
+	SIGMAP05
+	SIGMAP06
+	SIGMAP07
+}
+
+Animation 149 94 9
+{
+	SIGLAVA1
+	SIGLAVA2
+}
+
+Animation -2 150 8
+{
+	SIGFIRE1
+	SIGFIRE2
+}
+
+Animation 9 102 8
+{
+	SIGSHE1
+	SIGSHE2
+}
+
+Animation 96 107 8
+{
+	SIGBAPH1
+	SIGBAPH2
+}
+
+Animation 65 15 9
+{
+	SIGLAV1
+	SIGLAV2
+}
+
+Animation 197 49 8
+{
+	SIGWRET1
+	SIGWRET2
+}
+
+Animation 5 26 9
+{
+	SIGCAVE1
+	SIGCAVE2
+}

@@ -1,0 +1,111 @@
+texture SKY1TLA1
+pic 1 tics 5
+pic 2 tics 5
+pic 3 tics 5
+pic 4 tics 5
+pic 5 tics 5
+pic 6 tics 5
+pic 7 tics 5
+pic 8 tics 5
+	
+texture COMPSAN1
+pic 1 tics 8
+pic 2 tics 8
+pic 3 tics 8
+pic 4 tics 8
+pic 5 tics 8
+pic 6 tics 8
+pic 7 tics 8
+
+texture COMPSA21
+pic 1 tics 8
+pic 2 tics 8
+pic 3 tics 8
+pic 4 tics 8
+pic 5 tics 8
+pic 6 tics 8
+
+texture ENERGY01
+pic ENERGY01 tics 8
+pic ENERGY02 tics 8
+pic ENERGY03 tics 8
+pic ENERGY04 tics 8
+
+texture ENERGYF1
+pic 1 tics 8
+pic 2 tics 8
+pic 3 tics 8
+pic 4 tics 8
+
+texture DOHBLU1
+pic TSKY3 tics 90 
+pic DOHBLU2 tics 10
+pic DOHBLU3 tics 10
+pic DOHBLU4 tics 10
+pic DOHBLU5 tics 10
+pic DOHBLU6 tics 70
+
+warp texture SKY3TALS .5
+warp texture SKY3ATAS .5
+
+texture optional TVSNOW01
+pic TVSNOW01 tics 8
+pic TVSNOW02 tics 8
+pic TVSNOW03 tics 8
+
+texture optional ZZZFACE3
+pic ICNFRH1 tics 8
+pic ICNFRH2 tics 8
+pic ICNFRH3 tics 8
+pic ICNFRH4 tics 8
+
+Switch SW1KABCP on pic SW2KABCP tics 0
+Switch SW1KABK on pic SW2KABK tics 0
+Switch SW1KAB1 on pic SW2KAB1 tics 0
+Switch SW1KAB2 on pic SW2KAB2 tics 0
+Switch SW1KABGN on pic SW2KABGN tics 0
+Switch SW1KASV on pic SW2KASV tics 0
+Switch SW1KADI on pic SW2KADI tics 0
+Switch SW1KAGR1 on pic SW2KAGR1 tics 0
+Switch SW1KAM2 on pic SW2KAM2 tics 0
+Switch SW1KAMTL on pic SW2KAMTL tics 0
+Switch SW1KMD1 on pic SW2KMD1 tics 0
+Switch SW1KSTRG on pic SW2KSTRG tics 0
+Switch SW1KSTN1 on pic SW2KSTN1 tics 0
+Switch SW1KSTN2 on pic SW2KSTN2 tics 0
+Switch SW1KSTNE on pic SW2KSTNE tics 0
+Switch SW1KSTTN on pic SW2KSTTN tics 0
+Switch SW1KTK on pic SW2KTK tics 0
+Switch SW1KVIN on pic SW2KVIN tics 0
+
+texture Silver3A
+pic Silver3 tics 8
+pic Silver3B tics 8
+
+texture COMPUT22  
+pic COMPUT22 tics 8
+pic COMPUTE4 tics 8
+
+texture COMPTAL1
+pic COMPTAL1 tics 8
+pic COMPTAL2 tics 8
+		 
+texture COMPUT32 
+pic COMPUT32 tics 8
+pic COMPUTE6 tics 8
+		 
+texture COMPUT12
+pic COMPUT12 tics 8
+pic COMPUTE8 tics 8
+
+texture COMPTIL1
+pic COMPTIL1 tics 10
+pic COMPTIL2 tics 10
+pic COMPTIL3 tics 10
+pic COMPTIL4 tics 10
+
+texture COMPBLU1
+pic COMPBLU1 tics 10
+pic COMPBLU2 tics 10
+pic COMPBLU3 tics 10
+pic COMPBLU4 tics 10

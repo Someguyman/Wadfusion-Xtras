@@ -1,0 +1,160 @@
+include mapinfo/episodes_X.txt
+include mapinfo/doom1_levels_X.txt
+include mapinfo/thyfleshconsumed_levels_X.txt
+include mapinfo/sigil_levels_X.txt
+include mapinfo/sigil2_levels_X.txt
+include mapinfo/doom2_levels_X.txt
+include mapinfo/master_levels_X.txt
+include mapinfo/master_levels_christen_X.txt
+include mapinfo/master_levels_flynn_X.txt
+include mapinfo/master_levels_anderson_X.txt
+include mapinfo/master_levels_kvernmo_X.txt
+include mapinfo/nerve_levels_X.txt
+include mapinfo/tnt_levels_X.txt
+include mapinfo/id1_levels_X.txt
+include mapinfo/plutonia_levels_X.txt
+include mapinfo/Absolution_X.txt
+include mapinfo/GbaDeathMatch_Levels_X.txt
+include mapinfo/iddm1_levels_X.txt
+
+map TITLEMAP "Doom Title"
+{
+	nointermission
+	noautosavehint
+}
+
+gameinfo 
+{
+	PlayerClasses = "DCX_Player"
+	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler"
+    //creditpage = "CREDIT", "UDCRED", "E5CRED", "SCREDI2", "D2CRED", "TNCRED", "PRCRED", "PLCRED", "ABCRED"
+    infopage = "HELP2", "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64cre"
+    drawreadthis = true
+    StatusBarClass = "DCX_Statusbar"
+    //titlemusic = "$MUSIC_DM2TTL"
+}
+
+DoomEdNums
+{
+	666 = DCX_Unmaker
+	667 = DCX_Demonkey1
+	668 = DCX_Demonkey2
+	669 = DCX_Demonkey3
+	685 = DCX_NightmareImp
+	697 = DCX_NightmareSpectre
+	686 = DCX_NightmareCacodemon
+	616 = DCX_LesserCyber
+	607 = DCX_LesserMastermind
+	711 = DCX_NightmareCyberdemon
+	7734 = DCX_DM_MarineBotSpawner
+}
+
+ClearSkills
+
+skill baby
+{
+	ACSReturn = "1"
+	AutoUseHealth
+	AmmoFactor = 2
+	DamageFactor = 0.5
+	EasyBossBrain
+	SpawnFilter = Baby
+	PicName = "M_JKILL"
+	Name = "$SKILL_BABY"
+	Key = "i"
+}
+
+skill easy
+{
+	ACSReturn = "2"
+	EasyBossBrain
+	SpawnFilter = Easy
+	PicName = "M_ROUGH"
+	Name = "$SKILL_EASY"
+	Key = "h"
+}
+
+skill normal
+{
+	ACSReturn = "3"
+	SpawnFilter = Normal
+	PicName = "M_HURT"
+	Key = "h"
+	Name = "$SKILL_NORMAL"
+	DefaultSkill
+}
+
+skill hard
+{
+	ACSReturn = "4"
+	SpawnFilter = Hard
+	PicName = "M_ULTRA"
+	Name = "$SKILL_HARD"
+	Key = "u"
+}
+
+skill Superhard
+{
+	ACSReturn = "5"
+	SpawnFilter = Hard
+	PicName = "M_ULTRP"
+	Name = "Total Carnage"
+	MustConfirm = ", press y to continue"
+	SpawnMulti
+	MustConfirm = "Stronger foes appear sooner to tear you to shreds, press y to begin the slaughter"
+	Key = "+"
+	//DefaultSkill
+}
+
+skill Massacre
+{
+	ACSReturn = "4"
+	SpawnFilter = Hard
+	PicName = "M_UHOLY"
+	AmmoFactor = 0.5
+	DamageFactor = 2
+	HealthFactor = 0.6
+	//FastMonsters
+	Name = "Unholy Massacre!"
+	MustConfirm = "Little to no ammo and the monsters will make you their bitch, press y to continue"
+	Key = "m"
+}
+
+skill nightmare
+{
+	ACSReturn = "4"
+	AmmoFactor = 2
+	FastMonsters
+	InstantReaction
+	DisableCheats
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_NMARE"
+	Name = "$SKILL_NIGHTMARE"
+	MustConfirm
+	Key = "n"
+}
+
+skill UltraNightmare
+{
+	ACSReturn = "5"
+	SpawnMulti
+	FastMonsters
+	InstantReaction
+	DisableCheats
+	DamageFactor = 2
+	HealthFactor = 0.6
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_ULTNM"
+	Name = "ULTRA NIGHTMARE"
+	MustConfirm = "You Will Suffer, Press N"
+	Key = "n"
+}
+
+Cluster 666
+{
+	ExitText = "$GENERIC_TXT"
+	Music = "$MUSIC_E1M2"
+	pic = "DMVICTOR"
+}

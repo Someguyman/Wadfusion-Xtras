@@ -1,0 +1,100 @@
+// Sigil maps
+
+defaultmap
+{
+	Cluster = 26
+	Sky1 = "SKY5"
+	SuckTime = 1
+	// the music is intentionally set to something invalid,
+	// instead to be started and changed through zscript
+	InterMusic = NULL
+	ExitPic = "$IN_EPI5"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+	Author = "$WF_AU_ROMERO"
+}
+
+map E5M1 "$HUSTR_E5M1"
+{
+	LevelNum = 41
+	Next = "E5M2"
+	TitlePatch = "WILV40"
+	Par = 90
+}
+
+map E5M2 "$HUSTR_E5M2"
+{
+	LevelNum = 42
+	Next = "E5M3"
+	TitlePatch = "WILV41"
+	Par = 150
+}
+
+map E5M3 "$HUSTR_E5M3"
+{
+	LevelNum = 43
+	Next = "E5M4"
+	TitlePatch = "WILV42"
+	Par = 360
+}
+
+map E5M4 "$HUSTR_E5M4"
+{
+	LevelNum = 44
+	Next = "E5M5"
+	TitlePatch = "WILV43"
+	Par = 420
+}
+
+map E5M5 "$HUSTR_E5M5"
+{
+	LevelNum = 45
+	Next = "E5M6"
+	TitlePatch = "WILV44"
+	Par = 780
+}
+
+map E5M6 "$HUSTR_E5M6"
+{
+	LevelNum = 46
+	Next = "E5M7"
+	SecretNext = "E5M9"
+	TitlePatch = "WILV45"
+	Par = 420
+}
+
+map E5M7 "$HUSTR_E5M7"
+{
+	LevelNum = 47
+	Next = "E5M8"
+	TitlePatch = "WILV46"
+	Par = 780
+}
+
+map E5M8 "$HUSTR_E5M8"
+{
+	LevelNum = 48
+	Next = EndPic, "SIGILEND"
+	TitlePatch = "WILV47"
+	Par = 300
+	Nointermission
+	NoSoundClipping
+}
+
+map E5M9 "$HUSTR_E5M9"
+{
+	LevelNum = 49
+	Next = "E5M7"
+	TitlePatch = "WILV48"
+	Par = 660
+}
+
+// Sigil 1 cluster
+
+cluster 26
+{
+	Flat = "FLOOR7_2"
+	Music = "S_INTRO"
+	ExitText = "$E5TEXT"
+}

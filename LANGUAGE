@@ -1,0 +1,542 @@
+[enu default]
+
+PISTART_TITLE = "Pistol Starter";
+PISTART_TOGGLE = "Enable Pistol Start";
+PISTART_KEEPITEMS_TOGGLE = "Keep Inventory Items";
+
+WS_AU_ROMERO = "John Romero";
+WS_AU_ROMERO_HALL = "John Romero & Tom Hall";
+WS_AU_PETERSEN_HALL = "Sandy Petersen & Tom Hall";
+WS_AU_PETERSEN = "Sandy Petersen";
+WS_AU_MCGEE = "American McGee";
+WS_AU_GREEN = "Shawn Green";
+WS_AU_WILLITS_CHASAR = "Tim Willits & Theresa Chasar";
+WS_AU_ANDERSON = "John \"Dr. Sleep\" Anderson";
+WS_AU_WILLITS = "Tim Willits";
+WS_AU_MCGEE_PETERSEN = "American McGee & Sandy Petersen";
+
+// master levels
+WS_AU_KLIE = "Chris Klie";
+WS_AU_MUSTAINE = "Tom Mustaine";
+WS_AU_KVERNMO = "Sverre André Kvernmo";
+WS_AU_FLYNN = "Jim Flynn";
+
+// nerve
+WS_AU_MEAKIM = "Russell Meakim";
+WS_AU_IWAKURA = "Arya Iwakura";
+WS_AU_WILLITS_COLA = "Tim Willits & RC Cola";
+
+// tnt + plutonia
+WS_AU_WAKELIN = "John Wakelin";
+WS_AU_PATENALL_MINADEO = "Robin Patenall & John Minadeo";
+WS_AU_HALDERMAN = "Ty Halderman";
+WS_AU_DETHLEFSEN = "Jim Dethlefsen";
+WS_AU_SIEBEN_HALDERMAN = "Jimmy Sieben & Ty Halderman";
+WS_AU_DOWSWELL = "Andrew Dowswell";
+WS_AU_MINADEO = "John Minadeo";
+WS_AU_JOHNSON = "Dean Johnson";
+WS_AU_LOWELL = "Jim Lowell";
+WS_AU_KIDBY_HALDERMAN = "Brian Kidby & Ty Halderman";
+WS_AU_PATENALL = "Robin Patenall";
+WS_AU_WHITAKER = "William D. Whitaker";
+WS_AU_ARSENAULT = "Andre Arsenault";
+WS_AU_CASALI_HALDERMAN = "Dario Casali & Ty Halderman";
+WS_AU_OBRIEN = "Drake O'Brien";
+WS_AU_BUTEAU = "Christopher Buteau";
+WS_AU_TURNBULL = "Paul Turnbull";
+WS_AU_MENTZER = "Jim Mentzer";
+WS_AU_SNELL_LOWELL = "Mark Snell & Jim Lowell";
+WS_AU_MILO_CASALI = "Milo Casali";
+WS_AU_SIEBEN = "Jimmy Sieben";
+WS_AU_DARIO_CASALI = "Dario Casali";
+WS_AU_CASALIS = "Dario & Milo Casali";
+// xbox secret levels
+WS_AU_CALVIN = "David Calvin";
+WS_AU_BUKOWSKI = "Michael Bukowski";
+//	Rejected master levels"
+WS_AU_KLIE = "Christen Klie";
+//	Cut Doom 64 levels
+WS_AU_HEYDELAAR = "Tim Heydelaar";
+WS_AU_MIDWAY = "Midway Ent.";
+//	Perditions Gate
+WS_AU_MUSTAIN_MUSTAINESR = "Tom & Bob Mustaine";
+WS_AU_MUSTAIN_SIEBEN = "Tom Mustaine & Jimmy Sieben";
+WS_AU_MUSTAIN_MUSTAINESR_SIEBEN = "Tom & Bob Mustaine, Jimmy Sieben";
+WS_AU_MUSTAINESR = "Bob Mustaine";
+WS_AU_MCCANDLISH = "Mackey McCandlish";
+WS_AU_MUSTAIN_MCCANDLISH = "Tom Mustaine & Mackey McCandlish";
+//	AUTHOR UNKNOWN
+WS_AU_UNKNOWN = "???";
+
+HUSTR_E2M5b = "Altar Of Extraction";
+
+BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
+BONUS_KEXDM = "\c[GOLD]Bonus: \c[RED]DeathMatch Kex";
+BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]Titlescreen Map";
+
+DOOM1_EPI01 = "\c[RED]Knee-Deep in the Dead";
+DOOM1_EPI02 = "\c[RED]The Shores of Hell";
+DOOM1_EPI03 = "\c[RED]Inferno";
+UDOOM_EPI04 = "\c[RED]Thy Flesh Consumed";
+UDOOM_EPI05 = "\c[RED]SI6IL";
+UDOOM_EPI06 = "\c[RED]SI6IL II";
+
+DOOM2_EPI01 = "\c[RED]Subterranean Starport";
+DOOM2_EPI02 = "\c[RED]The City";
+DOOM2_EPI03 = "\c[RED]Hell Incarnate";
+DOOM2_EPI04 = "\c[RED]No Rest for the Living";
+DOOM2_EPI05 = "\c[RED]The Vulcan Abyss";
+DOOM2_EPI06 = "\c[RED]Counterfeit Eden";
+
+ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
+ABLOUTION_EPI02 = "\c[Red]Old Wounds";
+ABLOUTION_EPI03 = "\c[Red]The Absolution";
+
+MASTER_LV01 = "\c[DarkGray]Tim, Tom, Mid Assortment";
+MASTER_LV02 = "\c[DarkGray]KlieTech Series";
+MASTER_LV03 = "\c[DarkGray]Titan Series";
+MASTER_LV04 = "\c[DarkGray]Inferno Series";
+MASTER_LV05 = "\c[DarkGray]Cabal Series";
+
+TNTE_EPI01 = "\c[Orange]Io Invasion";
+TNTE_EPI02 = "\c[Orange]Nocturnal Io";
+TNTE_EPI03 = "\c[Orange]Hell on Io";
+
+PLUTONIA_EPI01 = "\c[Green]Jungle Assault";
+PLUTONIA_EPI02 = "\c[Green]The Blood Tides";
+PLUTONIA_EPI03 = "\c[Green]Devil's Hive";
+
+MUSIC_E4M1 = "E4M1";
+MUSIC_E4M2 = "E4M2";
+MUSIC_E4M3 = "E4M3";
+MUSIC_E4M4 = "E4M4";
+MUSIC_E4M5 = "E4M5";
+MUSIC_E4M6 = "E4M6";
+MUSIC_E4M7 = "E4M7";
+MUSIC_E4M8 = "E4M8";
+MUSIC_E4M9 = "E4M9";
+MUSIC_INTEREP4 = "INTER4";
+MUSIC_VICTR2 = "VICTR2";
+
+MUSIC_PSX03 = "PSX03";
+MUSIC_PSX04 = "PSX04";
+MUSIC_PSX05 = "PSX05";
+
+MUSIC_BETRAY = "BETREY";
+
+MUSIC_MASTERHUB = "TITLEM";
+MUSIC_MASTERINT = "INTERM";
+MUSIC_MASTERIN2 = "INTRM2";
+MUSIC_MASTERTXT = "READM";
+MUSIC_MASTERTX2 = "REDM2";
+MUSIC_MASTEREND = "ENDING";
+
+MUSIC_ABOUTTO = "ABOUTTO";
+MUSIC_ACHERON = "ACHERON";
+MUSIC_ANOMALY = "ANOMALY";
+MUSIC_ATTACK = "ATTACK";
+MUSIC_BLACKTWR = "BLACKTWR";
+MUSIC_BLOODF = "BLOODF";
+MUSIC_BLOODSEA = "BLOODSEA";
+MUSIC_CANYON = "CANYON";
+MUSIC_HELLCAN = "HELLCAN";
+MUSIC_CATWALK = "CATWALK";
+MUSIC_COMBINE = "COMBINE";
+MUSIC_CHIRON = "CHIRON";
+MUSIC_CPU = "CPU";
+MUSIC_DANTE = "DANTE";
+MUSIC_DERELICT = "DERELICT";
+MUSIC_DEVICEONE = "DEVICEONE";
+MUSIC_DMZ = "DMZ";
+MUSIC_ENEMY = "ENEMY";
+MUSIC_EYESTORM = "EYESTORM";
+MUSIC_FARSIDE = "FARSIDE";
+MUSIC_FISTULA = "FISTULA";
+MUSIC_FURY = "FURY";
+MUSIC_GARRISON = "GARRISON";
+MUSIC_GREYON = "GREYON";
+MUSIC_HACK2 = "HACK2";
+MUSIC_HIVE = "HIVE";
+MUSIC_IMAGE = "IMAGE";
+MUSIC_KICKATK = "KICKATK";
+MUSIC_LETHE = "LETHE";
+MUSIC_MANOR = "MANOR";
+MUSIC_MASTERDEN = "MASTERDEN";
+MUSIC_MEE2 = "MEE2";
+MUSIC_MEPHISTO = "MEPHISTO";
+MUSIC_MINES = "MINES";
+MUSIC_MINO = "MINO";
+MUSIC_NESSUS = "NESSUS";
+MUSIC_NEWCAT3 = "NEWCAT3";
+MUSIC_NIGHTMARE = "NIGHTMARE";
+MUSIC_PARADOX = "PARADOX";
+MUSIC_SUBSPACE = "SUBSPACE";
+MUSIC_SUBTERRA = "SUBTERRA";
+MUSIC_TDEATH = "TDEATH";
+MUSIC_TEETH = "TEETH";
+MUSIC_TRAPPED = "TRAPPED";
+MUSIC_TROUBLE = "TROUBLE";
+MUSIC_TUFF = "TUFF";
+MUSIC_VESPERAS = "VESPERAS";
+MUSIC_VIRGIL = "VIRGIL";
+MUSIC_WATCHTWR = "WATCHTWR";
+
+MUSIC_NERVETITLE = "NRFTLT";
+MUSIC_NERVEINTER = "NRFTLI";
+MUSIC_NERVETEXT = "NRFTLX";
+
+MUSIC_NERVE01 = "HOMESICK";
+MUSIC_NERVE02 = "DOCTRINE";
+MUSIC_NERVE03 = "DRYGULCH";
+MUSIC_NERVE04 = "GUNRODEO";
+MUSIC_NERVE05 = "TORTURE";
+MUSIC_NERVE06 = "SLAUGHTER";
+MUSIC_NERVE07 = "GOURMET";
+MUSIC_NERVE08 = "DARKNESS";
+MUSIC_NERVE09 = "THUNDER";
+
+MUSIC_TNTTITLE = "TITLETNT";
+MUSIC_TNTINTER = "INTERTNT";
+MUSIC_TNTTEXT = "READTNT";
+MUSIC_TNTEND = "SOULSWEEP";
+
+MUSIC_TNTMAP01 = "DETONATE";
+MUSIC_TNTMAP02 = "BLEEDIN";
+MUSIC_TNTMAP03 = "TRIANGLE";
+MUSIC_TNTMAP04 = "BROKEN";
+MUSIC_TNTMAP05 = "SLAMMER";
+MUSIC_TNTMAP06 = "HARANGUE";
+MUSIC_TNTMAP07 = "DOOMFORT";
+MUSIC_TNTMAP08 = "GLOWBELLY";
+MUSIC_TNTMAP09 = "CAPOERIA";
+MUSIC_TNTMAP10 = "OAKSET";
+MUSIC_TNTMAP11 = "STRESS";
+MUSIC_TNTMAP12 = "LUNGS";
+MUSIC_TNTMAP13 = "MOONBEAM";
+MUSIC_TNTMAP14 = "MRSTEIRF";
+MUSIC_TNTMAP15 = "FROGGY";
+MUSIC_TNTMAP16 = "WROUGHT";
+MUSIC_TNTMAP17 = "PLAID";
+MUSIC_TNTMAP18 = "MILLING";
+MUSIC_TNTMAP19 = "MAGNETS";
+MUSIC_TNTMAP20 = "FLATWORLD";
+MUSIC_TNTMAP21 = "DRYWALL";
+MUSIC_TNTMAP22 = "CONFUSION";
+MUSIC_TNTMAP23 = "RETOFTRO";
+MUSIC_TNTMAP24 = "FIRMA";
+MUSIC_TNTMAP25 = "STOMPING";
+MUSIC_TNTMAP26 = "IMPENDING";
+MUSIC_TNTMAP27 = "ZETTAZEPTO";
+MUSIC_TNTMAP28 = "ABYSSMAL";
+MUSIC_TNTMAP29 = "MEGALITH";
+MUSIC_TNTMAP30 = "SAVIOR";
+MUSIC_TNTMAP31 = "SOULSWEEP";
+MUSIC_TNTMAP32 = "SANDYCITY";
+
+MUSIC_PLUTITLE = "";
+MUSIC_PLUINTER = "PEINT";
+MUSIC_PLUTEXT = "PTRM";
+MUSIC_PLUEND = "CRYDES";
+
+MUSIC_PLUMAP01 = "DTHMSK";
+MUSIC_PLUMAP02 = "TRIGGR";
+MUSIC_PLUMAP03 = "JEMPIR";
+MUSIC_PLUMAP04 = "CLAUST";
+MUSIC_PLUMAP05 = "SEPULC";
+MUSIC_PLUMAP06 = "PLSFRT";
+MUSIC_PLUMAP07 = "SEAINS";
+MUSIC_PLUMAP08 = "TWROFR";
+MUSIC_PLUMAP09 = "PLUCRT";
+MUSIC_PLUMAP10 = "DENIED";
+MUSIC_PLUMAP11 = "WATCHN";
+MUSIC_PLUMAP12 = "BLDRSH";
+MUSIC_PLUMAP13 = "UNTILD";
+MUSIC_PLUMAP14 = "PLUGIN";
+MUSIC_PLUMAP15 = "PLUMET";
+MUSIC_PLUMAP16 = "RNGNKL";
+MUSIC_PLUMAP17 = "MASMAC";
+MUSIC_PLUMAP18 = "FIRHIV";
+MUSIC_PLUMAP19 = "LSTIPL";
+MUSIC_PLUMAP20 = "DTHTOL";
+MUSIC_PLUMAP21 = "ACSATN";
+MUSIC_PLUMAP22 = "STELTH";
+MUSIC_PLUMAP23 = "PLGUGY";
+MUSIC_PLUMAP24 = "PLUVIS";
+MUSIC_PLUMAP25 = "CONTEM";
+MUSIC_PLUMAP26 = "HOSILF";
+MUSIC_PLUMAP27 = "INFIMU";
+MUSIC_PLUMAP28 = "DEDPLM";
+MUSIC_PLUMAP29 = "SCARLE";
+MUSIC_PLUMAP30 = "PLURRY";
+MUSIC_PLUMAP31 = "CRYDES";
+MUSIC_PLUMAP32 = "PLUGSW";
+
+MUSIC_LORTITLE = "lorttl";
+MUSIC_LORINTER = "lorint";
+MUSIC_LORTEXT = "lorttl";
+MUSIC_LOREND = "evil2";
+
+MUSIC_LORMAP01 = "welcom";
+MUSIC_LORMAP02 = "shores";
+MUSIC_LORMAP03 = "bilge";
+MUSIC_LORMAP04 = "regard";
+MUSIC_LORMAP05 = "laugh";
+MUSIC_LORMAP06 = "cloudy";
+MUSIC_LORMAP07 = "tactic";
+MUSIC_LORMAP08 = "bonk";
+MUSIC_LORMAP09 = "driver";
+MUSIC_LORMAP10 = "wizard";
+MUSIC_LORMAP11 = "dejavu";
+MUSIC_LORMAP12 = "disgus";
+MUSIC_LORMAP13 = "vesper";
+MUSIC_LORMAP14 = "skelet";
+MUSIC_LORMAP15 = "openin";
+MUSIC_LORMAP16 = "helfor";
+
+MUSIC_BLANK = "blank";
+
+GENERIC_TXT = "ID Software salutes you!\n\n" //Placeholder text for certain maps
+
+		 "The Horrors of hell could not kill you.\n"
+		 "Their most cunning traps were no match for you.\n"
+		 "You have proven yourself the best of all!\n\n"
+		 
+		 "Congratulations!";
+		 
+GENERIC_TXT2 = 
+"You did it!\n"
+"\n"
+"By turning the evil of the horrors of hell\n"
+"in upon itself you have destoryed the power\n"
+"of the demons.\n"
+"\n"
+"Their dreadful invasion has been stopped cold!\n"
+"Now you can retire to a life time of frivolity.\n"
+"\n"
+"Congratulations!";
+
+E1TEXT = "Once you beat the big badasses and\n"
+		"clean out the moon base you're supposed\n"
+		"to win, aren't you? Aren't you? Where's\n"
+		"your fat reward and ticket home? What\n"
+		"the hell is this? It's not supposed to\n"
+		"end this way!\n\n"
+
+		"It stinks like rotten meat, but looks\n"
+		"like the lost Deimos base.  Looks like\n"
+		"you're stuck on The Shores of Hell.\n"
+		"The only way out is through.";
+		
+E2TEXT = "You've done it! The hideous cyber-\n"
+		"demon lord that ruled the lost Deimos\n"
+		"moon base has been slain and you\n"
+		"are triumphant! But ... where are\n"
+		"you? You clamber to the edge of the\n"
+		"moon and look down to see the awful\n"
+		"truth.\n\n"
+
+		"Deimos floats above Hell itself!\n"
+		"You've never heard of anyone escaping\n"
+		"from Hell, but you'll make the bastards\n"
+		"sorry they ever heard of you! Quickly,\n"
+		"you rappel down to  the surface of Hell.";
+		
+E4TEXT = "the spider mastermind must have sent forth\n"
+		 "its legions of hellspawn before your\n"
+		 "final confrontation with that terrible\n"
+		 "beast from hell.  but you stepped forward\n"
+		 "and brought forth eternal damnation and\n"
+		 "suffering upon the horde as a true hero\n"
+		 "would in the face of something so evil.\n\n"
+
+		 "besides, someone was gonna pay for what\n"
+		 "happened to daisy, your pet rabbit.\n\n"
+
+		 "but now, you see spread before you more\n"
+		 "potential pain and gibbitude as a nation\n"
+		 "of demons run amok among our cities.\n\n"
+
+		 "next stop, hell on earth!";
+
+MANSIONTXT = "hidden away the debris of the city lies\n"
+			 "a mansion. looks like it was made\n"
+			 "for torturing souls...kinda like\n"
+			 "hell's personal home. seems you are\n"
+			 "not welcomed here....";
+			 
+CLUBDOOMTXT = "seems you have slipped further into the\n"
+			  "unknown. whatever is ahead of you,\n"
+			  "doesn't look good.";
+			  
+M1TEXT =
+	"You have assaulted and triumphed over the\n"
+	"most vicious realms that the demented minds\n"
+	"of our designers could devise.\n"
+	"\n"
+	"The havoc you left behind you as you\n"
+	"smashed your way through the Master Levels\n"
+	"is mute tribute to your prowess.\n"
+	"\n"
+	"You have earned the title of\n"
+	"\"Master of Destruction\".";
+			  
+OB_MOTHER = "%o witnessed the Motherdemon's power.";
+OB_NITIMPHIT = "%o was slashed by a Nightmare Imp.";
+OB_NITIMP = "%o was burned by a Nightmare Imp.";
+OB_NITCACOHIT = "%o got too close to a Nightmare Cacodemon.";
+OB_NITCACO = "%o was smitten by a Nightmare Cacodemon.";
+
+ABHUSTR_1 = "Staging Area";
+ABHUSTR_2 = "The Terraformer";
+ABHUSTR_3 = "Main Engineering";
+ABHUSTR_4 = "Holding Area";
+ABHUSTR_5 = "Tech Center";
+ABHUSTR_6 = "Outpost Omega";
+ABHUSTR_7 = "Even Simpler";
+ABHUSTR_8 = "Alpha Quadrant";
+ABHUSTR_9 = "Research Lab";
+ABHUSTR_10 = "Final Outpost";
+ABHUSTR_11 = "Cat and Mouse";
+ABHUSTR_12 = "The Bleeding";
+ABHUSTR_13 = "Terror Core";
+ABHUSTR_14 = "The Lair";
+ABHUSTR_15 = "Altar of Pain";
+ABHUSTR_16 = "Dark Citadel";
+ABHUSTR_17 = "Eye of the Storm";
+ABHUSTR_18 = "Dark Entries";
+ABHUSTR_19 = "Blood Keep";
+ABHUSTR_20 = "Hardcore";
+ABHUSTR_21 = "Watch Your Step";
+ABHUSTR_22 = "Spawned Fear";
+ABHUSTR_23 = "The Spiral";
+ABHUSTR_24 = "Breakdown";
+ABHUSTR_25 = "Pitfalls";
+ABHUSTR_26 = "Playground";
+ABHUSTR_27 = "Burnt Offerings";
+ABHUSTR_28 = "Unholy Temple";
+ABHUSTR_29 = "No Escape";
+ABHUSTR_30 = "The Absolution";
+ABHUSTR_31 = "Hectic";
+ABHUSTR_32 = "In the Void";
+ABHUSTR_33 = "Title map";
+
+MUSIC_D64TITLE = "titlea";
+MUSIC_D64INTER = "intera";
+MUSIC_D64TEXT = "depart";
+MUSIC_D64TEXT2 = "depart";
+MUSIC_D64END = "map33";
+
+MUSIC_D64MAP01 = "extdim";
+MUSIC_D64MAP02 = "terraf";
+MUSIC_D64MAP03 = "engine";
+MUSIC_D64MAP04 = "blkahd";
+MUSIC_D64MAP05 = "holdin";
+MUSIC_D64MAP06 = "fear";
+MUSIC_D64MAP07 = "onedge";
+MUSIC_D64MAP08 = "zephyr";
+MUSIC_D64MAP09 = "dkcity";
+MUSIC_D64MAP10 = "susyou";
+MUSIC_D64MAP11 = "sandec";
+MUSIC_D64MAP12 = "bledin";
+MUSIC_D64MAP13 = "tercor";
+MUSIC_D64MAP14 = "pindrm";
+MUSIC_D64MAP15 = "altpin";
+MUSIC_D64MAP16 = "citadl";
+MUSIC_D64MAP17 = "sanslp";
+MUSIC_D64MAP18 = "buttcl";
+MUSIC_D64MAP19 = "lurkin";
+MUSIC_D64MAP20 = "inabeh";
+MUSIC_D64MAP21 = "watchr";
+MUSIC_D64MAP22 = "spwnfr";
+MUSIC_D64MAP23 = "defens";
+MUSIC_D64MAP24 = "scream";
+MUSIC_D64MAP25 = "pitfal";
+MUSIC_D64MAP26 = "spectr";
+MUSIC_D64MAP27 = "burnto";
+MUSIC_D64MAP28 = "unholy";
+MUSIC_D64MAP29 = "learn";
+MUSIC_D64MAP30 = "aubrey";
+MUSIC_D64MAP31 = "dream";
+MUSIC_D64MAP32 = "bldred";
+MUSIC_D64MAP33 = "map33";
+
+//New intermission texts
+IN_C1A =
+	"Your bloodthirsty scream shatters the\n"
+	"teleport haze.\n"
+	"\n"
+	"Another UAC base tainted by the unending\n"
+	"hellspawn.  Its vast silence reminds you\n"
+	"of the military morgue.\n"
+	"\n"
+	"Once again you find yourself amidst...";
+IN_C1B =
+	"You cackle as the familiarity of the\n"
+	"situation occurs to you.  The gateway\n"
+	"to the demon's domain was too accessible.\n"
+	"You realize the demons mock you with\n"
+	"their invitations.\n"
+	"\n"
+	"It does not matter...\n"
+	"\n"
+	"The demons spawn like rats and you have\n"
+	"the grade AAA U.A.C. poison they crave.";
+IN_C2 =
+	"You smile.\n"
+	"\n"
+	"The demons did not expect you to survive\n"
+	"this far.  You feel their demonic presence\n"
+	"waiting for you...\n"
+	"\n"
+	"Let them taste their guts!";
+IN_C3 =
+	"Finally...\n"
+	"\n"
+	"The Mother of all demons is dead!\n"
+	"\n"
+	"The blood pours from your eyes as you\n"
+	"stand in defiance.\n"
+	"\n"
+	"As the only marine to endure the\n"
+	"slaughter, you decide to remain in\n"
+	"Hell and ensure no demon ever rises\n"
+	"again.\n"
+	"\n"
+	"THE END";
+IN_S1 =
+	"CONGRATULATIONS!\n"
+	"\n"
+	"You found...\n"
+	"\n"
+	"HECTIC\n"
+	"\n"
+	"Only the best will reap its rewards.";
+IN_S2 =
+	"You wretch as an acrid odor\n"
+	"assaults you.\n"
+	"\n"
+	"No nightmare could have\n"
+	"prepared you for this...";
+
+
+// Cast list
+CC_ZOMBIE = "ZOMBIEMAN";
+CC_SHOTGUN = "SHOTGUN GUY";
+CC_HEAVY = "HEAVY WEAPON DUDE";
+CC_IMP = "IMP";
+CC_NIMP = "NIGHTMARE IMP";
+CC_DEMON = "DEMON";
+CC_SPECTRE = "SPECTRE";
+CC_LOST = "LOST SOUL";
+CC_CACO = "CACODEMON";
+CC_NCACO = "NIGHTMARE CACODEMON";
+CC_HELL = "HELL KNIGHT";
+CC_BARON = "BARON OF HELL";
+CC_ARACH = "ARACHNOTRON";
+CC_PAIN = "PAIN ELEMENTAL";
+CC_REVEN = "REVENANT";
+CC_MANCU = "MANCUBUS";
+CC_ARCH = "ARCH-VILE";
+CC_CYBER = "THE CYBERDEMON";
+CC_MOTHER = "THE MOTHERDEMON";
+CC_HERO = "OUR HERO";
