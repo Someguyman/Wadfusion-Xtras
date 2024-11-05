@@ -226,7 +226,6 @@ class DCX_EventHandler : EventHandler
 		Level.ChangeSky(TexMan.CheckForTexture("ZSKY1",TexMan.Type_Any),TexMan.CheckForTexture("ZSKY1",TexMan.Type_Any));
 		*/
 		//SKYA1
-		
 		if ( SkyName == "SKY1" )
 		{
 			if (mapName.left(2) ~== "E1")
@@ -238,8 +237,11 @@ class DCX_EventHandler : EventHandler
 		
 		if ( SkyName == "SKY2" )
 		{
-			Level.ReplaceTextures("SKY2", "USKY2", 0);
-			Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
+			if (mapName.left(2) ~== "E2")
+			{
+				Level.ReplaceTextures("SKY2", "USKY2", 0);
+				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
+			}
 		}
 		
 		if ( (mapName == "ml_map10") || (mapName == "ml_map43") )

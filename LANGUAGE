@@ -82,7 +82,7 @@ UDOOM_EPI05 = "\c[RED]SI6IL";
 UDOOM_EPI06 = "\c[RED]SI6IL II";
 
 DOOM2_EPI01 = "\c[RED]Subterranean Starport";
-DOOM2_EPI02 = "\c[RED]The City";
+DOOM2_EPI02 = "\c[RED]Into The City";
 DOOM2_EPI03 = "\c[RED]Hell Incarnate";
 DOOM2_EPI04 = "\c[RED]No Rest for the Living";
 DOOM2_EPI05 = "\c[RED]The Vulcan Abyss";
@@ -98,13 +98,13 @@ MASTER_LV03 = "\c[DarkGray]Titan Series";
 MASTER_LV04 = "\c[DarkGray]Inferno Series";
 MASTER_LV05 = "\c[DarkGray]Cabal Series";
 
-TNTE_EPI01 = "\c[Orange]Io Invasion";
-TNTE_EPI02 = "\c[Orange]Nocturnal Io";
-TNTE_EPI03 = "\c[Orange]Hell on Io";
+TNTE_EPI01 = "\c[Orange]The Io Invasion";
+TNTE_EPI02 = "\c[Orange]Nocturnal Moon";
+TNTE_EPI03 = "\c[Orange]Evilution";
 
-PLUTONIA_EPI01 = "\c[Green]Jungle Assault";
-PLUTONIA_EPI02 = "\c[Green]The Blood Tides";
-PLUTONIA_EPI03 = "\c[Green]Devil's Hive";
+PLUTONIA_EPI01 = "\c[DarkGreen]Jungle Assault";
+PLUTONIA_EPI02 = "\c[DarkGreen]The Blood Tides";
+PLUTONIA_EPI03 = "\c[DarkGreen]Devil's Hive";
 
 MUSIC_E4M1 = "E4M1";
 MUSIC_E4M2 = "E4M2";
