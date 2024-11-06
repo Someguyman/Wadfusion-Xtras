@@ -587,8 +587,9 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						SetThingEdNum(20,65);
 						SetThingEdNum(22,65);
 						SetThingEdNum(24,65);
-						
-						SetThingEdNum(95,64);
+
+						SetThingEdNum(93,64);						
+						SetThingEdNum(95,64);						
 						
 						SetThingEdNum(61,66);
 						

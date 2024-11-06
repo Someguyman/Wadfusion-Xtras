@@ -762,7 +762,12 @@ script "Xtra_Monster_Placements" enter
 			Add("Chaingunguy",-1248,1248,180,0,99);
 		}
 		if (StrICmp(mapName, "map05") == 0)
-		{			
+		{	
+			Add("RocketBox",396,280,0,0,0);
+			Add("RocketBox",308,280,0,0,0);
+		
+			Add("SuperShotgun",928,-260,0,0,0);
+		
 			Add("Shotgunguy",768,416,0,0,0);
 			
 			Add("Chaingunguy",-128,208,180,0,0);
@@ -777,10 +782,8 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",2048,52,180,0,0);
 			Add("Arachnotron",2304,124,180,0,0);
 			Add("Arachnotron",2304,-64,180,0,0);
-			
-			
-			Add("Fatso",384,-792,180,0,0);
-			
+						
+			Add("Fatso",384,-792,180,0,0);		
 			
 			Add("Hellknight",896,120,180,0,0);
 			Add("Hellknight",896,8,180,0,0);
@@ -799,15 +802,11 @@ script "Xtra_Monster_Placements" enter
 			Add("Cacodemon",224,-1440,90,0,0);
 			Add("Cacodemon",96,-1440,90,0,0);
 			
-			Add("Painelemental",384,-1472,45,0,0);
-			
-			while (IsDoorClosed(27)) { Delay(10); }
-			
-			Add("Spectre",1416,320,0,0,99);			
+			Add("Painelemental",384,-1472,45,0,0);		
 		}
 		if (StrICmp(mapName, "map06") == 0)
 		{
-		
+			
 		}
 		if (StrICmp(mapName, "map07") == 0)
 		{		
