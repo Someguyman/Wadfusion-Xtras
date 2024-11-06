@@ -221,11 +221,6 @@ class DCX_EventHandler : EventHandler
 		if ( (mapName == "tn_map31") || (mapName == "tn_map32") )
 		Level.ChangeSky(TexMan.CheckForTexture("SKY4",TexMan.Type_Any),TexMan.CheckForTexture("SKY4",TexMan.Type_Any));
 		
-		/*
-		if ( (mapName == "ml_map40") || (mapName == "ml_map18") || (mapName == "ml_map41") || (mapName == "ml_map42") )
-		Level.ChangeSky(TexMan.CheckForTexture("ZSKY1",TexMan.Type_Any),TexMan.CheckForTexture("ZSKY1",TexMan.Type_Any));
-		*/
-		//SKYA1
 		if ( SkyName == "SKY1" )
 		{
 			if (mapName.left(2) ~== "E1")
@@ -291,6 +286,7 @@ class DCX_EventHandler : EventHandler
 	override void WorldTick()
 	{	
 		//Let's make a toggle that will get rid of the additional playstation maps 
+		
 		String mapName = level.MapName.MakeLower();
 		if ( mapName == "e2m5" )
 		{

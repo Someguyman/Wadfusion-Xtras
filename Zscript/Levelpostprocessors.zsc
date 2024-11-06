@@ -565,12 +565,32 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						SetThingEdNum(132,69);
 					}					
 					if ( mapName == "map05" )
-					{
-						SetThingEdNum(22,66);
-						SetThingEdNum(23,66);
-						SetThingEdNum(24,66);
+					{			
+						SetThingEdNum(46,2003);
 						
-						//AddThing(64,(3040,2336,-999),90);
+						SetThingEdNum(167,0);
+						SetThingEdNum(168,0);
+						SetThingEdNum(169,0);
+						
+						SetThingEdNum(183,69);
+						
+						SetThingEdNum(186,67);
+						
+						SetThingEdNum(197,66);
+						SetThingEdNum(198,66);
+						
+						SetThingEdNum(19,66);
+						SetThingEdNum(21,66);
+						SetThingEdNum(23,66);
+						SetThingEdNum(25,66);
+						
+						SetThingEdNum(20,65);
+						SetThingEdNum(22,65);
+						SetThingEdNum(24,65);
+						
+						SetThingEdNum(95,64);
+						
+						SetThingEdNum(61,66);
 						
 						SetThingEdNum(56,2023);
 						SetThingEdNum(215,2013);
