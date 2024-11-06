@@ -54,6 +54,7 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("BIGDOOR1", "DRTN2_1",0);
 			Level.ReplaceTextures("SHAWN1", "TNTDOOR",0);
 			Level.ReplaceTextures("DOBWIRE", 	"EHBWIRE", 0);
+			Level.ReplaceTextures("DOBWIRE2", 	"EHBWIRE2", 0);
 			Level.ReplaceTextures("TYIRONLG", "TYIRONLG2", 0);
 			Level.ReplaceTextures("TYIRONSM", "TYIRONSM2", 0);
 			Level.ReplaceTextures("DOGRMSC", 	"DOGRMC2", 0);
@@ -599,7 +600,12 @@ class DCX_MusicHandler : StaticEventHandler
 				music = "o_e1m2";
 			
 			if ( music == "d_e1m3" || music == "d_e2m6")
-				music = "o_e1m3";
+			{
+				if ( mapName == "psx01" )
+					music = "o_e1m5";
+				else
+					music = "o_e1m3";
+			}
 			
 			if ( music == "d_e1m4" || music == "d_e2m7")
 				music = "o_e1m4";
@@ -626,7 +632,12 @@ class DCX_MusicHandler : StaticEventHandler
 				music = "o_e2m9";
 			
 			if ( music == "d_e3m2" || music == "d_e2m2" || music == "d_e3m5")
-				music = "o_e3m2";
+			{
+				if ( mapName == "psx02" )
+					music = "o_e1m9";
+				else
+					music = "o_e3m2";
+			}
 			
 			if ( music == "d_intro" || music == "d_introa" )
 				music = "o_intro";
@@ -677,6 +688,8 @@ class DCX_MusicHandler : StaticEventHandler
 			{
 				if ( mapName == "e2m8" )
 					music == "d_e2m8";
+				else if ( mapName == "psx01" )
+					music = "d_e2m6";
 				else
 					music = "d_e1m5";
 			}
@@ -715,6 +728,8 @@ class DCX_MusicHandler : StaticEventHandler
 			{
 				if ( mapName == "e3m9" )
 					music = "d_e3m9";
+				else if ( mapName == "psx02" )
+					music = "d_e2m2";
 				else
 					music = "d_e1m9";
 			}

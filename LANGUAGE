@@ -50,21 +50,21 @@ WS_AU_MILO_CASALI = "Milo Casali";
 WS_AU_SIEBEN = "Jimmy Sieben";
 WS_AU_DARIO_CASALI = "Dario Casali";
 WS_AU_CASALIS = "Dario & Milo Casali";
+
 // xbox secret levels
 WS_AU_CALVIN = "David Calvin";
 WS_AU_BUKOWSKI = "Michael Bukowski";
+
 //	Rejected master levels"
 WS_AU_KLIE = "Christen Klie";
+
 //	Cut Doom 64 levels
 WS_AU_HEYDELAAR = "Tim Heydelaar";
 WS_AU_MIDWAY = "Midway Ent.";
-//	Perditions Gate
-WS_AU_MUSTAIN_MUSTAINESR = "Tom & Bob Mustaine";
-WS_AU_MUSTAIN_SIEBEN = "Tom Mustaine & Jimmy Sieben";
-WS_AU_MUSTAIN_MUSTAINESR_SIEBEN = "Tom & Bob Mustaine, Jimmy Sieben";
-WS_AU_MUSTAINESR = "Bob Mustaine";
-WS_AU_MCCANDLISH = "Mackey McCandlish";
-WS_AU_MUSTAIN_MCCANDLISH = "Tom Mustaine & Mackey McCandlish";
+
+//	Doom 64 for Doom 2 + original Doom 64 credits
+
+
 //	AUTHOR UNKNOWN
 WS_AU_UNKNOWN = "???";
 
