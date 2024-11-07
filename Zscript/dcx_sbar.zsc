@@ -30,6 +30,8 @@ class DCX_Statusbar : BaseStatusBar
 	
 	HUDFont mSATfont;
 	HUDFont mSATfontS;
+	
+	HUDFont mJAGFont;
 	InventoryBarState diparms;	
 	
 	override void Init()
@@ -51,6 +53,8 @@ class DCX_Statusbar : BaseStatusBar
 		
 		mSATfont = HUDFont.Create("FDFONT_SATURN");
 		mSATfontS = HUDFont.Create("FDFONT_SWHITE");
+		
+		mJAGFont = HUDFont.Create("JAFONT_DOOM");
 	}
 	
 	void Checklevel (double TicFrac)
@@ -108,6 +112,14 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("SATPRCNT", (89, 171), DI_ITEM_OFFSETS);
 			DrawImage("SATPRCNT", (220, 171), DI_ITEM_OFFSETS);
 		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 3)
+		{
+			y_value = 180;
+			get_font = mJAGFont;
+			DrawImage("JABAR", (-128, 168), DI_ITEM_OFFSETS);
+			DrawImage("JATPRCNT", (90, 180), DI_ITEM_OFFSETS);
+			DrawImage("JATPRCNT", (221, 180), DI_ITEM_OFFSETS);
+		}
 		else
 		{
 			DrawImage("STBAR", (0, 168), DI_ITEM_OFFSETS);
@@ -121,6 +133,8 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("PXFUEL", (252, 168), DI_ITEM_OFFSETS);
 			else if (Cvar.getcvar("hud_toggle").getint() == 2)
 			DrawImage("SAFUEL", (252, 168), DI_ITEM_OFFSETS);
+			else if (Cvar.getcvar("hud_toggle").getint() == 3)
+			DrawImage("JAFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -280,6 +294,11 @@ class DCX_Statusbar : BaseStatusBar
 				x_value = 290; x_offset = 22; y_value = 169; get_font = mSATfontS;
 				DrawImage("SAAMMO24", (251, 168), DI_ITEM_OFFSETS);
 			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 3)
+			{
+				x_value = 288; x_offset = 26; y_value = 170;
+				DrawImage("JAAMMO24", (249, 168), DI_ITEM_OFFSETS);
+			}
 			else
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
@@ -318,6 +337,10 @@ class DCX_Statusbar : BaseStatusBar
 			{
 				x_value = 288; x_offset = 26; y_value = 173;
 				get_font = mSATfontS;
+			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 3)
+			{
+				x_value = 288; x_offset = 26; y_value = 172;
 			}
 			else
 			{
@@ -382,6 +405,16 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(5)? "SWYSNUM5" : "TNGNUM5", (109, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "SWYSNUM6" : "TNGNUM6", (121, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "SWYSNUM7" : "TNGNUM7", (133, 182), DI_ITEM_OFFSETS);
+		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 3)
+		{
+			DrawImage("JAARMS", (104, 168), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (111, 181), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (123, 181), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (135, 181), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 191), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 191), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 191), DI_ITEM_OFFSETS);
 		}
 		else
 		{
