@@ -30,8 +30,7 @@ class DCX_Statusbar : BaseStatusBar
 	
 	HUDFont mSATfont;
 	HUDFont mSATfontS;
-	InventoryBarState diparms;
-	
+	InventoryBarState diparms;	
 	
 	override void Init()
 	{
@@ -52,6 +51,20 @@ class DCX_Statusbar : BaseStatusBar
 		
 		mSATfont = HUDFont.Create("FDFONT_SATURN");
 		mSATfontS = HUDFont.Create("FDFONT_SWHITE");
+	}
+	
+	void Checklevel (double TicFrac)
+	{
+		let HudValue = 0;
+		String mapName = level.MapName.MakeLower();
+		if ( ( (Cvar.getcvar("hud_toggle").getint() == 4) && (( mapName.left(2) ~== "E4" ) || ( mapName.left(2) ~== "E5" ) || ( mapName.left(2) ~== "E6" ))) )
+		{
+			HudValue = 1;
+		}
+		else
+		{
+			HudValue = 0;
+		}
 	}
 
 	override void Draw (int state, double TicFrac)
@@ -80,7 +93,7 @@ class DCX_Statusbar : BaseStatusBar
 		let x_value = 44;
 		let y_value = 171;
 		
-		if (Cvar.getcvar("hud_toggle").getint() == 1)
+		if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
 		{
 			get_font = mPSXfont;
 			DrawImage("PXBAR", (-127, 168), DI_ITEM_OFFSETS);
@@ -104,8 +117,10 @@ class DCX_Statusbar : BaseStatusBar
 		
 		if ( ( isId1 && id1WeapSwap ) || id1WeapSwapAlways )
 		{
-			if (Cvar.getcvar("hud_toggle").getint() == 1)
+			if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
 			DrawImage("PXFUEL", (252, 168), DI_ITEM_OFFSETS);
+			else if (Cvar.getcvar("hud_toggle").getint() == 2)
+			DrawImage("SAFUEL", (252, 168), DI_ITEM_OFFSETS);
 			else
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -160,23 +175,49 @@ class DCX_Statusbar : BaseStatusBar
 		bool locks[6];
 		String image;
 		for(int i = 0; i < 6; i++) locks[i] = CPlayer.mo.CheckKeys(i + 1, false, true);
-		// key 1
-		if (locks[1] && locks[4]) image = "STKEYS6";
-		else if (locks[1]) image = "STKEYS0";
-		else if (locks[4]) image = "STKEYS3";
-		DrawImage(image, (239, 171), DI_ITEM_OFFSETS);
-		// key 2
-		if (locks[2] && locks[5]) image = "STKEYS7";
-		else if (locks[2]) image = "STKEYS1";
-		else if (locks[5]) image = "STKEYS4";
-		else image = "";
-		DrawImage(image, (239, 181), DI_ITEM_OFFSETS);
-		// key 3
-		if (locks[0] && locks[3]) image = "STKEYS8";
-		else if (locks[0]) image = "STKEYS2";
-		else if (locks[3]) image = "STKEYS5";
-		else image = "";
-		DrawImage(image, (239, 191), DI_ITEM_OFFSETS);
+
+		String mapName = level.MapName.MakeLower();
+		
+		if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
+		{	
+			// key 1
+			if (locks[1] && locks[4]) image = "PXKEYS6";
+			else if (locks[1]) image = "PXKEYS0";
+			else if (locks[4]) image = "PXKEYS3";
+			DrawImage(image, (239, 170), DI_ITEM_OFFSETS);
+			// key 2
+			if (locks[2] && locks[5]) image = "PXKEYS7";
+			else if (locks[2]) image = "PXKEYS1";
+			else if (locks[5]) image = "PXKEYS4";
+			else image = "";
+			DrawImage(image, (239, 180), DI_ITEM_OFFSETS);
+			// key 3
+			if (locks[0] && locks[3]) image = "PXKEYS8";
+			else if (locks[0]) image = "PXKEYS2";
+			else if (locks[3]) image = "PXKEYS5";
+			else image = "";
+			DrawImage(image, (239, 190), DI_ITEM_OFFSETS);
+		}
+		else
+		{
+			// key 1
+			if (locks[1] && locks[4]) image = "STKEYS6";
+			else if (locks[1]) image = "STKEYS0";
+			else if (locks[4]) image = "STKEYS3";
+			DrawImage(image, (239, 171), DI_ITEM_OFFSETS);
+			// key 2
+			if (locks[2] && locks[5]) image = "STKEYS7";
+			else if (locks[2]) image = "STKEYS1";
+			else if (locks[5]) image = "STKEYS4";
+			else image = "";
+			DrawImage(image, (239, 181), DI_ITEM_OFFSETS);
+			// key 3
+			if (locks[0] && locks[3]) image = "STKEYS8";
+			else if (locks[0]) image = "STKEYS2";
+			else if (locks[3]) image = "STKEYS5";
+			else image = "";
+			DrawImage(image, (239, 191), DI_ITEM_OFFSETS);
+		}
 	}
 	
 	protected virtual void DrawBarDemonKeys()
@@ -229,17 +270,22 @@ class DCX_Statusbar : BaseStatusBar
 			( !isId1 && id1WeapSwapAlways && cell != null && ( hasPlasmaRifle || hasBfg9000 ) ) ||
 			( !isId1 && !id1WeapSwapAlways && fuel != null && ( hasIncinerator || hasHeatwave ) ) )
 		{
-			if (Cvar.getcvar("hud_toggle").getint() == 1)
+			if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
 			{	
 				x_value = 290; x_offset = 22; y_value = 169; get_font = mPSXfontS;
 				DrawImage("PXAMMO24", (252, 168), DI_ITEM_OFFSETS);
+			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 2)
+			{	
+				x_value = 290; x_offset = 22; y_value = 169; get_font = mSATfontS;
+				DrawImage("SAAMMO24", (251, 168), DI_ITEM_OFFSETS);
 			}
 			else
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
 				DrawImage("STAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
-			//get_font = mIndexFont;
+
 			int amt1, maxamt;
 			[amt1, maxamt] = GetAmount("Clip");
 			DrawString(get_font, FormatNumber(amt1, 3), (x_value, y_value), DI_TEXT_ALIGN_RIGHT);
@@ -263,16 +309,26 @@ class DCX_Statusbar : BaseStatusBar
 		}
 		else
 		{
-			if (Cvar.getcvar("hud_toggle").getint() == 1)
+			if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
 			{	
 				x_value = 290; x_offset = 22; y_value = 171;				
 				get_font = mPSXfontS;
 			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 2)
+			{
+				x_value = 288; x_offset = 26; y_value = 173;
+				get_font = mSATfontS;
+			}
 			else
 			{
 				x_value = 288; x_offset = 26; y_value = 173;
-				//get_font = mIndexFont;
 			}
+			
+			/*
+				X offset is only for the max ammo display that goes to the right of the current ammo.
+				
+				The higher the value, the father the numbers are from eachother.
+			*/
 		
 			int amt1, maxamt;
 			[amt1, maxamt] = GetAmount("Clip");
@@ -304,7 +360,9 @@ class DCX_Statusbar : BaseStatusBar
 	
 	protected virtual void DrawBarWeapons()
 	{
-		if (Cvar.getcvar("hud_toggle").getint() == 1)
+		String mapName = level.MapName.MakeLower();
+		
+		if ( (Cvar.getcvar("hud_toggle").getint() == 1) )
 		{
 			DrawImage("PXARMS", (104, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "PXYSNUM2" : "PXGNUM2", (110, 170), DI_ITEM_OFFSETS);
@@ -313,6 +371,17 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(5)? "PXYSNUM5" : "PXGNUM5", (110, 180), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "PXYSNUM6" : "PXGNUM6", (122, 180), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "PXYSNUM7" : "PXGNUM7", (134, 180), DI_ITEM_OFFSETS);
+		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 2)
+		{
+			//SAARMS
+			DrawImage("SAARMS", (103, 168), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? "SWYSNUM2" : "TNGNUM2", (109, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? "SWYSNUM3" : "TNGNUM3", (121, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? "SWYSNUM4" : "TNGNUM4", (133, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? "SWYSNUM5" : "TNGNUM5", (109, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? "SWYSNUM6" : "TNGNUM6", (121, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? "SWYSNUM7" : "TNGNUM7", (133, 182), DI_ITEM_OFFSETS);
 		}
 		else
 		{
