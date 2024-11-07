@@ -106,6 +106,12 @@ PLUTONIA_EPI01 = "\c[DarkGreen]Jungle Assault";
 PLUTONIA_EPI02 = "\c[DarkGreen]The Blood Tides";
 PLUTONIA_EPI03 = "\c[DarkGreen]Devil's Hive";
 
+OPTIONS_SSG = "\c[RED]Super shotgun sprite:";
+OPTIONS_MED = "\c[RED]Health Pack Appearence:";
+OPTIONS_3DO = "\c[RED]3DO remixes for Doom 1:";
+OPTIONS_CON = "\c[RED]Console maps:";
+OPTIONS_W3D = "Wolfenstein 3D Textures and Enemies:";
+
 MUSIC_E4M1 = "E4M1";
 MUSIC_E4M2 = "E4M2";
 MUSIC_E4M3 = "E4M3";

@@ -16,19 +16,19 @@ OptionValue Wolf3DTextureTweaks
 
 OptionValue HealthCrossTweaks
 {
-	0.0, "Vanilla (Red Cross)"
-	1.0, "BFG edition (Pill)"
-	2.0, "Unity Port (Green Cross)"
-	3.0, "Doom Eternal (White Inverted Cross)"
+	0.0, "Vanilla (Red Cross \cg+\c-)"
+	1.0, "BFG edition (\cgPill\c-)"
+	2.0, "Unity Port (Green Cross \cd+\c-)"
+	3.0, "Doom Eternal (White Inverted Cross \cg|\cj+\cg|\c-)"
 }
 
 OptionValue HUDtweaks
 {
-	0.0, "Default hud"
-	1.0, "Playstation hud"
-	2.0, "Sega Saturn hud"
-	3.0, "Jaguar hud"
-	4.0, "Different one per game"
+	0.0, "\c[GREY]Default hud"
+	1.0, "\c[DARK GREY]Playstation hud"
+	2.0, "\c[WHITE]Sega Saturn hud"
+	3.0, "\c[DARK BROWN]Jaguar hud"
+	//4.0, "Different one per game"
 }
 
 OptionValue PLUHUDtweaks
@@ -64,23 +64,23 @@ OptionMenu "DCXOptions"
 	Submenu "Status Bar Options","DCXHudOptions"
 	Submenu "Texture Options","DCXSKYOptions"
 	StaticText " "
-	option "Super shotgun sprite:", "ssgtoggle", "SSGtweaks"
+	option "$OPTIONS_SSG", "ssgtoggle", "SSGtweaks"
 	StaticText "Toggles the sprite the super shotgun uses to ether the PSX version or a vanilla hybird style.", "dark red"
 	StaticText " "
-	option "Health Cross Appearence", "Health_Cross_Toggle", "HealthCrossTweaks"
+	option "$OPTIONS_MED", "Health_Cross_Toggle", "HealthCrossTweaks"
 	StaticText "Changes the appearence of crosses on the health/berserk packs to your choice.", "dark red"
 	StaticText " "
 	StaticText "Music Options", "Gold"
 	StaticText " "
-	Option "3DO remixes for Doom 1", "dcx_3DO_Music", "OnOff"
+	Option "$OPTIONS_3DO", "dcx_3DO_Music", "OnOff"
 	StaticText "Replaces tracks in doom 1 with the 3do version remixes", "dark red"
 	StaticText " "
 	StaticText "Gameplay options", "Gold"
 	StaticText " "
-	Option "Additional Console maps", "dcx_playstationmaps", "OnOff"
+	Option "$OPTIONS_CON", "dcx_playstationmaps", "OnOff"
 	StaticText "When enabled, you will be able to acess the maps from the playstation version", "dark red"
 	StaticText " "
-	Option "Wolfenstein 3D Textures and Enemies", "W3D_Text_toggle", "Wolf3DTextureTweaks"
+	Option "$OPTIONS_W3D", "W3D_Text_toggle", "Wolf3DTextureTweaks"
 	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "dark red"
 	StaticText " "
 	StaticText "Compatibility", "Gold"
