@@ -135,7 +135,7 @@ class DCX_Statusbar : BaseStatusBar
 		}
 		else
 		{
-			DrawImage("STBAR", (0, 168), DI_ITEM_OFFSETS);
+			DrawImage("STBARFS", (-128, 168), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 		}
