@@ -32,6 +32,8 @@ class DCX_Statusbar : BaseStatusBar
 	HUDFont mSATfontS;
 	
 	HUDFont mJAGFont;
+	
+	HUDFont mBETFont;
 	InventoryBarState diparms;	
 	
 	override void Init()
@@ -55,6 +57,8 @@ class DCX_Statusbar : BaseStatusBar
 		mSATfontS = HUDFont.Create("FDFONT_SWHITE");
 		
 		mJAGFont = HUDFont.Create("JAFONT_DOOM");
+		
+		mBETFont = HUDFont.Create("BEFONT_DOOM");
 	}
 	
 	void Checklevel (double TicFrac)
@@ -120,6 +124,15 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("JATPRCNT", (90, 180), DI_ITEM_OFFSETS);
 			DrawImage("JATPRCNT", (221, 180), DI_ITEM_OFFSETS);
 		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 4)
+		{
+			//y_value = 180;
+			x_value = 41;
+			get_font = mBETFont;
+			DrawImage("BEBAR", (-128, 168), DI_ITEM_OFFSETS);
+			DrawImage("BETPRCNT", (89, 171), DI_ITEM_OFFSETS);
+			DrawImage("BETPRCNT", (219, 171), DI_ITEM_OFFSETS);
+		}
 		else
 		{
 			DrawImage("STBAR", (0, 168), DI_ITEM_OFFSETS);
@@ -135,6 +148,8 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("SAFUEL", (252, 168), DI_ITEM_OFFSETS);
 			else if (Cvar.getcvar("hud_toggle").getint() == 3)
 			DrawImage("JAFUEL", (249, 168), DI_ITEM_OFFSETS);
+			else if (Cvar.getcvar("hud_toggle").getint() == 4)
+			DrawImage("BEFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -299,6 +314,11 @@ class DCX_Statusbar : BaseStatusBar
 				x_value = 288; x_offset = 26; y_value = 170;
 				DrawImage("JAAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 4)
+			{
+				x_value = 288; x_offset = 26; y_value = 169;
+				DrawImage("BEAMMO24", (249, 168), DI_ITEM_OFFSETS);
+			}
 			else
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
@@ -415,6 +435,16 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 191), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 191), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 191), DI_ITEM_OFFSETS);
+		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 4)
+		{
+			DrawImage("BEARMS", (105, 168), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (111, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (123, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (135, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 182), DI_ITEM_OFFSETS);
 		}
 		else
 		{

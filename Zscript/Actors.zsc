@@ -1369,6 +1369,7 @@ class DCX_BossBrain : BossBrain replaces BossBrain
 		PainSound "brain/pain";
 		DeathSound "brain/death";
 	}
+	
 	private static void BrainishExplosion(vector3 pos)
 	{
 		Actor boom = Actor.Spawn("Rocket", pos, NO_REPLACE);
@@ -1387,9 +1388,22 @@ class DCX_BossBrain : BossBrain replaces BossBrain
 	
 	void A_BrainScream()
 	{
+		String mapName = level.MapName.MakeLower();
+		
+		int Ypos;
+		
+		if( (mapName == "tn_map30") && (CVar.FindCVar("dcx_TextureEchancements").GetBool()) )
+		{
+			Ypos = 623;
+		}
+		else
+		{
+			Ypos = -320;
+		}
+		
 		for (double x = -280; x < +280; x += 8)
 		{
-			BrainishExplosion(Vec2OffsetZ(x, -320, (1 / 512.) + random[BrainExplode](0, 255) * 2));
+			BrainishExplosion(Vec2OffsetZ(x, Ypos, (1 / 512.) + random[BrainExplode](0, 255) * 2));
 		}
 		A_StartSound(self.Deathsound, CHAN_VOICE, CHANF_DEFAULT, 1., ATTN_NONE);
 	}
@@ -1399,18 +1413,16 @@ class DCX_BossBrain : BossBrain replaces BossBrain
 		A_StartSound(self.Painsound, CHAN_VOICE, CHANF_DEFAULT, 1, ATTN_NONE);
 	}
 	
-	/*
 	override void Die(Actor source, Actor inflictor, int dmgflags, Name MeansOfDeath)
 	{
 		String mapName = level.MapName.MakeLower();
-		if(mapName == "tn_map30")
+		if( (mapName == "tn_map30") && (CVar.FindCVar("dcx_TextureEchancements").GetBool()) )
 		{
-			Level.ChangeSky(TexMan.CheckForTexture("DOHBLU1",TexMan.Type_Any),TexMan.CheckForTexture("DOHBLU1",TexMan.Type_Any));
+			ACS_NamedExecuteAlways("ChangeSkyTexture",0);
 		}
 		super.Die(source, inflictor, dmgflags, MeansOfDeath);
 	}
-	*/
-	
+
 	states
 	{
 		Death:

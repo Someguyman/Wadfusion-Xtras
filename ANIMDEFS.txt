@@ -37,14 +37,6 @@ pic 2 tics 8
 pic 3 tics 8
 pic 4 tics 8
 
-texture DOHBLU1
-pic TSKY3 tics 90 
-pic DOHBLU2 tics 10
-pic DOHBLU3 tics 10
-pic DOHBLU4 tics 10
-pic DOHBLU5 tics 10
-pic DOHBLU6 tics 70
-
 warp texture SKY3TALS .5
 warp texture SKY3ATAS .5
 

@@ -1,17 +1,17 @@
 
 OptionValue SSGtweaks
 {
-	0.0, "Vanilla"
-	1.0, "Playstation"
-	2.0, "Hybrid"
+	0.0, "\c[WHITE]Vanilla"
+	1.0, "\c[DARK GREY]Playstation"
+	2.0, "\c[CREAM]Hybrid"
 }
 
 OptionValue Wolf3DTextureTweaks
 {
-	0.0, "Original (Uncensored)"
-	1.0, "Unity (Censored)"
-	2.0, "GBA (Censored Alt)"
-	3.0, "BFG Edition (Removed)"
+	0.0, "\c[BLUE]Original \c-(Uncensored)"
+	1.0, "\c[CYAN]Unity \c-(Censored)"
+	2.0, "\c[PURPLE]GBA \c-(Censored Alt)"
+	3.0, "\c[DARK GREEN]BFG Edition \c-(Removed)"
 }
 
 OptionValue HealthCrossTweaks
@@ -28,7 +28,7 @@ OptionValue HUDtweaks
 	1.0, "\c[DARK GREY]Playstation hud"
 	2.0, "\c[WHITE]Sega Saturn hud"
 	3.0, "\c[DARK BROWN]Jaguar hud"
-	//4.0, "Different one per game"
+	4.0, "\c[GOLD]BETA 93 hud"
 }
 
 OptionValue PLUHUDtweaks

@@ -1,11 +1,21 @@
 #library "XtraMonsters"
 #include "zcommon.acs"
 
-function bool IsDebug(void)
-{
-    if (GetCVar("dc_debug") > 0)
-        return true;
-    return false;
+script "ChangeSkyTexture" (void)
+{	
+	//Thing_Destroy(0);
+	Delay(10);
+	ChangeSky("DOHBLU2","DOHBLU2");	
+	Delay(10);
+	ChangeSky("DOHBLU3","DOHBLU3");	
+	Delay(10);
+	ChangeSky("DOHBLU4","DOHBLU4");
+	Delay(10);
+	ChangeSky("DOHBLU5","DOHBLU5");	
+	Delay(10);
+	ChangeSky("DOHBLU6","DOHBLU6");	
+	Delay(10);	
+	Terminate;
 }
 
 script "Check_Difficulty" (Void)
@@ -966,8 +976,7 @@ function void Add(str class,int x, int y, int angle, int minimum_skill, int obje
     //spawn object
 	if (Spawn(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
     {
-        if (IsDebug())
-            Log(s:"Could not spawn ",s:class,s:" at ",i:x,s:", ",i:y,s:", ",i:(fixed_z >> 16));
+       
     }
     else
     {
@@ -1027,18 +1036,12 @@ function void Replace(str class, int x, int y, int angle, int minimum_skill, int
         //spawn new object and give it the ambush flag
 	    if (SpawnForced(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
         {
-            if (IsDebug())
-                Log(s:"Could not spawn ",s:class,s:" at ",i:x,s:", ",i:y,s:", ",i:(fixed_z >> 16),s:" (replacement)");
+           
         }
         else
         {
             SetActorProperty(17391,APROP_Ambush,1);
         }
-    }
-    else
-    {
-        If (IsDebug())
-            Log(s:"WARNING: Replacement failed for object ",s:class,s:" at ",i:x,s:", ",i:y);
     }
     
 
@@ -1052,14 +1055,6 @@ Script "TestTID" (void)
 	while (true)
 	{
 		SetActivatorToTarget(9999);
-
-		if (ActivatorTID() != 9999)
-        {
-            if (IsDebug())
-    			Log(s:GetActorClass(0), s:" with tid ", i:ActivatorTID());
-        }
-		else if (IsDebug())
-			Log(s:"No TID under cursor");
 
 		Delay(35);
 	}
