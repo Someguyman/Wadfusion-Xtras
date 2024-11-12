@@ -283,6 +283,71 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 				mapPrefix = mapPrefix.MakeLower();
 				String mapName = level.MapName.MakeLower();
 				
+				if (mapname ~== "TEST")
+				{
+					//	Demon Keys
+					
+					AddThing(667, (-2624, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(668, (-2816, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(669, (-2440, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Fuel Can
+						
+					AddThing(3143, (-1664, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3143, (-1664, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3143, (-1664, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3143, (-1664, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3143, (-1664, 448, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Fuel Tank
+						
+					AddThing(3144, (-1536, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3144, (-1536, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3144, (-1536, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3144, (-1536, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3144, (-1536, 448, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Dual Chainsaw
+					
+					AddThing(255, (-3584, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(255, (-3456, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(255, (-3328, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(255, (-3200, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(255, (-3072, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Heavy Plasmarifle
+					
+					AddThing(256, (-3584, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(256, (-3456, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(256, (-3328, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(256, (-3200, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(256, (-3072, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Incinerator
+					
+					AddThing(3145, (-3584, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3145, (-3456, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3145, (-3328, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3145, (-3200, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3145, (-3072, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Calamity Blade
+					
+					AddThing(3146, (-3584, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3146, (-3456, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3146, (-3328, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3146, (-3200, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(3146, (-3072, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
+					
+					//	Unmaker
+					
+					AddThing(666, (-3584, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(666, (-3456, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(666, (-3328, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(666, (-3200, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+					AddThing(666, (-3072, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
+				}
+				
 				//Adding the unmaker and demonkeys into the maps.
 				
 				if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )

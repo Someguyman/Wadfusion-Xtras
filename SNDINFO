@@ -1,3 +1,16 @@
+Mindweaver/sight DSCSPSIT
+Mindweaver/active DSCSPACT
+$alias Mindweaver/pain Spider/pain
+Mindweaver/death DSCSPDTH
+Mindweaver/walk DSCSPWLK
+$alias Mindweaver/attack Spider/attack
+
+Tyrant/sight DSTYRSIT
+Tyrant/active DSCYBACT
+Tyrant/hoof DSTYRWLK
+$alias Tyrant/pain cyber/pain
+Tyrant/death DSTYRDTH
+
 weapons/unmaker	DSLASER
 
 Marine/Sight dstant2

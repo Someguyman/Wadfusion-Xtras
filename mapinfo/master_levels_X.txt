@@ -58,7 +58,7 @@ adddefaultmap
 
 map SYSTEM "$THUSTR_1"
 {
-	Label = "TOM04"
+	Label = "TOM01"
 	Next = "PROCESS"
 	TitlePatch = "TWILV00"
 	Music = "T_STLKS3"
@@ -67,7 +67,7 @@ map SYSTEM "$THUSTR_1"
 
 map PROCESS "$THUSTR_17"
 {
-	Label = "TOM05"
+	Label = "TOM02"
 	Next = "ML_MAP28"
 	TitlePatch = "TWILV16"
 	Author = "$WF_AU_MUSTAINE"
@@ -76,7 +76,7 @@ map PROCESS "$THUSTR_17"
 
 map ML_MAP28 "Masters Den" // reject level
 {
-	Label = "TOM06"
+	Label = "TOM03"
 	Next = "ML_MAP07"
 	//TitlePatch = "MWILV27"
 	Music = "$MUSIC_MASTERDEN"
@@ -85,7 +85,7 @@ map ML_MAP28 "Masters Den" // reject level
 
 map ML_MAP07 "$ML_PARADOX"
 {
-	Label = "TOM07"
+	Label = "TOM04"
 	Next = "HACK2"
 	TitlePatch = "MWILV06"
 	Music = "$MUSIC_PARADOX"
@@ -101,7 +101,7 @@ adddefaultmap
 
 map HACK2 "Hacked Together" 
 {
-	Label = "MID08"
+	Label = "MID01"
 	next = "CANYON"
 	sky1 = "SKY1"
 	music = "$MUSIC_HACK2"
@@ -109,7 +109,7 @@ map HACK2 "Hacked Together"
 
 map CANYON "Grand Entrance to Hell" //CANYON
 {
-	Label = "MID09"
+	Label = "MID02"
 	next = "MEE2"
 	sky1 = "SKY1"
 	music = "$MUSIC_HELLCAN"
@@ -117,7 +117,7 @@ map CANYON "Grand Entrance to Hell" //CANYON
 
 map MEE2 "Moping in Sarrow" // MEE2
 {
-	Label = "MID10"
+	Label = "MID03"
 	next = "NEWCAT3"
 	sky1 = "RSKY3"
 	music = "$MUSIC_MEE2"
@@ -125,7 +125,7 @@ map MEE2 "Moping in Sarrow" // MEE2
 
 map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
 {
-	Label = "MID11"
+	Label = "MID04"
 	next = "TUFF"
 	Sky1 =  "SKYX5A"
 	music = "$MUSIC_NEWCAT3"
@@ -133,7 +133,7 @@ map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
 
 map TUFF "Tuff stuff" //TUFF
 {
-	Label = "MID12"
+	Label = "MID05"
 	Next = EndGame
 	{
 		Pic = "MLBOSSBK"

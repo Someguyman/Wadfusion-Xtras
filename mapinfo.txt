@@ -31,11 +31,12 @@ gameinfo
     infopage = "HELP2", "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64cre"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
-    //titlemusic = "$MUSIC_DM2TTL"
 }
 
 DoomEdNums
 {
+	255 = DCX_DoubleBladedChainsaw
+	256 = DCX_HeavyPlasmaGun
 	666 = DCX_Unmaker
 	667 = DCX_Demonkey1
 	668 = DCX_Demonkey2
@@ -47,6 +48,10 @@ DoomEdNums
 	607 = DCX_LesserMastermind
 	711 = DCX_NightmareCyberdemon
 	7734 = DCX_DM_MarineBotSpawner
+	3143 = Fuel
+	3144 = FuelTank
+	3145 = Incinerator
+	3146 = Heatwave
 }
 
 ClearSkills

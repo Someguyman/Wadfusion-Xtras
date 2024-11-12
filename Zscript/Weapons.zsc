@@ -1,3 +1,5 @@
+
+
 class DCX_Player : Doomplayer Replaces Doomplayer
 {
 	Default
@@ -10,6 +12,7 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 		Player.WeaponSlot 8, "DCX_Unmaker";
 	}
 }
+
 
 class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 {
