@@ -21,7 +21,10 @@ class DCX_EventHandler : EventHandler
 		String mapName = level.MapName.MakeLower();
 		
 		//Animated Computer Textures
-		Level.ReplaceTextures("COMPSTA1", "COMPSAN1", 0);
+		if ( mapName.left(3) != "pt_" )
+		{
+			Level.ReplaceTextures("COMPSTA1", "COMPSAN1", 0);
+		}
 		Level.ReplaceTextures("COMPSTA2", "COMPSA21", 0);
 		
 		if ( mapName != "map08" )
@@ -37,7 +40,7 @@ class DCX_EventHandler : EventHandler
 		Level.ReplaceTextures("COMPUTE3",  "COMPUT32",0);
 		Level.ReplaceTextures("COMPTALL",  "COMPTAL1",0);
 		Level.ReplaceTextures("COMP2", 	   "COMP2ON1",0);
-		Level.ReplaceTextures("SILVER3",   "SILVER3A",0);
+		Level.ReplaceTextures("SILVER3",   "SILVER32",0);
 		
 		//Fire Blu
 		Level.ReplaceTextures("FIREBLU1", "ENERGY01", 0);

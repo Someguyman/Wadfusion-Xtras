@@ -45,26 +45,43 @@ script "Xtra_Monster_Placements" enter
 	str episode = StrMid(mapName, 1, 1);
 	str mission = StrMid(mapName, 3, 1);
 	
+	if (StrICmp(mapName, "e1m7") == 0)
+	{
+		Add("ExplosiveBarrel",-1088, -64, 0,0,0);
+	}
+	
 	if (StrICmp(mapName, "map02") == 0)
 	{
 		Add("Shotgunguy",944,912,90,0,0);
+		Add("ExplosiveBarrel",464, 800, 45,0,0);
 	}
 	
 	if (GetCVar ("dcx_D64D2Xtras"))	
 	{
-	
-	if ((GameSkill () >= SKILL_HARD))
-	{
-		if (StrICmp(mapName, "ab_map27") == 0)
+		if (StrICmp(mapName, "ab_map06") == 0)
 		{
-			while (IsDoorClosed(20)) { Delay(10); }
-
-			//wait a couple of seconds
-			Delay(70);
-			
-			Add("SpiderMastermind",1024,2240,270,0,99);
+			Add("DCX_Demonkey1",-1184, 1376,270,0,0);
 		}
-	}
+		
+		if (StrICmp(mapName, "ab_map30") == 0)
+		{
+			Add("Backpack",0, -3308,270,0,0);
+		}
+		
+	
+		if ((GameSkill () >= SKILL_HARD))
+		{
+				if (StrICmp(mapName, "ab_map27") == 0)
+				{
+					while (IsDoorClosed(20)) { Delay(10); }
+
+					//wait a couple of seconds
+					Delay(70);
+			
+					//The Only Spiderdemon in doom 64 for doom 2, RIP Bozo.
+					Add("SpiderMastermind",1024,2240,270,0,99);
+				}
+		}	
 	
 	}
 	
@@ -871,38 +888,44 @@ script "Xtra_Monster_Placements" enter
 			Add("Megasphere",-288,224,270,0,0);
 		}
 		
+		if (StrICmp(mapName, "pl_map32") == 0)
+		{
+			Add("Fatso",-80, 384, 90,0,0);
+			Add("Fatso",80, 384, 45,0,0);
+		}
+		
 		if (GetCVar ("dcx_D64D2Xtras"))	
 		{
 		
-		if (StrICmp(mapName, "ab_map26") == 0)
-		{
-			while (IsDoorClosed(666)) { Delay(10); }
+			if (StrICmp(mapName, "ab_map26") == 0)
+			{
+				while (IsDoorClosed(666)) { Delay(10); }
 
-			//wait a couple of seconds
-			Delay(50);
+				//wait a couple of seconds
+				Delay(50);
 			
-			Add("SpiderMastermind",-768,-576,0,0,99);
-		}
+				Add("SpiderMastermind",-768,-576,0,0,99);
+			}
 		
-		if (StrICmp(mapName, "ab_map27") == 0)
-		{
-			while (IsDoorClosed(20)) { Delay(10); }
+			if (StrICmp(mapName, "ab_map27") == 0)
+			{
+				while (IsDoorClosed(20)) { Delay(10); }
 
-			//wait a couple of seconds
-			Delay(70);
+				//wait a couple of seconds
+				Delay(70);
 			
-			Add("SpiderMastermind",448,1696,0,0,99);
-		}
+				Add("SpiderMastermind",448,1696,0,0,99);
+			}
 		
-		if (StrICmp(mapName, "ab_map29") == 0)
-		{
-			while (!IsFloorLevel(9,0)) { Delay(10); }
+			if (StrICmp(mapName, "ab_map29") == 0)
+			{
+				while (!IsFloorLevel(9,0)) { Delay(10); }
 
-			//wait a couple of seconds
-			Delay(70);
+				//wait a couple of seconds
+				Delay(70);
 			
-			Add("SpiderMastermind",720,752,45,0,99);
-		}
+				Add("SpiderMastermind",720,752,45,0,99);
+			}
 		
 		}
 		

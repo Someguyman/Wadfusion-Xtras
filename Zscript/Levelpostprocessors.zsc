@@ -31,11 +31,6 @@ Class DCX_MapFixes : LevelPostProcessor
 			mapPrefix = mapPrefix.MakeLower();
 			String mapName = level.MapName.MakeLower();
 			
-			if ( mapName == "e1m7" )
-			{
-				AddThing(2035, (-1088, -64, -999), 0,MODES_ALL | MTF_AMBUSH);
-			}
-			
 			// Removes the extra pinky, now everything will be able to move
 			if ( mapName == "e2m6" )
 			{
@@ -53,8 +48,11 @@ Class DCX_MapFixes : LevelPostProcessor
 			{
 				SetThingEdNum(85,0);
 				SetThingEdNum(69,0);
-				
-				AddThing(2035, (464, 800, -999), 45);
+			}
+			
+			if ( mapName == "pl_map32" )
+			{
+				SetThingEdNum(515,67);
 			}
 			
 			//	Replaces the two nukeage tiles with the blood tiles for consistancy
@@ -283,71 +281,6 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 				mapPrefix = mapPrefix.MakeLower();
 				String mapName = level.MapName.MakeLower();
 				
-				if (mapname ~== "TEST")
-				{
-					//	Demon Keys
-					
-					AddThing(667, (-2624, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(668, (-2816, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(669, (-2440, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Fuel Can
-						
-					AddThing(3143, (-1664, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3143, (-1664, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3143, (-1664, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3143, (-1664, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3143, (-1664, 448, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Fuel Tank
-						
-					AddThing(3144, (-1536, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3144, (-1536, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3144, (-1536, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3144, (-1536, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3144, (-1536, 448, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Dual Chainsaw
-					
-					AddThing(255, (-3584, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(255, (-3456, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(255, (-3328, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(255, (-3200, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(255, (-3072, 640, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Heavy Plasmarifle
-					
-					AddThing(256, (-3584, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(256, (-3456, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(256, (-3328, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(256, (-3200, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(256, (-3072, 384, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Incinerator
-					
-					AddThing(3145, (-3584, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3145, (-3456, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3145, (-3328, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3145, (-3200, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3145, (-3072, 320, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Calamity Blade
-					
-					AddThing(3146, (-3584, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3146, (-3456, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3146, (-3328, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3146, (-3200, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(3146, (-3072, 256, -999), 0,MODES_ALL | MTF_AMBUSH);
-					
-					//	Unmaker
-					
-					AddThing(666, (-3584, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(666, (-3456, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(666, (-3328, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(666, (-3200, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-					AddThing(666, (-3072, 192, -999), 0,MODES_ALL | MTF_AMBUSH);
-				}
-				
 				//Adding the unmaker and demonkeys into the maps.
 				
 				if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
@@ -355,7 +288,7 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 					if ( mapName == "ab_map06" )
 					{
 						SetThingEdNum(81,666); //Replaces secret plasmagun
-						AddThing(667, (-1184, 1376, -999), 270,MODES_ALL | MTF_AMBUSH); //Adds demonkey to the button secret
+						//AddThing(667, (-1184, 1376, -999), 270,MODES_ALL | MTF_AMBUSH); //Adds demonkey to the button secret
 					}				
 					if ( mapName == "ab_map14" )
 					SetThingEdNum(137,668);	//Replaces the megasphere that stood where it was in doom 64.
@@ -371,8 +304,7 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 					
 					if ( mapName == "ab_map30" )
 					{
-						SetThingEdNum(6,666);  //Replaces the backpack in penultimate room
-						AddThing(8, (0, -3308, -999), 270,MODES_ALL | MTF_AMBUSH);  //Adds a backpack with the rest of the ammo cashe
+						SetThingEdNum(6,666);  //Replaces the backpack in penultimate room						
 					}			
 				}
 				

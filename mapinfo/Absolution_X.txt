@@ -29,43 +29,43 @@ defaultmap
 
 //Intermission texts
 
-/*
-cluster 32
+
+cluster 101
 {
     pic = "D64bossb"
     music = "$MUSIC_D64TEXT"
     exittext = lookup, "IN_C1A"
 }
 
-cluster 33
+cluster 102
 {
     pic = "D64bossb"
     music = "$MUSIC_D64TEXT"
     exittext = lookup, "IN_C1B"
 }
 
-cluster 34
+cluster 103
 {
     pic = "D64bossb"
     music = "$MUSIC_D64TEXT"
     exittext = lookup, "IN_C2"
 }
 
-cluster 35
+cluster 104
 {
 	pic = "D64End"
     music = "$MUSIC_D64TEXT2"
     exittext = lookup, "IN_C3"
 }
 
-cluster 36
+cluster 105
 {
     pic = "D64boss2"
     music = "$MUSIC_D64TEXT"
     entertext = lookup, "IN_S1"
 }
 
-cluster 37
+cluster 106
 {
     pic = "D64boss3"
     music = "$MUSIC_D64TEXT"
@@ -74,10 +74,10 @@ cluster 37
 
 adddefaultmap
 {
-	//cluster = 32
+	cluster = 101
 	sky1 = "SKY1TLA1"
 }
-*/
+
 
 //Map definitions
 map AB_MAP01 lookup "ABHUSTR_1"
@@ -137,7 +137,7 @@ map AB_MAP06 lookup "ABHUSTR_6"
 
 adddefaultmap
 {
-	//cluster = 33
+	cluster = 102
 	sky1 = "SKY1TLA1"
 }
 
@@ -193,7 +193,7 @@ map AB_MAP11 lookup "ABHUSTR_11"
 
 adddefaultmap
 {
-	//cluster = 34
+	cluster = 103
 	sky1 = "RSKY2TAL"
 }
 
@@ -292,7 +292,7 @@ map AB_MAP20 lookup "ABHUSTR_20"
 
 adddefaultmap
 {
-	//cluster = 35
+	cluster = 104
 	sky1 = "SKY3TALS"
 }
 
@@ -403,7 +403,7 @@ map AB_MAP31 lookup "ABHUSTR_31"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP32"
 	sky1 = "SKY6TALL"
-	//cluster = 36
+	cluster = 105
 	music = "$MUSIC_D64MAP31"
 }
 
@@ -413,7 +413,7 @@ map AB_MAP32 lookup "ABHUSTR_32"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP16"
 	sky1 = "ZZZBLACK"
-	//cluster = 37
+	cluster = 106
 	music = "$MUSIC_D64MAP32"
 }
 

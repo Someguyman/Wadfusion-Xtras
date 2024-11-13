@@ -554,14 +554,9 @@ Texture "USKY2", 256, 128
 	Patch "USKY2", 0, 0
 }
 
-Texture "SILVER3A", 64, 128
+Texture "SILVER32", 64, 128
 {
-	Patch "RW32_3", 0, 0
-}
-
-Texture "SILVER3B", 64, 128
-{
-	Patch "RW32_B", 0, 0
+	Patch "RW32_A", 0, 0
 }
 
 Texture "USKY1", 256, 128
