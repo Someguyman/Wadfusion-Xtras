@@ -308,53 +308,6 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 					}			
 				}
 				
-				//This will only activeate when the appropriate value is called
-				If (CallACS("Check_Difficulty") == 1)
-				{
-					if ( mapName == "e4m1" )
-					{
-						SetThingEdNum(29,69);
-						SetThingEdNum(30,69);
-						SetThingEdNum(31,69);
-						SetThingEdNum(32,69);
-						SetThingEdNum(87,69); 
-					}
-					if ( mapName == "e4m2" )
-					{
-						SetThingEdNum(22,69);
-						SetThingEdNum(24,69);
-						SetThingEdNum(25,69);
-						SetThingEdNum(26,69);
-						SetThingEdNum(39,69);
-						SetThingEdNum(40,69);
-						SetThingEdNum(90,69);
-						SetThingEdNum(91,69);
-						SetThingEdNum(92,69);
-						SetThingEdNum(133,69);
-						SetThingEdNum(134,69);
-						SetThingEdNum(223,69);
-					}	
-					if ( mapName == "e4m3" )
-					{
-						SetThingEdNum(238,69);
-						SetThingEdNum(239,69);
-						SetThingEdNum(326,69);
-						SetThingEdNum(327,69);
-						SetThingEdNum(368,69);
-					}
-					if ( mapName == "e4m7" )
-					{
-						SetThingEdNum(131,69);
-						SetThingEdNum(126,69);
-					}
-					if ( mapNAme == "e4m8" )
-					{
-						SetThingEdNum(105,69);
-						SetThingEdNum(106,69);
-						SetThingEdNum(120,69);
-					}
-				}
-				
 				//Will only activeate on "Total Carnage" and "ULTRA NIGHTMARE!" difficulties. 
 				If (CallACS("Check_Difficulty") == 2)
 				{
