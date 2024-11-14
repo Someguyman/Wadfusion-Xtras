@@ -213,7 +213,7 @@ map E2M5 "$HUSTR_E2M5"
 	Author = "$WF_AU_PETERSEN"
 }
 
-map E2M5b lookup "HUSTR_E2M5b"
+map E2M5b "$HUSTR_E2M5b"
 {
 	levelnum = 15
 	next = "E2M6"

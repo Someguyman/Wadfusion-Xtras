@@ -3,6 +3,7 @@ include mapinfo/doom1_levels_X.txt
 include mapinfo/thyfleshconsumed_levels_X.txt
 include mapinfo/sigil_levels_X.txt
 include mapinfo/sigil2_levels_X.txt
+include mapinfo/Jaguar_Levels_X.txt
 include mapinfo/doom2_levels_X.txt
 include mapinfo/master_levels_X.txt
 include mapinfo/master_levels_christen_X.txt

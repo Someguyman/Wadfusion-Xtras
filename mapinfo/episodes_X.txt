@@ -43,6 +43,12 @@ episode E6M1
 	Optional
 }
 
+episode JA_MAP01
+{
+	Name = "$BONUS_JAGUAR"
+	Optional
+}
+
 episode GBA_DM1
 {
 	Name = "$BONUS_GBADM"

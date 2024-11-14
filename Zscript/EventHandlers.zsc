@@ -12,6 +12,10 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("ZZZFACE8", "RWDM309",0);
 			Level.ReplaceTextures("ZZZFACE9", "RWDM3010",0);
 		}
+		if ( MapName == "ja_map25" )
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("SKY1",TexMan.Type_Any),TexMan.CheckForTexture("SKY1",TexMan.Type_Any));
+		}
 	}
 
     void TextureEnchancements()
@@ -32,13 +36,17 @@ class DCX_EventHandler : EventHandler
 			if ( mapName != "ml_map22" )
 			{
 				Level.ReplaceTextures("SPACEW3",  "TVSNOW01", 0);
+				Level.ReplaceTextures("COMTAL02",  "TVSNOW01", 0);
 			}
 		}
 		
 		Level.ReplaceTextures("COMPUTE1",  "COMPUT12",0);
 		Level.ReplaceTextures("COMPUTE2",  "COMPUT22",0);
 		Level.ReplaceTextures("COMPUTE3",  "COMPUT32",0);
-		Level.ReplaceTextures("COMPTALL",  "COMPTAL1",0);
+		if ( mapName.left(3) != "ja_" )
+		{
+			Level.ReplaceTextures("COMPTALL",  "COMPTAL1",0);
+		}
 		Level.ReplaceTextures("COMP2", 	   "COMP2ON1",0);
 		Level.ReplaceTextures("SILVER3",   "SILVER32",0);
 		
@@ -203,6 +211,33 @@ class DCX_EventHandler : EventHandler
         }
 	}
 	
+	//For the Jaguar Doom levels (Level Label "ja_")
+	void JaguarDoomReplacements()
+	{
+		String mapName = level.MapName.MakeLower();
+		if ( mapName.Left(3) == "ja_" )
+		{
+			Level.ReplaceTextures("FLAT14", "FLOOR5_3", 0);
+			Level.ReplaceTextures("SP_DUDE4", "GSTONE3", 0);
+			Level.ReplaceTextures("CEIL5_1", "SLIME15", 0);
+			Level.ReplaceTextures("FLOOR0_6", "RROCK14", 0);
+			Level.ReplaceTextures("FLOOR6_1", "FLOOR6_4", 0);
+			Level.ReplaceTextures("FLOOR6_2", "RROCK17", 0);
+			Level.ReplaceTextures("SW1BRN1", "SW1BRN1A", 0);
+			Level.ReplaceTextures("SW2BRN1", "SW2BRN1A", 0);
+			Level.ReplaceTextures("FLAT4", "RROCK19", 0);
+			Level.ReplaceTextures("COMPSPAN", "COMPSPNJ", 0);
+			Level.ReplaceTextures("COMPTALL", "COMPTALJ", 0);
+			Level.ReplaceTextures("SP_HOT1", "SP_HOTJ", 0);
+			Level.ReplaceTextures("SW1GSTON", "SW1GSTON", 0);
+			Level.ReplaceTextures("SW2GSTON", "SW2GSTON", 0);
+			Level.ReplaceTextures("SW1HOT", "SW1HOTJ", 0);
+			Level.ReplaceTextures("SW2HOT", "SW2HOTJ", 0);
+			Level.ReplaceTextures("SW1WOOD", "SW1METL", 0);
+			Level.ReplaceTextures("SW2WOOD", "SW2METL", 0);
+		}
+	}
+	
 	void DCXskyreplacement()
 	{
 		String SkyName = TexMan.GetName(level.skytexture1);
@@ -210,8 +245,10 @@ class DCX_EventHandler : EventHandler
 		String mapPrefix = level.MapName.Left(3);
 		String mapName = level.MapName.MakeLower();
 		mapPrefix = mapPrefix.MakeLower();
-		if ( (mapName.left(2) ~== "E3") || (mapName == "psx01") || (mapName == "psx02") || (mapName == "psx01b") || (mapName == "psx02b"))
-		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
+		if ( (SkyName == "SKY3") || (MapName == "ja_map17") )
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
+		}
 		
 		if ( mapname == "e3m7" )
 		Level.ReplaceTextures("CEIL4_2", "F_SKY1", 0);
@@ -225,13 +262,10 @@ class DCX_EventHandler : EventHandler
 		if ( (mapName == "tn_map31") || (mapName == "tn_map32") )
 		Level.ChangeSky(TexMan.CheckForTexture("SKY4",TexMan.Type_Any),TexMan.CheckForTexture("SKY4",TexMan.Type_Any));
 		
-		if ( SkyName == "SKY1" )
+		if ( (mapName.left(2) ~== "E1") )
 		{
-			if (mapName.left(2) ~== "E1")
-			{
-				Level.ReplaceTextures("SKY1", "USKY1", 0);
-				Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
-			}
+			Level.ReplaceTextures("SKY1", "USKY1", 0);
+			Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
 		}
 		
 		if ( SkyName == "SKY2" )
@@ -282,6 +316,9 @@ class DCX_EventHandler : EventHandler
 		TextureFixes();
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 		TextureEnchancements();
+		
+		JaguarDoomReplacements();
+		
 		Wolfenstein3DTextures();
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
 		Doom64Doom2Replacements();
@@ -389,6 +426,8 @@ class DCX_PerMapReplacementHandler : EventHandler
 		
 		if ( mapName == "kickatk")
 		{
+			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			{
 			//Doomimp
 			if (e.Replacee == 'Doomimp')
 			{
@@ -430,6 +469,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'Kick_TechPillar';
 			}
 			
+			}
 		}
 		
 		if ( mapPrefix == "ab_" )
@@ -491,11 +531,22 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'DCX_Motherdemon';
 			}
 			
-			if (e.Replacee == 'CommanderKeen')
-			e.Replacement = 'DCX_NightmareImp';
+			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			{			
+				if (e.Replacee == 'CommanderKeen')
+				e.Replacement = 'DCX_NightmareImp';
 			
-			if (e.Replacee == 'GibbedMarineExtra')
-			e.Replacement = 'DCX_NightmareCacodemon';		
+				if (e.Replacee == 'GibbedMarineExtra')
+				e.Replacement = 'DCX_NightmareCacodemon';
+			}
+			else
+			{
+				if (e.Replacee == 'CommanderKeen')
+				e.Replacement = 'Doomimp';
+			
+				if (e.Replacee == 'GibbedMarineExtra')
+				e.Replacement = 'Cacodemon';
+			}
 		}
 	}
 	//Make sure the map specific flags still work for those maps
