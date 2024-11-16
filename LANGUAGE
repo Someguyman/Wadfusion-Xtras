@@ -68,6 +68,7 @@ WS_AU_MIDWAY = "Midway Ent.";
 //	AUTHOR UNKNOWN
 WS_AU_UNKNOWN = "???";
 
+HUSTR_E1M2B = "Plant";
 HUSTR_E2M5b = "Altar Of Extraction";
 
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";

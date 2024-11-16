@@ -2,12 +2,12 @@
 defaultmap
 {
 	SuckTime = 1
-	InterMusic = "$MUSIC_INTER"
+	InterMusic = "O_INTER"
 	BorderTexture = "FLOOR7_2"
 	NoJump
 	NoCrouch
 	ExitPic = "DMVICTOR"
-	Cluster = 666
+	Cluster = 667
 }
 
 adddefaultmap
@@ -21,17 +21,16 @@ map JA_MAP01 "$HUSTR_E1M1"
 	Next = "JA_MAP02"
 	TitlePatch = "WILV00"
 	Par = 30
-	Music = "$MUSIC_E1M1"
+	Music = "O_E1M1"
 	Label = "MAP01"
 }
 
-map JA_MAP02 "$HUSTR_E1M2"
+map JA_MAP02 "$HUSTR_E1M2B"
 {
 	LevelNum = 2
 	Next = "JA_MAP03"
-	TitlePatch = "WILV01"
 	Par = 30
-	Music = "$MUSIC_E1M2"
+	Music = "O_E1M2"
 	Label = "MAP02"
 }
 
@@ -42,7 +41,7 @@ map JA_MAP03 "$HUSTR_E1M3"
 	SecretNext = "JA_MAP25"
 	TitlePatch = "WILV02"
 	Par = 30
-	Music = "$MUSIC_E1M3"
+	Music = "O_E1M3"
 	Label = "MAP03"
 }
 
@@ -52,7 +51,7 @@ map JA_MAP04 "$HUSTR_E1M4"
 	Next = "JA_MAP05"
 	TitlePatch = "WILV03"
 	Par = 30
-	Music = "$MUSIC_E1M4"
+	Music = "O_E1M4"
 	Label = "MAP04"
 }
 
@@ -62,7 +61,7 @@ map JA_MAP05 "$HUSTR_E1M5"
 	Next = "JA_MAP06"
 	TitlePatch = "WILV04"
 	Par = 30
-	Music = "$MUSIC_E1M5"
+	Music = "O_E1M5"
 	Label = "MAP05"
 }
 
@@ -72,7 +71,7 @@ map JA_MAP06 "$HUSTR_E1M6"
 	Next = "JA_MAP07"
 	TitlePatch = "WILV05"
 	Par = 30
-	Music = "$MUSIC_E1M6"
+	Music = "O_E1M6"
 	Label = "MAP06"
 }
 
@@ -82,7 +81,7 @@ map JA_MAP07 "$HUSTR_E1M7"
 	Next = "JA_MAP08"
 	TitlePatch = "WILV06"
 	Par = 30
-	Music = "$MUSIC_E1M7"
+	Music = "O_E1M7"
 	Label = "MAP07"
 }
 
@@ -94,7 +93,7 @@ map JA_MAP08 "$HUSTR_E1M8"
 	BaronSpecial
 	SpecialAction_LowerFloor
 	Par = 30
-	Music = "$MUSIC_E1M8"
+	Music = "O_E1M8"
 	Label = "MAP08"
 }
 
@@ -109,7 +108,7 @@ map JA_MAP09 "$HUSTR_E2M1"
 	Next = "JA_MAP10"
 	TitlePatch = "WILV09"
 	Par = 30
-	Music = "$MUSIC_E2M1"
+	Music = "O_E2M1"
 	Label = "MAP09"
 }
 
@@ -119,7 +118,7 @@ map JA_MAP10 "$HUSTR_E2M2"
 	Next = "JA_MAP11"
 	TitlePatch = "WILV10"
 	Par = 30
-	Music = "$MUSIC_E2M2"
+	Music = "O_E3M2"
 	Label = "MAP10"
 }
 
@@ -129,7 +128,7 @@ map JA_MAP11 "$HUSTR_E2M3"
 	Next = "JA_MAP12"
 	TitlePatch = "WILV11"
 	Par = 30
-	Music = "$MUSIC_E2M3"
+	Music = "O_E2M9"
 	Label = "MAP11"
 }
 
@@ -139,7 +138,7 @@ map JA_MAP12 "$HUSTR_E2M4"
 	Next = "JA_MAP13"
 	TitlePatch = "WILV12"
 	Par = 30
-	Music = "$MUSIC_E2M4"
+	Music = "O_E1M1"
 	Label = "MAP12"
 }
 
@@ -149,47 +148,46 @@ map JA_MAP13 "$HUSTR_E2M5"
 	Next = "JA_MAP14"
 	TitlePatch = "WILV13"
 	Par = 30
-	Music = "$MUSIC_E2M5"
+	Music = "O_E1M2"
 	Label = "MAP13"
 }
 
-map JA_MAP14 "$HUSTR_E2M5b"
+map JA_MAP14 "$HUSTR_E2M5b" //Extramap.wad
 {
 	LevelNum = 14
 	Next = "JA_MAP15"
-	//TitlePatch = "WILV13"
 	Par = 30
-	Music = "$MUSIC_E3M2"
+	Music = "O_E2M1"
 	Label = "MAP14"
 }
 
-map JA_MAP15 "$HUSTR_E2M6"
+map JA_MAP15 "$HUSTR_E2M6" //Map 14 
 {
 	LevelNum = 15
 	Next = "JA_MAP16"
 	TitlePatch = "WILV14"
 	Par = 30
-	Music = "$MUSIC_E2M6"
+	Music = "O_E1M3"
 	Label = "MAP15"
 }
 
-map JA_MAP16 "$HUSTR_E2M7"
+map JA_MAP16 "$HUSTR_E2M7" //Map 15
 {
 	LevelNum = 16
 	Next = "JA_MAP17"
 	TitlePatch = "WILV15"
 	Par = 30
-	Music = "$MUSIC_E2M7"
+	Music = "O_E1M4"
 	Label = "MAP16"
 }
 
-map JA_MAP17 "$HUSTR_E2M8"
+map JA_MAP17 "$HUSTR_E2M8" //Map 16
 {
 	LevelNum = 17
 	Next = "JA_MAP18"
 	TitlePatch = "WILV16"
 	Par = 30
-	Music = "$MUSIC_E2M8"
+	Music = "O_E1M5"
 	Label = "MAP17"
 }
 
@@ -198,84 +196,84 @@ adddefaultmap
 	Sky1 = "SKY3"
 }
 
-map JA_MAP18 "$HUSTR_E3M1"
+map JA_MAP18 "$HUSTR_E3M1" //Map 17
 {
 	LevelNum = 18
 	Next = "JA_MAP19"
 	TitlePatch = "WILV20"
 	Par = 30
-	Music = "$MUSIC_E3M1"
+	Music = "O_E1M6"
 	Label = "MAP18"
 }
 
-map JA_MAP19 "$HUSTR_E3M3"
+map JA_MAP19 "$HUSTR_E3M3" //Map 18
 {
 	LevelNum = 19
 	Next = "JA_MAP20"
 	TitlePatch = "WILV22"
 	Par = 30
-	Music = "$MUSIC_E3M3"
+	Music = "O_E1M7"
 	Label = "MAP19"
 }
 
-map JA_MAP20 "$HUSTR_E3M4"
+map JA_MAP20 "$HUSTR_E3M4" //Map 19
 {
 	LevelNum = 20
 	Next = "JA_MAP21"
 	TitlePatch = "WILV23"
 	Par = 30
-	Music = "$MUSIC_E3M4"
+	Music = "O_E2M1"
 	Label = "MAP20"
 }
 
-map JA_MAP21 "$HUSTR_E3M5"
+map JA_MAP21 "$HUSTR_E3M5" //Map 20
 {
 	LevelNum = 21
 	Next = "JA_MAP22"
 	TitlePatch = "WILV24"
 	Par = 30
-	Music = "$MUSIC_E3M5"
+	Music = "O_E3M2"
 	Label = "MAP21"
 }
 
-map JA_MAP22 "$HUSTR_E3M6"
+map JA_MAP22 "$HUSTR_E3M6" //Map 21
 {
 	LevelNum = 22
 	Next = "JA_MAP23"
 	TitlePatch = "WILV25"
 	Par = 30
-	Music = "$MUSIC_E3M6"
+	Music = "O_E2M9"
 	Label = "MAP22"
 }
 
-map JA_MAP23 "$HUSTR_E3M7"
+map JA_MAP23 "$HUSTR_E3M7" //Map 22
 {
 	LevelNum = 23
 	Next = "JA_MAP24"
 	TitlePatch = "WILV26"
 	Par = 30
-	Music = "$MUSIC_E3M7"
+	Music = "O_E1M6"
 	Label = "MAP23"
 }
 
-map JA_MAP24 "$HUSTR_E3M8"
+map JA_MAP24 "$HUSTR_E3M8" //Map 23
 {
 	LevelNum = 24
 	next = EndSequence, "Jaguar_Cast"
 	TitlePatch = "WILV27"
 	Par = 30
-	Music = "$MUSIC_E2M6"
+	Music = "O_E1M8"
 	Label = "MAP24"
 }
 
-map JA_MAP25 "$HUSTR_E1M9"
+map JA_MAP25 "$HUSTR_E1M9" //Map 24
 {
 	LevelNum = 25
 	Next = "JA_MAP04"
 	TitlePatch = "WILV08"
 	Par = 30
 	Sky1 = "SKY3"
-	Music = "$MUSIC_E1M9"
+	Music = "O_E1M9"
 	Label = "MAP25"
 }
 
@@ -284,9 +282,9 @@ Intermission Jaguar_Cast
 	Image
 	{
 		// This is only here to initialize the background and the music
-		Background = "DMVICTOR"
+		Background = "3DOINTER"
 		Time = -1
-		Music = "$MUSIC_E1M7"
+		Music = "O_E1M8"
 	}
 	Link = Jaguarcast
 }
@@ -335,6 +333,19 @@ Intermission Jaguarcast
 		CastName = "$CC_BARON"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "The Marine"
+		AttackSound = "Missile", 0, "weapons/shotgf"
+	}
 
 	Link = Jaguarcast
+}
+
+Cluster 667
+{
+	ExitText = "$GENERIC_TXT"
+	Music = "O_E1M8"
+	pic = "DMVICTOR"
 }

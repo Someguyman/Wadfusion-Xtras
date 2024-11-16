@@ -645,7 +645,7 @@ class DCX_MusicHandler : StaticEventHandler
 			}			
 		}
 				
-		if ( (CVar.FindCVar("dcx_3DO_Music").GetBool() ) && (CVar.FindCVar("wf_hulshult_idkfa").GetBool() != true) )
+		if ( (CVar.FindCVar("dcx_3DO_Music").GetBool() ) && (CVar.FindCVar("wf_hulshult_idkfa").GetBool() != true) && ( mapName.left(3) != "ja_" ) )
 		{
 			if ( music == "d_e1m1" || music == "d_e2m4" || music == "d_inter")
 				music = "o_e1m1";
@@ -704,6 +704,8 @@ class DCX_MusicHandler : StaticEventHandler
 		else
 		{
 		
+		if ( mapName.left(3) != "ja_" )
+		{
 			if ( music == "o_e1m1" )
 			{
 				if ( mapName == "e1m1" )
@@ -821,6 +823,7 @@ class DCX_MusicHandler : StaticEventHandler
 				music = "d_bunny";
 				
 			S_ChangeMusic(music);
+			}
 		}
 	}
 }
