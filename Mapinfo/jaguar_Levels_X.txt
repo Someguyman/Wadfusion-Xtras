@@ -10,10 +10,19 @@ defaultmap
 	Cluster = 667
 }
 
+Cluster 667
+{
+	ExitText = "$GENERIC_TXT"
+	Music = "O_E1M8"
+	pic = "DMVICTOR"
+}
+
 adddefaultmap
 {
 	Sky1 = "SKY1"
 }
+
+//		Episode 1		//
 
 map JA_MAP01 "$HUSTR_E1M1"
 {
@@ -96,6 +105,21 @@ map JA_MAP08 "$HUSTR_E1M8"
 	Music = "O_E1M8"
 	Label = "MAP08"
 }
+
+//	Secret map	//
+
+map JA_MAP25 "$HUSTR_E1M9" //Map 24
+{
+	LevelNum = 25
+	Next = "JA_MAP04"
+	TitlePatch = "WILV08"
+	Par = 30
+	Sky1 = "SKY3"
+	Music = "O_E1M9"
+	Label = "MAP25"
+}
+
+//		Episode 2		//
 
 adddefaultmap
 {
@@ -191,6 +215,8 @@ map JA_MAP17 "$HUSTR_E2M8" //Map 16
 	Label = "MAP17"
 }
 
+//		Episode 3		//
+
 adddefaultmap
 {
 	Sky1 = "SKY3"
@@ -266,16 +292,7 @@ map JA_MAP24 "$HUSTR_E3M8" //Map 23
 	Label = "MAP24"
 }
 
-map JA_MAP25 "$HUSTR_E1M9" //Map 24
-{
-	LevelNum = 25
-	Next = "JA_MAP04"
-	TitlePatch = "WILV08"
-	Par = 30
-	Sky1 = "SKY3"
-	Music = "O_E1M9"
-	Label = "MAP25"
-}
+//		Ending Credits		//
 
 Intermission Jaguar_Cast
 {
@@ -341,11 +358,4 @@ Intermission Jaguarcast
 	}
 
 	Link = Jaguarcast
-}
-
-Cluster 667
-{
-	ExitText = "$GENERIC_TXT"
-	Music = "O_E1M8"
-	pic = "DMVICTOR"
 }

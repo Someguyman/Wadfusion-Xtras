@@ -27,32 +27,50 @@ class DCX_EventHandler : EventHandler
 		//Animated Computer Textures
 		if ( mapName.left(3) != "pt_" )
 		{
+			if ( mapName != "dz_map32" )
 			Level.ReplaceTextures("COMPSTA1", "COMPSAN1", 0);
 		}
+		
+		if ( mapName != "dz_map32" )
 		Level.ReplaceTextures("COMPSTA2", "COMPSA21", 0);
 		
 		if ( mapName != "map08" )
 		{
 			if ( mapName != "ml_map22" )
 			{
-				Level.ReplaceTextures("SPACEW3",  "TVSNOW01", 0);
-				Level.ReplaceTextures("COMTAL02",  "TVSNOW01", 0);
+				if ( mapName != "dz_map32" )
+				{
+					Level.ReplaceTextures("SPACEW3",  "TVSNOW01", 0);
+					Level.ReplaceTextures("COMTAL02",  "TVSNOW01", 0);
+				}
 			}
 		}
 		
-		Level.ReplaceTextures("COMPUTE1",  "COMPUT12",0);
-		Level.ReplaceTextures("COMPUTE2",  "COMPUT22",0);
-		Level.ReplaceTextures("COMPUTE3",  "COMPUT32",0);
+		if ( mapName != "dz_map32" )
+		{
+			Level.ReplaceTextures("COMPUTE1",  "COMPUT12",0);
+			Level.ReplaceTextures("COMPUTE2",  "COMPUT22",0);
+			Level.ReplaceTextures("COMPUTE3",  "COMPUT32",0);
+		}
+		
 		if ( mapName.left(3) != "ja_" )
 		{
+			if ( mapName != "dz_map32" )
 			Level.ReplaceTextures("COMPTALL",  "COMPTAL1",0);
 		}
-		Level.ReplaceTextures("COMP2", 	   "COMP2ON1",0);
-		Level.ReplaceTextures("SILVER3",   "SILVER32",0);
+		
+		if ( mapName != "dz_map32" )
+		{
+			Level.ReplaceTextures("COMP2", 	   "COMP2ON1",0);
+			Level.ReplaceTextures("SILVER3",   "SILVER32",0);
+		}
 		
 		//Fire Blu
-		Level.ReplaceTextures("FIREBLU1", "ENERGY01", 0);
-		Level.ReplaceTextures("FIREBLU2", "ENERGY01", 0);		
+		if ( (mapPrefix != "pr_") )
+		{
+			Level.ReplaceTextures("FIREBLU1", "ENERGY01", 0);
+			Level.ReplaceTextures("FIREBLU2", "ENERGY01", 0);
+		}
 		
 		if ( mapName.left(2) ~== "E3" )
 		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
@@ -63,7 +81,6 @@ class DCX_EventHandler : EventHandler
 		if ( mapPrefix == "tn_" )
 		{
 			Level.ReplaceTextures("BIGDOOR1", "DRTN2_1",0);
-			Level.ReplaceTextures("SHAWN1", "TNTDOOR",0);
 			Level.ReplaceTextures("DOBWIRE", 	"EHBWIRE", 0);
 			Level.ReplaceTextures("DOBWIRE2", 	"EHBWIRE2", 0);
 			Level.ReplaceTextures("TYIRONLG", "TYIRONLG2", 0);

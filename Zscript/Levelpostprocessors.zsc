@@ -262,6 +262,10 @@ class DCX_Multiplayerweaponremoveal : LevelPostProcessor
 					
 					if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
 					SetThingEdNum(i, 607); 
+					
+					//Keys
+					if (ednum == 13 || ednum == 5 || ednum == 6 || ednum == 38 || ednum == 40 || ednum == 39)
+					SetThingEdNum(i, 0); 
 			}
 		}
 	}
@@ -731,6 +735,14 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 //	MedKit =				2012
 
 //	ExplosiveBarrel = 		2035
+
+//	Red KeyCard = 			  13
+//	Blue KeyCard = 			   5
+//	Yellow KeyCard = 		   6
+
+//	Red SkullKey = 			  38
+//	Blue SkullKey = 		  40
+//	Yellow SkullKey = 		  39
 
 //	Stalagmite = 			  47
 //	ShortGreyTree = 		  43
