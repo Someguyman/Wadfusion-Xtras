@@ -18,6 +18,111 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 	}
 }
 
+class DCX_Multiplayerweaponremoveal : LevelPostProcessor 
+{
+		protected void Apply(Name checksum, String mapname)
+		{
+			for (int i = 0; i < GetThingCount(); i++)
+			{
+				let flags = GetThingFlags(i);
+				int ednum = GetThingEdNum(i);
+				String mapPrefix = level.MapName.Left(3);
+				mapPrefix = mapPrefix.MakeLower();
+				String mapName = level.MapName.MakeLower();
+				
+				if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
+				{
+					if (ednum == 11)
+					SetThingEdNum(i, 7734); 
+				}
+				
+					if(flags & MTF_COOPERATIVE && !(flags & MTF_SINGLE))
+					{
+					if ( mapPrefix != "dm_" )
+					{
+					if ( mapPrefix != "ab_" )
+					{
+						if ( mapPrefix != "pl_" )
+						{
+							if ( (mapName != "tn_map28") || (mapName != "tn_map31") || (mapName != "tn_map32") )
+							{
+								if ( mapName != "psx02" )
+								{
+									if (ednum == 2007 || ednum == 2048 || ednum == 2008 || ednum == 2049 || ednum == 2010 || ednum == 2046 || ednum == 2047 || ednum == 17 || ednum == 8)
+									SetThingEdNum(i, 0); 
+								}
+								
+								if (ednum == 2001)
+								SetThingEdNum(i, 0); 
+								
+								if (ednum == 2002)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2003)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2004)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2005)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2006)
+								SetThingEdNum(i, 0); 
+
+								if (ednum == 2035)
+								SetThingEdNum(i, 0); 
+
+								if (mapName != "tn_map01")
+								{
+									if (mapName != "psx02")
+									{
+										if (ednum == 82)
+										SetThingEdNum(i, 0); 
+									}
+								}
+							}
+						}
+						}
+					}
+					//Health
+					if (ednum == 2012)
+					SetThingEdNum(i, 2014); 
+					
+					//Weapons
+					if (ednum == 8)
+					SetThingEdNum(i, 2011); 
+					
+					//Powerups
+					if (ednum == 2024 || ednum == 2026 || ednum == 2025 || ednum == 2018 || ednum == 2019 || ednum == 2045)
+					SetThingEdNum(i, 0); 
+					
+					if (ednum == 14)
+					SetThingEdNum(i, 0);
+					
+					if (ednum == 2013 || ednum == 83 || ednum == 2022 || ednum == 2026 || ednum == 2023)
+					SetThingEdNum(i, 2014); 
+					
+					if (ednum == 16 && mapPrefix != "map")
+					{
+						if (mapPrefix != "dz_")
+						SetThingEdNum(i, 616);
+					}
+					
+					if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
+					{
+						if (mapPrefix != "dz_")
+						SetThingEdNum(i, 607); 
+					}
+					
+					//Keys
+					if (ednum == 13 || ednum == 5 || ednum == 6 || ednum == 38 || ednum == 40 || ednum == 39)
+					SetThingEdNum(i, 0); 
+			}
+		}
+	}
+}
+
 // Fixes the minor bugs in the maps
 Class DCX_MapFixes : LevelPostProcessor
 {
@@ -168,105 +273,6 @@ Class DCX_MapFixes : LevelPostProcessor
 				}			
 			}
 			Break;
-		}
-	}
-}
-
-class DCX_Multiplayerweaponremoveal : LevelPostProcessor 
-{
-		protected void Apply(Name checksum, String mapname)
-		{
-			for (int i = 0; i < GetThingCount(); i++)
-			{
-				let flags = GetThingFlags(i);
-				int ednum = GetThingEdNum(i);
-				String mapPrefix = level.MapName.Left(3);
-				mapPrefix = mapPrefix.MakeLower();
-				String mapName = level.MapName.MakeLower();
-				
-				if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
-				{
-					if (ednum == 11)
-					SetThingEdNum(i, 7734); 
-				}
-				
-					if(flags & MTF_COOPERATIVE && !(flags & MTF_SINGLE))
-					{
-					if ( mapPrefix != "dm_" )
-					{
-					if ( mapPrefix != "ab_" )
-					{
-						if ( mapPrefix != "pl_" )
-						{
-							if ( (mapName != "tn_map28") || (mapName != "tn_map31") || (mapName != "tn_map32") )
-							{
-								if ( mapName != "psx02" )
-								{
-									if (ednum == 2007 || ednum == 2048 || ednum == 2008 || ednum == 2049 || ednum == 2010 || ednum == 2046 || ednum == 2047 || ednum == 17 || ednum == 8)
-									SetThingEdNum(i, 0); 
-								}
-								
-								if (ednum == 2001)
-								SetThingEdNum(i, 0); 
-								
-								if (ednum == 2002)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2003)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2004)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2005)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2006)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2035)
-								SetThingEdNum(i, 0); 
-
-								if (mapName != "tn_map01")
-								{
-									if (mapName != "psx02")
-									{
-										if (ednum == 82)
-										SetThingEdNum(i, 0); 
-									}
-								}
-							}
-						}
-						}
-					}
-					//Health
-					if (ednum == 2012)
-					SetThingEdNum(i, 2014); 
-					
-					//Weapons
-					if (ednum == 8)
-					SetThingEdNum(i, 2011); 
-					
-					//Powerups
-					if (ednum == 2024 || ednum == 2026 || ednum == 2025 || ednum == 2018 || ednum == 2019 || ednum == 2045)
-					SetThingEdNum(i, 0); 
-					
-					if (ednum == 14)
-					SetThingEdNum(i, 0);
-					
-					if (ednum == 2013 || ednum == 83 || ednum == 2022 || ednum == 2026 || ednum == 2023)
-					SetThingEdNum(i, 2014); 
-					
-					if (ednum == 16 && mapPrefix != "map")
-					SetThingEdNum(i, 616); 
-					
-					if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
-					SetThingEdNum(i, 607); 
-					
-					//Keys
-					if (ednum == 13 || ednum == 5 || ednum == 6 || ednum == 38 || ednum == 40 || ednum == 39)
-					SetThingEdNum(i, 0); 
-			}
 		}
 	}
 }

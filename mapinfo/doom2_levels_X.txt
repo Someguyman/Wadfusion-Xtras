@@ -19,7 +19,7 @@ adddefaultmap
 
 map MAP01 "$HUSTR_1"
 {
-	Label = "DOOM 2, E1M1"
+	Label = "DOOM II, E1M1"
 	Next = "MAP02"
 	TitlePatch = "CWILV00"
 	Par = 30
@@ -40,7 +40,7 @@ map MAP02 "$HUSTR_2"
 
 map MAP03 "$HUSTR_3"
 {
-	Label = "DOOM 2, E1M3"
+	Label = "DOOM II, E1M3"
 	Next = "MAP04"
 	TitlePatch = "CWILV02"
 	Par = 120
@@ -50,7 +50,7 @@ map MAP03 "$HUSTR_3"
 
 map MAP04 "$HUSTR_4"
 {
-	Label = "DOOM 2, E1M4"
+	Label = "DOOM II, E1M4"
 	Next = "MAP05"
 	TitlePatch = "CWILV03"
 	Par = 120
@@ -60,7 +60,7 @@ map MAP04 "$HUSTR_4"
 
 map MAP05 "$HUSTR_5"
 {
-	Label = "DOOM 2, E1M5"
+	Label = "DOOM II, E1M5"
 	Next = "MAP06"
 	TitlePatch = "CWILV04"
 	Par = 90
@@ -70,7 +70,7 @@ map MAP05 "$HUSTR_5"
 
 map MAP06 "$HUSTR_6"
 {
-	Label = "DOOM 2, E1M6"
+	Label = "DOOM II, E1M6"
 	Next = "MAP07"
 	TitlePatch = "CWILV05"
 	Par = 150
@@ -87,7 +87,7 @@ adddefaultmap
 
 map MAP07 "$HUSTR_7"
 {
-	Label = "DOOM 2, E1M7"
+	Label = "DOOM II, E1M7"
 	Next = "MAP08"
 	TitlePatch = "CWILV06"
 	Par = 120
@@ -98,7 +98,7 @@ map MAP07 "$HUSTR_7"
 
 map MAP08 "$HUSTR_8"
 {
-	Label = "DOOM 2, E1M8"
+	Label = "DOOM II, E1M8"
 	Next = "MAP09"
 	TitlePatch = "CWILV07"
 	Par = 120
@@ -108,7 +108,7 @@ map MAP08 "$HUSTR_8"
 
 map MAP09 "$HUSTR_9"
 {
-	Label = "DOOM 2, E1M9"
+	Label = "DOOM II, E1M9"
 	Next = "MAP10"
 	TitlePatch = "CWILV08"
 	Par = 270
@@ -118,7 +118,7 @@ map MAP09 "$HUSTR_9"
 
 map MAP10 "$HUSTR_10"
 {
-	Label = "DOOM 2, E1M10"
+	Label = "DOOM II, E1M10"
 	Next = "MAP11"
 	TitlePatch = "CWILV09"
 	Par = 90
@@ -128,7 +128,7 @@ map MAP10 "$HUSTR_10"
 
 map MAP11 "$HUSTR_11"
 {
-	Label = "DOOM 2, E1M11"
+	Label = "DOOM II, E1M11"
 	Secretnext = "MAP12"
 	Next = "EndGame1"
 	TitlePatch = "CWILV10"
@@ -151,7 +151,7 @@ adddefaultmap
 
 map MAP12 "$HUSTR_12"
 {
-	Label = "DOOM 2, E2M1"
+	Label = "DOOM II, E2M1"
 	Next = "MAP13"
 	TitlePatch = "CWILV11"
 	Par = 150
@@ -161,7 +161,7 @@ map MAP12 "$HUSTR_12"
 
 map MAP13 "$HUSTR_13"
 {
-	Label = "DOOM 2, E2M2"
+	Label = "DOOM II, E2M2"
 	Next = "MAP14"
 	TitlePatch = "CWILV12"
 	Par = 150
@@ -171,7 +171,7 @@ map MAP13 "$HUSTR_13"
 
 map MAP14 "$HUSTR_14"
 {
-	Label = "DOOM 2, E2M3"
+	Label = "DOOM II, E2M3"
 	Next = "MAP15"
 	TitlePatch = "CWILV13"
 	Par = 150
@@ -181,7 +181,7 @@ map MAP14 "$HUSTR_14"
 
 map MAP15 "$HUSTR_15"
 {
-	Label = "DOOM 2, E2M4"
+	Label = "DOOM II, E2M4"
 	Next = "MAP16"
 	SecretNext = "MAP31"
 	TitlePatch = "CWILV14"
@@ -192,7 +192,7 @@ map MAP15 "$HUSTR_15"
 
 map MAP16 "$HUSTR_16"
 {
-	Label = "DOOM 2, E2M5"
+	Label = "DOOM II, E2M5"
 	Next = "MAP17"
 	secretnext = "PSX06"
 	TitlePatch = "CWILV15"
@@ -203,7 +203,7 @@ map MAP16 "$HUSTR_16"
 
 map MAP17 "$HUSTR_17"
 {
-	Label = "DOOM 2, E2M6"
+	Label = "DOOM II, E2M6"
 	Next = "MAP18"
 	TitlePatch = "CWILV16"
 	Par = 420
@@ -213,7 +213,7 @@ map MAP17 "$HUSTR_17"
 
 map MAP18 "$HUSTR_18"
 {
-	Label = "DOOM 2, E2M7"
+	Label = "DOOM II, E2M7"
 	Next = "MAP19"
 	TitlePatch = "CWILV17"
 	Par = 150
@@ -223,7 +223,7 @@ map MAP18 "$HUSTR_18"
 
 map MAP19 "$HUSTR_19"
 {
-	Label = "DOOM 2, E2M8"
+	Label = "DOOM II, E2M8"
 	Next = "MAP20"
 	TitlePatch = "CWILV18"
 	Par = 210
@@ -233,7 +233,7 @@ map MAP19 "$HUSTR_19"
 
 map MAP20 "$HUSTR_20"
 {
-	Label = "DOOM 2, E2M9"
+	Label = "DOOM II, E2M9"
 	Secretnext = "MAP21"
 	Next = "EndGame1"
 	TitlePatch = "CWILV19"
@@ -256,7 +256,7 @@ adddefaultmap
 
 map MAP21 "$HUSTR_21"
 {
-	Label = "DOOM 2, E3M1"
+	Label = "DOOM II, E3M1"
 	Next = "MAP22"
 	TitlePatch = "CWILV20"
 	Par = 240
@@ -266,7 +266,7 @@ map MAP21 "$HUSTR_21"
 
 map MAP22 "$HUSTR_22"
 {
-	Label = "DOOM 2, E3M2"
+	Label = "DOOM II, E3M2"
 	Next = "MAP23"
 	TitlePatch = "CWILV21"
 	Par = 150
@@ -276,7 +276,7 @@ map MAP22 "$HUSTR_22"
 
 map MAP23 "$HUSTR_23"
 {
-	Label = "DOOM 2, E3M3"
+	Label = "DOOM II, E3M3"
 	Next = "MAP24"
 	TitlePatch = "CWILV22"
 	Par = 180
@@ -286,7 +286,7 @@ map MAP23 "$HUSTR_23"
 
 map MAP24 "$HUSTR_24"
 {
-	Label = "DOOM 2, E3M4"
+	Label = "DOOM II, E3M4"
 	Next = "MAP25"
 	TitlePatch = "CWILV23"
 	Par = 150
@@ -296,7 +296,7 @@ map MAP24 "$HUSTR_24"
 
 map MAP25 "$HUSTR_25"
 {
-	Label = "DOOM 2, E3M5"
+	Label = "DOOM II, E3M5"
 	Next = "MAP26"
 	TitlePatch = "CWILV24"
 	Par = 150
@@ -306,7 +306,7 @@ map MAP25 "$HUSTR_25"
 
 map MAP26 "$HUSTR_26"
 {
-	Label = "DOOM 2, E3M6"
+	Label = "DOOM II, E3M6"
 	Next = "MAP27"
 	TitlePatch = "CWILV25"
 	Par = 300
@@ -316,7 +316,7 @@ map MAP26 "$HUSTR_26"
 
 map MAP27 "$HUSTR_27"
 {
-	Label = "DOOM 2, E3M7"
+	Label = "DOOM II, E3M7"
 	Next = "MAP28"
 	TitlePatch = "CWILV26"
 	Par = 330
@@ -326,7 +326,7 @@ map MAP27 "$HUSTR_27"
 
 map MAP28 "$HUSTR_28"
 {
-	Label = "DOOM 2, E3M8"
+	Label = "DOOM II, E3M8"
 	Next = "MAP29"
 	TitlePatch = "CWILV27"
 	Par = 420
@@ -336,7 +336,7 @@ map MAP28 "$HUSTR_28"
 
 map MAP29 "$HUSTR_29"
 {
-	Label = "DOOM 2, E3M9"
+	Label = "DOOM II, E3M9"
 	Next = "MAP30"
 	TitlePatch = "CWILV28"
 	Par = 300
@@ -352,12 +352,12 @@ map PSX08 "Redemption denied"
 	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8
 	SpecialAction = "Spidermastermind", Door_Open, 667, 16
 	Author = "$WS_AU_MIDWAY"
-	Label = "DOOM 2, PSX03"
+	Label = "DOOM II, PSX03"
 }
 
 map MAP30 "$HUSTR_30"
 {
-	Label = "DOOM 2, E3M10"
+	Label = "DOOM II, E3M10"
 	Next = "EndGameC"
 	TitlePatch = "CWILV29"
 	Par = 180
@@ -379,7 +379,7 @@ adddefaultmap
 
 map MAP31 "$HUSTR_31"
 {
-	Label = "DOOM 2, E2M10"
+	Label = "DOOM II, E2M10"
 	Next = "MAP16"
 	SecretNext = "MAP32"
 	Cluster = 9
@@ -391,7 +391,7 @@ map MAP31 "$HUSTR_31"
 
 map MAP32 "$HUSTR_32"
 {
-	Label = "DOOM 2, E2M11"
+	Label = "DOOM II, E2M11"
 	Next = "MAP16"
 	Cluster = 10
 	TitlePatch = "CWILV31"
@@ -415,7 +415,7 @@ map PSX06 "The Mansion"
 	Cluster = 32
 	music = "$MUSIC_ADRIAN"
 	Author = "$WS_AU_HEYDELAAR"
-	Label = "DOOM 2, PSX01"
+	Label = "DOOM II, PSX01"
 }
 
 map PSX07 "Club DOOM"
@@ -425,7 +425,7 @@ map PSX07 "Club DOOM"
 	Cluster = 33
 	Music = "$MUSIC_DM2INT"
 	Author = "$WS_AU_MIDWAY"
-	Label = "DOOM 2, PSX02"
+	Label = "DOOM II, PSX02"
 }
 
 map MAP33 "$HUSTR_33"
@@ -437,7 +437,7 @@ map MAP33 "$HUSTR_33"
 	Par = 120
 	Music = "D_READ_M"
 	Author = "$WF_AU_BUKOWSKI"
-	Label = "DOOM 2, E1M12"
+	Label = "DOOM II, E1M12"
 }
 
 // DOOM II first cluster (up thru level 6)
