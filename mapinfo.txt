@@ -29,7 +29,7 @@ gameinfo
 	PlayerClasses = "DCX_Player"
 	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler"
     //creditpage = "CREDIT", "UDCRED", "E5CRED", "SCREDI2", "D2CRED", "TNCRED", "PRCRED", "PLCRED", "ABCRED"
-    infopage = "HELP2", "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64cre"
+    infopage = "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64CRE"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
 }
