@@ -14,7 +14,7 @@ defaultmap
 
 map ML_MAP37 "$ML_FLOOD" // reject level
 {
-	Label = "Cabal01"
+	Label = "CABAL, MAP01"
 	Next = "ML_MAP38"
 	TitlePatch = "MWILV36"
 	Music = "$MUSIC_BLOODF"
@@ -22,7 +22,7 @@ map ML_MAP37 "$ML_FLOOD" // reject level
 
 map ML_MAP38 "$ML_DERELICT" // reject level
 {
-	Label = "Cabal02"
+	Label = "CABAL, MAP02"
 	Next = "ML_MAP39"
 	TitlePatch = "MWILV37"
 	Music = "$MUSIC_DERELICT"
@@ -31,7 +31,7 @@ map ML_MAP38 "$ML_DERELICT" // reject level
 
 map ML_MAP39 "$ML_WATCHTWR" // reject level
 {
-	Label = "Cabal03"
+	Label = "CABAL, MAP03"
 	Next = "ML_MAP19"
 	TitlePatch = "MWILV38"
 	Music = "$MUSIC_WATCHTWR"
@@ -40,7 +40,7 @@ map ML_MAP39 "$ML_WATCHTWR" // reject level
 
 map ML_MAP19 "$ML_BLOODSEA"
 {
-	Label = "Cabal04"
+	Label = "CABAL, MAP04"
 	Next = "ML_MAP40"
 	TitlePatch = "MWILV18"
 	Music = "$MUSIC_BLOODSEA"
@@ -49,7 +49,7 @@ map ML_MAP19 "$ML_BLOODSEA"
 
 map ML_MAP40 "$ML_TODEATH" // reject level
 {
-	Label = "Cabal05"
+	Label = "CABAL, MAP05"
 	Next = "ML_MAP41"
 	TitlePatch = "MWILV39"
 	music = "$MUSIC_TDEATH"
@@ -57,7 +57,7 @@ map ML_MAP40 "$ML_TODEATH" // reject level
 
 map ML_MAP41 "$ML_ARENA" // reject level
 {
-	Label = "Cabal06"
+	Label = "CABAL, MAP06"
 	Next = "ML_MAP10"
 	TitlePatch = "MWILV40"
 	Music = "$MUSIC_ABOUTTO"
@@ -65,7 +65,7 @@ map ML_MAP41 "$ML_ARENA" // reject level
 
 map ML_MAP10 "$ML_BLACKTWR"
 {
-	Label = "Cabal07"
+	Label = "CABAL, MAP07"
 	Next = "ML_MAP20"
 	TitlePatch = "MWILV09"
 	Music = "$MUSIC_BLACKTWR"
@@ -73,7 +73,7 @@ map ML_MAP10 "$ML_BLACKTWR"
 
 map ML_MAP20 "$ML_MEPHISTO"
 {
-	Label = "Cabal08"
+	Label = "CABAL, MAP08"
 	Next = "ML_MAP43"
 	TitlePatch = "MWILV19"
 	Music = "$MUSIC_MEPHISTO"
@@ -83,7 +83,7 @@ map ML_MAP20 "$ML_MEPHISTO"
 
 map ML_MAP43 "$ML_THE_EVIL" // reject level
 {
-	Label = "Cabal09"
+	Label = "CABAL, MAP09"
 	Next = "ML_MAP18"
 	TitlePatch = "MWILV42"
 	Music = "$MUSIC_IMAGE"
@@ -92,7 +92,7 @@ map ML_MAP43 "$ML_THE_EVIL" // reject level
 
 map ML_MAP18 "$ML_TEETH"
 {
-	Label = "Cabal10"
+	Label = "CABAL, MAP10"
 	Next = "ML_MAP42"
 	SecretNext = "ML_MAP21"
 	TitlePatch = "MWILV17"
@@ -102,7 +102,7 @@ map ML_MAP18 "$ML_TEETH"
 
 map ML_MAP42 "$ML_STORM" // reject level
 {
-	Label = "Cabal11"
+	Label = "CABAL, MAP11"
 	Next = EndGame
 	{
 		Pic = "CRBOSSBK"
@@ -115,7 +115,7 @@ map ML_MAP42 "$ML_STORM" // reject level
 
 map ML_MAP21 "$ML_TEETH_SECRET"
 {
-	Label = "Cabal12"
+	Label = "CABAL, MAP12"
 	Next = "ML_MAP41"
 	Cluster = 25
 	TitlePatch = "MWILV20"

@@ -26,7 +26,7 @@ adddefaultmap
 
 map ML_MAP01 "$ML_ATTACK"
 {
-	Label = "TIM01"
+	Label = "TIM, MAP01"
 	Next = "ML_MAP02"
 	TitlePatch = "MWILV00"
 	Music = "$MUSIC_ATTACK"
@@ -34,7 +34,7 @@ map ML_MAP01 "$ML_ATTACK"
 
 map ML_MAP02 "$ML_CANYON"
 {
-	Label = "TIM02"
+	Label = "TIM, MAP02"
 	Next = "KICKATK"
 	TitlePatch = "MWILV01"
 	Music = "$MUSIC_CANYON"
@@ -42,7 +42,7 @@ map ML_MAP02 "$ML_CANYON"
 
 map KICKATK "Boot Assault" //KICK ATTACK
 {
-	Label = "TIM03"
+	Label = "TIM, MAP03"
 	Next = "SYSTEM"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
@@ -58,7 +58,7 @@ adddefaultmap
 
 map SYSTEM "$THUSTR_1"
 {
-	Label = "TOM01"
+	Label = "TOM, MAP01"
 	Next = "PROCESS"
 	TitlePatch = "TWILV00"
 	Music = "T_STLKS3"
@@ -67,7 +67,7 @@ map SYSTEM "$THUSTR_1"
 
 map PROCESS "$THUSTR_17"
 {
-	Label = "TOM02"
+	Label = "TOM, MAP02"
 	Next = "ML_MAP28"
 	TitlePatch = "TWILV16"
 	Author = "$WF_AU_MUSTAINE"
@@ -76,7 +76,7 @@ map PROCESS "$THUSTR_17"
 
 map ML_MAP28 "Masters Den" // reject level
 {
-	Label = "TOM03"
+	Label = "TOM, MAP03"
 	Next = "ML_MAP07"
 	//TitlePatch = "MWILV27"
 	Music = "$MUSIC_MASTERDEN"
@@ -85,7 +85,7 @@ map ML_MAP28 "Masters Den" // reject level
 
 map ML_MAP07 "$ML_PARADOX"
 {
-	Label = "TOM04"
+	Label = "TOM, MAP04"
 	Next = "HACK2"
 	TitlePatch = "MWILV06"
 	Music = "$MUSIC_PARADOX"
@@ -101,7 +101,7 @@ adddefaultmap
 
 map HACK2 "Hacked Together" 
 {
-	Label = "MID01"
+	Label = "MID, MAP01"
 	next = "CANYON"
 	sky1 = "SKY1"
 	music = "$MUSIC_HACK2"
@@ -109,7 +109,7 @@ map HACK2 "Hacked Together"
 
 map CANYON "Grand Entrance to Hell" //CANYON
 {
-	Label = "MID02"
+	Label = "MID, MAP02"
 	next = "MEE2"
 	sky1 = "SKY1"
 	music = "$MUSIC_HELLCAN"
@@ -117,7 +117,7 @@ map CANYON "Grand Entrance to Hell" //CANYON
 
 map MEE2 "Moping in Sarrow" // MEE2
 {
-	Label = "MID03"
+	Label = "MID, MAP03"
 	next = "NEWCAT3"
 	sky1 = "RSKY3"
 	music = "$MUSIC_MEE2"
@@ -125,7 +125,7 @@ map MEE2 "Moping in Sarrow" // MEE2
 
 map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
 {
-	Label = "MID04"
+	Label = "MID, MAP04"
 	next = "TUFF"
 	Sky1 =  "SKYX5A"
 	music = "$MUSIC_NEWCAT3"
@@ -133,7 +133,7 @@ map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
 
 map TUFF "Tuff stuff" //TUFF
 {
-	Label = "MID05"
+	Label = "MID, MAP05"
 	Next = EndGame
 	{
 		Pic = "MLBOSSBK"

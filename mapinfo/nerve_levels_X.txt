@@ -12,7 +12,7 @@ defaultmap
 
 map NV_MAP01 "$NHUSTR_1"
 {
-	Label = "E4M1"
+	Label = "DOOM 2, E4M1"
 	Next = "NV_MAP02"
 	Sky1 = "RSKY1"
 	TitlePatch = "NWILV00"
@@ -23,7 +23,7 @@ map NV_MAP01 "$NHUSTR_1"
 
 map NV_MAP02 "$NHUSTR_2"
 {
-	Label = "E4M2"
+	Label = "DOOM 2, E4M2"
 	Next = "NV_MAP03"
 	Sky1 = "RSKY1"
 	TitlePatch = "NWILV01"
@@ -34,7 +34,7 @@ map NV_MAP02 "$NHUSTR_2"
 
 map NV_MAP03 "$NHUSTR_3"
 {
-	Label = "E4M3"
+	Label = "DOOM 2, E4M3"
 	Next = "NV_MAP04"
 	Sky1 = "RSKY1"
 	TitlePatch = "NWILV02"
@@ -45,7 +45,7 @@ map NV_MAP03 "$NHUSTR_3"
 
 map NV_MAP04 "$NHUSTR_4"
 {
-	Label = "E4M4"
+	Label = "DOOM 2, E4M4"
 	Next = "NV_MAP05"
 	SecretNext = "NV_MAP09"
 	Sky1 = "RSKY1"
@@ -57,7 +57,7 @@ map NV_MAP04 "$NHUSTR_4"
 
 map NV_MAP05 "$NHUSTR_5"
 {
-	Label = "E4M5"
+	Label = "DOOM 2, E4M5"
 	Next = "NV_MAP06"
 	Sky1 = "RSKY3"
 	TitlePatch = "NWILV04"
@@ -68,7 +68,7 @@ map NV_MAP05 "$NHUSTR_5"
 
 map NV_MAP06 "$NHUSTR_6"
 {
-	Label = "E4M6"
+	Label = "DOOM 2, E4M6"
 	Next = "NV_MAP07"
 	Sky1 = "RSKY3"
 	TitlePatch = "NWILV05"
@@ -79,7 +79,7 @@ map NV_MAP06 "$NHUSTR_6"
 
 map NV_MAP07 "$NHUSTR_7"
 {
-	Label = "E4M7"
+	Label = "DOOM 2, E4M7"
 	Next = "NV_MAP08"
 	Sky1 = "RSKY3"
 	TitlePatch = "NWILV06"
@@ -97,7 +97,7 @@ map NV_MAP08 "$NHUSTR_8"
 		Music = "P_THE_DA"
 		Cast
 	}
-	Label = "E4M8"
+	Label = "DOOM 2, E4M8"
 	Sky1 = "RSKY3"
 	TitlePatch = "NWILV07"
 	Par = 105
@@ -109,7 +109,7 @@ map NV_MAP08 "$NHUSTR_8"
 
 map NV_MAP09 "$NHUSTR_9"
 {
-	Label = "E4M9"
+	Label = "DOOM 2, E4M9"
 	Next = "NV_MAP05"
 	Sky1 = "RSKY1"
 	TitlePatch = "NWILV08"

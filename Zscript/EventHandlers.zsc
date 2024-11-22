@@ -24,6 +24,12 @@ class DCX_EventHandler : EventHandler
         mapPrefix = mapPrefix.MakeLower();
 		String mapName = level.MapName.MakeLower();
 		
+		if ( mapName == "map30" )
+        {
+			Level.ReplaceTextures("RROCK08", "F_SKY1",0);			
+			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
+		}
+		
 		//Animated Computer Textures
 		if ( mapName.left(3) != "pt_" )
 		{

@@ -82,7 +82,7 @@ adddefaultmap
 //Map definitions
 map AB_MAP01 lookup "ABHUSTR_1"
 {
-	Label = "Map01"
+	Label = "ABSOLUTION MAP01"
 	next = "AB_MAP02"
 	secretnext = "AB_MAP02B"
 	sky1 = "SKY1TLA1"
@@ -91,7 +91,7 @@ map AB_MAP01 lookup "ABHUSTR_1"
 
 map AB_MAP02 lookup "ABHUSTR_2"
 {
-	Label = "Map02"
+	Label = "ABSOLUTION MAP02"
 	next = "AB_MAP03"
 	secretnext = "AB_MAP03"
 	sky1 = "SKY1TLA1"
@@ -100,7 +100,7 @@ map AB_MAP02 lookup "ABHUSTR_2"
 
 map AB_MAP03 lookup "ABHUSTR_3"
 {
-	Label = "Map03"
+	Label = "ABSOLUTION MAP03"
 	next = "AB_MAP04"
 	secretnext = "AB_MAP04"
 	sky1 = "SKY1TLA1"
@@ -110,7 +110,7 @@ map AB_MAP03 lookup "ABHUSTR_3"
 
 map AB_MAP04 lookup "ABHUSTR_4"
 {
-	Label = "Map04"
+	Label = "ABSOLUTION MAP04"
 	next = "AB_MAP05"
 	secretnext = "AB_MAP05"
 	sky1 = "SKY1TLA1"
@@ -119,7 +119,7 @@ map AB_MAP04 lookup "ABHUSTR_4"
 
 map AB_MAP05 lookup "ABHUSTR_5"
 {
-	Label = "Map05"
+	Label = "ABSOLUTION MAP05"
 	next = "AB_MAP06"
 	secretnext = "AB_MAP06"
 	sky1 = "SKY1TLA1"
@@ -128,7 +128,7 @@ map AB_MAP05 lookup "ABHUSTR_5"
 
 map AB_MAP06 lookup "ABHUSTR_6"
 {
-	Label = "Map06"
+	Label = "ABSOLUTION MAP06"
 	next = "AB_MAP07"
 	secretnext = "AB_MAP07"
 	sky1 = "SKY1TLA1"
@@ -143,7 +143,7 @@ adddefaultmap
 
 map AB_MAP07 lookup "ABHUSTR_7"
 {
-	Label = "Map07"
+	Label = "ABSOLUTION MAP07"
 	next = "AB_MAP08"
 	secretnext = "AB_MAP08"
 	sky1 = "SKY1TLA1"
@@ -153,7 +153,7 @@ map AB_MAP07 lookup "ABHUSTR_7"
 
 map AB_MAP08 lookup "ABHUSTR_8"
 {
-	Label = "Map08"
+	Label = "ABSOLUTION MAP08"
 	next = "AB_MAP09"
 	secretnext = "AB_MAP09"
 	sky1 = "SKY1TLA1"
@@ -162,7 +162,7 @@ map AB_MAP08 lookup "ABHUSTR_8"
 
 map AB_MAP09 lookup "ABHUSTR_9"
 {
-	Label = "Map09"
+	Label = "ABSOLUTION MAP09"
 	titlepatch = "CWILV08"
 	next = "AB_MAP10"
 	secretnext = "AB_MAP10"
@@ -172,7 +172,7 @@ map AB_MAP09 lookup "ABHUSTR_9"
 
 map AB_MAP10 lookup "ABHUSTR_10"
 {
-	Label = "Map10"
+	Label = "ABSOLUTION MAP10"
 	next = "AB_MAP11"
 	secretnext = "AB_MAP11"
 	sky1 = "SKY1TLA1"
@@ -182,7 +182,7 @@ map AB_MAP10 lookup "ABHUSTR_10"
 
 map AB_MAP11 lookup "ABHUSTR_11"
 {
-	Label = "Map11"
+	Label = "ABSOLUTION MAP11"
 	next = "AB_MAP12"
 	secretnext = "AB_MAP12"
 	sky1 = "SKY1TLA1"
@@ -199,7 +199,7 @@ adddefaultmap
 
 map AB_MAP12 lookup "ABHUSTR_12"
 {
-	Label = "Map12"
+	Label = "ABSOLUTION MAP12"
 	next = "AB_MAP13"
 	secretnext = "AB_MAP13"
 	sky1 = "SKY5TALL"
@@ -208,7 +208,7 @@ map AB_MAP12 lookup "ABHUSTR_12"
 
 map AB_MAP13 lookup "ABHUSTR_13"
 {
-	Label = "Map13"
+	Label = "ABSOLUTION MAP13"
 	next = "AB_MAP14"
 	secretnext = "AB_MAP14"
 	sky1 = "SKY4TALL"
@@ -219,7 +219,7 @@ map AB_MAP13 lookup "ABHUSTR_13"
 
 map AB_MAP14 lookup "ABHUSTR_14"
 {
-	Label = "Map14"
+	Label = "ABSOLUTION MAP14"
 	next = "AB_MAP15"
 	secretnext = "AB_MAP15"
 	sky1 = "SKY4TALL"
@@ -231,7 +231,7 @@ map AB_MAP14 lookup "ABHUSTR_14"
 
 map AB_MAP15 lookup "ABHUSTR_15"
 {
-	Label = "Map15"
+	Label = "ABSOLUTION MAP15"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP31"
 	sky1 = "SKY4TALL"
@@ -242,7 +242,7 @@ map AB_MAP15 lookup "ABHUSTR_15"
 
 map AB_MAP16 lookup "ABHUSTR_16"
 {
-	Label = "Map16"
+	Label = "ABSOLUTION MAP16"
 	next = "AB_MAP17"
 	secretnext = "AB_MAP17"
 	sky1 = "SKY6TALL", 0.1
@@ -251,7 +251,7 @@ map AB_MAP16 lookup "ABHUSTR_16"
 
 map AB_MAP17 lookup "ABHUSTR_17"
 {
-	Label = "Map17"
+	Label = "ABSOLUTION MAP17"
 	next = "AB_MAP18"
 	secretnext = "AB_MAP18"
 	sky1 = "SKY4TALL"
@@ -262,7 +262,7 @@ map AB_MAP17 lookup "ABHUSTR_17"
 
 map AB_MAP18 lookup "ABHUSTR_18"
 {
-	Label = "Map18"
+	Label = "ABSOLUTION MAP18"
 	next = "AB_MAP19"
 	secretnext = "AB_MAP19"
 	sky1 = "SKY2TALL"
@@ -271,7 +271,7 @@ map AB_MAP18 lookup "ABHUSTR_18"
 
 map AB_MAP19 lookup "ABHUSTR_19"
 {
-	Label = "Map19"
+	Label = "ABSOLUTION MAP19"
 	next = "AB_MAP20"
 	secretnext = "AB_MAP20"
 	sky1 = "SKY5TALL"
@@ -280,7 +280,7 @@ map AB_MAP19 lookup "ABHUSTR_19"
 
 map AB_MAP20 lookup "ABHUSTR_20"
 {
-	Label = "Map20"
+	Label = "ABSOLUTION MAP20"
 	next = "AB_MAP21"
 	secretnext = "AB_MAP21"
 	//Next = endpic, "D64cre"
@@ -298,7 +298,7 @@ adddefaultmap
 
 map AB_MAP21 lookup "ABHUSTR_21"
 {
-	Label = "Map21"
+	Label = "ABSOLUTION MAP21"
 	next = "AB_MAP22"
 	secretnext = "AB_MAP22"
 	sky1 = "SKY5TALL"
@@ -309,7 +309,7 @@ map AB_MAP21 lookup "ABHUSTR_21"
 
 map AB_MAP22 lookup "ABHUSTR_22"
 {
-	Label = "Map22"
+	Label = "ABSOLUTION MAP22"
 	next = "AB_MAP23"
 	secretnext = "AB_MAP23"
 	sky1 = "SKY2TALL"
@@ -318,7 +318,7 @@ map AB_MAP22 lookup "ABHUSTR_22"
 
 map AB_MAP23 lookup "ABHUSTR_23"
 {
-	Label = "Map23"
+	Label = "ABSOLUTION MAP23"
 	next = "AB_MAP24"
 	secretnext = "AB_MAP24"
 	sky1 = "SKY2TALL"
@@ -327,7 +327,7 @@ map AB_MAP23 lookup "ABHUSTR_23"
 
 map AB_MAP24 lookup "ABHUSTR_24"
 {
-	Label = "Map24"
+	Label = "ABSOLUTION MAP24"
 	next = "AB_MAP25"
 	secretnext = "AB_MAP25"
 	sky1 = "SKY2TALL"
@@ -336,7 +336,7 @@ map AB_MAP24 lookup "ABHUSTR_24"
 
 map AB_MAP25 lookup "ABHUSTR_25"
 {
-	Label = "Map25"
+	Label = "ABSOLUTION MAP25"
 	next = "AB_MAP26"
 	secretnext = "AB_MAP26"
 	sky1 = "SKY2TALL"
@@ -345,7 +345,7 @@ map AB_MAP25 lookup "ABHUSTR_25"
 
 map AB_MAP26 lookup "ABHUSTR_26"
 {
-	Label = "Map26"
+	Label = "ABSOLUTION MAP26"
 	next = "AB_MAP27"
 	secretnext = "AB_MAP27"
 	sky1 = "SKY3TALS"
@@ -356,7 +356,7 @@ map AB_MAP26 lookup "ABHUSTR_26"
 
 map AB_MAP27 lookup "ABHUSTR_27"
 {
-	Label = "Map27"
+	Label = "ABSOLUTION MAP27"
 	next = "AB_MAP28"
 	secretnext = "AB_MAP28"
 	sky1 = "SKY3TALS"
@@ -365,7 +365,7 @@ map AB_MAP27 lookup "ABHUSTR_27"
 
 map AB_MAP28 lookup "ABHUSTR_28"
 {
-	Label = "Map28"
+	Label = "ABSOLUTION MAP28"
 	next = "AB_MAP29"
 	secretnext = "AB_MAP29"
 	sky1 = "SKY3ATAS"
@@ -374,7 +374,7 @@ map AB_MAP28 lookup "ABHUSTR_28"
 
 map AB_MAP29 lookup "ABHUSTR_29"
 {
-	Label = "Map29"
+	Label = "ABSOLUTION MAP29"
 	next = "AB_MAP30"
 	secretnext = "AB_MAP30"
 	sky1 = "SKY3ATAS"
@@ -385,7 +385,7 @@ map AB_MAP29 lookup "ABHUSTR_29"
 
 map AB_MAP30 lookup "ABHUSTR_30"
 {
-	Label = "Map30"
+	Label = "ABSOLUTION MAP30"
 	next = EndSequence, "D64Inter_Cast"
 	secretnext = EndSequence, "D64Inter_Cast"
 	sky1 = "SKY3ATAS"
@@ -399,7 +399,7 @@ map AB_MAP30 lookup "ABHUSTR_30"
 
 map AB_MAP31 lookup "ABHUSTR_31"
 {
-	Label = "Map31"
+	Label = "ABSOLUTION MAP31"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP32"
 	sky1 = "SKY6TALL"
@@ -409,7 +409,7 @@ map AB_MAP31 lookup "ABHUSTR_31"
 
 map AB_MAP32 lookup "ABHUSTR_32"
 {
-	Label = "Map32"
+	Label = "ABSOLUTION MAP32"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP16"
 	sky1 = "ZZZBLACK"
@@ -419,7 +419,7 @@ map AB_MAP32 lookup "ABHUSTR_32"
 
 map AB_MAP33 lookup "ABHUSTR_33"
 {
-	Label = "Bonus"
+	Label = "ABSOLUTION BONUS"
 	Next = endsequence, "D64D2Map33End"
 	sky1 = "SKY6TALL", 0.1
 	music = "$MUSIC_D64MAP33"

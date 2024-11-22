@@ -21,6 +21,7 @@ map E5M1 "$HUSTR_E5M1"
 	Next = "E5M2"
 	TitlePatch = "WILV40"
 	Par = 90
+	Label = "DOOM, E5M1"
 }
 
 map E5M2 "$HUSTR_E5M2"
@@ -29,6 +30,7 @@ map E5M2 "$HUSTR_E5M2"
 	Next = "E5M3"
 	TitlePatch = "WILV41"
 	Par = 150
+	Label = "DOOM, E5M2"
 }
 
 map E5M3 "$HUSTR_E5M3"
@@ -37,6 +39,7 @@ map E5M3 "$HUSTR_E5M3"
 	Next = "E5M4"
 	TitlePatch = "WILV42"
 	Par = 360
+	Label = "DOOM, E5M3"
 }
 
 map E5M4 "$HUSTR_E5M4"
@@ -45,6 +48,7 @@ map E5M4 "$HUSTR_E5M4"
 	Next = "E5M5"
 	TitlePatch = "WILV43"
 	Par = 420
+	Label = "DOOM, E5M4"
 }
 
 map E5M5 "$HUSTR_E5M5"
@@ -53,6 +57,7 @@ map E5M5 "$HUSTR_E5M5"
 	Next = "E5M6"
 	TitlePatch = "WILV44"
 	Par = 780
+	Label = "DOOM, E5M5"
 }
 
 map E5M6 "$HUSTR_E5M6"
@@ -62,6 +67,7 @@ map E5M6 "$HUSTR_E5M6"
 	SecretNext = "E5M9"
 	TitlePatch = "WILV45"
 	Par = 420
+	Label = "DOOM, E5M6"
 }
 
 map E5M7 "$HUSTR_E5M7"
@@ -70,6 +76,7 @@ map E5M7 "$HUSTR_E5M7"
 	Next = "E5M8"
 	TitlePatch = "WILV46"
 	Par = 780
+	Label = "DOOM, E5M7"
 }
 
 map E5M8 "$HUSTR_E5M8"
@@ -80,6 +87,7 @@ map E5M8 "$HUSTR_E5M8"
 	Par = 300
 	Nointermission
 	NoSoundClipping
+	Label = "DOOM, E5M8"
 }
 
 map E5M9 "$HUSTR_E5M9"
@@ -88,6 +96,7 @@ map E5M9 "$HUSTR_E5M9"
 	Next = "E5M7"
 	TitlePatch = "WILV48"
 	Par = 660
+	Label = "DOOM, E5M9"
 }
 
 // Sigil 1 cluster

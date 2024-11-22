@@ -19,7 +19,7 @@ adddefaultmap
 
 map PL_MAP01 "$PHUSTR_1"
 {
-	Label = "E1M1"
+	Label = "PLUTONIA, E1M1"
 	Next = "PL_MAP02"
 	TitlePatch = "PWILV00"
 	music = "$MUSIC_PLUMAP01"
@@ -28,7 +28,7 @@ map PL_MAP01 "$PHUSTR_1"
 
 map PL_MAP02 "$PHUSTR_2"
 {
-	Label = "E1M2"
+	Label = "PLUTONIA, E1M2"
 	Next = "PL_MAP03"
 	TitlePatch = "PWILV01"
 	music = "$MUSIC_PLUMAP02"
@@ -37,7 +37,7 @@ map PL_MAP02 "$PHUSTR_2"
 
 map PL_MAP03 "$PHUSTR_3"
 {
-	Label = "E1M3"
+	Label = "PLUTONIA, E1M3"
 	Next = "PL_MAP04"
 	TitlePatch = "PWILV02"
 	music = "$MUSIC_PLUMAP03"
@@ -46,7 +46,7 @@ map PL_MAP03 "$PHUSTR_3"
 
 map PL_MAP04 "$PHUSTR_4"
 {
-	Label = "E1M4"
+	Label = "PLUTONIA, E1M4"
 	Next = "PL_MAP05"
 	TitlePatch = "PWILV03"
 	music = "$MUSIC_PLUMAP04"
@@ -55,7 +55,7 @@ map PL_MAP04 "$PHUSTR_4"
 
 map PL_MAP05 "$PHUSTR_5"
 {
-	Label = "E1M5"
+	Label = "PLUTONIA, E1M5"
 	Next = "PL_MAP06"
 	TitlePatch = "PWILV04"
 	music = "$MUSIC_PLUMAP05"
@@ -64,7 +64,7 @@ map PL_MAP05 "$PHUSTR_5"
 
 map PL_MAP06 "$PHUSTR_6"
 {
-	Label = "E1M6"
+	Label = "PLUTONIA, E1M6"
 	Next = "PL_MAP07"
 	TitlePatch = "PWILV05"
 	music = "$MUSIC_PLUMAP06"
@@ -80,7 +80,7 @@ adddefaultmap
 
 map PL_MAP07 "$PHUSTR_7"
 {
-	Label = "E1M7"
+	Label = "PLUTONIA, E1M7"
 	Next = "PL_MAP08"
 	TitlePatch = "PWILV06"
 	music = "$MUSIC_PLUMAP07"
@@ -90,7 +90,7 @@ map PL_MAP07 "$PHUSTR_7"
 
 map PL_MAP08 "$PHUSTR_8"
 {
-	Label = "E1M8"
+	Label = "PLUTONIA, E1M8"
 	Next = "PL_MAP09"
 	TitlePatch = "PWILV07"
 	Music = "$MUSIC_PLUMAP08"
@@ -99,7 +99,7 @@ map PL_MAP08 "$PHUSTR_8"
 
 map PL_MAP09 "$PHUSTR_9"
 {
-	Label = "E1M9"
+	Label = "PLUTONIA, E1M9"
 	Next = "PL_MAP10"
 	TitlePatch = "PWILV08"
 	music = "$MUSIC_PLUMAP09"
@@ -108,7 +108,7 @@ map PL_MAP09 "$PHUSTR_9"
 
 map PL_MAP10 "$PHUSTR_10"
 {
-	Label = "E1M10"
+	Label = "PLUTONIA, E1M10"
 	Next = "PL_MAP11"
 	TitlePatch = "PWILV09"
 	music = "$MUSIC_PLUMAP10"
@@ -117,7 +117,7 @@ map PL_MAP10 "$PHUSTR_10"
 
 map PL_MAP11 "$PHUSTR_11"
 {
-	Label = "E1M11"
+	Label = "PLUTONIA, E1M11"
 	//Next = "PL_MAP12"
 	Next = endpic, "PLCRED"
 	TitlePatch = "PWILV10"
@@ -135,7 +135,7 @@ adddefaultmap
 
 map PL_MAP12 "$PHUSTR_12"
 {	
-	Label = "E2M1"
+	Label = "PLUTONIA, E2M1"
 	Next = "PL_MAP13"
 	TitlePatch = "PWILV11"
 	music = "$MUSIC_PLUMAP12"
@@ -144,7 +144,7 @@ map PL_MAP12 "$PHUSTR_12"
 
 map PL_MAP13 "$PHUSTR_13"
 {
-	Label = "E2M2"
+	Label = "PLUTONIA, E2M2"
 	Next = "PL_MAP14"
 	TitlePatch = "PWILV12"
 	music = "$MUSIC_PLUMAP13"
@@ -153,7 +153,7 @@ map PL_MAP13 "$PHUSTR_13"
 
 map PL_MAP14 "$PHUSTR_14"
 {
-	Label = "E2M3"
+	Label = "PLUTONIA, E2M3"
 	Next = "PL_MAP15"
 	TitlePatch = "PWILV13"
 	music = "$MUSIC_PLUMAP14"
@@ -162,7 +162,7 @@ map PL_MAP14 "$PHUSTR_14"
 
 map PL_MAP15 "$PHUSTR_15"
 {
-	Label = "E2M4"
+	Label = "PLUTONIA, E2M4"
 	Next = "PL_MAP16"
 	SecretNext = "PL_MAP31"
 	TitlePatch = "PWILV14"
@@ -172,7 +172,7 @@ map PL_MAP15 "$PHUSTR_15"
 
 map PL_MAP16 "$PHUSTR_16"
 {
-	Label = "E2M5"
+	Label = "PLUTONIA, E2M5"
 	Next = "PL_MAP17"
 	TitlePatch = "PWILV15"
 	music = "$MUSIC_PLUMAP16"
@@ -181,7 +181,7 @@ map PL_MAP16 "$PHUSTR_16"
 
 map PL_MAP17 "$PHUSTR_17"
 {
-	Label = "E2M6"
+	Label = "PLUTONIA, E2M6"
 	Next = "PL_MAP18"
 	TitlePatch = "PWILV16"
 	music = "$MUSIC_PLUMAP17"
@@ -190,7 +190,7 @@ map PL_MAP17 "$PHUSTR_17"
 
 map PL_MAP18 "$PHUSTR_18"
 {
-	Label = "E2M7"
+	Label = "PLUTONIA, E2M7"
 	Next = "PL_MAP19"
 	TitlePatch = "PWILV17"
 	music = "$MUSIC_PLUMAP18"
@@ -199,7 +199,7 @@ map PL_MAP18 "$PHUSTR_18"
 
 map PL_MAP19 "$PHUSTR_19"
 {
-	Label = "E2M8"
+	Label = "PLUTONIA, E2M8"
 	Next = "PL_MAP20"
 	TitlePatch = "PWILV18"
 	music = "$MUSIC_PLUMAP19"
@@ -208,7 +208,7 @@ map PL_MAP19 "$PHUSTR_19"
 
 map PL_MAP20 "$PHUSTR_20"
 {
-	Label = "E2M9"
+	Label = "PLUTONIA, E2M9"
 	//Next = "PL_MAP21"
 	Next = endpic, "PLCRED"
 	TitlePatch = "PWILV19"
@@ -226,7 +226,7 @@ adddefaultmap
 
 map PL_MAP21 "$PHUSTR_21"
 {
-	Label = "E3M1"
+	Label = "PLUTONIA, E3M1"
 	Next = "PL_MAP22"
 	TitlePatch = "PWILV20"
 	music = "$MUSIC_PLUMAP21"
@@ -235,7 +235,7 @@ map PL_MAP21 "$PHUSTR_21"
 
 map PL_MAP22 "$PHUSTR_22"
 {
-	Label = "E3M2"
+	Label = "PLUTONIA, E3M2"
 	Next = "PL_MAP23"
 	TitlePatch = "PWILV21"
 	music = "$MUSIC_PLUMAP22"
@@ -244,7 +244,7 @@ map PL_MAP22 "$PHUSTR_22"
 
 map PL_MAP23 "$PHUSTR_23"
 {
-	Label = "E3M3"
+	Label = "PLUTONIA, E3M3"
 	Next = "PL_MAP24"
 	TitlePatch = "PWILV22"
 	music = "$MUSIC_PLUMAP23"
@@ -253,7 +253,7 @@ map PL_MAP23 "$PHUSTR_23"
 
 map PL_MAP24 "$PHUSTR_24"
 {
-	Label = "E3M4"
+	Label = "PLUTONIA, E3M4"
 	Next = "PL_MAP25"
 	TitlePatch = "PWILV23"
 	music = "$MUSIC_PLUMAP24"
@@ -262,7 +262,7 @@ map PL_MAP24 "$PHUSTR_24"
 
 map PL_MAP25 "$PHUSTR_25"
 {
-	Label = "E3M5"
+	Label = "PLUTONIA, E3M5"
 	Next = "PL_MAP26"
 	TitlePatch = "PWILV24"
 	music = "$MUSIC_PLUMAP25"
@@ -271,7 +271,7 @@ map PL_MAP25 "$PHUSTR_25"
 
 map PL_MAP26 "$PHUSTR_26"
 {
-	Label = "E3M6"
+	Label = "PLUTONIA, E3M6"
 	Next = "PL_MAP27"
 	TitlePatch = "PWILV25"
 	Music = "P_MESSG2"
@@ -280,7 +280,7 @@ map PL_MAP26 "$PHUSTR_26"
 
 map PL_MAP27 "$PHUSTR_27"
 {
-	Label = "E3M7"
+	Label = "PLUTONIA, E3M7"
 	Next = "PL_MAP28"
 	TitlePatch = "PWILV26"
 	music = "$MUSIC_PLUMAP27"
@@ -289,7 +289,7 @@ map PL_MAP27 "$PHUSTR_27"
 
 map PL_MAP28 "$PHUSTR_28"
 {
-	Label = "E3M8"
+	Label = "PLUTONIA, E3M8"
 	Next = "PL_MAP29"
 	TitlePatch = "PWILV27"
 	music = "$MUSIC_PLUMAP28"
@@ -298,7 +298,7 @@ map PL_MAP28 "$PHUSTR_28"
 
 map PL_MAP29 "$PHUSTR_29"
 {
-	Label = "E3M9"
+	Label = "PLUTONIA, E3M9"
 	Next = "PL_MAP30"
 	TitlePatch = "PWILV28"
 	music = "$MUSIC_PLUMAP29"
@@ -313,7 +313,7 @@ map PL_MAP30 "$PHUSTR_30"
 		Music = "$MUSIC_PLUMAP31"
 		Cast
 	}
-	Label = "E3M10"
+	Label = "PLUTONIA, E3M10"
 	nointermission
 	NoSoundClipping
 	TitlePatch = "PWILV29"
@@ -326,7 +326,7 @@ map PL_MAP30 "$PHUSTR_30"
 
 map PL_MAP31 "$PHUSTR_31"
 {
-	Label = "E2M0"
+	Label = "PLUTONIA, E2M0"
 	Next = "PL_MAP16"
 	SecretNext = "PL_MAP32"
 	Cluster = 22
@@ -337,7 +337,7 @@ map PL_MAP31 "$PHUSTR_31"
 
 map PL_MAP32 "$PHUSTR_32"
 {
-	Label = "E2M666"
+	Label = "PLUTONIA, E2M666"
 	Next = "PL_MAP16"
 	Cluster = 23
 	TitlePatch = "PWILV31"

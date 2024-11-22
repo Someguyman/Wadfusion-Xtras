@@ -18,6 +18,7 @@ map E4M1 "$HUSTR_E4M1"
 	Par = 165
 	Music = "$MUSIC_E4M1"
 	Author = "$WF_AU_MCGEE"
+	Label = "DOOM, E4M1"
 }
 
 map E4M2 "$HUSTR_E4M2"
@@ -29,6 +30,7 @@ map E4M2 "$HUSTR_E4M2"
 	Par = 255
 	Music = "$MUSIC_E4M2"
 	Author = "$WF_AU_ROMERO"
+	Label = "DOOM, E4M2"
 }
 
 map E4M3 "$HUSTR_E4M3"
@@ -39,6 +41,7 @@ map E4M3 "$HUSTR_E4M3"
 	Par = 135
 	Music = "$MUSIC_E4M3"
 	Author = "$WF_AU_GREEN"
+	Label = "DOOM, E4M3"
 }
 
 map E4M4 "$HUSTR_E4M4"
@@ -49,6 +52,7 @@ map E4M4 "$HUSTR_E4M4"
 	Par = 150
 	Music = "$MUSIC_E4M4"
 	Author = "$WF_AU_MCGEE"
+	Label = "DOOM, E4M4"
 }
 
 map E4M5 "$HUSTR_E4M5"
@@ -59,6 +63,7 @@ map E4M5 "$HUSTR_E4M5"
 	Par = 180
 	Music = "$MUSIC_E4M5"
 	Author = "$WF_AU_WILLITS_CHASAR"
+	Label = "DOOM, E4M5"
 }
 
 map E4M6 "$HUSTR_E4M6"
@@ -71,6 +76,7 @@ map E4M6 "$HUSTR_E4M6"
 	CyberdemonSpecial
 	SpecialAction_OpenDoor
 	Author = "$WF_AU_ROMERO"
+	Label = "DOOM, E4M6"
 }
 
 map E4M7 "$HUSTR_E4M7"
@@ -81,6 +87,7 @@ map E4M7 "$HUSTR_E4M7"
 	Par = 135
 	Music = "$MUSIC_E4M7"
 	Author = "$WF_AU_ANDERSON"
+	Label = "DOOM, E4M7"
 }
 
 map PSX03 "Twilight Descends"
@@ -89,6 +96,7 @@ map PSX03 "Twilight Descends"
 	secretnext = "PSX05"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX03"
+	Label = "DOOM, PSX04"
 }
 
 map PSX04 "Threshold of Pain"
@@ -99,6 +107,7 @@ map PSX04 "Threshold of Pain"
 	secretnext = "PSX05"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX04"
+	Label = "DOOM, PSX05"
 }
 
 map PSX05 "The Marshes"
@@ -108,6 +117,7 @@ map PSX05 "The Marshes"
 	specialaction_opendoor
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX05"
+	Label = "DOOM, PSX06"
 }
 
 map E4M8 "$HUSTR_E4M8"
@@ -122,6 +132,7 @@ map E4M8 "$HUSTR_E4M8"
 	SpiderMastermindSpecial
 	SpecialAction_LowerFloor
 	Author = "$WF_AU_GREEN"
+	Label = "DOOM, E4M8"
 }
 
 map E4M9 "$HUSTR_E4M9"
@@ -132,6 +143,7 @@ map E4M9 "$HUSTR_E4M9"
 	Par = 180
 	Music = "$MUSIC_E4M9"
 	Author = "$WF_AU_WILLITS"
+	Label = "DOOM, E4M9"
 }
 
 Intermission Episode4end
