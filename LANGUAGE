@@ -101,8 +101,8 @@ MASTER_LV04 = "\c[DarkGray]Inferno Series";
 MASTER_LV05 = "\c[DarkGray]Cabal Series";
 
 TNTE_EPI01 = "\c[Orange]The Io Invasion";
-TNTE_EPI02 = "\c[Orange]Nocturnal Moon";
-TNTE_EPI03 = "\c[Orange]Evilution";
+TNTE_EPI02 = "\c[Orange]Nocturnal Io";
+TNTE_EPI03 = "\c[Orange]Hell On Io";
 
 PLUTONIA_EPI01 = "\c[DarkGreen]Jungle Assault";
 PLUTONIA_EPI02 = "\c[DarkGreen]The Blood Tides";
