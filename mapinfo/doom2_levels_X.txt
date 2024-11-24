@@ -29,7 +29,7 @@ map MAP01 "$HUSTR_1"
 
 map MAP02 "$HUSTR_2"
 {
-	Label = "E1M2"
+	Label = "DOOM II, E1M2"
 	Next = "MAP03"
 	SecretNext = "MAP33"
 	TitlePatch = "CWILV01"
@@ -371,7 +371,6 @@ map MAP30 "$HUSTR_30"
 adddefaultmap
 {
 	Sky1 = "RSKY3"
-	//Exitpic = "$IN_WOLF"
 	Exitpic = "INTER_E4"
 }
 

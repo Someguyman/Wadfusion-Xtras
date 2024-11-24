@@ -196,3 +196,75 @@ Class DCX_Cyankeyicon : Inventory
 	  +INVENTORY.UNDROPPABLE;
 	}	
 }
+
+Class MasterLevelsCompleted : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 5;
+	}
+}
+
+Class AlreadyCompletedInferno : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedTitan : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedCabal : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedTech : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedLost : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}

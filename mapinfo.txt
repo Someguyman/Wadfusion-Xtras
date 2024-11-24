@@ -287,3 +287,19 @@ Intermission Doom2cast
 	
 	Link = Doom2cast
 }
+
+Map Masterhub "Master Levels Hub"
+{
+	music = "$MUSIC_MASTERHUB"
+	Next = EndGame
+	{
+		Pic = "MLBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	Label = ""
+	nointermission
+	nosoundclipping
+	sky1 = "MASTERSKY"
+	Cluster = 0
+}

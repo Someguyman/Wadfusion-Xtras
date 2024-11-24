@@ -1,0 +1,59 @@
+#library "masterhandler"
+#include "zcommon.acs"
+
+script "MasterLevelCompletionTracker" enter
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+		if (StrICmp(mapName, "ML_MAP33") == 0)
+		{
+			if(!CheckInventory("AlreadyCompletedInferno") == 1)
+			{
+				GiveInventory("masterlevelscompleted", 1);
+				GiveInventory("AlreadyCompletedInferno", 1);
+				terminate;
+			}
+		}
+		else if (StrICmp(mapName, "ML_MAP29") == 0)
+		{
+			if(!CheckInventory("AlreadyCompletedTitan") == 1)
+			{
+				GiveInventory("masterlevelscompleted", 1);
+				GiveInventory("AlreadyCompletedTitan", 1);
+				terminate;
+			}
+		}
+		else if (StrICmp(mapName, "ML_MAP37") == 0)
+		{
+			if(!CheckInventory("AlreadyCompletedCabal") == 1)
+			{
+				GiveInventory("masterlevelscompleted", 1);
+				GiveInventory("AlreadyCompletedCabal", 1);
+				terminate;
+			}
+		}
+		else if  (StrICmp(mapName, "ML_MAP22") == 0)
+		{
+			if(!CheckInventory("AlreadyCompletedTech") == 1)
+			{
+				GiveInventory("masterlevelscompleted", 1);
+				GiveInventory("AlreadyCompletedTech", 1);
+				terminate;
+			}
+		}
+		else if (StrICmp(mapName, "ML_MAP01") == 0)
+		{
+			if(!CheckInventory("AlreadyCompletedLost") == 1)
+			{
+				GiveInventory("masterlevelscompleted", 1);
+				GiveInventory("AlreadyCompletedLost", 1);
+				terminate;
+			}
+		}
+		else
+		{
+			terminate;
+		}
+}
