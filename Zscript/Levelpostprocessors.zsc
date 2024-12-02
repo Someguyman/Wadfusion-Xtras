@@ -169,6 +169,15 @@ Class DCX_MapFixes : LevelPostProcessor
 					SetSectorTexture(177,0,"BLOOD3");
 				}
 			}
+			
+			if ( CVar.FindCVar("fs_toggle").GetBool() )
+			{
+				If ( mapName == "e1m4" )
+				{
+					SetSectorTexture(6,1,"F_SKY1");
+				}
+			}
+			
 			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 			{
 				if ((mapName == "e4m7") || (mapName == "ml_map35") )

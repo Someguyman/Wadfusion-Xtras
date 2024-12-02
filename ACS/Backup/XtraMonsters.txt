@@ -45,6 +45,58 @@ script "Xtra_Monster_Placements" enter
 	str episode = StrMid(mapName, 1, 1);
 	str mission = StrMid(mapName, 3, 1);
 	
+	if (StrICmp(mapName, "TEST") == 0)
+	{
+		if (GetCVar ("dcx_CustomMonsters") !=1)	
+		{
+			Add("DCX_Unmaker",-3072, 192, 270,0,0); 
+			Add("DCX_Unmaker",-3200, 192, 270,0,0); 
+			Add("DCX_Unmaker",-3328, 192, 270,0,0); 
+			Add("DCX_Unmaker",-3456, 192, 270,0,0); 
+			Add("DCX_Unmaker",-3584, 192, 270,0,0); 
+			
+			Add("Heatwave",-3072, 256, 270,0,0);
+			Add("Heatwave",-3200, 256, 270,0,0);
+			Add("Heatwave",-3328, 256, 270,0,0);
+			Add("Heatwave",-3456, 256, 270,0,0);
+			Add("Heatwave",-3584, 256, 270,0,0);
+			
+			Add("Incinerator",-3072, 320, 270,0,0);
+			Add("Incinerator",-3200, 320, 270,0,0);
+			Add("Incinerator",-3328, 320, 270,0,0);
+			Add("Incinerator",-3456, 320, 270,0,0);
+			Add("Incinerator",-3584, 320, 270,0,0);
+			
+			Add("DCX_HeavyPlasmaGun",-3072, 384, 270,0,0);
+			Add("DCX_HeavyPlasmaGun",-3200, 384, 270,0,0);
+			Add("DCX_HeavyPlasmaGun",-3328, 384, 270,0,0);
+			Add("DCX_HeavyPlasmaGun",-3456, 384, 270,0,0);
+			Add("DCX_HeavyPlasmaGun",-3584, 384, 270,0,0);
+			
+			Add("DCX_DoubleBladedChainsaw",-3072, 640, 270,0,0);
+			Add("DCX_DoubleBladedChainsaw",-3200, 640, 270,0,0);
+			Add("DCX_DoubleBladedChainsaw",-3328, 640, 270,0,0);
+			Add("DCX_DoubleBladedChainsaw",-3456, 640, 270,0,0);
+			Add("DCX_DoubleBladedChainsaw",-3584, 640, 270,0,0);
+			
+			Add("Fuel",-1664, 192, 270,0,0);
+			Add("Fuel",-1664, 256, 270,0,0);
+			Add("Fuel",-1664, 320, 270,0,0);
+			Add("Fuel",-1664, 384, 270,0,0);
+			Add("Fuel",-1664, 448, 270,0,0);
+			
+			Add("FuelTank",-1536, 192, 270,0,0);
+			Add("FuelTank",-1536, 256, 270,0,0);
+			Add("FuelTank",-1536, 320, 270,0,0);
+			Add("FuelTank",-1536, 384, 270,0,0);
+			Add("FuelTank",-1536, 448, 270,0,0);
+			
+			Add("DCX_Demonkey1",-2464, 192, 270,0,0); 
+			Add("DCX_Demonkey2",-2624, 192, 270,0,0); 
+			Add("DCX_Demonkey3",-2784, 192, 270,0,0); 
+		}
+	}
+	
 	if (StrICmp(mapName, "e1m7") == 0)
 	{
 		Add("ExplosiveBarrel",-1088, -64, 0,0,0);

@@ -1669,7 +1669,7 @@ class DCX_BossBrain : BossBrain replaces BossBrain
 			ACS_NamedExecuteAlways("ChangeSkyTexture",0);
 		}
 		super.Die(source, inflictor, dmgflags, MeansOfDeath);
-	}
+	}	
 
 	states
 	{

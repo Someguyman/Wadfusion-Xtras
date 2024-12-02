@@ -130,7 +130,7 @@ map JA_MAP09 "$HUSTR_E2M1"
 {
 	LevelNum = 9
 	Next = "JA_MAP10"
-	TitlePatch = "WILV09"
+	TitlePatch = "WILV10"
 	Par = 30
 	Music = "O_E2M1"
 	Label = "JAGUAR MAP09"
@@ -140,7 +140,7 @@ map JA_MAP10 "$HUSTR_E2M2"
 {
 	LevelNum = 10
 	Next = "JA_MAP11"
-	TitlePatch = "WILV10"
+	TitlePatch = "WILV11"
 	Par = 30
 	Music = "O_E3M2"
 	Label = "JAGUAR MAP10"
@@ -150,7 +150,7 @@ map JA_MAP11 "$HUSTR_E2M3"
 {
 	LevelNum = 11
 	Next = "JA_MAP12"
-	TitlePatch = "WILV11"
+	TitlePatch = "WILV12"
 	Par = 30
 	Music = "O_E2M9"
 	Label = "JAGUAR MAP11"
@@ -160,7 +160,7 @@ map JA_MAP12 "$HUSTR_E2M4"
 {
 	LevelNum = 12
 	Next = "JA_MAP13"
-	TitlePatch = "WILV12"
+	TitlePatch = "WILV13"
 	Par = 30
 	Music = "O_E1M1"
 	Label = "JAGUAR MAP12"
@@ -170,7 +170,7 @@ map JA_MAP13 "$HUSTR_E2M5"
 {
 	LevelNum = 13
 	Next = "JA_MAP14"
-	TitlePatch = "WILV13"
+	TitlePatch = "WILV14"
 	Par = 30
 	Music = "O_E1M2"
 	Label = "JAGUAR MAP13"
@@ -189,7 +189,7 @@ map JA_MAP15 "$HUSTR_E2M6" //Map 14
 {
 	LevelNum = 15
 	Next = "JA_MAP16"
-	TitlePatch = "WILV14"
+	TitlePatch = "WILV15"
 	Par = 30
 	Music = "O_E1M3"
 	Label = "JAGUAR MAP15"
@@ -199,7 +199,7 @@ map JA_MAP16 "$HUSTR_E2M7" //Map 15
 {
 	LevelNum = 16
 	Next = "JA_MAP17"
-	TitlePatch = "WILV15"
+	TitlePatch = "WILV16"
 	Par = 30
 	Music = "O_E1M4"
 	Label = "JAGUAR MAP16"
@@ -209,7 +209,7 @@ map JA_MAP17 "$HUSTR_E2M8" //Map 16
 {
 	LevelNum = 17
 	Next = "JA_MAP18"
-	TitlePatch = "WILV16"
+	TitlePatch = "WILV17"
 	Par = 30
 	Music = "O_E1M5"
 	Label = "JAGUAR MAP17"

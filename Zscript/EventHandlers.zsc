@@ -258,6 +258,7 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("SW2HOT", "SW2HOTJ", 0);
 			Level.ReplaceTextures("SW1WOOD", "SW1METL", 0);
 			Level.ReplaceTextures("SW2WOOD", "SW2METL", 0);
+			Level.ReplaceTextures("BIGDOOR6", "BIGDRJA6", 0);
 		}
 	}
 	
@@ -321,14 +322,17 @@ class DCX_EventHandler : EventHandler
 	}
 	
 	/*
-	override void WorldThingDestroyed (WorldEvent e)
+	override void WorldThingDied (WorldEvent e)
 	{
 		String mapName = level.MapName.MakeLower();
 		
 			if ( (CVar.FindCVar("dcx_TextureEchancements").GetBool()) && (mapName == "tn_map30"))
 			if(e.Thing.GetClassName() == "Bossbrain")
 			{
-				Level.ChangeSky(TexMan.CheckForTexture("RSKY2",TexMan.Type_Any),TexMan.CheckForTexture("RSKY2",TexMan.Type_Any));
+				if( (mapName == "tn_map30") && (CVar.FindCVar("dcx_TextureEchancements").GetBool()) )
+				{
+					ACS_ScriptCall("ChangeSkyTexture",0);
+				}
 			}
 	}
 	*/
