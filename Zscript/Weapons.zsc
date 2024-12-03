@@ -1,5 +1,4 @@
 
-
 class DCX_Player : Doomplayer Replaces Doomplayer
 {
 	Default

@@ -34,6 +34,9 @@ class DCX_Statusbar : BaseStatusBar
 	HUDFont mJAGFont;
 	
 	HUDFont mBETFont;
+	
+	HUDFont mPL2font;
+	HUDFont mPL2fontS;
 	InventoryBarState diparms;	
 	
 	override void Init()
@@ -59,6 +62,9 @@ class DCX_Statusbar : BaseStatusBar
 		mJAGFont = HUDFont.Create("JAFONT_DOOM");
 		
 		mBETFont = HUDFont.Create("BEFONT_DOOM");
+		
+		mPL2font = HUDFont.Create("FDFONT_PLUTONIA2");
+		mPL2fontS = HUDFont.Create("FDFONT_SPLUTONIA2");
 	}
 	
 	void Checklevel (double TicFrac)
@@ -133,6 +139,15 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("BETPRCNT", (89, 171), DI_ITEM_OFFSETS);
 			DrawImage("BETPRCNT", (219, 171), DI_ITEM_OFFSETS);
 		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 5)
+		{
+			x_value = 42;
+			y_value = 171;
+			get_font = mPL2Font;
+			DrawImage("PTBAR", (-128, 168), DI_ITEM_OFFSETS);
+			DrawImage("PTTPRCNT", (90, 171), DI_ITEM_OFFSETS);
+			DrawImage("PTTPRCNT", (221, 171), DI_ITEM_OFFSETS);
+		}
 		else
 		{
 			DrawImage("STBARFS", (-128, 168), DI_ITEM_OFFSETS);
@@ -150,6 +165,8 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("JAFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else if (Cvar.getcvar("hud_toggle").getint() == 4)
 			DrawImage("BEFUEL", (249, 168), DI_ITEM_OFFSETS);
+			else if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage("PTFUEL", (248, 168), DI_ITEM_OFFSETS);
 			else
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -233,18 +250,27 @@ class DCX_Statusbar : BaseStatusBar
 			if (locks[1] && locks[4]) image = "STKEYS6";
 			else if (locks[1]) image = "STKEYS0";
 			else if (locks[4]) image = "STKEYS3";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (238, 171), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (239, 171), DI_ITEM_OFFSETS);
 			// key 2
 			if (locks[2] && locks[5]) image = "STKEYS7";
 			else if (locks[2]) image = "STKEYS1";
 			else if (locks[5]) image = "STKEYS4";
 			else image = "";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (238, 181), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (239, 181), DI_ITEM_OFFSETS);
 			// key 3
 			if (locks[0] && locks[3]) image = "STKEYS8";
 			else if (locks[0]) image = "STKEYS2";
 			else if (locks[3]) image = "STKEYS5";
 			else image = "";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (238, 191), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (239, 191), DI_ITEM_OFFSETS);
 		}
 	}
@@ -262,14 +288,23 @@ class DCX_Statusbar : BaseStatusBar
 		
 			if(CPlayer.mo.countinv(Demon_keys[0])) image = "DKICONO";
 			else image = "";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (236, 170), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (237, 170), DI_ITEM_OFFSETS);
 		
 			if(CPlayer.mo.countinv(Demon_keys[1])) image = "DKICONP";
 			else image = "";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (236, 180), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (237, 180), DI_ITEM_OFFSETS);
 		
 			if(CPlayer.mo.countinv(Demon_keys[2])) image = "DKICONC";
 			else image = "";
+			if (Cvar.getcvar("hud_toggle").getint() == 5)
+			DrawImage(image, (236, 190), DI_ITEM_OFFSETS);
+			else
 			DrawImage(image, (237, 190), DI_ITEM_OFFSETS);
 	}
 	
@@ -319,6 +354,11 @@ class DCX_Statusbar : BaseStatusBar
 				x_value = 288; x_offset = 26; y_value = 169;
 				DrawImage("BEAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 5)
+			{
+				x_value = 288; x_offset = 26; y_value = 170; get_font = mPL2fontS;
+				DrawImage("PTAMMO24", (248, 168), DI_ITEM_OFFSETS);
+			}
 			else
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
@@ -361,6 +401,11 @@ class DCX_Statusbar : BaseStatusBar
 			else if (Cvar.getcvar("hud_toggle").getint() == 3)
 			{
 				x_value = 288; x_offset = 26; y_value = 172;
+			}
+			else if (Cvar.getcvar("hud_toggle").getint() == 5)
+			{
+				x_value = 288; x_offset = 26; y_value = 173;
+				get_font = mPL2fontS;
 			}
 			else
 			{
@@ -445,6 +490,16 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 182), DI_ITEM_OFFSETS);
+		}
+		else if (Cvar.getcvar("hud_toggle").getint() == 5)
+		{
+			DrawImage("PTARMS", (104, 168), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? "PTYSNUM2" : "PLGNUM2", (111, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? "PTYSNUM3" : "PLGNUM3", (123, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? "PTYSNUM4" : "PLGNUM4", (135, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? "PTYSNUM5" : "PLGNUM5", (111, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? "PTYSNUM6" : "PLGNUM6", (123, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? "PTYSNUM7" : "PLGNUM7", (135, 182), DI_ITEM_OFFSETS);
 		}
 		else
 		{

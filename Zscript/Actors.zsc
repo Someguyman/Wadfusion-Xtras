@@ -1,5 +1,13 @@
 Class DC_Replacer : Actor {}
 
+class DCX_BlurSphere : BlurSphere Replaces BlurSphere
+{
+	Default
+	{
+		-VISIBILITYPULSE
+	}
+}	
+
 class DCX_ArchvileFire : ArchvileFire replaces ArchvileFire
 {
 	void A_StartFire()

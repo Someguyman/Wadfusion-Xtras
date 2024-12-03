@@ -891,14 +891,6 @@ class CBloodBaronOfHell : CBlood
 	}
 }
 
-class DCX_BlurSphere : BlurSphere Replaces BlurSphere
-{
-	Default
-	{
-		-VISIBILITYPULSE
-	}
-}	
-
 class CBloodHellKnight : CBloodBaronOfHell {}
 
 class CBloodCacodemon : CBlood

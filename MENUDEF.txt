@@ -29,6 +29,7 @@ OptionValue HUDtweaks
 	2.0, "\c[WHITE]Sega Saturn hud"
 	3.0, "\c[DARK BROWN]Jaguar hud"
 	4.0, "\c[GOLD]BETA 93 hud"
+	5.0, "\c[Yellow]Final DOOM hud"
 }
 
 OptionValue PLUHUDtweaks
