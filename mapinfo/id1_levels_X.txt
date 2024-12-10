@@ -47,7 +47,7 @@ adddefaultmap
 
 map LR_MAP01 "$XHUSTR_1"
 {
-	Label = "DOOM II, E5M1"
+	Label = "DOOM II HELL ON EARTH, E5M1"
 	Next = "LR_MAP02"
 	TitlePatch = "XWILV00"
 	Sky1 =  "SKYX1"
@@ -57,7 +57,7 @@ map LR_MAP01 "$XHUSTR_1"
 
 map LR_MAP02 "$XHUSTR_2"
 {
-	Label = "DOOM II, E5M2"
+	Label = "DOOM II HELL ON EARTH, E5M2"
 	Next = "LR_MAP03"
 	SecretNext = "LR_MAP15"
 	TitlePatch = "XWILV01"
@@ -68,7 +68,7 @@ map LR_MAP02 "$XHUSTR_2"
 
 map LR_MAP03 "$XHUSTR_3"
 {
-	Label = "DOOM II, E5M3"
+	Label = "DOOM II HELL ON EARTH, E5M3"
 	Next = "LR_MAP04"
 	TitlePatch = "XWILV02"
 	Sky1 =  "SKYX3"
@@ -78,7 +78,7 @@ map LR_MAP03 "$XHUSTR_3"
 
 map LR_MAP04 "$XHUSTR_4"
 {
-	Label = "DOOM II, E5M4"
+	Label = "DOOM II HELL ON EARTH, E5M4"
 	Next = "LR_MAP05"
 	TitlePatch = "XWILV03"
 	Sky1 =  "SKYX3"
@@ -88,7 +88,7 @@ map LR_MAP04 "$XHUSTR_4"
 
 map LR_MAP05 "$XHUSTR_5"
 {
-	Label = "DOOM II, E5M5"
+	Label = "DOOM II HELL ON EARTH, E5M5"
 	Next = "LR_MAP06"
 	TitlePatch = "XWILV04"
 	Sky1 =  "SKYZ4"
@@ -98,7 +98,7 @@ map LR_MAP05 "$XHUSTR_5"
 
 map LR_MAP06 "$XHUSTR_6"
 {
-	Label = "DOOM II, E5M6"
+	Label = "DOOM II HELL ON EARTH, E5M6"
 	Next = "LR_MAP07"
 	TitlePatch = "XWILV05"
 	Sky1 =  "SKYX4A"
@@ -108,7 +108,7 @@ map LR_MAP06 "$XHUSTR_6"
 
 map LR_MAP07 "$XHUSTR_7"
 {
-	Label = "DOOM II, E5M7"
+	Label = "DOOM II HELL ON EARTH, E5M7"
 	Next = EndPic, "XCREDIT"
 	TitlePatch = "XWILV06"
 	Sky1 =  "SKYX4A"
@@ -122,7 +122,7 @@ map LR_MAP07 "$XHUSTR_7"
 
 map LR_MAP15 "$XHUSTR_8"
 {
-	Label = "DOOM II, E5M0"
+	Label = "DOOM II HELL ON EARTH, E5M0"
 	Next = "LR_MAP03"
 	TitlePatch = "XWILV07"
 	Sky1 =  "SKYX3"
@@ -141,7 +141,7 @@ adddefaultmap
 
 map LR_MAP08 "$XHUSTR_9"
 {
-	Label = "DOOM II, E6M1"
+	Label = "DOOM II HELL ON EARTH, E6M1"
 	Next = "LR_MAP09"
 	TitlePatch = "XWILV10"
 	Sky1 =  "SKYX2"
@@ -151,7 +151,7 @@ map LR_MAP08 "$XHUSTR_9"
 
 map LR_MAP09 "$XHUSTR_10"
 {
-	Label = "DOOM II, E6M2"
+	Label = "DOOM II HELL ON EARTH, E6M2"
 	Next = "LR_MAP10"
 	TitlePatch = "XWILV11"
 	Sky1 =  "SKYX2"
@@ -161,7 +161,7 @@ map LR_MAP09 "$XHUSTR_10"
 
 map LR_MAP10 "$XHUSTR_11"
 {
-	Label = "DOOM II, E6M3"
+	Label = "DOOM II HELL ON EARTH, E6M3"
 	Next = "LR_MAP11"
 	SecretNext = "LR_MAP16"
 	TitlePatch = "XWILV12"
@@ -172,7 +172,7 @@ map LR_MAP10 "$XHUSTR_11"
 
 map LR_MAP11 "$XHUSTR_12"
 {
-	Label = "DOOM II, E6M4"
+	Label = "DOOM II HELL ON EARTH, E6M4"
 	Next = "LR_MAP12"
 	TitlePatch = "XWILV13"
 	Sky1 =  "SKYX2"
@@ -182,7 +182,7 @@ map LR_MAP11 "$XHUSTR_12"
 
 map LR_MAP12 "$XHUSTR_13"
 {
-	Label = "DOOM II, E6M5"
+	Label = "DOOM II HELL ON EARTH, E6M5"
 	Next = "LR_MAP13"
 	TitlePatch = "XWILV14"
 	Sky1 =  "SKYX4A"
@@ -192,7 +192,7 @@ map LR_MAP12 "$XHUSTR_13"
 
 map LR_MAP13 "$XHUSTR_14"
 {
-	Label = "DOOM II, E6M6"
+	Label = "DOOM II HELL ON EARTH, E6M6"
 	Next = "LR_MAP14"
 	TitlePatch = "XWILV15"
 	Sky1 =  "SKYX4A"
@@ -203,7 +203,7 @@ map LR_MAP13 "$XHUSTR_14"
 
 map LR_MAP14 "$XHUSTR_15"
 {
-	Label = "DOOM II, E6M7"
+	Label = "DOOM II HELL ON EARTH, E6M7"
 	Next = EndSequence, "Id1Cast"
 	TitlePatch = "XWILV16"
 	Sky1 =  "SKYX5A"
@@ -219,7 +219,7 @@ map LR_MAP14 "$XHUSTR_15"
 
 map LR_MAP16 "$XHUSTR_16"
 {
-	Label = "DOOM II, E6M0"
+	Label = "DOOM II HELL ON EARTH, E6M0"
 	Next = "LR_MAP11"
 	TitlePatch = "XWILV17"
 	Sky1 =  "SKYX2"

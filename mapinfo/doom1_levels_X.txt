@@ -27,7 +27,7 @@ map E1M1 "$HUSTR_E1M1"
 	Par = 30
 	Music = "$MUSIC_E1M1"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M1"
+	Label = "THE ULTIMATE DOOM, E1M1"
 }
 
 map E1M2 "$HUSTR_E1M2"
@@ -38,7 +38,7 @@ map E1M2 "$HUSTR_E1M2"
 	Par = 75
 	Music = "$MUSIC_E1M2"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M2"
+	Label = "THE ULTIMATE DOOM, E1M2"
 }
 
 map E1M3 "$HUSTR_E1M3"
@@ -50,7 +50,7 @@ map E1M3 "$HUSTR_E1M3"
 	Par = 120
 	Music = "$MUSIC_E1M3"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M3"
+	Label = "THE ULTIMATE DOOM, E1M3"
 }
 
 map E1M4 "$HUSTR_E1M4"
@@ -61,7 +61,7 @@ map E1M4 "$HUSTR_E1M4"
 	Par = 90
 	Music = "$MUSIC_E1M4"
 	Author = "$WF_AU_ROMERO_HALL"
-	Label = "DOOM, E1M4"
+	Label = "THE ULTIMATE DOOM, E1M4"
 }
 
 map E1M4b "$HUSTR_E1M4B"
@@ -72,7 +72,7 @@ map E1M4b "$HUSTR_E1M4B"
 	Cluster = 30
 	Music = "$MUSIC_E1M4"
 	Author = "$WS_AU_ROMERO"
-	Label = "DOOM, E1M4"
+	Label = "THE ULTIMATE DOOM, E1M4"
 }
 
 map E1M5 "$HUSTR_E1M5"
@@ -83,7 +83,7 @@ map E1M5 "$HUSTR_E1M5"
 	Par = 165
 	Music = "$MUSIC_E1M5"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M5"
+	Label = "THE ULTIMATE DOOM, E1M5"
 }
 
 map E1M6 "$HUSTR_E1M6"
@@ -94,7 +94,7 @@ map E1M6 "$HUSTR_E1M6"
 	Par = 180
 	Music = "$MUSIC_E1M6"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M6"
+	Label = "THE ULTIMATE DOOM, E1M6"
 }
 
 map E1M7 "$HUSTR_E1M7"
@@ -105,7 +105,7 @@ map E1M7 "$HUSTR_E1M7"
 	Par = 180
 	Music = "$MUSIC_E1M7"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M7"
+	Label = "THE ULTIMATE DOOM, E1M7"
 }
 
 map E1M8 "$HUSTR_E1M8"
@@ -120,7 +120,7 @@ map E1M8 "$HUSTR_E1M8"
 	SpecialAction_LowerFloor
 	NoSoundClipping
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E1M8"
+	Label = "THE ULTIMATE DOOM, E1M8"
 }
 
 map E1M8b "$HUSTR_E1M8B"
@@ -135,7 +135,7 @@ map E1M8b "$HUSTR_E1M8B"
 	specialaction_lowerfloor
 	Music = "$MUSIC_E1M8"
 	Author = "$WS_AU_ROMERO"
-	Label = "DOOM, E1M8"
+	Label = "THE ULTIMATE DOOM, E1M8"
 }
 
 map E1M9 "$HUSTR_E1M9"
@@ -146,7 +146,7 @@ map E1M9 "$HUSTR_E1M9"
 	Par = 165
 	Music = "$MUSIC_E1M9"
 	Author = "$WF_AU_ROMERO"
-	Label = "DOOM, E1M9"
+	Label = "THE ULTIMATE DOOM, E1M9"
 }
 
 map E1M10 "$HUSTR_E1M10"
@@ -162,7 +162,7 @@ map E1M10 "$HUSTR_E1M10"
 	InterMusic = "$MUSIC_INTER"
 	BorderTexture = "FLOOR7_2"
 	Author = "$WF_AU_CALVIN_BLANSHINE"
-	Label = "DOOM, E1M10"
+	Label = "THE ULTIMATE DOOM, E1M10"
 }
 
 // Registered/Retail Episode 2
@@ -182,7 +182,7 @@ map E2M1 "$HUSTR_E2M1"
 	Par = 90
 	Music = "$MUSIC_E2M1"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E2M1"
+	Label = "THE ULTIMATE DOOM, E2M1"
 }
 
 map E2M2 "$HUSTR_E2M2"
@@ -193,7 +193,7 @@ map E2M2 "$HUSTR_E2M2"
 	Par = 90
 	Music = "$MUSIC_E2M2"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E2M2"
+	Label = "THE ULTIMATE DOOM, E2M2"
 }
 
 map E2M3 "$HUSTR_E2M3"
@@ -204,7 +204,7 @@ map E2M3 "$HUSTR_E2M3"
 	Par = 90
 	Music = "$MUSIC_E2M3"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E2M3"
+	Label = "THE ULTIMATE DOOM, E2M3"
 }
 
 map E2M4 "$HUSTR_E2M4"
@@ -215,7 +215,7 @@ map E2M4 "$HUSTR_E2M4"
 	Par = 120
 	Music = "$MUSIC_E2M4"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E2M4"
+	Label = "THE ULTIMATE DOOM, E2M4"
 }
 
 map E2M5 "$HUSTR_E2M5"
@@ -227,7 +227,7 @@ map E2M5 "$HUSTR_E2M5"
 	Par = 90
 	Music = "$MUSIC_E2M5"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E2M5"
+	Label = "THE ULTIMATE DOOM, E2M5"
 }
 
 map E2M5b "$HUSTR_E2M5b"
@@ -235,9 +235,9 @@ map E2M5b "$HUSTR_E2M5b"
 	levelnum = 15
 	next = "E2M6"
 	par = 90
-	Music = "$MUSIC_E1M2"
+	Music = "$MUSIC_E1M5"
 	Author = "$WS_AU_MCGEE"
-	Label = "DOOM, PSX01"
+	Label = "THE ULTIMATE DOOM, PSX01"
 }
 
 map E2M6 "$HUSTR_E2M6"
@@ -248,7 +248,7 @@ map E2M6 "$HUSTR_E2M6"
 	Par = 360
 	Music = "$MUSIC_E2M6"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E2M6"
+	Label = "THE ULTIMATE DOOM, E2M6"
 }
 
 map E2M7 "$HUSTR_E2M7"
@@ -259,7 +259,7 @@ map E2M7 "$HUSTR_E2M7"
 	Par = 240
 	Music = "$MUSIC_E2M7"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E2M7"
+	Label = "THE ULTIMATE DOOM, E2M7"
 }
 
 map E2M8 "$HUSTR_E2M8"
@@ -274,7 +274,7 @@ map E2M8 "$HUSTR_E2M8"
 	SpecialAction_ExitLevel
 	NoSoundClipping
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E2M8"
+	Label = "THE ULTIMATE DOOM, E2M8"
 }
 
 map E2M9 "$HUSTR_E2M9"
@@ -285,7 +285,7 @@ map E2M9 "$HUSTR_E2M9"
 	Par = 170
 	Music = "$MUSIC_E2M9"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E2M9"
+	Label = "THE ULTIMATE DOOM, E2M9"
 }
 
 // Registered/Retail Episode 3
@@ -305,7 +305,7 @@ map E3M1 "$HUSTR_E3M1"
 	Par = 90
 	Music = "$MUSIC_E3M1"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M1"
+	Label = "THE ULTIMATE DOOM, E3M1"
 }
 
 map PSX01 "Hell Gate"
@@ -314,7 +314,7 @@ map PSX01 "Hell Gate"
 	next = "PSX02"
 	Music = "$MUSIC_E2M6"
 	Author = "$WS_AU_MCGEE"
-	Label = "DOOM, PSX02"
+	Label = "THE ULTIMATE DOOM, PSX02"
 }
 
 map PSX02 "Forbiden Keep"
@@ -324,7 +324,7 @@ map PSX02 "Forbiden Keep"
 	par = 90
 	Music = "$MUSIC_E2M2"
 	Author = "$WS_AU_MCGEE"
-	Label = "DOOM, PSX03"
+	Label = "THE ULTIMATE DOOM, PSX03"
 }
 
 map PSX01B "Hell Gate"
@@ -333,7 +333,7 @@ map PSX01B "Hell Gate"
 	next = "PSX02B"
 	Music = "$MUSIC_E2M6"
 	Author = "Manardo Lenari"
-	Label = "DOOM, PSX02"
+	Label = "THE ULTIMATE DOOM, PSX02"
 }
 
 map PSX02B "Forbiden Keep"
@@ -343,7 +343,7 @@ map PSX02B "Forbiden Keep"
 	par = 90
 	Music = "$MUSIC_E2M2"
 	Author = "Manardo Lenari"
-	Label = "DOOM, PSX03"
+	Label = "THE ULTIMATE DOOM, PSX03"
 }
 
 map E3M2 "$HUSTR_E3M2"
@@ -354,7 +354,7 @@ map E3M2 "$HUSTR_E3M2"
 	Par = 45
 	Music = "$MUSIC_E3M2"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M2"
+	Label = "THE ULTIMATE DOOM, E3M2"
 }
 
 map E3M3 "$HUSTR_E3M3"
@@ -365,7 +365,7 @@ map E3M3 "$HUSTR_E3M3"
 	Par = 90
 	Music = "$MUSIC_E3M3"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E3M3"
+	Label = "THE ULTIMATE DOOM, E3M3"
 }
 
 map E3M4 "$HUSTR_E3M4"
@@ -376,7 +376,7 @@ map E3M4 "$HUSTR_E3M4"
 	Par = 150
 	Music = "$MUSIC_E3M4"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M4"
+	Label = "THE ULTIMATE DOOM, E3M4"
 }
 
 map E3M5 "$HUSTR_E3M5"
@@ -387,7 +387,7 @@ map E3M5 "$HUSTR_E3M5"
 	Par = 90
 	Music = "$MUSIC_E3M5"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M5"
+	Label = "THE ULTIMATE DOOM, E3M5"
 }
 
 map E3M6 "$HUSTR_E3M6"
@@ -399,7 +399,7 @@ map E3M6 "$HUSTR_E3M6"
 	Par = 90
 	Music = "$MUSIC_E3M6"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M6"
+	Label = "THE ULTIMATE DOOM, E3M6"
 }
 
 map E3M7 "$HUSTR_E3M7"
@@ -410,7 +410,7 @@ map E3M7 "$HUSTR_E3M7"
 	Par = 165
 	Music = "$MUSIC_E3M7"
 	Author = "$WF_AU_PETERSEN_HALL"
-	Label = "DOOM, E3M7"
+	Label = "THE ULTIMATE DOOM, E3M7"
 }
 
 map E3M8 "$HUSTR_E3M8"
@@ -425,7 +425,7 @@ map E3M8 "$HUSTR_E3M8"
 	SpecialAction_ExitLevel
 	NoSoundClipping
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M8"
+	Label = "THE ULTIMATE DOOM, E3M8"
 }
 
 map E3M9 "$HUSTR_E3M9"
@@ -436,7 +436,7 @@ map E3M9 "$HUSTR_E3M9"
 	Par = 135
 	Music = "$MUSIC_E3M9"
 	Author = "$WF_AU_PETERSEN"
-	Label = "DOOM, E3M9"
+	Label = "THE ULTIMATE DOOM, E3M9"
 }
 
 // Retail Episode 4

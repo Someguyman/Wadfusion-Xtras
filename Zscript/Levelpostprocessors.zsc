@@ -142,13 +142,6 @@ Class DCX_MapFixes : LevelPostProcessor
 				SetThingEdNum(71,0);
 			}
 			
-			// Removes the two secrets blocked by the torches
-			if ( mapName == "e4m3" )
-			{
-				SetSectorSpecial(124,0);
-				SetSectorSpecial(125,0);
-			}
-			
 			if ( mapName == "map02" )
 			{
 				SetThingEdNum(85,0);

@@ -13,7 +13,7 @@ defaultmap
 
 map ML_MAP33 "$ML_DANTE" // bonus level
 {
-	Label = "First Canto"
+	Label = "INFERNO, First Canto"
 	Next = "ML_MAP34"
 	Sky1 = "SKY4"
 	TitlePatch = "MWILV32"
@@ -22,7 +22,7 @@ map ML_MAP33 "$ML_DANTE" // bonus level
 
 map ML_MAP34 "$ML_ACHRON" // bonus level
 {
-	Label = "Second Canto"
+	Label = "INFERNO, Second Canto"
 	Next = "ML_MAP11"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV33"
@@ -31,7 +31,7 @@ map ML_MAP34 "$ML_ACHRON" // bonus level
 
 map ML_MAP11 "$ML_VIRGIL"
 {
-	Label = "Third Canto"
+	Label = "INFERNO, Third Canto"
 	Next = "ML_MAP12"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV10"
@@ -40,7 +40,7 @@ map ML_MAP11 "$ML_VIRGIL"
 
 map ML_MAP12 "$ML_MINOS"
 {
-	Label = "Fourth Canto"
+	Label = "INFERNO, Fourth Canto"
 	Next = "ML_MAP13"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV11"
@@ -49,7 +49,7 @@ map ML_MAP12 "$ML_MINOS"
 
 map ML_MAP13 "$ML_NESSUS"
 {
-	Label = "Fifth Canto"
+	Label = "INFERNO, Fifth Canto"
 	Next = "ML_MAP14"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV12"
@@ -59,7 +59,7 @@ map ML_MAP13 "$ML_NESSUS"
 
 map ML_MAP14 "$ML_GERYON"
 {
-	Label = "Sixth Canto"
+	Label = "INFERNO, Sixth Canto"
 	Next = "ML_MAP15"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV13"
@@ -68,7 +68,7 @@ map ML_MAP14 "$ML_GERYON"
 
 map ML_MAP15 "$ML_VESPERAS"
 {
-	Label = "Seventh Canto"
+	Label = "INFERNO, Seventh Canto"
 	Next = "ML_MAP35"
 	Sky1 = "MSKY2"
 	TitlePatch = "MWILV14"
@@ -77,7 +77,7 @@ map ML_MAP15 "$ML_VESPERAS"
 
 map ML_MAP35 "$ML_CHIRON" // diplicate of E4M7
 {
-	Label = "Eighth Canto"
+	Label = "INFERNO, Eighth Canto"
 	Next = "ML_MAP36"
 	Sky1 = "SKY4"
 	TitlePatch = "MWILV34"
@@ -93,7 +93,7 @@ map ML_MAP36 "$ML_LETHE" // bonus level - UDTWiD's E4M8
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}
-	Label = "Ninth Canto"
+	Label = "INFERNO, Ninth Canto"
 	Sky1 = "MSKY7"
 	TitlePatch = "MWILV35"
 	Par = 105

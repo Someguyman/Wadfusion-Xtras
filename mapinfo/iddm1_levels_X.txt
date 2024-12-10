@@ -13,7 +13,7 @@ defaultmap
 
 map DM_MAP01 "$MHUSTR_1"
 {
-	Label = "KEX, DM01"
+	Label = "DOOM II, KEX, DM01"
 	Next = "DM_MAP02"
 	Sky1 = "SKYX2"
 	NoIntermission
@@ -23,7 +23,7 @@ map DM_MAP01 "$MHUSTR_1"
 
 map DM_MAP02 "$MHUSTR_2"
 {
-	Label = "KEX, DM02"
+	Label = "DOOM II, KEX, DM02"
 	Next = "DM_MAP03"
 	Sky1 = "SKYA3"
 	NoIntermission
@@ -33,7 +33,7 @@ map DM_MAP02 "$MHUSTR_2"
 
 map DM_MAP03 "$MHUSTR_3"
 {
-	Label = "KEX, DM03"
+	Label = "DOOM II, KEX, DM03"
 	Next = "DM_MAP04"
 	Sky1 = "SKYE2"
 	NoIntermission
@@ -43,7 +43,7 @@ map DM_MAP03 "$MHUSTR_3"
 
 map DM_MAP04 "$MHUSTR_4"
 {
-	Label = "KEX, DM04"
+	Label = "DOOM II, KEX, DM04"
 	Next = "DM_MAP05"
 	Sky1 = "SKYE4"
 	NoIntermission
@@ -53,7 +53,7 @@ map DM_MAP04 "$MHUSTR_4"
 
 map DM_MAP05 "$MHUSTR_5"
 {
-	Label = "KEX, DM05"
+	Label = "DOOM II, KEX, DM05"
 	Next = "DM_MAP06"
 	Sky1 = "SKYX2"
 	NoIntermission
@@ -63,7 +63,7 @@ map DM_MAP05 "$MHUSTR_5"
 
 map DM_MAP06 "$MHUSTR_6"
 {
-	Label = "KEX, DM06"
+	Label = "DOOM II, KEX, DM06"
 	Next = "DM_MAP07"
 	Sky1 = "SKYX2"
 	NoIntermission
@@ -73,7 +73,7 @@ map DM_MAP06 "$MHUSTR_6"
 
 map DM_MAP07 "$MHUSTR_7"
 {
-	Label = "KEX, DM07"
+	Label = "DOOM II, KEX, DM07"
 	Next = "DM_MAP08"
 	Sky1 = "SKY4B"
 	NoIntermission
@@ -83,7 +83,7 @@ map DM_MAP07 "$MHUSTR_7"
 
 map DM_MAP08 "$MHUSTR_8"
 {
-	Label = "KEX, DM08"
+	Label = "DOOM II, KEX, DM08"
 	Next = "DM_MAP09"
 	Sky1 = "SKY4B"
 	NoIntermission
@@ -93,7 +93,7 @@ map DM_MAP08 "$MHUSTR_8"
 
 map DM_MAP09 "$MHUSTR_9"
 {
-	Label = "KEX, DM09"
+	Label = "DOOM II, KEX, DM09"
 	Next = "DM_MAP10"
 	Sky1 = "SKYZ1"
 	NoIntermission
@@ -103,7 +103,7 @@ map DM_MAP09 "$MHUSTR_9"
 
 map DM_MAP10 "$MHUSTR_10"
 {
-	Label = "KEX, DM10"
+	Label = "DOOM II, KEX, DM10"
 	Next = "DM_MAP11"
 	Sky1 = "SKY1"
 	NoIntermission
@@ -113,7 +113,7 @@ map DM_MAP10 "$MHUSTR_10"
 
 map DM_MAP11 "$MHUSTR_11"
 {
-	Label = "KEX, DM11"
+	Label = "DOOM II, KEX, DM11"
 	Next = "DM_MAP12"
 	Sky1 = "SKYA1"
 	NoIntermission
@@ -123,7 +123,7 @@ map DM_MAP11 "$MHUSTR_11"
 
 map DM_MAP12 "$MHUSTR_12"
 {
-	Label = "KEX, DM12"
+	Label = "DOOM II, KEX, DM12"
 	Next = "DM_MAP13"
 	Sky1 = "SKYE3"
 	NoIntermission
@@ -133,7 +133,7 @@ map DM_MAP12 "$MHUSTR_12"
 
 map DM_MAP13 "$MHUSTR_13"
 {
-	Label = "KEX, DM13"
+	Label = "DOOM II, KEX, DM13"
 	Next = "DM_MAP14"
 	Sky1 = "SKYE1"
 	NoIntermission
@@ -143,7 +143,7 @@ map DM_MAP13 "$MHUSTR_13"
 
 map DM_MAP14 "$MHUSTR_14"
 {
-	Label = "KEX, DM14"
+	Label = "DOOM II, KEX, DM14"
 	Next = "DM_MAP15"
 	Sky1 = "SKYX4"
 	NoIntermission
@@ -153,7 +153,7 @@ map DM_MAP14 "$MHUSTR_14"
 
 map DM_MAP15 "$MHUSTR_15"
 {
-	Label = "KEX, DM15"
+	Label = "DOOM II, KEX, DM15"
 	Next = "DM_MAP16"
 	Sky1 = "SKYX3"
 	NoIntermission
@@ -163,7 +163,7 @@ map DM_MAP15 "$MHUSTR_15"
 
 map DM_MAP16 "$MHUSTR_16"
 {
-	Label = "KEX, DM16"
+	Label = "DOOM II, KEX, DM16"
 	Next = "DM_MAP17"
 	Sky1 = "SKY2"
 	NoIntermission
@@ -173,7 +173,7 @@ map DM_MAP16 "$MHUSTR_16"
 
 map DM_MAP17 "$MHUSTR_17"
 {
-	Label = "KEX, DM17"
+	Label = "DOOM II, KEX, DM17"
 	Next = "DM_MAP18"
 	Sky1 = "SKYX1"
 	NoIntermission
@@ -183,7 +183,7 @@ map DM_MAP17 "$MHUSTR_17"
 
 map DM_MAP18 "$MHUSTR_18"
 {
-	Label = "KEX, DM18"
+	Label = "DOOM II, KEX, DM18"
 	Next = "DM_MAP19"
 	Sky1 = "SKYE4"
 	NoIntermission
@@ -193,7 +193,7 @@ map DM_MAP18 "$MHUSTR_18"
 
 map DM_MAP19 "$MHUSTR_19"
 {
-	Label = "KEX, DM19"
+	Label = "DOOM II, KEX, DM19"
 	Next = "DM_MAP20"
 	Sky1 = "SKYZ4"
 	NoIntermission
@@ -203,7 +203,7 @@ map DM_MAP19 "$MHUSTR_19"
 
 map DM_MAP20 "$MHUSTR_20"
 {
-	Label = "KEX, DM20"
+	Label = "DOOM II, KEX, DM20"
 	Next = "DM_MAP21"
 	Sky1 = "SKYE1"
 	NoIntermission
@@ -213,7 +213,7 @@ map DM_MAP20 "$MHUSTR_20"
 
 map DM_MAP21 "$MHUSTR_21"
 {
-	Label = "KEX, DM21"
+	Label = "DOOM II, KEX, DM21"
 	Next = "DM_MAP22"
 	Sky1 = "SKYX1"
 	NoIntermission
@@ -223,7 +223,7 @@ map DM_MAP21 "$MHUSTR_21"
 
 map DM_MAP22 "$MHUSTR_22"
 {
-	Label = "KEX, DM22"
+	Label = "DOOM II, KEX, DM22"
 	Next = "DM_MAP23"
 	Sky1 = "SKYX1"
 	NoIntermission
@@ -233,7 +233,7 @@ map DM_MAP22 "$MHUSTR_22"
 
 map DM_MAP23 "$MHUSTR_23"
 {
-	Label = "KEX, DM23"
+	Label = "DOOM II, KEX, DM23"
 	Next = "DM_MAP24"
 	Sky1 = "SKYZ5"
 	NoIntermission
@@ -243,7 +243,7 @@ map DM_MAP23 "$MHUSTR_23"
 
 map DM_MAP24 "$MHUSTR_24"
 {
-	Label = "KEX, DM24"
+	Label = "DOOM II, KEX, DM24"
 	Next = "DM_MAP25"
 	Sky1 = "SKYZ1"
 	NoIntermission
@@ -253,7 +253,7 @@ map DM_MAP24 "$MHUSTR_24"
 
 map DM_MAP25 "$MHUSTR_25"
 {
-	Label = "KEX, DM25"
+	Label = "DOOM II, KEX, DM25"
 	Next = "DM_MAP26"
 	Sky1 = "SKYZ2"
 	NoIntermission
@@ -263,7 +263,7 @@ map DM_MAP25 "$MHUSTR_25"
 
 map DM_MAP26 "$MHUSTR_26"
 {
-	Label = "KEX, DM26"
+	Label = "DOOM II, KEX, DM26"
 	Next = "DM_MAP01"
 	Sky1 = "SKYX1"
 	Music = "T_RUNNIN"

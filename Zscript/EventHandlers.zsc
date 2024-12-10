@@ -80,8 +80,6 @@ class DCX_EventHandler : EventHandler
 		
 		if ( mapName.left(2) ~== "E3" )
 		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
-		//DRTOPSIB
-		//DRTOPF2
 		
 		//TNT Textures
 		if ( mapPrefix == "tn_" )
@@ -259,6 +257,32 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("SW1WOOD", "SW1METL", 0);
 			Level.ReplaceTextures("SW2WOOD", "SW2METL", 0);
 			Level.ReplaceTextures("BIGDOOR6", "BIGDRJA6", 0);
+			Level.ReplaceTextures("GSTSATYR", "GSATYRJA", 0);
+			//GSTSATYR
+		}
+	}
+	
+	void PSX0BRepalcements ()
+	{
+		String mapName = level.MapName.MakeLower();
+		if ( (mapName == "psx01b") || (mapName == "psx02b") )
+		{
+			Level.ReplaceTextures("BRNPOIS", "BRNPOIS1", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("NUKEPOIS", "NUKPOIS1", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("BIGDOOR7", "BIGDOR7A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SHAWN1", "SHAWN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP1", "STEP1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP2", "STEP2A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP3", "STEP3A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP5", "STEP5A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW1BRN1", "SW1BRN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW1STARG", "SW1STARA", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW1STONE", "SW1STONA", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW1STON2", "SW1STONB", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW2BRN1", "SW2BRN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW2STARG", "SW2STARA", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW2STONE", "SW2STONA", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW2STON2", "SW2STONB", TexMan.NOT_FLAT);
 		}
 	}
 	
@@ -321,22 +345,6 @@ class DCX_EventHandler : EventHandler
 		}		
 	}
 	
-	/*
-	override void WorldThingDied (WorldEvent e)
-	{
-		String mapName = level.MapName.MakeLower();
-		
-			if ( (CVar.FindCVar("dcx_TextureEchancements").GetBool()) && (mapName == "tn_map30"))
-			if(e.Thing.GetClassName() == "Bossbrain")
-			{
-				if( (mapName == "tn_map30") && (CVar.FindCVar("dcx_TextureEchancements").GetBool()) )
-				{
-					ACS_ScriptCall("ChangeSkyTexture",0);
-				}
-			}
-	}
-	*/
-	
 	override void WorldLoaded (WorldEvent e)
 	{
 		if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
@@ -345,6 +353,7 @@ class DCX_EventHandler : EventHandler
 		TextureEnchancements();
 		
 		JaguarDoomReplacements();
+		PSX0BRepalcements();
 		
 		Wolfenstein3DTextures();
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
@@ -356,17 +365,10 @@ class DCX_EventHandler : EventHandler
 		//Let's make a toggle that will get rid of the additional playstation maps 
 		
 		String mapName = level.MapName.MakeLower();
-		if ( mapName == "e2m5" )
+		if ( ( mapName == "e2m5" ) || ( mapName == "e2m9" ) )
 		{
 			if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
 				level.NextMap = "e2m6";
-			else
-				level.NextMap = "e2m5b";
-		}
-		if ( mapName == "e2m9" )
-		{
-			if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				level.NextMap = "e2m5";
 			else
 				level.NextMap = "e2m5b";
 		}

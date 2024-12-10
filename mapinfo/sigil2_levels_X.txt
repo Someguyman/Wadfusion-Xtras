@@ -23,7 +23,7 @@ map E6M1 "$HUSTR_E6M1"
 	Next = "E6M2"
 	TitlePatch = "WILV50"
 	Par = 480
-	Label = "DOOM, E6M1"
+	Label = "ULTIMATE DOOM, E6M1"
 }
 
 map E6M2 "$HUSTR_E6M2"
@@ -32,7 +32,7 @@ map E6M2 "$HUSTR_E6M2"
 	Next = "E6M3"
 	TitlePatch = "WILV51"
 	Par = 300
-	Label = "DOOM, E6M2"
+	Label = "ULTIMATE DOOM, E6M2"
 }
 
 map E6M3 "$HUSTR_E6M3"
@@ -42,7 +42,7 @@ map E6M3 "$HUSTR_E6M3"
 	SecretNext = "E6M9"
 	TitlePatch = "WILV52"
 	Par = 240
-	Label = "DOOM, E6M3"
+	Label = "ULTIMATE DOOM, E6M3"
 }
 
 map E6M4 "$HUSTR_E6M4"
@@ -51,7 +51,7 @@ map E6M4 "$HUSTR_E6M4"
 	Next = "E6M5"
 	TitlePatch = "WILV53"
 	Par = 420
-	Label = "DOOM, E6M4"
+	Label = "ULTIMATE DOOM, E6M4"
 }
 
 map E6M5 "$HUSTR_E6M5"
@@ -60,7 +60,7 @@ map E6M5 "$HUSTR_E6M5"
 	Next = "E6M6"
 	TitlePatch = "WILV54"
 	Par = 510
-	Label = "DOOM, E6M5"
+	Label = "ULTIMATE DOOM, E6M5"
 }
 
 map E6M6 "$HUSTR_E6M6"
@@ -69,7 +69,7 @@ map E6M6 "$HUSTR_E6M6"
 	Next = "E6M7"
 	TitlePatch = "WILV55"
 	Par = 840
-	Label = "DOOM, E6M6"
+	Label = "ULTIMATE DOOM, E6M6"
 }
 
 map E6M7 "$HUSTR_E6M7"
@@ -78,7 +78,7 @@ map E6M7 "$HUSTR_E6M7"
 	Next = "E6M8"
 	TitlePatch = "WILV56"
 	Par = 960
-	Label = "DOOM, E6M7"
+	Label = "ULTIMATE DOOM, E6M7"
 }
 
 map E6M8 "$HUSTR_E6M8"
@@ -90,7 +90,7 @@ map E6M8 "$HUSTR_E6M8"
 	Par = 390
 	nointermission
 	NoSoundClipping
-	Label = "DOOM, E6M8"
+	Label = "ULTIMATE DOOM, E6M8"
 }
 
 map E6M9 "$HUSTR_E6M9"
@@ -99,7 +99,7 @@ map E6M9 "$HUSTR_E6M9"
 	Next = "E6M4"
 	TitlePatch = "WILV58"
 	Par = 450
-	Label = "DOOM, E6M9"
+	Label = "ULTIMATE DOOM, E6M9"
 }
 
 Intermission UTDInter_Cast

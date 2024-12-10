@@ -20,55 +20,55 @@ defaultmap
 Map GBA_DM1 "GBA DeathMatch 1"
 {
 	Music = "$MUSIC_E1M4"
-	Label = "GBA, DM01"
+	Label = "DOOM, GBA, DM01"
 	Next = "GBA_DM2"
 }
 
 Map GBA_DM2 "GBA DeathMatch 2"
 {
 	Music = "$MUSIC_E1M2"
-	Label = "GBA, DM02"
+	Label = "DOOM, GBA, DM02"
 	Next = "GBA_DM3"
 }
 
 Map GBA_DM3 "GBA DeathMatch 3"
 {
 	Music = "$MUSIC_E1M1"
-	Label = "GBA, DM03"
+	Label = "DOOM, GBA, DM03"
 	Next = "GBA_DM4"
 }
 
 Map GBA_DM4 "GBA DeathMatch 4"
 {
 	Music = "$MUSIC_E1M7"
-	Label = "GBA, DM04"
+	Label = "DOOM, GBA, DM04"
 	Next = "GBA_DM5"
 }
 
 Map GBA_DM5 "GBA DeathMatch 5"
 {
 	Music = "$MUSIC_E1M5"
-	Label = "GBA, DM05"
+	Label = "DOOM, GBA, DM05"
 	Next = "GBA_DM6"
 }
 
 Map GBA_DM6 "GBA DeathMatch 6"
 {
 	Music = "$MUSIC_E2M7"
-	Label = "GBA, DM06"
+	Label = "DOOM, GBA, DM06"
 	Next = "GBA_DM7"
 }
 
 Map GBA_DM7 "GBA DeathMatch 7"
 {
 	Music = "$MUSIC_E1M8"
-	Label = "GBA, DM07"
+	Label = "DOOM, GBA, DM07"
 	Next = "GBA_DM8"
 }
 
 Map GBA_DM8 "GBA DeathMatch 8"
 {
 	Music = "$MUSIC_E1M3"
-	Label = "GBA, DM08"
+	Label = "DOOM, GBA, DM08"
 	Next = endpic, "JAGTITLE"
 }
