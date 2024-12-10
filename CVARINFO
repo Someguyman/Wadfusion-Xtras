@@ -1,6 +1,4 @@
 
-server bool always_pistol_start = false;
-server bool keep_inventory_items = false;
 server bool fs_toggle = true;
 server bool ns_toggle = false;
 server bool ED_toggle = false;
