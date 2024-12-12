@@ -70,6 +70,7 @@ WS_AU_UNKNOWN = "???";
 
 HUSTR_E1M2B = "Plant";
 HUSTR_E2M5b = "Altar Of Extraction";
+HUSTR_11 = "Circle Of Death";
 
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
 BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
