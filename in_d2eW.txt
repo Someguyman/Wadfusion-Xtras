@@ -1,0 +1,16 @@
+Background WIMAPW
+Screensize 320 200
+Splat wisplat
+Pointer wiurh0 wiurh1
+
+Spots
+{
+	MAP31 150 94
+	MAP32 35 70
+}
+Animation -53 0 11
+{
+	WIAW0001
+	WIAW0002
+	WIAW0003
+}

@@ -202,7 +202,7 @@ Intermission Doom2cast
 	{
 		CastClass = "DCX_Spectre"
 		CastName = "Spectre"
-		AttackSound = "Melee", 1, "demon/melee"
+		AttackSound = "Melee", 1, "spectre/melee"
 	}
 	Cast
 	{

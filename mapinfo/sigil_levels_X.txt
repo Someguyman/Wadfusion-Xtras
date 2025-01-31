@@ -103,7 +103,7 @@ map E5M9 "$HUSTR_E5M9"
 
 cluster 26
 {
-	Flat = "FLOOR7_2"
+	Flat = "CEIL5_1"
 	Music = "S_INTRO"
 	ExitText = "$E5TEXT"
 }

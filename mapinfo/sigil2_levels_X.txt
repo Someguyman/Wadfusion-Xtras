@@ -142,6 +142,12 @@ Intermission Sigilcast
 	}
 	Cast
 	{
+		CastClass = "DCX_Spectre"
+		CastName = "Spectre"
+		AttackSound = "Melee", 1, "spectre/melee"
+	}
+	Cast
+	{
 		CastClass = "LostSoul"
 		CastName = "$CC_LOST"
 		AttackSound = "Missile", 1, "skull/melee"

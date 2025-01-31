@@ -1,5 +1,5 @@
-NoAutoStartMap
 Background WIMAP5
+Screensize 320 200
 Splat wisplat
 Pointer wiurh0 wiurh1
 

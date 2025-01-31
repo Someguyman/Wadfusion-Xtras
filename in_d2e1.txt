@@ -1,0 +1,25 @@
+Background WIMAP6
+Screensize 320 200
+Splat wisplat
+Pointer wiurh0 wiurh1
+
+Spots
+{
+	MAP01 270 135
+	MAP02 242 167
+	MAP03 197 122
+	MAP04 186 175
+	MAP05 134 166
+	MAP06 205 71
+	MAP07 139 84
+	MAP08 115 116
+	MAP09 75 165
+	MAP10 38 109
+	MAP11 39 72
+}
+Animation -53 0 11
+{
+	WIA70001
+	WIA70002
+	WIA70003
+}

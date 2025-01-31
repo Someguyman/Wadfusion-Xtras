@@ -5,7 +5,6 @@ defaultmap
 	SuckTime = 1
 	NoJump
 	NoCrouch
-	//Exitpic = "$IN_STAR"
 	//Exitpic = "INTER_E4"
 }
 
@@ -15,6 +14,8 @@ adddefaultmap
 {
 	Cluster = 5
 	Sky1 = "RSKY1"
+	Exitpic = "$in_d2e1"
+	Enterpic = "$in_d2e1"
 }
 
 map MAP01 "$HUSTR_1"
@@ -145,8 +146,9 @@ adddefaultmap
 {
 	Cluster = 7
 	Sky1 = "RSKY2"
-	//Exitpic = "$IN_CITY"
-	Exitpic = "INTER_E4"
+	Exitpic = "$in_d2e2"
+	Enterpic = "$in_d2e2"
+	//Exitpic = "INTER_E4"
 }
 
 map MAP12 "$HUSTR_12"
@@ -250,8 +252,9 @@ adddefaultmap
 {
 	Cluster = 8
 	Sky1 = "RSKY3"
-	//Exitpic = "$IN_HELL"
-	Exitpic = "INTERPI3"
+	Enterpic = "$in_d2e3"
+	Exitpic = "$in_d2e3"
+	//Exitpic = "INTERPI3"
 }
 
 map MAP21 "$HUSTR_21"
@@ -371,7 +374,7 @@ map MAP30 "$HUSTR_30"
 adddefaultmap
 {
 	Sky1 = "RSKY3"
-	Exitpic = "INTER_E4"
+	//Exitpic = "INTER_E4"
 }
 
 // Secret maps
@@ -385,6 +388,8 @@ map MAP31 "$HUSTR_31"
 	TitlePatch = "CWILV30"
 	Par = 120
 	Music = "$MUSIC_EVIL"
+	Enterpic = "$in_d2eW"
+	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
 }
 
@@ -396,13 +401,9 @@ map MAP32 "$HUSTR_32"
 	TitlePatch = "CWILV31"
 	Par = 30
 	Music = "$MUSIC_ULTIMA"
+	Enterpic = "$in_d2eW"
+	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
-}
-
-adddefaultmap
-{
-	Sky1 = "RSKY1"
-	Exitpic = "INTERPIC"
 }
 
 map PSX06 "The Mansion"
@@ -414,6 +415,8 @@ map PSX06 "The Mansion"
 	Cluster = 32
 	music = "$MUSIC_ADRIAN"
 	Author = "$WS_AU_HEYDELAAR"
+	EnterPic = ""
+	Exitpic = "INTER_E4"
 	Label = "DOOM II HELL ON EARTH, PSX01"
 }
 
@@ -422,8 +425,11 @@ map PSX07 "Club DOOM"
 	next = "MAP17"
 	par = 120
 	Cluster = 33
+	sky1 = "RSKY1"
 	Music = "$MUSIC_DM2INT"
 	Author = "$WS_AU_MIDWAY"
+	EnterPic = "INTER_E4"
+	Exitpic = "INTER_E4"
 	Label = "DOOM II HELL ON EARTH, PSX02"
 }
 
@@ -436,6 +442,8 @@ map MAP33 "$HUSTR_33"
 	Par = 120
 	Music = "D_READ_M"
 	Author = "$WF_AU_BUKOWSKI"
+	EnterPic = ""
+	Exitpic = "INTERPIC"
 	Label = "DOOM II HELL ON EARTH, E1M12"
 }
 
