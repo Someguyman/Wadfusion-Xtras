@@ -455,7 +455,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 		
 		if ( mapName == "kickatk")
 		{
-			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{
 			//Doomimp
 			if (e.Replacee == 'Doomimp')
@@ -560,7 +560,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'DCX_Motherdemon';
 			}
 			
-			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{			
 				if (e.Replacee == 'CommanderKeen')
 				e.Replacement = 'DCX_NightmareImp';
