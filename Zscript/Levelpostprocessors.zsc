@@ -142,6 +142,14 @@ Class DCX_MapFixes : LevelPostProcessor
 				SetThingEdNum(71,0);
 			}
 			
+			// Removes corpses hanging in the air
+			if ( mapName == "e2m7" )
+			{
+					SetThingEdNum(195,0);
+					SetThingEdNum(196,0);
+			}
+			
+			//	Removes Out of Bounds and/or stuck objects and puts them in the right spot
 			if ( mapName == "map02" )
 			{
 				SetThingEdNum(85,0);
@@ -323,6 +331,22 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 				//Will only activeate on "Total Carnage" and "ULTRA NIGHTMARE!" difficulties. 
 				If (CallACS("Check_Difficulty") == 2)
 				{
+					if ( mapName == "e1m4b" )
+					{
+						AddThing(3005, (268, 8, -999), 135);
+						AddThing(3005, (368, 0, -999), 135);
+						
+						AddThing(3005, (352, -496, -999), 225);
+						
+						AddThing(3005, (-448, 1032, -999), 270);
+						AddThing(3005, (216, 1032, -999), 270);
+						
+						AddThing(3005, (748, -220, -999), 45);
+						
+						AddThing(3005, (480, -192, -999), 135);
+						AddThing(3005, (480, -256, -999), 225);
+						AddThing(3005, (544, -224, -999), 0);					
+					}
 					if ( mapName == "e1m8" )
 					{
 						AddThing(697, (48, 688, 999), 45);

@@ -143,7 +143,7 @@ script "Xtra_Monster_Placements" enter
 		{
 			AddDeco("ColonGibs",1088,-3264,0);
 			Replace("ChaingunGuy",2464,-2432,180,0,0); //Replaces the Shotgunner in the computer room
-			Add("Painelemental",3644,-3136,315,0,0); //Adds a Pain Elemental in the secret tunnel with the armor bonuses
+			Add("Cacodemon",3644,-3136,315,0,0); //Adds a Pain Elemental in the secret tunnel with the armor bonuses
 		}	
 		if (StrICmp(mapName, "e1m2") == 0)
 		{
@@ -157,8 +157,8 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("ChaingunGuy",-1312,2016,180,0,0); //near the end in the dark room the elevator drops into
 			Add("ChaingunGuy",-1312,1952,180,0,0); //near the end in the dark room the elevator drops into
-			Add("StealthChaingunGuy",192,-928,0,0,0); //In the maze, alcove next to backpack secret
-			Add("StealthChaingunGuy",192,-864,0,0,0); //In the maze, alcove next to backpack secret
+			Add("ChaingunGuy",192,-928,0,0,0); //In the maze, alcove next to backpack secret
+			Add("ChaingunGuy",192,-864,0,0,0); //In the maze, alcove next to backpack secret
 			Replace("ChaingunGuy",944,-304,0,0,0); //replaces the chaingun
 
 			Add("ChaingunGuy",-512,2240,135,0,0); //exit room
@@ -178,13 +178,13 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",-64,-704,90,0,0); //blue key room
 			Add("ChaingunGuy",-320,-1792,135,0,0); //room before regular exit with building stairs
 			Add("ChaingunGuy",-320,-1440,225,0,0); //room before regular exit with building stairs
-			Add("SuperShotgun",-992,-768,180,0,0); //green pit with health and switch
-			Add("Revenant",-992,-768,180,0,0); //green pit with health and switch
+			//Add("SuperShotgun",-992,-768,180,0,0); //green pit with health and switch
+			Add("Hellknight",-992,-768,180,0,0); //green pit with health and switch
 		}	
 		if (StrICmp(mapName, "e1m4") == 0)
 		{
-			Add("Painelemental",-672, 672,0,0,0);
-			Add("Painelemental",-928, 800,270,0,0);
+			Add("Cacodemon",-672, 672,0,0,0);
+			Add("Cacodemon",-928, 800,270,0,0);
 			
 			Add("HellKnight",-1536,1888,0,0,0); //Exit room
 			Add("ChaingunGuy",-1408,1280,0,0,0); //Next to the Yellow keycard
@@ -207,6 +207,46 @@ script "Xtra_Monster_Placements" enter
 			AddDeco("TechLamp",672,800,0); //metal/gray elevator room near the start
 			AddDeco("TechLamp",672,480,0); //metal/gray elevator room near the start
 		}
+		if (StrICmp(mapName, "e1m4b") == 0)
+		{
+			Replace("ChaingunGuy",1632,-96,90,0,0);
+			Replace("ChaingunGuy",1632,288,270,0,0);
+			
+			Replace("ChaingunGuy",-1056,-1152,90,0,0);
+			Replace("ChaingunGuy",-992,-1152,90,0,0);
+			
+			Replace("ChaingunGuy",736,224,270,0,0);
+			Replace("ChaingunGuy",824,224,270,0,0);
+			Replace("ChaingunGuy",912,224,270,0,0);
+			Replace("ChaingunGuy",992,224,270,0,0);
+			
+			Replace("ChaingunGuy",-816,-464,270,0,0);
+			Replace("ChaingunGuy",-816,-528,270,0,0);
+			
+			Replace("ChaingunGuy",-1120,-608,315,0,0);
+			Replace("ChaingunGuy",-1088,-224,270,0,0);
+			
+			Replace("ChaingunGuy",-1440,-352,0,0,0);
+			
+			Add("ChaingunGuy",-400,704,270,0,0);
+			Add("ChaingunGuy",240,704,270,0,0);
+			
+			Add("ChaingunGuy",1808,0,45,0,0);
+			Add("ChaingunGuy",1808,192,315,0,0);
+			
+			//Add("Cacodemon",1256,96,180,0,0);
+			//Add("Cacodemon",1192,496,225,0,0);
+			//Add("Cacodemon",1144,-296,135,0,0);
+			
+			//Add("Cacodemon",-1384,-920,225,0,0);
+			
+			Add("ChaingunGuy",152,-488,315,0,0);
+			
+			Add("HellKnight",2072,96,180,0,0);
+			
+			Add("Stimpack",-888,-408,270,0,0);
+			Add("Stimpack",-1056,-896,0,0,0);
+		}
 		if (StrICmp(mapName, "e1m5") == 0)
 		{
 			Replace("DCX_NightmareSpectre",-64,256,270,0,0);
@@ -223,7 +263,7 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",448,832,180,0,0); //room across from yellow key
 			Add("ChaingunGuy",448,1240,270,0,0); //room across from yellow key, up the stairs
 			Add("ChaingunGuy",0,1856,270,0,0); //dark rooom before exit
-			Add("SuperShotgun",912,288,270,0,0); //green lava room with raising bridge
+			//Add("SuperShotgun",912,288,270,0,0); //green lava room with raising bridge
 			Add("HellKnight",0,1696,270,0,0); //dark room before exit
 		}
 		if (StrICmp(mapName, "e1m6") == 0)
@@ -247,13 +287,13 @@ script "Xtra_Monster_Placements" enter
 			Add("Megasphere",1592,-1344,180,0,0);
 			Add("ChaingunGuy",1040,-616,135,0,0); //Yellow Key room
 			Add("ChaingunGuy",1088,-560,135,0,0); //Yellow Key room
-			Add("SuperShotgun",-64,-128,0,0,0); //blue room
+			//Add("SuperShotgun",-64,-128,0,0,0); //blue room
         
-			Add("Revenant",-896,1216,0,0,0); //stairs room next to nukage room above blue room
-			Add("Revenant",-896,1336,0,0,0); //stairs room next to nukage room above blue room
+			Add("Hellknight",-896,1216,0,0,0); //stairs room next to nukage room above blue room
+			Add("Hellknight",-896,1336,0,0,0); //stairs room next to nukage room above blue room
         
-			Add("Arachnotron",-1856,-1728,45,0,0); //the big pit of nukage near the blue key
-			Add("Arachnotron",-1536,-1984,90,0,0); //the big pit of nukage near the blue key
+			Add("Cacodemon",-1856,-1728,45,0,0); //the big pit of nukage near the blue key
+			Add("Cacodemon",-1536,-1984,90,0,0); //the big pit of nukage near the blue key
 
 			//spawn some enemies after the trap room goes off
 			while (IsDoorClosed(10)) { Delay(10); }
@@ -261,30 +301,30 @@ script "Xtra_Monster_Placements" enter
 			Delay(35); //wait a couple of seconds
 
 			//Doors are opened. Spawn some evil archviles!
-			Add("ArchVile",1424,-1576,90,0,99);
-			Add("Painelemental",1008,-1576,90,0,99);
+			//Add("Chaingunguy",1424,-1576,90,0,99);
+			//Add("Painelemental",1008,-1576,90,0,99);
 			
 		}
 		if (StrICmp(mapName, "e1m7") == 0)
 		{
 			Replace("DCX_NightmareSpectre",-1504,128,315,0,0);
 			Replace("DCX_NightmareSpectre",192,-192,90,0,0);
-			Replace("Revenant",-944,-1088,270,0,0);
-			Add("Revenant",352,-1792,270,0,0);
+			Replace("Hellknight",-944,-1088,270,0,0);
+			Add("Hellknight",352,-1792,270,0,0);
 			
 			Add("ChaingunGuy",128,64,90,0,0);
 			Add("ChaingunGuy",256,64,90,0,0);
 			Add("HellKnight",-480,-2080,0,0,0);
-			Add("Revenant",-1312,-2656,90,0,0);
-			Add("Fatso",1152,-1664,90,0,0);
-			Add("Fatso",1280,-1664,90,0,0);
-			Add("Fatso",1408,-1664,90,0,0);
-			Add("Arachnotron",1088,-1344,90,0,0);
-			Add("Arachnotron",1280,-1344,90,0,0);
-			Add("Arachnotron",1440,-1344,90,0,0);
+			Add("Hellknight",-1312,-2656,90,0,0);
+			Add("Hellknight",1152,-1664,90,0,0);
+			Add("Hellknight",1280,-1664,90,0,0);
+			Add("Hellknight",1408,-1664,90,0,0);
+			Add("Cacodemon",1088,-1344,90,0,0);
+			Add("Cacodemon",1280,-1344,90,0,0);
+			Add("Cacodemon",1440,-1344,90,0,0);
 			Add("Blursphere",864,-992,90,0,0);
-			Replace("Megasphere",1248,-1120,0,0,0); //replace normal Blursphere with a Megasphere since we are spawning enemies outside
-			Add("PainElemental",-384,-1728,270,0,0);
+			//Replace("Megasphere",1248,-1120,0,0,0); //replace normal Blursphere with a Megasphere since we are spawning enemies outside
+			Add("Cacodemon",-384,-1728,270,0,0);
 		
 			//wait for the door that opens when we pick up the red key to open
 			while (IsDoorClosed(12)) { Delay(10); }
@@ -306,7 +346,7 @@ script "Xtra_Monster_Placements" enter
 			Replace("DCX_NightmareSpectre",-192,3136,315,0,0);
 		
 			Add("Medikit",416,2656,0,0,0); //baron of hell chambers
-			Add("SuperShotgun",416,2464,270,0,0); //red elevator
+			//Add("SuperShotgun",416,2464,270,0,0); //red elevator
 
 			//wait until the barons are released
 			while (IsDoorClosed(5)) { Delay(10); }
@@ -320,24 +360,116 @@ script "Xtra_Monster_Placements" enter
             Add("HellKnight",64,2752,0,0,99); //baron of hell chambers
             Add("HellKnight",768,2752,180,0,99); //baron of hell chambers
 		}
+		if (StrICmp(mapName, "e1m8b") == 0)
+		{
+			//Starting Room Interior
+			Add("Cacodemon",28,-128,270,0,0);
+			
+			Add("ChaingunGuy",-472,-488,135,0,0);
+			Replace("ChaingunGuy",-552,-488,90,0,0);
+			
+			Add("ShellBox",-648,-488,180,0,0);
+			
+			Replace("DCX_NightmareSpectre",336,256,180,0,0);
+			Replace("DCX_NightmareSpectre",184,136,45,0,0);
+			
+			//Lower Toxic Waste	sewer
+			Replace("DCX_NightmareSpectre",272,16,270,0,0);
+			Replace("DCX_NightmareSpectre",-352,-328,90,0,0);
+			
+			//Starting Room Exterior
+			Add("Cacodemon",-676,-788,315,0,0);
+			
+			//Waste Dump Interior
+			Add("Cacodemon",-1168,-156,0,0,0);
+			
+			//Entrance to vent next to yellow key area
+			Add("Cacodemon",-100,-680,315,0,0);
+			
+			//Outside of Yellow key room
+			Add("ChaingunGuy",608,-784,180,0,0);
+			Add("Medikit",576,-832,180,0,0);
+			Add("ChaingunGuy",608,-880,180,0,0);
+			
+			//Lift to Yellow key switch
+			Replace("ChaingunGuy",1120,-864,180,0,0);
+			Replace("ChaingunGuy",1120,-928,180,0,0);
+			
+			//Red Key Toxic Dump Room
+			Replace("DCX_NightmareSpectre",-1880,360,0,0,0);
+			Replace("DCX_NightmareSpectre",-1912,248,0,0,0);
+			Replace("DCX_NightmareSpectre",-2224,-192,90,0,0);
+			Replace("DCX_NightmareSpectre",-2056,-184,90,0,0);
+			Replace("DCX_NightmareSpectre",-1472,-96,315,0,0);
+			Replace("DCX_NightmareSpectre",-1448,-192,315,0,0);
+			Replace("DCX_NightmareSpectre",-1472,-288,315,0,0);
+			
+			Add("ChaingunGuy",-1440,96,270,0,0);
+			Add("ChaingunGuy",-1248,96,270,0,0);
+			Add("ChaingunGuy",-1104,96,270,0,0);
+			
+			//Final Room Exterior
+			Add("ChaingunGuy",-2472,696,315,0,0);
+			Add("ChaingunGuy",-2400,776,315,0,0);
+			
+			Add("Cacodemon",-2356,1264,0,0,0);
+			Add("Cacodemon",-2368,1164,0,0,0);
+			
+			Add("Cacodemon",-2212,100,90,0,0);
+			
+			//Final Room Interior
+			
+			Replace("ChaingunGuy",-2592,1256,270,0,0);
+			Replace("ChaingunGuy",-2792,1112,315,0,0);
+			
+			Add("Cacodemon",-3000,1120,180,0,0);
+			
+			Add("ChaingunGuy",-3584,312,0,0,0);
+			Add("ChaingunGuy",-3584,232,0,0,0);
+			
+			Add("Medikit",-3736,400,315,0,0);
+			
+			Add("RocketBox",-3040,224,270,0,0);
+			
+			//Baron Boss Room
+			Add("HellKnight",-3280,-544,135,0,0);
+			Add("HellKnight",-3272,-608,135,0,0);
+			Add("HellKnight",-3212,-588,135,0,0);
+			Add("HellKnight",-3720,-544,45,0,0);
+			Add("HellKnight",-3688,-600,45,0,0);
+			
+			Add("DCX_NightmareSpectre",-3900,-44,315,0,0);
+			Add("DCX_NightmareSpectre",-2980,60,225,0,0);
+			Add("DCX_NightmareSpectre",-2980,-1148,135,0,0);
+			
+			//Ambush Room
+			Replace("Archvile",-5520,-424,315,0,0);
+			Replace("Archvile",-5392,-432,270,0,0);
+			Replace("Archvile",-5520,-544,0,0,0);
+			Replace("Archvile",-5528,-664,0,0,0);	
+			
+			Replace("Archvile",-5296,-424,225,0,0);
+			Replace("Archvile",-5288,-544,180,0,0);
+			Replace("Archvile",-5288,-664,135,0,0);
+			Replace("Archvile",-5400,-664,90,0,0);
+			
+			while (!IsFloorLevel(20,-88)) { Delay(10); }
+			
+			Add("ChaingunGuy",-1924,-732,0,0,99);
+			Add("ChaingunGuy",-1924,-804,0,0,99);
+		}
 		if (StrICmp(mapName, "e1m9") == 0)
 		{
-			Replace("Painelemental",624,1488,270,0,0);
-			Add("Painelemental",2464,544,270,0,99);
+			Replace("Cacodemon",624,1488,270,0,0);
+			Add("Cacodemon",2464,544,270,0,99);
 			
 			Add("ChaingunGuy",2040,-1308,135,0,0);
 			Replace("ChaingunGuy",2400,96,180,0,0); //pillars where the imps normally stand
 			Replace("ChaingunGuy",2592,160,180,0,0); //pillars where the imps normally stand
 			Replace("ChaingunGuy",2528,-32,180,0,0); //pillars where the imps normally stand
-			Add("Revenant",2048,64,128,0,0);
+			Add("HellKnight",2048,64,128,0,0);
 			Add("HellKnight",-128,1344,225,0,0);
 			Add("SuperShotgun",-576,-1312,0,0,0);
-
-			//wait until we have the Red key
-			while (IsDoorClosed(8)) { Delay(10); }    
-
-			//Spawn an ArchVile
-			Add("ArchVile",704,64,270,0,99);
 		}
 		
 		if (StrICmp(mapName, "e2m1") == 0)
@@ -388,8 +520,8 @@ script "Xtra_Monster_Placements" enter
 			Add("Hellknight",864,-384,90,0,0);
 			Add("Hellknight",1152,1376,270,0,0);
 			
-			Add("PainElemental",416,928,90,0,0);
-			Add("PainElemental",544,928,90,0,0);
+			Add("Cacodemon",416,928,90,0,0);
+			Add("Cacodemon",544,928,90,0,0);
 			Add("SuperShotgun",432,-256,90,0,0);
 			Add("HellKnight",352,480,270,0,0);
 			Add("Revenant",192,-192,180,0,0);
@@ -413,16 +545,16 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",1088,-1824,0,0,0);
 			Add("Arachnotron",1088,-1664,0,0,0);
 			Add("Arachnotron",1088,-1984,0,0,0);
-			Add("PainElemental",-960,-1152,90,0,0);
-			Add("PainElemental",-960,-1248,90,0,0);
+			Add("Cacodemon",-960,-1152,90,0,0);
+			Add("Cacodemon",-960,-1248,90,0,0);
 			Add("ArchVile",2176,-2368,90,0,0);
 		}
 		if (StrICmp(mapName, "e2m5") == 0)
 		{
-			Add("PainElemental",-2048,1600,270,0,0);
-			Add("PainElemental",256,1280,270,0,0);
+			Add("Cacodemon",-2048,1600,270,0,0);
+			Add("Cacodemon",256,1280,270,0,0);
 		
-			Add("PainElemental",-1568,1568,90,0,0);
+			Add("Cacodemon",-1568,1568,90,0,0);
 			Add("ChaingunGuy",-2592,928,90,0,0);
 			Add("ChaingunGuy",-2592,992,90,0,0);
 			Add("ChaingunGuy",-2944,192,270,0,0);
@@ -478,7 +610,7 @@ script "Xtra_Monster_Placements" enter
 			Add("ArchVile",2360,488,180,0,0);
 			Add("Arachnotron",3480,-224,90,0,0);
 			Add("Arachnotron",3240,-224,90,0,0);
-			Add("PainElemental",3672,304,135,0,0);
+			Add("Cacodemon",3672,304,135,0,0);
 			Add("Medikit",3816,-296,135,0,0);
 			Add("ArchVile",2720,96,180,0,0);
         
@@ -514,7 +646,7 @@ script "Xtra_Monster_Placements" enter
 			Add("SuperShotgun",736,-384,0,0,0);
 			Add("Revenant",1664,416,270,0,0);
 			Add("Revenant",1664,-1184,90,0,0);
-			Add("PainElemental",1984,-384,180,0,0);
+			Add("Cacodemon",1984,-384,180,0,0);
 			Add("Arachnotron",2112,-384,180,0,0);
 			Add("HellKnight",2496,-352,180,0,0);
 			Add("HellKnight",2496,-416,180,0,0);
