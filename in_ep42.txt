@@ -15,8 +15,8 @@ Spots
 	//E4M8 191 24
 	//E4M9 88 58
 	
-	PSX04 191 24
-	PSX05 78 85
+	PSX05 191 24
+	PSX06 78 85
 }
 
 Animation 72 107 9

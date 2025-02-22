@@ -2,7 +2,6 @@
 server bool fs_toggle = true;
 server bool ns_toggle = false;
 server bool ED_toggle = false;
-server bool dcx_playstationmaps = true;
 server bool dcx_TextureFixes = true;
 server bool dcx_TextureEchancements = true;
 server bool dcx_D64D2Xtras = true;
@@ -14,6 +13,7 @@ server int hud_toggle = 0;
 server int Plu_Hud_toggle = 0;
 server int Tnt_Hud_toggle = 0;
 server int Health_Cross_Toggle = 0;
+server int dcx_playstationmaps = 1;
 server int D64_Hud_toggle = 0;
 server int W3D_Text_toggle = 0;
 

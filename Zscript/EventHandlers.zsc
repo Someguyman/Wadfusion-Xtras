@@ -362,36 +362,38 @@ class DCX_EventHandler : EventHandler
 	
 	override void WorldTick()
 	{	
-		//Let's make a toggle that will get rid of the additional playstation maps 
+		//All these here toggle weather or not you play the console maps in the base campain.
 		
 		String mapName = level.MapName.MakeLower();
 		if ( ( mapName == "e2m5" ) || ( mapName == "e2m9" ) )
 		{
-			if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				level.NextMap = "e2m6";
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+				level.NextMap = "psx01";
 			else
-				level.NextMap = "e2m5b";
+				level.NextMap = "e2m6";
 		}
 		if ( mapName == "e3m1" )
 		{
-			if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				level.NextMap = "e3m2";
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				level.NextMap = "psx02";
+			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				level.NextMap = "psx02b";
 			else
-				level.NextMap = "psx01";
+				level.NextMap = "e3m2";
 		}
 		if ( mapName == "e4m7" )
 		{
-			if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
-			{
-				level.NextMap = "psx03";
-			}
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+				level.NextMap = "psx04";
+			else
+				level.NextMap = "e4m8";
 		}
 		if ( mapName == "map29" )
 		{
-			if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				level.NextMap = "map30";
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+				level.NextMap = "psx09";
 			else
-				level.NextMap = "psx08";
+				level.NextMap = "map30";
 		}
 	}
 	

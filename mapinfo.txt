@@ -1,5 +1,7 @@
 include mapinfo/episodes_X.txt
-include mapinfo/doom1_levels_X.txt
+include mapinfo/kneedeepinthedead_levels_X.txt
+include mapinfo/theshoresofhell_levels_X.txt
+include mapinfo/inferno_levels_X.txt
 include mapinfo/thyfleshconsumed_levels_X.txt
 include mapinfo/sigil_levels_X.txt
 include mapinfo/sigil2_levels_X.txt

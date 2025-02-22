@@ -69,7 +69,15 @@ WS_AU_MIDWAY = "Midway Ent.";
 WS_AU_UNKNOWN = "???";
 
 HUSTR_E1M2B = "Plant";
-HUSTR_E2M5b = "Altar Of Extraction";
+HUSTR_PSX01 = "Altar Of Extraction";
+HUSTR_PSX02 = "Hell Gate";
+HUSTR_PSX03 = "Forsaken Keep";
+HUSTR_PSX04 = "Twilight Descends";
+HUSTR_PSX05 = "Threshold of Pain";
+HUSTR_PSX06 = "The Marshes";
+HUSTR_PSX07 = "The Mansion";
+HUSTR_PSX08 = "Club DOOM";
+HUSTR_PSX09 = "Redemption Denied";
 HUSTR_11 = "Circle Of Death";
 
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
@@ -165,9 +173,9 @@ MUSIC_E4M9 = "E4M9";
 MUSIC_INTEREP4 = "INTER4";
 MUSIC_VICTR2 = "VICTR2";
 
-MUSIC_PSX03 = "PSX03";
 MUSIC_PSX04 = "PSX04";
 MUSIC_PSX05 = "PSX05";
+MUSIC_PSX06 = "PSX06";
 
 MUSIC_BETRAY = "BETREY";
 

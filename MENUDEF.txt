@@ -22,6 +22,13 @@ OptionValue HealthCrossTweaks
 	3.0, "Doom Eternal (White Inverted Cross \cg|\cj+\cg|\c-)"
 }
 
+OptionValue PsxMaps
+{
+	0.0, "Off"
+	1.0, "Originals"
+	2.0, "Remakes"
+}
+
 OptionValue HUDtweaks
 {
 	0.0, "\c[GREY]Default hud"
@@ -80,8 +87,9 @@ OptionMenu "DCXOptions"
 	StaticText " "
 	StaticText "Gameplay options", "Gold"
 	StaticText " "
-	Option "$OPTIONS_CON", "dcx_playstationmaps", "OnOff"
+	Option "$OPTIONS_CON", "dcx_playstationmaps", "PsxMaps"
 	StaticText "When enabled, you will be able to acess the maps from the playstation version", "dark red"
+	StaticText "The remakes option lets you play those maps in the style of the PC ones", "dark red"
 	StaticText " "
 	Option "$OPTIONS_W3D", "W3D_Text_toggle", "Wolf3DTextureTweaks"
 	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "dark red"

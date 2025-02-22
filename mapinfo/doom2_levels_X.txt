@@ -196,7 +196,7 @@ map MAP16 "$HUSTR_16"
 {
 	Label = "DOOM II HELL ON EARTH, E2M5"
 	Next = "MAP17"
-	secretnext = "PSX06"
+	secretnext = "PSX07"
 	TitlePatch = "CWILV15"
 	Par = 150
 	Music = "$MUSIC_DEAD2"
@@ -347,7 +347,7 @@ map MAP29 "$HUSTR_29"
 	Author = "$WF_AU_ROMERO"
 }
 
-map PSX08 "Redemption denied"
+map PSX09 "$HUSTR_PSX09"
 {
 	next = "MAP30"
 	Sky1 = "SKY4"
@@ -406,10 +406,10 @@ map MAP32 "$HUSTR_32"
 	Author = "$WF_AU_PETERSEN"
 }
 
-map PSX06 "The Mansion"
+map PSX07 "$HUSTR_PSX07"
 {
 	next = "MAP17"
-	secretnext = "PSX07"
+	secretnext = "PSX08"
 	sky1 = "RSKY1"
 	par = 120
 	Cluster = 32
@@ -420,7 +420,7 @@ map PSX06 "The Mansion"
 	Label = "DOOM II HELL ON EARTH, PSX01"
 }
 
-map PSX07 "Club DOOM"
+map PSX08 "$HUSTR_PSX08"
 {
 	next = "MAP17"
 	par = 120

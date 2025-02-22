@@ -352,6 +352,23 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						AddThing(697, (48, 688, 999), 45);
 						AddThing(697, (784, 688, 999), 135);
 					}
+					if ( mapName == "e1m8b" )
+					{
+						SetThingEdNum(142,697);
+						SetThingEdNum(148,697);
+						SetThingEdNum(160,697);
+						
+						SetThingEdNum(195,9);
+						SetThingEdNum(196,9);
+						SetThingEdNum(201,9);
+						SetThingEdNum(202,9);
+						
+						SetThingEdNum(191,65);
+						SetThingEdNum(197,65);
+						
+						SetThingEdNum(194,697);
+						SetThingEdNum(200,697);
+					}
 					if ( mapName == "e2m3" )
 					{
 						AddThing(2006, (864, -64, -999), 270,MODES_ALL | MTF_AMBUSH);
