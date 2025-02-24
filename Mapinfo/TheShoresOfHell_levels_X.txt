@@ -78,7 +78,7 @@ map PSX01 "$HUSTR_PSX01"
 	levelnum = 15
 	next = "E2M6"
 	par = 90
-	Music = "$MUSIC_E1M5"
+	Music = "$MUSIC_PSX01"
 	Author = "$WS_AU_MCGEE"
 	Label = "THE ULTIMATE DOOM, PSX01"
 }

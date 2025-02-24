@@ -33,7 +33,7 @@ map PSX02 "$HUSTR_PSX02"
 {
 	levelnum = 18
 	next = "PSX03"
-	Music = "$MUSIC_E2M6"
+	Music = "$MUSIC_PSX02"
 	Author = "$WS_AU_MCGEE"
 	Label = "THE ULTIMATE DOOM, PSX02"
 }
@@ -42,7 +42,7 @@ map PSX02B "$HUSTR_PSX02"
 {
 	levelnum = 18
 	next = "PSX03B"
-	Music = "$MUSIC_E2M6"
+	Music = "$MUSIC_PSX02"
 	Author = "Manardo Lenari"
 	Label = "THE ULTIMATE DOOM, PSX02"
 }
@@ -52,7 +52,7 @@ map PSX03 "$HUSTR_PSX03"
 	levelnum = 21
 	next = "E3M2"
 	par = 90
-	Music = "$MUSIC_E2M2"
+	Music = "$MUSIC_PSX03"
 	Author = "$WS_AU_MCGEE"
 	Label = "THE ULTIMATE DOOM, PSX03"
 }
@@ -62,7 +62,7 @@ map PSX03B "$HUSTR_PSX03"
 	levelnum = 21
 	next = "E3M2"
 	par = 90
-	Music = "$MUSIC_E2M2"
+	Music = "$MUSIC_PSX03"
 	Author = "Manardo Lenari"
 	Label = "THE ULTIMATE DOOM, PSX03"
 }

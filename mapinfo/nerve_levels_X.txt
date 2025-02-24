@@ -122,5 +122,5 @@ cluster 11
 {
 	ExitText = "$NERVETEXT"
 	music = "$MUSIC_NERVETEXT"
-	Flat = "SLIME16"
+	Flat = "BLOOD2"
 }

@@ -1,6 +1,12 @@
 
 clearepisodes
 
+episode WF_NEWGAME
+{
+	Name = "WadFusion New Game Hack"
+	Optional
+}
+
 episode E1M1
 {
 	Name = "$DOOM1_EPI01"

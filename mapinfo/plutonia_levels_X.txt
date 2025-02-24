@@ -4,7 +4,7 @@ defaultmap
 {
 	SuckTime = 1
 	ExitPic = "PLUINTER"
-	InterMusic = "$MUSIC_PLUINTER"
+	InterMusic = "P_DM2INT"
 	NoJump
 	NoCrouch
 }
@@ -22,7 +22,7 @@ map PL_MAP01 "$PHUSTR_1"
 	Label = "THE PLUTONIA EXPERIMENT, E1M1"
 	Next = "PL_MAP02"
 	TitlePatch = "PWILV00"
-	music = "$MUSIC_PLUMAP01"
+	Music = "P_RUNNIN"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -31,7 +31,7 @@ map PL_MAP02 "$PHUSTR_2"
 	Label = "THE PLUTONIA EXPERIMENT, E1M2"
 	Next = "PL_MAP03"
 	TitlePatch = "PWILV01"
-	music = "$MUSIC_PLUMAP02"
+	Music = "P_STALKS"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -40,7 +40,7 @@ map PL_MAP03 "$PHUSTR_3"
 	Label = "THE PLUTONIA EXPERIMENT, E1M3"
 	Next = "PL_MAP04"
 	TitlePatch = "PWILV02"
-	music = "$MUSIC_PLUMAP03"
+	Music = "P_COUNTD"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -49,7 +49,7 @@ map PL_MAP04 "$PHUSTR_4"
 	Label = "THE PLUTONIA EXPERIMENT, E1M4"
 	Next = "PL_MAP05"
 	TitlePatch = "PWILV03"
-	music = "$MUSIC_PLUMAP04"
+	Music = "P_BETWEE"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -58,7 +58,7 @@ map PL_MAP05 "$PHUSTR_5"
 	Label = "THE PLUTONIA EXPERIMENT, E1M5"
 	Next = "PL_MAP06"
 	TitlePatch = "PWILV04"
-	music = "$MUSIC_PLUMAP05"
+	Music = "P_DOOM"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -67,7 +67,7 @@ map PL_MAP06 "$PHUSTR_6"
 	Label = "THE PLUTONIA EXPERIMENT, E1M6"
 	Next = "PL_MAP07"
 	TitlePatch = "PWILV05"
-	music = "$MUSIC_PLUMAP06"
+	Music = "P_THE_DA"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -83,7 +83,7 @@ map PL_MAP07 "$PHUSTR_7"
 	Label = "THE PLUTONIA EXPERIMENT, E1M7"
 	Next = "PL_MAP08"
 	TitlePatch = "PWILV06"
-	music = "$MUSIC_PLUMAP07"
+	Music = "P_SHAWN"
 	Map07Special
 	Author = "$WF_AU_DARIO_CASALI"
 }
@@ -93,7 +93,7 @@ map PL_MAP08 "$PHUSTR_8"
 	Label = "THE PLUTONIA EXPERIMENT, E1M8"
 	Next = "PL_MAP09"
 	TitlePatch = "PWILV07"
-	Music = "$MUSIC_PLUMAP08"
+	Music = "P_DDTBLU"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -102,7 +102,7 @@ map PL_MAP09 "$PHUSTR_9"
 	Label = "THE PLUTONIA EXPERIMENT, E1M9"
 	Next = "PL_MAP10"
 	TitlePatch = "PWILV08"
-	music = "$MUSIC_PLUMAP09"
+	Music = "P_IN_CIT"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -111,7 +111,7 @@ map PL_MAP10 "$PHUSTR_10"
 	Label = "THE PLUTONIA EXPERIMENT, E1M10"
 	Next = "PL_MAP11"
 	TitlePatch = "PWILV09"
-	music = "$MUSIC_PLUMAP10"
+	Music = "P_DEAD"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -121,7 +121,7 @@ map PL_MAP11 "$PHUSTR_11"
 	//Next = "PL_MAP12"
 	Next = endpic, "PLCRED"
 	TitlePatch = "PWILV10"
-	music = "$MUSIC_PLUMAP11"
+	Music = "P_STLKS2"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -138,7 +138,7 @@ map PL_MAP12 "$PHUSTR_12"
 	Label = "THE PLUTONIA EXPERIMENT, E2M1"
 	Next = "PL_MAP13"
 	TitlePatch = "PWILV11"
-	music = "$MUSIC_PLUMAP12"
+	Music = "P_THEDA2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -147,7 +147,7 @@ map PL_MAP13 "$PHUSTR_13"
 	Label = "THE PLUTONIA EXPERIMENT, E2M2"
 	Next = "PL_MAP14"
 	TitlePatch = "PWILV12"
-	music = "$MUSIC_PLUMAP13"
+	Music = "P_DOOM2"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -156,7 +156,7 @@ map PL_MAP14 "$PHUSTR_14"
 	Label = "THE PLUTONIA EXPERIMENT, E2M3"
 	Next = "PL_MAP15"
 	TitlePatch = "PWILV13"
-	music = "$MUSIC_PLUMAP14"
+	Music = "P_DDTBL2"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -166,7 +166,7 @@ map PL_MAP15 "$PHUSTR_15"
 	Next = "PL_MAP16"
 	SecretNext = "PL_MAP31"
 	TitlePatch = "PWILV14"
-	music = "$MUSIC_PLUMAP15"
+	Music = "P_RUNNI2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -175,7 +175,7 @@ map PL_MAP16 "$PHUSTR_16"
 	Label = "THE PLUTONIA EXPERIMENT, E2M5"
 	Next = "PL_MAP17"
 	TitlePatch = "PWILV15"
-	music = "$MUSIC_PLUMAP16"
+	Music = "P_DEAD2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -184,7 +184,7 @@ map PL_MAP17 "$PHUSTR_17"
 	Label = "THE PLUTONIA EXPERIMENT, E2M6"
 	Next = "PL_MAP18"
 	TitlePatch = "PWILV16"
-	music = "$MUSIC_PLUMAP17"
+	Music = "P_STLKS3"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -193,7 +193,7 @@ map PL_MAP18 "$PHUSTR_18"
 	Label = "THE PLUTONIA EXPERIMENT, E2M7"
 	Next = "PL_MAP19"
 	TitlePatch = "PWILV17"
-	music = "$MUSIC_PLUMAP18"
+	Music = "P_ROMERO"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -202,7 +202,7 @@ map PL_MAP19 "$PHUSTR_19"
 	Label = "THE PLUTONIA EXPERIMENT, E2M8"
 	Next = "PL_MAP20"
 	TitlePatch = "PWILV18"
-	music = "$MUSIC_PLUMAP19"
+	Music = "P_SHAWN2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -212,7 +212,7 @@ map PL_MAP20 "$PHUSTR_20"
 	//Next = "PL_MAP21"
 	Next = endpic, "PLCRED"
 	TitlePatch = "PWILV19"
-	music = "$MUSIC_PLUMAP20"
+	Music = "P_MESSAG"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -229,7 +229,7 @@ map PL_MAP21 "$PHUSTR_21"
 	Label = "THE PLUTONIA EXPERIMENT, E3M1"
 	Next = "PL_MAP22"
 	TitlePatch = "PWILV20"
-	music = "$MUSIC_PLUMAP21"
+	Music = "P_COUNT2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -238,7 +238,7 @@ map PL_MAP22 "$PHUSTR_22"
 	Label = "THE PLUTONIA EXPERIMENT, E3M2"
 	Next = "PL_MAP23"
 	TitlePatch = "PWILV21"
-	music = "$MUSIC_PLUMAP22"
+	Music = "P_DDTBL3"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -247,7 +247,7 @@ map PL_MAP23 "$PHUSTR_23"
 	Label = "THE PLUTONIA EXPERIMENT, E3M3"
 	Next = "PL_MAP24"
 	TitlePatch = "PWILV22"
-	music = "$MUSIC_PLUMAP23"
+	Music = "P_AMPIE"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -256,7 +256,7 @@ map PL_MAP24 "$PHUSTR_24"
 	Label = "THE PLUTONIA EXPERIMENT, E3M4"
 	Next = "PL_MAP25"
 	TitlePatch = "PWILV23"
-	music = "$MUSIC_PLUMAP24"
+	Music = "P_THEDA3"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -265,7 +265,7 @@ map PL_MAP25 "$PHUSTR_25"
 	Label = "THE PLUTONIA EXPERIMENT, E3M5"
 	Next = "PL_MAP26"
 	TitlePatch = "PWILV24"
-	music = "$MUSIC_PLUMAP25"
+	Music = "P_ADRIAN"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -283,7 +283,7 @@ map PL_MAP27 "$PHUSTR_27"
 	Label = "THE PLUTONIA EXPERIMENT, E3M7"
 	Next = "PL_MAP28"
 	TitlePatch = "PWILV26"
-	music = "$MUSIC_PLUMAP27"
+	Music = "P_ROMER2"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -292,7 +292,7 @@ map PL_MAP28 "$PHUSTR_28"
 	Label = "THE PLUTONIA EXPERIMENT, E3M8"
 	Next = "PL_MAP29"
 	TitlePatch = "PWILV27"
-	music = "$MUSIC_PLUMAP28"
+	Music = "P_TENSE"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -301,7 +301,7 @@ map PL_MAP29 "$PHUSTR_29"
 	Label = "THE PLUTONIA EXPERIMENT, E3M9"
 	Next = "PL_MAP30"
 	TitlePatch = "PWILV28"
-	music = "$MUSIC_PLUMAP29"
+	Music = "P_SHAWN3"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -310,14 +310,14 @@ map PL_MAP30 "$PHUSTR_30"
 	Next = EndGame
 	{
 		Pic = "PLUBOSS"
-		Music = "$MUSIC_PLUMAP31"
+		Music = "P_EVIL"
 		Cast
 	}
 	Label = "THE PLUTONIA EXPERIMENT, E3M10"
 	nointermission
 	NoSoundClipping
 	TitlePatch = "PWILV29"
-	music = "$MUSIC_PLUMAP30"
+	Music = "P_OPENIN"
 	AllowMonsterTelefrags
 	Author = "$WF_AU_MILO_CASALI"
 }
@@ -331,7 +331,7 @@ map PL_MAP31 "$PHUSTR_31"
 	SecretNext = "PL_MAP32"
 	Cluster = 22
 	TitlePatch = "PWILV30"
-	music = "$MUSIC_PLUMAP31"
+	Music = "P_EVIL"
 	Author = "$WF_AU_DARIO_CASALI"
 }
 
@@ -341,7 +341,7 @@ map PL_MAP32 "$PHUSTR_32"
 	Next = "PL_MAP16"
 	Cluster = 23
 	TitlePatch = "PWILV31"
-	music = "$MUSIC_PLUMAP32"
+	Music = "P_ULTIMA"
 	Author = "$WF_AU_MILO_CASALI"
 }
 
@@ -350,8 +350,8 @@ map PL_MAP32 "$PHUSTR_32"
 cluster 18
 {
 	ExitText = "$P1TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT06"
+	Music = "P_READ_M"
+	Flat = "GRNROCK"
 }
 
 // Plutonia second cluster (up thru level 11)
@@ -359,8 +359,8 @@ cluster 18
 cluster 19
 {
 	ExitText = "$P2TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT11"
+	Music = "P_READ_M"
+	Flat = "FLOOR5_2"
 }
 
 // Plutonia third cluster (up thru level 20)
@@ -368,8 +368,8 @@ cluster 19
 cluster 20
 {
 	ExitText = "$P3TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT20"
+	Music = "P_READ_M"
+	Flat = "BLOOD1"
 }
 
 // Plutonia fourth cluster (up thru level 30)
@@ -377,8 +377,8 @@ cluster 20
 cluster 21
 {
 	ExitText = "$P4TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT30"
+	Music = "P_READ_M"
+	Flat = "RROCK04"
 }
 
 // Plutonia fifth cluster (level 31)
@@ -386,8 +386,8 @@ cluster 21
 cluster 22
 {
 	EnterText = "$P5TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT15"
+	Music = "P_READ_M"
+	Flat = "SLIME14"
 }
 
 // Plutonia sixth cluster (level 32)
@@ -395,6 +395,6 @@ cluster 22
 cluster 23
 {
 	EnterText = "$P6TEXT"
-	music = "$MUSIC_PLUTEXT"
-	Flat = "$BGFLAT31"
+	Music = "P_READ_M"
+	Flat = "RROCK02"
 }
