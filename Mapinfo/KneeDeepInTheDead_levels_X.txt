@@ -20,7 +20,8 @@ cluster 1
 cluster 30
 {
 	EnterText = "$E1M4BTEXT"
-	Music = "$MUSIC_VICTOR"
+	//Music = "$MUSIC_VICTOR"
+	Music = "$MUSIC_INTER"
 	Flat = "$bgflatE1"
 }
 
@@ -28,7 +29,8 @@ cluster 31
 {
 	EnterText = "$E1M8BTEXT"
 	ExitText = "$E1TEXT"
-	Music = "$MUSIC_VICTOR"
+	//Music = "$MUSIC_VICTOR"
+	Music = "$MUSIC_INTER"
 	Flat = "$bgflatE1"
 }
 

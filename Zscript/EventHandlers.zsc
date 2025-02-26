@@ -265,7 +265,7 @@ class DCX_EventHandler : EventHandler
 	void PSX0BRepalcements ()
 	{
 		String mapName = level.MapName.MakeLower();
-		if ( (mapName == "psx01b") || (mapName == "psx02b") )
+		if ( (mapName == "psx02b") || (mapName == "psx03b") )
 		{
 			Level.ReplaceTextures("BRNPOIS", "BRNPOIS1", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("NUKEPOIS", "NUKPOIS1", TexMan.NOT_FLAT);
@@ -365,13 +365,6 @@ class DCX_EventHandler : EventHandler
 		//All these here toggle weather or not you play the console maps in the base campain.
 		
 		String mapName = level.MapName.MakeLower();
-		if ( ( mapName == "e2m5" ) || ( mapName == "e2m9" ) )
-		{
-			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
-				level.NextMap = "psx01";
-			else
-				level.NextMap = "e2m6";
-		}
 		if ( mapName == "e3m1" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )

@@ -5,10 +5,39 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 	{
 		switch (checksum)
 		{
-			case '6b60f37b91309dff1cdf02e5e476210d':
+			case '8590F489879870C098CD7029C3187159':
 			{
 				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
 				{
+					SetLineActivation(1620, SPAC_Use);
+					SetLineSpecial(1620, Exit_Secret, 0);
+					
+					SetLineActivation(680, 0);
+					SetWallTexture(680,line.front,side.mid,"BROWN96");
+					
+					SetSectorSpecial(294, 0);
+				}
+				break;
+			}
+			case '6b60f37b91309dff1cdf02e5e476210d':
+			{
+				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+				{					
+					//SetWallTexture(574,line.front,side.mid,"SW2SKULL");
+					SetLineActivation(580, 0);
+					AddSectorTag(11, 19);
+					SetLineActivation(316, SPAC_Cross);
+					SetLineActivation(317, SPAC_Cross);
+					SetLineActivation(318, SPAC_Cross);
+					SetLineActivation(319, SPAC_Cross);
+					SetLineActivation(320, SPAC_Cross);
+					SetLineSpecial(316, Door_Raise, 19, 64, 150);
+					SetLineSpecial(317, Door_Raise, 19, 64, 150);
+					SetLineSpecial(318, Door_Raise, 19, 64, 150);
+					SetLineSpecial(319, Door_Raise, 19, 64, 150);
+					SetLineSpecial(320, Door_Raise, 19, 64, 150);
+					
+					SetWallTextureID(574, Line.front, Side.mid, TexMan.CheckForTexture("SW2SKULL", TexMan.Type_Wall, TexMan.Overridable));
 					SetLineActivation(574, SPAC_Use);
 					SetLineSpecial(574, Exit_Secret, 0);
 				}
@@ -147,6 +176,11 @@ Class DCX_MapFixes : LevelPostProcessor
 			{
 					SetThingEdNum(195,0);
 					SetThingEdNum(196,0);
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{
+						SetThingEdNum(199,0);
+						SetThingEdNum(229,0);
+					}
 			}
 			
 			//	Removes Out of Bounds and/or stuck objects and puts them in the right spot

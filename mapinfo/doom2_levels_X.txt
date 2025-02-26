@@ -351,7 +351,7 @@ map PSX09 "$HUSTR_PSX09"
 {
 	next = "MAP30"
 	Sky1 = "SKY4"
-	Music = "$MUSIC_IN_CIT"
+	music = "$MUSIC_PSX09"
 	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8
 	SpecialAction = "Spidermastermind", Door_Open, 667, 16
 	Author = "$WS_AU_MIDWAY"
@@ -413,7 +413,7 @@ map PSX07 "$HUSTR_PSX07"
 	sky1 = "RSKY1"
 	par = 120
 	Cluster = 32
-	music = "$MUSIC_ADRIAN"
+	music = "$MUSIC_PSX07"
 	Author = "$WS_AU_HEYDELAAR"
 	EnterPic = ""
 	Exitpic = "INTER_E4"
@@ -426,7 +426,7 @@ map PSX08 "$HUSTR_PSX08"
 	par = 120
 	Cluster = 33
 	sky1 = "RSKY1"
-	Music = "$MUSIC_DM2INT"
+	music = "$MUSIC_PSX08"
 	Author = "$WS_AU_MIDWAY"
 	EnterPic = "INTER_E4"
 	Exitpic = "INTER_E4"
@@ -440,7 +440,7 @@ map MAP33 "$HUSTR_33"
 	Sky1 = "RSKY1"
 	TitlePatch = "CWILV32"
 	Par = 120
-	Music = "D_READ_M"
+	Music = "D_BETREY"
 	Author = "$WF_AU_BUKOWSKI"
 	EnterPic = ""
 	Exitpic = "INTERPIC"
