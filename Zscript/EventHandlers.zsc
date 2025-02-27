@@ -6,12 +6,14 @@ class DCX_EventHandler : EventHandler
 		String mapPrefix = level.MapName.Left(3);
         mapPrefix = mapPrefix.MakeLower();
 		String mapName = level.MapName.MakeLower();
+		
 		if ( mapName == "map30" )
         {
 			Level.ReplaceTextures("ZZZFACE1", "RWDM304",0);
 			Level.ReplaceTextures("ZZZFACE8", "RWDM309",0);
 			Level.ReplaceTextures("ZZZFACE9", "RWDM3010",0);
 		}
+		
 		if ( MapName == "ja_map25" )
 		{
 			Level.ChangeSky(TexMan.CheckForTexture("SKY1",TexMan.Type_Any),TexMan.CheckForTexture("SKY1",TexMan.Type_Any));
@@ -367,19 +369,38 @@ class DCX_EventHandler : EventHandler
 		String mapName = level.MapName.MakeLower();
 		if ( mapName == "e3m1" )
 		{
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				Level.ChangeLevel("PSX02B",0,CHANGELEVEL_NOINTERMISSION,-1);
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
-				level.NextMap = "psx02";
-			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
-				level.NextMap = "psx02b";
-			else
-				level.NextMap = "e3m2";
+				Level.ChangeLevel("PSX02",0,CHANGELEVEL_NOINTERMISSION,-1);
 		}
-		if ( mapName == "e4m7" )
+		if ( mapName == "e3m6" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
-				level.NextMap = "psx04";
+				level.NextSecretMap = "PSX03B";
+			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				level.NextSecretMap =  "PSX03";
 			else
+				level.NextSecretMap = "e3m9";
+		}
+		if ( mapName == "e3m9" )
+		{
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+				Level.ChangeLevel("PSX03B",0,CHANGELEVEL_NOINTERMISSION,-1);
+			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				Level.ChangeLevel("PSX03",0,CHANGELEVEL_NOINTERMISSION,-1);
+		}
+		if ( mapName == "e4m6" )
+		{
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
 				level.NextMap = "e4m8";
+			else
+				level.NextMap = "e4m7";
+		}
+		if ( mapName == "e4m8" )
+		{
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+				level.NextMap = "PSX04";
 		}
 		if ( mapName == "map29" )
 		{

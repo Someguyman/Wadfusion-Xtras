@@ -32,8 +32,9 @@ map E3M1 "$HUSTR_E3M1"
 map PSX02 "$HUSTR_PSX02"
 {
 	levelnum = 18
-	next = "PSX03"
-	Music = "$MUSIC_PSX02"
+	next = "E3M2"
+	//Music = "$MUSIC_PSX02"
+	Music = "$MUSIC_E3M1"
 	Author = "$WS_AU_MCGEE"
 	Label = "THE ULTIMATE DOOM, PSX02"
 }
@@ -41,30 +42,11 @@ map PSX02 "$HUSTR_PSX02"
 map PSX02B "$HUSTR_PSX02"
 {
 	levelnum = 18
-	next = "PSX03B"
-	Music = "$MUSIC_PSX02"
-	Author = "Manardo Lenari"
+	next = "E3M2"
+	//Music = "$MUSIC_PSX02"
+	Music = "$MUSIC_E3M1"
+	Author = "Manardo Lenari (OG by American Mcgee)"
 	Label = "THE ULTIMATE DOOM, PSX02"
-}
-
-map PSX03 "$HUSTR_PSX03"
-{
-	levelnum = 21
-	next = "E3M2"
-	par = 90
-	Music = "$MUSIC_PSX03"
-	Author = "$WS_AU_MCGEE"
-	Label = "THE ULTIMATE DOOM, PSX03"
-}
-
-map PSX03B "$HUSTR_PSX03"
-{
-	levelnum = 21
-	next = "E3M2"
-	par = 90
-	Music = "$MUSIC_PSX03"
-	Author = "Manardo Lenari"
-	Label = "THE ULTIMATE DOOM, PSX03"
 }
 
 map E3M2 "$HUSTR_E3M2"
@@ -158,4 +140,24 @@ map E3M9 "$HUSTR_E3M9"
 	Music = "$MUSIC_E3M9"
 	Author = "$WF_AU_PETERSEN"
 	Label = "THE ULTIMATE DOOM, E3M9"
+}
+
+map PSX03 "$HUSTR_PSX03"
+{
+	levelnum = 21
+	next = "E3M7"
+	par = 90
+	Music = "$MUSIC_PSX03"
+	Author = "$WS_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, PSX03"
+}
+
+map PSX03B "$HUSTR_PSX03"
+{
+	levelnum = 21
+	next = "E3M7"
+	par = 90
+	Music = "$MUSIC_PSX03"
+	Author = "Manardo Lenari (OG by American Mcgee)"
+	Label = "THE ULTIMATE DOOM, PSX03"
 }

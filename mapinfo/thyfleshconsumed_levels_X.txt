@@ -90,6 +90,21 @@ map E4M7 "$HUSTR_E4M7"
 	Label = "THE ULTIMATE DOOM, E4M7"
 }
 
+map E4M8 "$HUSTR_E4M8"
+{
+	LevelNum = 38
+	Next = EndSequence, "Episode4end"
+	TitlePatch = "WILV37"
+	Par = 360
+	Music = "$MUSIC_E4M8"
+	//NoIntermission
+	//NoSoundClipping
+	SpiderMastermindSpecial
+	SpecialAction_LowerFloor
+	Author = "$WF_AU_GREEN"
+	Label = "THE ULTIMATE DOOM, E4M8"
+}
+
 map PSX04 "$HUSTR_PSX04"
 {
 	next = "PSX05"
@@ -101,38 +116,15 @@ map PSX04 "$HUSTR_PSX04"
 
 map PSX05 "$HUSTR_PSX05"
 {
-	Next = "E4M8"
+	Next = EndSequence, "Episode4end"
+	NoIntermission
+	NoSoundClipping
 	cyberdemonspecial
 	specialaction_opendoor
 	secretnext = "PSX05"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX05"
 	Label = "THE ULTIMATE DOOM, PSX05"
-}
-
-map PSX06 "$HUSTR_PSX06"
-{
-	next = "PSX05"
-	cyberdemonspecial
-	specialaction_opendoor
-	Author = "$WS_AU_MIDWAY"
-	Music = "$MUSIC_PSX06"
-	Label = "THE ULTIMATE DOOM, PSX06"
-}
-
-map E4M8 "$HUSTR_E4M8"
-{
-	LevelNum = 38
-	Next = EndSequence, "Episode4end"
-	TitlePatch = "WILV37"
-	Par = 360
-	Music = "$MUSIC_E4M8"
-	NoIntermission
-	NoSoundClipping
-	SpiderMastermindSpecial
-	SpecialAction_LowerFloor
-	Author = "$WF_AU_GREEN"
-	Label = "THE ULTIMATE DOOM, E4M8"
 }
 
 map E4M9 "$HUSTR_E4M9"
@@ -144,6 +136,16 @@ map E4M9 "$HUSTR_E4M9"
 	Music = "$MUSIC_E4M9"
 	Author = "$WF_AU_WILLITS"
 	Label = "THE ULTIMATE DOOM, E4M9"
+}
+
+map PSX06 "$HUSTR_PSX06"
+{
+	next = "PSX05"
+	cyberdemonspecial
+	specialaction_opendoor
+	Author = "$WS_AU_MIDWAY"
+	Music = "$MUSIC_PSX06"
+	Label = "THE ULTIMATE DOOM, PSX06"
 }
 
 Intermission Episode4end

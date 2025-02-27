@@ -45,6 +45,8 @@ script "Xtra_Monster_Placements" enter
 	str episode = StrMid(mapName, 1, 1);
 	str mission = StrMid(mapName, 3, 1);
 	
+	//switch (checksum)
+	
 	if (StrICmp(mapName, "TEST") == 0)
 	{
 		if (GetCVar ("dcx_CustomMonsters") !=1)	

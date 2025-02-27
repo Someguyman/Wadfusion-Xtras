@@ -70,8 +70,8 @@ WS_AU_UNKNOWN = "???";
 
 HUSTR_E1M2B = "Plant";
 HUSTR_PSX01 = "Altar Of Extraction";
-HUSTR_PSX02 = "Hell Gate";
-HUSTR_PSX03 = "Forsaken Keep";
+HUSTR_PSX02 = "Hell Keep";
+HUSTR_PSX03 = "Forsaken Gateway";
 HUSTR_PSX04 = "Twilight Descends";
 HUSTR_PSX05 = "Threshold of Pain";
 HUSTR_PSX06 = "The Marshes";
@@ -114,7 +114,7 @@ TNTE_EPI03 = "\c[Orange]Hell On Io";
 
 PLUTONIA_EPI01 = "\c[DarkGreen]Jungle Assault";
 PLUTONIA_EPI02 = "\c[DarkGreen]The Blood Tides";
-PLUTONIA_EPI03 = "\c[DarkGreen]Devil's Hive";
+PLUTONIA_EPI03 = "\c[DarkGreen]Devil Hive";
 
 OPTIONS_SSG = "\c[RED]Super shotgun sprite:";
 OPTIONS_MED = "\c[RED]Health Pack Appearence:";
