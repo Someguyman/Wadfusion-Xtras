@@ -385,6 +385,19 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 				//Will only activeate on "Total Carnage" and "ULTRA NIGHTMARE!" difficulties. 
 				If (CallACS("Check_Difficulty") == 2)
 				{
+					if ( mapName == "e1m3" )
+					{
+						SetThingEdNum(191,0);
+						SetThingEdNum(192,0);
+						SetThingEdNum(193,0);
+						SetThingEdNum(194,0);
+					}
+					if ( mapName == "e1m4" )
+					{
+						AddThing(3005, (704, -432, -999), 90);
+						
+						AddThing(3005, (1200, -400, -999), 90);
+					}
 					if ( mapName == "e1m4b" )
 					{
 						AddThing(3005, (268, 8, -999), 135);
@@ -400,6 +413,19 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						AddThing(3005, (480, -192, -999), 135);
 						AddThing(3005, (480, -256, -999), 225);
 						AddThing(3005, (544, -224, -999), 0);					
+					}
+					if ( mapName == "e1m5" )
+					{
+						SetThingEdNum(21,0);
+						SetThingEdNum(22,0);
+						SetThingEdNum(28,0);
+						
+						SetThingEdNum(29,0);
+						SetThingEdNum(30,0);
+						SetThingEdNum(31,0);
+						
+						AddThing(69, (-1392, 976, -999), 0);
+						AddThing(69, (-1392, 688, -999), 0);
 					}
 					if ( mapName == "e1m8" )
 					{

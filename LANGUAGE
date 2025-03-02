@@ -333,6 +333,38 @@ GENERIC_TXT2 =
 "\n"
 "Congratulations!";
 
+E1INTRO = "\nYou're a marine, one of Earth's toughest, hardened in combat and\n"
+		  "trained for action. You have been transferred to Mars, home of the\n"
+		  "Union Aerospace Corporation.\n"
+		  "\n"
+		  "For the last four years the military, its biggest provider, has used\n"
+		  "the remote facilities on Phobos and Deimos to conduct research\n"
+		  "on inter-dimensional space travel.\n"
+		  "\n"
+		  "A few hours ago, Mars received a garbled message from Phobos.\n"
+		  "'We require immediate military support. Something fraggin' evil\n"
+		  "is coming out of the Gateways! Computer systems have gone berserk!'\n"
+		  "The rest was incoherent. Soon afterwards, Deimos simply vanished\n"
+		  "from the sky. Since then, attempts to establish contact\n"
+		  "with either moon have been unsuccessful.\n"
+		  "\n"
+		  "You and your buddies were sent to Phobos. You were ordered to\n"
+		  "secure the perimeter while the rest went inside.\n"
+		  "For several hours, your radio picked up the sounds of combat:\n"
+		  "guns firing, screams, then finally, silence.\n"
+		  "Seems your buddies are dead.\n"
+		  "\n"
+		  "Things aren't looking too good. All the heavy weapons were taken\n"
+		  "by the assault team leaving you with only a pistol.\n"
+		  "Securing your helmet, you exit the landing pod.\n"
+		  "\n"
+		  "As you walk through the main entrance, you hear animal-like growls\n"
+		  "echoing throughout the distant corridors. They know you're here.\n"
+		  "\n"
+		  "There's no turning back now.";
+		  
+//From psx doom ce. Not the most visually appealing solution ever but it'll do for now.
+
 E1TEXT = "Once you beat the big badasses and\n"
 		"clean out the moon base you're supposed\n"
 		"to win, aren't you? Aren't you? Where's\n"
@@ -342,22 +374,103 @@ E1TEXT = "Once you beat the big badasses and\n"
 
 		"It stinks like rotten meat, but looks\n"
 		"like the lost Deimos base.  Looks like\n"
-		"you're stuck on The Shores of Hell.\n"
+		"you're stuck on the shores of hell.\n"
 		"The only way out is through.";
 		
-E2TEXT = "You've done it! The hideous cyber-\n"
-		"demon lord that ruled the lost Deimos\n"
-		"moon base has been slain and you\n"
-		"are triumphant! But ... where are\n"
-		"you? You clamber to the edge of the\n"
-		"moon and look down to see the awful\n"
-		"truth.\n\n"
+//Edited to remove the advertisement for episode 2 and 3.
 
-		"Deimos floats above Hell itself!\n"
-		"You've never heard of anyone escaping\n"
-		"from Hell, but you'll make the bastards\n"
-		"sorry they ever heard of you! Quickly,\n"
-		"you rappel down to  the surface of Hell.";
+E2INTRO = "After you cleaned up most of the Phobos base\n"
+		  "and triumphed over the Bruiser Brothers at the anomaly,\n"
+		  "you hoped to catch a ride back home,\n"
+		  "take a well deserved rest with your pet rabbit\n"
+		  "by your side.\n"
+		  "\n"
+		  "Instead, what you find in front of you is a bizarre\n"
+		  "altar that irradiates some kind of unknown wicked energy.\n"
+		  "You approach with extreme caution but before you\n"
+		  "know it, you get sucked right in. The evil spirits'\n"
+		  "screeching pierces your mind as you feel your body\n"
+		  "being torn inside out. You black out.\n"
+		  "\n"
+		  "You awake from the nightmare, alive yet stripped down\n"
+		  "with only your handgun once again.\n"
+		  "Upon furher assassment, you realize that you're at the lost\n"
+		  "Deimos base which disappeared hours ago.\n"
+		  "Now reeking of rotten corpses and contaminated blood.\n"
+		  "\n"
+		  "Whoever they are, They'll pay for what they did\n"
+		  "to your buddies.";
+		  
+//Original text by me, Manardo. revisions by owlet VII.
+
+E2TEXT = "You've done it! The hideous cyber-\n"
+		 "demon lord that ruled the lost Deimos\n"
+		 "moon base has been slain and you\n"
+		 "are triumphant! But ... where are\n"
+		 "you? You clamber to the edge of the\n"
+		 "moon and look down to see the awful\n"
+		 "truth.\n\n"
+
+		 "Deimos floats above Hell itself!\n"
+		 "You've never heard of anyone escaping\n"
+		 "from Hell, but you'll make the bastards\n"
+		 "sorry they ever heard of you! Quickly,\n"
+		 "you rappel down to the surface of Hell.";
+		
+//Same reason as episode 1.
+
+E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
+		  "Deimos base, turned viscous human torcher grounds,\n"
+		  "been reduced to nothing but a pair of bloody metal hooves,\n"
+		  "you gloat to yourself with nothing but a savage\n"
+		  "grin on your face. Your buddies have seemingly\n"
+		  "been avenged.\n"
+		  "\n"
+		  "However, this feeling of justice soon goes hollow.\n"
+		  "You felt the beast wasn't acting on it's own accord.\n"
+		  "Suddenly, you felt an evil presence like none before\n"
+		  "lurking around in the outskirts. Perhaps this is what\n"
+		  "was puppetering that abomination. You leave the tower and\n"
+		  "persue it to the very edge of deimos to find the horrible truth.\n"
+		  "That the base now floats above the depths of hell itself!\n"
+		  "\n"
+		  "Staring down at it only makes you angrier, while you never\n"
+		  "heard anyone escape from hell before, you'll be sure that the\n"
+		  "bastards regret ever crossing you! After securing an empty pod,\n"
+		  "you quickly rappel down to the burning inferno below,\n"
+		  "crashing landing the pod in the process.\n"
+		  "\n"
+		  "Armmed with nothing but your lucky pistol and a taste of\n"
+		  "vengence, you take your first step into hell...";
+
+//Another original text by me.
+
+E4INTRO = "Having brought an end to the reain of terror the\n"
+		  "spidermastermind and all it's hellish army casued"
+		  "on the moon bases,\n"
+		  "It seems that you finally get what you wanted\n"
+		  "since disposing of the forces back on Phobos,\n"
+		  "a trip back to earth!\n"
+		  "\n"
+		  "You cross though the portal to some grassy hills\n"
+		  "with flowers and wild rabbits frolocing through.\n"
+		  "As you take off your helmet to take your first\n"
+		  "breath of natrual oxygen in god knows how long,\n"
+		  "you see smell smoke coming from the horizen.\n"
+		  "\n"
+		  "You run up the hills, and to your shock,\n"
+		  "witness a nearby city in flames with\n"
+		  "various hell spawn crawling around and\n"
+		  "merking any civilian that comes in site.\n"
+		  "\n"
+		  "Worst of all, near the outskirts of your city\n"
+		  "sits a the head of your pet rabbit, Daisy,\n"
+		  "Mounted on a pike in mochery of you.\n"
+		  "At that moment you curse under your breath\n"
+		  "They've truely done it now!\n"
+		  "\n"
+		  "You quickly make it back to the portal to\n"
+		  "lay waste to the demons coming though"; 
 		
 E4TEXT = "the spider mastermind must have sent forth\n"
 		 "its legions of hellspawn before your\n"
@@ -375,6 +488,9 @@ E4TEXT = "the spider mastermind must have sent forth\n"
 		 "of demons run amok among our cities.\n\n"
 
 		 "next stop, hell on earth!";
+
+//		 "\n"		 
+//		 "Unless sigil comes out first... ";
 
 MANSIONTXT = "hidden away the debris of the city lies\n"
 			 "a mansion. looks like it was made\n"

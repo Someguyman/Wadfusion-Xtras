@@ -365,8 +365,10 @@ class DCX_EventHandler : EventHandler
 	override void WorldTick()
 	{	
 		//All these here toggle weather or not you play the console maps in the base campain.
+		//As well as toggle the intro intermissions for each episode.
 		
 		String mapName = level.MapName.MakeLower();
+		
 		if ( mapName == "e3m1" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )

@@ -45,8 +45,6 @@ script "Xtra_Monster_Placements" enter
 	str episode = StrMid(mapName, 1, 1);
 	str mission = StrMid(mapName, 3, 1);
 	
-	//switch (checksum)
-	
 	if (StrICmp(mapName, "TEST") == 0)
 	{
 		if (GetCVar ("dcx_CustomMonsters") !=1)	
@@ -149,30 +147,51 @@ script "Xtra_Monster_Placements" enter
 		}	
 		if (StrICmp(mapName, "e1m2") == 0)
 		{
-			Add("ChaingunGuy",-1535,1375,270,0,0);
-			Add("ChaingunGuy",0,864,270,0,0);
-			Add("ChaingunGuy",2238,1279,225,0,0);
-			Add("ChaingunGuy",-2080,800,270,0,0);
-			
 			Add("Spectre",-544,896,180,0,0); //In the toxic waste room with the switch to the maze
 			Add("Spectre",-800,1248,270,0,0);
 			
-			Add("ChaingunGuy",-1312,2016,180,0,0); //near the end in the dark room the elevator drops into
-			Add("ChaingunGuy",-1312,1952,180,0,0); //near the end in the dark room the elevator drops into
+			Add("ChaingunGuy",0,864,270,0,0); //Begining room with all the zombieman
+			
+			Add("ChaingunGuy",-1535,1375,270,0,0); //By the lfit to the penultimate room
+			
+			Add("ChaingunGuy",2238,1279,225,0,0); //In the secret outdoor area
+			
+			Add("ChaingunGuy",-2080,800,270,0,0); //In the secret outdoor area
+			
 			Add("ChaingunGuy",192,-928,0,0,0); //In the maze, alcove next to backpack secret
 			Add("ChaingunGuy",192,-864,0,0,0); //In the maze, alcove next to backpack secret
-			Replace("ChaingunGuy",944,-304,0,0,0); //replaces the chaingun
+			
+			Add("ChaingunGuy",-1312,2016,180,0,0); //near the end in the dark room the elevator drops into
+			Add("ChaingunGuy",-1312,1952,180,0,0); //near the end in the dark room the elevator drops into
+			
+			Add("ChaingunGuy",-1696,2112,315,0,0); //Behind the doors before exit room
+			Add("ChaingunGuy",-1376,2112,225,0,0); //Behind the doors before exit room
+			
+			//Replace("ChaingunGuy",944,-304,0,0,0); //replaces the chaingun
 
 			Add("ChaingunGuy",-512,2240,135,0,0); //exit room
+			
+			Add("Cacodemon",2496,1568,225,0,0); //In the secret outdoor area
+			Add("Cacodemon",2496,-640,135,0,0); //In the secret outdoor area
+			
+			Replace("Cacodemon",-1536,2144,270,0,0); //Penultimate room, Replaces Imp
+			
+			Replace("Cacodemon",-288,2336,135,0,0); //Exit Room, Replaces Imp
 
 			AddDeco("TechLamp2",-336,2288,0); //exit room near the exit switch
 			AddDeco("TechLamp2",-336,2384,0); //exit room near the exit switch
 		}	
 		if (StrICmp(mapName, "e1m3") == 0)
 		{
+			Add("Demon",-1840,-2752,270,0,0);
+			
+			Add("Spectre",-1160,-2696,270,0,0);
+			
 			Add("ChaingunGuy",-3040,-766,270,0,0);
+			
 			Add("ChaingunGuy",-1504,-1759,270,0,0);
-			Replace("ChaingunGuy",-1088,-1152,90,0,0);
+			
+			Replace("ChaingunGuy",-1088,-1152,90,0,0);	//Replace Imp on the ledge
 			
 			Add("ChaingunGuy",-1600,-1536,270,0,0); //circular room before the secret exit
 			Add("ChaingunGuy",-1408,-1536,270,0,0); //circular room before the secret exit
@@ -180,15 +199,41 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",-64,-704,90,0,0); //blue key room
 			Add("ChaingunGuy",-320,-1792,135,0,0); //room before regular exit with building stairs
 			Add("ChaingunGuy",-320,-1440,225,0,0); //room before regular exit with building stairs
-			//Add("SuperShotgun",-992,-768,180,0,0); //green pit with health and switch
-			Add("Hellknight",-992,-768,180,0,0); //green pit with health and switch
+			
+			Add("Cacodemon",-1216,-768,180,0,0); //green pit with health and switch
+			
+			Add("Cacodemon",-264,-584,270,0,0); //Dark Ambush Room, Replaces the four imps
+			
+			Add("Cacodemon",568,-3064,135,0,0); //By Secret Outdoor area
+			Add("Cacodemon",760,-2880,135,0,0); //By Secret Outdoor area
+			
+			Replace("Cacodemon",256,-1600,180,0,0); //Normal exit
+			
+			while (IsDoorClosed(11)) { Delay(10); }
+			
+			Delay(35);
+			
+			Add("Cacodemon",-112,-504,270,0,99);
+			
+			Add("Spectre",-104,-424,270,0,99);			
+			Add("Spectre",-184,-400,270,0,99);
 		}	
 		if (StrICmp(mapName, "e1m4") == 0)
-		{
-			Add("Cacodemon",-672, 672,0,0,0);
-			Add("Cacodemon",-928, 800,270,0,0);
+		{			
+			Add("Cacodemon",1536, 288,90,0,0); //By the soulsphere in the starting room
 			
-			Add("HellKnight",-1536,1888,0,0,0); //Exit room
+			Add("Cacodemon",-1184, 1296,0,0,0); //Near the Yellow Key window
+			
+			Add("Cacodemon",32, -272,90,0,0); //Lift south of the center area
+			
+			Add("Cacodemon",832, 1920,270,0,0); //Lift to megaarmor
+			Add("Cacodemon",1536, 1920,270,0,0); //Lift to megaarmor
+			
+			Add("Cacodemon",-224, 1760,0,0,0); //"swastika" room
+			Add("Cacodemon",-352, 1760,180,0,0); //"swastika" room
+			
+			Add("Cacodemon",-1536,1888,0,0,0); //Exit room
+			
 			Add("ChaingunGuy",-1408,1280,0,0,0); //Next to the Yellow keycard
 			Add("ChaingunGuy",-1056,1440,270,0,0); //Cage northeast of the Yellow keycard
 			Add("ChaingunGuy",-992,1440,270,0,0); //Cage northeast of the Yellow keycard
@@ -196,13 +241,16 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",-96,576,180,0,0); //Blue keycard room
 			Add("ChaingunGuy",192,640,0,0,0); //Blue keycard room
 			Add("ChaingunGuy",96,704,0,0,0); //Blue keycard room
-			Add("Stimpack",-64,576,0,0,0); //Blue keycard room
 			Add("ChaingunGuy",-576,-64,135,0,0); //ashphalt thing just before the maze area
 			Add("ChaingunGuy",-480,0,135,0,0); //ashphalt thing just before the maze area
 			Add("ChaingunGuy",832,1888,315,0,0); //blue room near the starting zone
 			Add("ChaingunGuy",1536,1888,225,0,0); //blue room near the starting zone
+			Add("ChaingunGuy",-416,1632,0,0,0); //"swastika" room
+			
+			Add("Stimpack",-64,576,0,0,0); //Blue keycard room
 			Add("Stimpack",736,1504,0,0,0); //blue room near the starting zone
-			Add("ChaingunGuy",-416,1632,0,0,0); //swastika room
+			
+			Add("Shellbox",-416,1632,180,0,0); //"swastika" room
 		
 			AddDeco("TechLamp",1120,608,0); //metal/gray elevator room near the start
 			AddDeco("TechLamp",1120,928,0); //metal/gray elevator room near the start
@@ -236,15 +284,9 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",1808,0,45,0,0);
 			Add("ChaingunGuy",1808,192,315,0,0);
 			
-			//Add("Cacodemon",1256,96,180,0,0);
-			//Add("Cacodemon",1192,496,225,0,0);
-			//Add("Cacodemon",1144,-296,135,0,0);
-			
-			//Add("Cacodemon",-1384,-920,225,0,0);
-			
 			Add("ChaingunGuy",152,-488,315,0,0);
 			
-			Add("HellKnight",2072,96,180,0,0);
+			Add("Cacodemon",2072,96,180,0,0);
 			
 			Add("Stimpack",-888,-408,270,0,0);
 			Add("Stimpack",-1056,-896,0,0,0);
@@ -256,17 +298,26 @@ script "Xtra_Monster_Placements" enter
 			Replace("DCX_NightmareSpectre",-320,2000,270,0,0);
 			Replace("DCX_NightmareSpectre",896,176,180,0,0);
 			
-			Replace("ChaingunGuy",-1376,992,0,0,0);
-			Replace("ChaingunGuy",-1376,672,0,0,0);
-			Replace("ChaingunGuy",1072,832,270,0,0);
+			//Replace("ChaingunGuy",-1376,992,0,0,0);
+			//Replace("ChaingunGuy",-1376,672,0,0,0);
+			//Replace("ChaingunGuy",1072,832,270,0,0);
 			
 			Add("ChaingunGuy",-1200,560,135,0,0); //nukage room with 2 pillars
 			Add("ChaingunGuy",-1200,1104,225,0,0); //nukage room with 2 pillars
 			Add("ChaingunGuy",448,832,180,0,0); //room across from yellow key
 			Add("ChaingunGuy",448,1240,270,0,0); //room across from yellow key, up the stairs
 			Add("ChaingunGuy",0,1856,270,0,0); //dark rooom before exit
-			//Add("SuperShotgun",912,288,270,0,0); //green lava room with raising bridge
+			
 			Add("HellKnight",0,1696,270,0,0); //dark room before exit
+			Add("HellKnight",-472,1912,180,0,0); //dark room before exit
+			Add("HellKnight",480,1912,225,0,0); //dark room before exit
+			
+			while (!IsFloorLevel(1,-200)) { Delay(10); }
+			
+			Add("DCX_NightmareSpectre",-1632,608,0,0,99);
+			Add("DCX_NightmareSpectre",-1696,704,0,0,99);
+			Add("DCX_NightmareSpectre",-1696,960,0,0,99);
+			Add("DCX_NightmareSpectre",-1632,1056,0,0,99);
 		}
 		if (StrICmp(mapName, "e1m6") == 0)
 		{
@@ -286,26 +337,14 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("ChaingunGuy",1192,-972,270,0,0);
 			Add("ChaingunGuy",1344,-1954,135,0,0);
-			Add("Megasphere",1592,-1344,180,0,0);
 			Add("ChaingunGuy",1040,-616,135,0,0); //Yellow Key room
 			Add("ChaingunGuy",1088,-560,135,0,0); //Yellow Key room
-			//Add("SuperShotgun",-64,-128,0,0,0); //blue room
         
 			Add("Hellknight",-896,1216,0,0,0); //stairs room next to nukage room above blue room
 			Add("Hellknight",-896,1336,0,0,0); //stairs room next to nukage room above blue room
         
 			Add("Cacodemon",-1856,-1728,45,0,0); //the big pit of nukage near the blue key
-			Add("Cacodemon",-1536,-1984,90,0,0); //the big pit of nukage near the blue key
-
-			//spawn some enemies after the trap room goes off
-			while (IsDoorClosed(10)) { Delay(10); }
-
-			Delay(35); //wait a couple of seconds
-
-			//Doors are opened. Spawn some evil archviles!
-			//Add("Chaingunguy",1424,-1576,90,0,99);
-			//Add("Painelemental",1008,-1576,90,0,99);
-			
+			Add("Cacodemon",-1536,-1984,90,0,0); //the big pit of nukage near the blue key		
 		}
 		if (StrICmp(mapName, "e1m7") == 0)
 		{
@@ -324,7 +363,7 @@ script "Xtra_Monster_Placements" enter
 			Add("Cacodemon",1088,-1344,90,0,0);
 			Add("Cacodemon",1280,-1344,90,0,0);
 			Add("Cacodemon",1440,-1344,90,0,0);
-			Add("Blursphere",864,-992,90,0,0);
+			//Add("Blursphere",864,-992,90,0,0);
 			//Replace("Megasphere",1248,-1120,0,0,0); //replace normal Blursphere with a Megasphere since we are spawning enemies outside
 			Add("Cacodemon",-384,-1728,270,0,0);
 		

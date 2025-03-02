@@ -7,6 +7,7 @@ episode WF_NEWGAME
 	Optional
 }
 
+/*
 episode E1M1
 {
 	Name = "$DOOM1_EPI01"
@@ -29,6 +30,35 @@ episode E3M1
 }
 
 episode E4M1
+{
+	Name = "$UDOOM_EPI04"
+	PicName = "M_EPI4"
+	Optional
+}
+*/
+
+episode INTER_D1E1
+{
+	Name = "$DOOM1_EPI01"
+	PicName = "M_EPI1"
+	Optional
+}
+
+episode INTER_D1E2
+{
+	Name = "$DOOM1_EPI02"
+	PicName = "M_EPI2"
+	Optional
+}
+
+episode INTER_D1E3
+{
+	Name = "$DOOM1_EPI03"
+	PicName = "M_EPI3"
+	Optional
+}
+
+episode INTER_D1E4
 {
 	Name = "$UDOOM_EPI04"
 	PicName = "M_EPI4"

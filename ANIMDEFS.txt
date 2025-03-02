@@ -75,6 +75,7 @@ Switch SW1KSTNE on pic SW2KSTNE tics 0
 Switch SW1KSTTN on pic SW2KSTTN tics 0
 Switch SW1KTK on pic SW2KTK tics 0
 Switch SW1KVIN on pic SW2KVIN tics 0
+Switch SW1SKMTL on pic SW2SKMTL tics 0
 
 texture Silver32
 pic Silver3 tics 8

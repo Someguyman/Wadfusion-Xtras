@@ -19,6 +19,7 @@ include mapinfo/plutonia_levels_X.txt
 include mapinfo/Absolution_X.txt
 include mapinfo/GbaDeathMatch_Levels_X.txt
 include mapinfo/iddm1_levels_X.txt
+include mapinfo/Intro_Inter_X.txt
 
 map TITLEMAP "Doom Title"
 {
@@ -50,10 +51,6 @@ DoomEdNums
 	607 = DCX_LesserMastermind
 	711 = DCX_NightmareCyberdemon
 	7734 = DCX_DM_MarineBotSpawner
-	3143 = Fuel
-	3144 = FuelTank
-	3145 = Incinerator
-	3146 = Heatwave
 }
 
 ClearSkills

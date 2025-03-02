@@ -6,7 +6,7 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 		+NOMENU
 		Player.WeaponSlot 1, "Fist", "Chainsaw", "DCX_DoubleBladedChainsaw";
 		Player.WeaponSlot 3, "Shotgun", "DCX_SuperShotgun";
-		Player.WeaponSlot 6, "PlasmaRifle", "Incinerator", "DCX_HeavyPlasmaGun";
+		Player.WeaponSlot 6, "PlasmaRifle", "ID24Incinerator", "DCX_HeavyPlasmaGun";
 		Player.WeaponSlot 7, "BFG9000", "CalamityBlade";
 		Player.WeaponSlot 8, "DCX_Unmaker";
 	}

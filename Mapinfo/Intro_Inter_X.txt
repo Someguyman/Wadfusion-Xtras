@@ -1,0 +1,56 @@
+//Intro Intermissions
+Map INTER_D1E1 ""
+{
+	Cluster = 1001
+	Next = "E1M1"
+	NoIntermission
+}
+
+Cluster 1001
+{
+	ExitText = "$E1INTRO"
+	Music = "$MUSIC_INTER"
+	Flat = "$bgflatE1"
+}
+
+Map INTER_D1E2 ""
+{
+	Cluster = 1002
+	Next = "E2M1"
+	NoIntermission
+}
+
+Cluster 1002
+{
+	ExitText = "$E2INTRO"
+	Music = "$MUSIC_INTER"
+	Flat = "$bgflatE2"
+}
+
+Map INTER_D1E3 ""
+{
+	Cluster = 1003
+	Next = "E3M1"
+	NoIntermission
+}
+
+Cluster 1003
+{
+	ExitText = "$E3INTRO"
+	Music = "$MUSIC_INTER"
+	Flat = "$bgflatE3"
+}
+
+Map INTER_D1E4 ""
+{
+	Cluster = 1004
+	Next = "E4M1"
+	NoIntermission
+}
+
+Cluster 1004
+{
+	ExitText = "$E4INTRO"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE4"
+}

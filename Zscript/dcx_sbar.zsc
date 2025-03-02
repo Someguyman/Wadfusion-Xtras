@@ -317,11 +317,11 @@ class DCX_Statusbar : BaseStatusBar
 		let id1WeapSwap = CVar.FindCVar("wf_id1_weapswap").GetInt() == 1;
 		let id1WeapSwapAlways = CVar.FindCVar("wf_id1_weapswap").GetInt() >= 2;
 		let cell = CPlayer.mo.FindInventory("Cell");
-		let fuel = CPlayer.mo.FindInventory("Fuel");
+		let fuel = CPlayer.mo.FindInventory("ID24Fuel");
 		let hasPlasmaRifle = CPlayer.mo.FindInventory("PlasmaRifle");
 		let hasBfg9000 = CPlayer.mo.FindInventory("BFG9000");
-		let hasIncinerator = CPlayer.mo.FindInventory("Incinerator");
-		let hasHeatwave = CPlayer.mo.FindInventory("Heatwave");
+		let hasIncinerator = CPlayer.mo.FindInventory("ID24Incinerator");
+		let hasHeatwave = CPlayer.mo.FindInventory("ID24CalamityBlade");
 		int x_value;
 		int y_value;
 		int x_offset;
@@ -382,7 +382,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawString(get_font, FormatNumber(amt1, 3), (x_value, y_value+18), DI_TEXT_ALIGN_RIGHT);
 			DrawString(get_font, FormatNumber(maxamt, 3), (x_value+x_offset, y_value+18), DI_TEXT_ALIGN_RIGHT);
 			
-			[amt1, maxamt] = GetAmount("Fuel");
+			[amt1, maxamt] = GetAmount("ID24Fuel");
 			DrawString(get_font, FormatNumber(amt1, 3), (x_value, y_value+24), DI_TEXT_ALIGN_RIGHT);
 			DrawString(get_font, FormatNumber(maxamt, 3), (x_value+x_offset, y_value+24), DI_TEXT_ALIGN_RIGHT);
 		}
@@ -433,7 +433,7 @@ class DCX_Statusbar : BaseStatusBar
 			
 			if ( ( isId1 && id1WeapSwap ) || id1WeapSwapAlways )
 			{
-				[amt1, maxamt] = GetAmount("Fuel");
+				[amt1, maxamt] = GetAmount("ID24Fuel");
 				DrawString(get_font, FormatNumber(amt1, 3), (x_value, y_value+18), DI_TEXT_ALIGN_RIGHT);
 				DrawString(get_font, FormatNumber(maxamt, 3), (x_value+x_offset, y_value+18), DI_TEXT_ALIGN_RIGHT);
 			}
