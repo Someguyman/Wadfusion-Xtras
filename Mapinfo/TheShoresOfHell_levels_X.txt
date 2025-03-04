@@ -14,7 +14,7 @@ cluster 2
 {
 	ExitText = "$E2TEXT"
 	Music = "$MUSIC_VICTOR"
-	Flat = "$bgflatE2"
+	Flat = "$bgflatE3"
 }
 
 map E2M1 "$HUSTR_E2M1"

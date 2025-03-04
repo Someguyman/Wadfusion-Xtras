@@ -35,6 +35,20 @@ episode E4M1
 	PicName = "M_EPI4"
 	Optional
 }
+
+episode E5M1
+{
+	Name = "$UDOOM_EPI05"
+	PicName = "M_EPI5"
+	Optional
+}
+
+episode E6M1
+{
+	Name = "$UDOOM_EPI06"
+	PicName = "M_EPI6"
+	Optional
+}
 */
 
 episode INTER_D1E1
@@ -65,14 +79,14 @@ episode INTER_D1E4
 	Optional
 }
 
-episode E5M1
+episode INTER_D1E5
 {
 	Name = "$UDOOM_EPI05"
 	PicName = "M_EPI5"
 	Optional
 }
 
-episode E6M1
+episode INTER_D1E6
 {
 	Name = "$UDOOM_EPI06"
 	PicName = "M_EPI6"

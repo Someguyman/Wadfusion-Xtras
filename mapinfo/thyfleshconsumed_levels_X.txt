@@ -93,7 +93,7 @@ map E4M7 "$HUSTR_E4M7"
 map E4M8 "$HUSTR_E4M8"
 {
 	LevelNum = 38
-	Next = EndSequence, "Episode4end"
+	Next = "E4M0"
 	TitlePatch = "WILV37"
 	Par = 360
 	Music = "$MUSIC_E4M8"
@@ -103,6 +103,15 @@ map E4M8 "$HUSTR_E4M8"
 	SpecialAction_LowerFloor
 	Author = "$WF_AU_GREEN"
 	Label = "THE ULTIMATE DOOM, E4M8"
+}
+
+map E4M0 ""
+{
+	Cluster = 0
+	Next = EndSequence, "Episode4end"
+	Music = "$MUSIC_VICTR2"
+	NoIntermission
+	NoSoundClipping
 }
 
 map PSX04 "$HUSTR_PSX04"

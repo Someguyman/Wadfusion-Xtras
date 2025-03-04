@@ -3,6 +3,7 @@ Map INTER_D1E1 ""
 {
 	Cluster = 1001
 	Next = "E1M1"
+	Music = "$MUSIC_INTER"
 	NoIntermission
 }
 
@@ -17,6 +18,7 @@ Map INTER_D1E2 ""
 {
 	Cluster = 1002
 	Next = "E2M1"
+	Music = "$MUSIC_INTER"
 	NoIntermission
 }
 
@@ -24,13 +26,14 @@ Cluster 1002
 {
 	ExitText = "$E2INTRO"
 	Music = "$MUSIC_INTER"
-	Flat = "$bgflatE2"
+	Flat = "$bgflatE3"
 }
 
 Map INTER_D1E3 ""
 {
 	Cluster = 1003
 	Next = "E3M1"
+	Music = "$MUSIC_INTER"
 	NoIntermission
 }
 
@@ -38,13 +41,14 @@ Cluster 1003
 {
 	ExitText = "$E3INTRO"
 	Music = "$MUSIC_INTER"
-	Flat = "$bgflatE3"
+	Flat = "$bgflatE2"
 }
 
 Map INTER_D1E4 ""
 {
 	Cluster = 1004
 	Next = "E4M1"
+	Music = "$MUSIC_VICTOR"
 	NoIntermission
 }
 
@@ -53,4 +57,34 @@ Cluster 1004
 	ExitText = "$E4INTRO"
 	Music = "$MUSIC_VICTOR"
 	Flat = "$bgflatE4"
+}
+
+Map INTER_D1E5 ""
+{
+	Cluster = 1005
+	Next = "E5M1"
+	Music = "$MUSIC_VICTR2"
+	NoIntermission
+}
+
+Cluster 1005
+{
+	ExitText = "$E5INTRO"
+	Music = "$MUSIC_VICTR2"
+	Flat = "CEIL5_1"
+}
+
+Map INTER_D1E6 ""
+{
+	Cluster = 1006
+	Next = "E6M1"
+	Music = "S_INTRO"
+	NoIntermission
+}
+
+Cluster 1006
+{
+	ExitText = "$E6INTRO"
+	Music = "S_INTRO"
+	Flat = "FLOOR7_2"
 }

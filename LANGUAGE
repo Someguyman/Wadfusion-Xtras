@@ -64,7 +64,6 @@ WS_AU_MIDWAY = "Midway Ent.";
 
 //	Doom 64 for Doom 2 + original Doom 64 credits
 
-
 //	AUTHOR UNKNOWN
 WS_AU_UNKNOWN = "???";
 
@@ -333,19 +332,21 @@ GENERIC_TXT2 =
 "\n"
 "Congratulations!";
 
-E1INTRO = "\nYou're a marine, one of Earth's toughest, hardened in combat and\n"
-		  "trained for action. You have been transferred to Mars, home of the\n"
-		  "Union Aerospace Corporation.\n"
+E1INTRO = "You're a marine, one of Earth's toughest, \n"
+		  "hardened in combat and trained for action.\n"
+		  "You have been transferred to Mars, home of\n"
+		  "the Union Aerospace Corporation (U.A.C).\n"
 		  "\n"
-		  "For the last four years the military, its biggest provider, has used\n"
-		  "the remote facilities on Phobos and Deimos to conduct research\n"
-		  "on inter-dimensional space travel.\n"
+		  "For the last four years the military, its biggest provider,\n"
+		  "has used the remote facilities on Phobos and Deimos\n"
+		  "to conduct researc on inter-dimensional space travel.\n"
 		  "\n"
 		  "A few hours ago, Mars received a garbled message from Phobos.\n"
 		  "'We require immediate military support. Something fraggin' evil\n"
 		  "is coming out of the Gateways! Computer systems have gone berserk!'\n"
 		  "The rest was incoherent. Soon afterwards, Deimos simply vanished\n"
-		  "from the sky. Since then, attempts to establish contact\n"
+		  "from the sky.\n"
+		  "Since then, attempts to establish contact\n"
 		  "with either moon have been unsuccessful.\n"
 		  "\n"
 		  "You and your buddies were sent to Phobos. You were ordered to\n"
@@ -446,7 +447,7 @@ E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
 //Another original text by me.
 
 E4INTRO = "Having brought an end to the reain of terror the\n"
-		  "spidermastermind and all it's hellish army casued"
+		  "spidermastermind and all it's hellish army casued\n"
 		  "on the moon bases,\n"
 		  "It seems that you finally get what you wanted\n"
 		  "since disposing of the forces back on Phobos,\n"
@@ -460,8 +461,8 @@ E4INTRO = "Having brought an end to the reain of terror the\n"
 		  "\n"
 		  "You run up the hills, and to your shock,\n"
 		  "witness a nearby city in flames with\n"
-		  "various hell spawn crawling around and\n"
-		  "merking any civilian that comes in site.\n"
+		  "various hell spawn crawling around the ruins\n"
+		  "as well as various hell structers throughout.\n"
 		  "\n"
 		  "Worst of all, near the outskirts of your city\n"
 		  "sits a the head of your pet rabbit, Daisy,\n"
@@ -469,8 +470,8 @@ E4INTRO = "Having brought an end to the reain of terror the\n"
 		  "At that moment you curse under your breath\n"
 		  "They've truely done it now!\n"
 		  "\n"
-		  "You quickly make it back to the portal to\n"
-		  "lay waste to the demons coming though"; 
+		  "You quickly make haste to a nearby stronghold\n"
+		  "to lay waste to the demons within."; 
 		
 E4TEXT = "the spider mastermind must have sent forth\n"
 		 "its legions of hellspawn before your\n"
@@ -491,6 +492,45 @@ E4TEXT = "the spider mastermind must have sent forth\n"
 
 //		 "\n"		 
 //		 "Unless sigil comes out first... ";
+
+E5INTRO = "With the death of the second spider mastermind\n"
+		  "by your hands, your next stop is at the starport\n"
+		  "base where what remains of humanity have gathered.\n"
+		  "\n"
+		  "There, you can gear up and save earth from the demonic\n"
+		  "Invaders. You then hop into the teleporter in attempt\n"
+		  "to get there quickly.\n" 
+		  "But as you make it though the gateway, everything glitches\n"
+		  "out from ruined urban cities to deeper, darker caverns.\n"
+		  "\n"
+		  "It appears another fraggin' dark lord from hell has dragged\n"
+		  "you back down with his eldred power in even darker\n"
+		  "shores of Hell in an attempt to break you."
+		  "\n"
+		  "Doesn't matter how far they drag you though you've been\n"
+		  "through hell and back before and you'll do it again!\n"
+		  "\n"
+		  "Rip and tear, until it is done!";
+		  
+//		  Rip and tear may be cheesey, but it was in the original text so I had to.
+
+E6INTRO = "Baphomet's plan to drag you bring you back to hell\n"
+		  "only ended with him realizing why he failed in the\n"
+		  "first place.\n"
+		  "\n"
+		  "Just like before, you've just got done mopping up\n"
+		  "the place with your arsenal and are ready to go\n"
+		  "down into the wormhole and save earth. but once again\n"
+		  "you fall for another cunning trap, set this time by\n"
+		  "none other then satan himself.\n"
+		  "\n"
+		  "The dimension you are catapulted in more grotesque\n"
+		  "and vile then the last. filled with hell's most\n"
+		  "relentless killing machines.\n"
+		  "\n"
+		  "Now, it's time to really show them your metal!";
+		  
+		  
 
 MANSIONTXT = "hidden away the debris of the city lies\n"
 			 "a mansion. looks like it was made\n"

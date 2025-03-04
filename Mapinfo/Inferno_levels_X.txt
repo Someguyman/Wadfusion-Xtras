@@ -14,7 +14,7 @@ cluster 3
 {
 	ExitText = "$E3TEXT"
 	Music = "$MUSIC_VICTOR"
-	Flat = "$bgflatE3"
+	Flat = "$bgflatE2"
 }
 
 

@@ -4,6 +4,7 @@ $alias Mindweaver/pain Spider/pain
 Mindweaver/death DSCSPDTH
 Mindweaver/walk DSCSPWLK
 $alias Mindweaver/attack Spider/attack
+cyber/walk DSMETAL
 
 Tyrant/sight DSTYRSIT
 Tyrant/active DSCYBACT

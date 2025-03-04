@@ -18,6 +18,12 @@ script "ChangeSkyTexture" (void)
 	Terminate;
 }
 
+script "E4M1_NoIntermission" (void)
+{
+	ChangeLevel("e4m0",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+	Terminate;
+}
+
 script "Check_Difficulty" (Void)
 {
 	if ((GameSkill () <= 4))
@@ -55,17 +61,17 @@ script "Xtra_Monster_Placements" enter
 			Add("DCX_Unmaker",-3456, 192, 270,0,0); 
 			Add("DCX_Unmaker",-3584, 192, 270,0,0); 
 			
-			Add("Heatwave",-3072, 256, 270,0,0);
-			Add("Heatwave",-3200, 256, 270,0,0);
-			Add("Heatwave",-3328, 256, 270,0,0);
-			Add("Heatwave",-3456, 256, 270,0,0);
-			Add("Heatwave",-3584, 256, 270,0,0);
+			Add("ID24CalamityBlade",-3072, 256, 270,0,0);
+			Add("ID24CalamityBlade",-3200, 256, 270,0,0);
+			Add("ID24CalamityBlade",-3328, 256, 270,0,0);
+			Add("ID24CalamityBlade",-3456, 256, 270,0,0);
+			Add("ID24CalamityBlade",-3584, 256, 270,0,0);
 			
-			Add("Incinerator",-3072, 320, 270,0,0);
-			Add("Incinerator",-3200, 320, 270,0,0);
-			Add("Incinerator",-3328, 320, 270,0,0);
-			Add("Incinerator",-3456, 320, 270,0,0);
-			Add("Incinerator",-3584, 320, 270,0,0);
+			Add("ID24Incinerator",-3072, 320, 270,0,0);
+			Add("ID24Incinerator",-3200, 320, 270,0,0);
+			Add("ID24Incinerator",-3328, 320, 270,0,0);
+			Add("ID24Incinerator",-3456, 320, 270,0,0);
+			Add("ID24Incinerator",-3584, 320, 270,0,0);
 			
 			Add("DCX_HeavyPlasmaGun",-3072, 384, 270,0,0);
 			Add("DCX_HeavyPlasmaGun",-3200, 384, 270,0,0);
@@ -79,17 +85,17 @@ script "Xtra_Monster_Placements" enter
 			Add("DCX_DoubleBladedChainsaw",-3456, 640, 270,0,0);
 			Add("DCX_DoubleBladedChainsaw",-3584, 640, 270,0,0);
 			
-			Add("Fuel",-1664, 192, 270,0,0);
-			Add("Fuel",-1664, 256, 270,0,0);
-			Add("Fuel",-1664, 320, 270,0,0);
-			Add("Fuel",-1664, 384, 270,0,0);
-			Add("Fuel",-1664, 448, 270,0,0);
+			Add("ID24Fuel",-1664, 192, 270,0,0);
+			Add("ID24Fuel",-1664, 256, 270,0,0);
+			Add("ID24Fuel",-1664, 320, 270,0,0);
+			Add("ID24Fuel",-1664, 384, 270,0,0);
+			Add("ID24Fuel",-1664, 448, 270,0,0);
 			
-			Add("FuelTank",-1536, 192, 270,0,0);
-			Add("FuelTank",-1536, 256, 270,0,0);
-			Add("FuelTank",-1536, 320, 270,0,0);
-			Add("FuelTank",-1536, 384, 270,0,0);
-			Add("FuelTank",-1536, 448, 270,0,0);
+			Add("ID24FuelTank",-1536, 192, 270,0,0);
+			Add("ID24FuelTank",-1536, 256, 270,0,0);
+			Add("ID24FuelTank",-1536, 320, 270,0,0);
+			Add("ID24FuelTank",-1536, 384, 270,0,0);
+			Add("ID24FuelTank",-1536, 448, 270,0,0);
 			
 			Add("DCX_Demonkey1",-2464, 192, 270,0,0); 
 			Add("DCX_Demonkey2",-2624, 192, 270,0,0); 

@@ -5,6 +5,7 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 	{
 		switch (checksum)
 		{
+			//SetLineSpecial(730, ACS_Execute, -int('E4M1_NoIntermission'));
 			case '8590F489879870C098CD7029C3187159':
 			{
 				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
@@ -39,6 +40,30 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 					SetWallTextureID(574, Line.front, Side.mid, TexMan.CheckForTexture("SW2SKULL", TexMan.Type_Wall, TexMan.Overridable));
 					SetLineActivation(574, SPAC_Use);
 					SetLineSpecial(574, Exit_Secret, 0);
+				}
+				break;
+			}
+			case '2DC939E508AB8EB68AF79D5B60568711':
+			{
+				if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
+				{
+					SetLineActivation(877, SPAC_Cross);
+					SetLineActivation(878, SPAC_Cross);
+					SetLineActivation(879, SPAC_Cross);
+					SetLineActivation(880, SPAC_Cross);
+					SetLineActivation(881, SPAC_Cross);
+					SetLineActivation(882, SPAC_Cross);
+					SetLineActivation(883, SPAC_Cross);
+					SetLineActivation(884, SPAC_Cross);
+					
+					SetLineSpecial(877, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(878, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(879, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(880, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(881, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(882, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(883, ACS_Execute, -int('E4M1_NoIntermission'));
+					SetLineSpecial(884, ACS_Execute, -int('E4M1_NoIntermission'));
 				}
 				break;
 			}

@@ -1378,9 +1378,26 @@ Class DCX_Tyrant_boss_2 : DCX_Tyrant Replaces Deh_Actor_157
 }
 
 class DCX_Cyberdemon : Cyberdemon Replaces Cyberdemon
-{		
+{
+	void A_MetalHoof()
+	{
+		A_StartSound("cyber/walk", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_IDLE);
+		A_Chase();
+	}
 	States
 	{
+	Spawn:
+		CYBR AB 10 A_Look;
+		Loop;
+	See:
+		CYBR A 3 A_Hoof;
+		CYBR ABBCC 3 A_Chase;
+		CYBR D 3 A_MetalHoof();
+		CYBR D 3 A_Chase;
+		Loop;
+	Pain:
+		CYBR G 10 A_Pain;
+		Goto See;
 	Missile:
 		CYBR E 6 A_FaceTarget;
 		CYBR F 12 Bright A_CyberAttack;
@@ -1421,7 +1438,7 @@ Class DCX_LesserCyber : DCX_Cyberdemon
 	See:
 		LCYB A 3 A_Hoof;
 		LCYB ABBCC 3 A_Chase;
-		LCYB D 3 A_Metal;
+		LCYB D 3 A_MetalHoof();
 		LCYB D 3 A_Chase;
 		Loop;
 	Missile:
