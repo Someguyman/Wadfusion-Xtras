@@ -147,9 +147,16 @@ script "Xtra_Monster_Placements" enter
 	{	
 		if (StrICmp(mapName, "e1m1") == 0)
 		{
+			Replace("Demon",3008,-4816,90,0,0); //Replace the imp at the end with a pinky
+			
+			Replace("ChaingunGuy",2272,-2432,180,0,0); //Replaces the Zombieman in the computer room
+			Replace("ChaingunGuy",3056,-3584,90,0,0); //Replaces Zombieman in the toxic zig zag room
+			Add("ChaingunGuy",2944,-3584,90,0,0); //Lonely chaingunner needs a friend.
+			Add("ChaingunGuy",3392,-3072,225,0,0);  //At the end of the secret tunnel with the armor bonuses ;)
+			
+			Add("Cacodemon",3616,-3456,270,0,0); //In the secret tunnel with the armor bonuses
+			
 			AddDeco("ColonGibs",1088,-3264,0);
-			Replace("ChaingunGuy",2464,-2432,180,0,0); //Replaces the Shotgunner in the computer room
-			Add("Cacodemon",3644,-3136,315,0,0); //Adds a Pain Elemental in the secret tunnel with the armor bonuses
 		}	
 		if (StrICmp(mapName, "e1m2") == 0)
 		{
@@ -172,8 +179,6 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("ChaingunGuy",-1696,2112,315,0,0); //Behind the doors before exit room
 			Add("ChaingunGuy",-1376,2112,225,0,0); //Behind the doors before exit room
-			
-			//Replace("ChaingunGuy",944,-304,0,0,0); //replaces the chaingun
 
 			Add("ChaingunGuy",-512,2240,135,0,0); //exit room
 			
@@ -527,8 +532,6 @@ script "Xtra_Monster_Placements" enter
 		
 			Add("HellKnight",2240,-1024,90,0,0);
 			Add("HellKnight",2048,-1024,90,0,0);
-			//Add("PainElemental",2144,-768,90,0,0);
-			//Add("SuperShotgun",1280,0,90,0,0);
 		}
 		if (StrICmp(mapName, "e2m2") == 0)
 		{
@@ -540,13 +543,11 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",544,3040,270,0,0);
 			Add("HellKnight",1088,3072,135,0,0);
 			Add("Stimpaick",1088,3072,135,0,0);
-			//Add("SuperShotgun",1376,2016,135,0,0);
 			Add("Arachnotron",1376,1024,90,0,0);
 			Add("HellKnight",640,192,0,0,0);
 			Add("Revenant",-288,-64,0,0,0);
 			Add("Revenant",-288,-128,0,0,0);
 			Add("Revenant",-352,-96,0,0,0);
-			//Add("Megasphere",-288,-224,0,0,0);
 			Add("HellKnight",512,-352,180,0,0);
 		}
 		if (StrICmp(mapName, "e2m3") == 0)
@@ -571,7 +572,6 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("Cacodemon",416,928,90,0,0);
 			Add("Cacodemon",544,928,90,0,0);
-			Add("SuperShotgun",432,-256,90,0,0);
 			Add("HellKnight",352,480,270,0,0);
 			Add("Revenant",192,-192,180,0,0);
 			Add("Arachnotron",-320,448,270,0,0);
@@ -580,7 +580,6 @@ script "Xtra_Monster_Placements" enter
 		}
 		if (StrICmp(mapName, "e2m4") == 0)
 		{
-			//Add("SuperShotgun",-416,-2656,0,0,0);
 			Add("ChaingunGuy",-928,-1536,0,0,0);
 			Add("ChaingunGuy",-832,-1536,0,0,0);
 			Add("ChaingunGuy",-736,-1536,0,0,0);
@@ -590,7 +589,6 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",2496,-1792,270,0,0);
 			Add("ChaingunGuy",2560,-1792,270,0,0);
 			Add("ChaingunGuy",2624,-1792,270,0,0);
-			//Add("Megasphere",1472,-1984,270,0,0);
 			Add("Arachnotron",1088,-1824,0,0,0);
 			Add("Arachnotron",1088,-1664,0,0,0);
 			Add("Arachnotron",1088,-1984,0,0,0);
@@ -611,7 +609,6 @@ script "Xtra_Monster_Placements" enter
 			Add("Revenant",-3488,96,0,0,0);
 			Add("Revenant",-3424,96,0,0,0);
 			Add("Fatso",-3072,32,90,0,0);
-			//Add("Megasphere",-2944,320,90,0,0);
 
 			while (IsDoorClosed(3)) { Delay(10); }
 
@@ -633,11 +630,11 @@ script "Xtra_Monster_Placements" enter
         
 			while (IsDoorClosed(22)) { Delay(10); }
 
-			Add("ArchVile",640,1472,270,0,99);
-			Add("ArchVile",640,1376,270,0,99);
+			Add("Revenant",640,1472,270,0,99);
+			Add("Revenant",640,1376,270,0,99);
 			Add("HellKnight",864,1376,270,0,0);
 			Add("HellKnight",608,1376,270,0,0);
-			Add("Megasphere",608,1376,270,0,0);
+			//Add("Megasphere",608,1376,270,0,0);
 		}
 		if (StrICmp(mapName, "e2m7") == 0)
 		{
@@ -680,25 +677,9 @@ script "Xtra_Monster_Placements" enter
 			Add("Fatso",136,-1960, 90,0,0);
 			Add("Fatso",1096,-792,180,0,0);
 			Add("Fatso",1136,-944,180,0,0);
-		
-			//Add("SuperShotgun",-96,-936,0,0,0);
-			//Add("SuperShotgun",-96,-664,0,0,0);
-			//Add("SuperShotgun",-232,-800,0,0,0);
-			//Add("SuperShotgun",40,-800,0,0,0);
-			//Add("Megasphere",-88,1632,0,0,0);
 		}
 		if (StrICmp(mapName, "e2m9") == 0)
-		{
-			//Add("SuperShotgun",736,-384,0,0,0);
-			//Add("Revenant",1664,416,270,0,0);
-			//Add("Revenant",1664,-1184,90,0,0);
-			//Add("Cacodemon",1984,-384,180,0,0);
-			//Add("Arachnotron",2112,-384,180,0,0);
-			//Add("HellKnight",2496,-352,180,0,0);
-			//Add("HellKnight",2496,-416,180,0,0);
-			//Add("ArchVile",2592,-384,180,0,0);
-			//Add("Megasphere",2544,-384,180,0,0);
-			
+		{	
 			Add("RocketBox",960,-384,180,0,0);
 			
 			Add("Hellknight",64,448,270,0,0);
@@ -719,7 +700,7 @@ script "Xtra_Monster_Placements" enter
 		}	
 		if (StrICmp(mapName, "e3m1") == 0)
 		{	
-			Add("SuperShotgun",-800,1376,0,0,0); 
+			//Add("SuperShotgun",-800,1376,0,0,0); 
 			Add("ChaingunGuy",-896,1568,270,0,0); 
 			Add("ChaingunGuy",-704,1568,270,0,0);
 			
@@ -768,7 +749,7 @@ script "Xtra_Monster_Placements" enter
 			Add("PainElemental",-1184,-160,0,0,0);
 			Add("Revenant",-384,128,270,0,0);
 			Add("Revenant",-320,128,270,0,0);
-			Add("SuperSHotgun",-352,-992,270,0,0);
+			//Add("SuperSHotgun",-352,-992,270,0,0);
 			Add("Arachnotron",-640,544,90,0,0);
 		}
 		if (StrICmp(mapName, "e3m4") == 0)
@@ -802,10 +783,10 @@ script "Xtra_Monster_Placements" enter
 			Add("DCX_NightmareSpectre",-1248,1312,0,0,0); 
 			Add("DCX_NightmareSpectre",-1424,1136,0,0,0); 
 			
-			Add("SuperShotgun",-224,-96,0,0,0); 
+			//Add("SuperShotgun",-224,-96,0,0,0); 
 			Add("HellKnight",-384,1280,270,0,0); 
 			Add("HellKnight",-64,1280,270,0,0); 
-			Add("Megasphere",-224,2240,270,0,0); 
+			//Add("Megasphere",-224,2240,270,0,0); 
 
 			while (!IsFloorLevel(10,0)) { Delay(10); }
 
@@ -825,7 +806,7 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("Fatso",-1152,-1296,0,0,0);
 			
-			Add("SuperShotgun",-128,192,315,0,0); 
+			//Add("SuperShotgun",-128,192,315,0,0); 
 			while (IsFloorLevel(17,200)) { Delay(10); } 
 			Add("Revenant",-96,1152,180,0,99); 
 			Delay(70);
@@ -854,7 +835,7 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",-192,832,270,0,0);
 			Add("Arachnotron",576,864,270,0,0);
 			Add("Arachnotron",192,1056,270,0,0);
-			Add("Megasphere",160,640,225,0,0);
+			//Add("Megasphere",160,640,225,0,0);
 		}
 		if (StrICmp(mapName, "e3m9") == 0)
 		{			

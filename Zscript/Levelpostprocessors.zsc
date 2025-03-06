@@ -5,8 +5,7 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 	{
 		switch (checksum)
 		{
-			//SetLineSpecial(730, ACS_Execute, -int('E4M1_NoIntermission'));
-			case '8590F489879870C098CD7029C3187159':
+			case '8590F489879870C098CD7029C3187159': //e2m7
 			{
 				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
 				{
@@ -20,7 +19,7 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 				}
 				break;
 			}
-			case '6b60f37b91309dff1cdf02e5e476210d':
+			case '6b60f37b91309dff1cdf02e5e476210d': //map16
 			{
 				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
 				{					
@@ -43,7 +42,7 @@ class DCX_PlaystationSecrets : LevelPostProcessor
 				}
 				break;
 			}
-			case '2DC939E508AB8EB68AF79D5B60568711':
+			case '2DC939E508AB8EB68AF79D5B60568711': //e4m8
 			{
 				if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
 				{
@@ -75,7 +74,7 @@ class DCX_Multiplayerweaponremoveal : LevelPostProcessor
 {
 		protected void Apply(Name checksum, String mapname)
 		{
-			for (int i = 0; i < GetThingCount(); i++)
+			for (uint i = 0; i < GetThingCount(); i++)
 			{
 				let flags = GetThingFlags(i);
 				int ednum = GetThingEdNum(i);
@@ -181,7 +180,7 @@ Class DCX_MapFixes : LevelPostProcessor
 {
 	protected void Apply(Name checksum, String mapname)
 	{
-		for (int i = 0; i < GetThingCount(); i++)
+		for (uint i = 0; i < GetThingCount(); i++)
 		{
 			let flags = GetThingFlags(i);
 			int ednum = GetThingEdNum(i);
@@ -373,7 +372,7 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 {
 		protected void Apply(Name checksum, String mapname)
 		{
-			for (int i = 0; i < GetThingCount(); i++)
+			for (uint i = 0; i < GetThingCount(); i++)
 			{
 				let flags = GetThingFlags(i);
 				int ednum = GetThingEdNum(i);
@@ -473,6 +472,54 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						
 						SetThingEdNum(194,697);
 						SetThingEdNum(200,697);
+					}
+					if ( mapName == "e2m1" )
+					{
+						SetSectorSpecial(3,0); //Clear a now mandatory sector
+						SetSectorSpecial(91,0); //Ditto for original red key door
+						ClearSectorTags(1); //Doesn't raise up anymore
+						AddSectorTag(82, 21);
+						SetLineActivation(379, 0); //Get rid of the switch here
+						SetLineActivation(381, 0); //Get rid of the switch here												
+						
+						SetLineActivation(350, 0); //Get rid of the door trigger here
+						SetLineActivation(351, 0); //Get rid of the door trigger here
+						level.lines[382].locknumber = 130; //Lock this fella behind a blue key
+						SetLineSpecial(382, Floor_LowerToHighest, 13, 8, 128);
+						
+						SetLineActivation(258, SPAC_Cross);
+						SetLineSpecial(258, Door_Raise, 21, 64, 0);
+						
+						SetLineSpecial(278, Door_LockedRaise, 0, 16, 150, 129);
+						SetLineSpecial(279, Door_LockedRaise, 0, 16, 150, 129);
+						
+						SetWallTexture(201,line.front,side.bottom,"STONGARG"); //To Avoid hall of mirrors
+						SetWallTexture(202,line.front,side.bottom,"STONGARG"); //To Avoid hall of mirrors
+						
+						SetWallTexture(280,line.front,side.mid,"DOORRED");
+						SetWallTexture(283,line.front,side.mid,"DOORRED");
+						
+						SetWallTexture(383,line.front,side.mid,"DOORBLU");
+						SetWallTexture(385,line.front,side.mid,"DOORBLU");
+						
+						SetWallTexture(346,line.front,side.mid,"DOORSTOP");
+						SetWallTexture(390,line.front,side.mid,"DOORSTOP");
+						SetWallTexture(405,line.front,side.bottom,"DOORSTOP");
+						SetWallTexture(406,line.front,side.bottom,"DOORSTOP");
+						
+						SetWallTexture(339,line.front,side.bottom,"LITE5");
+						SetWallTexture(344,line.front,side.bottom,"LITE5");
+						
+						SetWallTexture(340,line.front,side.mid,"DOORSTOP");
+						SetWallTexture(343,line.front,side.mid,"DOORSTOP");
+						
+						OffsetSectorPlane(21, Sector.floor, 256);
+						OffsetSectorPlane(25, Sector.floor, -128);	
+						
+						SetThingEdNum(51, 2002); //Turn original blue key to plasma
+						SetThingEdNum(44, 5); //Turn plasma in the first secret teleporter room into a blue key
+						SetThingEdNum(83, 2004); //Replace original red key with plasma
+						SetThingEdNum(84, 13); //Replace computer area map with red key
 					}
 					if ( mapName == "e2m3" )
 					{
