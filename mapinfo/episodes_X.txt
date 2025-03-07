@@ -49,6 +49,12 @@ episode E6M1
 	PicName = "M_EPI6"
 	Optional
 }
+
+episode MAP01
+{
+	Name = "$DOOM2_EPI01"
+	Optional
+}
 */
 
 episode INTER_D1E1
@@ -105,7 +111,7 @@ episode GBA_DM1
 	Optional
 }
 
-episode MAP01
+episode INTER_D2E1
 {
 	Name = "$DOOM2_EPI01"
 	Optional

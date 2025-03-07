@@ -1,10 +1,11 @@
 //Intro Intermissions
-Map INTER_D1E1 ""
+Defaultmap
 {
-	Cluster = 1001
-	Next = "E1M1"
-	Music = "$MUSIC_INTER"
+	ResetHealth 
+	ResetItems
+	ResetInventory
 	NoIntermission
+	//KeepFullInventory
 }
 
 Cluster 1001
@@ -14,27 +15,11 @@ Cluster 1001
 	Flat = "$bgflatE1"
 }
 
-Map INTER_D1E2 ""
-{
-	Cluster = 1002
-	Next = "E2M1"
-	Music = "$MUSIC_INTER"
-	NoIntermission
-}
-
 Cluster 1002
 {
 	ExitText = "$E2INTRO"
 	Music = "$MUSIC_INTER"
 	Flat = "$bgflatE3"
-}
-
-Map INTER_D1E3 ""
-{
-	Cluster = 1003
-	Next = "E3M1"
-	Music = "$MUSIC_INTER"
-	NoIntermission
 }
 
 Cluster 1003
@@ -44,14 +29,6 @@ Cluster 1003
 	Flat = "$bgflatE2"
 }
 
-Map INTER_D1E4 ""
-{
-	Cluster = 1004
-	Next = "E4M1"
-	Music = "$MUSIC_VICTOR"
-	NoIntermission
-}
-
 Cluster 1004
 {
 	ExitText = "$E4INTRO"
@@ -59,32 +36,66 @@ Cluster 1004
 	Flat = "$bgflatE4"
 }
 
+Cluster 1005
+{
+	ExitText = "$E5INTRO"
+	Music = "S_INTER"
+	Flat = "CEIL5_1"
+}
+
+Cluster 1006
+{
+	ExitText = "$E6INTRO"
+	Music = "S2_INTER"
+	Flat = "FLOOR7_2"
+}
+
+adddefaultmap
+{
+	Music = "D_INTRO"
+}
+
+Map INTER_D1E1 ""
+{
+	Cluster = 1001
+	Next = "E1M1"
+}
+
+Map INTER_D1E2 ""
+{
+	Cluster = 1002
+	Next = "E2M1"
+}
+
+Map INTER_D1E3 ""
+{
+	Cluster = 1003
+	Next = "E3M1"
+}
+
+Map INTER_D1E4 ""
+{
+	Cluster = 1004
+	Next = "E4M1"
+}
+
 Map INTER_D1E5 ""
 {
 	Cluster = 1005
 	Next = "E5M1"
-	Music = "$MUSIC_VICTR2"
-	NoIntermission
-}
-
-Cluster 1005
-{
-	ExitText = "$E5INTRO"
-	Music = "$MUSIC_VICTR2"
-	Flat = "CEIL5_1"
+	Music = "S_INTRO"
 }
 
 Map INTER_D1E6 ""
 {
 	Cluster = 1006
 	Next = "E6M1"
-	Music = "S_INTRO"
-	NoIntermission
+	Music = "S2_INTRO"
+	//Music = "S_INTRO"
 }
 
-Cluster 1006
+map INTER_D2E1 ""
 {
-	ExitText = "$E6INTRO"
-	Music = "S_INTRO"
-	Flat = "FLOOR7_2"
+	Next = "Map01"
+	//Music = "S_INTRO"
 }

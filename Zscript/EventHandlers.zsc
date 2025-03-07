@@ -1,6 +1,84 @@
 
 class DCX_EventHandler : EventHandler
 {
+	TextureId TITLEPIC;
+	TextureId DOOMTittle;
+	TextureId UDOOMTittle;
+	TextureId SIGILTittle;
+	TextureId SIGIL2Tittle;
+	TextureId DOOM2Tittle;
+	
+	override void OnRegister()
+	{
+		TITLEPIC = TexMan.CheckForTexture("TITLEPIC");
+		DOOMTittle =  TexMan.CheckForTexture("OGDtitle");
+		UDOOMTittle =  TexMan.CheckForTexture("ULDtitle");
+		SIGILTittle =  TexMan.CheckForTexture("SI6TITLE");
+		SIGIL2Tittle =  TexMan.CheckForTexture("S62TITLE");
+		DOOM2Tittle =  TexMan.CheckForTexture("DM2title");
+	}
+	
+	override void WorldLoaded (WorldEvent e)
+	{
+		if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
+		TextureFixes();
+		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+		TextureEnchancements();
+		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
+		Doom64Doom2Replacements();		
+		JaguarDoomReplacements();
+		PSX0BRepalcements();		
+		Wolfenstein3DTextures();
+		BlankMapTransitions();
+	}
+	
+	override void RenderOverlay (RenderEvent e)
+	{
+		// draw an overlay of the titlepic when changing replaced levels
+		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
+		{
+			string mapName = Level.MapName.MakeLower();
+			if ( mapName == "inter_d1e1" || mapName == "inter_d1e2" || mapName == "inter_d1e3" )
+			{
+					Screen.DrawTexture(DOOMTittle, false, 0, 0, DTA_FullScreen, 1);
+			}
+			if ( mapName == "inter_d1e4" )
+			{
+					Screen.DrawTexture(UDOOMTittle, false, 0, 0, DTA_FullScreen, 1);
+			}
+			if ( mapName == "inter_d1e5" )
+			{
+					Screen.DrawTexture(SIGILTittle, false, 0, 0, DTA_FullScreen, 1);
+			}
+			if ( mapName == "inter_d1e6" )
+			{
+					Screen.DrawTexture(SIGIL2Tittle, false, 0, 0, DTA_FullScreen, 1);
+			}
+			else if ( mapName == "e4m0" )
+			{
+					Screen.DrawTexture(TITLEPIC, false, 0, 0, DTA_FullScreen, 1);
+			}
+		}
+	}
+	
+	override void WorldTick()
+	{
+		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
+		{
+			ConsoleLevelReplacement();	
+		}
+	}
+	
+	override void WorldThingSpawned(worldEvent e)
+	{
+		let w = Wolfensteinss(e.thing);
+		if (w)
+		{
+			if ( Cvar.getcvar("W3D_Text_toggle").getint() >= 1 )
+			w.SeeSound = "wolfss/sight2";
+		}
+	}
+	
 	void TextureFixes()
     {
 		String mapPrefix = level.MapName.Left(3);
@@ -346,36 +424,31 @@ class DCX_EventHandler : EventHandler
 		}		
 	}
 	
-	override void WorldLoaded (WorldEvent e)
+	void BlankMapTransitions()
 	{
-		if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
-		TextureFixes();
-		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-		TextureEnchancements();
-		
-		JaguarDoomReplacements();
-		PSX0BRepalcements();
-		
-		Wolfenstein3DTextures();
-		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
-		Doom64Doom2Replacements();
+		string mapName = Level.MapName.MakeLower();
+		if ( mapName.left(6) == "inter_" || mapName == "e4m0" )
+		{
+				Level.StartSlideShow("BlankMapTransitions");
+		}
 	}
 	
-	override void WorldTick()
-	{	
+	void ConsoleLevelReplacement()
+	{
 		//All these here toggle weather or not you play the console maps in the base campain.
 		
 		String mapName = level.MapName.MakeLower();
 		
 		if ( mapName == "inter_d1e3" )
 		{
-			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
-				level.NextMap = "PSX02B";
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+			{	level.NextMap = "PSX02B";	}
 			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
-				level.NextMap =  "PSX02";
+			{	level.NextMap = "PSX02";	}
 			else
-				level.NextMap = "e3m1";
-		}	
+			{	level.NextMap = "e3m1";		}
+		}
+		
 		if ( mapName == "e3m6" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
@@ -385,6 +458,7 @@ class DCX_EventHandler : EventHandler
 			else
 				level.NextSecretMap = "e3m9";
 		}
+		
 		if ( mapName == "e4m6" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
@@ -403,16 +477,6 @@ class DCX_EventHandler : EventHandler
 				level.NextMap = "psx09";
 			else
 				level.NextMap = "map30";
-		}
-	}
-	
-	override void WorldThingSpawned(worldEvent e)
-	{
-		let w = Wolfensteinss(e.thing);
-		if (w)
-		{
-			if ( Cvar.getcvar("W3D_Text_toggle").getint() >= 1 )
-			w.SeeSound = "wolfss/sight2";
 		}
 	}
 }

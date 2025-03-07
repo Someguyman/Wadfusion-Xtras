@@ -25,6 +25,7 @@ map TITLEMAP "Doom Title"
 {
 	nointermission
 	noautosavehint
+	Music = ""
 }
 
 gameinfo 
