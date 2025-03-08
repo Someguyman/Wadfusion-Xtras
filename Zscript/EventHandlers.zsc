@@ -25,7 +25,8 @@ class DCX_EventHandler : EventHandler
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 		TextureEnchancements();
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
-		Doom64Doom2Replacements();		
+		Doom64Doom2Replacements();
+		
 		JaguarDoomReplacements();
 		PSX0BRepalcements();		
 		Wolfenstein3DTextures();
