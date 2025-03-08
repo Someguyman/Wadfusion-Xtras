@@ -101,8 +101,8 @@ class DCX_Statusbar : BaseStatusBar
 	{
 		String mapName = level.MapName.MakeLower();
 		let isId1 = mapName.Left(3) == "lr_";
-		let id1WeapSwap = CVar.FindCVar("wf_id1_weapswap").GetInt() == 1;
-		let id1WeapSwapAlways = CVar.FindCVar("wf_id1_weapswap").GetInt() >= 2;
+		let id1WeapSwap = CVar.FindCVar("wf_compat_id24_weapons").GetInt() == 1;
+		let id1WeapSwapAlways = CVar.FindCVar("wf_compat_id24_weapons").GetInt() >= 2;
 		let get_font = mHUDFont;
 		let x_value = 44;
 		let y_value = 171;
@@ -314,8 +314,8 @@ class DCX_Statusbar : BaseStatusBar
 		String mapPrefix = level.MapName.Left(3);
 		mapPrefix = mapPrefix.MakeLower();
 		let isId1 = mapName.Left(3) == "lr_";
-		let id1WeapSwap = CVar.FindCVar("wf_id1_weapswap").GetInt() == 1;
-		let id1WeapSwapAlways = CVar.FindCVar("wf_id1_weapswap").GetInt() >= 2;
+		let id1WeapSwap = CVar.FindCVar("wf_compat_id24_weapons").GetInt() == 1;
+		let id1WeapSwapAlways = CVar.FindCVar("wf_compat_id24_weapons").GetInt() >= 2;
 		let cell = CPlayer.mo.FindInventory("Cell");
 		let fuel = CPlayer.mo.FindInventory("ID24Fuel");
 		let hasPlasmaRifle = CPlayer.mo.FindInventory("PlasmaRifle");

@@ -692,7 +692,7 @@ class DCX_MusicHandler : StaticEventHandler
 		string music = MusPlaying.Name.MakeLower();
 		if ( Cvar.getcvar("W3D_Text_toggle").getint() == 3 )
 		{
-			if ( (CVar.FindCVar("wf_hulshult_idkfa").GetBool() ) )
+			if ( (CVar.FindCVar("wf_mus_idkfa").GetBool() ) )
 			{
 				if ( music == "h_ultima" )
 				music = "h_doom";
@@ -715,7 +715,7 @@ class DCX_MusicHandler : StaticEventHandler
 		}
 		else
 		{
-			if ( (CVar.FindCVar("wf_hulshult_idkfa").GetBool() ) )
+			if ( (CVar.FindCVar("wf_mus_idkfa").GetBool() ) )
 			{
 				if ( mapName == "map31")
 				{
@@ -749,7 +749,7 @@ class DCX_MusicHandler : StaticEventHandler
 			}			
 		}
 				
-		if ( (CVar.FindCVar("dcx_3DO_Music").GetBool() ) && (CVar.FindCVar("wf_hulshult_idkfa").GetBool() != true) && ( mapName.left(3) != "ja_" ) )
+		if ( (CVar.FindCVar("dcx_3DO_Music").GetBool() ) && (CVar.FindCVar("wf_mus_idkfa").GetBool() != true) && ( mapName.left(3) != "ja_" ) )
 		{
 			if ( music == "d_e1m1" || music == "d_e2m4" || music == "d_inter")
 				music = "o_e1m1";

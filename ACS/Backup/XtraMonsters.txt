@@ -147,7 +147,11 @@ script "Xtra_Monster_Placements" enter
 	{	
 		if (StrICmp(mapName, "e1m1") == 0)
 		{
-			Replace("Demon",3008,-4816,90,0,0); //Replace the imp at the end with a pinky
+			Add("Doomimp",2976,-4768,90,0,0);
+			Add("Doomimp",3040,-4768,90,0,0);
+			
+			Add("Demon",704,128,180,0,0);
+			Add("Demon",640,320,180,0,0);
 			
 			Replace("ChaingunGuy",2272,-2432,180,0,0); //Replaces the Zombieman in the computer room
 			Replace("ChaingunGuy",3056,-3584,90,0,0); //Replaces Zombieman in the toxic zig zag room
@@ -162,6 +166,19 @@ script "Xtra_Monster_Placements" enter
 		{
 			Add("Spectre",-544,896,180,0,0); //In the toxic waste room with the switch to the maze
 			Add("Spectre",-800,1248,270,0,0);
+			
+			//In the Maze
+			Add("Spectre",-2144,-160,0,0,0);			
+			Add("Spectre",-1504,-480,135,0,0);			
+			Add("Spectre",-1952,-544,270,0,0);			
+			Add("Spectre",-1440,-864,45,0,0);			
+			Add("Spectre",-1376,-32,0,0,0);		
+			Add("Spectre",-928,-544,180,0,0);		
+			Add("Spectre",-608,-544,270,0,0);
+			Add("Spectre",-352,-416,180,0,0);
+			Add("Spectre",-352,-416,180,0,0);
+			Add("Spectre",0,-736,90,0,0);
+			Add("Spectre",-288,-1088,90,0,0);
 			
 			Add("ChaingunGuy",0,864,270,0,0); //Begining room with all the zombieman
 			
