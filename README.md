@@ -5,3 +5,4 @@
 In case anyone finds the sources for certain things, please let me know so that I can add them in the credits lump.
 
 An addonem mod for the unoffical expansions can be found here https://github.com/Someguyman/WadFusion-Unoffical-Xtras
+(Note: You do need to have built a version of wadfusion with everything in it so the addon wad can work properly.)
