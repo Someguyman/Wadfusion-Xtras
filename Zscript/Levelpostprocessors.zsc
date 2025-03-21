@@ -1,182 +1,5 @@
 
-class DCX_PlaystationSecrets : LevelPostProcessor
-{
-	protected void Apply(Name checksum, String mapname)
-	{
-		switch (checksum)
-		{
-			case '8590F489879870C098CD7029C3187159': //e2m7
-			{
-				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				{
-					SetLineActivation(1620, SPAC_Use);
-					SetLineSpecial(1620, Exit_Secret, 0);
-					
-					SetLineActivation(680, 0);
-					SetWallTexture(680,line.front,side.mid,"BROWN96");
-					
-					SetSectorSpecial(294, 0);
-				}
-				break;
-			}
-			case '6b60f37b91309dff1cdf02e5e476210d': //map16
-			{
-				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				{					
-					SetLineActivation(580, 0);
-					AddSectorTag(11, 19);
-					SetLineActivation(316, SPAC_Cross);
-					SetLineActivation(317, SPAC_Cross);
-					SetLineActivation(318, SPAC_Cross);
-					SetLineActivation(319, SPAC_Cross);
-					SetLineActivation(320, SPAC_Cross);
-					SetLineSpecial(316, Door_Raise, 19, 64, 150);
-					SetLineSpecial(317, Door_Raise, 19, 64, 150);
-					SetLineSpecial(318, Door_Raise, 19, 64, 150);
-					SetLineSpecial(319, Door_Raise, 19, 64, 150);
-					SetLineSpecial(320, Door_Raise, 19, 64, 150);
-					
-					SetWallTextureID(574, Line.front, Side.mid, TexMan.CheckForTexture("SW2SKULL", TexMan.Type_Wall, TexMan.Overridable));
-					SetLineActivation(574, SPAC_Use);
-					SetLineSpecial(574, Exit_Secret, 0);
-				}
-				break;
-			}
-			case '2DC939E508AB8EB68AF79D5B60568711': //e4m8
-			{
-				if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
-				{
-					SetLineActivation(877, SPAC_Cross);
-					SetLineActivation(878, SPAC_Cross);
-					SetLineActivation(879, SPAC_Cross);
-					SetLineActivation(880, SPAC_Cross);
-					SetLineActivation(881, SPAC_Cross);
-					SetLineActivation(882, SPAC_Cross);
-					SetLineActivation(883, SPAC_Cross);
-					SetLineActivation(884, SPAC_Cross);
-					
-					SetLineSpecial(877, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(878, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(879, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(880, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(881, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(882, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(883, ACS_Execute, -int('E4M1_NoIntermission'));
-					SetLineSpecial(884, ACS_Execute, -int('E4M1_NoIntermission'));
-				}
-				break;
-			}
-		}
-	}
-}
-
-class DCX_Multiplayerweaponremoveal : LevelPostProcessor 
-{
-		protected void Apply(Name checksum, String mapname)
-		{
-			for (uint i = 0; i < GetThingCount(); i++)
-			{
-				let flags = GetThingFlags(i);
-				int ednum = GetThingEdNum(i);
-				String mapPrefix = level.MapName.Left(3);
-				mapPrefix = mapPrefix.MakeLower();
-				String mapName = level.MapName.MakeLower();
-				
-				if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
-				{
-					if (ednum == 11)
-					SetThingEdNum(i, 7734); 
-				}
-				
-					if(flags & MTF_COOPERATIVE && !(flags & MTF_SINGLE))
-					{
-					if ( mapPrefix != "dm_" )
-					{
-					if ( mapPrefix != "ab_" )
-					{
-						if ( mapPrefix != "pl_" )
-						{
-							if ( (mapName != "tn_map28") || (mapName != "tn_map31") || (mapName != "tn_map32") )
-							{
-								if ( mapName != "psx02" )
-								{
-									if (ednum == 2007 || ednum == 2048 || ednum == 2008 || ednum == 2049 || ednum == 2010 || ednum == 2046 || ednum == 2047 || ednum == 17 || ednum == 8)
-									SetThingEdNum(i, 0); 
-								}
-								
-								if (ednum == 2001)
-								SetThingEdNum(i, 0); 
-								
-								if (ednum == 2002)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2003)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2004)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2005)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2006)
-								SetThingEdNum(i, 0); 
-
-								if (ednum == 2035)
-								SetThingEdNum(i, 0); 
-
-								if (mapName != "tn_map01")
-								{
-									if (mapName != "psx02")
-									{
-										if (ednum == 82)
-										SetThingEdNum(i, 0); 
-									}
-								}
-							}
-						}
-						}
-					}
-					//Health
-					if (ednum == 2012)
-					SetThingEdNum(i, 2014); 
-					
-					//Weapons
-					if (ednum == 8)
-					SetThingEdNum(i, 2011); 
-					
-					//Powerups
-					if (ednum == 2024 || ednum == 2026 || ednum == 2025 || ednum == 2018 || ednum == 2019 || ednum == 2045)
-					SetThingEdNum(i, 0); 
-					
-					if (ednum == 14)
-					SetThingEdNum(i, 0);
-					
-					if (ednum == 2013 || ednum == 83 || ednum == 2022 || ednum == 2026 || ednum == 2023)
-					SetThingEdNum(i, 2014); 
-					
-					if (ednum == 16 && mapPrefix != "map")
-					{
-						if (mapPrefix != "dz_")
-						SetThingEdNum(i, 616);
-					}
-					
-					if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
-					{
-						if (mapPrefix != "dz_")
-						SetThingEdNum(i, 607); 
-					}
-					
-					//Keys
-					if (ednum == 13 || ednum == 5 || ednum == 6 || ednum == 38 || ednum == 40 || ednum == 39)
-					SetThingEdNum(i, 0); 
-			}
-		}
-	}
-}
-
-// Fixes the minor bugs in the maps
-Class DCX_MapFixes : LevelPostProcessor
+class WadfusionXtras_PostProcessor : LevelPostProcessor
 {
 	protected void Apply(Name checksum, String mapname)
 	{
@@ -188,344 +11,710 @@ Class DCX_MapFixes : LevelPostProcessor
 			mapPrefix = mapPrefix.MakeLower();
 			String mapName = level.MapName.MakeLower();
 			
+			//Replacing the deathmatch spawns with special marine bot spawners
+				
+			if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
+			{
+				if (ednum == 11)
+				SetThingEdNum(i, 7734); 
+			}
+			
+			if(flags & MTF_COOPERATIVE && !(flags & MTF_SINGLE))
+			{
+				if ( mapPrefix != "dm_" )
+				{
+				if ( mapPrefix != "ab_" )
+				{
+				if ( mapPrefix != "pl_" )
+				{
+					if ( (mapName != "tn_map28") || (mapName != "tn_map31") || (mapName != "tn_map32") )
+					{
+						if ( mapName != "psx02" )
+						{
+							if (ednum == 2007 || ednum == 2048 || ednum == 2008 || ednum == 2049 || ednum == 2010 || ednum == 2046 || ednum == 2047 || ednum == 17 || ednum == 8)
+							SetThingEdNum(i, 0); 
+						}
+								
+							if (ednum == 2001)
+							SetThingEdNum(i, 0); 
+								
+							if (ednum == 2002)
+							SetThingEdNum(i, 0); 
+
+							if (ednum == 2003)
+							SetThingEdNum(i, 0); 
+
+							if (ednum == 2004)
+							SetThingEdNum(i, 0); 
+
+							if (ednum == 2005)
+							SetThingEdNum(i, 0); 
+
+							if (ednum == 2006)
+							SetThingEdNum(i, 0); 
+
+							if (ednum == 2035)
+							SetThingEdNum(i, 0); 
+
+							if (mapName != "tn_map01")
+							{
+								if (mapName != "psx02")
+								{
+									if (ednum == 82)
+									SetThingEdNum(i, 0); 
+								}
+							}
+						}
+				}
+				}
+				}
+				
+				//Health
+				if (ednum == 2012)
+				SetThingEdNum(i, 2014); 
+					
+				//Weapons
+				if (ednum == 8)
+				SetThingEdNum(i, 2011); 
+					
+				//Powerups
+				if (ednum == 2024 || ednum == 2026 || ednum == 2025 || ednum == 2018 || ednum == 2019 || ednum == 2045)
+				SetThingEdNum(i, 0); 
+					
+				if (ednum == 14)
+				SetThingEdNum(i, 0);
+					
+				if (ednum == 2013 || ednum == 83 || ednum == 2022 || ednum == 2026 || ednum == 2023)
+				SetThingEdNum(i, 2014); 
+					
+				if (ednum == 16 && mapPrefix != "map")
+				{
+					if (mapPrefix != "dz_")
+					SetThingEdNum(i, 616);
+				}
+					
+				if (ednum == 7 && mapPrefix != "map" && mapPrefix != "ab_")
+				{
+					if (mapPrefix != "dz_")
+					SetThingEdNum(i, 607); 
+				}
+					
+				//Keys
+				if (ednum == 13 || ednum == 5 || ednum == 6 || ednum == 38 || ednum == 40 || ednum == 39)
+				SetThingEdNum(i, 0); 
+			}
+			}
+			
+			//Adding the unmaker and demonkeys into the doom 64 for doom 2 maps.
+				
+			if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
+			{					
+				if ( mapName == "ab_map06" )
+				{ SetThingEdNum(81,666); /*Replaces secret plasmagun*/ }	
+				
+				if ( mapName == "ab_map14" )
+				SetThingEdNum(137,668);	//Replaces the megasphere that stood where it was in doom 64.
+				
+				if ( mapName == "ab_map32" )
+				SetThingEdNum(106,669);	//Replaces the megasphere on top of the platform
+				
+				if ( mapName == "ab_map15" )
+				SetThingEdNum(291,666);	//Replaces the bfg in the red key room where the unmaker was in the original doom 64
+				
+				if ( mapName == "ab_map28" )
+				SetThingEdNum(73,666);	//Replaces the plasmagun on the secret lift
+					
+				if ( mapName == "ab_map30" )
+				{ SetThingEdNum(6,666); } //Replaces the backpack in penultimate room
+			}
+			
+			switch (checksum)	
+			{
+				case '3cb5fae83b470a9accd9b9b2102447df' : //E1M1 ORIGINAL DOOM
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					SetWallTexture(243,line.front,side.top,"BROWNGR5");
+					break;
+				}
+				
+				case 'b49f7a6c519757d390d52667db7d8793' : //E1M1 ULTIMATE DOOM
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					SetWallTexture(243,line.front,side.top,"BROWNGR5");
+					break;
+				}
+				
+				case '5b26545ff21b051ca06d389ce535684c' : //E1M4
+				{
+					if ( CVar.FindCVar("fs_toggle").GetBool() )
+						SetSectorTexture(6,1,"F_SKY1");
+					break;
+				}
+				
+				case '3838ab29292587a7ee3ca71e7040868d': //E2M6
+				{
+					// Removes the extra pinky, now everything will be able to move
+					SetThingEdNum(71,0);					
+					break;
+				}
+			
+			
+				case '8590F489879870C098CD7029C3187159': //E2M7
+				{
+					// Removes corpses hanging in the air
+					
+					SetThingEdNum(195,0);
+					SetThingEdNum(196,0);
+					
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{	
+						SetThingEdNum(199,0);
+						SetThingEdNum(229,0);
+					
+						SetLineActivation(1620, SPAC_Use);
+						SetLineSpecial(1620, Exit_Secret, 0);
+					
+						SetLineActivation(680, 0);
+						SetWallTexture(680,line.front,side.mid,"BROWN96");
+					
+						SetSectorSpecial(294, 0);
+					}
+					break;
+				}
+				
+				case '5AC51CA9F1B57D4538049422A5E37291': //E3M7
+				{
+					SetSectorTexture(105,1,"FLOOR3_3");
+					break;
+				}
+			
+				case 'DA0C8281AC70EEC31127C228BCD7FE2C': //e4m1
+				{
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{
+						SetThingEdNum(87, 69); 
+						SetThingEdNum(29, 69);
+						SetThingEdNum(30, 69);
+						SetThingEdNum(31, 69);
+						SetThingEdNum(32, 69);
+					}
+					break;
+				}
+			
+				case '771092812F38236C9DF2CB06B2D6B24F': //e4m2
+				{
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{
+						SetThingEdNum(24, 69); 
+						SetThingEdNum(25, 69); 
+						SetThingEdNum(26, 69); 
+						SetThingEdNum(39, 69);
+						SetThingEdNum(40, 69); 
+						SetThingEdNum(90, 69); 
+						SetThingEdNum(91, 69);
+						SetThingEdNum(92, 69);
+						SetThingEdNum(133, 69);
+						SetThingEdNum(134, 69);
+						SetThingEdNum(223, 69);
+					}
+					break;
+				}
+			
+				case 'F6EE16F770AD309D608EA0B1F1E249FC': //e4m3
+				{
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{
+						SetThingEdNum(238, 69);
+						SetThingEdNum(239, 69);
+						SetThingEdNum(326, 69);
+						SetThingEdNum(327, 69);
+						SetThingEdNum(368, 69);
+					}
+					break;
+				}
+				
+				case '94D4C869A0C02EF4F7375022B36AAE45' : //E4M7 //ML_MAP35
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(595,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(582,line.front,side.mid,"DOORBLU2");
+						
+						SetWallTexture(388,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1325,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1053,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1324,line.front,side.top,"DOORYEL2");
+						
+						SetWallTexture(1329,line.front,side.top,"DOORYEL2");
+						SetWallTexture(210,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1056,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1327,line.front,side.top,"DOORYEL2");
+					
+						SetWallTexture(64,line.front,side.mid,"DOORRED2");
+						SetWallTexture(68,line.front,side.mid,"DOORRED2");
+					}
+					break;
+				}
+			
+				case '2DC939E508AB8EB68AF79D5B60568711': //e4m8
+				{
+					SetThingEdNum(137,9);
+					SetThingAngle(289,180);
+					SetThingAngle(290,180);
+					SetThingAngle(291,180);	
+					SetThingSkills(121, 0);
+					SetThingSkills(121, 1);
+					SetSectorPlane(130,1,(0,0,0),304);
+					SetSectorPlane(131,1,(0,0,0),304);
+					SetSectorPlane(132,1,(0,0,0),304);
+					
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(1020,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1021,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1022,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1023,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1024,line.back,side.bottom,"WFALL1");						
+						SetWallTexture(1025,line.back,side.bottom,"WFALL1");
+						SetWallTexture(1026,line.back,side.bottom,"WFALL1");
+						SetWallTexture(1027,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1028,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1029,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1030,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1031,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1032,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1033,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1034,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1035,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1036,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1037,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1038,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1039,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1040,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1041,line.front,side.bottom,"WFALL1");
+					}
+					else
+					{
+						SetWallTexture(1029,line.front,side.bottom,"SP_ROCK1");
+					}
+					
+					if ( !CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{	
+						SetLineActivation(877, SPAC_Cross);
+						SetLineActivation(878, SPAC_Cross);
+						SetLineActivation(879, SPAC_Cross);
+						SetLineActivation(880, SPAC_Cross);
+						SetLineActivation(881, SPAC_Cross);
+						SetLineActivation(882, SPAC_Cross);
+						SetLineActivation(883, SPAC_Cross);
+						SetLineActivation(884, SPAC_Cross);
+					
+						SetLineSpecial(877, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(878, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(879, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(880, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(881, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(882, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(883, ACS_Execute, -int('E4M1_NoIntermission'));
+						SetLineSpecial(884, ACS_Execute, -int('E4M1_NoIntermission'));
+					}
+					else
+					{
+						SetThingEdNum(105, 69);
+						SetThingEdNum(106, 69);
+						SetThingEdNum(144, 69);
+						SetThingEdNum(291, 69);
+					
+						SetThingEdNum(261, 69);
+						SetThingEdNum(262, 69);
+						SetThingEdNum(263, 69);
+						SetThingEdNum(264, 69);
+					}
+					break;
+				}
+				
+				case 'ab24ae6e2cb13cbdd04600a4d37f9189': //MAP02
+				{
+					//	Removes Out of Bounds and/or stuck objects and puts them in the right spot
+					
+					SetThingEdNum(85,0);
+					SetThingEdNum(69,0);
+					break;
+				}
+			
+				case '6b60f37b91309dff1cdf02e5e476210d': //map16
+				{
+					if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+					{					
+						SetLineActivation(580, 0);
+						SetLineSpecial(580, 0);
+						AddSectorTag(11, 19);
+						SetLineActivation(316, SPAC_Cross);
+						SetLineActivation(317, SPAC_Cross);
+						SetLineActivation(318, SPAC_Cross);
+						SetLineActivation(319, SPAC_Cross);
+						SetLineActivation(320, SPAC_Cross);
+						SetLineSpecial(316, Door_Raise, 19, 64, 150);
+						SetLineSpecial(317, Door_Raise, 19, 64, 150);
+						SetLineSpecial(318, Door_Raise, 19, 64, 150);
+						SetLineSpecial(319, Door_Raise, 19, 64, 150);
+						SetLineSpecial(320, Door_Raise, 19, 64, 150);
+					
+						SetLineActivation(574, SPAC_Use);
+						SetLineSpecial(574, Exit_Secret, 0);
+						SetLineFlags(316, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(317, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(318, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(319, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(320, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(574, Line.ML_REPEAT_SPECIAL);
+						SetWallTextureID(574, Line.front, Side.mid, TexMan.CheckForTexture("SW2SPFAC", TexMan.Type_Wall, TexMan.Overridable));				
+					}
+					break;
+				}
+				
+				case '5B95A0EB9656ABD9F6DF9FFA68CADAAF': //PSX09
+				{
+					SetLineActivation(43, SPAC_Cross);			
+					SetLineSpecial(43, ACS_Execute, -int('ClubDoomMusicSwap'));
+					break;
+				}
+				
+				case '3FF94E27423F91C1585B3396F0C03459' : //"Map31
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(666,line.front,side.mid,"LITE5");
+						SetWallTexture(668,line.front,side.mid,"LITE5");
+						SetWallTexture(670,line.front,side.mid,"LITE5");
+						SetWallTexture(672,line.front,side.mid,"LITE5");
+					}
+					break;
+				}
+				
+				
+				case '25F93BD6E7B394A6E799421B4202084E' : //ML_MAP33
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(345,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(347,line.front,side.mid,"DOORYEL2");						
+						SetWallTexture(351,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(353,line.front,side.mid,"DOORYEL2");						
+							
+						SetWallTexture(566,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1167,line.front,side.top,"DOORBLU2");					
+						SetWallTexture(563,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1165,line.front,side.top,"DOORBLU2");
+							
+						SetWallTexture(1025,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1464,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1466,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1467,line.front,side.top,"DOORBLU2");
+					}
+					break;
+				}
+				
+				case '17FFA47F0FE4368CD9710A0F3C5052D2' : //ml_map34
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(370,line.front,side.top,"MARBFRED");
+						SetWallTexture(380,line.front,side.top,"MARBFRED");
+					
+						SetWallTexture(788,line.front,side.mid,"DOORYEL");
+						SetWallTexture(790,line.front,side.mid,"DOORYEL");
+					}
+					break;
+				}
+				
+				case 'F4E27C9E58975CC01801499FD66E22C3' : //ml_map11
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+					{
+						SetWallTexture(338,line.front,side.top,"DOORBLU2");
+						SetWallTexture(341,line.front,side.top,"DOORBLU2");
+						SetWallTexture(538,line.front,side.top,"DOORBLU2");
+						SetWallTexture(540,line.front,side.top,"DOORBLU2");
+					
+						SetWallTexture(534,line.front,side.top,"DOORYEL2");
+						SetWallTexture(464,line.front,side.top,"DOORYEL2");
+						SetWallTexture(537,line.front,side.top,"DOORYEL2");
+						SetWallTexture(461,line.front,side.top,"DOORYEL2");
+					
+						SetWallTexture(301,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(699,line.front,side.mid,"DOORYEL2");
+					
+						SetWallTexture(286,line.front,side.mid,"DOORYEL");
+						SetWallTexture(931,line.front,side.mid,"DOORYEL");
+					}
+					break;
+				}
+				
+				case 'F3EA567C6FFFBB49AF6BDOEC773A2AF1' : //ml_map12"
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
+					{
+						SetWallTexture(157,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(831,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(344,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(345,line.front,side.mid,"DOORBLU2");
+					
+						SetWallTexture(332,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(204,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(206,line.front,side.mid,"DOORBLU");
+						SetWallTexture(328,line.front,side.mid,"DOORBLU");
+					
+						SetWallTexture(670,line.front,side.mid,"DOORRED2");
+						SetWallTexture(740,line.front,side.mid,"DOORRED2");
+						SetWallTexture(923,line.front,side.top,"DOORRED2");
+						SetWallTexture(816,line.front,side.top,"DOORRED2");
+					}
+					break;
+				}
+				
+				case '8C7C674F9EE4D15DF19414A556AE3369' : //ml_map15
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
+					{
+						SetWallTexture(27,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(244,line.front,side.mid,"DOORBLU2");
+					
+						SetWallTexture(667,line.front,side.mid,"DOORRED2");
+						SetWallTexture(1108,line.front,side.mid,"DOORRED2");
+					}
+				break;
+				
+				case '75AD07EBOB915DE49DABCC3B9158161D' : //ml_map36
+				{
+					if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
+					{
+						SetWallTexture(3694,line.front,side.mid,"DOORRED");
+						SetWallTexture(3673,line.front,side.mid,"DOORRED");
+						SetWallTexture(3691,line.front,side.mid,"DOORRED");
+						SetWallTexture(1530,line.front,side.mid,"DOORRED");		
+					}
+					break;
+				}
+				
+				case 'd5f64e02679a81b82006af34a6a8eac3': //pl_map32
+				{
+					SetThingEdNum(515,67);
+					break;
+				}
+				
+				case '96BE67AADAA69B1D54294C051100FCE9': //ml_map42: Eye Of The Storm
+				{
+					if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+					{
+						SetLineActivation(817, SPAC_Cross);
+						SetLineSpecial(817, ACS_Execute, -int('Cabal_NoIntermission'));
+					}
+					Break;
+				}
+				
+				case '20DC5D6832C95D1C68BE8FC0C082BEE8': //ml_map43 Image Of Evil
+				{
+					if ( CVar.GetCvar("dcx_CabalOrder").getint() < 2 )
+					{
+						SetLineActivation(1253, SPAC_Cross);
+						SetLineSpecial(1253, ACS_Execute, -int('Cabal_NoIntermission'));
+					}
+					Break;
+				}
+				
+				case '460B344A7B80F23B1E0CF2A1939D7D2F' :
+				{
+					addthing(712, (0, 63, -999), 0);
+					Break;
+				}
+		}
+		
+		// The remaining switch case functions here are all related to the total carnage difficulty
+		
+		If (CallACS("Check_Difficulty") == 2)
+		{
 			switch (checksum)
 			{
-				
-			// Removes the extra pinky, now everything will be able to move
-			case '3838ab29292587a7ee3ca71e7040868d': //E2M6
-				SetThingEdNum(71,0);
-			break;
 			
-			// Removes corpses hanging in the air
-			case '8590f489879870c098cd7029c3187159': //E2M7
-			
-				SetThingEdNum(195,0);
-				SetThingEdNum(196,0);
-				
-				//Removes soulsphere and cell pack from the secret by the starting area if psx maps are enabled
-				if ( CVar.FindCVar("dcx_playstationmaps").GetBool() )
+				case 'c7ff2282bc606ffb28ddcb90357094e6' :	//E1M3
 				{
-					SetThingEdNum(199,0);
-					SetThingEdNum(229,0);
-				}
-			break;
-			
-			//	Removes Out of Bounds and/or stuck objects and puts them in the right spot
-			case 'ab24ae6e2cb13cbdd04600a4d37f9189': //MAP02
-				SetThingEdNum(85,0);
-				SetThingEdNum(69,0);
-			break;
-			
-			case 'd5f64e02679a81b82006af34a6a8eac3': //pl_map32
-				SetThingEdNum(515,67);
-			break;
-			
-			case '1bc04d646b32d3a3e411daf3c1a38ff8': //E2M4
-			if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
-			{
-				SetSectorTexture(173,0,"BLOOD3");
-				SetSectorTexture(177,0,"BLOOD3");
-			}
-			break;
-			
-			
-			case '5b26545ff21b051ca06d389ce535684c' : //E1M4
-			if ( CVar.FindCVar("fs_toggle").GetBool() )
-			{
-				SetSectorTexture(6,1,"F_SKY1");
-			}
-			break;
-			
-			
-			case '94D4C869A0C02EF4F7375022B36AAE45' : //E4M7 //ML_MAP35
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-			{
-				SetWallTexture(595,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(582,line.front,side.mid,"DOORBLU2");
-						
-				SetWallTexture(388,line.front,side.top,"DOORYEL2");
-				SetWallTexture(1325,line.front,side.top,"DOORYEL2");
-				SetWallTexture(1053,line.front,side.top,"DOORYEL2");
-				SetWallTexture(1324,line.front,side.top,"DOORYEL2");
-						
-				SetWallTexture(1329,line.front,side.top,"DOORYEL2");
-				SetWallTexture(210,line.front,side.top,"DOORYEL2");
-				SetWallTexture(1056,line.front,side.top,"DOORYEL2");
-				SetWallTexture(1327,line.front,side.top,"DOORYEL2");
-						
-				SetWallTexture(64,line.front,side.mid,"DOORRED2");
-				SetWallTexture(68,line.front,side.mid,"DOORRED2");
-			}
-			break;
-			
-			case '3FF94E27423F91C1585B3396F0C03459' : //"Map31
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-			{
-				SetWallTexture(666,line.front,side.mid,"LITE5");
-				SetWallTexture(668,line.front,side.mid,"LITE5");
-				SetWallTexture(670,line.front,side.mid,"LITE5");
-				SetWallTexture(672,line.front,side.mid,"LITE5");
-			}
-			break;
-
-			case '25F93BD6E7B394A6E799421B4202084E' : //ML_MAP33
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-			{
-				SetWallTexture(345,line.front,side.mid,"DOORYEL2");
-				SetWallTexture(347,line.front,side.mid,"DOORYEL2");						
-				SetWallTexture(351,line.front,side.mid,"DOORYEL2");
-				SetWallTexture(353,line.front,side.mid,"DOORYEL2");						
-							
-				SetWallTexture(566,line.front,side.top,"DOORBLU2");
-				SetWallTexture(1167,line.front,side.top,"DOORBLU2");					
-				SetWallTexture(563,line.front,side.top,"DOORBLU2");
-				SetWallTexture(1165,line.front,side.top,"DOORBLU2");
-							
-				SetWallTexture(1025,line.front,side.top,"DOORBLU2");
-				SetWallTexture(1464,line.front,side.top,"DOORBLU2");
-				SetWallTexture(1466,line.front,side.top,"DOORBLU2");
-				SetWallTexture(1467,line.front,side.top,"DOORBLU2");
-			}
-			break;
-			
-			case '17FFA47F0FE4368CD9710A0F3C5052D2' : //ml_map34
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-			{
-				SetWallTexture(370,line.front,side.top,"MARBFRED");
-				SetWallTexture(380,line.front,side.top,"MARBFRED");
 					
-				SetWallTexture(788,line.front,side.mid,"DOORYEL");
-				SetWallTexture(790,line.front,side.mid,"DOORYEL");
-			}
-			break;
-			
-			case 'F4E27C9E58975CC01801499FD66E22C3' : //ml_map11
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-			{
-				SetWallTexture(338,line.front,side.top,"DOORBLU2");
-				SetWallTexture(341,line.front,side.top,"DOORBLU2");
-				SetWallTexture(538,line.front,side.top,"DOORBLU2");
-				SetWallTexture(540,line.front,side.top,"DOORBLU2");
-					
-				SetWallTexture(534,line.front,side.top,"DOORYEL2");
-				SetWallTexture(464,line.front,side.top,"DOORYEL2");
-				SetWallTexture(537,line.front,side.top,"DOORYEL2");
-				SetWallTexture(461,line.front,side.top,"DOORYEL2");
-					
-				SetWallTexture(301,line.front,side.mid,"DOORYEL2");
-				SetWallTexture(699,line.front,side.mid,"DOORYEL2");
-					
-				SetWallTexture(286,line.front,side.mid,"DOORYEL");
-				SetWallTexture(931,line.front,side.mid,"DOORYEL");
-			}
-			break;
-			
-			case 'F3EA567C6FFFBB49AF6BDOEC773A2AF1' : //ml_map12"
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
-			{
-				SetWallTexture(157,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(831,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(344,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(345,line.front,side.mid,"DOORBLU2");
-					
-				SetWallTexture(332,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(204,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(206,line.front,side.mid,"DOORBLU");
-				SetWallTexture(328,line.front,side.mid,"DOORBLU");
-					
-				SetWallTexture(670,line.front,side.mid,"DOORRED2");
-				SetWallTexture(740,line.front,side.mid,"DOORRED2");
-				SetWallTexture(923,line.front,side.top,"DOORRED2");
-				SetWallTexture(816,line.front,side.top,"DOORRED2");
-			}
-			break;
-
-			case '8C7C674F9EE4D15DF19414A556AE3369' : //ml_map15
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
-			{
-				SetWallTexture(27,line.front,side.mid,"DOORBLU2");
-				SetWallTexture(244,line.front,side.mid,"DOORBLU2");
-					
-				SetWallTexture(667,line.front,side.mid,"DOORRED2");
-				SetWallTexture(1108,line.front,side.mid,"DOORRED2");
-			}
-			break;
-			
-			case '75AD07EBOB915DE49DABCC3B9158161D' : //ml_map36
-			if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() ) 
-			{
-				SetWallTexture(3694,line.front,side.mid,"DOORRED");
-				SetWallTexture(3673,line.front,side.mid,"DOORRED");
-				SetWallTexture(3691,line.front,side.mid,"DOORRED");
-				SetWallTexture(1530,line.front,side.mid,"DOORRED");		
-			}
-			break;
-			
-			}
-		}
-	}
-}
-
-//Used in case the ACS script has trouble spawning in a particular actor or two
-
-class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor 
-{
-		protected void Apply(Name checksum, String mapname)
-		{
-			for (uint i = 0; i < GetThingCount(); i++)
-			{
-				let flags = GetThingFlags(i);
-				int ednum = GetThingEdNum(i);
-				String mapPrefix = level.MapName.Left(3);
-				mapPrefix = mapPrefix.MakeLower();
-				String mapName = level.MapName.MakeLower();
-				
-				//Adding the unmaker and demonkeys into the maps.
-				
-				if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
-				{					
-					if ( mapName == "ab_map06" )
-					{
-						SetThingEdNum(81,666); //Replaces secret plasmagun
-					}				
-					if ( mapName == "ab_map14" )
-					SetThingEdNum(137,668);	//Replaces the megasphere that stood where it was in doom 64.
-				
-					if ( mapName == "ab_map32" )
-					SetThingEdNum(106,669);	//Replaces the megasphere on top of the platform
-				
-					if ( mapName == "ab_map15" )
-					SetThingEdNum(291,666);	//Replaces the bfg in the red key room where the unmaker was in the original doom 64
-				
-					if ( mapName == "ab_map28" )
-					SetThingEdNum(73,666);	//Replaces the plasmagun on the secret lift
-					
-					if ( mapName == "ab_map30" )
-					{
-						SetThingEdNum(6,666);  //Replaces the backpack in penultimate room						
-					}			
-				}
-				
-				//Will only activeate on "Total Carnage" and "ULTRA NIGHTMARE!" difficulties. 
-				If (CallACS("Check_Difficulty") == 2)
-				{
-					if ( mapName == "e1m3" )
-					{
 						SetThingEdNum(191,0);
 						SetThingEdNum(192,0);
 						SetThingEdNum(193,0);
 						SetThingEdNum(194,0);
-					}
-					if ( mapName == "e1m4" )
+						break;
+				}
+						
+					
+				case '5b26545ff21b051ca06d389ce535684c' : //E1M4
+				{
+					//Will only appear when you have the wolfenstein stuff uncensored.
+					if ( Cvar.getcvar("W3D_Text_toggle").getint() == 0 )
 					{
-						AddThing(3005, (704, -432, -999), 90);
+						SetVertex(672, -320, 1856);
+						SetVertex(665, -320, 1792);					
+						SetVertex(672, -320, 1856);
+						SetVertex(665, -320, 1792);					
+						SetVertex(655, -256, 1856);
+						SetVertex(654, -256, 1792);
+					
+						SetVertex(194, -320, 1728);
+						SetVertex(664, -320, 1664);					
+						SetVertex(670, -256, 1664);
+						SetVertex(661, -256, 1728);
 						
-						AddThing(3005, (1200, -400, -999), 90);
+						SetThingEdNum(196,84);
+						AddThing(84, (-416, 1632, -999), 180);
+						AddThing(84, (-416, 1888, -999), 90);
+						AddThing(84, (-160, 1888, -999), 0);
 					}
-					if ( mapName == "e1m4b" )
+					else
 					{
-						AddThing(3005, (268, 8, -999), 135);
-						AddThing(3005, (368, 0, -999), 135);
-						
-						AddThing(3005, (352, -496, -999), 225);
-						
-						AddThing(3005, (-448, 1032, -999), 270);
-						AddThing(3005, (216, 1032, -999), 270);
-						
-						AddThing(3005, (748, -220, -999), 45);
-						
-						AddThing(3005, (480, -192, -999), 135);
-						AddThing(3005, (480, -256, -999), 225);
-						AddThing(3005, (544, -224, -999), 0);					
+						AddThing(9, (-416, 1632, -999), 180);
+						AddThing(9, (-416, 1888, -999), 90);
+						AddThing(9, (-160, 1888, -999), 0);
 					}
-					if ( mapName == "e1m5" )
+					
+					AddThing(3005, (704, -432, -999), 90);					
+					AddThing(3005, (1200, -400, -999), 90);
+					break;
+				}
+									
+				case '1D80B17F6283346D35EDB86CD684C4D3' : //E1M4b
+				{
+					AddThing(3005, (268, 8, -999), 135);
+					AddThing(3005, (368, 0, -999), 135);
+						
+					AddThing(3005, (352, -496, -999), 225);
+						
+					AddThing(3005, (-448, 1032, -999), 270);
+					AddThing(3005, (216, 1032, -999), 270);
+						
+					AddThing(3005, (748, -220, -999), 45);
+						
+					AddThing(3005, (480, -192, -999), 135);
+					AddThing(3005, (480, -256, -999), 225);
+					AddThing(3005, (544, -224, -999), 0);
+					break;
+				}					
+									
+				case '66d8e54b173041f981a11cce766c4215' : //E1M5
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
-						SetThingEdNum(21,0);
-						SetThingEdNum(22,0);
-						SetThingEdNum(28,0);
-						
-						SetThingEdNum(29,0);
-						SetThingEdNum(30,0);
-						SetThingEdNum(31,0);
-						
-						AddThing(69, (-1392, 976, -999), 0);
-						AddThing(69, (-1392, 688, -999), 0);
+						SetThingEdNum(161,697);
 					}
-					if ( mapName == "e1m8" )
+					
+					SetThingEdNum(21,0);
+					SetThingEdNum(22,0);
+					SetThingEdNum(28,0);
+						
+					SetThingEdNum(29,0);
+					SetThingEdNum(30,0);
+					SetThingEdNum(31,0);
+						
+					AddThing(69, (-1392, 976, -999), 0);
+					AddThing(69, (-1392, 688, -999), 0);
+					break;
+				}					
+					
+				case '058fb092ea1b70da1e3cbf501c4a91a1' : //E1M6
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
-						AddThing(697, (48, 688, 999), 45);
-						AddThing(697, (784, 688, 999), 135);
+						AddThing(697, (-1392, 976, -999), 0);
+						AddThing(697, (-1392, 976, -999), 0);
 					}
-					if ( mapName == "e1m8b" )
+					else
+					{
+						AddThing(3002, (-1392, 976, -999), 0);
+						AddThing(3002, (-1392, 976, -999), 0);
+					}
+					break;
+				}					
+					
+				case 'A1F105211112747EE50BA520462A471E' : //E1M8b
+				{		
+					SetThingEdNum(195,9);
+					SetThingEdNum(196,9);
+					SetThingEdNum(201,9);
+					SetThingEdNum(202,9);
+						
+					SetThingEdNum(191,65);
+					SetThingEdNum(197,65);
+						
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						SetThingEdNum(142,697);
 						SetThingEdNum(148,697);
 						SetThingEdNum(160,697);
-						
-						SetThingEdNum(195,9);
-						SetThingEdNum(196,9);
-						SetThingEdNum(201,9);
-						SetThingEdNum(202,9);
-						
-						SetThingEdNum(191,65);
-						SetThingEdNum(197,65);
-						
 						SetThingEdNum(194,697);
 						SetThingEdNum(200,697);
 					}
-					if ( mapName == "e2m1" )
+					break;
+				}					
+					
+				case '65455AC523799F8DCE19F3D1968776A2' : //E2M1
+				{
+					AddThing(9, (864, 416, -999), 180);
+					AddThing(9, (760, 312, -999), 180);
+					AddThing(9, (896, 200, -999), 180);
+						
+					AddThing(9, (1384, -184, -999), 45);
+					AddThing(9, (1320, -296, -999), 90);
+					AddThing(9, (896, 200, -999), 180);
+					AddThing(9, (896, 200, -999), 180);
+						
+					AddThing(9, (1928, 72, -999), 135);
+					AddThing(9, (1856, 16, -999), 90);
+						
+					AddThing(3005, (808, -856, -999), 45);
+					AddThing(3005, (1536, -1104, -999), 90);
+					AddThing(3005, (2184, -416, -999), 180);
+						
+					AddThing(65, (1440, -512, -999), 90);
+					AddThing(65, (856, -1024, -999), 0);
+					AddThing(65, (776, -1112, -999), 0);
+						
+					AddThing(65, (840, -888, -999), 45);
+					AddThing(65, (1296, -1048, -999), 45);
+					AddThing(65, (1816, -1024, -999), 135);
+						
+					AddThing(2047, (320, -144, -999), 90);
+					AddThing(2047, (272, -144, -999), 90);
+						
+					AddThing(3001, (776, -1112, -999), 0);
+						
+					AddThing(66, (528, -1152, -999), 180);
+						
+					AddThing(69, (200, -816, -999), 0);
+					AddThing(69, (256, -928, -999), 0);
+						
+					AddThing(65, (320, -848, -999), 0);
+					SetThingEdNum(24,65);
+																	
+					SetThingEdNum(41,2046);
+					SetThingEdNum(42,2003);
+					SetThingEdNum(43,2046);
+						
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
-						SetSectorSpecial(3,0); //Clear a now mandatory sector
-						SetSectorSpecial(91,0); //Ditto for original red key door
-						ClearSectorTags(1); //Doesn't raise up anymore
-						AddSectorTag(82, 21);
-						SetLineActivation(379, 0); //Get rid of the switch here
-						SetLineActivation(381, 0); //Get rid of the switch here												
-						
-						SetLineActivation(350, 0); //Get rid of the door trigger here
-						SetLineActivation(351, 0); //Get rid of the door trigger here
-						level.lines[382].locknumber = 130; //Lock this fella behind a blue key
-						SetLineSpecial(382, Floor_LowerToHighest, 13, 8, 128);
-						
-						SetLineActivation(258, SPAC_Cross);
-						SetLineSpecial(258, Door_Raise, 21, 64, 0);
-						
-						SetLineSpecial(278, Door_LockedRaise, 0, 16, 150, 129);
-						SetLineSpecial(279, Door_LockedRaise, 0, 16, 150, 129);
-						
-						SetWallTexture(201,line.front,side.bottom,"STONGARG"); //To Avoid hall of mirrors
-						SetWallTexture(202,line.front,side.bottom,"STONGARG"); //To Avoid hall of mirrors
-						
-						SetWallTexture(280,line.front,side.mid,"DOORRED");
-						SetWallTexture(283,line.front,side.mid,"DOORRED");
-						
-						SetWallTexture(383,line.front,side.mid,"DOORBLU");
-						SetWallTexture(385,line.front,side.mid,"DOORBLU");
-						
-						SetWallTexture(346,line.front,side.mid,"DOORSTOP");
-						SetWallTexture(390,line.front,side.mid,"DOORSTOP");
-						SetWallTexture(405,line.front,side.bottom,"DOORSTOP");
-						SetWallTexture(406,line.front,side.bottom,"DOORSTOP");
-						
-						SetWallTexture(339,line.front,side.bottom,"LITE5");
-						SetWallTexture(344,line.front,side.bottom,"LITE5");
-						
-						SetWallTexture(340,line.front,side.mid,"DOORSTOP");
-						SetWallTexture(343,line.front,side.mid,"DOORSTOP");
-						
-						OffsetSectorPlane(21, Sector.floor, 256);
-						OffsetSectorPlane(25, Sector.floor, -128);	
-						
-						SetThingEdNum(51, 2002); //Turn original blue key to plasma
-						SetThingEdNum(44, 5); //Turn plasma in the first secret teleporter room into a blue key
-						SetThingEdNum(83, 2004); //Replace original red key with plasma
-						SetThingEdNum(84, 13); //Replace computer area map with red key
+							SetThingEdNum(73,697);
 					}
-					if ( mapName == "e2m3" )
-					{
-						AddThing(2006, (864, -64, -999), 270,MODES_ALL | MTF_AMBUSH);
-					}
-					if ( mapName == "e3m3" )
+					break;
+				}
+					
+					
+				case 'a24fe135d5b6fd427fe27bef89717a65' : //E2M3
+				{
+					AddThing(2006, (864, -64, -999), 270);
+					break;
+				}			
+					
+				case 'f951882cb5a8def910f0ed966a1054c5' : //E3M3
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						SetThingEdNum(71,697);
 						SetThingEdNum(97,697);
@@ -533,15 +722,20 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						SetThingEdNum(151,697);
 						SetThingEdNum(198,697);
 					}
-					if ( mapName == "e3m5" )
+					break;
+				}
+					
+					
+				case '100106C75157B7DECB0DCAD2A59C1919' : //E3M3
+				{
+					SetThingEdNum(217,64);
+						
+					SetThingEdNum(160,69);
+					SetThingEdNum(161,69);
+						
+					//;)
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
-						SetThingEdNum(217,64);
-						
-						SetThingEdNum(160,69);
-						SetThingEdNum(161,69);
-						
-						//;)
-						
 						SetThingEdNum(4,697);
 						SetThingEdNum(5,697);
 						SetThingEdNum(6,697);
@@ -550,8 +744,11 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						SetThingEdNum(9,697);
 						SetThingEdNum(108,697);
 					}
-					if ( mapName == "e4m7" )
-					{
+					break;
+				}
+					
+				case '94D4C869A0C02EF4F7375022B36AAE45' : //E4M7 or ml_map35
+				{
 						SetThingEdNum(131,69);
 						
 						SetThingEdNum(170,66);
@@ -566,161 +763,167 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						SetThingEdNum(11,66);
 						
 						SetThingEdNum(176,71);
-						
+							
 						SetThingEdNum(62,82);
-					}
-					if ( mapName == "psx04" )
-					{
-						SetThingEdNum(304,3003);
-						SetThingEdNum(305,3003);
-						SetThingEdNum(306,3003);
-						SetThingEdNum(307,3003);
-						SetThingEdNum(308,3003);
-						SetThingEdNum(309,3003);
-						SetThingEdNum(310,3003);
-						SetThingEdNum(311,3003);
-						SetThingEdNum(312,3003);
-					}
-					if ( mapName == "e5m1" )
-					{
+							
+						SetThingEdNum(31,65);
+						SetThingEdNum(63,65);
+							
+						SetThingEdNum(32,9);
+						SetThingEdNum(67,9);
+							
+						SetThingEdNum(78,69);
+						SetThingEdNum(84,69);
+							
+						SetThingEdNum(25,65);
+						SetThingEdNum(26,65);
+							
+						SetThingEdNum(130,64);
+							
+						SetThingEdNum(167,67);
+						SetThingEdNum(169,67);
+							
+						SetThingEdNum(53,3005);
+							
+						SetThingEdNum(51,71);
+							
+						SetThingEdNum(136,65);
+							
+						AddThing(69,(-672,2080,-999),270);
+							
+						AddThing(69,(-824,1096,-999),0);
+							
+						AddThing(3001,(256,480,-999),0);
+						AddThing(3001,(256,480,-999),0);
+							
+						AddThing(69,(-768,1248,-999),0);
+						AddThing(66,(768,1216,-999),180);
+							
+						AddThing(65,(-48,248,-999),90);
+						break;
+				}
+					
+					
+				case '4A4832BEBE16A3D56912490A4E61F59B' : //E5M1
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					{						
 						SetThingEdNum(157,697);
 					}
-					if ( mapName == "e5m3" )
-					{
-						SetThingEdNum(67,710);
-				
-						AddThing(697,(-448,-2016,-999),135);
-						AddThing(697,(-800,-2016,-999),45);
-				
-						AddThing(697,(-704,-2432,-999),45);
-						AddThing(697,(-512,-2432,-999),135);
+					break;
+				}
+					
+					
+				case '3417A4859C8FECE797C9DAA715D14D63' : //E5M3
+				{
+					//SetThingID(67, 666);
+					//SetThingEdNum(67,710);
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					{					
+						AddThing(697, (-448,-2016,-999),135);
+						AddThing(697, (-800,-2016,-999),45);
+					
+						AddThing(697, (-704,-2432,-999),45);
+						AddThing(697, (-512,-2432,-999),135);
 					}
-					if ( mapName == "e5m4" )
+					break;
+				}
+					
+					
+				case '3C9902E376CCA1E9C3BE8763BDC21DF5' : //MAP01
+				{
+					SetThingEdNum(20,9);
+					SetThingEdNum(21,9);
+					SetThingEdNum(22,9);
+						
+					SetThingEdNum(11,65);
+					SetThingEdNum(12,65);
+					SetThingEdNum(13,65);
+					SetThingEdNum(14,65);
+					SetThingEdNum(31,65);
+					SetThingEdNum(48,65);
+					SetThingEdNum(32,65);
+							
+					SetThingEdNum(51,66);
+					break;
+				}
+					
+					
+				case 'AB24AE6E2CB13CBDD04600A4D37F9189' : //MAP02
+				{
+					SetThingEdNum(35,65);
+					SetThingEdNum(145,65);
+						
+					SetThingEdNum(17,66);
+					SetThingEdNum(18,66);
+						
+					SetThingEdNum(19,65);
+					SetThingEdNum(20,65);
+						
+					SetThingEdNum(33,65);
+						
+					SetThingEdNum(46,69);
+					SetThingEdNum(47,69);
+					SetThingEdNum(48,69);
+						
+					SetThingEdNum(151,69);
+					SetThingEdNum(152,69);
+						
+					AddThing(65,(1440,1360,-999),0);
+					break;
+				}
+					
+					
+				case '5E8679670469F92E15CF4219B5B98FEF' : //MAP03
+				{
+					SetThingEdNum(103,3003);
+						
+					SetThingEdNum(108,69);
+					SetThingEdNum(109,69);
+					
+					SetThingEdNum(142,66);
+					SetThingEdNum(143,66);
+						
+					SetThingEdNum(144,66);
+						
+					SetThingEdNum(121,69);
+					AddThing(69,(2624,2016,-999),90);
+					AddThing(69,(2816,2016,-999),90);
+						
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
-						SetThingEdNum(37,686);
-						SetThingEdNum(89,686);
-						SetThingEdNum(261,686);
-						SetThingEdNum(268,686);
-					}
-					if ( mapName == "e5m5" )
-					{
-						SetThingEdNum(23,69);
-						SetThingEdNum(110,69);
-						SetThingEdNum(109,69);
-						SetThingEdNum(354,69);
-					}
-					if ( mapName == "e5m6" )
-					{
-						SetThingEdNum(31,69);
-						SetThingEdNum(32,69);
-						SetThingEdNum(33,69);
-				
-						SetThingEdNum(80,69);
-						SetThingEdNum(116,69);
-						SetThingEdNum(181,69);
-					}
-					if ( mapName == "e5m7" )
-					{
-						SetThingEdNum(55,685);
-				
-						SetThingEdNum(104,686);				
-						SetThingEdNum(214,686);
-						SetThingEdNum(215,686);
-						SetThingEdNum(372,686);
-					}
-					if ( mapName == "e5m8" )
-					{
-						SetThingEdNum(55,685);
-				
-						SetThingEdNum(201,697);			
-						SetThingEdNum(204,697);
-				
-						SetThingEdNum(206,697);
-						SetThingEdNum(208,697);
-				
-						AddThing(82,(1472,-552,999),90,MODES_ALL | MTF_AMBUSH);
-					}		
-					if ( mapName == "e5m9" )
-					{
-						SetThingEdNum(164,697);
-				
-						AddThing(58,(-1824,24,999),90,MODES_ALL | MTF_AMBUSH);
-						AddThing(58,(-1440,24,999),90,MODES_ALL | MTF_AMBUSH);
-						AddThing(697,(-1632,24,-999),90,MODES_ALL | MTF_AMBUSH);
-					}
-					if ( mapName == "map01" )
-					{						
-						SetThingEdNum(20,9);
-						SetThingEdNum(21,9);
-						SetThingEdNum(22,9);
-						
-						SetThingEdNum(11,65);
-						SetThingEdNum(12,65);
-						SetThingEdNum(13,65);
-						SetThingEdNum(14,65);
-						SetThingEdNum(31,65);
-						SetThingEdNum(48,65);
-						SetThingEdNum(32,65);
-						
-						SetThingEdNum(51,66);
-					}
-					if ( mapName == "map02" )
-					{
-						SetThingEdNum(35,65);
-						SetThingEdNum(145,65);
-						
-						SetThingEdNum(17,66);
-						SetThingEdNum(18,66);
-						
-						SetThingEdNum(19,65);
-						SetThingEdNum(20,65);
-						
-						SetThingEdNum(33,65);
-						
-						SetThingEdNum(46,69);
-						SetThingEdNum(47,69);
-						SetThingEdNum(48,69);
-						
-						SetThingEdNum(151,69);
-						SetThingEdNum(152,69);
-						
-						AddThing(65,(1440,1360,-999),0);
-					}
-					if ( mapName == "map03" )
-					{
-						SetThingEdNum(103,3003);
-						
-						SetThingEdNum(108,69);
-						SetThingEdNum(109,69);
-						
-						SetThingEdNum(142,66);
-						SetThingEdNum(143,66);
-						
-						SetThingEdNum(144,66);
-						
-						SetThingEdNum(121,69);
-						AddThing(69,(2624,2016,-999),90);
-						AddThing(69,(2816,2016,-999),90);
-						
 						SetThingEdNum(107,697);
 						AddThing(697,(3040,2336,-999),90);
 					}
-					if ( mapName == "map04" )
+					else
 					{
-						SetThingEdNum(15,65);
-						
-						SetThingEdNum(64,697);
-						
-						SetThingEdNum(73,66);
-						
-						SetThingEdNum(22,66);
-						SetThingEdNum(23,66);
-						SetThingEdNum(24,66);
-						SetThingEdNum(84,66);
-						SetThingEdNum(132,69);
-					}					
-					if ( mapName == "map05" )
-					{			
+						AddThing(3002,(3040,2336,-999),90);
+					}
+					break;
+				}
+					
+					
+				case 'CEC791136A83EEC4B91D39718BDF9D82' : //MAP04
+				{
+					SetThingEdNum(15,65);
+					
+					SetThingEdNum(73,66);
+					
+					SetThingEdNum(22,66);
+					SetThingEdNum(23,66);
+					SetThingEdNum(24,66);
+					SetThingEdNum(84,66);
+					SetThingEdNum(132,69);
+					
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					SetThingEdNum(64,697);		
+					
+					break;
+				}
+				
+					
+				case '9E061AD7FBCD7FAD968C976CB4AA3B9D' : //MAP05	
+				{
 						SetThingEdNum(46,2003);
 						
 						SetThingEdNum(167,0);
@@ -750,54 +953,79 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						
 						SetThingEdNum(56,2023);
 						SetThingEdNum(215,2013);
+						break;
 					}
-					if ( mapName == "map06" )
+					
+				case '434575DCB650B4EFC912EFC0782C7ACC' : //MAP06
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						AddThing(697,(2144,1664,-999),180);
 						AddThing(697,(2240,1760,-999),180);
 						AddThing(697,(2240,1568,-999),180);
-						
-						SetThingEdNum(245,697);
-						
-						SetThingEdNum(220,9);
-						SetThingEdNum(221,9);
 					}
-					if ( mapName == "map07" )
+					else
 					{
-						AddThing(17,(-672,-96,-999),135);
-						AddThing(17,(-544,-224,-999),315);
-						AddThing(17,(-672,-224,-999),225);
-						AddThing(17,(-544,-96,-999),45);
-						
-						/*					
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿⣿
-						⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿
-						⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿
-						⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿⣿⣿
-						⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿⣿⣿
-						⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿⣿
-						⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿⣿
-						⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿
-						⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
-						⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿
-						*/
+						AddThing(3002,(2144,1664,-999),180);
+						AddThing(3002,(2240,1760,-999),180);
+						AddThing(3002,(2240,1568,-999),180);
 					}
-					if ( mapName == "map11" )
+						
+					SetThingEdNum(245,697);
+						
+					SetThingEdNum(220,9);
+					SetThingEdNum(221,9);
+						
+					break;
+				}
+					
+					
+				case '291F24417FB3DD411339AE82EF9B3597' : //MAP07
+				{
+					AddThing(17,(-672,-96,-999),135);
+					AddThing(17,(-544,-224,-999),315);
+					AddThing(17,(-672,-224,-999),225);
+					AddThing(17,(-544,-96,-999),45);
+						
+					/*					
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠛⠛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⠛⠿⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀⠀⠀⡀⠠⠤⠒⢂⣉⣉⣉⣑⣒⣒⠒⠒⠒⠒⠒⠒⠒⠀⠀⠐⠒⠚⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⡠⠔⠉⣀⠔⠒⠉⣀⣀⠀⠀⠀⣀⡀⠈⠉⠑⠒⠒⠒⠒⠒⠈⠉⠉⠉⠁⠂⠀⠈⠙⢿⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠔⠁⠠⠖⠡⠔⠊⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠉⠲⢄⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠊⠀⢀⣀⣤⣤⣤⣤⣀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠜⠀⠀⠀⠀⣀⡀⠀⠈⠃⠀⠀⠀⠸⣿⣿⣿⣿⣿
+					⣿⣿⣿⣿⡿⠥⠐⠂⠀⠀⠀⠀⡄⠀⠰⢺⣿⣿⣿⣿⣿⣟⠀⠈⠐⢤⠀⠀⠀⠀⠀⠀⢀⣠⣶⣾⣯⠀⠀⠉⠂⠀⠠⠤⢄⣀⠙⢿⣿⣿
+					⣿⡿⠋⠡⠐⠈⣉⠭⠤⠤⢄⡀⠈⠀⠈⠁⠉⠁⡠⠀⠀⠀⠉⠐⠠⠔⠀⠀⠀⠀⠀⠲⣿⠿⠛⠛⠓⠒⠂⠀⠀⠀⠀⠀⠀⠠⡉⢢⠙⣿
+					⣿⠀⢀⠁⠀⠊⠀⠀⠀⠀⠀⠈⠁⠒⠂⠀⠒⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⢀⣀⡠⠔⠒⠒⠂⠀⠈⠀⡇⣿⣿⣿
+					⣿⠀⢸⠀⠀⠀⢀⣀⡠⠋⠓⠤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠈⠢⠤⡀⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀⡠⠀⡇⣿⣿⣿
+					⣿⡀⠘⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠈⠑⡦⢄⣀⠀⠀⠐⠒⠁⢸⠀⠀⠠⠒⠄⠀⠀⠀⠀⠀⢀⠇⠀⣀⡀⠀⠀⢀⢾⡆⠀⠈⡀⠎⣸⣿⣿
+					⣿⣿⣄⡈⠢⠀⠀⠀⠀⠘⣶⣄⡀⠀⠀⡇⠀⠀⠈⠉⠒⠢⡤⣀⡀⠀⠀⠀⠀⠀⠐⠦⠤⠒⠁⠀⠀⠀⠀⣀⢴⠁⠀⢷⠀⠀⠀⢰⣿⣿⣿
+					⣿⣿⣿⣿⣇⠂⠀⠀⠀⠀⠈⢂⠀⠈⠹⡧⣀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⢱⠒⠒⠒⠒⢖⠒⠒⠂⠙⠏⠀⠘⡀⠀⢸⠀⠀⠀⣿⣿⣿
+					⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠑⠄⠰⠀⠀⠁⠐⠲⣤⣴⣄⡀⠀⠀⠀⠀⢸⠀⠀⠀⠀⢸⠀⠀⠀⠀⢠⠀⣠⣷⣶⣿⠀⠀⢰⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠁⢀⠀⠀⠀⠀⠀⡙⠋⠙⠓⠲⢤⣤⣷⣤⣤⣤⣤⣾⣦⣤⣤⣶⣿⣿⣿⣿⡟⢹⠀⠀⢸⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠑⠀⢄⠀⡰⠁⠀⠀⠀⠀⠀⠈⠉⠁⠈⠉⠻⠋⠉⠛⢛⠉⠉⢹⠁⢀⢇⠎⠀⠀⢸⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠈⠢⢄⡉⠂⠄⡀⠀⠈⠒⠢⠄⠀⢀⣀⣀⣰⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⢀⣎⠀⠼⠊⠀⠀⠀⠘⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠉⠢⢄⡈⠑⠢⢄⡀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⢀⠀⠀⠀⠀⠀⢻⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣀⡈⠑⠢⢄⡀⠈⠑⠒⠤⠄⣀⣀⠀⠉⠉⠉⠉⠀⠀⠀⣀⡀⠤⠂⠁⠀⢀⠆⠀⠀⢸⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣄⡀⠁⠉⠒⠂⠤⠤⣀⣀⣉⡉⠉⠉⠉⠉⢀⣀⣀⡠⠤⠒⠈⠀⠀⠀⠀⣸⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
+					⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣤⣤⣤⣤⣀⣀⣤⣤⣤⣶⣾⣿⣿⣿⣿
+						*/
+				}
+				break;
+					
+				case '73D9E03CEE7BF1A97EFD2EAD86688EF8' : //MAP11
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						SetThingEdNum(190,697);
 					}
-					if ( mapName == "map13" )
+					break;
+				}
+				
+					
+				case 'FBA6547B9FD44E95671A923A066E516F' : //MAP13
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						SetThingEdNum(11,697);
 						SetThingEdNum(13,697);
@@ -807,53 +1035,107 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 						
 						AddThing(697,(1552,-3072,-999),180);
 					}
-					if ( mapName == "map14" )
+					else
 					{
-						SetThingEdNum(92,697);
+						AddThing(3002,(1552,-3072,-999),180);
 					}
-					if ( mapName == "map17" )
-					{
-						AddThing(686,(-2336,-1472,-999),0);
-					}
-					if ( mapName == "map27" )
+						
+					break;
+				}
+					
+				case '5BDA34DA60C0530794CC1EA2DA017976' : //MAP14
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					SetThingEdNum(92,697);
+						
+					break;
+				}		
+					
+				case 'E1CFD5C6E60C3B6C30F8B95FC287E9FE' : //MAP17
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+						AddThing(686,(-2336,-1472,-999),0); //Nightmare Cacodemon from ps1 map17
+					else
+						AddThing(71,(-2336,-1472,-999),0);
+					
+					break;
+				}
+					
+					
+				case '110F84DE041052B59307FAF0293E6BC0' : //MAP27
+				{
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 					{
 						SetThingEdNum(74,697);
 						SetThingEdNum(75,697);
 						SetThingEdNum(76,697);
 						SetThingEdNum(77,697);
 					}
-					if ( mapName == "map31" )
-					{
-						AddThing(65,(-4000,-1184,-999),0);
-						AddThing(65,(-4000,-1248,-999),0);
-						AddThing(65,(-3936,-1184,-999),0);
-						AddThing(65,(-3936,-1248,-999),0);
-						
-						AddThing(697,(-4160,-1216,-999),0);
-					}
-					if ( mapName == "map32" )
-					{
-						SetThingEdNum(60,711);
-						
-						AddThing(3003,(416,7720,-999),270);
-						AddThing(3003,(480,7720,-999),270);
-						AddThing(3003,(352,7776,-999),270);
-						AddThing(3003,(416,7776,-999),270);
-						AddThing(3003,(480,7776,-999),270);
-						AddThing(3003,(544,7776,-999),270);
-						AddThing(3003,(384,7840,-999),270);
-						AddThing(3003,(448,7840,-999),270);
-						AddThing(3003,(512,7840,-999),270);
-					}
-					if ( mapName == "nv_map08" )
-					{
-						SetThingEdNum(59,711);
-					}
+					break;
+				}
+					
+				case '3FF94E27423F91C1585B3396F0C03459' : //MAP31
+				{
+					AddThing(65,(-4000,-1184,-999),0);
+					AddThing(65,(-4000,-1248,-999),0);
+					AddThing(65,(-3936,-1184,-999),0);
+					AddThing(65,(-3936,-1248,-999),0);
+							
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					AddThing(697,(-4160,-1216,-999),0);
+					
+					break;
 				}
 				
-				Break;
+					
+				case 'AA4CA3FC891D13821ACCABD836E29EB5' : //MAP32
+				{
+					SetThingEdNum(60,711);
+						
+					AddThing(3003,(416,7720,-999),270);
+					AddThing(3003,(480,7720,-999),270);
+					AddThing(3003,(352,7776,-999),270);
+					AddThing(3003,(416,7776,-999),270);
+					AddThing(3003,(480,7776,-999),270);
+					AddThing(3003,(544,7776,-999),270);
+					AddThing(3003,(384,7840,-999),270);
+					AddThing(3003,(448,7840,-999),270);
+					AddThing(3003,(512,7840,-999),270);
+					break;
+				}
+					
+					
+				case 'FC02516EE32C991542E3FD92DAE7420B' : //tn_map23 
+				{
+					//Move the player 1 spawn location so that you can trigger the extra rooms on single player
+						
+					SetThingEdNum(0,0);
+					AddThing(1,(288,-1568,-999),180);
+					break;
+				}
+				
+					
+				case '344BDBDE689B2E726DE5790DD7C84BCA' : //tn_map28 
+				{
+					//Remove the four archviles in the begining and replaces them with more manageable hell knights
+						
+					SetThingEdNum(263,69);
+					SetThingEdNum(264,69);
+					SetThingEdNum(265,69);
+					SetThingEdNum(266,69);
+						
+					SetThingEdNum(172,2002);
+						
+					AddThing(2046,(-384,320,-999),270);
+					AddThing(17	 ,(-192,320,-999),270);
+					AddThing(2048,(-192,128,-999),270);
+					AddThing(2049,(-384,128,-999),270);
+					break;
+				}
+				
 			}
 		}
+	}
 }
 
 //		List of Standard Editor Numbers for convience sake.		//
@@ -1020,6 +1302,8 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 
 //Map Checksum List
 
+//Testmap: 																E43C1797DFD9443D1B4C035327743588.
+
 //Doom 1/Ultimate Doom:
 
 //Episode 1 (Knee Deep In The Dead):
@@ -1052,14 +1336,14 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 
 //Episode 3 (Inferno):
 
-//E3M1:																	c4a89a481a32bfeddeb82e818f2bdec5
+//E3M1:																	c4a89a481a32bfeddeb82e818f2bdec5.
 //E3M2:																	BBDC4253AE277DA5FCE2F19561627496.
-//E3M3:																	f951882cb5a8def910f0ed966a1054c5
-//E3M4:																	2b65cb046ea40d2e44576949381769ca
+//E3M3:																	f951882cb5a8def910f0ed966a1054c5.
+//E3M4:																	2b65cb046ea40d2e44576949381769ca.
 //E3M5:																	100106C75157B7DECB0DCAD2A59C1919.
-//E3M6:																	100106c75157b7decb0dcad2a59c1919
+//E3M6:																	100106c75157b7decb0dcad2a59c1919.
 //E3M7:																	5AC51CA9F1B57D4538049422A5E37291.
-//E3M8:																	ef128313112110ed6c1549af96af26c9
+//E3M8:																	ef128313112110ed6c1549af96af26c9.
 //E3M9:																	FE97DCB9E6235FB3C52AE7C143160D73.
 
 //Episode 4 (Thy Flesh Consumed):
@@ -1071,110 +1355,110 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 //E4M5:																	C2E09AB0BDD03925305A48AE935B71CA.
 //E4M6:																	CBBFF61A8C231DFFC8E8A2A2BAEB77FF.
 //E4M7:																	94D4C869A0C02EF4F7375022B36AAE45.
-//E4M8:																	2DC939E508AB8EB68AF79D5B60568711
+//E4M8:																	2DC939E508AB8EB68AF79D5B60568711.
 //E4M9:																	78556D238FFEC8058CACC48B847E1FAB.
 
 //Episode 5 (SI6IL):
 
-//E5M1:
-//E5M2:
-//E5M3:
-//E5M4:
-//E5M5:
-//E5M6:
-//E5M7:
-//E5M8:
-//E5M9:
+//E5M1:																	4A4832BEBE16A3D56912490A4E61F59B.
+//E5M2:																	38028DC7E09DC5C91068AAC565A3962B.
+//E5M3:																	3417A4859C8FECE797C9DAA715D14D63.
+//E5M4:																	AEBF219BF02AAEC549BA3EF8CB3F715B.
+//E5M5:																	4E5D482364F6F787CB8EFC17BDE5D64D.
+//E5M6:																	EB984250D4935E93C265AE8C8455560F.
+//E5M7:																	8C35EFBA700537035C84F5E1AD35C064.
+//E5M8:																	6EAD80DA1F30B4B3546FA294EEF9F87C.
+//E5M9:																	2A6B4D277F526BFB3ADB122609FEEAD7.
 
 //Episode 6 (SI6IL II):
 
-//E6M1:
-//E6M2:
-//E6M3:
-//E6M4:
-//E6M5:
-//E6M6:
-//E6M7:
-//E6M8:
-//E6M9:
+//E6M1:																	42D1C15691EFE8664EDC0F611242131A.
+//E6M2:																	D5E7640BEB3346650095787BBA0C2984.
+//E6M3:																	2D08AD5CAA92AC69A805B46385ECF9B4.
+//E6M4:																	F00298FA653C0D10303DB09CA89E68E0.
+//E6M5:																	A2D5FFFDE75CDC907F45E5193A5B9DAB.
+//E6M6:																	217F956C4F5B0F872C5F9013C9B23CD1.
+//E6M7:																	E70BA6CD12A90F793FFD4F941140A630.
+//E6M8:																	5BA3D00F6B64F6268E11C6851D47ECBF.
+//E6M9:																	7D6698B2DD1904908144A3AEC4BD53FA.
 
 //Doom 2 Hell On Earth:
 
 //Episode 1 (Subterranean Starport):
 
-//Map01:																	
-//Map33:																	
-//Map02:																	
-//Map03:																	
-//Map04:																	
-//Map05:																	
-//Map06:																	
-//Map07:																	
-//Map08:																	
-//Map09:																	
-//Map10:																	
-//Map11:																	
+//Map01:																3C9902E376CCA1E9C3BE8763BDC21DF5.	
+//Map33:																6E40FC3C626FCA486651866574D5DBA7
+//Map02:																AB24AE6E2CB13CBDD04600A4D37F9189.	
+//Map03:																5E8679670469F92E15CF4219B5B98FEF.	
+//Map04:																CEC791136A83EEC4B91D39718BDF9D82.	
+//Map05:																9E061AD7FBCD7FAD968C976CB4AA3B9D.	
+//Map06:																434575DCB650B4EFC912EFC0782C7ACC.	
+//Map07:																291F24417FB3DD411339AE82EF9B3597.	
+//Map08:																66C46385EB1A23D60839D1532522076B.	
+//Map09:																82256F04136ADB2413BFC604B5F6ADF3.	
+//Map10:																6C620F43705BEC0ABBABBF46AC3E62D2.	
+//Map11:																73D9E03CEE7BF1A97EFD2EAD86688EF8.	
 
 //Episode 2 (Into The City):
 
-//Map12:																	
-//Map13:																	
-//Map14:																	
-//Map15:																	
-//Map31:																	3FF94E27423F91C1585B3396F0C03459.
-//Map32:																	AA4CA3FC891D13821ACCABD836E29EB5.
-//Map16:																	
-//Map17:																	
-//Map18:																	
-//Map19:																	
-//Map20:																	
+//Map12:																1AF4DEC2627360A55B3EB397BC15C39D.	
+//Map13:																FBA6547B9FD44E95671A923A066E516F.	
+//Map14:																5BDA34DA60C0530794CC1EA2DA017976.	
+//Map15:																1A540BA717BF9EC85F8522594C352F2A.	
+//Map31:																3FF94E27423F91C1585B3396F0C03459.
+//Map32:																AA4CA3FC891D13821ACCABD836E29EB5.
+//Map16:																6B60F37B91309DFF1CDF02E5E476210D.	
+//Map17:																E1CFD5C6E60C3B6C30F8B95FC287E9FE.	
+//Map18:																0D491365C1B88B7D1B603890100DD03E.	
+//Map19:																B5506B1E8F2FC272AD0C77B9E0DF5491.	
+//Map20:																8898F5EC9CBDCD98019A1BC1BF892A8A.	
 
 //Episode 3 (Hell Incarnate):
 
-//Map21:																	
-//Map22:																	
-//Map23:																	
-//Map24:																	
-//Map25:																	
-//Map26:																	
-//Map27:																	
-//Map28:																	
-//Map29:																	
-//Map30:																	5EECD88F4491F516D590CE4BBF45F532.
+//Map21:																EBDAC00E9D25D884B2C8F4B1F0390539.	
+//Map22:																4AA9B3CE449FB614497756E96509F096.	
+//Map23:																63F25C97D5B1CC174EFEA7F6AF499960.	
+//Map24:																3EFF15C64A03B36E8E47926C6DF9EF70.	
+//Map25:																94893A0DC429A22ADC4B3A73DA537E16.	
+//Map26:																1037366026AAB4B0CF11BAB27DB90E4E.	
+//Map27:																110F84DE041052B59307FAF0293E6BC0.	
+//Map28:																84BB2C8ED2343C91136B87F1832E7CA5.	
+//Map29:																20251EDA21B2F2ECF6FF5B8BBC00B26C.	
+//Map30:																5EECD88F4491F516D590CE4BBF45F532.
 
 //Episode 4 (No Rest For The Living):
 
-//nv_Map01:																	
-//nv_Map02:																	
-//nv_Map03:																	
-//nv_Map04:																	
-//nv_Map05:																	
-//nv_Map06:																	
-//nv_Map07:																	
-//nv_Map08:																	
-//nv_Map09:																	
+//nv_Map01:																3843B06A279EB9CEDC18C30CF32074C2.	
+//nv_Map02:																3262C22DD1532DF4DFCFEEB6AE0E11BB.	
+//nv_Map03:																B2C6635EC41DA8D96065166B0E14E78E.	
+//nv_Map04:																FF635FB9A2F076566299910F8C78F707.	
+//nv_Map05:																7E0E3D6E3643082B86C153CC04A0D1D1.	
+//nv_Map06:																C7471AF46CFDA07BA0EB5C4D4DE2E136.	
+//nv_Map07:																047991BB81F9790B69C25B020DF8B25C.	
+//nv_Map08:																7EB864A03948C3F918F9223B2D1F8911.	
+//nv_Map09:																FDE03D8F2D3D8E37483FC4589B3D54E9.	
 
 //Episode 5 (The Vulcan Abyss):
 
-//lr_Map01:																	
-//lr_Map02:																	
-//lr_Map03:																	
-//lr_Map04:																	
-//lr_Map05:																	
-//lr_Map06:																	
-//lr_Map07:																	
-//lr_Map15:																	
+//lr_Map01:																BF34C34C5DFC8BB47228CC304F9A6748.																	
+//lr_Map02:																B6447217725A2A709D6D021CDE15FE10.																	
+//lr_Map03:																9CF62332047E32231CBF561B9A5C051C.																	
+//lr_Map04:																1F03040BFCFE879F9668A3508837447B.	
+//lr_Map05:																4A90BFB792E753CBD4C43503CFBE5C7C.	
+//lr_Map06:																69C24AF5B5A89DF3CACA20E865E5B035.	
+//lr_Map07:																A60AA2DCB864FD77EFED64C26C60B781.	
+//lr_Map15:																95B94864754AC50446A456A88DA3E052.	
 
 //Episode 6 (Counterfeit Eden):
 
-//lr_Map08:																	
-//lr_Map09:																	
-//lr_Map10:																	
-//lr_Map11:																	
-//lr_Map12:																	
-//lr_Map13:																	
-//lr_Map14:																	
-//lr_Map16:																	
+//lr_Map08:																ECD6B4C5D9ECCBE08928ED2FF32C2E71.	
+//lr_Map09:																1699E255B8C0DB86EBB00E5B3C44B4AA.	
+//lr_Map10:																025209896E41B6660D89D62FC4C37B36.	
+//lr_Map11:																8A2C0869EAA69FB7B441CD2B648978D0.	
+//lr_Map12:																5E548B849971FECAF2F6A659D2269D92.	
+//lr_Map13:																BD7E48E646E28EE424D9288A8EF7EF7D.	
+//lr_Map14:																A3F7A58FC08C369F1360741A99F1497C.	
+//lr_Map16:																F206766043C4D9BA2C36F76106F96279	
 
 //Bonus Legacy Of Rust Level	
 
@@ -1184,28 +1468,98 @@ class DCX_TotalCarnageMonsterPlacementsBackup : LevelPostProcessor
 
 //Inferno Series
 
-//ml_Map33:																	25F93BD6E7B394A6E799421B4202084E.
-//ml_Map34:																	17FFA47F0FE4368CD9710A0F3C5052D2.
-//ml_Map11:																	F4E27C9E58975CC01801499FD66E22C3.
-//ml_Map12:																	F3EA567C6FFFBB49AF6BDOEC773A2AF1.
-//ml_Map13:																	3B9CAA02952F405269353FAAD8F8EC33.
-//ml_Map14:																	72921800B7E85C6868CA9E3B1BF997A1.
-//ml_Map15:																	8C7C674F9EE4D15DF19414A556AE3369.
-//ml_Map35:																	(Same as e4m7).
-//ml_Map36:																	75AD07EBOB915DE49DABCC3B9158161D.
+//ml_Map33:																25F93BD6E7B394A6E799421B4202084E.
+//ml_Map34:																17FFA47F0FE4368CD9710A0F3C5052D2.
+//ml_Map11:																F4E27C9E58975CC01801499FD66E22C3.
+//ml_Map12:																F3EA567C6FFFBB49AF6BDOEC773A2AF1.
+//ml_Map13:																3B9CAA02952F405269353FAAD8F8EC33.
+//ml_Map14:																72921800B7E85C6868CA9E3B1BF997A1.
+//ml_Map15:																8C7C674F9EE4D15DF19414A556AE3369.
+//ml_Map35:																(Same as e4m7).
+//ml_Map36:																75AD07EBOB915DE49DABCC3B9158161D.
 
 //Final Doom, TNT Evilution:
 
 //Episode 1 (The Io Invasion):
 
+//tn_MAP01:																8391B0EB996C55B5ED4343D18B8AD2C8.	
+//tn_MAP02:																BA0F19E30DC166573E5B58A4EFCB4D45.
+//tn_MAP03:																875AEF88A5443843761BFBD386500C7B.
+//tn_MAP04:																36F32ED4632E036BDE6471162E966031.
+//tn_MAP05:																4596EC72EF76A3E8C97A9E2179BB81D7.
+//tn_MAP06:																214BEB43049644432B10DAFA88B184B6.
+//tn_MAP07:																0F898F0688AECD42F2CD102FAE06F271.
+//tn_MAP08:																1E785E841A5247B6223C042EC712EBB3.
+//tn_MAP09:																5F8027C2A807BBA0F479E25A585ADDC3.
+//tn_MAP10:																AE65B69D0CE7FA99F105861882D2DE87.
+//tn_MAP11:																92125345FFF3309EBCC9B2F7E064D67C.
+
 //Episode 2 (Nocturnal Io):
 
+//tn_MAP12:																0907599466DA895CE8B3B2508CC4F7AB.
+//tn_MAP13:																18E6AD88B7DF0E27CB20D76F82FCD299.
+//tn_MAP14:																1CD346AAF457E4A963C0FA68B72B24BB.
+//tn_MAP15:																DFC18B92BF3E8142B8684ECD8BD2EF06.
+//tn_MAP31:																A53AE580A4AF2B5D0B0893F86914781E.
+//tn_MAP32:																D99AD22FF21A41B4EECDB3A7C803D75E.
+//tn_MAP16:																43C1F1E68B3C4BDF9412F7A1335B5EC1.
+//tn_MAP17:																8D59F49ECDBFC95A1B857DD541C98B22.
+//tn_MAP18:																C4F0E8897B7DDED102EDB0D81D53227A.
+//tn_MAP19:																6C735D5A4EFB205C012E24491462EB43.
+//tn_MAP20:																A119C0B1E5FE7E2EB069DECA3FD3BA46.
+
 //Episode 3 (Hell On Io):
+
+//tn_MAP21:																55C8DA7B531AE47014AD73FFF4687A36.
+//tn_MAP22:																F89D8AA656CE772B3AC7F0D17193DD58.
+//tn_MAP23:																FC02516EE32C991542E3FD92DAE7420B.
+//tn_MAP24:																82C1907A76479D94A4FF8869D492B266.
+//tn_MAP25:																1D01E5F4A316D723EEE7D9D3E620CB80.
+//tn_MAP26:																E7B4E2612CBF804F8E8BD292CA4FA926.
+//tn_MAP27:																603032BBF28C9347784536022B3C5CBE.
+//tn_MAP28:																344BDBDE689B2E726DE5790DD7C84BCA.
+//tn_MAP29:																2C4A3356C5EB3526D2C72A4AA4B18A36.
+//tn_MAP30:																42B68B84FF8E55F264C31E6F4CFEA82D.
 
 //Final Doom, The Plutonia Experiment:
 
 //Episode 1 (Jungle Assault):
 
+//pl_MAP01:																ACF8B3FA7F972FF969127AB920C6C12D.
+//pl_MAP02:																F28E723BDD820D5DE94448E238F5DBBA.
+//pl_MAP03:																6AC6C0F6A58B7BE6C075FE90AF859325.
+//pl_MAP04:																9BADAE6A69D83D143698B953647C4DA3.
+//pl_MAP05:																EB0D04AEB2841D5225CAA576D7300D43.
+//pl_MAP06:																CC2C4D88729A8BA4B6D8A093C9D4E80D.
+//pl_MAP07:																8CC227C18A4639997547356C6A49FAE8.
+//pl_MAP08:																56D4060662C290791822EDB7225273B7.
+//pl_MAP09:																0E26304FF12AFF9DE6D0EE228A3B8C5F.
+//pl_MAP10:																25A16C30CD10157382C01E5DD9C6604B.
+//pl_MAP11:																1EF7DEAECA03DE03BF363A3193757B5C.
+
 //Episode 2 (The Blood Tides):
 
+//pl_MAP12:																E387982974779DFE05DD83D7CEF42ABB.
+//pl_MAP13:																B02ACA32AE9630042543037BA630CDE9.
+//pl_MAP14:																C08C9EE4AFDD7A97DCD3D5095A8DD6CA.
+//pl_MAP15:																7A93E397F76098D910BA4E93CE4A00FA.
+//pl_MAP31:																FDBC01A2533805055E56E8D9B14BF7DB.
+//pl_MAP32:																D5F64E02679A81B82006AF34A6A8EAC3.
+//pl_MAP16:																ECA0559E85EFFB6966ECB8DE01E3A35B.
+//pl_MAP17:																22B93A6D641FE22BFD85E2EC7E93624F.
+//pl_MAP18:																459CA17DE3D183542AC3F4F59FE3F037.
+//pl_MAP19:																8C3BEA4E824E4FB4820B91E34D05B87C.
+//pl_MAP20:																345F70E8C35EFB6A8529094A2A70D3AF.
+
 //Episode 3 (Devil Hive):
+
+//pl_MAP21:																EA51ADB766C151802F9591919815EB9F.
+//pl_MAP22:																8EEAD0D7FD6A1A6503B486F0C0E84A96.
+//pl_MAP23:																8B8361969FD8C24F2E0004306FDC4928.
+//pl_MAP24:																94D963FFCEE696471A0485997FEBA920.
+//pl_MAP25:																9D84B423D8FD28553DDE23B55F97CF4A.
+//pl_MAP26:																ABC4EB5A1535ECCD0061AD14F3547908.
+//pl_MAP27:																F5EB1E89EA9F85FC00F024DB15DAEB56.
+//pl_MAP28:																A2634C462717328CC1AD81E81EE77B08.
+//pl_MAP29:																850AC6D62F0AC57A4DD7EBC2689AC38E.
+//pl_MAP30:																279BB50468FE9F5B36C6D821E4902369.

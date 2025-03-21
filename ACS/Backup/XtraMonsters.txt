@@ -19,9 +19,21 @@ script "ChangeSkyTexture" (void)
 }
 
 script "E4M1_NoIntermission" (void)
-{
+{	
 	ChangeLevel("e4m0",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
 	Terminate;
+}
+
+script "Cabal_NoIntermission" (void)
+{	
+	ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+	Terminate;
+}
+
+Script "ClubDoomMusicSwap" (void)
+{
+   SetMusic("D_PSX09B", 0);
+   Terminate;
 }
 
 script "Check_Difficulty" (Void)
@@ -53,7 +65,7 @@ script "Xtra_Monster_Placements" enter
 	
 	if (StrICmp(mapName, "TEST") == 0)
 	{
-		if (GetCVar ("dcx_CustomMonsters") !=1)	
+		if (GetCVar ("dcx_CustomMonsters") ==1)	
 		{
 			Add("DCX_Unmaker",-3072, 192, 270,0,0); 
 			Add("DCX_Unmaker",-3200, 192, 270,0,0); 
@@ -273,7 +285,6 @@ script "Xtra_Monster_Placements" enter
 			Add("ChaingunGuy",-480,0,135,0,0); //ashphalt thing just before the maze area
 			Add("ChaingunGuy",832,1888,315,0,0); //blue room near the starting zone
 			Add("ChaingunGuy",1536,1888,225,0,0); //blue room near the starting zone
-			Add("ChaingunGuy",-416,1632,0,0,0); //"swastika" room
 			
 			Add("Stimpack",-64,576,0,0,0); //Blue keycard room
 			Add("Stimpack",736,1504,0,0,0); //blue room near the starting zone
@@ -321,10 +332,13 @@ script "Xtra_Monster_Placements" enter
 		}
 		if (StrICmp(mapName, "e1m5") == 0)
 		{
-			Replace("DCX_NightmareSpectre",-64,256,270,0,0);
-			Replace("DCX_NightmareSpectre",288,2128,270,0,0);
-			Replace("DCX_NightmareSpectre",-320,2000,270,0,0);
-			Replace("DCX_NightmareSpectre",896,176,180,0,0);
+			//Replace("DCX_NightmareSpectre",-64,256,270,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",288,2128,270,0,0);
+				Replace("DCX_NightmareSpectre",-320,2000,270,0,0);
+				Replace("DCX_NightmareSpectre",896,176,180,0,0);
+			}
 			
 			//Replace("ChaingunGuy",-1376,992,0,0,0);
 			//Replace("ChaingunGuy",-1376,672,0,0,0);
@@ -342,26 +356,45 @@ script "Xtra_Monster_Placements" enter
 			
 			while (!IsFloorLevel(1,-200)) { Delay(10); }
 			
-			Add("DCX_NightmareSpectre",-1632,608,0,0,99);
-			Add("DCX_NightmareSpectre",-1696,704,0,0,99);
-			Add("DCX_NightmareSpectre",-1696,960,0,0,99);
-			Add("DCX_NightmareSpectre",-1632,1056,0,0,99);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Add("DCX_NightmareSpectre",-1632,608,0,0,99);
+				Add("DCX_NightmareSpectre",-1696,704,0,0,99);
+				Add("DCX_NightmareSpectre",-1696,960,0,0,99);
+				Add("DCX_NightmareSpectre",-1632,1056,0,0,99);
+			}
+			else
+			{
+				Add("Spectre",-1632,608,0,0,99);
+				Add("Spectre",-1696,704,0,0,99);
+				Add("Spectre",-1696,960,0,0,99);
+				Add("Spectre",-1632,1056,0,0,99);
+			}
 		}
 		if (StrICmp(mapName, "e1m6") == 0)
 		{
-			Replace("DCX_NightmareSpectre",1792,-1360,180,0,0);
-			Replace("DCX_NightmareSpectre",1184,-880,270,0,0);
-			Replace("DCX_NightmareSpectre",1184,-1920,90,0,0);
-			Replace("DCX_NightmareSpectre",656,-1696,0,0,0);			
-			Replace("DCX_NightmareSpectre",-256,1472,270,0,0);
-			Replace("DCX_NightmareSpectre",-1408,960,180,0,0);		
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",1792,-1360,180,0,0);
+				Replace("DCX_NightmareSpectre",1184,-880,270,0,0);
+				Replace("DCX_NightmareSpectre",1184,-1920,90,0,0);
+				Replace("DCX_NightmareSpectre",656,-1696,0,0,0);			
+				Replace("DCX_NightmareSpectre",-256,1472,270,0,0);
+				Replace("DCX_NightmareSpectre",-1408,960,180,0,0);
+				
+				Add("DCX_NightmareSpectre",2496,-960,180,0,0);
+			}
+			else
+			{
+				Add("Spectre",2496,-960,180,0,0);
+			}
+			
 			Replace("ChaingunGuy",1680,-1824,135,0,0);
 			
 			Add("ChaingunGuy", -272, -768,0,0,0);
 			Add("ChaingunGuy",512, 1424,270,0,0);
 			Add("ChaingunGuy",648, 1392,270,0,0);
 			Add("ChaingunGuy",3200,-1664,45,0,0);
-			Add("DCX_NightmareSpectre",2496,-960,180,0,0);
 			
 			Add("ChaingunGuy",1192,-972,270,0,0);
 			Add("ChaingunGuy",1344,-1954,135,0,0);
@@ -376,8 +409,11 @@ script "Xtra_Monster_Placements" enter
 		}
 		if (StrICmp(mapName, "e1m7") == 0)
 		{
-			Replace("DCX_NightmareSpectre",-1504,128,315,0,0);
-			Replace("DCX_NightmareSpectre",192,-192,90,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",-1504,128,315,0,0);
+				Replace("DCX_NightmareSpectre",192,-192,90,0,0);
+			}
 			Replace("Hellknight",-944,-1088,270,0,0);
 			Add("Hellknight",352,-1792,270,0,0);
 			
@@ -391,8 +427,6 @@ script "Xtra_Monster_Placements" enter
 			Add("Cacodemon",1088,-1344,90,0,0);
 			Add("Cacodemon",1280,-1344,90,0,0);
 			Add("Cacodemon",1440,-1344,90,0,0);
-			//Add("Blursphere",864,-992,90,0,0);
-			//Replace("Megasphere",1248,-1120,0,0,0); //replace normal Blursphere with a Megasphere since we are spawning enemies outside
 			Add("Cacodemon",-384,-1728,270,0,0);
 		
 			//wait for the door that opens when we pick up the red key to open
@@ -402,17 +436,20 @@ script "Xtra_Monster_Placements" enter
 			Add("HellKnight",-656,-1040,135,0,0);
 		}	
 		if (StrICmp(mapName, "e1m8") == 0)
-		{		
-			Replace("DCX_NightmareSpectre",-128,2288,45,0,0);
-			Replace("DCX_NightmareSpectre",-160,2208,45,0,0);
-			Replace("DCX_NightmareSpectre",992,2208,135,0,0);
-			Replace("DCX_NightmareSpectre",960,2272,135,0,0);
-			Replace("DCX_NightmareSpectre",1232,3280,225,0,0);
-			Replace("DCX_NightmareSpectre",1312,3328,225,0,0);
-			Replace("DCX_NightmareSpectre",416,3936,270,0,0);
-			Replace("DCX_NightmareSpectre",416,4000,270,0,0);
-			Replace("DCX_NightmareSpectre",-128,3200,315,0,0);
-			Replace("DCX_NightmareSpectre",-192,3136,315,0,0);
+		{
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",-128,2288,45,0,0);
+				Replace("DCX_NightmareSpectre",-160,2208,45,0,0);
+				Replace("DCX_NightmareSpectre",992,2208,135,0,0);
+				Replace("DCX_NightmareSpectre",960,2272,135,0,0);
+				Replace("DCX_NightmareSpectre",1232,3280,225,0,0);
+				Replace("DCX_NightmareSpectre",1312,3328,225,0,0);
+				Replace("DCX_NightmareSpectre",416,3936,270,0,0);
+				Replace("DCX_NightmareSpectre",416,4000,270,0,0);
+				Replace("DCX_NightmareSpectre",-128,3200,315,0,0);
+				Replace("DCX_NightmareSpectre",-192,3136,315,0,0);
+			}
 		
 			Add("Medikit",416,2656,0,0,0); //baron of hell chambers
 			//Add("SuperShotgun",416,2464,270,0,0); //red elevator
@@ -439,12 +476,15 @@ script "Xtra_Monster_Placements" enter
 			
 			Add("ShellBox",-648,-488,180,0,0);
 			
-			Replace("DCX_NightmareSpectre",336,256,180,0,0);
-			Replace("DCX_NightmareSpectre",184,136,45,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",336,256,180,0,0);
+				Replace("DCX_NightmareSpectre",184,136,45,0,0);
 			
-			//Lower Toxic Waste	sewer
-			Replace("DCX_NightmareSpectre",272,16,270,0,0);
-			Replace("DCX_NightmareSpectre",-352,-328,90,0,0);
+				//Lower Toxic Waste	sewer
+				Replace("DCX_NightmareSpectre",272,16,270,0,0);
+				Replace("DCX_NightmareSpectre",-352,-328,90,0,0);
+			}
 			
 			//Starting Room Exterior
 			Add("Cacodemon",-676,-788,315,0,0);
@@ -465,13 +505,16 @@ script "Xtra_Monster_Placements" enter
 			Replace("ChaingunGuy",1120,-928,180,0,0);
 			
 			//Red Key Toxic Dump Room
-			Replace("DCX_NightmareSpectre",-1880,360,0,0,0);
-			Replace("DCX_NightmareSpectre",-1912,248,0,0,0);
-			Replace("DCX_NightmareSpectre",-2224,-192,90,0,0);
-			Replace("DCX_NightmareSpectre",-2056,-184,90,0,0);
-			Replace("DCX_NightmareSpectre",-1472,-96,315,0,0);
-			Replace("DCX_NightmareSpectre",-1448,-192,315,0,0);
-			Replace("DCX_NightmareSpectre",-1472,-288,315,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",-1880,360,0,0,0);
+				Replace("DCX_NightmareSpectre",-1912,248,0,0,0);
+				Replace("DCX_NightmareSpectre",-2224,-192,90,0,0);
+				Replace("DCX_NightmareSpectre",-2056,-184,90,0,0);
+				Replace("DCX_NightmareSpectre",-1472,-96,315,0,0);
+				Replace("DCX_NightmareSpectre",-1448,-192,315,0,0);
+				Replace("DCX_NightmareSpectre",-1472,-288,315,0,0);
+			}
 			
 			Add("ChaingunGuy",-1440,96,270,0,0);
 			Add("ChaingunGuy",-1248,96,270,0,0);
@@ -507,20 +550,18 @@ script "Xtra_Monster_Placements" enter
 			Add("HellKnight",-3720,-544,45,0,0);
 			Add("HellKnight",-3688,-600,45,0,0);
 			
-			Add("DCX_NightmareSpectre",-3900,-44,315,0,0);
-			Add("DCX_NightmareSpectre",-2980,60,225,0,0);
-			Add("DCX_NightmareSpectre",-2980,-1148,135,0,0);
-			
-			//Ambush Room
-			Replace("Archvile",-5520,-424,315,0,0);
-			Replace("Archvile",-5392,-432,270,0,0);
-			Replace("Archvile",-5520,-544,0,0,0);
-			Replace("Archvile",-5528,-664,0,0,0);	
-			
-			Replace("Archvile",-5296,-424,225,0,0);
-			Replace("Archvile",-5288,-544,180,0,0);
-			Replace("Archvile",-5288,-664,135,0,0);
-			Replace("Archvile",-5400,-664,90,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Add("DCX_NightmareSpectre",-3900,-44,315,0,0);
+				Add("DCX_NightmareSpectre",-2980,60,225,0,0);
+				Add("DCX_NightmareSpectre",-2980,-1148,135,0,0);
+			}
+			else
+			{
+				Add("Spectre",-3900,-44,315,0,0);
+				Add("Spectre",-2980,60,225,0,0);
+				Add("Spectre",-2980,-1148,135,0,0);
+			}
 			
 			while (!IsFloorLevel(20,-88)) { Delay(10); }
 			
@@ -552,15 +593,18 @@ script "Xtra_Monster_Placements" enter
 		}
 		if (StrICmp(mapName, "e2m2") == 0)
 		{
-			Replace("DCX_NightmareSpectre",2496,1808,45,0,0);
-			Replace("DCX_NightmareSpectre",720,560,180,0,0);
-			Replace("DCX_NightmareSpectre",1008,4096,315,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",2496,1808,45,0,0);
+				Replace("DCX_NightmareSpectre",720,560,180,0,0);
+				Replace("DCX_NightmareSpectre",1008,4096,315,0,0);
+			}
 			
 			Add("ChaingunGuy",32,3552,90,0,0);
 			Add("ChaingunGuy",544,3040,270,0,0);
 			Add("HellKnight",1088,3072,135,0,0);
 			Add("Stimpaick",1088,3072,135,0,0);
-			Add("Arachnotron",1376,1024,90,0,0);
+			Add("HellKnight",1376,1024,90,0,0);
 			Add("HellKnight",640,192,0,0,0);
 			Add("Revenant",-288,-64,0,0,0);
 			Add("Revenant",-288,-128,0,0,0);
@@ -569,13 +613,16 @@ script "Xtra_Monster_Placements" enter
 		}
 		if (StrICmp(mapName, "e2m3") == 0)
 		{
-			Replace("DCX_NightmareSpectre",672,-32,90,0,0);
-			Replace("DCX_NightmareSpectre",-864,400,0,0,0);
-			Replace("DCX_NightmareSpectre",1280,112,90,0,0);
-			Replace("DCX_NightmareSpectre",2128,-336,180,0,0);
-			Replace("DCX_NightmareSpectre",-320,1088,270,0,0);
-			Replace("DCX_NightmareSpectre",-448,928,270,0,0);
-			Replace("DCX_NightmareSpectre",2048,704,135,0,0);
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Replace("DCX_NightmareSpectre",672,-32,90,0,0);
+				Replace("DCX_NightmareSpectre",-864,400,0,0,0);
+				Replace("DCX_NightmareSpectre",1280,112,90,0,0);
+				Replace("DCX_NightmareSpectre",2128,-336,180,0,0);
+				Replace("DCX_NightmareSpectre",-320,1088,270,0,0);
+				Replace("DCX_NightmareSpectre",-448,928,270,0,0);
+				Replace("DCX_NightmareSpectre",2048,704,135,0,0);
+			}
 			
 			Add("Lostsoul",864,-64,270,0,0);
 			
@@ -651,7 +698,6 @@ script "Xtra_Monster_Placements" enter
 			Add("Revenant",640,1376,270,0,99);
 			Add("HellKnight",864,1376,270,0,0);
 			Add("HellKnight",608,1376,270,0,0);
-			//Add("Megasphere",608,1376,270,0,0);
 		}
 		if (StrICmp(mapName, "e2m7") == 0)
 		{
@@ -766,7 +812,6 @@ script "Xtra_Monster_Placements" enter
 			Add("PainElemental",-1184,-160,0,0,0);
 			Add("Revenant",-384,128,270,0,0);
 			Add("Revenant",-320,128,270,0,0);
-			//Add("SuperSHotgun",-352,-992,270,0,0);
 			Add("Arachnotron",-640,544,90,0,0);
 		}
 		if (StrICmp(mapName, "e3m4") == 0)
@@ -796,9 +841,18 @@ script "Xtra_Monster_Placements" enter
 			Add("Fatso",-928,288,90,0,0);
 			Add("Fatso",480,288,90,180,0);
 			
-			Add("DCX_NightmareSpectre",-1328,-368,0,0,0); 
-			Add("DCX_NightmareSpectre",-1248,1312,0,0,0); 
-			Add("DCX_NightmareSpectre",-1424,1136,0,0,0); 
+			if (GetCVar ("dcx_CustomMonsters") ==1)	
+			{
+				Add("DCX_NightmareSpectre",-1328,-368,0,0,0); 
+				Add("DCX_NightmareSpectre",-1248,1312,0,0,0); 
+				Add("DCX_NightmareSpectre",-1424,1136,0,0,0);
+			}
+			else
+			{
+				Add("Spectre",-1328,-368,0,0,0); 
+				Add("Spectre",-1248,1312,0,0,0); 
+				Add("Spectre",-1424,1136,0,0,0);
+			}
 			
 			//Add("SuperShotgun",-224,-96,0,0,0); 
 			Add("HellKnight",-384,1280,270,0,0); 
@@ -852,7 +906,6 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",-192,832,270,0,0);
 			Add("Arachnotron",576,864,270,0,0);
 			Add("Arachnotron",192,1056,270,0,0);
-			//Add("Megasphere",160,640,225,0,0);
 		}
 		if (StrICmp(mapName, "e3m9") == 0)
 		{			

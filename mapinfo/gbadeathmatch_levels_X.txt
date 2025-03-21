@@ -1,4 +1,5 @@
-//
+//Deathmatch maps from the GBA version of doom
+
 defaultmap
 {
 	SuckTime = 1
@@ -15,6 +16,7 @@ defaultmap
 	SpecialAction = "DCX_DM_MarineBotSpawner", EXIT_NORMAL, 0, 1
 	ResetHealth
     ResetInventory
+	compat_invisibility = "1"
 }
 
 Map GBA_DM1 "GBA DeathMatch 1"

@@ -1,0 +1,198 @@
+//All the console doom maps in one file for convenience sake. 
+
+defaultmap
+{
+	SuckTime = 1
+	NoJump
+	NoCrouch
+	compat_invisibility = "1"
+}
+
+adddefaultmap
+{
+	BorderTexture = "FLOOR7_2"
+	InterMusic = "$MUSIC_INTER"
+}
+
+map PSX01 "$HUSTR_PSX01"
+{
+	levelnum = 15
+	next = "E2M8"
+	par = 90
+	Music = "$MUSIC_PSX01"
+	Author = "$WS_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, E2M10"		
+	Sky1 = "SKY2"
+	Cluster = 2
+	ExitPic = "$IN_EPI2"
+}
+
+map PSX02 "$HUSTR_PSX02"
+{
+	levelnum = 18
+	next = "E3M2"
+	//Music = "$MUSIC_PSX02"
+	Music = "$MUSIC_E3M1"
+	Author = "$WS_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, E3M1"
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+map PSX02B "$HUSTR_PSX02"
+{
+	levelnum = 18
+	next = "E3M2"
+	//Music = "$MUSIC_PSX02"
+	Music = "$MUSIC_E3M1"
+	Author = "Manardo Lenari (OG by American Mcgee)"
+	Label = "THE ULTIMATE DOOM, E3M1"
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+map PSX03 "$HUSTR_PSX03"
+{
+	levelnum = 21
+	next = "E3M7"
+	par = 90
+	Music = "$MUSIC_PSX03"
+	Author = "$WS_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, E3M9"
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+map PSX03B "$HUSTR_PSX03"
+{
+	levelnum = 21
+	next = "E3M7"
+	par = 90
+	Music = "$MUSIC_PSX03"
+	Author = "Manardo Lenari (OG by American Mcgee)"
+	Label = "THE ULTIMATE DOOM, E3M9"
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+adddefaultmap
+{
+	BorderTexture = "FLOOR7_2"
+	InterMusic = "$MUSIC_INTEREP4"
+}
+
+map PSX04 "$HUSTR_PSX04"
+{
+	next = "PSX05"
+	secretnext = "PSX06"
+	Author = "$WS_AU_MIDWAY"
+	Music = "$MUSIC_PSX04"
+	Label = "THE ULTIMATE DOOM, E4M10"
+	Sky1 = "SKY4"
+	Cluster = 4
+	ExitPic = "$IN_EPI4"
+}
+
+map PSX05 "$HUSTR_PSX05"
+{
+	Next = EndSequence, "Episode4end"
+	NoIntermission
+	NoSoundClipping
+	cyberdemonspecial
+	specialaction_opendoor
+	secretnext = "PSX05"
+	Author = "$WS_AU_MIDWAY"
+	Music = "$MUSIC_PSX05"
+	Label = "THE ULTIMATE DOOM, E4M11"
+	Sky1 = "SKY4"
+	Cluster = 4
+	ExitPic = "$IN_EPI4"
+}
+
+map PSX06 "$HUSTR_PSX06"
+{
+	next = "PSX05"
+	cyberdemonspecial
+	specialaction_opendoor
+	Author = "$WS_AU_MIDWAY"
+	Music = "$MUSIC_PSX06"
+	Label = "THE ULTIMATE DOOM, E4M12"
+	Sky1 = "SKY4"
+	Cluster = 4
+	ExitPic = "$IN_EPI4"
+}
+
+adddefaultmap
+{
+	BorderTexture = "GRNROCK"
+	InterMusic = "$MUSIC_DM2INT"
+}
+
+map PSX07 "$HUSTR_PSX07"
+{
+	Next = "EndGameC"
+	Sky1 = "RSKY3"
+	music = "$MUSIC_PSX07"
+	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8
+	SpecialAction = "Spidermastermind", Door_Open, 667, 16
+	nointermission
+	NoSoundClipping
+	Author = "$WS_AU_MIDWAY"
+	Label = "DOOM II HELL ON EARTH, MAP30"
+	Cluster = 1008
+	Enterpic = "$in_d2e3"
+	Exitpic = "$in_d2e3"
+}
+
+map PSX08 "$HUSTR_PSX08"
+{
+	next = "MAP17"
+	secretnext = "PSX09"
+	sky1 = "RSKY2"
+	par = 120
+	Cluster = 32
+	music = "$MUSIC_PSX08"
+	Author = "$WS_AU_HEYDELAAR"
+	Enterpic = "$in_d2e2"
+	Exitpic = "$in_d2e2"
+	Label = "DOOM II HELL ON EARTH, MAP34"
+}
+
+map PSX09 "$HUSTR_PSX09"
+{
+	next = "MAP17"
+	par = 120
+	Cluster = 33
+	sky1 = "RSKY2"
+	music = "$MUSIC_PSX09"
+	Author = "$WS_AU_MIDWAY"
+	Enterpic = "$in_d2e2"
+	Exitpic = "$in_d2e2"
+	Label = "DOOM II HELL ON EARTH, PSX35"
+}
+
+Cluster 1008
+{
+	EnterText = lookup, "REDEMTION_INTRO"
+	ExitText = lookup, "REDEMTION_TXT"
+	music = "$MUSIC_READ_M"
+	Flat = "$bgflat30"
+}
+
+cluster 32
+{
+	flat = "FLAT5_1"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "MANSIONTXT"
+}
+
+cluster 33
+{
+	flat = "CEIL5_1"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "CLUBDOOMTXT"
+}

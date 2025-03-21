@@ -1,5 +1,8 @@
+//The Doom 64 for Doom 2 maps
+
 //Default properties applied to each map
 //compats are for vanilla-like behavior
+
 defaultmap
 {
 	nocrouch
@@ -28,7 +31,6 @@ defaultmap
 }
 
 //Intermission texts
-
 
 cluster 101
 {
@@ -80,6 +82,7 @@ adddefaultmap
 
 
 //Map definitions
+
 map AB_MAP01 lookup "ABHUSTR_1"
 {
 	Label = "ABSOLUTION, MAP01"

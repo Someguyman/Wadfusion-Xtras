@@ -4,6 +4,9 @@
 //Tim Wilitz submissions plus an extra promotional wad he designed called "Kick Attack",
 //And fixed up versions of the beta Doom 64 maps so they're actually beatable. 
 
+//Might remove later once those that come with the Doom 64 for doom 2 esche lost levels demakes come out.
+//Can always make it toggleable like the two tnt maps in here.
+
 defaultmap
 {
 	Sky1 = "RSKY1"
@@ -12,9 +15,10 @@ defaultmap
 	NoCrouch
 	ResetHealth
 	ResetInventory
-	InterMusic = "$MUSIC_MASTERINT"
+	InterMusic = "D_INTRM3"
 	ExitPic = "MLINTERP"
 	Cluster = 34
+	compat_invisibility = "1"
 }
 
 // Tim Willits's Master Levels
@@ -22,11 +26,12 @@ defaultmap
 adddefaultmap
 {
 	Author = "$WF_AU_WILLITS_CHASAR"
+	Label = "Master Levels, Tim Willits"
 }
 
 map ML_MAP01 "$ML_ATTACK"
 {
-	Label = "TIM, MAP01"
+	
 	Next = "ML_MAP02"
 	TitlePatch = "MWILV00"
 	Music = "$MUSIC_ATTACK"
@@ -34,16 +39,14 @@ map ML_MAP01 "$ML_ATTACK"
 
 map ML_MAP02 "$ML_CANYON"
 {
-	Label = "TIM, MAP02"
-	Next = "KICKATK"
+	Next = "ML_MAP44"
 	TitlePatch = "MWILV01"
 	Music = "$MUSIC_CANYON"
 }
 
-map KICKATK "Boot Assault" //KICK ATTACK
+map ML_MAP44 "Boot Assault" //KICK ATTACK
 {
-	Label = "TIM, MAP03"
-	Next = "SYSTEM"
+	Next = "ML_MAP45"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
 }
@@ -54,39 +57,35 @@ adddefaultmap
 {
 	Author = "$WF_AU_MUSTAINE"
 	Sky1 = "SKY1"
+	Label = "Master Levels, Tom Mustaine"
 }
 
-map SYSTEM "$THUSTR_1"
+map ML_MAP45 "$THUSTR_1" //Early version of System Control from DWANGO6 
 {
-	Label = "TOM, MAP01"
-	Next = "PROCESS"
+	Next = "ML_MAP46"
 	TitlePatch = "TWILV00"
 	Music = "T_STLKS3"
 	Author = "$WF_AU_MUSTAINE"
 }
 
-map PROCESS "$THUSTR_17"
+map ML_MAP46 "$THUSTR_17" //Early version of Processing Area from #1DWANGO
 {
-	Label = "TOM, MAP02"
 	Next = "ML_MAP28"
 	TitlePatch = "TWILV16"
 	Author = "$WF_AU_MUSTAINE"
 	Music = "T_DDTBL3"
 }
 
-map ML_MAP28 "Masters Den" // reject level
+map ML_MAP28 "$ML_TWM01" // reject level
 {
-	Label = "TOM, MAP03"
 	Next = "ML_MAP07"
-	//TitlePatch = "MWILV27"
 	Music = "$MUSIC_MASTERDEN"
 	Music = "T_MESSAG"
 }
 
 map ML_MAP07 "$ML_PARADOX"
 {
-	Label = "TOM, MAP04"
-	Next = "HACK2"
+	Next = "ML_MAP47"
 	TitlePatch = "MWILV06"
 	Music = "$MUSIC_PARADOX"
 	Author = "$WF_AU_MUSTAINES"
@@ -97,46 +96,42 @@ map ML_MAP07 "$ML_PARADOX"
 adddefaultmap
 {
 	Author = "$WS_AU_MIDWAY"
+	Label = "Master Levels, Midway"
 }
 
-map HACK2 "Hacked Together" 
+map ML_MAP47 "Hacked Together" 
 {
-	Label = "MID, MAP01"
-	next = "CANYON"
+	next = "ML_MAP48"
 	sky1 = "SKY1"
 	music = "$MUSIC_HACK2"
 }
 
-map CANYON "Grand Entrance to Hell" //CANYON
+map ML_MAP48 "Grand Entrance to Hell" //CANYON
 {
-	Label = "MID, MAP02"
-	next = "MEE2"
+	next = "ML_MAP49"
 	sky1 = "SKY1"
 	music = "$MUSIC_HELLCAN"
 }
 
-map MEE2 "Moping in Sarrow" // MEE2
+map ML_MAP49 "Moping in Sarrow" // MEE2
 {
-	Label = "MID, MAP03"
-	next = "NEWCAT3"
+	next = "ML_MAP50"
 	sky1 = "RSKY3"
 	music = "$MUSIC_MEE2"
 }
 
-map NEWCAT3 "Nightmare Catacombs" //NEWCAT3
+map ML_MAP50 "Nightmare Catacombs" //NEWCAT3
 {
-	Label = "MID, MAP04"
-	next = "TUFF"
+	next = "ML_MAP51"
 	Sky1 =  "SKYX5A"
 	music = "$MUSIC_NEWCAT3"
 }
 
-map TUFF "Tuff stuff" //TUFF
+map ML_MAP51 "Tuff stuff" //TUFF
 {
-	Label = "MID, MAP05"
 	Next = EndGame
 	{
-		Pic = "MLBOSSBK"
+		Pic = "MLTITTLE"
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}

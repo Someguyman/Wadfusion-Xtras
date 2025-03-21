@@ -1,3 +1,5 @@
+//Doom 1, Episode 1: Knee Deep In The Dead. 
+
 defaultmap
 {
 	SuckTime = 1
@@ -8,6 +10,7 @@ defaultmap
 	Sky1 = "SKY1"
 	Cluster = 1
 	ExitPic = "$IN_EPI1"
+	compat_invisibility = "1"
 }
 
 cluster 1
@@ -29,7 +32,6 @@ cluster 31
 {
 	EnterText = "$E1M8BTEXT"
 	ExitText = "$E1TEXT"
-	//Music = "$MUSIC_VICTOR"
 	Music = "$MUSIC_INTER"
 	Flat = "$bgflatE1"
 }

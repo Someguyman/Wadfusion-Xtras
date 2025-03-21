@@ -1,5 +1,15 @@
 // Master Levels for Doom 2 maps - Sverre André Kvernmo's CABAL
 
+//Due to the stark difference between the order presented in the text files 
+//vs the order kvernmo later made for the works of the masters mod,
+//I've decided to make the map order a toggle so that you can choose
+//the order in which you want to play these. 
+
+//As a result, I have removed the next level parts from most of the maps
+//in the mapinfo.
+
+//Might change it later if it ever causes any mod compatibility issues.
+
 defaultmap
 {
 	Sky1 = "RSKY3"
@@ -10,19 +20,26 @@ defaultmap
 	InterMusic = "$MUSIC_MASTERIN2"
 	ExitPic = "CRINTERP"
 	Cluster = 38
+	Label = "CABAL SERIES"
+	compat_invisibility = "1"
+}
+
+map ML_MAP19 "$ML_BLOODSEA"
+{
+	TitlePatch = "MWILV18"
+	Music = "$MUSIC_BLOODSEA"
+	Map07Special
 }
 
 map ML_MAP37 "$ML_FLOOD" // reject level
 {
-	Label = "CABAL, MAP01"
-	Next = "ML_MAP38"
+	//Next = "ML_MAP38"
 	TitlePatch = "MWILV36"
 	Music = "$MUSIC_BLOODF"
 }
 
 map ML_MAP38 "$ML_DERELICT" // reject level
 {
-	Label = "CABAL, MAP02"
 	Next = "ML_MAP39"
 	TitlePatch = "MWILV37"
 	Music = "$MUSIC_DERELICT"
@@ -31,78 +48,41 @@ map ML_MAP38 "$ML_DERELICT" // reject level
 
 map ML_MAP39 "$ML_WATCHTWR" // reject level
 {
-	Label = "CABAL, MAP03"
-	Next = "ML_MAP19"
+	//Next = "ML_MAP20"
 	TitlePatch = "MWILV38"
 	Music = "$MUSIC_WATCHTWR"
 	Author = "$WF_AU_KVERNMO_HYNE"
 }
 
-map ML_MAP19 "$ML_BLOODSEA"
-{
-	Label = "CABAL, MAP04"
-	Next = "ML_MAP40"
-	TitlePatch = "MWILV18"
-	Music = "$MUSIC_BLOODSEA"
-	Map07Special
-}
-
-map ML_MAP40 "$ML_TODEATH" // reject level
-{
-	Label = "CABAL, MAP05"
-	Next = "ML_MAP41"
-	TitlePatch = "MWILV39"
-	music = "$MUSIC_TDEATH"
-}
-
-map ML_MAP41 "$ML_ARENA" // reject level
-{
-	Label = "CABAL, MAP06"
-	Next = "ML_MAP10"
-	TitlePatch = "MWILV40"
-	Music = "$MUSIC_ABOUTTO"
-}
-
-map ML_MAP10 "$ML_BLACKTWR"
-{
-	Label = "CABAL, MAP07"
-	Next = "ML_MAP20"
-	TitlePatch = "MWILV09"
-	Music = "$MUSIC_BLACKTWR"
-}
-
 map ML_MAP20 "$ML_MEPHISTO"
 {
-	Label = "CABAL, MAP08"
-	Next = "ML_MAP43"
 	TitlePatch = "MWILV19"
 	Music = "$MUSIC_MEPHISTO"
 	AllowMonsterTelefrags
 	Map07Special
 }
 
-map ML_MAP43 "$ML_THE_EVIL" // reject level
+map ML_MAP40 "$ML_TODEATH" // reject level
 {
-	Label = "CABAL, MAP09"
-	Next = "ML_MAP18"
-	TitlePatch = "MWILV42"
-	Music = "$MUSIC_IMAGE"
-	AllowMonsterTelefrags
+	TitlePatch = "MWILV39"
+	music = "$MUSIC_TDEATH"
 }
 
 map ML_MAP18 "$ML_TEETH"
 {
-	Label = "CABAL, MAP10"
-	Next = "ML_MAP42"
 	SecretNext = "ML_MAP21"
 	TitlePatch = "MWILV17"
 	Music = "$MUSIC_TEETH"
 }
 
+map ML_MAP41 "$ML_ARENA" // reject level
+{
+	TitlePatch = "MWILV40"
+	Music = "$MUSIC_ABOUTTO"
+}
 
 map ML_MAP42 "$ML_STORM" // reject level
 {
-	Label = "CABAL, MAP11"
 	Next = EndGame
 	{
 		Pic = "CRBOSSBK"
@@ -113,13 +93,45 @@ map ML_MAP42 "$ML_STORM" // reject level
 	music = "$MUSIC_EYESTORM"
 }
 
+map ML_MAP10 "$ML_BLACKTWR"
+{
+	TitlePatch = "MWILV09"
+	Music = "$MUSIC_BLACKTWR"
+}
+
+map ML_MAP43 "$ML_THE_EVIL" // reject level
+{
+	TitlePatch = "MWILV42"
+	Music = "$MUSIC_IMAGE"
+	Next = EndGame
+	{
+		Pic = "CRBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	AllowMonsterTelefrags
+}
+
 map ML_MAP21 "$ML_TEETH_SECRET"
 {
-	Label = "CABAL, MAP12"
 	Next = "ML_MAP41"
 	Cluster = 25
 	TitlePatch = "MWILV20"
 	Music = "$MUSIC_NIGHTMARE"
+}
+
+map CabalEND ""
+{
+	Cluster = 0
+	Next = EndGame
+	{
+		Pic = "CRBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	music = "$MUSIC_MASTEREND"
+	NoIntermission
+	NoSoundClipping
 }
 
 cluster 25

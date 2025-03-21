@@ -8,6 +8,7 @@ defaultmap
 	InterMusic = "$MUSIC_NERVEINTER"
 	NoJump
 	NoCrouch
+	compat_invisibility = "1"
 }
 
 map NV_MAP01 "$NHUSTR_1"

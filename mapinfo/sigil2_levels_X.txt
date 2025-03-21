@@ -8,13 +8,12 @@ defaultmap
 	// the music is intentionally set to something invalid,
 	// instead to be started and changed through zscript
 	InterMusic = NULL
-	//EnterPic = "SIGILIN2"
-	//ExitPic = "SIGILIN2"
 	ExitPic = "$IN_EPI6"
 	BorderTexture = "FLOOR7_2"
 	NoJump
 	NoCrouch
 	Author = "$WF_AU_ROMERO"
+	compat_invisibility = "1"
 }
 
 map E6M1 "$HUSTR_E6M1"
@@ -84,8 +83,8 @@ map E6M7 "$HUSTR_E6M7"
 map E6M8 "$HUSTR_E6M8"
 {
 	LevelNum = 58
-	//Next = EndPic, "SIGILEN2"
-	next = EndSequence, "UTDInter_Cast"
+	//Next = EndPic, "S2CREDIT"
+	Next = EndPic, "SIGILEN2"
 	TitlePatch = "WILV57"
 	Par = 390
 	nointermission
@@ -100,93 +99,6 @@ map E6M9 "$HUSTR_E6M9"
 	TitlePatch = "WILV58"
 	Par = 450
 	Label = "ULTIMATE DOOM, E6M9"
-}
-
-Intermission UTDInter_Cast
-{
-	Image
-	{
-		// This is only here to initialize the background and the music
-		Background = "SIGILEN2"
-		Time = -1
-		Music = "$MUSIC_VICTOR"
-	}
-	Link = Sigilcast
-}
-
-Intermission Sigilcast
-{
-	Cast
-	{
-		CastClass = "Zombieman"
-		CastName = "$CC_ZOMBIE"
-		AttackSound = "Missile", 1, "grunt/attack"
-	}
-	Cast
-	{
-		CastClass = "ShotgunGuy"
-		CastName = "$CC_SHOTGUN"
-		AttackSound = "Missile", 1, "shotguy/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomImp"
-		CastName = "$CC_IMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		CastClass = "Demon"
-		CastName = "$CC_DEMON"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		CastClass = "DCX_Spectre"
-		CastName = "Spectre"
-		AttackSound = "Melee", 1, "spectre/melee"
-	}
-	Cast
-	{
-		CastClass = "LostSoul"
-		CastName = "$CC_LOST"
-		AttackSound = "Missile", 1, "skull/melee"
-	}
-	Cast
-	{
-		CastClass = "Cacodemon"
-		CastName = "$CC_CACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		CastClass = "BaronOfHell"
-		CastName = "$CC_BARON"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		CastClass = "Cyberdemon"
-		CastName = "$CC_CYBER"
-		AttackSound = "Missile", 1, "weapons/rocklf"
-		AttackSound = "Missile", 3, "weapons/rocklf"
-		AttackSound = "Missile", 5, "weapons/rocklf"
-	}
-	Cast
-	{
-		CastClass = "SpiderMastermind"
-		CastName = "$CC_SPIDER"
-		AttackSound = "Missile", 1, "spider/attack"
-		AttackSound = "Missile", 2, "spider/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomPlayer"
-		CastName = "The Marine"
-		AttackSound = "Missile", 0, "weapons/shotgf"
-	}
-
-	Link = Sigilcast
 }
 
 // Sigil 2 cluster

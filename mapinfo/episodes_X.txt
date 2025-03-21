@@ -1,3 +1,4 @@
+//Intro sequences for each of the doom episodes.
 
 clearepisodes
 
@@ -208,7 +209,16 @@ episode ML_MAP33
 	Optional
 }
 
+/*
 episode ML_MAP37
+{
+	Name = "$MASTER_LV05"
+	PicName = "M_MASTR6"
+	Optional
+}
+*/
+
+episode INTER_MLCS
 {
 	Name = "$MASTER_LV05"
 	PicName = "M_MASTR6"

@@ -13,6 +13,7 @@ defaultmap
 	NoJump
 	NoCrouch
 	Author = "$WF_AU_ROMERO"
+	compat_invisibility = "1"
 }
 
 map E5M1 "$HUSTR_E5M1"
@@ -83,6 +84,7 @@ map E5M8 "$HUSTR_E5M8"
 {
 	LevelNum = 48
 	Next = EndPic, "SIGILEND"
+	//Next = EndPic, "SCREDIT"
 	TitlePatch = "WILV47"
 	Par = 300
 	Nointermission

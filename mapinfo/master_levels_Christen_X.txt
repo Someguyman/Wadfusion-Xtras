@@ -12,11 +12,12 @@ defaultmap
 	ExitPic = "MLINTERP"
 	Author = "$WF_AU_KLIE"
 	Cluster = 35
+	Label = "KLIETECH SERIES"
+	compat_invisibility = "1"
 }
 
 map ML_MAP22 "$ML_CPU" // reject level
 {
-	Label = "KLIETECH, MAP01"
 	Next = "ML_MAP06"
 	TitlePatch = "MWILV21"
 	Music = "$MUSIC_CPU"
@@ -24,7 +25,6 @@ map ML_MAP22 "$ML_CPU" // reject level
 
 map ML_MAP06 "$ML_SUBSPACE"
 {
-	Label = "KLIETECH, MAP02"
 	Next = "ML_MAP05"
 	TitlePatch = "MWILV05"
 	Music = "$MUSIC_SUBSPACE"
@@ -32,7 +32,6 @@ map ML_MAP06 "$ML_SUBSPACE"
 
 map ML_MAP05 "$ML_COMBINE"
 {
-	Label = "KLIETECH, MAP03"
 	Next = "ML_MAP23"
 	Sky1 = "MSKY1"
 	TitlePatch = "MWILV04"
@@ -41,7 +40,6 @@ map ML_MAP05 "$ML_COMBINE"
 
 map ML_MAP23 "$ML_DEVICE1" // reject level
 {
-	Label = "KLIETECH, MAP04"
 	Next = "ML_MAP04"
 	TitlePatch = "MWILV22"
 	Music = "$MUSIC_DEVICEONE"
@@ -49,7 +47,6 @@ map ML_MAP23 "$ML_DEVICE1" // reject level
 
 map ML_MAP04 "$ML_FISTULA"
 {
-	Label = "KLIETECH, MAP05"
 	Next = "ML_MAP08"
 	Sky1 = "MSKY1"
 	TitlePatch = "MWILV03"
@@ -58,7 +55,6 @@ map ML_MAP04 "$ML_FISTULA"
 
 map ML_MAP08 "$ML_SUBTERRA"
 {
-	Label = "KLIETECH, MAP06"
 	Next = "ML_MAP24"
 	TitlePatch = "MWILV07"
 	Music = "$MUSIC_SUBTERRA"
@@ -66,7 +62,6 @@ map ML_MAP08 "$ML_SUBTERRA"
 
 map ML_MAP24 "$ML_DMZ" // reject level
 {
-	Label = "KLIETECH, MAP07"
 	Next = "ML_MAP03"
 	TitlePatch = "MWILV23"
 	Music = "$MUSIC_DMZ"
@@ -74,7 +69,6 @@ map ML_MAP24 "$ML_DMZ" // reject level
 
 map ML_MAP03 "$ML_CATWALK"
 {
-	Label = "KLIETECH, MAP08"
 	Next = "ML_MAP25"
 	TitlePatch = "MWILV02"
 	Music = "$MUSIC_CATWALK"
@@ -82,7 +76,6 @@ map ML_MAP03 "$ML_CATWALK"
 
 map ML_MAP25 "$ML_FURY" // reject level
 {
-	Label = "KLIETECH, MAP09"
 	Next = "ML_MAP09"
 	TitlePatch = "MWILV24"
 	Music = "$MUSIC_FURY"
@@ -90,7 +83,6 @@ map ML_MAP25 "$ML_FURY" // reject level
 
 map ML_MAP09 "$ML_GARRISON"
 {
-	Label = "KLIETECH, MAP10"
 	Next = "ML_MAP26"
 	TitlePatch = "MWILV08"
 	Music = "$MUSIC_GARRISON"
@@ -98,7 +90,6 @@ map ML_MAP09 "$ML_GARRISON"
 
 map ML_MAP26 "$ML_EINSIDE" // reject level
 {
-	Label = "KLIETECH, MAP11"
 	Next = "ML_MAP27"
 	Sky1 = "PSKY3"
 	TitlePatch = "MWILV25"
@@ -107,10 +98,9 @@ map ML_MAP26 "$ML_EINSIDE" // reject level
 
 map ML_MAP27 "$ML_HIVE" // reject level
 {
-	Label = "KLIETECH, MAP12"
 	Next = EndGame
 	{
-		Pic = "MLBOSSBK"
+		Pic = "MLTITTLE"
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}
@@ -125,5 +115,5 @@ Cluster 35
 {
 	music = "$MUSIC_MASTERTXT"
 	pic = "MLINTERP"
-	ExitText = "$GENERIC_TXT2" //Due to a lack of any supplmental stuff for any of these, I just used the ending to psx doom for now.
+	ExitText = "$GENERIC_TXT2" //Due to lack of any supplemental material regarding these wads. I'll just use the generic text from psx doom
 }

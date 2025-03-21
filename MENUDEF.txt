@@ -39,29 +39,23 @@ OptionValue HUDtweaks
 	5.0, "\c[Yellow]Final DOOM hud"
 }
 
-OptionValue PLUHUDtweaks
+OptionValue DCX_CabalLevelOrder
 {
-	0.0, "Custom hud"
-	1.0, "Plutonia 2 hud"
-	2.0, "Plutonia revisited hud"
+	0.0, "$DCX_CABAL_DEFAULT"
+	1.0, "$DCX_CABAL_ODW"
+	2.0, "$DCX_CABAL_WOTM"
 }
 
-OptionValue TNTHUDtweaks
+OptionValue CustomMonsters
 {
-	0.0, "Custom hud"
-	1.0, "TNT Revolution hud"
-	2.0, "Plutonia 2 hud"
+	0.0, "\c[GOLD]On"
+	1.0, "\c[DARK GREY]Off"
 }
 
-OptionValue D64HUDtweaks
-{
-	0.0, "Original Hud"
-	1.0, "Demonic Hud"
-}
 
 AddOptionMenu "OptionsMenu"
 {
-Submenu "DCX Options","DCXOptions"
+	Submenu "DCX Options","DCXOptions"
 }
 
 OptionMenu "DCXOptions"
@@ -122,13 +116,29 @@ OptionMenu "DCXGameplayOptions"
 	Option "$OPTIONS_W3D", "W3D_Text_toggle", "Wolf3DTextureTweaks"
 	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "dark red"
 	StaticText " "
+	Option "Cabal Level Order", "dcx_CabalOrder", "DCX_CabalLevelOrder"
+	StaticText "Configures the level order of the cabal series of maps.", "dark red"
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
+	StaticText " "
 	StaticText "Compatibility", "Gold"
 	StaticText " "
-	Option "Doom 64 for Doom 2 Xtras", "dcx_D64D2Xtras", "OnOff"
-	StaticText "Disables the new doom 64 for doom 2 additions like the unmaker and demon keys.", "dark red"
-	StaticText " "
-	Option "Disable Custom Actors", "dcx_CustomMonsters", "OnOff"
+	Option "Disable Custom Actors", "dcx_CustomMonsters", "CustomMonsters"
 	StaticText "Replaces every new actor with a vanilla equivilant.", "dark red"
 	StaticText "(Example: The Legacy of Rust and the Doom 64 for Doom 2 exclusive monsters)", "dark red"
 	StaticText "(Only enable if the gameplay mod in question doesn't support them)", "dark red"
+	StaticText " "
+	Option "Doom 64 for Doom 2 Xtras", "dcx_D64D2Xtras", "OnOff", "dcx_CustomMonsters", 0
+	StaticText "Disables the new doom 64 for doom 2 additions like the unmaker and demon keys.", "dark red"
+	StaticText " "
 }

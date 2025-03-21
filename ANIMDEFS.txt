@@ -51,31 +51,32 @@ pic ICNFRH2 tics 8
 pic ICNFRH3 tics 8
 pic ICNFRH4 tics 8
 
-Switch SW1STAR on pic SW2STAR tics 0
+switch doom 1  SW1STAR on pic SW2STAR 	tics 0
 
-Switch SW1METL on pic SW2METL tics 0
-Switch SW1HOTJ on pic SW2HOTJ tics 0
-Switch SW1GSTNJ on pic SW2GSTNJ tics 0
+switch doom 1  SW1METL on pic SW2METL 	tics 0
+switch doom 1  SW1HOTJ on pic SW2HOTJ 	tics 0
+switch doom 1  SW1GSTNJ on pic SW2GSTNJ tics 0
 
-Switch SW1KABCP on pic SW2KABCP tics 0
-Switch SW1KABK on pic SW2KABK tics 0
-Switch SW1KAB1 on pic SW2KAB1 tics 0
-Switch SW1KAB2 on pic SW2KAB2 tics 0
-Switch SW1KABGN on pic SW2KABGN tics 0
-Switch SW1KASV on pic SW2KASV tics 0
-Switch SW1KADI on pic SW2KADI tics 0
-Switch SW1KAGR1 on pic SW2KAGR1 tics 0
-Switch SW1KAM2 on pic SW2KAM2 tics 0
-Switch SW1KAMTL on pic SW2KAMTL tics 0
-Switch SW1KMD1 on pic SW2KMD1 tics 0
-Switch SW1KSTRG on pic SW2KSTRG tics 0
-Switch SW1KSTN1 on pic SW2KSTN1 tics 0
-Switch SW1KSTN2 on pic SW2KSTN2 tics 0
-Switch SW1KSTNE on pic SW2KSTNE tics 0
-Switch SW1KSTTN on pic SW2KSTTN tics 0
-Switch SW1KTK on pic SW2KTK tics 0
-Switch SW1KVIN on pic SW2KVIN tics 0
-Switch SW1SKMTL on pic SW2SKMTL tics 0
+switch doom 1  SW1KABCP on pic SW2KABCP tics 0
+switch doom 1  SW1KABK	on pic SW2KABK 	tics 0
+switch doom 1  SW1KAB1	on pic SW2KAB1 	tics 0
+switch doom 1  SW1KAB2	on pic SW2KAB2	tics 0
+switch doom 1  SW1KABGN on pic SW2KABGN tics 0
+switch doom 1  SW1KASV	on pic SW2KASV 	tics 0
+switch doom 1  SW1KADI	on pic SW2KADI 	tics 0
+switch doom 1  SW1KAGR1 on pic SW2KAGR1 tics 0
+switch doom 1  SW1KAM2	on pic SW2KAM2 	tics 0
+switch doom 1  SW1KAMTL on pic SW2KAMTL tics 0
+switch doom 1  SW1KMD1	on pic SW2KMD1 	tics 0
+switch doom 1  SW1KSTRG on pic SW2KSTRG tics 0
+switch doom 1  SW1KSTN1 on pic SW2KSTN1 tics 0
+switch doom 1  SW1KSTN2 on pic SW2KSTN2 tics 0
+switch doom 1  SW1KSTNE on pic SW2KSTNE tics 0
+switch doom 1  SW1KSTTN on pic SW2KSTTN tics 0
+switch doom 1  SW1KTK	on pic SW2KTK 	tics 0
+switch doom 1  SW1KVIN	on pic SW2KVIN 	tics 0
+switch doom 1  SW1SKMTL on pic SW2SKMTL tics 0
+switch doom 1  SW1SPFAC on pic SW2SPFAC tics 0
 
 texture Silver32
 pic Silver3 tics 8

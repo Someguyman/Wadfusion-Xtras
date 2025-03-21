@@ -9,6 +9,7 @@ defaultmap
 	Cluster = 666
 	ResetHealth
     ResetInventory
+	compat_invisibility = "1"
 }
 
 map DM_MAP01 "$MHUSTR_1"

@@ -7,6 +7,7 @@ class DCX_EventHandler : EventHandler
 	TextureId SIGILTittle;
 	TextureId SIGIL2Tittle;
 	TextureId DOOM2Tittle;
+	TextureId CabalTitle;
 	
 	override void OnRegister()
 	{
@@ -16,21 +17,27 @@ class DCX_EventHandler : EventHandler
 		SIGILTittle =  TexMan.CheckForTexture("SI6TITLE");
 		SIGIL2Tittle =  TexMan.CheckForTexture("S62TITLE");
 		DOOM2Tittle =  TexMan.CheckForTexture("DM2title");
+		CabalTitle =  TexMan.CheckForTexture("CSTITLE");
 	}
 	
 	override void WorldLoaded (WorldEvent e)
 	{
 		if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
-		TextureFixes();
+		{ TextureFixes(); }
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-		TextureEnchancements();
-		if ( CVar.FindCVar("fs_toggle").GetBool() ) { DCXskyreplacement(); }
-		Doom64Doom2Replacements();
+		{ TextureEnchancements(); }
+		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
+		{ DCXskyreplacement(); }
 		
+		CabalLevelOrder(); 
+		
+		Doom64Doom2Replacements();
 		JaguarDoomReplacements();
 		PSX0BRepalcements();		
 		Wolfenstein3DTextures();
 		BlankMapTransitions();
+		BasePSXMapTextures();
+		
 	}
 	
 	override void RenderOverlay (RenderEvent e)
@@ -55,9 +62,13 @@ class DCX_EventHandler : EventHandler
 			{
 					Screen.DrawTexture(SIGIL2Tittle, false, 0, 0, DTA_FullScreen, 1);
 			}
-			else if ( mapName == "e4m0" )
+			if ( mapName == "e4m0" || mapName == "cabalend" )
 			{
 					Screen.DrawTexture(TITLEPIC, false, 0, 0, DTA_FullScreen, 1);
+			}			
+			if ( mapName == "inter_mlcs" )
+			{
+					Screen.DrawTexture(CabalTitle, false, 0, 0, DTA_FullScreen, 1);
 			}
 		}
 	}
@@ -163,9 +174,13 @@ class DCX_EventHandler : EventHandler
 		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
 		
 		//TNT Textures
-		if ( mapPrefix == "tn_" )
+		if ( mapPrefix == "tn_" || mapPrefix == "fd_" || mapName.left(6) == "fd_dmm")
 		{
-			Level.ReplaceTextures("BIGDOOR1", "DRTN2_1",0);
+			if ( mapPrefix == "tn_" )
+			{
+				Level.ReplaceTextures("BIGDOOR1", "DRTN2_1",0);
+			}
+			
 			Level.ReplaceTextures("DOBWIRE", 	"EHBWIRE", 0);
 			Level.ReplaceTextures("DOBWIRE2", 	"EHBWIRE2", 0);
 			Level.ReplaceTextures("TYIRONLG", "TYIRONLG2", 0);
@@ -224,7 +239,7 @@ class DCX_EventHandler : EventHandler
 		if ( mapName == "map32" )
 		Level.ReplaceTextures("MIDGRATE", "ZZWOLF15A", 0);
 		
-		if ( mapName == "kickatk" )
+		if ( mapName == "ml_map44" )
 		{
 			Level.ReplaceTextures("BRONZE1", "KABRON1", 0);
 			Level.ReplaceTextures("BROWN1", "KABWN1", 0);
@@ -366,6 +381,15 @@ class DCX_EventHandler : EventHandler
 		}
 	}
 	
+	void BasePSXMapTextures ()
+	{
+		String mapName = level.MapName.MakeLower();
+		if ( mapName == "psx08" || MapName == "psx09" )
+		{
+			Level.ReplaceTextures("SW1BLUE", "SW1SKMTL", 0);
+		}
+	}
+	
 	void DCXskyreplacement()
 	{
 		String SkyName = TexMan.GetName(level.skytexture1);
@@ -377,7 +401,7 @@ class DCX_EventHandler : EventHandler
 		{
 			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
-		
+			
 		if ( mapname == "e3m7" || mapname == "cs_e3m7" || mapname == "ch_e3m7" || mapname == "co_e3m7" )
 		Level.ReplaceTextures("CEIL4_2", "F_SKY1", 0);
 			
@@ -398,7 +422,7 @@ class DCX_EventHandler : EventHandler
 		
 		if ( SkyName == "SKY2" )
 		{
-			if (mapName.left(2) ~== "E2")
+			if (mapName.left(2) ~== "E2" || mapName.left(5) == "cs_e2" || mapName.left(5) == "ch_e2" || mapName.left(5) == "co_e2")
 			{
 				Level.ReplaceTextures("SKY2", "USKY2", 0);
 				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
@@ -460,13 +484,6 @@ class DCX_EventHandler : EventHandler
 				level.NextSecretMap = "e3m9";
 		}
 		
-		if ( mapName == "e4m6" )
-		{
-			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
-				level.NextMap = "e4m8";
-			else
-				level.NextMap = "e4m7";
-		}
 		if ( mapName == "e4m8" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
@@ -475,11 +492,112 @@ class DCX_EventHandler : EventHandler
 		if ( mapName == "map29" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
-				level.NextMap = "psx09";
+				level.NextMap = "psx07";
 			else
 				level.NextMap = "map30";
 		}
 	}
+	
+	
+	void CabalLevelOrder()
+	{
+		String mapName = level.MapName.MakeLower();
+		
+		if ( mapName == "inter_mlcs" )
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() >= 1 )
+				level.NextMap = "ml_map37"; //Old Doom wiki/WOTM: Bloodflood
+			else
+				level.NextMap = "ml_map19"; //Default: Bloodsea Keep
+		}
+		
+		if ( mapName == "ml_map19" ) //Bloodsea Keep
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map40"; //WOTM: Temple of Death
+			else if ( CVar.GetCvar("dcx_CabalOrder").getint() == 1 )
+				level.NextMap = "ml_map38"; //Old Doom wiki: Derelict Station
+			else
+				level.NextMap = "ml_map37"; //Default: BloodFlood
+		}
+		
+		if ( mapName == "ml_map37" ) //BloodFlood
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 1 )
+				level.NextMap = "ml_map19"; //Old Doom wiki: Bloodsea Keep
+			else
+				level.NextMap = "ml_map38"; //Default/WOTM: Derelict Station
+		}
+		
+		if ( mapName == "ml_map39" ) //The Watchtower
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map19"; //WOTM: Bloodsea Keep
+			else if ( CVar.GetCvar("dcx_CabalOrder").getint() <= 1 )
+				level.NextMap = "ml_map20"; //Default/Old Doom wiki: Mephisto's Maosoleum
+		}
+		
+		if ( mapName == "ml_map20" ) //Mephisto's Maosoleum
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map43"; //WOTM: Image Of Evil
+			else
+				level.NextMap = "ml_map40"; //Default/Old Doom wiki: Temple of Death
+		}
+		
+		if ( mapName == "ml_map40" ) //Temple of Death
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map41"; //WOTM: We Who Are About To Die
+			else
+				level.NextMap = "ml_map18"; //Default/Old Doom wiki: The Express Elevator To Hell (T.E.E.T.H)
+		}
+		
+		if ( mapName == "ml_map18" ) //The Express Elevator To Hell (T.E.E.T.H)
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map42"; //WOTM: Eye of the storm
+			else
+				level.NextMap = "ml_map41"; //Default/Old Doom wiki: We Who Are About To Die
+		}
+		
+		if ( mapName == "ml_map21" ) //Bad Dream (Secret map)
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map42"; //WOTM: Eye of the storm
+			else
+				level.NextMap = "ml_map41"; //Default/Old Doom wiki: We Who Are About To Die
+		}		
+		
+		if ( mapName == "ml_map41" ) //We Who Are About To Die
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map10"; //WOTM: The Black Tower
+			else
+				level.NextMap = "ml_map42"; //Default/Old Doom wiki: Eye of the storm
+		}
+		
+		if ( mapName == "ml_map42" ) //Eye of the storm
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() < 2 )
+				level.NextMap = "ml_map10"; //Default/Old Doom wiki: The Black Tower
+		}
+		
+		if ( mapName == "ml_map10" ) //Black Tower
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map20"; //WOTM: Mephisto's Maosoleum
+			else
+				level.NextMap = "ml_map43"; //Default/Old Doom wiki: Image Of Evil
+		}
+		
+		if ( mapName == "ml_map43" ) //Image Of Evil
+		{
+			if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+				level.NextMap = "ml_map18"; //WOTM: The Express Elevator To Hell (T.E.E.T.H)	
+		}
+	}
+
 }
 
 class DCX_PerMapReplacementHandler : EventHandler
@@ -529,9 +647,9 @@ class DCX_PerMapReplacementHandler : EventHandler
 			e.Replacement = 'Berserk_eternal';
 		}
 		
-		if ( mapName == "kickatk")
+		if ( mapName == "ml_map44")
 		{
-			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{
 			//Doomimp
 			if (e.Replacee == 'Doomimp')
@@ -636,7 +754,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'DCX_Motherdemon';
 			}
 			
-			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{			
 				if (e.Replacee == 'CommanderKeen')
 				e.Replacement = 'DCX_NightmareImp';

@@ -1,3 +1,4 @@
+//Jaguar/GBA/PSX Port Levels 
 
 defaultmap
 {
@@ -8,6 +9,7 @@ defaultmap
 	NoCrouch
 	ExitPic = "DMVICTOR"
 	Cluster = 667
+	compat_invisibility = "1"
 }
 
 Cluster 667

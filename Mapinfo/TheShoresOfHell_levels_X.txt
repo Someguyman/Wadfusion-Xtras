@@ -1,3 +1,5 @@
+//Doom 1, Episode 2: The Shores Of Hell
+
 defaultmap
 {
 	SuckTime = 1
@@ -8,6 +10,7 @@ defaultmap
 	Sky1 = "SKY2"
 	Cluster = 2
 	ExitPic = "$IN_EPI2"
+	compat_invisibility = "1"
 }
 
 cluster 2
@@ -94,16 +97,6 @@ map E2M7 "$HUSTR_E2M7"
 	Music = "$MUSIC_E2M7"
 	Author = "$WF_AU_PETERSEN_HALL"
 	Label = "THE ULTIMATE DOOM, E2M7"
-}
-
-map PSX01 "$HUSTR_PSX01"
-{
-	levelnum = 15
-	next = "E2M8"
-	par = 90
-	Music = "$MUSIC_PSX01"
-	Author = "$WS_AU_MCGEE"
-	Label = "THE ULTIMATE DOOM, PSX01"
 }
 
 map E2M8 "$HUSTR_E2M8"

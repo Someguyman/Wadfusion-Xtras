@@ -303,21 +303,21 @@ Class DCX_DM_Marinebot : Actor
 			PLAY F 1 BRIGHT { A_SpawnProjectile("ID24IncineratorFlame", 32); A_FaceTarget(); }
 			Goto See;
 		Missile.Calamity:
-			PLAY A 0 A_Startsound("weapons/heatwave/hetchg", CHAN_BODY);
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			//PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
-			PLAY A 0 A_Startsound("weapons/heatwave/hetchg", CHAN_BODY);
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			//PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
-			PLAY A 0 A_Startsound("weapons/heatwave/hetchg", CHAN_BODY);
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			//PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
 			PLAY F 6 BRIGHT 
 			{ 
-				A_Startsound("weapons/heatwave/hetsht", CHAN_WEAPON);
+				A_Startsound("weapons/calamityblade/shoot", CHAN_WEAPON);
 				A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -20.0);
 				A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -15.0);
 				A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -10.0);
@@ -632,7 +632,6 @@ Class DCX_DM_Marinebot_DualChainsaw : DCX_DM_Marinebot
 	}
 }
 
-///*
 Class DCX_DM_MarineBotSpawner : Actor
 {
 	Bool A; //Returns 1 or 0 for succes or fail.
@@ -732,7 +731,6 @@ Class DCX_DM_MarineBotSpawner : Actor
 			Stop;
 	}
 }
-//*/
 
 class DCX_ZombieMan : ZombieMan Replaces ZombieMan
 {
@@ -2163,5 +2161,86 @@ Class Kick_TechLamp : TechLamp
 	Spawn:
 		KTLP ABCD 4 BRIGHT;
 		Loop;
+	}
+}
+
+Class DCX_Turkey : Actor
+{
+	Default
+	{
+		Health 60;
+		Radius 16;
+		Height 56;
+		Speed 0;
+		PainChance 256;
+		Mass 10000;
+		Monster;
+		//PainSound "imp/pain";
+		//-COUNTKILL
+	}
+	States
+	{
+		Spawn:
+			TROO A 10;
+			TROO A 1 A_StartSound("Turkey/Sight");
+		Idle:
+			TROO AB 30;
+			Loop;
+		Pain:
+			TROO H 2;
+			TROO H 2 A_Pain;
+			Goto Idle;
+		Death:
+			TROO N 5;
+			TROO O 5 A_XScream;
+			TROO P 5;
+			TROO Q 5 A_NoBlocking;
+			TROO RST 5;
+			TROO U 5;
+			Stop;
+	}
+}
+
+Class DCX_TurkeySpawner : Actor
+{
+	Bool A; //Returns 1 or 0 for succes or fail.
+	Actor B; //Pointer to actor
+	
+	bool TurkeyDead;
+	
+	Default
+	{
+		-COUNTKILL
+		+ISMONSTER
+		+NOBLOCKMAP
+		+NOSECTOR
+		+BOSSDEATH
+		+LOOKALLAROUND
+		+NEVERRESPAWN
+	}
+	
+	States
+	{
+		Spawn:
+		See:
+			PLAY A 60;
+			TNT1 A 0
+			{ [A,B] = A_SpawnItemEx("DCX_Turkey",0,0,90,0,0,0,270,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+			Goto WaitUntilDeath;
+		WaitUntilDeath:
+			PLAY A 10;
+			TNT1 A 0
+			{
+				If(B)
+				{
+					if(B.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+				}
+				
+				Return ResolveState(null);				
+			}
+			Goto See;
 	}
 }

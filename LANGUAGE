@@ -74,9 +74,10 @@ HUSTR_PSX03 = "Forsaken Gateway";
 HUSTR_PSX04 = "Twilight Descends";
 HUSTR_PSX05 = "Threshold of Pain";
 HUSTR_PSX06 = "The Marshes";
-HUSTR_PSX07 = "The Mansion";
-HUSTR_PSX08 = "Club DOOM";
-HUSTR_PSX09 = "Redemption Denied";
+HUSTR_PSX07 = "Redemption Denied";
+HUSTR_PSX08 = "The Mansion";
+HUSTR_PSX09 = "Club DOOM";
+
 
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
 BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
@@ -101,11 +102,11 @@ ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
 ABLOUTION_EPI02 = "\c[Red]Old Wounds";
 ABLOUTION_EPI03 = "\c[Red]The Absolution";
 
-MASTER_LV01 = "\c[DarkGray]Tim, Tom, Mid Assortment";
-MASTER_LV02 = "\c[DarkGray]KlieTech Series";
-MASTER_LV03 = "\c[DarkGray]Titan Series";
-MASTER_LV04 = "\c[DarkGray]Inferno Series";
-MASTER_LV05 = "\c[DarkGray]Cabal Series";
+MASTER_LV01 = "\c[YELLOW]Tim, Tom, Mid Assortment";
+MASTER_LV02 = "\c[YELLOW]KlieTech Series";
+MASTER_LV03 = "\c[YELLOW]Titan Series";
+MASTER_LV04 = "\c[YELLOW]Inferno Series";
+MASTER_LV05 = "\c[YELLOW]Cabal Series";
 
 TNTE_EPI01 = "\c[Orange]The Io Invasion";
 TNTE_EPI02 = "\c[Orange]Nocturnal Io";
@@ -192,6 +193,8 @@ HUSTR_30 = "Icon of Sin";
 HUSTR_31 = "Wolfenstein";
 HUSTR_32 = "Grosse";
 HUSTR_33 = "Sewers";
+
+ML_TWM01 = "The Masters Den";
 
 MUSIC_E4M1 = "E4M1";
 MUSIC_E4M2 = "E4M2";
@@ -537,15 +540,48 @@ E6INTRO = "Baphomet's plan to drag you bring you back to hell\n"
 		  "filled with hell's most\n relentless killing machines.\n"
 		  "\n"
 		  "Now, with the heat really cranked up,\n"
-		  "it's time to really show them your metal!";
+		  "it's time to really show them your metal!";		  
+
+REDEMTION_INTRO =
+"The monsters that stood gaurd of the dreaded\n"
+"living end, even those who dwarf you drastically\n"
+"in size, Stood no chance against your killer\n"
+"arsenal and guerrilla warfare tactics.\n"
+"\n"
+"Nerves high and sweat and blood pouring out of\n"
+"you, you march right into the final portal.\n"
+"You know the ones behind it all foresaw your\n"
+"arrival. They know damn well that they can't\n"
+"stall you any longer. All that's left now is\n"
+"to fight head.\n"
+"\n"
+"It's all or nothing now!";
+
 		  
-	  
+REDEMTION_TXT = 
+"What had once ruled all hellspawn and oversaw\n"
+"the entire earth invasion, are now piles of visceral\n"
+"and metal ash by your boots. The temple of the\n"
+"irredeemable, which took place This gruesome battle,\n"
+"now serves as a reminder to all demon kind that you\n"
+"are not to be messed with.\n"
+"\n"
+"You did it. The invasion has been stopped.\n"
+"Earth is saved. Hell is a wreck. You'll wonder\n"
+"where bad folks will go when they die now.\n"
+"As you make your long trek back home, you\n"
+"contemplate retirement to a lifetime of frivolity\n"
+"after all the rebuilding efforts are done.\n" 
+"\n"
+"As the hero to all of this, you deserve it...";
+
 
 MANSIONTXT = "hidden away the debris of the city lies\n"
 			 "a mansion. looks like it was made\n"
-			 "for torturing souls...kinda like\n"
-			 "hell's personal home. seems you are\n"
-			 "not welcomed here....";
+			 "for torturing souls... kinda like\n"
+			 "hell's personal home.\n"
+			 "\n"
+			 "seems you are not welcomed here...";
 			 
 CLUBDOOMTXT = "seems you have slipped further into the\n"
 			  "unknown. whatever is ahead of you,\n"
@@ -562,6 +598,119 @@ M1TEXT =
 	"\n"
 	"You have earned the title of\n"
 	"\"Master of Destruction\".";
+	
+CSTEXT = 
+	"You once were the biggest and baddest Cyber-demon\n" 
+	"to rule hell and you spear-headed the council that\n" 
+	"governed the underworld; \"the Cabal\".\n"
+	"\n"
+	"Betrayed by the other members you find yourself not only\n" 
+	"dismantled, but also a victim of the utmost demonic\n"
+	"humiliation: You've been morphed into a human! Of course\n"
+	"you're out for revenge and have to kick the other members\n" 
+	"of the Cabal's butts one by one.";
+	
+/*
+You once were the biggest and baddest Cyber-demon to
+rule hell and you spear-headed the council that 
+governed the underworld; "the Cabal". Betrayed by the
+other members you find yourself not only dismantled, 
+but also a victim of the utmost demonic humiliation:
+You've been morphed into a human! Of course you're
+out for revenge and have to kick the other members of 
+the Cabal's butts one by one.
+			
+"Bloodsea Keep" is the home of your past advisor; 
+Veavitdpoh (Very Evil Arch-Vile In The Deepest Parts 
+Of Hell). Veavitdpoh is an old-school demon that 
+believes in the rip-out-heart-routine and so shuns 
+all use of technology and mechanical weaponry. His 
+cult following has grown the last century but still 
+amounts to little. Unless you face them alone of 
+course...
+
+After being dumped into the endless "Sea of Blood" 
+following your humiliating transformation into a 
+human you swim for an eternity before you finally 
+bump your head against the pier of the keep. 
+Digging your feet into the mud of human remains your 
+hand brushes by an old blood-soaked shotgun, the 
+previous owner's severed hand still attached to it. 
+All who enter "Bloodsea Keep" with such items fall
+victim to your former advisor's favourite past-time:
+Torture. Any "heretics" still alive inside the keep  
+should be homicidal maniacs at best.
+"That's OK" you think, "maybe they brought some more 
+ammo for the shotgun", before cocking the rusty 
+pump-action, causing an eyeball to fly out of the 
+cartridge...
+
+"Just having escaped the Sea of Blood you have sought
+out a derelict building in the search for arms &
+equipment. Unfortunately the station isn't as 
+abandoned as you thought."
+
+"You have come upon one of the Cabal's blood-depoes. 
+An important element in any powerful black magic is 
+huge amounts of blood. Emptying the depoe's tanks 
+into the nearby river you will have struck your first 
+blow against the Cabal."
+
+In Mephisto's Maosoleum you have reached the grave of
+an old friend and mentor: "Mephisto". Yeah old Lucy
+was a tough bastard. But then there was that incident 
+with the earthling marine which lost him a lot of
+credit in the hard-core parts of Hell. So you had to 
+kick him off the throne of course. His immortal
+spirit was kept as a member of the Cabal though and 
+so he was in on the betrayal against you. Time to 
+enter his tomb and lay the old man down to rest 
+for good...
+
+"The Cabal has started striking back at you. That 
+last gateway should have taken you... well somewhere 
+else. Not to an arena where thousands of humans have 
+lost their souls to hungry demons. As you get ready
+for the first wave of hellspawned gladiators you
+swear to blast the emperor's thumbs off before he can
+even think about turning them down on you..."
+
+When the "Express Elevator to Hell" starts descending 
+the renegade Cabal has begun to realize you might be 
+a threat to them, human or not. Half way down the 
+shaft that should have taken you to the deepest pits 
+of Hell, the lift first slows down before it jerks to 
+a halt. Ambush! Survive the initial onslaught and 
+find a gateway out of the now sealed elevator. Tough, 
+but that's the way you like it...
+
+"You find yourself in the remains of an old forttress                  
+after ascending a lift shaft from the mines where you
+were trapped. Signs of unlife is evident but from 
+what you know of this place it should pose no great 
+threat to you. It used to be the centre of a 
+Cacodemon empire that perished some 665 yeaes ago. 
+Oh, by the way, it's new years eve..."
+
+In "Black Tower" you're nearing the end of your
+journey. You and Chagrin, the ruler of the Black
+Tower, came off the same conveyor belt as newly 
+assembled cyber-demons a few thousand years back. 
+"Oil runs thicker than blood" the two of you used to 
+say. Demons don't come much closer to friendship than 
+what you and Chagrin shared. Well now your buddy 
+rules the hordes of hell previously under your 
+command and have left you for dead. Your task is 
+simple: Enter the dreaded Black Tower, the nucleus of 
+black magic and the occult in all of Hell, get to 
+its highest floor and slay Chagrin. Then there is the 
+getting back out as well...
+
+"The Image of Evil is a humongous temple created 
+to the honour of the first Demon to slay an angel;
+Lithlaar. In it you will find the Cybo that now is
+known as the lord of Hell and his two Soulguards."
+*/
 			  
 OB_MOTHER = "%o witnessed the Motherdemon's power.";
 OB_NITIMPHIT = "%o was slashed by a Nightmare Imp.";
@@ -653,6 +802,7 @@ IN_C1A =
 	"of the military morgue.\n"
 	"\n"
 	"Once again you find yourself amidst...";
+	
 IN_C1B =
 	"You cackle as the familiarity of the\n"
 	"situation occurs to you.  The gateway\n"
@@ -664,6 +814,7 @@ IN_C1B =
 	"\n"
 	"The demons spawn like rats and you have\n"
 	"the grade AAA U.A.C. poison they crave.";
+	
 IN_C2 =
 	"You smile.\n"
 	"\n"
@@ -672,6 +823,7 @@ IN_C2 =
 	"waiting for you...\n"
 	"\n"
 	"Let them taste their guts!";
+	
 IN_C3 =
 	"Finally...\n"
 	"\n"
@@ -686,6 +838,7 @@ IN_C3 =
 	"again.\n"
 	"\n"
 	"THE END";
+	
 IN_S1 =
 	"CONGRATULATIONS!\n"
 	"\n"
@@ -694,6 +847,7 @@ IN_S1 =
 	"HECTIC\n"
 	"\n"
 	"Only the best will reap its rewards.";
+	
 IN_S2 =
 	"You wretch as an acrid odor\n"
 	"assaults you.\n"
@@ -723,3 +877,45 @@ CC_ARCH = "ARCH-VILE";
 CC_CYBER = "THE CYBERDEMON";
 CC_MOTHER = "THE MOTHERDEMON";
 CC_HERO = "OUR HERO";
+
+DCX_CABAL_DEFAULT = 
+"Wadfusion Default\n\n"
+"Bloodsea Keep\n"
+"Bloodflood\n"
+"Derelict Station\n"
+"The Watchtower\n"
+"Mephisto's Maosoleum\n"
+"Temple of Death\n"
+"The Express Elevator To Hell\n"
+"We Who Are About To Die\n"
+"Eye of the storm\n"
+"The Black Tower\n"
+"Image Of Evil\n";
+
+DCX_CABAL_ODW = 
+"Old Doom wiki\n\n"
+"Bloodflood\n"
+"Bloodsea Keep\n"
+"Derelict Station\n"
+"The Watchtower\n"
+"Mephisto's Maosoleum\n"
+"Temple of Death\n"
+"The Express Elevator To Hell\n"
+"We Who Are About To Die\n"
+"Eye of the storm\n"
+"The Black Tower\n"
+"Image Of Evil\n";
+
+DCX_CABAL_WOTM = 
+"Works of the masters\n\n"
+"Bloodflood\n"
+"Derelict Station\n"
+"The Watchtower\n"
+"Bloodsea Keep\n"
+"Temple of Death\n"
+"We Who Are About To Die\n"
+"The Black Tower\n"
+"Mephisto's Maosoleum\n"
+"Image Of Evil\n"
+"The Express Elevator To Hell\n"
+"Eye of the storm\n";

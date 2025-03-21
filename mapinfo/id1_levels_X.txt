@@ -23,6 +23,7 @@ defaultmap
 	compat_stairs = 0
 	compat_teleport = 0
 	compat_useblocking = 0
+	compat_invisibility = "1"
 }
 
 // Test map

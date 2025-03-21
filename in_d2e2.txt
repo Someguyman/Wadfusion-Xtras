@@ -14,6 +14,8 @@ Spots
 	MAP18 159 114
 	MAP19 165 71
 	MAP20 55 82
+	MAP20 55 82
+	PSX08 293 91
 }
 Animation -53 0 11
 {

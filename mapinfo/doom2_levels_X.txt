@@ -5,7 +5,7 @@ defaultmap
 	SuckTime = 1
 	NoJump
 	NoCrouch
-	//Exitpic = "INTER_E4"
+	compat_invisibility = "1"
 }
 
 // Episode 1 Part 1
@@ -196,7 +196,7 @@ map MAP16 "$HUSTR_16"
 {
 	Label = "DOOM II HELL ON EARTH, E2M5"
 	Next = "MAP17"
-	secretnext = "PSX07"
+	secretnext = "PSX08"
 	TitlePatch = "CWILV15"
 	Par = 150
 	Music = "$MUSIC_DEAD2"
@@ -347,17 +347,6 @@ map MAP29 "$HUSTR_29"
 	Author = "$WF_AU_ROMERO"
 }
 
-map PSX09 "$HUSTR_PSX09"
-{
-	next = "MAP30"
-	Sky1 = "SKY4"
-	music = "$MUSIC_PSX09"
-	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8
-	SpecialAction = "Spidermastermind", Door_Open, 667, 16
-	Author = "$WS_AU_MIDWAY"
-	Label = "DOOM II HELL ON EARTH, PSX03"
-}
-
 map MAP30 "$HUSTR_30"
 {
 	Label = "DOOM II HELL ON EARTH, E3M10"
@@ -404,33 +393,6 @@ map MAP32 "$HUSTR_32"
 	Enterpic = "$in_d2eW"
 	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
-}
-
-map PSX07 "$HUSTR_PSX07"
-{
-	next = "MAP17"
-	secretnext = "PSX08"
-	sky1 = "RSKY1"
-	par = 120
-	Cluster = 32
-	music = "$MUSIC_PSX07"
-	Author = "$WS_AU_HEYDELAAR"
-	EnterPic = ""
-	Exitpic = "INTER_E4"
-	Label = "DOOM II HELL ON EARTH, PSX01"
-}
-
-map PSX08 "$HUSTR_PSX08"
-{
-	next = "MAP17"
-	par = 120
-	Cluster = 33
-	sky1 = "RSKY1"
-	music = "$MUSIC_PSX08"
-	Author = "$WS_AU_MIDWAY"
-	EnterPic = "INTER_E4"
-	Exitpic = "INTER_E4"
-	Label = "DOOM II HELL ON EARTH, PSX02"
 }
 
 map MAP33 "$HUSTR_33"
@@ -501,18 +463,4 @@ cluster 10
 	EnterText = "$C6TEXT"
 	Music = "$MUSIC_READ_M"
 	Flat = "$BGFLAT31"
-}
-
-cluster 32
-{
-	flat = "FLAT5_1"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "MANSIONTXT"
-}
-
-cluster 33
-{
-	flat = "CEIL5_1"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "CLUBDOOMTXT"
 }

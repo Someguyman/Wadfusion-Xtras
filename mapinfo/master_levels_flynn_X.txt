@@ -11,11 +11,13 @@ defaultmap
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "JFINTERP"
 	Cluster = 37
+	Label = "TITAN SERIES"
+	compat_invisibility = "1"
 }
 
 map ML_MAP29 "$ML_MINES" // bonus level
 {
-	Label = "TITAN, MAP01"
+	
 	Next = "ML_MAP30"
 	Sky1 = "MSKY4"
 	TitlePatch = "MWILV28"
@@ -24,7 +26,6 @@ map ML_MAP29 "$ML_MINES" // bonus level
 
 map ML_MAP30 "$ML_ANOMALY" // bonus level
 {
-	Label = "TITAN, MAP02"
 	Next = "ML_MAP31"
 	Sky1 = "MSKY5"
 	TitlePatch = "MWILV29"
@@ -33,7 +34,6 @@ map ML_MAP30 "$ML_ANOMALY" // bonus level
 
 map ML_MAP31 "$ML_FARSIDE" // bonus level
 {
-	Label = "TITAN, MAP03"
 	Next = "ML_MAP16"
 	Sky1 = "MSKY6"
 	TitlePatch = "MWILV30"
@@ -42,7 +42,6 @@ map ML_MAP31 "$ML_FARSIDE" // bonus level
 
 map ML_MAP16 "$ML_MANOR"
 {
-	Label = "TITAN, MAP04"
 	Next = "ML_MAP17"
 	Sky1 = "MSKY3"
 	TitlePatch = "MWILV15"
@@ -51,7 +50,6 @@ map ML_MAP16 "$ML_MANOR"
 
 map ML_MAP17 "$ML_TTRAP"
 {
-	Label = "TITAN, MAP05"
 	Next = "ML_MAP32"
 	nointermission
 	NoSoundClipping
@@ -62,7 +60,6 @@ map ML_MAP17 "$ML_TTRAP"
 
 map ML_MAP32 "$ML_TROUBLE" // bonus level
 {
-	Label = "TITAN, MAP06"
 	Next = EndGame
 	{
 		Pic = "JFBOSSBK"

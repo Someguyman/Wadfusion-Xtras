@@ -511,3 +511,39 @@ Class DCX_UnmakerTrail : actor
 		Stop;
 	}
 }
+
+Class DCX_TurkeyPunchers : Fist
+{
+	Default
+	{
+		Weapon.SelectionOrder 3700;
+		Weapon.Kickback 100;
+		Obituary "$OB_MPFIST";
+		Attacksound "*fist";
+		Tag "$TAG_FIST";
+		-WEAPON.WIMPY_WEAPON
+		+WEAPON.MELEEWEAPON
+		+WEAPON.NOAUTOSWITCHTO
+		+WEAPON.NOAUTOFIRE
+		+WEAPON.CHEATNOTWEAPON
+	}
+	States
+	{
+	Ready:
+		PUNG B 1 A_WeaponReady(WRF_DISABLESWITCH|WRF_NOBOB);
+		Loop;
+	Deselect:
+		PUNG B 1 A_Lower;
+		Loop;
+	Select:
+		PUNG B 1 A_Raise;
+		Loop;
+	Fire:
+		//PUNG B 2;
+		PUNG C 3;
+		PUNG D 3 A_CustomPunch(10, CPF_NOTURN); 
+		PUNG C 3;
+		//PUNG B 3 A_WeaponReady(WRF_DISABLESWITCH|WRF_NOBOB);
+		Goto Ready;
+	}
+}

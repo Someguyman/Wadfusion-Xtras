@@ -7,6 +7,7 @@ include mapinfo/sigil_levels_X.txt
 include mapinfo/sigil2_levels_X.txt
 include mapinfo/Jaguar_Levels_X.txt
 include mapinfo/doom2_levels_X.txt
+include mapinfo/Console_Doom_Levels_X.txt
 include mapinfo/master_levels_X.txt
 include mapinfo/master_levels_christen_X.txt
 include mapinfo/master_levels_flynn_X.txt
@@ -31,7 +32,7 @@ map TITLEMAP "Doom Title"
 gameinfo 
 {
 	PlayerClasses = "DCX_Player"
-	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler"
+	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler" //, "DCX_NightmareMonsterHandler"
     infopage = "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64CRE"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
@@ -51,6 +52,7 @@ DoomEdNums
 	616 = DCX_LesserCyber
 	607 = DCX_LesserMastermind
 	711 = DCX_NightmareCyberdemon
+	712 = DCX_TurkeySpawner
 	7734 = DCX_DM_MarineBotSpawner
 }
 
