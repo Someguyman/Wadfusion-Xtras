@@ -1,0 +1,165 @@
+//********** Splashes **********
+splash 	nukage
+{
+ smallclip		4
+ smallsound	world/lavasizzlesmall
+ //chunkclass	    sludgechunk
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	6
+ chunkbasezvel	2
+ sound		world/lavasizzle
+ NoAlert
+}
+
+splash Slime
+{
+	smallclip		4
+	smallsound		world/sludgegloopsmall
+
+	//chunkclass		SlimeChunk
+	chunkxvelshift	8
+	chunkyvelshift	8
+	chunkzvelshift	8
+	chunkbasezvel	2
+	sound			world/sludgegloop
+	NoAlert
+}
+
+splash 	water
+{
+ smallclip		4
+ smallsound	dssplash
+ //chunkclass	watersplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		water
+ NoAlert
+}
+
+splash 	blood
+{
+ smallclip		4
+ smallsound	world/sludgegloopsmall
+
+
+ //chunkclass	bloodsplash
+ chunkxvelshift	8
+ chunkyvelshift	8
+ chunkzvelshift	8
+ chunkbasezvel	2
+ sound		world/sludgegloop
+ NoAlert
+}
+
+splash 	lava
+{
+ smallclip		10
+ smallsound	world/lavasizzlesmall
+ //chunkclass	lavasmoke2
+ chunkxvelshift	-1
+ chunkyvelshift	-1
+ chunkzvelshift	2
+ chunkbasezvel	1
+ sound		world/lavasizzle
+ NoAlert
+}
+
+//********** Terrain **********
+
+terrain	 nukage
+{
+ splash 	nukage
+ footclip	 6
+ liquid
+}
+
+terrain	water
+{
+ splash 	water
+ footclip	 6
+ liquid
+}
+
+terrain	lava
+{
+ splash 	lava
+ footclip	 6
+ liquid
+}
+
+terrain	blood
+{
+ footclip	 6
+ liquid
+ splash 	blood
+}
+
+terrain Slime
+{
+ footclip	 6
+ liquid
+ splash Slime
+}
+
+ifdoom
+//Splash floors first
+floor BLOOD1 Blood
+floor BLOOD2 Blood
+floor BLOOD3 Blood
+floor FBLOOD1 Blood
+floor FBLOOD2 Blood
+floor FBLOOD3 Blood
+floor SBLOOD1 Blood
+floor SBLOOD2 Blood
+floor SBLOOD3 Blood
+floor FWATER1 Water
+floor FWATER2 Water
+floor FWATER3 Water
+floor FWATER4 Water
+floor dzwatr1 water
+floor dzwatr2 water
+floor dzwatr3 water
+floor dzwatr4 water
+floor 2water1 water
+floor 2water2 water
+floor 2water3 water
+floor 2water4 water
+floor swater5 water
+floor swater6 water
+floor swater7 water
+floor swater8 water
+floor LAVA1 Lava
+floor LAVA2 Lava
+floor LAVA3 Lava
+floor LAVA4 Lava
+floor BLAVAA1 Lava
+floor BLAVAA2 Lava
+floor BLAVAA3 Lava
+floor BLAVAA4 Lava
+floor BLAVAB1 Lava
+floor BLAVAB2 Lava
+floor BLAVAB3 Lava
+floor BLAVAB4 Lava
+floor BLAVAC1 Lava
+floor BLAVAC2 Lava
+floor BLAVAC3 Lava
+floor BLAVAC4 Lava
+floor ENERGYF1 Lava
+floor ENERGYF2 Lava
+floor ENERGYF3 Lava
+floor ENERGYF4 Lava
+floor NUKAGE1 Nukage
+floor NUKAGE2 Nukage
+floor NUKAGE3 Nukage
+floor SLIME01 Slime
+floor SLIME02 Slime
+floor SLIME03 Slime
+floor SLIME04 Slime
+floor SLIME05 Slime
+floor SLIME06 Slime
+floor SLIME07 Slime
+floor SLIME08 Slime
+

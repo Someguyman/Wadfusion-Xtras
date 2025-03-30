@@ -15,7 +15,7 @@ adddefaultmap
 	Cluster = 5
 	Sky1 = "RSKY1"
 	Exitpic = "$in_d2e1"
-	Enterpic = "$in_d2e1"
+	//Enterpic = "$in_d2e1"
 }
 
 map MAP01 "$HUSTR_1"
@@ -130,14 +130,14 @@ map MAP10 "$HUSTR_10"
 map MAP11 "$HUSTR_11"
 {
 	Label = "DOOM II HELL ON EARTH, E1M11"
-	Secretnext = "MAP12"
-	Next = "EndGame1"
+	Next = "MAP12"
+	//Next = "EndGame1"
 	TitlePatch = "CWILV10"
 	Par = 210
 	Music = "$MUSIC_STLKS2"
 	Author = "$WF_AU_ROMERO"
-	Nointermission
-	NoSoundClipping
+	//Nointermission
+	//NoSoundClipping
 }
 
 // Episode 2
@@ -147,7 +147,7 @@ adddefaultmap
 	Cluster = 7
 	Sky1 = "RSKY2"
 	Exitpic = "$in_d2e2"
-	Enterpic = "$in_d2e2"
+	//Enterpic = "$in_d2e2"
 	//Exitpic = "INTER_E4"
 }
 
@@ -236,14 +236,14 @@ map MAP19 "$HUSTR_19"
 map MAP20 "$HUSTR_20"
 {
 	Label = "DOOM II HELL ON EARTH, E2M9"
-	Secretnext = "MAP21"
-	Next = "EndGame1"
+	Next = "MAP21"
+	//Next = "EndGame1"
 	TitlePatch = "CWILV19"
 	Par = 150
 	Music = "$MUSIC_MESSAG"
 	Author = "$WF_AU_ROMERO"
-	nointermission
-	NoSoundClipping
+	//nointermission
+	//NoSoundClipping
 }
 
 // Episode 3
@@ -252,7 +252,7 @@ adddefaultmap
 {
 	Cluster = 8
 	Sky1 = "RSKY3"
-	Enterpic = "$in_d2e3"
+	//Enterpic = "$in_d2e3"
 	Exitpic = "$in_d2e3"
 	//Exitpic = "INTERPI3"
 }

@@ -166,3 +166,44 @@ weapons/saw2hit			dssa2hit
 
 SuperTurboTurkyPuncher3/Announcer DSSTTP3
 Turkey/Sight DSTURKEY
+
+slime				dsmuck
+slimesmall			dsmucksm
+water				dsgloop
+watersmall			dsfloush
+burn				dsburn
+burnsmall			dsburnsm
+blood1				dssplat1
+blood2				dssplat2
+$RANDOM blood { blood1 blood2 }
+bloodsmall1			dssplat3
+bloodsmall2			dssplat4
+$RANDOM bloodsmall { bloodsmall1 bloodsmall2 }
+
+
+world/drip			dsempty
+$random world/watersplash		{dssplash dssplas2 water}
+dssplash	dssplash
+dssplas2	dssplas2
+world/watersplashsmall		dssplsml
+world/sludgegloop		dsploosh
+world/sludgegloopsmall		dsplosml
+world/lavasizzle		dslvsiz
+world/lavsiz2			dslvsiz2
+world/lavasizzlesmall		dslavsml
+//world/thunder			dsthun
+
+
+$volume world/watersplash 0.6 
+$volume dssplash 0.6 
+$volume dssplas2 0.6 
+
+$limit dssplash 3
+$limit world/drip 4
+$limit world/watersplash 4
+$limit world/watersplashsmall 4
+$limit world/sludgegloop 4
+$limit world/sludgegloopsmall 4
+$limit world/lavasizzle 4
+$limit world/lavsiz2 4
+$limit world/lavasizzlesmall 4

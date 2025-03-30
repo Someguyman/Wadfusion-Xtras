@@ -37,7 +37,10 @@ class DCX_Statusbar : BaseStatusBar
 	
 	HUDFont mPL2font;
 	HUDFont mPL2fontS;
-	InventoryBarState diparms;	
+	InventoryBarState diparms;
+	
+	HUDFont mConFont;
+	HUDFont mSmallFont;
 	
 	override void Init()
 	{
@@ -65,6 +68,11 @@ class DCX_Statusbar : BaseStatusBar
 		
 		mPL2font = HUDFont.Create("FDFONT_PLUTONIA2");
 		mPL2fontS = HUDFont.Create("FDFONT_SPLUTONIA2");
+		
+		fnt = "CONFONT";
+		mConFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter);
+		fnt = "SMALLFONT";
+		mSmallFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter);
 	}
 	
 	void Checklevel (double TicFrac)
@@ -516,59 +524,69 @@ class DCX_Statusbar : BaseStatusBar
 	protected void DrawFullScreenStuff ()
 	{
 		// Set ultrawide
+		let altHud = CVar.FindCVar("wf_hud_alt").GetFloat();
+		let hudSwapHealthArmor = CVar.FindCVar("wf_hud_swaphealtharmor").GetBool();
+		
 		int ultraWide = CVar.FindCVar("wf_hud_ultrawide").GetInt();
+		if ( CVar.FindCVar("wf_hud_ultrawide_fullscreen").GetBool() && !CVar.FindCVar("vid_fullscreen").GetBool() )
+			ultraWide = 0;
 		
-		Vector2 iconbox = (40, 20);
-		// Draw health
-		let berserk = CPlayer.mo.FindInventory("PowerStrength");
-		int hudArmorOffset;
-		if ( CVar.FindCVar("wf_hud_swaphealtharmor").GetBool() )
-				hudArmorOffset = 20;
-		DrawImage(berserk? "PSTRA0" : "MEDIA0", (20 + ultraWide, -2 - hudArmorOffset));
-		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (44 + ultraWide, -20 - hudArmorOffset));
-		
-		let armor = CPlayer.mo.FindInventory("BasicArmor");
-		int hudHealthOffset;
-		if ( CVar.FindCVar("wf_hud_swaphealtharmor").GetBool() )
-				hudHealthOffset = 20;
-		if (armor != null && armor.Amount > 0)
+		if ( !altHud )
 		{
-			DrawInventoryIcon(armor, (20 + ultraWide, -22 + hudHealthOffset));
-			DrawString(mHUDFont, FormatNumber(armor.Amount, 3), (44 + ultraWide, -40 + hudHealthOffset));
-		}
-		Inventory ammotype1, ammotype2;
-		[ammotype1, ammotype2] = GetCurrentAmmo();
-		int invY = -20;
-		if (ammotype1 != null)
-		{
-			DrawInventoryIcon(ammotype1, (-14 - ultraWide, -4));
-			DrawString(mHUDFont, FormatNumber(ammotype1.Amount, 3), (-30 - ultraWide, -20), DI_TEXT_ALIGN_RIGHT);
-			invY -= 20;
-		}
-		if (ammotype2 != null && ammotype2 != ammotype1)
-		{
-			DrawInventoryIcon(ammotype2, (-14 - ultraWide, invY + 17));
-			DrawString(mHUDFont, FormatNumber(ammotype2.Amount, 3), (-30 - ultraWide, invY), DI_TEXT_ALIGN_RIGHT);
-			invY -= 20;
-		}
-		if (!isInventoryBarVisible() && !Level.NoInventoryBar && CPlayer.mo.InvSel != null)
-		{
-			DrawInventoryIcon(CPlayer.mo.InvSel, (-14 - ultraWide, invY + 17), DI_DIMDEPLETED);
-			DrawString(mHUDFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (-30 - ultraWide, invY), DI_TEXT_ALIGN_RIGHT);
-		}
-		if (deathmatch)
-		{
-			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-3 - ultraWide, 1), DI_TEXT_ALIGN_RIGHT, Font.CR_GOLD);
+			Vector2 iconbox = (40, 20);
+			// Draw health
+			int hudHealthOffset;
+			if ( hudSwapHealthArmor )
+					hudHealthOffset = 20;
+			
+			let berserk = CPlayer.mo.FindInventory("PowerStrength");
+			DrawImage(berserk? "PSTRA0" : "MEDIA0", (20 + ultraWide, -2 - hudHealthOffset));
+			DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (44 + ultraWide, -20 - hudHealthOffset));
+			
+			// Draw armor
+			let armor = CPlayer.mo.FindInventory("BasicArmor");
+			if (armor != null && armor.Amount > 0)
+			{
+				DrawInventoryIcon(armor, (20 + ultraWide, -22 + hudHealthOffset));
+				DrawString(mHUDFont, FormatNumber(armor.Amount, 3), (44 + ultraWide, -40 + hudHealthOffset));
+			}
+			
+			// Draw inventory
+			Inventory ammotype1, ammotype2;
+			[ammotype1, ammotype2] = GetCurrentAmmo();
+			int invY = -20;
+			if (ammotype1 != null)
+			{
+				DrawInventoryIcon(ammotype1, (-14 - ultraWide, -4));
+				DrawString(mHUDFont, FormatNumber(ammotype1.Amount, 3), (-30 - ultraWide, -20), DI_TEXT_ALIGN_RIGHT);
+				invY -= 20;
+			}
+			if (ammotype2 != null && ammotype2 != ammotype1)
+			{
+				DrawInventoryIcon(ammotype2, (-14 - ultraWide, invY + 17));
+				DrawString(mHUDFont, FormatNumber(ammotype2.Amount, 3), (-30 - ultraWide, invY), DI_TEXT_ALIGN_RIGHT);
+				invY -= 20;
+			}
+			if (!isInventoryBarVisible() && !Level.NoInventoryBar && CPlayer.mo.InvSel != null)
+			{
+				DrawInventoryIcon(CPlayer.mo.InvSel, (-14 - ultraWide, invY + 17), DI_DIMDEPLETED);
+				DrawString(mHUDFont, FormatNumber(CPlayer.mo.InvSel.Amount, 3), (-30 - ultraWide, invY), DI_TEXT_ALIGN_RIGHT);
+			}
+			
+			if (deathmatch)
+				DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-3 - ultraWide, 1), DI_TEXT_ALIGN_RIGHT, Font.CR_GOLD);
+			else
+			{
+				DrawFullscreenKeys();
+				DrawFullDemonKeys();
+			}
+			
+			if (isInventoryBarVisible())
+				DrawInventoryBar(diparms, (0, 0), 7, DI_SCREEN_CENTER_BOTTOM, HX_SHADOW);
 		}
 		else
 		{
-			DrawFullscreenKeys();
-			DrawFullDemonKeys();
-		}
-		
-		if (isInventoryBarVisible())
-		{
-			DrawInventoryBar(diparms, (0, 0), 7, DI_SCREEN_CENTER_BOTTOM, HX_SHADOW);
+			WadFusionAlternateHUD(); // Draw WadFusion's alternate fullscreen HUD -- wf_sbar_alt.zs
 		}
 	}
 	

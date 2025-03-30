@@ -57,6 +57,8 @@ switch doom 1  SW1METL on pic SW2METL 	tics 0
 switch doom 1  SW1HOTJ on pic SW2HOTJ 	tics 0
 switch doom 1  SW1GSTNJ on pic SW2GSTNJ tics 0
 
+switch doom 1  SW1TECH6 on pic SW2TECH6 tics 0
+
 switch doom 1  SW1KABCP on pic SW2KABCP tics 0
 switch doom 1  SW1KABK	on pic SW2KABK 	tics 0
 switch doom 1  SW1KAB1	on pic SW2KAB1 	tics 0

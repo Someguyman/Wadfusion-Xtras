@@ -10,6 +10,7 @@ server bool dcx_3DO_Music = false;
 server bool dcx_IntroText = false;
 
 server int ssgtoggle = 0;
+server int dcx_SmoothToggle = 0;
 server int hud_toggle = 0;
 server int Plu_Hud_toggle = 0;
 server int Tnt_Hud_toggle = 0;

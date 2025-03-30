@@ -381,7 +381,7 @@ E1TEXT = "Once you beat the big badasses and\n"
 		"you're stuck on the shores of hell.\n"
 		"The only way out is through.";
 		
-//Edited to remove the advertisement for episode 2 and 3.
+//Edited to remove the advertisement for episode 2 and 3. Makes it more cohesive that way.
 
 E2INTRO = "After you cleaned up most of the Phobos base\n"
 		  "and triumphed over the Bruiser Brothers at the anomaly,\n"
@@ -405,7 +405,7 @@ E2INTRO = "After you cleaned up most of the Phobos base\n"
 		  "Whoever they are, They'll pay for what they did\n"
 		  "to your buddies.";
 		  
-//Original text by me, Manardo. revisions by owlet VII.
+//Original text by me, Manardo. revisions by owlet VII. Basically a more detailed version of the ending text.
 
 E2TEXT = "You've done it! The hideous cyber-\n"
 		 "demon lord that ruled the lost Deimos\n"
@@ -430,11 +430,11 @@ E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
 		  "grin on your face. Your buddies have seemingly\n"
 		  "been avenged.\n"
 		  "\n"
-		  "However, this feeling of justice soon goes hollow.\n"
+		  "However, this feeling of victory soon goes hollow.\n"
 		  "You felt the beast wasn't acting on it's own accord.\n"
 		  "Suddenly, you felt an evil presence like none before\n"
-		  "lurking around in the outskirts. Perhaps this is what\n"
-		  "was puppetering that abomination. You leave the tower and\n"
+		  "lurking around in the outskirts. Perhaps this greater evil was\n"
+		  "the one puppetering that abomination. You leave the tower and\n"
 		  "persue it to the very edge of deimos to find the horrible truth.\n"
 		  "That the base now floats above the depths of hell itself!\n"
 		  "\n"
@@ -447,7 +447,7 @@ E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
 		  "Armmed with nothing but your lucky pistol and a taste of\n"
 		  "vengence, you take your first step into hell...";
 
-//Another original text by me.
+//Another original text by me. Like what I did perviously, it's the episode 2 text with more detail.
 
 E4INTRO = "Having brought an end to the reain of terror the\n"
 		  "spidermastermind and all it's hellish army casued\n"
@@ -458,27 +458,28 @@ E4INTRO = "Having brought an end to the reain of terror the\n"
 		  "\n"
 		  "You cross though the portal to some grassy hills\n"
 		  "with flowers and wild rabbits frolocing through.\n"
-		  "As you take off your helmet to take your first\n"
-		  "breath of natrual oxygen in god knows how long,\n"
-		  "you see smell smoke coming from the horizen.\n"
+		  "As you take off your helmet to take a breath\n"
+		  "of natrual oxygen in god knows how long, you\n"
+		  "smell something burning in the distance.\n"
+		  "Something horrible must of undergone.\n"
 		  "\n"
-		  "You run up the hills, and to your horror,\n"
-		  "witness a nearby city in flames with\n"
-		  "various hell spawn roaming around the ruins.\n"
-		  "Around you, various hellish structers have already\n"
-		  "been errected around the city. Seems like\n"
-		  "the invasion on earth was already underway.\n"
+		  "You run up the hills and to your horror,\n"
+		  "witness a nearby city in flames with various hell spawn\n"
+		  "terrorizing the place. Around you,\n"
+		  "various hellish structers have been errected nearby.\n"
+		  "The bastards have already left there mark while you\n"
+		  "battling in that horrid infenro.\n"
 		  "\n"
 		  "Worst of all, near the outskirts of the city\n"
 		  "sits the head of your pet rabbit, Daisy,\n"
-		  "Mounted on a pike in a form mochery by the invaders.\n"
+		  "Mounted on a pike like a form mochery by the invaders.\n"
 		  "At that moment you curse under your breath\n"
 		  "Those bastards, They'll pay for that!\n"
 		  "\n"
 		  "Full of anger, you blindly make haste to a nearby\n"
 		  "stronghold to lay waste to the demons within!";
 		  
-//Begining of episode 4, will also play in place of the normal e4 text in full run mode.
+//Begining of episode 4, will also play in place of the normal e3 end text when in full run mode.
 		
 E4TEXT = "the spider mastermind must have sent forth\n"
 		 "its legions of hellspawn before your\n"
@@ -505,17 +506,17 @@ E5INTRO = "With the death of the second spider mastermind\n"
 		  "base where what remains of humanity have gathered.\n"
 		  "\n"
 		  "There you can gear up, join with what remains of\n"
-		  "the forces of earth, and save humanity from the demonic\n"
+		  "the forces of earth, and save everyone from the demonic\n"
 		  "Invaders. You hop into the teleporter in attempt\n"
 		  "to get there before it's too late.\n"
 		  "\n"
 		  "But as you make it though the gateway, everything\n" 
-		  "suddenly glitches out around you. The vision of ruined \n"
-		  "urban cities having turned to deep, dark caverns and\n"
-		  "red brimstone.\n"
+		  "suddenly glitches out around you. The visions of ruined\n"
+		  "urban cities at the other end of the portal having turned\n" 
+		  "to deep, dark, caverns and red brimstone.\n"
 		  "\n"
 		  "It appears another fraggin' dark lord from hell\n"
-		  "used his eldred power to drag you into even darker\n"
+		  "used his power to drag you into even darker\n"
 		  "shores in an attempt to break you.\n"
 		  "\n"
 		  "Doesn't matter how far they drag you though, you've been\n"
@@ -535,9 +536,9 @@ E6INTRO = "Baphomet's plan to drag you bring you back to hell\n"
 		  "but once again you fall for another cunning trap,\n"
 		  "set this time by none other then satan himself.\n"
 		  "\n"
-		  "The dimension you are catapulted in is more grotesque\n"
+		  "The dimension you are pulled into is more grotesque\n"
 		  "and vile then what you've had been through thus far;\n" 
-		  "filled with hell's most\n relentless killing machines.\n"
+		  "filled with hell's most relentless killing machines.\n"
 		  "\n"
 		  "Now, with the heat really cranked up,\n"
 		  "it's time to really show them your metal!";		  
@@ -609,6 +610,48 @@ CSTEXT =
 	"humiliation: You've been morphed into a human! Of course\n"
 	"you're out for revenge and have to kick the other members\n" 
 	"of the Cabal's butts one by one.";
+	
+/*
+	You're a cyberdemon, one of hells most biggest, baddest,
+	and toughest around. Equipt with nothing but a rocket
+	launcher and a taste for violence, your sheer presents 
+	brings lesser demons to their knee's. Because of this,
+	you were fit to spear-head the council that ruled the
+	underworld; the Cabal.
+	
+	Just over a year ago, a single mortal, a marine from
+	the U.A.C mars division, single handedly brought a cold end
+	to the hell on earth operation and had slain the bio weapon 
+	planned to convert earth to hell's needs; the Icon of Sin.
+	
+	With the operation a failure, you were lambasted by the
+	dark lords above and even the lesser demons started to
+	fear you less. Some even gaining sinister smiles just
+	glancing at you. Then one day, in what felt like an hour, 
+	the hoards you once ruled all jumped at you at once.
+	Powerless against an army of traitors, you are torn
+	apart limb from limb and blackout. 
+	
+	But you wished that how it ended, as you wake
+	up to find yourself the victim of the upmost demonic
+	humiliation: you've been reduced to a mere mortal!
+	With nothing but puny glock and your bare ass, all you
+	can feel is a smoldering heat and demonic chanting in the 
+	distance as you look though the metal bars of the 
+	red prison you're in.
+	
+	You hear from an imp gaurd that you'll be taken to a 
+	demonic arena soon. But not to fight anyone to try 
+	and recalim even a scarp dignity, but be nothing 
+	more then  a laughing stock before being completely 
+	violated and dismembered!
+	
+	Swearing revenge, You'll make the Cabal pay for this.
+	You kill the lowley gaurd mocking your appearence
+	and make haste out of the dungeon of the arena and 
+	into the sea of blood surrounding the place. You
+	eventually find youself in front 
+*/
 	
 /*
 You once were the biggest and baddest Cyber-demon to

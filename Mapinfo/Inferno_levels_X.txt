@@ -106,8 +106,8 @@ map E3M8 "$HUSTR_E3M8"
 	Par = 105
 	Music = "$MUSIC_E3M8"
 	NoIntermission
-	SpiderMastermindSpecial
-	SpecialAction_ExitLevel
+	//SpiderMastermindSpecial
+	//SpecialAction_ExitLevel
 	NoSoundClipping
 	Author = "$WF_AU_PETERSEN"
 	Label = "THE ULTIMATE DOOM, E3M8"

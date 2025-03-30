@@ -771,8 +771,38 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'Cacodemon';
 			}
 		}
+		
+		if ( mapPrefix == "lr_" )
+		{
+			//Replace the legacy of rust monsters with doom 2 equivilants for certain gameplay mods.
+			
+			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			{
+				if (e.Replacee == 'Deh_Actor_150')
+				e.Replacement = 'Lostsoul';
+				
+				if (e.Replacee == 'Deh_Actor_151')
+				e.Replacement = 'Lostsoul';
+				
+				if (e.Replacee == 'Deh_Actor_152')
+				e.Replacement = 'Arachnotron';
+				
+				if (e.Replacee == 'Deh_Actor_153')
+				e.Replacement = 'Revenant';
+				
+				if (e.Replacee == 'Deh_Actor_154')
+				e.Replacement = 'Baronofhell';
+				
+				if (e.Replacee == 'Deh_Actor_155' || e.Replacee == 'Deh_Actor_157')
+				e.Replacement = 'Baronofhell';
+				
+				if (e.Replacee == 'Deh_Actor_156')
+				e.Replacement = 'Cyberdemon';
+			}
+		}
 	}
-	//Make sure the map specific flags still work for those maps
+	
+	//Make sure the map specific flags still work
 	override void CheckReplacee (ReplacedEvent e)
 	{		
 		String mapName = level.MapName.MakeLower();

@@ -46,6 +46,12 @@ OptionValue DCX_CabalLevelOrder
 	2.0, "$DCX_CABAL_WOTM"
 }
 
+OptionValue Smooth_Weapons
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
 OptionValue CustomMonsters
 {
 	0.0, "\c[GOLD]On"
@@ -75,6 +81,9 @@ OptionMenu "DCXOptions"
 	StaticText " "
 	option "$OPTIONS_MED", "Health_Cross_Toggle", "HealthCrossTweaks"
 	StaticText "Changes the appearence of crosses on the health/berserk packs to your choice.", "dark red"
+	StaticText " "
+	option "Smooth and Enchanced Weapon Toggle", "DCX_SmoothToggle", "Smooth_Weapons"
+	StaticText "Switch this on for smooth like doom weapon animations.", "dark red"
 	StaticText " "
 	option "Intro Text", "dcx_IntroText", "OnOff"
 	StaticText "Choose to have intro text for the begining of each episode or not.", "dark red"

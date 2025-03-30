@@ -107,8 +107,8 @@ map E2M8 "$HUSTR_E2M8"
 	Par = 135
 	Music = "$MUSIC_E2M8"
 	NoIntermission
-	CyberdemonSpecial
-	SpecialAction_ExitLevel
+	//CyberdemonSpecial
+	//SpecialAction_ExitLevel
 	NoSoundClipping
 	Author = "$WF_AU_PETERSEN"
 	Label = "THE ULTIMATE DOOM, E2M8"

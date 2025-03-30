@@ -36,7 +36,7 @@ Cluster 1003
 Cluster 1004
 {
 	ExitText = "$E4INTRO"
-	Music = "$MUSIC_VICTOR"
+	Music = "$MUSIC_VICTR2"
 	Flat = "$bgflatE4"
 }
 
@@ -88,6 +88,7 @@ Map INTER_D1E4 ""
 {
 	Cluster = 1004
 	Next = "E4M1"
+	Music = "D_INTR2"
 }
 
 Map INTER_D1E5 ""

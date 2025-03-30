@@ -1,31 +1,36 @@
 -credits-
 
-Master Levels MIDI Pack
+Master Levels MIDI (Master levels)
 
-Plutonia MIDI Pack - Plutonia tracks
+Plutonia MIDI Pack plus unused midis (Plutonia maps, master level rejects)
 
-No Rest For The Living MIDI Pack - NRFTL tracks
+No Rest For The Living MIDI Pack (NRFTL maps)
 
-TNT MIDI Pack - TNT tracks
+TNT MIDI Pack (TNT maps) .
 
-Ultimate MIDI Pack - Master levels + doom 64 for doom 2
+Ultimate MIDI Pack (Doom 1, Thy flesh consumed, Master levels rejects, and doom 64 for doom 2 maps)
 
-.MID The Way Id Did - Master levels + doom 64 for doom 2
+.MID The Way Id Did (Doom 2, Master levels rejects, and doom 64 for doom 2 maps)
 
-tamara mochaccina: Thy Flesh Consumed midi set.
+Thy Flesh Consumed midi (Master levels rejects) - tamara mochaccina.
 
-Widescreen graphics appreciation thread - intermission and BOSSBACK graphics
+Project Doom remixes (Master level rejects and Doom 64 for doom 2 levels) - silentzorah.
 
-Doom Minor Sprite Fix project - SIGIL and SIGIL II textures
+title screen music (https://www.khinsider.com/midi/n64/doom-64) - Kingdom Hearts Insider.
 
-Nash's colored blood - colored blood
+Widescreen graphics appreciation thread - intermission and BOSSBACK graphics.
 
-Kingdom Hearts Insider - title screen music (https://www.khinsider.com/midi/n64/doom-64)
+Thy flesh consumed, sigil 1 & 2, and doom 2 intermission graphics - DevilMyEyes. Edits by Manardo.
 
-Project Doom remixes by silentzorah.
+Doom Minor Sprite Fix project (Thing sprites as well as the SIGIL and SIGIL II textures).
 
-Tom's Halls (Community Project) - Altar of Extraction (PSX01), by Xeebleton. Edits by Manardo.
+Nash's colored blood (colored blood).
 
-Unmaker sprite by [AUTHOR NOT FOUND], edit by [AUTHOR NOT FOUND].
+Tom's Halls (Community Project), Altar of Extraction (PSX01) - Xeebleton. Edits by Manardo.
 
-Thy flesh consumed, sigil 1 & 2, and doom 2 intermission graphics by DevilMyEyes. Edits by Manardo.
+Console Level Remakes - Manardo.
+
+zrrion the insect - Cleaned up Incinerator and Calamity Blade Sprites
+
+Unmaker sprite - [AUTHOR NOT FOUND], edit by [AUTHOR NOT FOUND].
+

@@ -36,6 +36,229 @@ Script "ClubDoomMusicSwap" (void)
    Terminate;
 }
 
+Script "WeaponManagement" Enter //Used to clean up inventory if you gave yourself all weapons via cheats
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	str levelset = StrMid(mapName, 0, 3);
+	str levelset2 = StrMid(mapName, 0, 6);
+	
+	if(StrICmp(mapName, "TEST") == 0)
+	{
+		terminate;
+	}
+	
+	delay(1);
+	
+	if(GetCVar ("dcx_CustomMonsters") ==1)
+	{
+		if (CheckInventory("DCX_DoubleBladedChainsaw"))
+		{
+			TakeInventory("Chainsaw", 1);
+		}
+			
+		if(StrICmp(levelset, "ab_") == 0)
+		{	
+			if ( (CheckInventory("PlasmaRifle")) || 
+				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
+				(CheckInventory("H2P_PlasmaTrident")) )
+			{
+				GiveInventory("DCX_HeavyPlasmaGun", 1);
+			}
+		
+			if (CheckInventory("H2P_IncendiaryTrident"))
+			{
+				GiveInventory("BFG9000", 1);
+			}
+			
+			if (CheckInventory("H2P_RocketLauncher"))
+			{
+				GiveInventory("RocketLauncher", 1);
+			}
+			
+		
+			TakeInventory("H2P_RocketLauncher", 1);
+			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_DZ0PlasmaRifle", 1);
+			TakeInventory("H2P_PlasmaTrident", 1);
+			TakeInventory("H2P_IncendiaryTrident", 1);
+		}
+		else if(StrICmp(levelset, "dz_") == 0)
+		{
+			if ( (CheckInventory("PlasmaRifle")) || 
+				(CheckInventory("DCX_HeavyPlasmaGun")) ||
+				(CheckInventory("H2P_PlasmaTrident")) )
+			{
+				GiveInventory("DCX_DZ0PlasmaRifle", 1);
+			}
+			
+			if (CheckInventory("H2P_IncendiaryTrident"))
+			{
+				GiveInventory("BFG9000", 1);
+			}
+			
+			if (CheckInventory("H2P_RocketLauncher"))
+			{
+				GiveInventory("RocketLauncher", 1);
+			}
+			
+			TakeInventory("H2P_RocketLauncher", 1);
+			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_HeavyPlasmaGun", 1);
+			TakeInventory("H2P_PlasmaTrident", 1);
+			TakeInventory("H2P_IncendiaryTrident", 1);
+		}		
+		else if(StrICmp(levelset, "hp_") == 0)
+		{			
+			if ( (CheckInventory("PlasmaRifle")) || 
+				(CheckInventory("DCX_HeavyPlasmaGun")) ||
+				(CheckInventory("DCX_DZ0PlasmaRifle")) )
+			{
+				GiveInventory("H2P_PlasmaTrident", 1);
+			}
+			
+			if (CheckInventory("BFG9000"))
+			{
+				GiveInventory("H2P_IncendiaryTrident", 1);
+			}
+			
+			if (CheckInventory("RocketLauncher"))
+			{
+				GiveInventory("H2P_RocketLauncher", 1);
+			}
+		
+			TakeInventory("RocketLauncher", 1);
+			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_HeavyPlasmaGun", 1);
+			TakeInventory("DCX_DZ0PlasmaRifle", 1);
+			TakeInventory("BFG9000", 1);
+		}
+		else
+		{		
+			if (CheckInventory("H2P_RocketLauncher"))
+			{
+				GiveInventory("RocketLauncher", 1);
+			}
+		
+			if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
+				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
+				(CheckInventory("H2P_PlasmaTrident")) )
+			{
+				GiveInventory("PlasmaRifle", 1);
+			}
+		
+			if (CheckInventory("H2P_IncendiaryTrident"))
+			{
+				GiveInventory("BFG9000", 1);
+			}
+		
+			//TakeInventory("DCX_DoubleBladedChainsaw", 1);
+			TakeInventory("H2P_RocketLauncher", 1);
+			TakeInventory("DCX_HeavyPlasmaGun", 1);
+			TakeInventory("H2P_PlasmaTrident", 1);
+			TakeInventory("DCX_DZ0PlasmaRifle", 1);
+			TakeInventory("H2P_IncendiaryTrident", 1);
+		}
+	}
+	else 
+	{
+		if (CheckInventory("DCX_DoubleBladedChainsaw"))
+		{
+			GiveInventory("Chainsaw", 1);
+		}
+		
+		if (CheckInventory("H2P_RocketLauncher"))
+		{
+			GiveInventory("PerkRocketLauncher", 1);
+			GiveInventory("RocketLauncher", 1);
+		}
+		
+		if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
+			 (CheckInventory("DCX_DZ0PlasmaRifle")) ||
+			 (CheckInventory("H2P_PlasmaTrident")) )
+		{
+			GiveInventory("PlasmaRifle", 1);
+		}
+		
+		if (CheckInventory("H2P_IncendiaryTrident"))
+		{
+			GiveInventory("BFG9000", 1);
+		}
+		
+		TakeInventory("DCX_DoubleBladedChainsaw", 1);
+		TakeInventory("H2P_RocketLauncher", 1);
+		TakeInventory("DCX_HeavyPlasmaGun", 1);
+		TakeInventory("H2P_PlasmaTrident", 1);
+		TakeInventory("DCX_DZ0PlasmaRifle", 1);
+		TakeInventory("H2P_IncendiaryTrident", 1);
+		TakeInventory("DCX_Unmaker", 1);
+	}
+	restart;
+	//terminate;
+}
+
+Script "E2M8&E3M8Bossdeath" Enter
+{	
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	if (GameType() == GAME_TITLE_MAP)
+    terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	str class = "CyberdemonBoss";
+	
+	if(StrICmp(mapName, "E3M8") == 0)
+		class = "Supermastermind";
+	
+	if ((StrICmp(mapName, "E2M8") == 0) || (StrICmp(mapName, "E3M8") == 0))
+	{
+		While ((ThingCount(T_NONE, 666) > 0) || (ThingCountName(class, 0) > 0)) { delay(1); }
+		
+		if (StrICmp(mapName, "E2M8") == 0) { delay(115); }		
+		if (StrICmp(mapName, "E3M8") == 0) { delay(135); }
+		else { delay(110); }
+		
+		Exit_Normal(0);
+	}
+	else
+	{
+		Terminate;
+	}
+	
+}
+
+Script "LORMap14ScriptingShit" Enter
+{
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if ((StrICmp(mapName, "lr_map14") == 0) && (GetCVar ("dcx_CustomMonsters") !=1))
+	{	
+		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
+		
+		delay(115);
+		
+		Floor_LowerByValue(666, 8, 25);
+	
+		While (ThingCount(T_NONE, 667) > 0) { delay(1); }
+		
+		delay(115);
+		
+		Floor_LowerByValue(667, 8, 32);
+		
+	}
+	else { terminate; }
+}
+
 script "Check_Difficulty" (Void)
 {
 	if ((GameSkill () <= 4))
@@ -159,20 +382,21 @@ script "Xtra_Monster_Placements" enter
 	{	
 		if (StrICmp(mapName, "e1m1") == 0)
 		{
-			Add("Doomimp",2976,-4768,90,0,0);
-			Add("Doomimp",3040,-4768,90,0,0);
+			//Add("Doomimp",2976,-4768,90,0,0);
+			//Add("Doomimp",3040,-4768,90,0,0);
 			
-			Add("Demon",704,128,180,0,0);
-			Add("Demon",640,320,180,0,0);
+			Add("Demon",1408,-3616,45,0,0);
+			Add("Demon",1408,-2976,315,0,0);
 			
-			Replace("ChaingunGuy",2272,-2432,180,0,0); //Replaces the Zombieman in the computer room
+			//Replace("ChaingunGuy",2272,-2432,180,0,0); //Replaces the Zombieman in the computer room
+			
 			Replace("ChaingunGuy",3056,-3584,90,0,0); //Replaces Zombieman in the toxic zig zag room
 			Add("ChaingunGuy",2944,-3584,90,0,0); //Lonely chaingunner needs a friend.
 			Add("ChaingunGuy",3392,-3072,225,0,0);  //At the end of the secret tunnel with the armor bonuses ;)
 			
-			Add("Cacodemon",3616,-3456,270,0,0); //In the secret tunnel with the armor bonuses
+			//Add("Cacodemon",3616,-3456,270,0,0); //In the secret tunnel with the armor bonuses
 			
-			AddDeco("ColonGibs",1088,-3264,0);
+			//AddDeco("ColonGibs",1088,-3264,0);
 		}	
 		if (StrICmp(mapName, "e1m2") == 0)
 		{
@@ -730,6 +954,8 @@ script "Xtra_Monster_Placements" enter
 			Add ("ChaingunGuy",1920,-320,180,0,99);
 
 		}
+		
+		/*
 		if (StrICmp(mapName, "e2m8") == 0)
 		{
 			Add("Fatso",-104,440, 270,0,0);
@@ -741,6 +967,8 @@ script "Xtra_Monster_Placements" enter
 			Add("Fatso",1096,-792,180,0,0);
 			Add("Fatso",1136,-944,180,0,0);
 		}
+		*/
+		
 		if (StrICmp(mapName, "e2m9") == 0)
 		{	
 			Add("RocketBox",960,-384,180,0,0);
@@ -896,6 +1124,8 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",1440,-960,90,0,0);
 			Add("Fatso",1440,1280,270,0,0);
 		}
+		
+		/*
 		if (StrICmp(mapName, "e3m8") == 0)
 		{
 			Add("Arachnotron",-384,64,315,0,0);
@@ -907,6 +1137,8 @@ script "Xtra_Monster_Placements" enter
 			Add("Arachnotron",576,864,270,0,0);
 			Add("Arachnotron",192,1056,270,0,0);
 		}
+		*/
+		
 		if (StrICmp(mapName, "e3m9") == 0)
 		{			
 			Add("SuperShotgun",-672,1376,0,0,0); 
