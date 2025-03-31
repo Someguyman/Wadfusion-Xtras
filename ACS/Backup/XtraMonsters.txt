@@ -1225,18 +1225,6 @@ script "Xtra_Monster_Placements" enter
 			Add("SuperShotgun",32,-1440,270,0,0);
 			Add("Fatso",160,-544,270,0,0);
 		}
-		if (StrICmp(mapName, "e4m5") == 0)
-		{
-		
-		}
-		if (StrICmp(mapName, "e4m6") == 0)
-		{
-		
-		}
-		if (StrICmp(mapName, "e4m7") == 0)
-		{
-		
-		}
 		if (StrICmp(mapName, "e4m8") == 0)
 		{
 			Add("SuperShotgun",-1664,32,270,0,0);
@@ -1612,4 +1600,11 @@ Script "TestTID" (void)
 
 		Delay(35);
 	}
+}
+
+function bool IsBrutalDoom(void)
+{
+    if (GetActorClass(0) == "BDoomer" || GetActorClass(0) == "Doomer2" || GetActorClass(0) == "TacticalDoomer" || GetActorClass(0) == "Purist")
+        return true;
+    return false;
 }

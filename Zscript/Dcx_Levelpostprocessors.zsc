@@ -879,14 +879,6 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
-				/*
-				case '5AC51CA9F1B57D4538049422A5E37291': //E3M7
-				{
-					SetSectorTexture(105,1,"FLOOR3_3");
-					break;
-				}
-				*/
-				
 				case 'ef128313112110ed6c1549af96af26c9': //E3M8
 				{
 					Int E3M8Arachnos = AddThing(68, (-384, 64, -999), 0);
@@ -922,9 +914,12 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					SetThingID(E3M8Arachnos, 666);
 					break;
 				}
-					
+				
+				///*
 				case '94D4C869A0C02EF4F7375022B36AAE45' : //E4M7 or ml_map35
 				{
+					//if ( MapName == "e4m7" )
+					//{
 						SetThingEdNum(131,69);
 						
 						SetThingEdNum(170,66);
@@ -976,8 +971,10 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						AddThing(66,(768,1216,-999),180);
 							
 						AddThing(65,(-48,248,-999),90);
-						break;
+					//}
+					break;
 				}
+				//*/
 					
 					
 				case '4A4832BEBE16A3D56912490A4E61F59B' : //E5M1
