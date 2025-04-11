@@ -1,0 +1,617 @@
+
+// DOOM Episode 1
+
+cluster 1
+{
+	ExitText = "$E1TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE1"
+	pic = "E1VICTOR"
+}
+
+// DOOM Episode 2
+
+cluster 2
+{
+	ExitText = "$E2TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE3"
+	pic = "INTER_E4"
+	//Pic = "E2ENDINT"
+}
+
+// DOOM Episode 3
+
+cluster 3
+{
+	ExitText = "$E3TEXT"
+	Music = "$MUSIC_VICTOR"
+	Flat = "$bgflatE2"
+	pic = "E3ENDINT"
+}
+
+// DOOM Episode 4
+
+cluster 4
+{
+	ExitText = "$E4TEXT"
+	Music = "$MUSIC_VICTR2"
+	Flat = "$bgflatE4"
+	pic = "E4VICTOR"
+}
+
+// DOOM II first cluster (up thru level 6)
+
+cluster 5
+{
+	ExitText = "$C1TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT06"
+
+}
+
+// DOOM II second cluster (up thru level 11)
+
+cluster 6
+{
+	ExitText = "$C2TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT11"
+
+}
+
+// DOOM II third cluster (up thru level 20)
+
+cluster 7
+{
+	ExitText = "$C3TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT20"
+}
+
+// DOOM II fourth cluster (up thru level 30)
+
+cluster 8
+{
+	ExitText = "$C4TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT30"
+}
+
+// DOOM II fifth cluster (level 31)
+
+cluster 9
+{
+	EnterText = "$C5TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT15"
+}
+
+// DOOM II sixth cluster (level 32)
+
+cluster 10
+{
+	EnterText = "$C6TEXT"
+	Music = "$MUSIC_READ_M"
+	Flat = "$BGFLAT31"
+}
+
+// No Rest For The Living 
+
+cluster 11
+{
+	ExitText = "$NERVETEXT"
+	music = "$MUSIC_NERVETEXT"
+	Flat = "SLIME16"
+}
+
+// TNT first cluster (up thru level 6)
+
+cluster 12
+{
+	ExitText = "$T1TEXT"
+	Music = "T_READ_M"
+	Flat = "FLAT5_7"
+}
+
+// TNT second cluster (up thru level 11)
+
+cluster 13
+{
+	ExitText = "$T2TEXT"
+	Music = "T_READ_M"
+	Flat = "FLOOR5_1"
+}
+
+// TNT third cluster (up thru level 20)
+
+cluster 14
+{
+	ExitText = "$T3TEXT"
+	Music = "T_READ_M"
+	Flat = "FLAT5_3"
+}
+
+// TNT fourth cluster (up thru level 30)
+
+cluster 15
+{
+	ExitText = "$T4TEXT"
+	Music = "T_READ_M"
+	Flat = "DEM1_6"
+}
+
+// TNT fifth cluster (level 31)
+
+cluster 16
+{
+	EnterText = "$T5TEXT"
+	Music = "T_READ_M"
+	Flat = "MFLR8_2"
+}
+
+// TNT sixth cluster (level 32)
+
+cluster 17
+{
+	EnterText = "$T6TEXT"
+	Music = "T_READ_M"
+	Flat = "FLAT5_2"
+}
+
+// Plutonia first cluster (up thru level 6)
+
+cluster 18
+{
+	ExitText = "$P1TEXT"
+	Music = "P_READ_M"
+	Flat = "GRNROCK"
+}
+
+// Plutonia second cluster (up thru level 11)
+
+cluster 19
+{
+	ExitText = "$P2TEXT"
+	Music = "P_READ_M"
+	Flat = "FLOOR5_2"
+}
+
+// Plutonia third cluster (up thru level 20)
+
+cluster 20
+{
+	ExitText = "$P3TEXT"
+	Music = "P_READ_M"
+	Flat = "BLOOD1"
+}
+
+// Plutonia fourth cluster (up thru level 30)
+
+cluster 21
+{
+	ExitText = "$P4TEXT"
+	Music = "P_READ_M"
+	Flat = "RROCK04"
+}
+
+// Plutonia fifth cluster (level 31)
+
+cluster 22
+{
+	EnterText = "$P5TEXT"
+	Music = "P_READ_M"
+	Flat = "SLIME14"
+}
+
+// Plutonia sixth cluster (level 32)
+
+cluster 23
+{
+	EnterText = "$P6TEXT"
+	Music = "P_READ_M"
+	Flat = "RROCK02"
+}
+
+// Master Levels clusters
+
+cluster 24 // PSX Master Level Text
+{
+	ExitText = "$MLEND"
+	music = "$MUSIC_MASTERTXT"
+	pic = "MLINTERP"
+}
+
+cluster 25 // Bad Dream Secret Text
+{
+	EnterText = "$MLSECRET"
+	music = "$MUSIC_MASTERTXT"
+	pic = "MLINTERP"
+}
+
+// Sigil 1 cluster
+
+cluster 26
+{
+	//Flat = "CEIL5_1"
+	Pic = "SIGILINT"
+	Music = "S_INTRO"
+	ExitText = "$E5TEXT"
+}
+
+// Sigil 2 cluster
+
+cluster 27
+{
+	//Flat = "FLOOR7_2"
+	Pic = "SIGILIN2"
+	Music = "S2_INTRO"
+	ExitText = "$E6TEXT"
+}
+
+// LOR Episode 1 cluster
+
+cluster 28
+{
+	ExitText = "$INTERTEXT_ID1_E1"
+	Music = "D_SHORES"
+	Flat = "SLIME20"
+}
+
+// LOR Episode 2 cluster
+
+cluster 29
+{
+	ExitText = "$INTERTEXT_ID1_E2"
+	Music = "D_SHORES"
+	Flat = "FLOOR9_2"
+}
+
+// Blackroom Clusters
+
+cluster 30
+{
+	EnterText = "$E1M4BTEXT"
+	Music = "$MUSIC_VICTOR"
+	//Flat = "$bgflatE1"
+	pic = "E1VICTOR"
+}
+
+cluster 31
+{
+	EnterText = "$E1M8BTEXT"
+	ExitText = "$E1TEXT"
+	Music = "$MUSIC_VICTOR"
+	//Flat = "$bgflatE1"
+	pic = "E1VICTOR"
+}
+
+// Master Levels Rejects clusters
+
+cluster 32
+{
+	EnterText = "$ML4STORY1"
+	Music = "$MUSIC_READ_M"
+	Pic = "JFBOSSBK"
+}
+
+cluster 33
+{
+	EnterText = "$ML4STORY2"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	Pic = "JFBOSSBK"
+}
+
+cluster 34
+{
+	EnterText = "$ML4STORY3"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	Pic = "JFBOSSBK"
+}
+
+cluster 35
+{
+	EnterText = "$ML4STORY4"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	Pic = "JFBOSSBK"
+}
+
+cluster 36
+{
+	EnterText = "$ML4STORY5"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	Pic = "JFBOSSBK"
+}
+
+cluster 37
+{
+	EnterText = "$ML4STORY6"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	Pic = "JFBOSSBK"
+}
+
+cluster 38
+{
+	EnterText = "$ML5STORY1"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 39
+{
+	EnterText = "$ML5STORY2"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 40
+{
+	EnterText = "$ML5STORY3"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 41
+{
+	EnterText = "$ML5STORY4"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 42
+{
+	EnterText = "$ML5STORY5"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 43
+{
+	EnterText = "$ML5STORY6"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "DRBOSSBK"
+}
+
+cluster 44
+{
+	EnterText = "$ML6STORY1"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 45
+{
+	EnterText = "$ML6STORY2"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 46
+{
+	EnterText = "$ML6STORY3"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 47
+{
+	EnterText = "$ML6STORY4"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 48
+{
+	EnterText = "$ML6STORY5"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 49
+{
+	EnterText = "$ML6STORY6"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 50
+{
+	EnterText = "$ML6STORY7"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 51
+{
+	EnterText = "$ML6STORY8"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+cluster 52
+{
+	EnterText = "$ML6STORY9"
+	ExitText = "$MLEND"
+	Music = "$MUSIC_READ_M"
+	//Flat = "$BGFLAT06"
+	pic = "CRBOSSBK"
+}
+
+//	Console Doom Clusters
+
+cluster 101
+{
+	flat = "FLAT5_1"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "MANSIONTXT"
+}
+
+cluster 102
+{
+	flat = "CEIL5_1"
+	music = "$MUSIC_READ_M"
+	entertext = lookup, "CLUBDOOMTXT"
+}
+
+// D64D2 Intermission text
+
+cluster 103 //ab_map07
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C1A"
+}
+
+cluster 104 //ab_map11
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C1B"
+}
+
+cluster 105 //ab_map20
+{
+    pic = "D64bossb"
+    music = "$MUSIC_D64TEXT"
+    exittext = lookup, "IN_C2"
+}
+
+cluster 106 //ab_map30
+{
+	pic = "D64End"
+    music = "$MUSIC_D64TEXT2"
+    exittext = lookup, "IN_C3"
+}
+
+cluster 107 //ab_map31
+{
+    pic = "D64boss2"
+    music = "$MUSIC_D64TEXT"
+    entertext = lookup, "IN_S1"
+}
+
+cluster 108 //ab_map32
+{
+    pic = "D64boss3"
+    music = "$MUSIC_D64TEXT"
+    entertext = lookup, "IN_S2"
+}
+
+//	Generic Clusters
+
+Cluster 666
+{
+	ExitText = "$GENERIC_TXT"
+	Music = "$MUSIC_E1M2"
+	pic = "DMVICTOR"
+}
+
+Cluster 667
+{
+	ExitText = "$GENERIC_TXT2"
+	Music = "D_READM"
+	pic = "INTER_E4"
+}
+
+Cluster 668
+{
+	ExitText = "$GENERIC_TXT2"
+	Music = "O_E1M8"
+	pic = "DMVICTOR"
+}
+
+Cluster 1000
+{
+	//ExitText = "John W. Anderson, Dr. Sleep - Rest In Peace,\n 
+	//			"1956 - 2018"	
+	//Music = "O_E1M8"
+	//pic = "DMVICTOR"
+}
+
+//	Intro Clusters
+
+Cluster 1001 // Doom Episode 1
+{
+	ExitText = "$E1INTRO"
+	Music = "$MUSIC_VICTOR"
+	//pic = "E1VICTOR"
+	//Flat = "$bgflatE1"
+	Pic = "DMVICTOR"
+}
+
+Cluster 1002 // Doom Episode 2
+{
+	ExitText = "$E2INTRO"
+	Music = "$MUSIC_VICTOR"
+	Pic = "INTERPIC"
+	//Flat = "$bgflatE3"
+	pic = "E1VICTOR"
+}
+
+Cluster 1003 // Doom Episode 3
+{
+	ExitText = "$E3INTRO"
+	Music = "$MUSIC_VICTOR"
+	//Flat = "$bgflatE2"
+	//pic = "INTER_E4"
+	pic = "INTERPI3"
+}
+
+Cluster 1004 // Doom Episode 4
+{
+	ExitText = "$E4INTRO"
+	Music = "$MUSIC_VICTR2"
+	Pic = "E4INTINT"
+}
+
+Cluster 1005 // Doom Episode 5
+{
+	ExitText = "$E5INTRO"
+	Music = "D_E5M6"
+	//Music = "S_INTER"
+	Pic = "SIGILINT"
+}
+
+Cluster 1006 // Doom Episode 6
+{
+	ExitText = "$E6INTRO"
+	Music = "D_E6M7"
+	//Music = "S2_INTER"
+	//Flat = "FLOOR7_2"
+	Pic = "SIGILIN2"
+}
+
+Cluster 1008 //Redemtion Denied Ending
+{
+	EnterText = lookup, "REDEMTION_INTRO"
+	ExitText = lookup, "REDEMTION_TXT"
+	music = "$MUSIC_READ_M"
+	Flat = "$bgflat30"
+}
+
+Cluster 2015 // Cabal Series
+{
+	ExitText = "$CSTEXT"
+	Music = "D_READM"
+	//Flat = "BLOOD1"
+	Pic = "CRBOSSBK"
+}

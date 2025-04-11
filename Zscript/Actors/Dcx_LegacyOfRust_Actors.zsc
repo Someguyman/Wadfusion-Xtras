@@ -1,0 +1,539 @@
+//
+
+Class DCX_Ghoul : Actor Replaces Deh_Actor_150
+{
+	Default
+	{
+		Health 50;
+		Radius 16;
+		Height 40;
+		Speed 12;
+		PainChance 128;
+		Mass 50;
+		Monster;
+		+FLOAT
+		+NOGRAVITY
+		SeeSound "Ghoul/Sight";
+		PainSound "Ghoul/pain";
+		DeathSound "Ghoul/death";
+		ActiveSound "Ghoul/active";
+	}
+	States
+	{
+		spawn:
+			GHUL AB 10 A_Look;
+			loop;
+		see:
+			GHUL AABBCCBB 3 A_Chase;
+			loop;
+		missile:
+			GHUL DE 4 Bright A_FaceTarget;
+			GHUL F 0 Bright A_FaceTarget;
+			GHUL F 4 Bright { A_SpawnProjectile("DCX_GhoulBall", 23); A_FaceTarget(); }
+			GHUL G 4 Bright;
+			goto see;
+		pain:
+			GHUL I 3 Bright;
+			GHUL K 3 Bright A_Pain;
+			goto see;
+		death:
+			GHUL L 5 Bright;
+			GHUL M 5 Bright A_Scream;
+			GHUL NO 5 Bright;
+			GHUL P 5 Bright A_NoBlocking;
+			GHUL QR 5 Bright;
+			GHUL S -1;
+			stop;
+	}
+}
+
+Class DCX_GhoulBall : Actor
+{
+	Default
+	{
+		Radius 8;
+		Height 6;
+		Speed 15;
+		FastSpeed 20;
+		Damage 3;
+		Projectile;
+		+RANDOMIZE
+		+ZDOOMTRANS
+		RenderStyle "Add";
+		Alpha 0.75;
+		SeeSound "Ghoul/Shot";
+		DeathSound "Ghoul/ShotX";
+	}
+	States
+	{
+		spawn:
+			GBAL AB 4 Bright;
+			loop;
+		death:
+			GBAL C 5 Bright;
+			APBX BCDE 5 Bright;
+			stop;
+	}
+}
+
+Class DCX_Banshee : Actor Replaces Deh_Actor_151
+{
+	Default
+	{
+		Health 100;
+		Speed 8;
+		Radius 20;
+		Height 56;
+		ReactionTime 8;
+		PainChance 64;
+		Mass 500;
+		Monster;
+		+FLOAT
+		+NOGRAVITY
+		+ZDOOMTRANS
+		+DONTFALL
+		PainSound "Banshee/pain";
+		DeathSound "Banshee/death";
+		Tag "Banshee";
+	}
+	States
+	{
+		spawn:
+			BSHE AB 10 Bright A_Look;
+			loop;
+		see:
+			BSHE A 0 Bright A_StartSound("Banshee/Active", CHAN_BODY, CHANF_LOOPING);
+			BSHE AAABBBCCCAAABBBCCC 2 Bright A_Chase;
+			Goto see+1;
+		melee:
+			BSHE D 1 Bright A_Explode(100,8);
+			wait;
+		pain:
+			BSHE D 3 Bright A_Stopsound(CHAN_BODY);
+			BSHE D 3 Bright A_Pain;
+			goto see;
+		death:
+			BSHE D 1 bright A_Stopsound(CHAN_BODY);
+			BSHE D 3 Bright A_Scream;
+			BSHE E 6 Bright A_Explode(128,128);
+			BSHE F 8 Bright A_NoBlocking;
+			BSHE G 6 Bright;
+			BSHE H 4 Bright;
+			TNT1 A 20;
+			stop;
+	}
+}
+
+Class DCX_Mindweaver : Arachnotron Replaces Deh_Actor_152
+{
+	Default
+	{
+		PainChance 40;
+		ReactionTime 8;
+		SeeSound "Mindweaver/sight";
+		ActiveSound "Mindweaver/Active";
+		PainSound "Mindweaver/pain";
+		AttackSound "Mindweaver/attack";
+		DeathSound "Mindweaver/death";
+		ActiveSound "Mindweaver/active";
+		Tag "Mindweaver";
+	}
+	States
+	{
+	Spawn:
+		CSPI AB 10 A_Look;
+		Loop;
+	See:
+		CSPI A 20;
+		CSPI A 0 A_Startsound("Mindweaver/walk");
+		CSPI AABBCC 3 A_Chase;
+		CSPI D 0 A_Startsound("Mindweaver/walk");
+		CSPI DDEEFF 3 A_Chase;
+		Goto See+1;
+	Missile:
+		CSPI A 20 A_FaceTarget;
+		CSPI A 0 A_Jumpif(Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1 , "Missle.Enchanced");
+		CSPI G 4 BRIGHT A_SPosAttackUseAtkSound;
+		CSPI H 4 BRIGHT A_SPosAttackUseAtkSound;
+		CSPI H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Missle.Enchanced:
+		CSPI G 2 BRIGHT A_SPosAttackUseAtkSound;
+		CSPI H 2 BRIGHT;
+		CSPI H 1 BRIGHT A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		CSPI I 3;
+		CSPI I 3 A_Pain;
+		Goto See+1;
+	Death:
+		CSPI J 1;
+		CSPI J 19 A_Scream;
+		CSPI K 7 A_NoBlocking;
+		CSPI LMNO 7 bright;
+		CSPI P -1;
+		stop;
+    Raise:
+		CSPI P 5;
+		CSPI ONMLKJ 5;
+		Goto See+1;
+	}
+}
+
+Class DCX_ShockTrooper : Actor Replaces Deh_Actor_153
+{
+	Default
+	{
+		Health 100;
+		Speed 10;
+		Radius 20;
+		Height 56;
+		ReactionTime 8;
+		Monster;
+		+FLOORCLIP
+		PainSound "ShockTrooper/Pain";
+		ActiveSound "ShockTrooper/Active";
+		DeathSound "ShockTrooper/Death";
+		Tag "Shock Trooper";
+	}
+	
+	Void STrooperBlast()
+	{
+		if (Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1)
+			A_SpawnProjectile("PlasmaBall", 28, 5);
+		else
+			A_SpawnProjectile("PlasmaBall", 32);
+		A_FaceTarget();
+	}
+		
+	States
+	{
+		spawn:
+			PPOS AB 10 A_Look;
+			loop;
+		see:
+			PPOS AABBCCDD 2 Fast A_Chase;
+			loop;
+		missile:
+			PPOS E 10 
+			{
+				A_FaceTarget();
+				if (Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1)
+					A_SetTranslation("ShocktrooperPlasma");	
+				else
+					A_SetTranslation("None");
+			}
+			PPOS F 2 bright Fast STrooperBlast();
+			PPOS E 4 Fast;
+			PPOS F 2 bright Fast  STrooperBlast();
+			PPOS E 4 Fast;
+			PPOS F 2 bright Fast  STrooperBlast();
+			PPOS E 4 Fast A_SetTranslation("None");
+			goto see;
+		pain:
+			PPOS G 5 Fast A_SetTranslation("None");
+			PPOS G 5 Fast A_Pain;
+			goto see;
+		death:
+			PPOS H 0 A_FaceTarget;
+			PPOS H 5 A_SpawnItemEx("DCX_ShocktrooperHead", 0, 0, 40, 2.0 , 0, 1.5, 0 ,SXF_ABSOLUTEVELOCITY|SXF_ABSOLUTEPOSITION);
+			PPOS I 5 A_Scream;
+			PPOS J 5 A_NoBlocking;
+			PPOS KL 5;
+			PPOS M -1;
+			stop;
+		xdeath:
+			PPOS N 5;
+			PPOS O 5 A_XScream;
+			PPOS P 5 A_Fall;
+			PPOS Q 0 A_FaceTarget;
+			PPOS Q 5 A_SpawnItemEx("DCX_ShocktrooperTorso", -8.0, 0, 32.0 , 4.0, 0 , 2.0 , 0, SXF_ABSOLUTEVELOCITY|SXF_ABSOLUTEPOSITION);
+			PPOS RST 5;
+			PPOS U -1;
+			stop;
+		raise:
+			PPOS MLKJIH 5;
+			goto see;
+	}
+}
+
+Class DCX_ShockTrooperHead : Actor
+{
+	Default
+	{
+		Damage 0;
+		Speed 8;
+		Radius 6;
+		Height 16;
+		Projectile;
+		Mass 5000;
+		Gravity 0.125;
+		-NOBLOCKMAP
+		-NOGRAVITY		
+		DeathSound "ShockTrooper/Head";
+	}
+	States
+	{
+		Spawn:
+			PHED ABCDEFGHI 3;
+			loop;
+		Death:
+			PHED J -1;
+			loop;
+	}
+}
+
+Class DCX_ShockTrooperTorso : Actor
+{
+	Default
+	{
+		Damage 0;
+		Speed 8;
+		Radius 6;
+		Height 16;
+		Mass 5000;
+		Projectile;
+		-NOGRAVITY
+		+NOBLOCKMAP
+	}
+	States
+	{
+		Spawn:
+			PPOS V -1;
+			loop;
+		Death:
+			PPOS W 5;
+			PPOS X -1;
+			stop;
+	}
+}
+
+Class DCX_Vassago : Actor Replaces Deh_Actor_154
+{
+	Default
+	{
+		Health 1000;
+		Speed 8;
+		ReactionTime 8;
+		PainChance 100;
+		Radius 24;
+		Height 64;
+		Mass 1000;
+		+BOSSDEATH
+		+DONTHARMCLASS
+		Monster;
+		SeeSound "Vassago/sight";
+		PainSound "Vassago/pain";
+		DeathSound "Vassago/death";
+		ActiveSound "Vassago/active";
+	}
+	States
+	{
+		spawn:
+			VASS AB 10 A_Look;
+			loop;
+		see:
+			VASS AABBCCDD 3 A_Chase;
+			loop;
+		melee:
+		missile:
+			VASS E 8 Bright { A_FaceTarget(); A_StartSound("Vassago/attack", CHAN_BODY); }
+			VASS FG 4 Bright A_FaceTarget;
+			VASS H 8 Bright { A_SpawnProjectile("DCX_VassagoFlame", 32); A_FaceTarget(); }
+			goto see;
+		pain:
+			VASS I 2;
+			VASS I 2 A_Pain;
+			goto see;
+		death:
+			VASS J 8 Bright;
+			VASS K 8 Bright A_Scream;
+			VASS L 7 Bright;
+			VASS M 6 Bright A_NoBlocking;
+			VASS NO 6 Bright;
+			VASS P 7 Bright;
+			VASS Q -1 A_BossDeath;
+			stop;
+		raise:
+			VASS P 8;
+			VASS ONMLKJ 8;
+			goto see;
+	}
+}
+
+Class DCX_VassagoFlame : Actor
+{
+	Default
+	{
+		Radius 6;
+		Height 16;
+		Speed 15;
+		FastSpeed 20;
+		Damage 5;
+		+RANDOMIZE
+		+ZDOOMTRANS
+		RenderStyle "Add";
+		Alpha 1;
+		Projectile;
+		SeeSound "Vassago/Shot";
+		DeathSound "Vassago/ShotX";
+	}
+	States
+	{
+		spawn:
+			VFLM AB 4 Bright;
+			loop;
+		death:
+			VFLM C 4 bright
+			{
+				bNOGRAVITY = False;
+				A_ChangeLinkFlags(false);
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM D 4 bright;
+			VFLM E 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);			
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);			
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM G 4 bright;
+			VFLM H 4 bright;
+			VFLM F 4 bright
+			{
+				A_StartSound("Vassago/fire");
+				A_Explode(10,130);				
+			}
+			VFLM J 4 bright;
+			VFLM K 4 bright;
+			VFLM L 4 bright A_Explode(10,130);
+			VFLM MNOPQ 4 bright;
+			stop;
+	}
+}
+
+Class DCX_Tyrant : Actor Replaces Deh_Actor_155
+{
+	Default
+	{
+		Health 1000;
+		+BOSS 
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
+		Radius 40;
+		Height 110;
+		Mass 1000;
+		Speed 16;
+		PainChance 20;
+		Monster;
+		MinMissileChance 160;
+		MissileChanceMult 0.5;
+		SeeSound "Tyrant/sight";
+		ActiveSound "Tyrant/active";
+		PainSound "Tyrant/pain";
+		DeathSound "Tyrant/death";
+		Tag "Tyrant";
+	}
+	
+	void A_TyrantAttack()
+	{
+		A_FaceTarget();
+		A_SpawnProjectile("Rocket",45,-20,0);
+	}
+	
+	States
+	{
+		Spawn:
+			CYB2 AB 10 A_Look;
+			Loop;
+		See:
+			CYB2 A 3 A_Hoof;
+			CYB2 ABBCC 3 A_Chase;
+			CYB2 D 0 A_Startsound("Tyrant/hoof");
+			CYB2 DD 3 A_Chase;
+			Loop;
+		Missile:
+			CYB2 E 6 A_FaceTarget;
+			CYB2 A 0 A_Jumpif(Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1 , "Missle.Enchanced");
+			CYB2 F 12 Bright A_CyberAttack;
+			CYB2 E 12 A_FaceTarget;
+			CYB2 F 12 Bright A_CyberAttack;
+			CYB2 E 12 A_FaceTarget;
+			CYB2 F 12 Bright A_CyberAttack;
+			Goto See;
+		Missle.Enchanced:
+			CYB2 F 6 Bright A_TyrantAttack();
+			CYB2 E 18 A_FaceTarget;
+			CYB2 F 6 Bright A_TyrantAttack();
+			CYB2 E 18 A_FaceTarget;
+			CYB2 F 6 Bright A_TyrantAttack();
+			Goto See;
+		Pain:
+			CYB2 G 10 A_Pain;
+			Goto See;
+		Death:
+			CYB2 H 10;
+			CYB2 I 10 Bright A_Scream;
+			CYB2 JKL 10 Bright;
+			CYB2 M 10 Bright A_NoBlocking;
+			CYB2 NO 10 Bright;
+			CYB2 P 30;
+			CYB2 P -1 A_BossDeath;
+			Stop;
+	}
+}
+
+Class DCX_Tyrant_boss_1 : DCX_Tyrant Replaces Deh_Actor_156
+{
+
+}
+
+Class DCX_Tyrant_boss_2 : DCX_Tyrant Replaces Deh_Actor_157
+{
+
+}

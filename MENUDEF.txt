@@ -58,6 +58,12 @@ OptionValue CustomMonsters
 	1.0, "\c[DARK GREY]Off"
 }
 
+OptionValue EnchancedMonsters
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
 
 AddOptionMenu "OptionsMenu"
 {
@@ -85,9 +91,10 @@ OptionMenu "DCXOptions"
 	option "Smooth and Enchanced Weapon Toggle", "DCX_SmoothToggle", "Smooth_Weapons"
 	StaticText "Switch this on for smooth like doom weapon animations.", "dark red"
 	StaticText " "
-	//option "Intro Text", "dcx_IntroText", "OnOff"
-	//StaticText "Choose to have intro text for the begining of each episode or not.", "dark red"
-	//StaticText " "
+	option "Monster Enchanments", "dcx_EnchancesMonsters", "EnchancedMonsters"
+	StaticText "Enchances the monsters with stuff like projectile firing offsets,", "dark red"
+	StaticText "Among other things.", "dark red"
+	StaticText " "
 	StaticText "Music Options", "Gold"
 	StaticText " "
 	Option "$OPTIONS_3DO", "dcx_3DO_Music", "OnOff"

@@ -11,9 +11,10 @@ defaultmap
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "MLINTERP"
 	Author = "$WF_AU_KLIE"
-	Cluster = 35
 	Label = "KLIETECH SERIES"
 	compat_invisibility = "1"
+	Cluster = 667
+	F1 = "MTLCRE" 
 }
 
 map ML_MAP22 "$ML_CPU" // reject level
@@ -86,6 +87,7 @@ map ML_MAP09 "$ML_GARRISON"
 	Next = "ML_MAP26"
 	TitlePatch = "MWILV08"
 	Music = "$MUSIC_GARRISON"
+	Sky1 = "PSKY3"
 }
 
 map ML_MAP26 "$ML_EINSIDE" // reject level
@@ -100,7 +102,7 @@ map ML_MAP27 "$ML_HIVE" // reject level
 {
 	Next = EndGame
 	{
-		Pic = "MLTITTLE"
+		Pic = "MLBOSSBK"
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}
@@ -109,11 +111,4 @@ map ML_MAP27 "$ML_HIVE" // reject level
 	Music = "$MUSIC_HIVE"
 	nointermission
 	NoSoundClipping
-}
-
-Cluster 35
-{
-	music = "$MUSIC_MASTERTXT"
-	pic = "MLINTERP"
-	ExitText = "$GENERIC_TXT2" //Due to lack of any supplemental material regarding these wads. I'll just use the generic text from psx doom
 }

@@ -3,3 +3,4 @@ STARTUPTITLE = "WadFusion Xtras"
 STARTUPCOLORS = "fc03e8","000000"
 LOADLIGHTS = 0 
 STARTUPSONG = "STARTUP"
+IWAD = "doom_fusion.pk3"

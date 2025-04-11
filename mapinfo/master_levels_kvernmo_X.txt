@@ -19,23 +19,26 @@ defaultmap
 	Author = "$WF_AU_KVERNMO"
 	InterMusic = "$MUSIC_MASTERIN2"
 	ExitPic = "CRINTERP"
-	Cluster = 38
 	Label = "CABAL SERIES"
 	compat_invisibility = "1"
+	F1 = "CSCRED" 
 }
 
 map ML_MAP19 "$ML_BLOODSEA"
 {
+	Next = "ML_MAP37"
 	TitlePatch = "MWILV18"
 	Music = "$MUSIC_BLOODSEA"
 	Map07Special
+	//Cluster = 44
 }
 
 map ML_MAP37 "$ML_FLOOD" // reject level
 {
-	//Next = "ML_MAP38"
+	Next = "ML_MAP38"
 	TitlePatch = "MWILV36"
 	Music = "$MUSIC_BLOODF"
+	Cluster = 45
 }
 
 map ML_MAP38 "$ML_DERELICT" // reject level
@@ -44,59 +47,66 @@ map ML_MAP38 "$ML_DERELICT" // reject level
 	TitlePatch = "MWILV37"
 	Music = "$MUSIC_DERELICT"
 	Author = "$WF_AU_KVERNMO_HYNE"
+	Cluster = 46
 }
 
 map ML_MAP39 "$ML_WATCHTWR" // reject level
 {
-	//Next = "ML_MAP20"
+	Next = "ML_MAP20"
 	TitlePatch = "MWILV38"
 	Music = "$MUSIC_WATCHTWR"
 	Author = "$WF_AU_KVERNMO_HYNE"
+	//Cluster = 47
 }
 
 map ML_MAP20 "$ML_MEPHISTO"
 {
+	Next = "ML_MAP40"
 	TitlePatch = "MWILV19"
 	Music = "$MUSIC_MEPHISTO"
 	AllowMonsterTelefrags
 	Map07Special
+	Cluster = 47
 }
 
 map ML_MAP40 "$ML_TODEATH" // reject level
 {
+	Next = "ML_MAP18"
 	TitlePatch = "MWILV39"
 	music = "$MUSIC_TDEATH"
 }
 
 map ML_MAP18 "$ML_TEETH"
 {
+	Next = "ML_MAP41"
 	SecretNext = "ML_MAP21"
 	TitlePatch = "MWILV17"
 	Music = "$MUSIC_TEETH"
+	Cluster = 48
 }
 
 map ML_MAP41 "$ML_ARENA" // reject level
 {
+	Next = "ML_MAP42"
 	TitlePatch = "MWILV40"
 	Music = "$MUSIC_ABOUTTO"
+	Cluster = 49
 }
 
 map ML_MAP42 "$ML_STORM" // reject level
 {
-	Next = EndGame
-	{
-		Pic = "CRBOSSBK"
-		music = "$MUSIC_MASTEREND"
-		Cast
-	}
+	Next = "ML_MAP10"
 	TitlePatch = "MWILV41"
 	music = "$MUSIC_EYESTORM"
+	Cluster = 50
 }
 
 map ML_MAP10 "$ML_BLACKTWR"
 {
+	Next = "ML_MAP43"
 	TitlePatch = "MWILV09"
 	Music = "$MUSIC_BLACKTWR"
+	Cluster = 51
 }
 
 map ML_MAP43 "$ML_THE_EVIL" // reject level
@@ -110,6 +120,7 @@ map ML_MAP43 "$ML_THE_EVIL" // reject level
 		Cast
 	}
 	AllowMonsterTelefrags
+	Cluster = 52
 }
 
 map ML_MAP21 "$ML_TEETH_SECRET"
@@ -118,32 +129,4 @@ map ML_MAP21 "$ML_TEETH_SECRET"
 	Cluster = 25
 	TitlePatch = "MWILV20"
 	Music = "$MUSIC_NIGHTMARE"
-}
-
-map CabalEND ""
-{
-	Cluster = 0
-	Next = EndGame
-	{
-		Pic = "CRBOSSBK"
-		music = "$MUSIC_MASTEREND"
-		Cast
-	}
-	music = "$MUSIC_MASTEREND"
-	NoIntermission
-	NoSoundClipping
-}
-
-cluster 25
-{
-	EnterText = "$MLSECRET"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT31"
-}
-
-Cluster 38
-{
-	music = "$MUSIC_MASTERTX2"
-	pic = "MLINTERP"
-	ExitText = "$GENERIC_TXT"
 }

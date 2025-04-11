@@ -1,45 +1,44 @@
-include mapinfo/episodes_X.txt
-include mapinfo/kneedeepinthedead_levels_X.txt
-include mapinfo/theshoresofhell_levels_X.txt
-include mapinfo/inferno_levels_X.txt
-include mapinfo/thyfleshconsumed_levels_X.txt
-include mapinfo/sigil_levels_X.txt
-include mapinfo/sigil2_levels_X.txt
+include mapinfo/Episodes_X.txt
+include mapinfo/Doom1_Levels_X.txt
+include mapinfo/Blackroom_levels_X.txt
+include mapinfo/Sigil_levels_X.txt
+include mapinfo/Sigil2_levels_X.txt
 include mapinfo/Jaguar_Levels_X.txt
-include mapinfo/doom2_levels_X.txt
+include mapinfo/Doom2_levels_X.txt
 include mapinfo/Console_Doom_Levels_X.txt
-include mapinfo/master_levels_X.txt
-include mapinfo/master_levels_christen_X.txt
-include mapinfo/master_levels_flynn_X.txt
-include mapinfo/master_levels_anderson_X.txt
-include mapinfo/master_levels_kvernmo_X.txt
-include mapinfo/nerve_levels_X.txt
-include mapinfo/tnt_levels_X.txt
-include mapinfo/id1_levels_X.txt
-include mapinfo/plutonia_levels_X.txt
+include mapinfo/Xbox_levels_X.txt
+include mapinfo/Master_levels_X.txt
+include mapinfo/Master_levels_christen_X.txt
+include mapinfo/Master_levels_flynn_X.txt
+include mapinfo/Master_levels_anderson_X.txt
+include mapinfo/Master_levels_kvernmo_X.txt
+include mapinfo/Nerve_levels_X.txt
+include mapinfo/Tnt_levels_X.txt
+include mapinfo/Id1_levels_X.txt
+include mapinfo/Plutonia_levels_X.txt
 include mapinfo/Absolution_X.txt
 include mapinfo/GbaDeathMatch_Levels_X.txt
-include mapinfo/iddm1_levels_X.txt
-include mapinfo/Intro_Inter_X.txt
-
-map TITLEMAP "Doom Title"
-{
-	nointermission
-	noautosavehint
-	Music = ""
-}
+include mapinfo/Iddm1_levels_X.txt
+include mapinfo/Intro_Outro_Inter_X.txt
+include mapinfo/Cluster_Defs_X.txt
+include mapinfo/Bonus_Misc_Maps_X.txt
 
 gameinfo 
 {
 	PlayerClasses = "DCX_Player"
 	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler" //, "DCX_NightmareMonsterHandler"
-    infopage = "HELP", "UDCRED", "TNCRED", "PLCRED", "SCREDIT", "S2CREDIT", "XCREDIT", "D64CRE"
+    infopage = "CREDIT"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
 }
 
 DoomEdNums
 {
+	3143 = ID24Fuel
+	3144 = ID24FuelTank
+	3145 = ID24Incinerator
+	3146 = ID24CalamityBlade
+	
 	255 = DCX_DoubleBladedChainsaw
 	256 = DCX_HeavyPlasmaGun
 	666 = DCX_Unmaker
@@ -49,12 +48,12 @@ DoomEdNums
 	685 = DCX_NightmareImp
 	697 = DCX_NightmareSpectre
 	686 = DCX_NightmareCacodemon
-	616 = DCX_LesserCyber
-	607 = DCX_LesserMastermind
-	711 = DCX_NightmareCyberdemon
+	687 = DCX_DualCyberdemon	
 	712 = DCX_TurkeySpawner
 	7734 = DCX_DM_MarineBotSpawner
 }
+
+/*
 
 ClearSkills
 
@@ -159,148 +158,4 @@ skill UltraNightmare
 	Key = "n"
 }
 
-Cluster 666
-{
-	ExitText = "$GENERIC_TXT"
-	Music = "$MUSIC_E1M2"
-	pic = "DMVICTOR"
-}
-
-Intermission Doom2cast
-{
-	Cast
-	{
-		CastClass = "Zombieman"
-		CastName = "$CC_ZOMBIE"
-		AttackSound = "Missile", 1, "grunt/attack"
-	}
-	Cast
-	{
-		CastClass = "ShotgunGuy"
-		CastName = "$CC_SHOTGUN"
-		AttackSound = "Missile", 1, "shotguy/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomImp"
-		CastName = "$CC_IMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		CastClass = "ChaingunGuy"
-		CastName = "$CC_HEAVY"
-		AttackSound = "Missile", 1, "chainguy/attack"
-		AttackSound = "Missile", 2, "chainguy/attack"
-		AttackSound = "Missile", 3, "chainguy/attack"
-	}
-	Cast
-	{
-		CastClass = "Demon"
-		CastName = "$CC_DEMON"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		CastClass = "DCX_Spectre"
-		CastName = "Spectre"
-		AttackSound = "Melee", 1, "spectre/melee"
-	}
-	Cast
-	{
-		CastClass = "LostSoul"
-		CastName = "$CC_LOST"
-		AttackSound = "Missile", 1, "skull/melee"
-	}
-	Cast
-	{
-		CastClass = "Cacodemon"
-		CastName = "$CC_CACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		CastClass = "HellKnight"
-		CastName = "$CC_HELL"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		CastClass = "BaronOfHell"
-		CastName = "$CC_BARON"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-		Cast
-	{
-		CastClass = "Arachnotron"
-		CastName = "$CC_ARACH"
-		AttackSound = "Missile", 1, "baby/attack"
-	}
-	Cast
-	{
-		CastClass = "PainElemental"
-		CastName = "$CC_PAIN"
-		AttackSound = "Missile", 2, "skull/melee"
-	}
-	Cast
-	{
-		CastClass = "Revenant"
-		CastName = "$CC_REVEN"
-		AttackSound = "Missile", 1, "skeleton/attack"
-		AttackSound = "Melee", 1, "skeleton/swing"
-		AttackSound = "Melee", 3, "skeleton/melee"
-	}
-	Cast
-	{
-		CastClass = "Fatso"
-		CastName = "$CC_MANCU"
-		AttackSound = "Missile", 1, "fatso/attack"
-		AttackSound = "Missile", 4, "fatso/attack"
-		AttackSound = "Missile", 7, "fatso/attack"
-	}
-	Cast
-	{
-		CastClass = "Archvile"
-		CastName = "$CC_ARCH"
-		AttackSound = "Missile", 1, "vile/start"
-	}
-	Cast
-	{
-		CastClass = "SpiderMastermind"
-		CastName = "$CC_SPIDER"
-		AttackSound = "Missile", 1, "spider/attack"
-		AttackSound = "Missile", 2, "spider/attack"
-	}
-	Cast
-	{
-		CastClass = "Cyberdemon"
-		CastName = "$CC_CYBER"
-		AttackSound = "Missile", 1, "weapons/rocklf"
-		AttackSound = "Missile", 3, "weapons/rocklf"
-		AttackSound = "Missile", 5, "weapons/rocklf"
-	}
-	Cast
-	{
-		CastClass = "DoomPlayer"
-		CastName = "Our Hero"
-		AttackSound = "Missile", 0, "weapons/sshotf"
-	}
-	
-	Link = Doom2cast
-}
-
-Map Masterhub "Master Levels Hub"
-{
-	music = "$MUSIC_MASTERHUB"
-	Next = EndGame
-	{
-		Pic = "MLBOSSBK"
-		music = "$MUSIC_MASTEREND"
-		Cast
-	}
-	Label = ""
-	nointermission
-	nosoundclipping
-	sky1 = "MASTERSKY"
-	Cluster = 0
-}
+*/

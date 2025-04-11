@@ -1,0 +1,855 @@
+//
+class DCX_DualArachnotron : Arachnotron
+{
+	Default
+	{
+		SeeSound "baby/sight2";
+		PainSound "baby/pain2";
+		DeathSound "baby/death2";
+		ActiveSound "baby/active2";
+		ReactionTime 5;
+	}
+	
+	int userReactionTime;
+	
+	void A_BspiFaceTarget()
+    {
+        userReactionTime = 5;
+        A_FaceTarget();
+    }
+
+    void A_64BspiAttack()
+    {
+        A_SpawnProjectile("DCX_DualArachnotronPlasma", 28,-11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
+        A_SpawnProjectile("DCX_DualArachnotronPlasma", 28, 11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
+    }
+
+    void A_64SpidRefire()
+    {
+        super.A_SpidRefire();
+        if (userReactionTime == 0) SetStateLabel("Missile");
+        userReactionTime--;
+    }
+	
+	void A_64BabyMetal()
+	{
+		A_StartSound("baby/walk2", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_IDLE);
+		A_Chase();
+	}
+	
+	States
+	{
+	Spawn:
+		BSP2 AB 10 A_Look;
+		Loop;
+	See:
+		BSP2 A 20;
+		BSP2 A 3 A_64BabyMetal();
+		BSP2 ABBCCBB 3 A_Chase;
+		Goto See+1;
+	Missile:
+		BSP2 A 15 A_BspiFaceTarget();
+		BSP2 D 3 BRIGHT A_64BspiAttack();
+		BSP2 E 3 BRIGHT;
+		BSP2 E 1 BRIGHT A_64SpidRefire();
+		Goto Missile+1;
+	Pain:
+		BSP2 F 3;
+		BSP2 F 3 A_Pain;
+		Goto See+1;
+	Death:
+		BSP2 G 20 A_Scream;
+		BSP2 H 7 A_NoBlocking;
+		BSP2 IJK 7;
+		BSP2 L -1 A_BossDeath;
+		Stop;
+    Raise:
+		BSP2 L 5;
+		BSP2 KJIHG 5;
+		Goto See+1;
+	}
+}
+
+class DCX_DualArachnotronPlasma : ArachnotronPlasma
+{
+	Default
+	{
+		SeeSound "baby/attack2";
+		deathsound "baby/shotx2";
+		Alpha 0.95;
+        Damage 3;
+		-RANDOMIZE
+	}
+	States
+	{
+	Spawn:
+		PRED AB 5 BRIGHT;
+		Loop;
+	Death:
+		PRDX ABCDE 5 BRIGHT;
+		Stop;
+	}
+}
+
+class DCX_ForgottenSoul : DCX_Lostsoul
+{
+	Default
+	{
+		Health 60;
+		Radius 16;
+		Height 56;
+		Mass 50;
+		Speed 8;
+		Monster;
+		AttackSound "skull/melee2";
+		DeathSound "skull/death2";
+		PainSound "skull/pain2";
+		ActiveSound "skull/active2";
+		MissileChanceMult 0.5;
+		-COUNTKILL
+	}
+	States
+	{
+	Spawn:
+		SKL2 ABAB 5 BRIGHT A_Look;
+		Loop;
+	See:
+		SKL2 ABAB 5 BRIGHT A_Chase;
+		Loop;
+	Missile:
+		SKL2 C 10 BRIGHT A_FaceTarget;
+		SKL2 D 4 BRIGHT A_SkullAttack(30);
+		SKL2 CD 4 BRIGHT;
+		Goto Missile+2;
+	Pain:
+		SKL2 E 3 BRIGHT;
+		SKL2 E 3 BRIGHT A_Pain;
+		Goto See;
+	Death:
+		SKL2 F 6 BRIGHT;
+		SKL2 G 6 BRIGHT A_Scream;
+		SKL2 H 6 BRIGHT;
+		SKL2 I 6 BRIGHT A_NoBlocking;
+		SKL2 J 6;
+		SKL2 K 6;
+		Stop;
+	}
+}
+
+class DCX_DualPainElemental : PainElemental
+{
+	Default
+	{
+		SeeSound "pain/sight2";
+		DeathSound "pain/death2";
+		PainSound "pain/pain2";
+		ActiveSound "pain/active2";
+		Tag "$FN_PAIN";
+		+DONTGIB
+	}
+	
+	void A_64DualPainAttack(class<Actor> spawntype = "LostSoul", double addangle = 29.970703, int flags = 0, int limit = -1)
+    {
+		if (target)
+		{
+			A_FaceTarget();
+			A_64PainShootSkull(spawntype, angle + addangle, flags, limit);
+			A_64PainShootSkull(spawntype, angle - addangle, flags, limit);
+		}
+    }
+	
+	void A_64PainDie(class<Actor> spawntype = "LostSoul", int flags = 0, int limit = -1)
+	{
+		if (target && IsFriend(target))
+		{ // And I thought you were my friend!
+			bFriendly = false;
+		}
+		A_NoBlocking();
+		A_64PainShootSkull(spawntype, angle + 90, flags, limit);
+		A_64PainShootSkull(spawntype, angle + 180, flags, limit);
+		A_64PainShootSkull(spawntype, angle + 270, flags, limit);
+	}
+	
+	void A_64PainShootSkull(Class<Actor> spawntype, double ang, int flags = 0, int limit = -1)
+	{
+        if (DamageType == 'Massacre') return;
+
+        if (spawntype == null) spawntype = "LostSoul";
+		spawntype = Actor.GetReplacement(spawntype);
+
+        if (pos.z + height + 8 > ceilingz)
+        {
+            if (bFloat)
+            {
+                Vel.Z -= 2;
+                bInFloat = true;
+                bVFriction = true;
+            }
+            return;
+         }
+         
+		if (limit < 0 && (Level.compatflags & COMPATF_LIMITPAIN))
+			limit = 21;
+
+        if (limit > 0)
+        {
+            int count = limit;
+            ThinkerIterator it = ThinkerIterator.Create(spawntype);
+            Thinker othink;
+
+            while ( (othink = it.Next ()) )
+            {
+                if (--count == 0)
+                    return;
+            }
+        }
+
+        double otherradius = GetDefaultByType(spawntype).radius;
+        double prestep = 4 + (radius + otherradius) * 1.5;
+
+        Vector2 move = AngleToVector(ang, prestep);
+        Vector3 spawnpos = pos + (0,0,16);
+        Vector3 destpos = spawnpos + move;
+
+        Actor other = Spawn(spawntype, spawnpos, ALLOW_REPLACE);
+
+        if (other != null)
+        {
+            double maxmove = other.radius - 1;
+
+            if (maxmove <= 0) maxmove = 16;
+
+            double xspeed = abs(move.X);
+            double yspeed = abs(move.Y);
+
+            int steps = 1;
+
+            if (xspeed > yspeed)
+            {
+                if (xspeed > maxmove)
+                {
+                    steps = int(1 + xspeed / maxmove);
+                }
+            }
+            else
+            {
+                if (yspeed > maxmove)
+                {
+                    steps = int(1 + yspeed / maxmove);
+                }
+            }
+
+            Vector2 stepmove = move / steps;
+            bool savedsolid = bSolid;
+            bool savednoteleport = other.bNoTeleport;
+                
+            bSolid = false;
+            other.bNoTeleport = true;
+            for (int i = 0; i < steps; i++)
+            {
+                Vector2 ptry = other.pos.xy + stepmove;
+                double oldangle = other.angle;
+                if (!other.TryMove(ptry, 0))
+                {
+                    other.ClearCounters();
+                    other.DamageMobj(self, self, TELEFRAG_DAMAGE, 'None');
+                    RadiusAttack(other, 128, 128, 'none', RADF_NOIMPACTDAMAGE); //[GEC]
+
+                    bSolid = savedsolid;
+                    other.bNoTeleport = savednoteleport;
+                    return;
+                }
+
+                if (other.pos.xy != ptry)
+                {
+                    double anglediff = deltaangle(oldangle, other.angle);
+                    if (anglediff != 0)
+                    {
+                       stepmove = RotateVector(stepmove, anglediff);
+                    }
+                }
+            }
+            bSolid = savedsolid;
+            other.bNoTeleport = savednoteleport;
+            other.CopyFriendliness (self, !(flags & PAF_NOTARGET));
+
+            if (!(flags & PAF_NOSKULLATTACK))
+			{
+				other.A_SkullAttack();
+			}
+		}
+	}
+	
+	States
+	{
+	Spawn:
+		DPIN A 10 A_Look;
+		Loop;
+	See:
+		DPIN A 3 A_Chase;
+		Loop;
+	Missile:
+		DPIN B 5 Bright A_FaceTarget;
+		DPIN C 5 Bright A_FaceTarget;
+		DPIN D 5 BRIGHT A_FaceTarget;
+		DPIN D 0 BRIGHT A_64DualPainAttack("DCX_ForgottenSoul");
+		Goto See;
+	Pain:
+		DPIN E 6;
+		DPIN E 6 A_Pain;
+		Goto See;
+	Death:
+		DPIN F 8 BRIGHT;
+		DPIN G 8 BRIGHT A_Scream;
+		DPIN HI 8 BRIGHT;
+		DPIN J 8 BRIGHT A_64PainDie("DCX_ForgottenSoul");
+		DPIN K 8 BRIGHT;
+		Stop;
+	Raise:
+		Stop;
+	}
+}
+
+Class DCX_DualCyberdemon : DCX_Cyberdemon
+{
+	Default
+	{
+		Health 8000;
+		Seesound "DualCyber/Sight";
+		Deathsound "DualCyber/Death";
+		Species "DualCyberdemon"; //Can Infight Regular Cyberdemons
+		MissileChanceMult 0.125;
+		PainChance 5;
+		Speed 20;
+		+NOFEAR
+		+DONTHARMCLASS
+		Mass 10000;
+		Scale 1.1;
+		tag "Dual Cyberdemon";
+	}
+	
+	void A_DualRocketAtk(Class<Actor> spawntype = "DCX_DualCyboRocket", double height = 50, double offset = 25)
+	{
+		A_FaceTarget();
+		A_SpawnProjectile(spawntype, height, offset, 0);
+		A_SpawnProjectile(spawntype, height,-offset, 0);
+	}
+	
+	void A_MetalHoof()
+	{
+		A_StartSound("DualCyber/walk", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_IDLE);
+		A_Chase();
+	}
+	
+	void A_CyberExplode()
+	{
+		A_Startsound("DualCyber/Expolsion", CHAN_BODY, CHANF_DEFAULT, 1, ATTN_NONE);
+	}
+	
+	States
+	{
+		Spawn:
+			DCYB AB 10 A_Look();
+			Loop;
+		See:
+			DCYB A 3 A_MetalHoof();
+			DCYB ABBCC 3 A_Chase();
+			DCYB D 3 A_MetalHoof();
+			DCYB D 3 A_Chase();
+			Loop;
+		Missile:
+			DCYB E 6 A_FaceTarget();
+			DCYB F 12 Bright A_DualRocketAtk();
+			DCYB E 12 A_FaceTarget();
+			DCYB F 12 Bright A_DualRocketAtk();
+			DCYB E 12 A_FaceTarget();
+			DCYB F 12 Bright A_DualRocketAtk();
+			Goto See;
+		Pain:
+			DCYB G 10 A_Pain();
+			Goto See;
+		Death:
+			DCYB H 10 Bright;
+			DCYB I 10 Bright A_Scream();
+			DCYB J 10 Bright A_CyberExplode();
+			DCYB K 8 Bright;
+			DCYB L 8 Bright A_CyberExplode();
+			DCYB M 8 Bright { A_NoBlocking(); A_CyberExplode(); }
+			DCYB N 8 Bright A_CyberExplode();
+			DCYB OPQ 8 Bright;
+			DCYB R 44;
+			DCYB R -1 A_BossDeath();
+			Stop;
+	}
+}
+
+class DCX_DualCyboRocket : Rocket
+{
+	Default
+	{
+		+FORCERADIUSDMG;
+		SeeSound "DualCyber/Attack";
+		DeathSound "DualCyber/Expolsion";
+		Speed 25;
+	}
+	States
+	{
+	Spawn:
+		DMIS A 1 Bright;
+		Loop;
+	Death:
+		MISL B 8 Bright A_Explode;
+		MISL C 6 Bright;
+		MISL D 4 Bright;
+		Stop;
+	}
+}
+
+Class DCX_Motherdemon : Actor
+{
+	Default
+	{
+		Health 9000;
+		Radius 40;
+		Height 105;
+		Mass 10000;
+		Speed 25;
+		PainChance 4;
+		Monster;
+		MinMissileChance 160;
+		MissileChanceMult 0.5;
+		+BOSS
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
+		+FLOAT
+		+NOGRAVITY
+		+NOTELEFRAG
+		SeeSound "mother/sight";
+		AttackSound "";
+		PainSound "mother/pain";
+		DeathSound "mother/death";
+		ActiveSound "mother/active";
+		Obituary "$OB_MOTHER";
+	}
+	States
+	{
+		Spawn:
+			MOTH AB 10 A_Look;
+			Loop;
+		See:
+			MOTH AAABBBCCCDDD 2 A_Chase;
+			Loop;
+		Missile:
+			MOTH E 10 A_FaceTarget;
+			MOTH FF 2 Bright A_SkelMissile;
+			MOTH F 0 Bright A_FatAttack3;
+			MOTH G 2 Bright A_SkelMissile;
+			MOTH G 0 Bright A_FatAttack3;
+			MOTH G 1 Bright A_FatAttack1;
+			MOTH G 1 Bright A_FatAttack2;
+			MOTH H 0 Bright A_VileStart;
+			MOTH H 10 Bright A_FaceTarget;
+			MOTH H 8 Bright A_VileTarget;
+			MOTH HH 8 Bright A_FaceTarget;
+			MOTH IIII 8 Bright A_FaceTarget;
+			MOTH J 8 Bright A_VileAttack;
+			MOTH J 20 Bright;
+			Goto See;
+		Pain:
+			MOTH K 40 A_Pain;
+			MOTH H 4 Bright A_FaceTarget;
+			MOTH I 6 Bright A_FaceTarget;
+			MOTH JJJJ 4 Bright A_PainAttack;
+			Goto See;
+		Death:
+			MOTH L 1;
+			MOTH L 19 A_Scream;
+			MOTH M 10 A_Fall;
+			MOTH NO 8;
+			MOTH PQRS 6;
+			MOTH T 48;
+			MOTH T -1 A_BossDeath;
+			Stop;
+	}
+}
+
+Class DCX_Demonkey1 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY O -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Orangekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Orangekeyicon", 1);
+		TNT1 A 0 A_Print("You have the feeling that it wasn't to be touched...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Orangekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey2 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY P -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Purplekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Purplekeyicon", 1);
+		TNT1 A 0 A_Print("Whatever it is, it doesn't belong in this world...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Purplekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey3 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "misc/p_pkup";
+}
+	States
+	{
+	Spawn:
+		DKEY C -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Cyankeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Cyankeyicon", 1);
+		TNT1 A 0 A_Print("It must do something...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class Dcx_Flames : BurningBarrel
+{
+	Default
+	{
+		-SOLID
+	}
+	States
+	{
+		Spawn:
+			FCAN DEF 4 Bright;
+			Loop;
+	}
+}
+
+/*
+These are the Doom 2 hanging body gore objects that have been made non-solid.
+*/
+
+Class Dcx_HangBNoBrainNS : HangBNoBrain{ Default { -SOLID } }
+
+Class Dcx_HangNoGutsNS : HangNoGuts{ Default { -SOLID } }
+
+Class Dcx_HangTLookingDownNS : HangTLookingDown{ Default { -SOLID } }
+
+Class Dcx_HangTLookingUpNS : HangTLookingUp{ Default { -SOLID } }
+
+Class Dcx_HangTNoBrainNS : HangTNoBrain{ Default { -SOLID } }
+
+Class Dcx_HangTSkullNS : HangTSkull{ Default { -SOLID } }
+
+/*
+A faster flying, soundless version of the Demon Spawn Cube along with a Spawner 
+that doesn't make awakening sounds.
+*/
+
+Class Dcx_FasterSpawnShot : SpawnShot 
+{
+	Default
+	{
+		Speed 30;
+		SeeSound "";
+		DeathSound "";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 3 Bright;
+			TNT1 BCD 3 Bright A_SpawnFly("TeleportFog");
+			Loop;
+	}
+}
+
+
+/*
+Altered demons spawner object.  These changes allow it to be killed.
+*/
+Class Dcx_D64D2BossEye : BossEye
+{
+	Default
+	{
+	Health 10;
+	Radius 20;
+	Height 32;
+	Mass 100;
+	AttackSound "";
+	SeeSound "";
+	+ISMONSTER
+	+SHOOTABLE
+	+SOLID
+	-NOBLOCKMAP
+    -NOSECTOR
+	+DONTGIB
+	DropItem "DoomImp", 	 		   255,50;
+	DropItem "DCX_NightmareImp", 	   255,40;
+	DropItem "Demon",		 		   255,40;
+	DropItem "Spectre",		 		   255,30;
+	DropItem "DCX_NightmareSpectre",   255,20;
+	DropItem "PainElemental",		   255,10;
+	DropItem "Cacodemon",	 		   255,30;
+	DropItem "DCX_NightmareCacodemon", 255,20;
+	DropItem "Archvile",	 		   255, 2;
+	DropItem "Revenant",	 		   255,10;
+	DropItem "Arachnotron",	 		   255,20;
+	DropItem "Fatso",		 		   255,30;
+	DropItem "HellKnight",	 		   255,24;
+	DropItem "BaronOfHell",	 		   255,10;
+	}
+	States
+	{
+		Spawn:
+			SSWV A 10 A_Look;
+			Loop;
+		See:
+			SSWV A 10;
+			SSWV A 150 A_BrainSpit("Dcx_FasterSpawnShot");
+			Wait;
+	}
+}
+
+
+/*
+An exploder object that constantly calls A_Explode every tic.  Used for
+voodoo doll setups (better than crushing a barrel).
+*/
+Class Dcx_VoodooExploder : Actor
+{
+	Default
+	{
+	Height 16;
+	Radius 32;
+	}
+	States
+	{
+		Spawn:
+			MISL B 1 Bright A_Explode;
+			Loop;
+	}
+}
+
+
+/*
+A special behind-the-scenes demon which helps a player choose their destiny...
+*/
+Class Dcx_ChooserDemon : Actor
+{
+	Default
+	{
+	Health 10;
+	Height 56;
+	Radius 20;
+	Mass 500;
+	Speed 15;
+	PainChance 0;
+	RenderStyle "OptFuzzy";
+	Alpha 0.5;
+	+QUICKTORETALIATE
+	+FLOORCLIP
+	+NOTARGET
+	+SHOOTABLE
+	+SOLID
+	+CANPUSHWALLS
+	+CANUSEWALLS
+	+ACTIVATEMCROSS
+	+CANPASS
+	+SHADOW
+	}
+	States
+	{
+		Spawn:
+			VILE AB 10 A_Look;
+			Loop;
+		See:
+			VILE AABBCCDDEEFF 2 A_VileChase;
+			Loop;
+		Death:
+			VILE QR 7;
+			VILE S 7 A_NoBlocking;
+			VILE TUVWXY 7;
+			VILE Z -1;
+			Stop;
+	}
+}
+
+Class DCX_MarineBotGreen : Actor
+{
+	Default
+	{
+		Health 100;
+		Gibhealth 20;
+		Radius 20;
+		Height 56;
+		Speed 8;
+		PainChance 256;
+		Monster;
+		+FLOORCLIP
+		+HARMFRIENDS
+        +DROPOFF
+		-COUNTKILL
+		-ISMONSTER
+		+AVOIDMELEE
+		AttackSound "grunt/attack";
+		DeathSound "Marine/Death";
+		PainSound "*pain50";
+		Tag "Marine";
+		DropItem "Clip";
+	}
+	States
+	{
+		Spawn:
+			PLAY AB 10 A_Look;
+			Loop;
+		See:
+			PLAY AABBCCDD 2 A_Chase;
+			Loop;
+		Missile:
+			PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+            PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+            PLAY E 4 A_PosAttack;
+            PLAY F 4 BRIGHT A_PosAttack;
+			Goto See;
+		Missile.Plasma:
+			PLAY E 10 A_FaceTarget;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 3;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 4;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 4 ;
+			PLAY F 3  Bright { A_SpawnProjectile("DCX_PlasmaBall2", 32); A_FaceTarget(); }
+			PLAY E 3 ;
+			goto see;
+		Pain:
+			PLAY G 4;
+			PLAY G 4 A_Pain;
+			Goto See;
+		Death:
+			PLAY H 10;
+			PLAY I 10 A_Scream;
+			PLAY J 10 A_NoBlocking;
+			PLAY KLM 10;
+			PLAY N -1;
+			Stop;
+		XDeath:
+			PLAY O 5;
+			PLAY P 5 A_XScream;
+			PLAY Q 5 A_NoBlocking;
+			PLAY RSTUV 5;
+			PLAY W -1;
+			Stop;
+	}	
+}
+
+Class DCX_MarineBotGrey : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 0;
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_MarineBotBrown : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 1;
+	}
+}
+
+Class DCX_MarineBotRed : DCX_MarineBotGreen
+{
+	Default
+	{
+		Translation 2;
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_MarineBotSpawner : RandomSpawner
+{
+	Default
+	{
+		DropItem "DCX_MarineBotGreen";
+        DropItem "DCX_MarineBotBrown";
+        DropItem "DCX_MarineBotGrey";
+        DropItem "DCX_MarineBotRed";
+	}
+}

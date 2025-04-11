@@ -8,6 +8,7 @@ defaultmap
 	NoJump
 	NoCrouch
 	compat_invisibility = "1"
+	F1 = "PLCRED" 
 }
 
 // Episode 1 Part 1
@@ -344,58 +345,4 @@ map PL_MAP32 "$PHUSTR_32"
 	TitlePatch = "PWILV31"
 	Music = "P_ULTIMA"
 	Author = "$WF_AU_MILO_CASALI"
-}
-
-// Plutonia first cluster (up thru level 6)
-
-cluster 18
-{
-	ExitText = "$P1TEXT"
-	Music = "P_READ_M"
-	Flat = "GRNROCK"
-}
-
-// Plutonia second cluster (up thru level 11)
-
-cluster 19
-{
-	ExitText = "$P2TEXT"
-	Music = "P_READ_M"
-	Flat = "FLOOR5_2"
-}
-
-// Plutonia third cluster (up thru level 20)
-
-cluster 20
-{
-	ExitText = "$P3TEXT"
-	Music = "P_READ_M"
-	Flat = "BLOOD1"
-}
-
-// Plutonia fourth cluster (up thru level 30)
-
-cluster 21
-{
-	ExitText = "$P4TEXT"
-	Music = "P_READ_M"
-	Flat = "RROCK04"
-}
-
-// Plutonia fifth cluster (level 31)
-
-cluster 22
-{
-	EnterText = "$P5TEXT"
-	Music = "P_READ_M"
-	Flat = "SLIME14"
-}
-
-// Plutonia sixth cluster (level 32)
-
-cluster 23
-{
-	EnterText = "$P6TEXT"
-	Music = "P_READ_M"
-	Flat = "RROCK02"
 }

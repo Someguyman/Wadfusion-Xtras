@@ -28,64 +28,21 @@ defaultmap
 	InterMusic = "$MUSIC_D64INTER"
 	ExitPic = "D64inter"
 	enterpic = "D64inter"
-}
-
-//Intermission texts
-
-cluster 101
-{
-    pic = "D64bossb"
-    music = "$MUSIC_D64TEXT"
-    exittext = lookup, "IN_C1A"
-}
-
-cluster 102
-{
-    pic = "D64bossb"
-    music = "$MUSIC_D64TEXT"
-    exittext = lookup, "IN_C1B"
-}
-
-cluster 103
-{
-    pic = "D64bossb"
-    music = "$MUSIC_D64TEXT"
-    exittext = lookup, "IN_C2"
-}
-
-cluster 104
-{
-	pic = "D64End"
-    music = "$MUSIC_D64TEXT2"
-    exittext = lookup, "IN_C3"
-}
-
-cluster 105
-{
-    pic = "D64boss2"
-    music = "$MUSIC_D64TEXT"
-    entertext = lookup, "IN_S1"
-}
-
-cluster 106
-{
-    pic = "D64boss3"
-    music = "$MUSIC_D64TEXT"
-    entertext = lookup, "IN_S2"
+	F1 = "D64CRE" 
 }
 
 adddefaultmap
 {
-	cluster = 101
+	cluster = 103
 	sky1 = "SKY1TLA1"
 }
-
 
 //Map definitions
 
 map AB_MAP01 lookup "ABHUSTR_1"
 {
 	Label = "ABSOLUTION, MAP01"
+	TitlePatch = "AWILV00"
 	next = "AB_MAP02"
 	secretnext = "AB_MAP02B"
 	sky1 = "SKY1TLA1"
@@ -95,6 +52,7 @@ map AB_MAP01 lookup "ABHUSTR_1"
 map AB_MAP02 lookup "ABHUSTR_2"
 {
 	Label = "ABSOLUTION, MAP02"
+	TitlePatch = "AWILV01"
 	next = "AB_MAP03"
 	secretnext = "AB_MAP03"
 	sky1 = "SKY1TLA1"
@@ -104,6 +62,7 @@ map AB_MAP02 lookup "ABHUSTR_2"
 map AB_MAP03 lookup "ABHUSTR_3"
 {
 	Label = "ABSOLUTION, MAP03"
+	TitlePatch = "AWILV02"
 	next = "AB_MAP04"
 	secretnext = "AB_MAP04"
 	sky1 = "SKY1TLA1"
@@ -114,6 +73,7 @@ map AB_MAP03 lookup "ABHUSTR_3"
 map AB_MAP04 lookup "ABHUSTR_4"
 {
 	Label = "ABSOLUTION, MAP04"
+	TitlePatch = "AWILV03"
 	next = "AB_MAP05"
 	secretnext = "AB_MAP05"
 	sky1 = "SKY1TLA1"
@@ -123,6 +83,7 @@ map AB_MAP04 lookup "ABHUSTR_4"
 map AB_MAP05 lookup "ABHUSTR_5"
 {
 	Label = "ABSOLUTION, MAP05"
+	TitlePatch = "AWILV04"
 	next = "AB_MAP06"
 	secretnext = "AB_MAP06"
 	sky1 = "SKY1TLA1"
@@ -132,6 +93,7 @@ map AB_MAP05 lookup "ABHUSTR_5"
 map AB_MAP06 lookup "ABHUSTR_6"
 {
 	Label = "ABSOLUTION, MAP06"
+	TitlePatch = "AWILV05"
 	next = "AB_MAP07"
 	secretnext = "AB_MAP07"
 	sky1 = "SKY1TLA1"
@@ -140,13 +102,14 @@ map AB_MAP06 lookup "ABHUSTR_6"
 
 adddefaultmap
 {
-	cluster = 102
+	cluster = 104
 	sky1 = "SKY1TLA1"
 }
 
 map AB_MAP07 lookup "ABHUSTR_7"
 {
 	Label = "ABSOLUTION, MAP07"
+	TitlePatch = "AWILV06"
 	next = "AB_MAP08"
 	secretnext = "AB_MAP08"
 	sky1 = "SKY1TLA1"
@@ -157,6 +120,7 @@ map AB_MAP07 lookup "ABHUSTR_7"
 map AB_MAP08 lookup "ABHUSTR_8"
 {
 	Label = "ABSOLUTION, MAP08"
+	TitlePatch = "AWILV07"
 	next = "AB_MAP09"
 	secretnext = "AB_MAP09"
 	sky1 = "SKY1TLA1"
@@ -166,6 +130,7 @@ map AB_MAP08 lookup "ABHUSTR_8"
 map AB_MAP09 lookup "ABHUSTR_9"
 {
 	Label = "ABSOLUTION, MAP09"
+	TitlePatch = "AWILV08"
 	titlepatch = "CWILV08"
 	next = "AB_MAP10"
 	secretnext = "AB_MAP10"
@@ -176,6 +141,7 @@ map AB_MAP09 lookup "ABHUSTR_9"
 map AB_MAP10 lookup "ABHUSTR_10"
 {
 	Label = "ABSOLUTION, MAP10"
+	TitlePatch = "AWILV09"
 	next = "AB_MAP11"
 	secretnext = "AB_MAP11"
 	sky1 = "SKY1TLA1"
@@ -186,6 +152,7 @@ map AB_MAP10 lookup "ABHUSTR_10"
 map AB_MAP11 lookup "ABHUSTR_11"
 {
 	Label = "ABSOLUTION, MAP11"
+	TitlePatch = "AWILV10"
 	next = "AB_MAP12"
 	secretnext = "AB_MAP12"
 	sky1 = "SKY1TLA1"
@@ -196,13 +163,14 @@ map AB_MAP11 lookup "ABHUSTR_11"
 
 adddefaultmap
 {
-	cluster = 103
+	cluster = 105
 	sky1 = "RSKY2TAL"
 }
 
 map AB_MAP12 lookup "ABHUSTR_12"
 {
 	Label = "ABSOLUTION, MAP12"
+	TitlePatch = "AWILV11"
 	next = "AB_MAP13"
 	secretnext = "AB_MAP13"
 	sky1 = "SKY5TALL"
@@ -212,6 +180,7 @@ map AB_MAP12 lookup "ABHUSTR_12"
 map AB_MAP13 lookup "ABHUSTR_13"
 {
 	Label = "ABSOLUTION, MAP13"
+	TitlePatch = "AWILV12"
 	next = "AB_MAP14"
 	secretnext = "AB_MAP14"
 	sky1 = "SKY4TALL"
@@ -223,6 +192,7 @@ map AB_MAP13 lookup "ABHUSTR_13"
 map AB_MAP14 lookup "ABHUSTR_14"
 {
 	Label = "ABSOLUTION, MAP14"
+	TitlePatch = "AWILV13"
 	next = "AB_MAP15"
 	secretnext = "AB_MAP15"
 	sky1 = "SKY4TALL"
@@ -235,6 +205,7 @@ map AB_MAP14 lookup "ABHUSTR_14"
 map AB_MAP15 lookup "ABHUSTR_15"
 {
 	Label = "ABSOLUTION, MAP15"
+	TitlePatch = "AWILV14"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP31"
 	sky1 = "SKY4TALL"
@@ -246,6 +217,7 @@ map AB_MAP15 lookup "ABHUSTR_15"
 map AB_MAP16 lookup "ABHUSTR_16"
 {
 	Label = "ABSOLUTION, MAP16"
+	TitlePatch = "AWILV15"
 	next = "AB_MAP17"
 	secretnext = "AB_MAP17"
 	sky1 = "SKY6TALL", 0.1
@@ -255,6 +227,7 @@ map AB_MAP16 lookup "ABHUSTR_16"
 map AB_MAP17 lookup "ABHUSTR_17"
 {
 	Label = "ABSOLUTION, MAP17"
+	TitlePatch = "AWILV16"
 	next = "AB_MAP18"
 	secretnext = "AB_MAP18"
 	sky1 = "SKY4TALL"
@@ -266,6 +239,7 @@ map AB_MAP17 lookup "ABHUSTR_17"
 map AB_MAP18 lookup "ABHUSTR_18"
 {
 	Label = "ABSOLUTION, MAP18"
+	TitlePatch = "AWILV17"
 	next = "AB_MAP19"
 	secretnext = "AB_MAP19"
 	sky1 = "SKY2TALL"
@@ -275,6 +249,7 @@ map AB_MAP18 lookup "ABHUSTR_18"
 map AB_MAP19 lookup "ABHUSTR_19"
 {
 	Label = "ABSOLUTION, MAP19"
+	TitlePatch = "AWILV18"
 	next = "AB_MAP20"
 	secretnext = "AB_MAP20"
 	sky1 = "SKY5TALL"
@@ -284,6 +259,7 @@ map AB_MAP19 lookup "ABHUSTR_19"
 map AB_MAP20 lookup "ABHUSTR_20"
 {
 	Label = "ABSOLUTION, MAP20"
+	TitlePatch = "AWILV19"
 	next = "AB_MAP21"
 	secretnext = "AB_MAP21"
 	//Next = endpic, "D64cre"
@@ -295,13 +271,14 @@ map AB_MAP20 lookup "ABHUSTR_20"
 
 adddefaultmap
 {
-	cluster = 104
+	cluster = 106
 	sky1 = "SKY3TALS"
 }
 
 map AB_MAP21 lookup "ABHUSTR_21"
 {
 	Label = "ABSOLUTION, MAP21"
+	TitlePatch = "AWILV20"
 	next = "AB_MAP22"
 	secretnext = "AB_MAP22"
 	sky1 = "SKY5TALL"
@@ -313,6 +290,7 @@ map AB_MAP21 lookup "ABHUSTR_21"
 map AB_MAP22 lookup "ABHUSTR_22"
 {
 	Label = "ABSOLUTION, MAP22"
+	TitlePatch = "AWILV21"
 	next = "AB_MAP23"
 	secretnext = "AB_MAP23"
 	sky1 = "SKY2TALL"
@@ -322,6 +300,7 @@ map AB_MAP22 lookup "ABHUSTR_22"
 map AB_MAP23 lookup "ABHUSTR_23"
 {
 	Label = "ABSOLUTION, MAP23"
+	TitlePatch = "AWILV22"
 	next = "AB_MAP24"
 	secretnext = "AB_MAP24"
 	sky1 = "SKY2TALL"
@@ -331,6 +310,7 @@ map AB_MAP23 lookup "ABHUSTR_23"
 map AB_MAP24 lookup "ABHUSTR_24"
 {
 	Label = "ABSOLUTION, MAP24"
+	TitlePatch = "AWILV23"
 	next = "AB_MAP25"
 	secretnext = "AB_MAP25"
 	sky1 = "SKY2TALL"
@@ -340,6 +320,7 @@ map AB_MAP24 lookup "ABHUSTR_24"
 map AB_MAP25 lookup "ABHUSTR_25"
 {
 	Label = "ABSOLUTION, MAP25"
+	TitlePatch = "AWILV24"
 	next = "AB_MAP26"
 	secretnext = "AB_MAP26"
 	sky1 = "SKY2TALL"
@@ -349,6 +330,7 @@ map AB_MAP25 lookup "ABHUSTR_25"
 map AB_MAP26 lookup "ABHUSTR_26"
 {
 	Label = "ABSOLUTION, MAP26"
+	TitlePatch = "AWILV25"
 	next = "AB_MAP27"
 	secretnext = "AB_MAP27"
 	sky1 = "SKY3TALS"
@@ -360,6 +342,7 @@ map AB_MAP26 lookup "ABHUSTR_26"
 map AB_MAP27 lookup "ABHUSTR_27"
 {
 	Label = "ABSOLUTION, MAP27"
+	TitlePatch = "AWILV26"
 	next = "AB_MAP28"
 	secretnext = "AB_MAP28"
 	sky1 = "SKY3TALS"
@@ -369,6 +352,7 @@ map AB_MAP27 lookup "ABHUSTR_27"
 map AB_MAP28 lookup "ABHUSTR_28"
 {
 	Label = "ABSOLUTION, MAP28"
+	TitlePatch = "AWILV27"
 	next = "AB_MAP29"
 	secretnext = "AB_MAP29"
 	sky1 = "SKY3ATAS"
@@ -378,6 +362,7 @@ map AB_MAP28 lookup "ABHUSTR_28"
 map AB_MAP29 lookup "ABHUSTR_29"
 {
 	Label = "ABSOLUTION, MAP29"
+	TitlePatch = "AWILV28"
 	next = "AB_MAP30"
 	secretnext = "AB_MAP30"
 	sky1 = "SKY3ATAS"
@@ -389,197 +374,47 @@ map AB_MAP29 lookup "ABHUSTR_29"
 map AB_MAP30 lookup "ABHUSTR_30"
 {
 	Label = "ABSOLUTION, MAP30"
+	TitlePatch = "AWILV29"
 	next = EndSequence, "D64Inter_Cast"
 	secretnext = EndSequence, "D64Inter_Cast"
 	sky1 = "SKY3ATAS"
-	allowmonstertelefrags
 	NoIntermission
+	NoSoundClipping
 	SpiderMastermindSpecial
 	SpecialAction_ExitLevel
-	NoSoundClipping
+	allowmonstertelefrags
 	music = "$MUSIC_D64MAP30"
 }
 
 map AB_MAP31 lookup "ABHUSTR_31"
 {
 	Label = "ABSOLUTION, MAP31"
+	TitlePatch = "AWILV30"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP32"
 	sky1 = "SKY6TALL"
-	cluster = 105
+	cluster = 107
 	music = "$MUSIC_D64MAP31"
 }
 
 map AB_MAP32 lookup "ABHUSTR_32"
 {
 	Label = "ABSOLUTION, MAP32"
+	TitlePatch = "AWILV31"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP16"
 	sky1 = "ZZZBLACK"
-	cluster = 106
+	cluster = 108
 	music = "$MUSIC_D64MAP32"
 }
 
 map AB_MAP33 lookup "ABHUSTR_33"
 {
 	Label = "ABSOLUTION, BONUS"
+	TitlePatch = "AWILV32"
 	Next = endsequence, "D64D2Map33End"
 	sky1 = "SKY6TALL", 0.1
 	music = "$MUSIC_D64MAP33"
 	nointermission
 	nosoundclipping
-}
-
-Intermission D64D2Map33End
-{
-	Image
-	{
-		Background = "D64title"
-		music = "$MUSIC_D64MAP33"
-	}
-}
-
-//Updated cast call
-Intermission D64Inter_Cast
-{
-	Image
-	{
-		Background = "D64bossb"
-		Time = -1
-		music = "$MUSIC_D64END"
-	}
-	Link = Doom64Doom2Cast
-}
-
-Intermission Doom64Doom2Cast
-{
-	Cast
-	{
-		CastClass = "Zombieman"
-		CastName = "$CC_ZOMBIE"
-		AttackSound = "Missile", 1, "grunt/attack"
-	}
-	Cast
-	{
-		CastClass = "ShotgunGuy"
-		CastName = "$CC_SHOTGUN"
-		AttackSound = "Missile", 1, "shotguy/attack"
-	}
-	Cast
-	{
-		CastClass = "ChaingunGuy"
-		CastName = "$CC_HEAVY"
-		AttackSound = "Missile", 1, "chainguy/attack"
-		AttackSound = "Missile", 2, "chainguy/attack"
-		AttackSound = "Missile", 3, "chainguy/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomImp"
-		CastName = "$CC_IMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		CastClass = "DCX_NightmareImp"
-		CastName = "$CC_NIMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		CastClass = "Demon"
-		CastName = "$CC_DEMON"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		CastClass = "Spectre"
-		CastName = "$CC_Spectre"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		CastClass = "DCX_ForgottenSoul"
-		CastName = "$CC_LOST"
-		AttackSound = "Missile", 1, "skull/melee2"
-	}
-	Cast
-	{
-		CastClass = "Cacodemon"
-		CastName = "$CC_CACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		CastClass = "DCX_NightmareCacodemon"
-		CastName = "$CC_NCACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		CastClass = "HellKnight"
-		CastName = "$CC_HELL"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		CastClass = "BaronOfHell"
-		CastName = "$CC_BARON"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		CastClass = "DCX_DualArachnotron"
-		CastName = "$CC_ARACH"
-		AttackSound = "Missile", 1, "baby/attack2"
-	}
-	Cast
-	{
-		CastClass = "DCX_DualPainElemental"
-		CastName = "$CC_PAIN"
-		AttackSound = "Missile", 2, "skull/melee2"
-	}
-	Cast
-	{
-		CastClass = "Revenant"
-		CastName = "$CC_REVEN"
-		AttackSound = "Missile", 1, "skeleton/attack"
-		AttackSound = "Melee", 1, "skeleton/swing"
-		AttackSound = "Melee", 3, "skeleton/melee"
-	}
-	Cast
-	{
-		CastClass = "Fatso"
-		CastName = "$CC_MANCU"
-		AttackSound = "Missile", 1, "fatso/attack"
-		AttackSound = "Missile", 4, "fatso/attack"
-		AttackSound = "Missile", 7, "fatso/attack"
-	}
-	Cast
-	{
-		CastClass = "Archvile"
-		CastName = "$CC_ARCH"
-		AttackSound = "Missile", 1, "vile/start"
-	}
-	Cast
-	{
-		CastClass = "Cyberdemon"
-		CastName = "$CC_CYBER"
-		AttackSound = "Missile", 1, "weapons/rocklf"
-		AttackSound = "Missile", 3, "weapons/rocklf"
-		AttackSound = "Missile", 5, "weapons/rocklf"
-	}
-	Cast
-	{
-		CastClass = "DCX_Motherdemon"
-		CastName = "$CC_MOTHER"
-		AttackSound = "Missile", 1, "fatso/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomPlayer"
-		CastName = "$CC_HERO"
-		AttackSound = "Missile", 1, "weapons/sshotf"
-	}
-	Link = Doom64Doom2Cast
 }

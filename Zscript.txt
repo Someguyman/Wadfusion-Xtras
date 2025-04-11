@@ -1,10 +1,15 @@
 version "4.15"
-//version "4.13.0"
 
-#include "Zscript/Dcx_Levelpostprocessors.zsc"
-#include "Zscript/Dcx_EventHandlers.zsc"
-#include "Zscript/Dcx_Actors.zsc"
-#include "Zscript/Dcx_Weapons.zsc"
-#include "Zscript/Dcx_Items.zsc"
-#include "Zscript/Dcx_sbar.zsc"
-#include "Zscript/Dcx_sbar_alt.zsc"
+#include "Zscript/LevelScripts/Dcx_Levelpostprocessors.zsc"
+#include "Zscript/LevelScripts/Dcx_EventHandlers.zsc"
+
+#include "Zscript/Actors/Dcx_BaseDoom_Actors.zsc"
+#include "Zscript/Actors/Dcx_D64D2_Actors.zsc"
+#include "Zscript/Actors/Dcx_KickAttack_Actors.zsc"
+#include "Zscript/Actors/Dcx_LegacyOfRust_Actors.zsc"
+#include "Zscript/Actors/Dcx_Extra_Actors.zsc"
+#include "Zscript/Actors/Dcx_Weapons.zsc"
+#include "Zscript/Actors/Dcx_Items.zsc"
+
+#include "Zscript/UI/Dcx_sbar.zsc"
+#include "Zscript/UI/Dcx_sbar_alt.zsc"

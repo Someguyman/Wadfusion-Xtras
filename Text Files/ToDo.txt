@@ -1,0 +1,14 @@
+/*
+
+1.) Restructer/Reorganize the Acs files so that everything is appropriatly categorized.
+
+2.) Reintroduce the playstation monster placements when PSX maps are enabled. 
+	To make up for the loss of total carnage and ultra nightmare.
+	
+	Possible Scope Creep:
+	
+1.) Restore original doom 64 map progression for doom 64 for doom 2.
+	
+2.) Reintroduce hardmode with entire new scripts, But only for ultimate doom and doom 2 initially.
+
+*/

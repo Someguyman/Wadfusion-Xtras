@@ -1,0 +1,462 @@
+defaultmap
+{
+	SuckTime = 1
+	compat_invisibility = "1"
+	InterMusic = "$MUSIC_INTER"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+	F1 = "D1CRED" 
+}
+
+adddefaultmap
+{
+	Sky1 = "SKY1"
+	Cluster = 1
+	ExitPic = "$IN_EPI1"
+}
+
+
+map E1M1 "$HUSTR_E1M1"
+{
+	LevelNum = 1
+	Next = "E1M2"
+	SecretNext = "E1M10"
+	TitlePatch = "WILV00"
+	Par = 30
+	Music = "$MUSIC_E1M1"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M1"
+}
+
+map E1M2 "$HUSTR_E1M2"
+{
+	LevelNum = 2
+	Next = "E1M3"
+	TitlePatch = "WILV01"
+	Par = 75
+	Music = "$MUSIC_E1M2"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M2"
+}
+
+map E1M3 "$HUSTR_E1M3"
+{
+	LevelNum = 3
+	Next = "E1M4"
+	SecretNext = "E1M9"
+	TitlePatch = "WILV02"
+	Par = 120
+	Music = "$MUSIC_E1M3"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M3"
+}
+
+map E1M4 "$HUSTR_E1M4"
+{
+	LevelNum = 4
+	Next = "E1M5"
+	TitlePatch = "WILV03"
+	Par = 90
+	Music = "$MUSIC_E1M4"
+	Author = "$WF_AU_ROMERO_HALL"
+	Label = "THE ULTIMATE DOOM, E1M4"
+}
+
+map E1M5 "$HUSTR_E1M5"
+{
+	LevelNum = 5
+	Next = "E1M6"
+	TitlePatch = "WILV04"
+	Par = 165
+	Music = "$MUSIC_E1M5"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M5"
+}
+
+map E1M6 "$HUSTR_E1M6"
+{
+	LevelNum = 6
+	Next = "E1M7"
+	TitlePatch = "WILV05"
+	Par = 180
+	Music = "$MUSIC_E1M6"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M6"
+}
+
+map E1M7 "$HUSTR_E1M7"
+{
+	LevelNum = 7
+	Next = "E1M8"
+	TitlePatch = "WILV06"
+	Par = 180
+	Music = "$MUSIC_E1M7"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M7"
+}
+
+map E1M8 "$HUSTR_E1M8"
+{
+	LevelNum = 8
+	Next = endpic, "UDCRED"
+	TitlePatch = "WILV07"
+	Par = 165
+	Music = "$MUSIC_E1M8"
+	NoIntermission
+	BaronSpecial
+	SpecialAction_LowerFloor
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E1M8"
+}
+
+map E1M9 "$HUSTR_E1M9"
+{
+	LevelNum = 9
+	Next = "E1M4"
+	TitlePatch = "WILV08"
+	Par = 165
+	Music = "$MUSIC_E1M9"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E1M9"
+}
+
+adddefaultmap
+{
+	Sky1 = "SKY2"
+	Cluster = 2
+	ExitPic = "$IN_EPI2"
+}
+
+map E2M1 "$HUSTR_E2M1"
+{
+	LevelNum = 11
+	Next = "E2M2"
+	TitlePatch = "WILV10"
+	Par = 90
+	Music = "$MUSIC_E2M1"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E2M1"
+}
+
+map E2M2 "$HUSTR_E2M2"
+{
+	LevelNum = 12
+	Next = "E2M3"
+	TitlePatch = "WILV11"
+	Par = 90
+	Music = "$MUSIC_E2M2"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E2M2"
+}
+
+map E2M3 "$HUSTR_E2M3"
+{
+	LevelNum = 13
+	Next = "E2M4"
+	TitlePatch = "WILV12"
+	Par = 90
+	Music = "$MUSIC_E2M3"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E2M3"
+}
+
+map E2M4 "$HUSTR_E2M4"
+{
+	LevelNum = 14
+	Next = "E2M5"
+	TitlePatch = "WILV13"
+	Par = 120
+	Music = "$MUSIC_E2M4"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E2M4"
+}
+
+map E2M5 "$HUSTR_E2M5"
+{
+	LevelNum = 15
+	Next = "E2M6"
+	SecretNext = "E2M9"
+	TitlePatch = "WILV14"
+	Par = 90
+	Music = "$MUSIC_E2M5"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E2M5"
+}
+
+map E2M6 "$HUSTR_E2M6"
+{
+	LevelNum = 16
+	Next = "E2M7"
+	TitlePatch = "WILV15"
+	Par = 360
+	Music = "$MUSIC_E2M6"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E2M6"
+}
+
+map E2M7 "$HUSTR_E2M7"
+{
+	LevelNum = 17
+	Next = "E2M8"
+	TitlePatch = "WILV16"
+	Par = 240
+	Music = "$MUSIC_E2M7"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E2M7"
+}
+
+map E2M8 "$HUSTR_E2M8"
+{
+	LevelNum = 18
+	//Next = endpic, "UDCRED"
+	Next = "EndGame2"
+	TitlePatch = "WILV17"
+	Par = 135
+	Music = "$MUSIC_E2M8"
+	NoIntermission
+	CyberdemonSpecial
+	SpecialAction_ExitLevel
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E2M8"
+}
+
+map E2M9 "$HUSTR_E2M9"
+{
+	LevelNum = 19
+	next = "E2M5"
+	TitlePatch = "WILV18"
+	Par = 170
+	Music = "$MUSIC_E2M9"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E2M9"
+}
+
+adddefaultmap
+{
+	Sky1 = "SKY3"
+	Cluster = 3
+	ExitPic = "$IN_EPI3"
+}
+
+map E3M1 "$HUSTR_E3M1"
+{
+	LevelNum = 21
+	Next = "E3M2"
+	TitlePatch = "WILV20"
+	Par = 90
+	Music = "$MUSIC_E3M1"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M1"
+}
+
+map E3M2 "$HUSTR_E3M2"
+{
+	LevelNum = 22
+	Next = "E3M3"
+	TitlePatch = "WILV21"
+	Par = 45
+	Music = "$MUSIC_E3M2"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M2"
+}
+
+map E3M3 "$HUSTR_E3M3"
+{
+	LevelNum = 23
+	Next = "E3M4"
+	TitlePatch = "WILV22"
+	Par = 90
+	Music = "$MUSIC_E3M3"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E3M3"
+}
+
+map E3M4 "$HUSTR_E3M4"
+{
+	LevelNum = 24
+	Next = "E3M5"
+	TitlePatch = "WILV23"
+	Par = 150
+	Music = "$MUSIC_E3M4"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M4"
+}
+
+map E3M5 "$HUSTR_E3M5"
+{
+	LevelNum = 25
+	Next = "E3M6"
+	TitlePatch = "WILV24"
+	Par = 90
+	Music = "$MUSIC_E3M5"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M5"
+}
+
+map E3M6 "$HUSTR_E3M6"
+{
+	LevelNum = 26
+	Next = "E3M7"
+	SecretNext = "E3M9"
+	TitlePatch = "WILV25"
+	Par = 90
+	Music = "$MUSIC_E3M6"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M6"
+}
+
+map E3M7 "$HUSTR_E3M7"
+{
+	LevelNum = 27
+	Next = "E3M8"
+	TitlePatch = "WILV26"
+	Par = 165
+	Music = "$MUSIC_E3M7"
+	Author = "$WF_AU_PETERSEN_HALL"
+	Label = "THE ULTIMATE DOOM, E3M7"
+}
+
+map E3M8 "$HUSTR_E3M8"
+{
+	LevelNum = 28
+	Next = "endbunny"
+	TitlePatch = "WILV27"
+	Par = 105
+	Music = "$MUSIC_E3M8"
+	NoIntermission
+	SpiderMastermindSpecial
+	SpecialAction_ExitLevel
+	NoSoundClipping
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M8"
+}
+
+map E3M9 "$HUSTR_E3M9"
+{
+	LevelNum = 29
+	Next = "E3M7"
+	TitlePatch = "WILV28"
+	Par = 135
+	Music = "$MUSIC_E3M9"
+	Author = "$WF_AU_PETERSEN"
+	Label = "THE ULTIMATE DOOM, E3M9"
+}
+
+adddefaultmap
+{
+	Sky1 = "SKY4"
+	Cluster = 4
+	ExitPic = "$IN_EPI4"
+	F1 = "UDCRED" 
+	InterMusic = "$MUSIC_INTEREP4"
+}
+
+map E4M1 "$HUSTR_E4M1"
+{
+	LevelNum = 31
+	Next = "E4M2"
+	TitlePatch = "WILV30"
+	Par = 165
+	Music = "$MUSIC_E4M1"
+	Author = "$WF_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, E4M1"
+}
+
+map E4M2 "$HUSTR_E4M2"
+{
+	LevelNum = 32
+	Next = "E4M3"
+	SecretNext = "E4M9"
+	TitlePatch = "WILV31"
+	Par = 255
+	Music = "$MUSIC_E4M2"
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E4M2"
+}
+
+map E4M3 "$HUSTR_E4M3"
+{
+	LevelNum = 33
+	Next = "E4M4"
+	TitlePatch = "WILV32"
+	Par = 135
+	Music = "$MUSIC_E4M3"
+	Author = "$WF_AU_GREEN"
+	Label = "THE ULTIMATE DOOM, E4M3"
+}
+
+map E4M4 "$HUSTR_E4M4"
+{
+	LevelNum = 34
+	Next = "E4M5"
+	TitlePatch = "WILV33"
+	Par = 150
+	Music = "$MUSIC_E4M4"
+	Author = "$WF_AU_MCGEE"
+	Label = "THE ULTIMATE DOOM, E4M4"
+}
+
+map E4M5 "$HUSTR_E4M5"
+{
+	LevelNum = 35
+	Next = "E4M6"
+	TitlePatch = "WILV34"
+	Par = 180
+	Music = "$MUSIC_E4M5"
+	Author = "$WF_AU_WILLITS_CHASAR"
+	Label = "THE ULTIMATE DOOM, E4M5"
+}
+
+map E4M6 "$HUSTR_E4M6"
+{
+	LevelNum = 36
+	Next = "E4M7"
+	TitlePatch = "WILV35"
+	Par = 390
+	Music = "$MUSIC_E4M6"
+	CyberdemonSpecial
+	SpecialAction_OpenDoor
+	Author = "$WF_AU_ROMERO"
+	Label = "THE ULTIMATE DOOM, E4M6"
+}
+
+map E4M7 "$HUSTR_E4M7"
+{
+	LevelNum = 37
+	Next = "E4M8"
+	TitlePatch = "WILV36"
+	Par = 135
+	Music = "$MUSIC_E4M7"
+	Author = "$WF_AU_ANDERSON"
+	Label = "THE ULTIMATE DOOM, E4M7"
+}
+
+map E4M8 "$HUSTR_E4M8"
+{
+	LevelNum = 38
+	Next = "EndGame4"
+	TitlePatch = "WILV37"
+	Par = 360
+	Music = "$MUSIC_E4M8"
+	//NoIntermission 
+	//Removed so that you have the intermission screen when the psx level option is enabled.
+	NoSoundClipping
+	SpiderMastermindSpecial
+	SpecialAction_LowerFloor
+	Author = "$WF_AU_GREEN"
+	Label = "THE ULTIMATE DOOM, E4M8"
+}
+
+map E4M9 "$HUSTR_E4M9"
+{
+	LevelNum = 39
+	Next = "E4M3"
+	TitlePatch = "WILV38"
+	Par = 180
+	Music = "$MUSIC_E4M9"
+	Author = "$WF_AU_WILLITS"
+	Label = "THE ULTIMATE DOOM, E4M9"
+}

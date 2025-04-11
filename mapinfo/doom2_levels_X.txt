@@ -6,6 +6,7 @@ defaultmap
 	NoJump
 	NoCrouch
 	compat_invisibility = "1"
+	F1 = "CREDIT" 
 }
 
 // Episode 1 Part 1
@@ -15,7 +16,6 @@ adddefaultmap
 	Cluster = 5
 	Sky1 = "RSKY1"
 	Exitpic = "$in_d2e1"
-	//Enterpic = "$in_d2e1"
 }
 
 map MAP01 "$HUSTR_1"
@@ -363,7 +363,6 @@ map MAP30 "$HUSTR_30"
 adddefaultmap
 {
 	Sky1 = "RSKY3"
-	//Exitpic = "INTER_E4"
 }
 
 // Secret maps
@@ -393,74 +392,4 @@ map MAP32 "$HUSTR_32"
 	Enterpic = "$in_d2eW"
 	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
-}
-
-map MAP33 "$HUSTR_33"
-{
-	Next = "MAP03"
-	Cluster = 5
-	Sky1 = "RSKY1"
-	TitlePatch = "CWILV32"
-	Par = 120
-	Music = "D_BETREY"
-	Author = "$WF_AU_BUKOWSKI"
-	EnterPic = ""
-	Exitpic = "INTERPIC"
-	Label = "DOOM II HELL ON EARTH, E1M12"
-}
-
-// DOOM II first cluster (up thru level 6)
-
-cluster 5
-{
-	ExitText = "$C1TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT06"
-
-}
-
-// DOOM II second cluster (up thru level 11)
-
-cluster 6
-{
-	ExitText = "$C2TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT11"
-
-}
-
-// DOOM II third cluster (up thru level 20)
-
-cluster 7
-{
-	ExitText = "$C3TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT20"
-}
-
-// DOOM II fourth cluster (up thru level 30)
-
-cluster 8
-{
-	ExitText = "$C4TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT30"
-}
-
-// DOOM II fifth cluster (level 31)
-
-cluster 9
-{
-	EnterText = "$C5TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT15"
-}
-
-// DOOM II sixth cluster (level 32)
-
-cluster 10
-{
-	EnterText = "$C6TEXT"
-	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT31"
 }

@@ -12,7 +12,6 @@ defaultmap
 	AllowRespawn 
 	Sky1 = "SKY1"
 	ExitPic = "DMVICTOR"
-	Cluster = 666
 	SpecialAction = "DCX_DM_MarineBotSpawner", EXIT_NORMAL, 0, 1
 	ResetHealth
     ResetInventory

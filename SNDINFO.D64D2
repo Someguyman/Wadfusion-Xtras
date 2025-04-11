@@ -1,0 +1,112 @@
+weapons/unmaker	DSLASER
+
+//Thunder sfx that's used with the cloudy blue sky
+world/thunder		dsthundr
+
+// Motherdemon sounds
+$limit mother/sight 4
+$limit mother/death 4
+mother/sight			dsmothsi
+mother/active			dsmothac
+mother/pain				dsmothpn
+mother/death			dsmothdt
+
+$random imp2/sight		{ imp2/sight1  imp2/sight2 }
+$random imp2/death		{ imp2/death1  imp2/death2 }
+imp2/sight1	dsbgsit1
+imp2/sight2	dsbgsit2
+$alias imp2/pain imp/pain
+imp2/active	dsbgact
+imp2/death1 dsbgdth1
+imp2/death2 dsbgdth2
+imp/attack2 DSFIRSHT
+imp/shotx2 DSFIRXPL
+$limit imp2/active 6
+
+$pitchset imp2/sight1 0.9
+$pitchset imp2/sight2 0.9
+$pitchset imp2/active 0.9
+$pitchset imp2/death1 0.9
+$pitchset imp2/death2 0.9
+
+demon2/sight dssgtsit
+demon2/active DSDMACT
+demon2/pain DSDMPAIN
+demon2/melee dssgtatk
+demon2/death dssgtdth
+
+$pitchset demon2/sight 0.9
+$pitchset demon2/melee 0.9
+$pitchset demon2/death 0.9
+$pitchset demon2/active 0.9
+$pitchset demon2/pain 0.9
+$pitchset caco2/sight 0.9
+$pitchset caco2/death 0.9
+
+caco2/sight DSCACSIT
+$alias caco2/active caco/active
+$alias caco2/pain caco/pain
+caco2/death DSCACDTH
+$alias caco/attack2 caco/attack
+$alias caco/shotx2 caco/shotx
+
+baby/sight2		dsbspsit
+baby/active2	dsbspact
+$alias baby/pain2 baby/pain
+baby/death2		dsbspdth
+baby/walk2		dsbspwlk
+baby/attack2	dsplasma
+baby/shotx2 	DSFIRXPL
+
+$limit baby/attack2 0
+
+$pitchset baby/sight2 0.9
+$pitchset baby/active2 0.9
+$pitchset baby/death2 0.8
+$pitchset baby/walk2 0.8
+
+$pitchset baby/attack2 0.9
+
+pain/sight2			dspesit
+pain/pain2			dspepain
+pain/active2		dsdmact
+pain/death2			dspedth
+
+$pitchset pain/sight2 0.9
+$pitchset pain/pain2  0.9
+$pitchset pain/active2  0.9
+$pitchset pain/death2 0.9
+
+skull/melee2 dssklatk
+$alias skull/death2	 skull/death
+$alias skull/active2 skull/active	
+$alias skull/pain2	 skull/pain
+
+$pitchset skull/melee2 0.9
+
+$pitchshiftrange 4
+weapons/saw2up			dssa2up
+weapons/saw2idle		dssa2idl
+weapons/saw2full		dssa2ful
+weapons/saw2hit			dssa2hit
+
+$pitchset DualCyber/Sight 0.8
+$pitchset DualCyber/Death 0.8
+$pitchset DualCyber/Walk 0.9
+
+$limit DualCyber/Expolsion 0
+$pitchset DualCyber/Expolsion 0.9
+
+$limit DualCyber/Attack 0
+$pitchset DualCyber/Attack 0.9
+//$attenuation world/Expolsion 0
+
+DualCyber/Walk dsmetal
+
+DualCyber/Sight dscybsit
+DualCyber/Death dscybdth
+DualCyber/Expolsion dsbarexp
+DualCyber/Attack dsrlaunc
+
+$limit DualCyber/Sight 4
+$limit DualCyber/Death 4

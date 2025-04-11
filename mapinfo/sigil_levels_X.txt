@@ -14,6 +14,7 @@ defaultmap
 	NoCrouch
 	Author = "$WF_AU_ROMERO"
 	compat_invisibility = "1"
+	F1 = "SCREDIT" 
 }
 
 map E5M1 "$HUSTR_E5M1"
@@ -99,13 +100,4 @@ map E5M9 "$HUSTR_E5M9"
 	TitlePatch = "WILV48"
 	Par = 660
 	Label = "ULTIMATE DOOM, E5M9"
-}
-
-// Sigil 1 cluster
-
-cluster 26
-{
-	Flat = "CEIL5_1"
-	Music = "S_INTRO"
-	ExitText = "$E5TEXT"
 }

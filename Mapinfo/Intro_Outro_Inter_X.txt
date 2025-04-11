@@ -1,0 +1,545 @@
+//Intro Intermissions
+//Once Owl finishes his own intro intermission,
+//Most of this stuff will be purged.
+
+Defaultmap
+{
+	ResetHealth 
+	ResetItems
+	ResetInventory
+	NoIntermission
+	compat_invisibility = "1"
+}
+
+map TITLEMAP "Doom Title"
+{
+	nointermission
+	noautosavehint
+	Music = ""
+}
+
+adddefaultmap
+{
+	Music = "D_INTRO"
+}
+
+Map INTER_D1E1 ""
+{
+	Cluster = 1001
+	Next = "E1M1"
+}
+
+Map INTER_D1E2 ""
+{
+	Cluster = 1002
+	Next = "E2M1"
+}
+
+Map INTER_D1E3 ""
+{
+	Cluster = 1003
+	Next = "E3M1"
+}
+
+Map INTER_D1E4 ""
+{
+	Cluster = 1004
+	Next = "E4M1"
+	Music = "D_INTR2"
+}
+
+Map INTER_D1E5 ""
+{
+	Cluster = 1005
+	Next = "E5M1"
+	Music = "S_INTRO"
+}
+
+Map INTER_D1E6 ""
+{
+	Cluster = 1006
+	Next = "E6M1"
+	Music = "S2_INTRO"
+}
+
+map INTER_D2E1 ""
+{
+	Next = "Map01"
+	//Music = "S_INTRO"
+}
+
+map INTER_MLCS ""
+{
+	Cluster = 2015
+	Next = "ML_MAP37"
+	Music = "D_TITLM2"
+}
+
+map e4ending ""
+{
+	Cluster = 0
+	Next = EndSequence, "Episode4end"
+	Music = "$MUSIC_VICTR2"
+	NoIntermission
+	NoSoundClipping
+}
+
+map CabalEND ""
+{
+	Cluster = 0
+	next = EndSequence, "Cabal_Cast"
+	music = "$MUSIC_MASTEREND"
+	NoIntermission
+	NoSoundClipping
+}
+
+Intermission Episode4end
+{
+	Wiper
+	{
+		WipeType = Crossfade
+	}
+	Scroller 
+	{
+		InitialDelay = 3
+		ScrollTime = -280
+		Background2 = "E4SIGILT"
+		Background = "ENDNOT"
+		ScrollDirection = down
+		Music = "$MUSIC_VICTR2"
+	}
+}
+
+Intermission Cabal_Cast
+{
+	Wiper
+	{
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Background = "CRBOSSBK"
+		Time = -2
+		music = "$MUSIC_MASTEREND"
+	}
+	Link = Doom2Cast
+}
+
+Intermission D64D2Map33End
+{
+	Image
+	{
+		Background = "D64title"
+		music = "$MUSIC_D64MAP33"
+	}
+}
+
+//		Ending Credits		//
+
+Intermission Jaguar_Cast
+{
+	Image
+	{
+		// This is only here to initialize the background and the music
+		Background = "3DOINTER"
+		Time = -1
+		Music = "O_E1M8"
+	}
+	Link = Jaguarcast
+}
+
+Intermission Jaguarcast
+{
+	Cast
+	{
+		CastClass = "Zombieman"
+		CastName = "$CC_ZOMBIE"
+		AttackSound = "Missile", 1, "grunt/attack"
+	}
+	Cast
+	{
+		CastClass = "ShotgunGuy"
+		CastName = "$CC_SHOTGUN"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomImp"
+		CastName = "$CC_IMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "Demon"
+		CastName = "$CC_DEMON"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "LostSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee"
+	}
+	Cast
+	{
+		CastClass = "Cacodemon"
+		CastName = "$CC_CACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "BaronOfHell"
+		CastName = "$CC_BARON"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "The Marine"
+		AttackSound = "Missile", 0, "weapons/shotgf"
+	}
+
+	Link = Jaguarcast
+}
+
+Intermission Doom2cast
+{
+	Cast
+	{
+		CastClass = "Zombieman"
+		CastName = "$CC_ZOMBIE"
+		AttackSound = "Missile", 1, "grunt/attack"
+	}
+	Cast
+	{
+		CastClass = "ShotgunGuy"
+		CastName = "$CC_SHOTGUN"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomImp"
+		CastName = "$CC_IMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "ChaingunGuy"
+		CastName = "$CC_HEAVY"
+		AttackSound = "Missile", 1, "chainguy/attack"
+		AttackSound = "Missile", 2, "chainguy/attack"
+		AttackSound = "Missile", 3, "chainguy/attack"
+	}
+	Cast
+	{
+		CastClass = "Demon"
+		CastName = "$CC_DEMON"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "DCX_Spectre"
+		CastName = "Spectre"
+		AttackSound = "Melee", 1, "spectre/melee"
+	}
+	Cast
+	{
+		CastClass = "LostSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee"
+	}
+	Cast
+	{
+		CastClass = "Cacodemon"
+		CastName = "$CC_CACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "HellKnight"
+		CastName = "$CC_HELL"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "BaronOfHell"
+		CastName = "$CC_BARON"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+		Cast
+	{
+		CastClass = "Arachnotron"
+		CastName = "$CC_ARACH"
+		AttackSound = "Missile", 1, "baby/attack"
+	}
+	Cast
+	{
+		CastClass = "PainElemental"
+		CastName = "$CC_PAIN"
+		AttackSound = "Missile", 2, "skull/melee"
+	}
+	Cast
+	{
+		CastClass = "Revenant"
+		CastName = "$CC_REVEN"
+		AttackSound = "Missile", 1, "skeleton/attack"
+		AttackSound = "Melee", 1, "skeleton/swing"
+		AttackSound = "Melee", 3, "skeleton/melee"
+	}
+	Cast
+	{
+		CastClass = "Fatso"
+		CastName = "$CC_MANCU"
+		AttackSound = "Missile", 1, "fatso/attack"
+		AttackSound = "Missile", 4, "fatso/attack"
+		AttackSound = "Missile", 7, "fatso/attack"
+	}
+	Cast
+	{
+		CastClass = "Archvile"
+		CastName = "$CC_ARCH"
+		AttackSound = "Missile", 1, "vile/start"
+	}
+	Cast
+	{
+		CastClass = "SpiderMastermind"
+		CastName = "$CC_SPIDER"
+		AttackSound = "Missile", 1, "spider/attack"
+		AttackSound = "Missile", 2, "spider/attack"
+	}
+	Cast
+	{
+		CastClass = "Cyberdemon"
+		CastName = "$CC_CYBER"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "Our Hero"
+		AttackSound = "Missile", 0, "weapons/sshotf"
+	}
+	
+	Link = Doom2cast
+}
+
+// Ending cast roll with new enemies
+
+Intermission Id1Cast
+{
+	Image
+	{
+		Background = "ID1BOSS"
+		Time = -1
+		Music = "D_DEJAVU"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_150"
+		CastName = "$ID24_GHOUL"
+		AttackSound = "Missile", 1, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_151"
+		CastName = "$ID24_BANSHEE"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_153"
+		CastName = "$ID24_SHOCKTROOPER"
+		AttackSound = "Missile", 1, "weapons/plasmaf"
+		AttackSound = "Missile", 3, "weapons/plasmaf"
+		AttackSound = "Missile", 5, "weapons/plasmaf"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_152"
+		CastName = "$ID24_MINDWEAVER"
+		AttackSound = "Missile", 1, "spider/attack"
+		AttackSound = "Missile", 2, "spider/attack"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_154"
+		CastName = "$ID24_VASSAGO"
+		AttackSound = "Missile", 1, "monsters/vassago/vasatk"
+	}
+	Cast
+	{
+		CastClass = "Deh_Actor_155"
+		CastName = "$ID24_TYRANT"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "$CC_HERO"
+		AttackSound = "Missile", 0, "weapons/sshotf"
+	}
+	Link = Id1Cast
+}
+
+//Updated cast call
+
+Intermission D64Inter_Cast
+{
+	Image
+	{
+		Background = "D64bossb"
+		Time = -1
+		music = "$MUSIC_D64END"
+	}
+	Link = Doom64Doom2Cast
+}
+
+Intermission Doom64Doom2Cast
+{
+	Cast
+	{
+		CastClass = "Zombieman"
+		CastName = "$CC_ZOMBIE"
+		AttackSound = "Missile", 1, "grunt/attack"
+	}
+	Cast
+	{
+		CastClass = "ShotgunGuy"
+		CastName = "$CC_SHOTGUN"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		CastClass = "ChaingunGuy"
+		CastName = "$CC_HEAVY"
+		AttackSound = "Missile", 1, "chainguy/attack"
+		AttackSound = "Missile", 2, "chainguy/attack"
+		AttackSound = "Missile", 3, "chainguy/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomImp"
+		CastName = "$CC_IMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_NightmareImp"
+		CastName = "$CC_NIMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "Demon"
+		CastName = "$CC_DEMON"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "Spectre"
+		CastName = "$CC_Spectre"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "DCX_NightmareSpectre"
+		CastName = "Nightmare Spectre"
+		AttackSound = "Melee", 1, "demon2/melee"
+	}
+	Cast
+	{
+		CastClass = "DCX_ForgottenSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee2"
+	}
+	Cast
+	{
+		CastClass = "Cacodemon"
+		CastName = "$CC_CACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_NightmareCacodemon"
+		CastName = "$CC_NCACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "HellKnight"
+		CastName = "$CC_HELL"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "BaronOfHell"
+		CastName = "$CC_BARON"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "DCX_DualArachnotron"
+		CastName = "$CC_ARACH"
+		AttackSound = "Missile", 1, "baby/attack2"
+	}
+	Cast
+	{
+		CastClass = "DCX_DualPainElemental"
+		CastName = "$CC_PAIN"
+		AttackSound = "Missile", 2, "skull/melee2"
+	}
+	Cast
+	{
+		CastClass = "Revenant"
+		CastName = "$CC_REVEN"
+		AttackSound = "Missile", 1, "skeleton/attack"
+		AttackSound = "Melee", 1, "skeleton/swing"
+		AttackSound = "Melee", 3, "skeleton/melee"
+	}
+	Cast
+	{
+		CastClass = "Fatso"
+		CastName = "$CC_MANCU"
+		AttackSound = "Missile", 1, "fatso/attack"
+		AttackSound = "Missile", 4, "fatso/attack"
+		AttackSound = "Missile", 7, "fatso/attack"
+	}
+	Cast
+	{
+		CastClass = "Archvile"
+		CastName = "$CC_ARCH"
+		AttackSound = "Missile", 1, "vile/start"
+	}
+	Cast
+	{
+		CastClass = "Cyberdemon"
+		CastName = "$CC_CYBER"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "DCX_DualCyberdemon"
+		CastName = "Super Cyberdemon"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "DCX_Motherdemon"
+		CastName = "$CC_MOTHER"
+		AttackSound = "Missile", 1, "fatso/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "$CC_HERO"
+		AttackSound = "Missile", 1, "weapons/sshotf"
+	}
+	Link = Doom64Doom2Cast
+}

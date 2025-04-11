@@ -4,11 +4,12 @@ defaultmap
 {
 	Cluster = 11
 	SuckTime = 1
-	ExitPic = "NVINTER"
+	ExitPic = "INTERNV"
 	InterMusic = "$MUSIC_NERVEINTER"
 	NoJump
 	NoCrouch
 	compat_invisibility = "1"
+	F1 = "NVCRED"
 }
 
 map NV_MAP01 "$NHUSTR_1"
@@ -92,12 +93,7 @@ map NV_MAP07 "$NHUSTR_7"
 
 map NV_MAP08 "$NHUSTR_8"
 {
-	Next = EndGame
-	{
-		Pic = "NVINTER"
-		Music = "P_THE_DA"
-		Cast
-	}
+	next = EndSequence, "Nerve_Cast"
 	Label = "DOOM II HELL ON EARTH, E4M8"
 	Sky1 = "RSKY3"
 	TitlePatch = "NWILV07"
@@ -119,9 +115,13 @@ map NV_MAP09 "$NHUSTR_9"
 	Author = "$WF_AU_MEAKIM"
 }
 
-cluster 11
+Intermission Nerve_Cast
 {
-	ExitText = "$NERVETEXT"
-	music = "$MUSIC_NERVETEXT"
-	Flat = "BLOOD2"
+	Image
+	{
+		Background = "INTERNV"
+		Time = -1
+		music = "$MUSIC_NERVE09"
+	}
+	Link = Doom2Cast
 }

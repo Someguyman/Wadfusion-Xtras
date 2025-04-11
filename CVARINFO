@@ -6,6 +6,7 @@ server bool dcx_TextureFixes = true;
 server bool dcx_TextureEchancements = true;
 server bool dcx_D64D2Xtras = true;
 server bool dcx_CustomMonsters = true;
+server bool dcx_EnchancesMonsters = true;
 server bool dcx_3DO_Music = false;
 server bool dcx_IntroText = false;
 

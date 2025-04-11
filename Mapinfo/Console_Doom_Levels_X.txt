@@ -21,6 +21,21 @@ map PSX01 "$HUSTR_PSX01"
 	par = 90
 	Music = "$MUSIC_PSX01"
 	Author = "$WS_AU_MCGEE"
+	Titlepatch = "PXILV00"
+	Label = "THE ULTIMATE DOOM, E2M10"		
+	Sky1 = "SKY2"
+	Cluster = 2
+	ExitPic = "$IN_EPI2"
+}
+
+map PSX01B "$HUSTR_PSX01"
+{
+	levelnum = 15
+	next = "E2M8"
+	par = 90
+	Music = "$MUSIC_PSX01"
+	Author = "Xeebleton (OG by American Mcgee)"
+	Titlepatch = "PXILV00"
 	Label = "THE ULTIMATE DOOM, E2M10"		
 	Sky1 = "SKY2"
 	Cluster = 2
@@ -31,9 +46,10 @@ map PSX02 "$HUSTR_PSX02"
 {
 	levelnum = 18
 	next = "E3M2"
-	//Music = "$MUSIC_PSX02"
-	Music = "$MUSIC_E3M1"
-	Author = "$WS_AU_MCGEE"
+	Music = "$MUSIC_PSX02"
+	//Music = "$MUSIC_E3M1"
+	Author = "Manardo Lenari (OG by American Mcgee)"
+	Titlepatch = "PXILV01"
 	Label = "THE ULTIMATE DOOM, E3M1"
 	Sky1 = "SKY3"
 	Cluster = 3
@@ -44,9 +60,9 @@ map PSX02B "$HUSTR_PSX02"
 {
 	levelnum = 18
 	next = "E3M2"
-	//Music = "$MUSIC_PSX02"
-	Music = "$MUSIC_E3M1"
+	Music = "$MUSIC_PSX02"
 	Author = "Manardo Lenari (OG by American Mcgee)"
+	Titlepatch = "PXILV01"
 	Label = "THE ULTIMATE DOOM, E3M1"
 	Sky1 = "SKY3"
 	Cluster = 3
@@ -60,6 +76,7 @@ map PSX03 "$HUSTR_PSX03"
 	par = 90
 	Music = "$MUSIC_PSX03"
 	Author = "$WS_AU_MCGEE"
+	Titlepatch = "PXILV02"
 	Label = "THE ULTIMATE DOOM, E3M9"
 	Sky1 = "SKY3"
 	Cluster = 3
@@ -74,9 +91,12 @@ map PSX03B "$HUSTR_PSX03"
 	Music = "$MUSIC_PSX03"
 	Author = "Manardo Lenari (OG by American Mcgee)"
 	Label = "THE ULTIMATE DOOM, E3M9"
+	Titlepatch = "PXILV02"
 	Sky1 = "SKY3"
 	Cluster = 3
 	ExitPic = "$IN_EPI3"
+	CyberdemonSpecial
+	SpecialAction_OpenDoor
 }
 
 adddefaultmap
@@ -91,6 +111,7 @@ map PSX04 "$HUSTR_PSX04"
 	secretnext = "PSX06"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX04"
+	Titlepatch = "PXILV03"
 	Label = "THE ULTIMATE DOOM, E4M10"
 	Sky1 = "SKY4"
 	Cluster = 4
@@ -99,7 +120,7 @@ map PSX04 "$HUSTR_PSX04"
 
 map PSX05 "$HUSTR_PSX05"
 {
-	Next = EndSequence, "Episode4end"
+	Next = "EndGame4"
 	NoIntermission
 	NoSoundClipping
 	cyberdemonspecial
@@ -107,6 +128,7 @@ map PSX05 "$HUSTR_PSX05"
 	secretnext = "PSX05"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX05"
+	Titlepatch = "PXILV04"
 	Label = "THE ULTIMATE DOOM, E4M11"
 	Sky1 = "SKY4"
 	Cluster = 4
@@ -120,6 +142,7 @@ map PSX06 "$HUSTR_PSX06"
 	specialaction_opendoor
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX06"
+	Titlepatch = "PXILV05"
 	Label = "THE ULTIMATE DOOM, E4M12"
 	Sky1 = "SKY4"
 	Cluster = 4
@@ -139,6 +162,7 @@ map PSX07 "$HUSTR_PSX07"
 	music = "$MUSIC_PSX07"
 	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8
 	SpecialAction = "Spidermastermind", Door_Open, 667, 16
+	Titlepatch = "PXILV06"
 	nointermission
 	NoSoundClipping
 	Author = "$WS_AU_MIDWAY"
@@ -154,8 +178,9 @@ map PSX08 "$HUSTR_PSX08"
 	secretnext = "PSX09"
 	sky1 = "RSKY2"
 	par = 120
-	Cluster = 32
+	Cluster = 101
 	music = "$MUSIC_PSX08"
+	Titlepatch = "PXILV07"
 	Author = "$WS_AU_HEYDELAAR"
 	Enterpic = "$in_d2e2"
 	Exitpic = "$in_d2e2"
@@ -166,33 +191,12 @@ map PSX09 "$HUSTR_PSX09"
 {
 	next = "MAP17"
 	par = 120
-	Cluster = 33
+	Cluster = 102
 	sky1 = "RSKY2"
+	Titlepatch = "PXILV08"
 	music = "$MUSIC_PSX09"
 	Author = "$WS_AU_MIDWAY"
 	Enterpic = "$in_d2e2"
 	Exitpic = "$in_d2e2"
 	Label = "DOOM II HELL ON EARTH, PSX35"
-}
-
-Cluster 1008
-{
-	EnterText = lookup, "REDEMTION_INTRO"
-	ExitText = lookup, "REDEMTION_TXT"
-	music = "$MUSIC_READ_M"
-	Flat = "$bgflat30"
-}
-
-cluster 32
-{
-	flat = "FLAT5_1"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "MANSIONTXT"
-}
-
-cluster 33
-{
-	flat = "CEIL5_1"
-	music = "$MUSIC_READ_M"
-	entertext = lookup, "CLUBDOOMTXT"
 }

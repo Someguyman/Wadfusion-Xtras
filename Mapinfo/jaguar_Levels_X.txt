@@ -8,15 +8,8 @@ defaultmap
 	NoJump
 	NoCrouch
 	ExitPic = "DMVICTOR"
-	Cluster = 667
+	Cluster = 668
 	compat_invisibility = "1"
-}
-
-Cluster 667
-{
-	ExitText = "$GENERIC_TXT"
-	Music = "O_E1M8"
-	pic = "DMVICTOR"
 }
 
 adddefaultmap
@@ -40,6 +33,7 @@ map JA_MAP02 "$HUSTR_E1M2B"
 {
 	LevelNum = 2
 	Next = "JA_MAP03"
+	TitlePatch = "WILV01B"
 	Par = 30
 	Music = "O_E1M2"
 	Label = "JAGUAR DOOM, MAP02"
@@ -182,6 +176,7 @@ map JA_MAP14 "$HUSTR_E2M5b" //Extramap.wad
 {
 	LevelNum = 14
 	Next = "JA_MAP15"
+	Titlepatch = "PXILV00"
 	Par = 30
 	Music = "O_E2M1"
 	Label = "JAGUAR DOOM, MAP14"
@@ -292,72 +287,4 @@ map JA_MAP24 "$HUSTR_E3M8" //Map 23
 	Par = 30
 	Music = "O_E1M8"
 	Label = "JAGUAR DOOM, MAP24"
-}
-
-//		Ending Credits		//
-
-Intermission Jaguar_Cast
-{
-	Image
-	{
-		// This is only here to initialize the background and the music
-		Background = "3DOINTER"
-		Time = -1
-		Music = "O_E1M8"
-	}
-	Link = Jaguarcast
-}
-
-Intermission Jaguarcast
-{
-	Cast
-	{
-		CastClass = "Zombieman"
-		CastName = "$CC_ZOMBIE"
-		AttackSound = "Missile", 1, "grunt/attack"
-	}
-	Cast
-	{
-		CastClass = "ShotgunGuy"
-		CastName = "$CC_SHOTGUN"
-		AttackSound = "Missile", 1, "shotguy/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomImp"
-		CastName = "$CC_IMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		CastClass = "Demon"
-		CastName = "$CC_DEMON"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		CastClass = "LostSoul"
-		CastName = "$CC_LOST"
-		AttackSound = "Missile", 1, "skull/melee"
-	}
-	Cast
-	{
-		CastClass = "Cacodemon"
-		CastName = "$CC_CACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		CastClass = "BaronOfHell"
-		CastName = "$CC_BARON"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		CastClass = "DoomPlayer"
-		CastName = "The Marine"
-		AttackSound = "Missile", 0, "weapons/shotgf"
-	}
-
-	Link = Jaguarcast
 }

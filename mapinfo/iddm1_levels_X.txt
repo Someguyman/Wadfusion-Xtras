@@ -6,10 +6,10 @@ defaultmap
 	NoCrouch
 	AllowRespawn
 	SpecialAction = "DCX_DM_MarineBotSpawner", EXIT_NORMAL, 0, 1
-	Cluster = 666
 	ResetHealth
     ResetInventory
 	compat_invisibility = "1"
+	F1 = "CREDITLR" 
 }
 
 map DM_MAP01 "$MHUSTR_1"

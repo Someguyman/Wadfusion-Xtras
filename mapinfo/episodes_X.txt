@@ -112,6 +112,12 @@ episode GBA_DM1
 	Optional
 }
 
+episode OneHumanity
+{
+	Name = "$BONUS_HUMAN"
+	Optional
+}
+
 episode INTER_D2E1
 {
 	Name = "$DOOM2_EPI01"

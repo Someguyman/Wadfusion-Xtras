@@ -8,6 +8,7 @@ defaultmap
 	NoJump
 	NoCrouch
 	compat_invisibility = "1"
+	F1 = "TNCRED" 
 }
 
 // Episode 1 Part 1
@@ -326,8 +327,6 @@ map TN_MAP30 "$THUSTR_30"
 	Author = "$WF_AU_SIEBEN"
 }
 
-//DONHLB0
-
 // Secret maps
 
 map TN_MAP31 "$THUSTR_31"
@@ -349,58 +348,4 @@ map TN_MAP32 "$THUSTR_32"
 	TitlePatch = "TWILV31"
 	Music = "T_ULTIMA"
 	Author = "$WF_AU_DARIO_CASALI"
-}
-
-// TNT first cluster (up thru level 6)
-
-cluster 12
-{
-	ExitText = "$T1TEXT"
-	Music = "T_READ_M"
-	Flat = "FLAT5_7"
-}
-
-// TNT second cluster (up thru level 11)
-
-cluster 13
-{
-	ExitText = "$T2TEXT"
-	Music = "T_READ_M"
-	Flat = "FLOOR5_1"
-}
-
-// TNT third cluster (up thru level 20)
-
-cluster 14
-{
-	ExitText = "$T3TEXT"
-	Music = "T_READ_M"
-	Flat = "FLAT5_3"
-}
-
-// TNT fourth cluster (up thru level 30)
-
-cluster 15
-{
-	ExitText = "$T4TEXT"
-	Music = "T_READ_M"
-	Flat = "DEM1_6"
-}
-
-// TNT fifth cluster (level 31)
-
-cluster 16
-{
-	EnterText = "$T5TEXT"
-	Music = "T_READ_M"
-	Flat = "MFLR8_2"
-}
-
-// TNT sixth cluster (level 32)
-
-cluster 17
-{
-	EnterText = "$T6TEXT"
-	Music = "T_READ_M"
-	Flat = "FLAT5_2"
 }

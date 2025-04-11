@@ -1,0 +1,1606 @@
+
+class WadfusionXtras_PostProcessor : LevelPostProcessor
+{
+	int Dcx_SpawnThing(int id, Vector3 pos, int angle, uint flags)
+	{
+		int AmbushMonster = AddThing(id, pos);
+		SetThingAngle(AmbushMonster, angle);
+		SetThingFlags(AmbushMonster, flags);
+		return AmbushMonster;
+	}
+		
+	protected void Apply(Name checksum, String mapname)
+	{
+	
+		for (uint i = 0; i < GetThingCount(); i++)
+		{
+			let flags = GetThingFlags(i);
+			int ednum = GetThingEdNum(i);
+			String mapPrefix = level.MapName.Left(3);
+			mapPrefix = mapPrefix.MakeLower();
+			String mapName = level.MapName.MakeLower();
+			int skill_level = G_SkillPropertyInt(SKILLP_ACSReturn);
+			
+			int PsxEnabled = CVar.FindCVar("dcx_playstationmaps").Getint();
+			int AllowCustom = CVar.FindCVar("dcx_CustomMonsters").GetBool();
+			int TextureChanges = CVar.FindCVar("dcx_TextureEchancements").GetBool();
+			
+			// Monsters //
+			
+			int Arachnotron = 	  	  68;
+			int Archvile = 		  	  64;
+			int Baronofhell = 	    3003;
+			int BossBrain =		  	  88;
+			int Cacodemon = 	    3005;
+			int Chaingunner = 	  	  65;
+			int CommanderKeen =   	  72;
+			int Cyberdemon = 	  	  16;
+			int DoomImp = 		    3001;
+			int Fatso = 	  	  	  67;
+			int Hellknight = 	  	  69;
+			int LostSoul = 		    3006;
+			int Painelemental =   	  71;
+			int PinkyDemon = 	    3002;
+			int Revenant = 		  	  66;
+			int Shotgunner = 	  	   9;
+			int SpectreDemon = 	  	  58;
+			int SpiderMastermind =     7;
+			int ZombieMan = 	    3004;
+			int WolfensteinSS =   	  84;
+
+			int Banshee = 		 	3008;
+			int Ghoul = 			3007;
+			int Mindweaver = 		3009;
+			int ShockTropper = 		3010;
+			int Tyrant = 			3012;
+			int Vassago = 			3011;
+			
+			int NightmareImp = 	 	 685;
+			int NightmareSpectre = 	 697;
+			int NightmareCacodemon = 686;
+			
+			int DualCyberdemon = 	 687;
+			
+			if ( !AllowCustom )
+			{
+				NightmareImp = 	 		   Doomimp;
+				NightmareSpectre = 	  SpectreDemon;
+				NightmareCacodemon = Painelemental;
+				DualCyberdemon =	    Cyberdemon;
+			}
+			
+			//	Weapons	//
+			
+			int Chainsaw = 			2005;
+			int Pistol = 			5010;
+			int Shotgun = 			2001;
+			int SuperShotgun = 		  82;
+			int Chaingun = 			2002;
+			int RocketLauncher = 	2003;
+			int PlasmaRifle = 		2004;
+			int BFG9000 = 			2006;
+
+			int Incenerator = 		3145;
+			int CalamityBlade = 	3146;
+			
+			int Unmaker = 666;
+
+			int Clip = 				2007;
+			int Clipbox = 			2048;
+			int Shell = 			2008;
+			int ShellBox =  		2049;
+			int Rocket = 			2010;
+			int RocketBox = 		2046;
+			int Cell = 				2047;
+			int CellPack = 	  		  17;
+			int BackPack = 	   		   8;
+			
+			int GasCan = 			3143;
+			int GasTank = 			3144;
+			
+			int OrangeDemonKey = 	 667;
+			int PurpleDemonKey = 	 668;
+			int CyanDemonKey = 		 669;
+			
+			int ExplosiveBarrel = 	2035;
+			
+			//Replacing the deathmatch spawns with special marine bot spawners
+				
+			if ( (mapPrefix == "gba") || (mapPrefix == "dm_") )
+			{
+				if (ednum == 11)
+				SetThingEdNum(i, 7734); 
+			}
+			
+			if ( MapName == "psx02" )
+			{
+				if ( PsxEnabled >= 1 )
+				{
+					if (skill_level >= 3)
+						SetThingFlags(98, 2016);
+				}
+			}
+			
+			if ( MapName == "psx02b" )
+			{
+				if ( PsxEnabled >= 1 )
+				{
+					if (skill_level >= 3)
+					{
+						SetThingEdNum(98, Revenant); 
+						SetThingFlags(98, 2016);
+					}
+				}
+			}
+			
+			if ( MapName == "psx05" )
+			{
+					SetLineActivation(1054, SPAC_Cross);				
+					SetLineSpecial(1054, ACS_Execute, -int('NoIntermission_Script'));
+					
+					SetThingID(488, 666);
+					SetThingID(454, 666);
+					SetThingID(431, 666);
+					SetThingID(433, 666);
+					SetThingID(432, 666);
+					SetThingID(455, 666);
+					SetThingID(487, 666);					
+			}
+			
+			//Adding the unmaker and demonkeys into the doom 64 for doom 2 maps.
+				
+			if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
+			{					
+				if ( mapName == "ab_map06" )
+				{ SetThingEdNum(81, Unmaker); /*Replaces secret plasmagun*/ 
+				addthing(OrangeDemonKey , (-1184, 1376, -999), 0); } /*Adds Demonkey to secret area*/
+				
+				if ( mapName == "ab_map14" )
+				SetThingEdNum(137, PurpleDemonKey);	/*Replaces the megasphere that stood where it was in doom 64.*/
+				
+				if ( mapName == "ab_map32" )
+				SetThingEdNum(106, CyanDemonKey);	//Replaces the megasphere on top of the platform
+				
+				if ( mapName == "ab_map15" )
+				SetThingEdNum(291, Unmaker);	/*Replaces the bfg in the red key room where the unmaker was in the original doom 64*/
+				
+				if ( mapName == "ab_map28" )
+				SetThingEdNum(73, Unmaker);	/*Replaces the plasmagun on the secret lift*/
+					
+				if ( mapName == "ab_map30" )
+				{ SetThingEdNum(6, Unmaker); /*Replaces the backpack in the penultimate room*/
+				  addthing(BackPack, (0, -3308, -999), 0); } /*Adds backpack in ammo catche room*/
+			}
+			
+			switch (checksum)	
+			{
+				case 'E43C1797DFD9443D1B4C035327743588': //testmap
+				{
+					if ( CVar.FindCVar("wf_compat_id24_weapons").GetInt() == 1 )
+					{
+						Dcx_SpawnThing(Incenerator,( -3072, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Incenerator,( -3200, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Incenerator,( -3328, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Incenerator,( -3456, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Incenerator,( -3584, 320, -999 ), 0, MODES_ALL);
+						
+						Dcx_SpawnThing(CalamityBlade,( -3072, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(CalamityBlade,( -3200, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(CalamityBlade,( -3328, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(CalamityBlade,( -3456, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(CalamityBlade,( -3584, 256, -999 ), 0, MODES_ALL);
+						
+						Dcx_SpawnThing(GasCan,( -1664, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasCan,( -1664, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasCan,( -1664, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasCan,( -1664, 384, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasCan,( -1664, 448, -999 ), 0, MODES_ALL);
+						
+						Dcx_SpawnThing(GasTank,( -1536, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasTank,( -1536, 256, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasTank,( -1536, 320, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasTank,( -1536, 384, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(GasTank,( -1536, 448, -999 ), 0, MODES_ALL);
+					}
+					
+					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					{
+						Dcx_SpawnThing(OrangeDemonKey,( -2464, 192, -999 ), 0,  MODES_ALL);
+						Dcx_SpawnThing(PurpleDemonKey,( -2624, 192, -999 ), 0,  MODES_ALL);
+						Dcx_SpawnThing(CyanDemonKey,  ( -2784, 192, -999 ), 0,  MODES_ALL);
+						
+						Dcx_SpawnThing(Unmaker,( -3072, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Unmaker,( -3200, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Unmaker,( -3328, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Unmaker,( -3456, 192, -999 ), 0, MODES_ALL);
+						Dcx_SpawnThing(Unmaker,( -3584, 192, -999 ), 0, MODES_ALL);
+					}
+					break;
+				}
+				case '3cb5fae83b470a9accd9b9b2102447df' : //E1M1 ORIGINAL DOOM
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(247,line.front,side.top,"BROWNGR5");
+					}			
+					break;
+				}
+				
+				case 'b49f7a6c519757d390d52667db7d8793' : //E1M1 ULTIMATE DOOM
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(243,line.front,side.top,"BROWNGR5");
+						SetWallTextureID(136, Line.front, Side.bottom, TexMan.CheckForTexture("SW1TECH6", TexMan.Type_Wall, TexMan.Overridable));
+					}
+					
+					if ( (skill_level >= 3) && ( PsxEnabled >= 1) )
+					{
+						Dcx_SpawnThing(ZombieMan,( 1368.0, -2520.0, -999 ), 225, MODES_ALL|MTF_AMBUSH);
+						Dcx_SpawnThing(Painelemental,( 3616.0,-3520.0, -999 ), 270, MODES_ALL|MTF_AMBUSH);
+						SetThingEdNum(90,Chaingunner);
+					}
+					break;
+				}
+				
+				case '81a4cc5136cbfa49345654190a626c09': //E1M2
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(DoomImp,( 152, 280, -999 ), 0, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(Chaingunner,( 0, 864, -999 ), 		270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner,( 1248, 1024, -999 ), 	  0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner,( -2088, 1056, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner,( -1544, 1368, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(SpectreDemon,( -544, 896, -999 ), 	180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(SpectreDemon,( -800, 1248, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					break;
+				}
+				
+				case 'c7ff2282bc606ffb28ddcb90357094e6': //E1M3
+				{
+					if ( (skill_level >= 3) && ( PsxEnabled >= 1) )
+					{
+						Dcx_SpawnThing(Chaingunner,( -1504, -1816, -999 ), 	270, MODES_ALL|MTF_AMBUSH);						
+						Dcx_SpawnThing(Chaingunner,( -1664,-976, -999 ), 	270, MODES_ALL|MTF_AMBUSH);						
+						Dcx_SpawnThing(Chaingunner,( -2952, -984, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
+					}
+					break;
+				}
+				
+				case '5b26545ff21b051ca06d389ce535684c' : //E1M4
+				{
+					if ( CVar.FindCVar("fs_toggle").GetBool() )
+						SetSectorTexture(6,1,"F_SKY1");
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(Shotgunner,( 1712, -160, -999 ), 225, MODES_ALL|MTF_AMBUSH);
+							SetThingEdNum(110,NightmareImp);
+							SetThingEdNum(111,NightmareImp);
+						}
+					
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(Painelemental, (-672, 672, -999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Painelemental, (-928, 800, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					break;
+				}
+				
+				case '66d8e54b173041f981a11cce766c4215' : //E1M5
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{							
+							SetThingEdNum(21,  NightmareImp);
+							SetThingEdNum(22,  NightmareImp);
+							SetThingEdNum(110, NightmareImp);
+							SetThingEdNum(257, NightmareImp);
+							SetThingEdNum(258, NightmareImp);
+						}
+						
+						if (skill_level >= 3)
+						{	
+							SetThingEdNum(161, NightmareSpectre);
+							SetThingEdNum(267,NightmareSpectre);
+							SetThingEdNum(269,NightmareSpectre);
+							SetThingEdNum(65, NightmareSpectre);
+							
+							SetThingEdNum(30, Chaingunner);
+							SetThingEdNum(31, Chaingunner);
+							SetThingEdNum(78, Chaingunner);
+						}
+												
+						break;
+					}
+				}
+				
+				case '5faa25f5a6aab3409cae0af87f910341': //E1M6
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(92, NightmareImp);
+						SetThingEdNum(104, NightmareImp);
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(93, NightmareImp);
+							SetThingEdNum(94, NightmareImp);
+						}
+					
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(95, NightmareImp);
+							SetThingEdNum(389, NightmareImp);
+							SetThingEdNum(292, NightmareImp);
+							SetThingEdNum(242, NightmareImp);
+							SetThingEdNum(241, NightmareImp);
+								
+							SetThingEdNum(40,NightmareSpectre);
+							SetThingEdNum(41,NightmareSpectre);
+							SetThingEdNum(42,NightmareSpectre);
+							SetThingEdNum(43,NightmareSpectre);
+							SetThingEdNum(185,NightmareSpectre);
+							SetThingEdNum(244,NightmareSpectre);
+						
+							Dcx_SpawnThing(NightmareSpectre, (2496, -960, 999), 180, MODES_ALL|MTF_AMBUSH);
+								
+							SetThingEdNum(47,Chaingunner);						
+							Dcx_SpawnThing(Chaingunner, (-272, -768, 999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner, (512, 1424, 999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner, (648, 1392, 999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner, (3200, -1664, 999), 45, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					
+					break;
+				}
+				
+				case '9007f68e7f351a5758198933336f6b9f': //E1M7
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(205,NightmareSpectre);
+						SetThingEdNum(319,NightmareSpectre);
+							
+						SetThingEdNum(36,NightmareImp);
+						SetThingEdNum(113,NightmareImp);	
+						
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(161,NightmareImp);
+							SetThingEdNum(162,NightmareImp);
+							SetThingEdNum(172,NightmareImp);	
+							SetThingEdNum(173,NightmareImp);	
+							SetThingEdNum(155,NightmareImp);	
+							SetThingEdNum(154,NightmareImp);	
+							SetThingEdNum(35,NightmareImp);	
+							SetThingEdNum(50,NightmareImp);
+							SetThingEdNum(60,NightmareImp);
+							SetThingEdNum(226,NightmareImp);
+						}
+					
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(214,Revenant);
+							SetThingEdNum(306,Revenant);
+						}
+					}
+					
+					break;
+				}
+				
+				case '058fb092ea1b70da1e3cbf501c4a91a1': //E1M8
+				{
+					if ( PsxEnabled >= 1 )
+					{					
+						SetThingEdNum(77, NightmareSpectre);
+						SetThingEdNum(86, NightmareSpectre);
+						SetThingEdNum(80, NightmareSpectre);
+						SetThingEdNum(83, NightmareSpectre);
+						SetThingEdNum(82, NightmareSpectre);
+						SetThingEdNum(81, NightmareSpectre);
+						SetThingEdNum(78, NightmareSpectre);
+						SetThingEdNum(84, NightmareSpectre);
+						SetThingEdNum(79, NightmareSpectre);
+						SetThingEdNum(85, NightmareSpectre);
+						
+						Dcx_SpawnThing(ZombieMan, (352, 4992, 999), 270, MODES_ALL|MTF_AMBUSH);
+						Dcx_SpawnThing(ZombieMan, (544, 4992, 999), 270, MODES_ALL|MTF_AMBUSH);
+						
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(NightmareSpectre, (48, 688, 999), 45, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareSpectre, (784, 688, 999), 135, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					
+					Break;
+				}
+				
+				case '1dbf91738492fb0e29836a2d66406cf1': //E1M9
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						Dcx_SpawnThing(DoomImp, (624, -32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (672, -32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (720, -32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (784, -32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (624, 32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (784, 32, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (624, 80, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (784, 80, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (624, 144, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (672, 144, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (720, 144, -999), 225, MODES_ALL);
+						Dcx_SpawnThing(DoomImp, (784, 144, -999), 225, MODES_ALL);
+						
+						SetThingEdNum(4, 0);
+						SetThingEdNum(5, 0);
+						SetThingEdNum(6, 0);
+						SetThingEdNum(7, 0);
+						SetThingEdNum(8, 0);
+						SetThingEdNum(9, 0);
+						SetThingEdNum(10, 0);
+						SetThingEdNum(11, 0);
+						SetThingEdNum(12, 0);
+						
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(Painelemental, (2336, 552, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Painelemental, (1984, 944, -999), 180, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					
+					break;
+				}
+				
+				case '65455AC523799F8DCE19F3D1968776A2': //E2M1
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(27, NightmareSpectre);
+							SetThingEdNum(73, NightmareImp);
+							
+							Dcx_SpawnThing(Hellknight, (1024, -160, -999), 315, MODES_ALL|MTF_AMBUSH);
+						
+							Dcx_SpawnThing(Lostsoul, (488, -96, -999), 0, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					
+					break;
+				}
+				
+				case 'A24FE135D5B6FD427FE27BEF89717A65': //E2M2
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(199, NightmareSpectre);
+							SetThingEdNum(202, NightmareSpectre);
+							SetThingEdNum(232, NightmareSpectre);
+								
+							SetThingEdNum(119, NightmareImp);
+							SetThingEdNum(120, NightmareImp);
+							SetThingEdNum(207, NightmareImp);
+						}
+						
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(PinkyDemon, ( 2568, 2048, -999), 180, MODES_ALL);
+						}
+						
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(Revenant, ( 824, 2968, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Revenant, ( 912, 2704, -999), 180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(PinkyDemon, ( 2568, 1984, -999), 180, MODES_ALL);
+						}
+					}					
+					break;
+				}
+				
+				case '918436B3C2D0AD4F2C108183414B4612': //E2M3
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(32, NightmareImp);
+							SetThingEdNum(34, NightmareImp);
+							SetThingEdNum(36, NightmareImp);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(62, NightmareImp);
+							SetThingEdNum(63, NightmareImp);
+							SetThingEdNum(64, NightmareImp);
+							SetThingEdNum(83, NightmareImp);
+								
+							SetThingEdNum(23, NightmareSpectre);
+							SetThingEdNum(26, NightmareSpectre);
+							SetThingEdNum(30, NightmareSpectre);
+							SetThingEdNum(53, NightmareSpectre);
+							SetThingEdNum(74, NightmareSpectre);
+							SetThingEdNum(75, NightmareSpectre);
+							SetThingEdNum(224, NightmareSpectre);
+							Dcx_SpawnThing(Arachnotron, (384, 96, -999), 90, MODES_ALL|MTF_AMBUSH);
+						}	
+						
+						Dcx_SpawnThing(BFG9000, (864, -64, -999), 270, MODES_ALL);				
+					}		
+					break;
+				}
+				
+				case '1BC04D646B32D3A3E411DAF3C1A38FF8': //E2M4
+				{
+					if ( PsxEnabled >= 1 )
+					{											
+						Dcx_SpawnThing(Shotgunner, (-720, 448, -999), 0, MODES_ALL|MTF_AMBUSH);
+						
+						if (skill_level <= 2)
+						{
+							Dcx_SpawnThing(Zombieman, (-688 ,608, -999), 0, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(64, NightmareImp);
+							SetThingEdNum(65, NightmareImp);
+							SetThingEdNum(78, NightmareImp);
+							SetThingEdNum(79, NightmareImp);
+							Dcx_SpawnThing(PinkyDemon, (-720, 368, -999), 0, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(80, NightmareImp);
+							SetThingEdNum(81, NightmareImp);
+						}
+					}
+				
+					break;
+				}
+				
+				case '99C580AD8FABE923CAB485CB7F3C5E5D': //E2M5
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(30, NightmareImp);
+						SetThingEdNum(25, NightmareImp);
+						SetThingEdNum(22, NightmareImp);
+						SetThingEdNum(19, NightmareImp);
+						SetThingEdNum(7, NightmareImp);
+						SetThingEdNum(10, NightmareImp);
+						SetThingEdNum(14, NightmareImp);
+
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(149, NightmareImp);
+							SetThingEdNum(150, NightmareImp);
+							Dcx_SpawnThing(Painelemental,(-2096,1008,-999),270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Painelemental,(256,1280,-999),270 ,MODES_ALL|MTF_AMBUSH);
+						}
+					}
+				
+					break;
+				}
+				
+				case '3838AB29292587A7EE3CA71E7040868D': //E2M6
+				{
+					// Removes the extra pinky, now everything will be able to move
+					SetThingEdNum(71,0);
+					
+					if ( PsxEnabled >= 1 )
+					{					
+						SetThingEdNum(17, NightmareSpectre);
+							
+						SetThingEdNum(126, NightmareImp);
+						SetThingEdNum(127, NightmareImp);
+						SetThingEdNum(149, NightmareImp);
+						SetThingEdNum(156, NightmareImp);
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(141, NightmareImp);
+						}
+							
+						if (skill_level != 2)
+						{
+							SetThingEdNum(229, NightmareImp);
+							SetThingEdNum(5, NightmareImp);
+							SetThingEdNum(15, NightmareImp);
+							SetThingEdNum(16, NightmareImp);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(18, NightmareSpectre);
+							Dcx_SpawnThing(Revenant,(-496, 80,-999), 90, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Revenant,(-848, -984,-999), 90, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Revenant,(384, -1336,-999), 180, MODES_ALL|MTF_AMBUSH);
+						}						
+					}
+					break;
+				}
+			
+			
+				case '8590F489879870C098CD7029C3187159': //E2M7
+				{
+					// Removes corpses hanging in the air
+					
+					SetThingEdNum(195,0);
+					SetThingEdNum(196,0);
+					
+					if ( PsxEnabled >= 1 )
+					{	
+						SetThingEdNum(199,0);
+						SetThingEdNum(229,0);
+					
+						SetLineActivation(1620, SPAC_Use);
+						SetLineSpecial(1620, Exit_Secret, 0);
+					
+						SetLineActivation(680, 0);
+						SetWallTexture(680,line.front,side.mid,"BROWN96");
+					
+						SetSectorSpecial(294, 0);
+						
+						SetThingEdNum(104, Nightmareimp);
+						SetThingEdNum(105, Nightmareimp);
+						SetThingEdNum(106, Nightmareimp);
+						SetThingEdNum(3,   Nightmareimp);
+						SetThingEdNum(10,  Nightmareimp);
+						
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(226, Nightmareimp);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(211, Nightmareimp);
+							SetThingEdNum(212, Nightmareimp);
+							SetThingEdNum(213, Nightmareimp);
+							SetThingEdNum(214, Nightmareimp);
+							SetThingEdNum(215, Nightmareimp);
+							Dcx_SpawnThing(Fatso,(112, 1592,-999),270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Fatso,(736, 152,-999),180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Fatso,(2072, -48,-999),90, MODES_ALL|MTF_AMBUSH);
+						}						
+					}
+					break;
+				}
+				
+				case 'effe91df41ad41f6973c06f0ad67ddb9': //E2M8
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2) //Four Fat men on normal and above
+						{
+							Dcx_SpawnThing(Fatso, (-1280, -808, -999),  	 0, MODES_ALL);	
+							Dcx_SpawnThing(Fatso, (-88, -1992, -999),  		90, MODES_ALL);	
+							Dcx_SpawnThing(Fatso, (1104, -808, -999), 	   180, MODES_ALL);	
+							Dcx_SpawnThing(Fatso, (-96, 424, -999),   	   270, MODES_ALL);	
+						}					
+						if (skill_level >= 3) //Another four fatmen on the hardest skills
+						{											
+							Dcx_SpawnThing(Fatso, (-1208, -1024, -999), 	 0, MODES_ALL);													
+							Dcx_SpawnThing(Fatso, (144.0, -1976.0, -999),   90, MODES_ALL);								
+							Dcx_SpawnThing(Fatso, (1024, -160, -999), 	   180, MODES_ALL);							
+							Dcx_SpawnThing(Fatso, (88, 392, -999),    	   270, MODES_ALL);
+						}					
+					}
+					
+					break;
+				}
+				
+				case 'c4a89a481a32bfeddeb82e818f2bdec5': //E3M1
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{	
+							Dcx_SpawnThing(Nightmarespectre, (-800, 1696, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+						if (skill_level >= 3)
+						{		
+							Dcx_SpawnThing(Nightmareimp, (-896, 1568, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (-704, 1568, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}						
+						Dcx_SpawnThing(Shell, (-800, 1376, -999), 0, MODES_ALL);
+					}
+					break;
+				}
+				
+				case 'BBDC4253AE277DA5FCE2F19561627496': //E3M2
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{	
+							SetThingEdNum(125, NightmareSpectre);
+							SetThingEdNum(127, NightmareSpectre);
+						}
+						
+						if (skill_level >= 3)	
+						{	
+							SetThingEdNum(188, NightmareSpectre);
+							SetThingEdNum(189, NightmareSpectre);
+							SetThingEdNum(193, NightmareSpectre);
+							Dcx_SpawnThing(Arachnotron, (224, 1664, -999), 315, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(PainElemental, (-64, 2336, -999), 270, MODES_ALL|MTF_AMBUSH);
+							
+							SetThingEdNum(34, Chaingunner);
+							SetThingEdNum(35, Chaingunner);
+						}
+					}
+					break;
+				}
+				
+				case 'F951882CB5A8DEF910F0ED966A1054C5': //E3M3
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum( 71, NightmareSpectre);
+						SetThingEdNum( 97, NightmareSpectre);
+						SetThingEdNum( 139, NightmareSpectre);
+						SetThingEdNum( 151, NightmareSpectre);
+						SetThingEdNum( 198, NightmareSpectre);
+							
+						SetThingEdNum( 43, NightmareImp);
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum( 37, NightmareImp);
+						}
+							
+						if (skill_level >= 3)
+						{
+							SetThingEdNum( 145, NightmareImp);
+							Dcx_SpawnThing( Hellknight,( -480, -288, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing( Hellknight,( -128, 1104, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing( Hellknight,( -352, 1248, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+						
+					}
+					break;
+				}
+				
+				case '2B65CB046EA40D2E44576949381769CA': //E3M4
+				{	
+					if ( PsxEnabled >= 1 )
+					{					
+						SetThingEdNum( 60, NightmareImp);
+						SetThingEdNum( 61, NightmareImp);
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum( 4, NightmareSpectre);
+							SetThingEdNum( 31, NightmareSpectre);
+							SetThingEdNum( 21, NightmareSpectre);
+							SetThingEdNum( 22, NightmareSpectre);
+								
+							SetThingEdNum( 252, NightmareImp);
+							SetThingEdNum( 109, NightmareImp);
+							SetThingEdNum( 113, NightmareImp);
+						}
+					}
+					break;
+				}
+				
+				case '100106C75157B7DECB0DCAD2A59C1919': //E3M5
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum( 291, NightmareSpectre);
+						SetThingEdNum( 7, NightmareSpectre);
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum( 6, NightmareSpectre);
+							SetThingEdNum( 9, NightmareSpectre);
+							SetThingEdNum( 8, NightmareSpectre);
+						}
+							
+						if (skill_level >= 3)
+						{
+							SetThingEdNum( 4, NightmareSpectre);
+							SetThingEdNum( 5, NightmareSpectre);
+								
+							Dcx_SpawnThing(NightmareSpectre,(-1328,-368,-999),0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareSpectre,(-1248,1312,-999),0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareSpectre,(-1424,1136,-999),0, MODES_ALL|MTF_AMBUSH);
+						}	
+					}
+					break;
+				}
+				
+				case '2BAF49B4CC36155B60B5330660AC0976': //E3M6
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{							
+							SetThingEdNum(183, Nightmareimp);
+							SetThingEdNum(184, Nightmareimp);
+							SetThingEdNum(185, Nightmareimp);
+							SetThingEdNum(186, Nightmareimp);
+						}
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(111, Nightmareimp);
+							SetThingEdNum(113, Nightmareimp);
+							
+							SetThingEdNum(67, Nightmareimp);
+							SetThingEdNum(69, Nightmareimp);
+							SetThingEdNum(70, Nightmareimp);
+							
+							SetThingEdNum(49, Nightmareimp);
+							SetThingEdNum(50, Nightmareimp);
+							SetThingEdNum(51, Nightmareimp);
+								
+							SetThingEdNum(4, NightmareCacodemon);
+							SetThingEdNum(158, NightmareCacodemon);
+							SetThingEdNum(247, NightmareCacodemon);
+							SetThingEdNum(264, NightmareCacodemon);
+							
+							Dcx_SpawnThing(Fatso, (-1264, -1336, -999), 315, MODES_ALL);
+						}								
+					}
+					break;
+				}
+				
+				case '5AC51CA9F1B57D4538049422A5E37291': //E3M7
+				{
+					SetSectorTexture(105,1,"FLOOR3_3");
+					
+					SetLineActivation(890, SPAC_Use);
+					SetLineFlags(890, Line.ML_REPEAT_SPECIAL);
+					SetLineSpecial(890, Plat_DownWaitUpStayLip, 6, 32, 105);
+					
+					SetLineActivation(891, SPAC_Use);
+					SetLineFlags(891, Line.ML_REPEAT_SPECIAL);
+					SetLineSpecial(891, Plat_DownWaitUpStayLip, 6, 32, 105);
+					
+					
+					level.lines[657].locknumber = 131;
+					SetLineActivation(657, SPAC_Use);
+					SetLineSpecial(657, Door_Open, 0, 16, 0);
+					
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(Nightmareimp, (1728, -1376, -999), 135, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (1824, -1184, -999), 135, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (1728, -1472, -999), 135, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (1856, -1120, -999), 135, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Nightmareimp, (-1120, 1624, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						if ( skill_level >= 3)
+						{
+							SetThingEdNum(91, NightmareCacodemon);
+							SetThingEdNum(92, NightmareCacodemon);
+							
+							Dcx_SpawnThing(NightmareCacodemon, (-1568, 1104, -999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareCacodemon, (-928, 1120, -999), 180, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					break;
+				}
+				
+				case 'ef128313112110ed6c1549af96af26c9': //E3M8
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(32, PainElemental);
+						SetThingEdNum(33, PainElemental);
+					}
+					break;
+				}
+				
+				case 'FE97DCB9E6235FB3C52AE7C143160D73': //E3M9
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{	
+							Dcx_SpawnThing(Nightmarespectre, (-672, 1696, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+						if (skill_level >= 3)
+						{		
+							Dcx_SpawnThing(Nightmareimp, (-768, 1568, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (-576, 1568, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						Dcx_SpawnThing(Shell, (-672, 1376, -999), 0, MODES_ALL);
+					}
+					break;
+				}
+			
+				case 'DA0C8281AC70EEC31127C228BCD7FE2C': //e4m1
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(87, Hellknight); 
+						SetThingEdNum(29, Hellknight);
+						SetThingEdNum(30, Hellknight);
+						SetThingEdNum(31, Hellknight);
+						SetThingEdNum(32, Hellknight);
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(53, NightmareImp); 
+							SetThingEdNum(54, NightmareImp);
+							SetThingEdNum(45, NightmareImp); 
+							SetThingEdNum(46, NightmareImp);
+							SetThingEdNum(35, NightmareImp); 
+							SetThingEdNum(37, NightmareImp); 
+							SetThingEdNum(38, NightmareImp); 
+						}						
+					}
+					break;
+				}
+			
+				case '771092812F38236C9DF2CB06B2D6B24F': //e4m2
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(24, Hellknight); 
+						SetThingEdNum(25, Hellknight); 
+						SetThingEdNum(26, Hellknight); 
+						SetThingEdNum(39, Hellknight);
+						SetThingEdNum(40, Hellknight); 
+						SetThingEdNum(90, Hellknight); 
+						SetThingEdNum(91, Hellknight);
+						SetThingEdNum(92, Hellknight);
+						SetThingEdNum(133, Hellknight);
+						SetThingEdNum(134, Hellknight);
+						SetThingEdNum(223, Hellknight);						
+							
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(77, NightmareImp); 
+							SetThingEdNum(78, NightmareImp); 
+							SetThingEdNum(83, NightmareImp); 
+							SetThingEdNum(82, NightmareImp); 
+						}
+						
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(PinkyDemon,(96,176,-999),90, MODES_ALL|MTF_AMBUSH);
+							
+							SetThingEdNum(36, NightmareImp); 
+							SetThingEdNum(37, NightmareImp);
+							
+							SetThingEdNum(120, NightmareCacodemon); 
+							SetThingEdNum(131, NightmareCacodemon); 
+							SetThingEdNum(132, NightmareCacodemon);
+						}
+					}
+					break;
+				}
+			
+				case 'F6EE16F770AD309D608EA0B1F1E249FC': //e4m3
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(238, Hellknight);
+						SetThingEdNum(239, Hellknight);
+						SetThingEdNum(326, Hellknight);
+						SetThingEdNum(327, Hellknight);
+						SetThingEdNum(368, Hellknight);
+					}
+					break;
+				}
+				
+				case 'AAECADD4D97970AFF702D86FAFAC7D17': //e4m4
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						Dcx_SpawnThing(Fatso, ( 160, -544, -999), 270, MODES_ALL|MTF_AMBUSH);
+					}
+					Break;
+				}
+				
+				case 'C2E09AB0BDD03925305A48AE935B71CA': //E4M5
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(215, NightmareSpectre);
+							
+							Dcx_SpawnThing(PainElemental, (128, 512, -999), 225, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(PainElemental, (960, 1888, -999), 270, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					Break;
+				}
+				
+				case 'CBBFF61A8C231DFFC8E8A2A2BAEB77FF': //E4M6
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level >= 2)
+						{
+							SetThingEdNum(161, Nightmareimp);
+							SetThingEdNum(162, Nightmareimp);
+								
+							SetThingEdNum(175, Nightmareimp);
+							SetThingEdNum(176, Nightmareimp);
+						}
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(Nightmareimp, (80, 504, -999), 180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (104, 272, -999), 180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (200, 568, -999), 180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Nightmareimp, (216, 224, -999), 180, MODES_ALL|MTF_AMBUSH);
+								
+							Dcx_SpawnThing(NightmareCacodemon, (1472, 1504, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareCacodemon, (1664, 1504, -999), 270, MODES_ALL|MTF_AMBUSH);
+								
+							SetThingEdNum(285, NightmareCacodemon);
+							SetThingEdNum(286, NightmareCacodemon);
+						}
+					}
+					Break;
+				}
+				
+				
+				case '94D4C869A0C02EF4F7375022B36AAE45': //E4M7 //ML_MAP35
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(595,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(582,line.front,side.mid,"DOORBLU2");
+						
+						SetWallTexture(388,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1325,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1053,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1324,line.front,side.top,"DOORYEL2");
+						
+						SetWallTexture(1329,line.front,side.top,"DOORYEL2");
+						SetWallTexture(210,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1056,line.front,side.top,"DOORYEL2");
+						SetWallTexture(1327,line.front,side.top,"DOORYEL2");
+					
+						SetWallTexture(64,line.front,side.mid,"DOORRED2");
+						SetWallTexture(68,line.front,side.mid,"DOORRED2");
+					}
+					
+					if ( MapName == "e4m7" )
+					{
+						if ( PsxEnabled >= 1 )
+						{
+							SetThingEdNum(126, Hellknight);
+							SetThingEdNum(130, Hellknight);
+							SetThingEdNum(131, Hellknight);
+							
+							Dcx_SpawnThing(Hellknight, (896, 1216, -999), 180, MODES_ALL|MTF_AMBUSH);
+							
+							if ( skill_level >= 3)
+							{
+								SetThingEdNum(52, NightmareSpectre);
+								Dcx_SpawnThing(NightmareSpectre, (1344, 1216, -999), 0, MODES_ALL|MTF_AMBUSH);
+							}
+						}
+					}
+					
+					if ( MapName == "ml_map35" )
+					{
+						SetThingEdNum(131, Hellknight);
+						
+						SetThingEdNum(170, Hellknight);
+						SetThingEdNum(171, Hellknight);
+						
+						SetThingEdNum(49, Chaingunner);						
+							
+						SetThingEdNum(62, SuperShotgun);
+							
+						SetThingEdNum(78, Hellknight);
+						SetThingEdNum(84, Hellknight);
+							
+						SetThingEdNum(25, Chaingunner);
+						SetThingEdNum(26, Chaingunner);						
+							
+						SetThingEdNum(53, Cacodemon);
+							
+						SetThingEdNum(51, Painelemental);
+							
+						SetThingEdNum(136, Chaingunner);
+						
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(Chaingunner,(-48,248,-999),90, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Doomimp,(256,480,-999),0, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Doomimp,(256,480,-999),0, MODES_ALL|MTF_AMBUSH);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(31, Chaingunner);
+							SetThingEdNum(63, Chaingunner);
+							
+							SetThingEdNum(32, Shotgunner);
+							SetThingEdNum(67, Shotgunner);
+							
+							SetThingEdNum(176, Painelemental);						
+							SetThingEdNum(42, Revenant);
+							SetThingEdNum(43, Revenant);
+						
+							SetThingEdNum(10, Revenant);
+							SetThingEdNum(11, Revenant);
+							
+							SetThingEdNum(167, Fatso);
+							SetThingEdNum(169, Fatso);
+							
+							SetThingEdNum(130, Archvile);
+							
+							Dcx_SpawnThing(Hellknight,(-672,2080,-999),270, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Hellknight,(-824,1096,-999),0, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Hellknight,(-768,1248,-999),0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Hellknight,(768,1216,-999),180, MODES_ALL|MTF_AMBUSH);
+						}
+					}
+					break;
+				}
+			
+				case '2DC939E508AB8EB68AF79D5B60568711': //e4m8
+				{
+					SetThingEdNum(137,Shotgunner);
+					SetThingAngle(289,180);
+					SetThingAngle(281,315);
+					SetThingAngle(290,180);
+					SetThingAngle(291,180);
+					AddThing(Cacodemon, (-416, -1568, -999), 270, 1 | 2);
+					SetSectorPlane(130,1,(0,0,0),304);
+					SetSectorPlane(131,1,(0,0,0),304);
+					SetSectorPlane(132,1,(0,0,0),304);
+					
+					if ( TextureChanges )
+					{
+						SetWallTexture(1020,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1021,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1022,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1023,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1024,line.back,side.bottom,"WFALL1");						
+						SetWallTexture(1025,line.back,side.bottom,"WFALL1");
+						SetWallTexture(1026,line.back,side.bottom,"WFALL1");
+						SetWallTexture(1027,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1028,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1029,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1030,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1031,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1032,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1033,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1034,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1035,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1036,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1037,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1038,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1039,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1040,line.front,side.bottom,"WFALL1");
+						SetWallTexture(1041,line.front,side.bottom,"WFALL1");
+					}
+					else
+					{
+						SetWallTexture(1029,line.front,side.bottom,"SP_ROCK1");
+					}
+					
+					if ( !PsxEnabled >= 1 )
+					{	
+						SetLineActivation(877, SPAC_Cross);
+						SetLineActivation(878, SPAC_Cross);
+						SetLineActivation(879, SPAC_Cross);
+						SetLineActivation(880, SPAC_Cross);
+						SetLineActivation(881, SPAC_Cross);
+						SetLineActivation(882, SPAC_Cross);
+						SetLineActivation(883, SPAC_Cross);
+						SetLineActivation(884, SPAC_Cross);
+					
+						SetLineSpecial(877, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(878, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(879, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(880, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(881, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(882, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(883, ACS_Execute, -int('NoIntermission_Script'));
+						SetLineSpecial(884, ACS_Execute, -int('NoIntermission_Script'));
+					}
+					else
+					{
+						SetThingEdNum(105, Cacodemon);
+						SetThingEdNum(106, Cacodemon);
+						SetThingEdNum(120, Cacodemon);
+						
+						SetThingEdNum(143, Cacodemon);
+						SetThingEdNum(144, Cacodemon);						
+						SetThingEdNum(145, Cacodemon);
+						SetThingEdNum(291, Cacodemon);
+						
+						SetThingEdNum(140, NightmareSpectre);
+						SetThingEdNum(141, NightmareSpectre);						
+						SetThingEdNum(142, NightmareSpectre);
+						SetThingEdNum(290, NightmareSpectre);
+					
+						SetThingEdNum(261, Hellknight);
+						SetThingEdNum(262, Hellknight);
+						SetThingEdNum(263, Hellknight);
+						SetThingEdNum(264, Hellknight);
+						
+						SetThingEdNum(218, Shotgunner);
+						SetThingEdNum(219, Shotgunner);
+						SetThingEdNum(258, Shotgunner);
+						SetThingEdNum(220, Shotgunner);
+						SetThingEdNum(254, Shotgunner);
+						SetThingEdNum(221, Shotgunner);
+						SetThingEdNum(236, Shotgunner);
+						SetThingEdNum(250, Shotgunner);
+						SetThingEdNum(235, Shotgunner);
+						SetThingEdNum(247, Shotgunner);
+						SetThingEdNum(231, Shotgunner);
+						SetThingEdNum(244, Shotgunner);
+						SetThingEdNum(228, Shotgunner);
+						SetThingEdNum(112, Shotgunner);
+						SetThingEdNum(113, Shotgunner);
+						SetThingEdNum(114, Shotgunner);
+						
+						SetThingEdNum(284, Zombieman);
+						SetThingEdNum(281, Zombieman);
+					}
+					break;
+				}
+				
+				case 'ab24ae6e2cb13cbdd04600a4d37f9189': //MAP02
+				{
+					//	Removes Out of Bounds and/or stuck objects and puts them in the right spot
+					
+					SetThingEdNum(85,0);
+					SetThingEdNum(69,0);
+					
+					Dcx_SpawnThing(Shotgunner, (944, 920, -999), 90, MODES_ALL|MTF_AMBUSH);
+					Dcx_SpawnThing(ExplosiveBarrel, (472, 800, -999), 45, MODES_ALL|MTF_AMBUSH);
+					
+					break;
+				}
+				
+								
+				case 'CEC791136A83EEC4B91D39718BDF9D82': //Map04
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(64, NightmareSpectre);
+						SetThingEdNum(132, SpectreDemon);
+					}
+					break;
+				}
+				
+				case '9E061AD7FBCD7FAD968C976CB4AA3B9D': //Map05
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(207, SpectreDemon);
+						SetThingEdNum(208, SpectreDemon);
+					}
+					break;
+				}
+				
+				case '434575DCB650B4EFC912EFC0782C7ACC': //Map06
+				{
+					if ( PsxEnabled >= 1 )
+					{				
+						if (skill_level == 2)
+						{
+							Dcx_SpawnThing(NightmareSpectre,(2144,1664,-999),180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareSpectre,(2240,1760,-999),180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(NightmareSpectre,(2240,1568,-999),180, MODES_ALL|MTF_AMBUSH);
+							SetThingFlags(28, 0);
+						}
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(245, NightmareSpectre);
+							SetThingEdNum(220, Shotgunner);
+							SetThingEdNum(221, Shotgunner);
+						}			
+					}
+					break;
+				}
+				
+				case '66C46385EB1A23D60839D1532522076B': //Map08
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(217, Hellknight);
+						SetThingEdNum(218, Hellknight);
+					}
+					break;
+				}
+				
+				case '73D9E03CEE7BF1A97EFD2EAD86688EF8': //Map11
+				{
+					if ( PsxEnabled >= 1 )
+					{
+						SetThingEdNum(190, NightmareSpectre);
+					}
+					break;
+				}
+			
+				case '6b60f37b91309dff1cdf02e5e476210d': //map16
+				{
+					if ( PsxEnabled >= 1 )
+					{					
+						SetLineActivation(580, 0);
+						SetLineSpecial(580, 0);
+						AddSectorTag(11, 19);
+						SetLineActivation(316, SPAC_Cross);
+						SetLineActivation(317, SPAC_Cross);
+						SetLineActivation(318, SPAC_Cross);
+						SetLineActivation(319, SPAC_Cross);
+						SetLineActivation(320, SPAC_Cross);
+						SetLineSpecial(316, Door_Raise, 19, 64, 150);
+						SetLineSpecial(317, Door_Raise, 19, 64, 150);
+						SetLineSpecial(318, Door_Raise, 19, 64, 150);
+						SetLineSpecial(319, Door_Raise, 19, 64, 150);
+						SetLineSpecial(320, Door_Raise, 19, 64, 150);
+					
+						SetLineActivation(574, SPAC_Use);
+						SetLineSpecial(574, Exit_Secret, 0);
+						SetLineFlags(316, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(317, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(318, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(319, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(320, Line.ML_REPEAT_SPECIAL);
+						SetLineFlags(574, Line.ML_REPEAT_SPECIAL);
+						SetWallTextureID(574, Line.front, Side.mid, TexMan.CheckForTexture("SW2SPFAC", TexMan.Type_Wall, TexMan.Overridable));				
+					}
+					break;
+				}
+				
+				case '5B95A0EB9656ABD9F6DF9FFA68CADAAF': //PSX09
+				{
+					SetLineActivation(43, SPAC_Cross);			
+					SetLineSpecial(43, ACS_Execute, -int('ClubDoomMusicSwap'));
+					break;
+				}
+				
+				case '110F84DE041052B59307FAF0293E6BC0': //Map27
+				{
+					if ( PsxEnabled >= 1 )
+					{	
+						SetThingEdNum(74, NightmareSpectre);
+						SetThingEdNum(75, NightmareSpectre);
+						SetThingEdNum(76, NightmareSpectre);
+						SetThingEdNum(77, NightmareSpectre);
+						
+						Dcx_SpawnThing(HellKnight,(1280, -2208, -999), 90, MODES_ALL|MTF_AMBUSH);
+						Dcx_SpawnThing(HellKnight,(1216, -2208, -999), 90, MODES_ALL|MTF_AMBUSH);
+						SetThingFlags(101, 0);
+					}
+					break;
+				}
+				
+				case '3FF94E27423F91C1585B3396F0C03459' : //"Map31
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(666,line.front,side.mid,"LITE5");
+						SetWallTexture(668,line.front,side.mid,"LITE5");
+						SetWallTexture(670,line.front,side.mid,"LITE5");
+						SetWallTexture(672,line.front,side.mid,"LITE5");
+					}
+					break;
+				}
+				
+				case 'A3F7A58FC08C369F1360741A99F1497C' : //LR_MAP14
+				{
+					if ( !AllowCustom )
+					{
+						SetThingEdNum(112,2049);
+						SetThingEdNum(113,2049);
+						
+						addthing(2049, (-192, 3296, -999), 270);
+						
+						SetThingID(8, 666);
+						
+						SetThingID(473, 667);
+						SetThingID(474, 667);
+						SetThingID(475, 667);
+						SetThingID(476, 667);
+						SetThingID(477, 667);
+						SetThingID(478, 667);
+						SetThingID(479, 667);
+						
+						SetThingID(480, 667);
+						SetThingID(483, 667);
+						
+						SetThingID(491, 667);
+						SetThingID(493, 667);
+						SetThingID(494, 667);
+						SetThingID(495, 667);
+						SetThingID(496, 667);
+						SetThingID(497, 667);
+						
+						SetThingID(511, 667);
+						SetThingID(512, 667);
+						SetThingID(513, 667);
+						SetThingID(514, 667);
+						SetThingID(515, 667);
+						SetThingID(516, 667);
+						SetThingID(517, 667);
+						SetThingID(518, 667);
+						
+						SetThingID(535, 667);
+						
+					}
+					break;
+				}
+				
+				case '25F93BD6E7B394A6E799421B4202084E' : //ML_MAP33
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(345,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(347,line.front,side.mid,"DOORYEL2");						
+						SetWallTexture(351,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(353,line.front,side.mid,"DOORYEL2");						
+							
+						SetWallTexture(566,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1167,line.front,side.top,"DOORBLU2");					
+						SetWallTexture(563,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1165,line.front,side.top,"DOORBLU2");
+							
+						SetWallTexture(1025,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1464,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1466,line.front,side.top,"DOORBLU2");
+						SetWallTexture(1467,line.front,side.top,"DOORBLU2");
+					}
+					break;
+				}
+				
+				case '17FFA47F0FE4368CD9710A0F3C5052D2' : //ml_map34
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(370,line.front,side.top,"MARBFRED");
+						SetWallTexture(380,line.front,side.top,"MARBFRED");
+					
+						SetWallTexture(788,line.front,side.mid,"DOORYEL");
+						SetWallTexture(790,line.front,side.mid,"DOORYEL");
+					}
+					break;
+				}
+				
+				case 'F4E27C9E58975CC01801499FD66E22C3' : //ml_map11
+				{
+					if ( TextureChanges )
+					{
+						SetWallTexture(338,line.front,side.top,"DOORBLU2");
+						SetWallTexture(341,line.front,side.top,"DOORBLU2");
+						SetWallTexture(538,line.front,side.top,"DOORBLU2");
+						SetWallTexture(540,line.front,side.top,"DOORBLU2");
+					
+						SetWallTexture(534,line.front,side.top,"DOORYEL2");
+						SetWallTexture(464,line.front,side.top,"DOORYEL2");
+						SetWallTexture(537,line.front,side.top,"DOORYEL2");
+						SetWallTexture(461,line.front,side.top,"DOORYEL2");
+					
+						SetWallTexture(301,line.front,side.mid,"DOORYEL2");
+						SetWallTexture(699,line.front,side.mid,"DOORYEL2");
+					
+						SetWallTexture(286,line.front,side.mid,"DOORYEL");
+						SetWallTexture(931,line.front,side.mid,"DOORYEL");
+					}
+					break;
+				}
+				
+				case 'F3EA567C6FFFBB49AF6BDOEC773A2AF1' : //ml_map12"
+				{
+					if ( TextureChanges ) 
+					{
+						SetWallTexture(157,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(831,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(344,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(345,line.front,side.mid,"DOORBLU2");
+					
+						SetWallTexture(332,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(204,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(206,line.front,side.mid,"DOORBLU");
+						SetWallTexture(328,line.front,side.mid,"DOORBLU");
+					
+						SetWallTexture(670,line.front,side.mid,"DOORRED2");
+						SetWallTexture(740,line.front,side.mid,"DOORRED2");
+						SetWallTexture(923,line.front,side.top,"DOORRED2");
+						SetWallTexture(816,line.front,side.top,"DOORRED2");
+					}
+					break;
+				}
+				
+				case '8C7C674F9EE4D15DF19414A556AE3369' : //ml_map15
+					if ( TextureChanges ) 
+					{
+						SetWallTexture(27,line.front,side.mid,"DOORBLU2");
+						SetWallTexture(244,line.front,side.mid,"DOORBLU2");
+					
+						SetWallTexture(667,line.front,side.mid,"DOORRED2");
+						SetWallTexture(1108,line.front,side.mid,"DOORRED2");
+					}
+				break;
+				
+				case '75AD07EBOB915DE49DABCC3B9158161D' : //ml_map36
+				{
+					if ( TextureChanges ) 
+					{
+						SetWallTexture(3694,line.front,side.mid,"DOORRED");
+						SetWallTexture(3673,line.front,side.mid,"DOORRED");
+						SetWallTexture(3691,line.front,side.mid,"DOORRED");
+						SetWallTexture(1530,line.front,side.mid,"DOORRED");		
+					}
+					break;
+				}
+				
+				case 'd5f64e02679a81b82006af34a6a8eac3': //pl_map32
+				{
+					SetThingEdNum(515,Fatso);
+					break;
+				}
+				
+				case '96BE67AADAA69B1D54294C051100FCE9': //ml_map42: Eye Of The Storm
+				{
+					if ( CVar.GetCvar("dcx_CabalOrder").getint() == 2 )
+					{
+						SetLineActivation(817, SPAC_Cross);
+						SetLineSpecial(817, ACS_Execute, -int('NoIntermission_Script'));
+					}
+					Break;
+				}
+				
+				case '20DC5D6832C95D1C68BE8FC0C082BEE8': //ml_map43 Image Of Evil
+				{
+					if ( CVar.GetCvar("dcx_CabalOrder").getint() < 2 )
+					{
+						SetLineActivation(1253, SPAC_Cross);
+						SetLineSpecial(1253, ACS_Execute, -int('NoIntermission_Script'));
+					}
+					Break;
+				}
+				
+				case '2A1788BA5331055D5289BE32D5E0CB58': //Ab_MAP29
+				{
+					if ( AllowCustom )
+					{
+						SetThingEdNum(10, DualCyberdemon);
+						SetThingEdNum(11, DualCyberdemon);
+						SetThingEdNum(376, DualCyberdemon);
+					}
+					Break;
+				}			
+			}
+			break;
+		}
+	}
+}

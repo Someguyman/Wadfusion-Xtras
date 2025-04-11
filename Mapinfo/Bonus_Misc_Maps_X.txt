@@ -1,0 +1,57 @@
+defaultmap
+{
+	SuckTime = 1
+	NoJump
+	NoCrouch
+	compat_invisibility = "1"
+}
+
+//Won't be included in the mod for now
+//since it's something you have to pay for and
+//it's to support the ukraine red cross organization.
+//If you want this level as a part of the set
+//then you have to obtain it yourself, rename 
+//it to "OneHumanity", then open the mod
+//with slade and put the wad into the
+//"maps" folder and then save the change.
+
+Map OneHumanity "One Humanity"
+{
+	Sky1 = "SKY6"
+	Next = "EndTitle"
+	InterMusic = "S2_INTER"
+	EnterPic = "SIGILIN2"
+	ExitPic = "SIGILIN2"
+	BorderTexture = "FLOOR7_2"
+	Author = "$WF_AU_ROMERO"
+	Music = "D_E6M4"
+	Par = 144
+	Label = "Bonus"
+}
+
+map TURKIES "Super Turbo Turky Puncher 3!"
+{
+	Cluster = 0
+	Music = "D_TURKY"
+	Sky1 = "SKY4"
+	NoIntermission
+	NoSoundClipping
+	Label = "MINIGAME"
+}
+
+Map Masterhub "Master Levels Hub"
+{
+	music = "$MUSIC_MASTERHUB"
+	Next = EndGame
+	{
+		Pic = "MLBOSSBK"
+		music = "$MUSIC_MASTEREND"
+		Cast
+	}
+	Label = ""
+	nointermission
+	nosoundclipping
+	sky1 = "MASTERSKY"
+	Label = "Hub"
+	Cluster = 0
+}

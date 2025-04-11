@@ -18,15 +18,38 @@ script "ChangeSkyTexture" (void)
 	Terminate;
 }
 
-script "E4M1_NoIntermission" (void)
-{	
-	ChangeLevel("e4m0",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
-	Terminate;
-}
-
-script "Cabal_NoIntermission" (void)
-{	
-	ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+script "NoIntermission_Script" (void)
+{
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	str levelset = StrMid(mapName, 0, 3);
+	str levelset2 = StrMid(mapName, 0, 6);
+	
+	if( (StrICmp(mapName, "e4m8") == 0) || (StrICmp(mapName, "psx05") == 0) )
+	{
+		ChangeLevel("e4ending",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		Terminate;
+	}
+	
+	if(GetCVar ("dcx_CabalOrder") == 2)
+	{
+		if(StrICmp(mapName, "ml_map42") == 0)
+		{
+			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+			Terminate;
+		}
+	}
+	else
+	{
+		if(StrICmp(mapName, "ml_map43") == 0)
+		{
+			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+			Terminate;
+		}
+	}
+	
+	Exit_Normal(0);
 	Terminate;
 }
 
@@ -34,6 +57,32 @@ Script "ClubDoomMusicSwap" (void)
 {
    SetMusic("D_PSX09B", 0);
    Terminate;
+}
+
+Script "ThresholdOPainBossDeath" Enter
+{	
+	if (PlayerNumber() != 0)
+	terminate;
+	
+	str mapName = StrParam(n:PRINTNAME_LEVEL);
+	str episode = StrMid(mapName, 1, 1);
+	str mission = StrMid(mapName, 3, 1);
+	
+	if (StrICmp(mapName, "psx05") == 0)
+	{
+		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
+		
+		delay(44);
+		
+		Door_Open (666, 64);
+		
+		Terminate;
+	}
+	else
+	{
+		Terminate;
+	}
+	
 }
 
 Script "WeaponManagement" Enter //Used to clean up inventory if you gave yourself all weapons via cheats
@@ -55,12 +104,12 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 	{
 		if (CheckInventory("DCX_DoubleBladedChainsaw"))
 		{
-			TakeInventory("Chainsaw", 1);
+			TakeInventory("DCX_Chainsaw", 1);
 		}
 			
 		if(StrICmp(levelset, "ab_") == 0)
 		{	
-			if ( (CheckInventory("PlasmaRifle")) || 
+			if ( (CheckInventory("DCX_PlasmaRifle")) || 
 				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
 				(CheckInventory("H2P_PlasmaTrident")) )
 			{
@@ -69,24 +118,24 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 		
 			if (CheckInventory("H2P_IncendiaryTrident"))
 			{
-				GiveInventory("BFG9000", 1);
+				GiveInventory("DCX_BFG9000", 1);
 			}
 			
 			if (CheckInventory("H2P_RocketLauncher"))
 			{
-				GiveInventory("RocketLauncher", 1);
+				GiveInventory("DCX_RocketLauncher", 1);
 			}
 			
 		
 			TakeInventory("H2P_RocketLauncher", 1);
-			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_PlasmaRifle", 1);
 			TakeInventory("DCX_DZ0PlasmaRifle", 1);
 			TakeInventory("H2P_PlasmaTrident", 1);
 			TakeInventory("H2P_IncendiaryTrident", 1);
 		}
 		else if(StrICmp(levelset, "dz_") == 0)
 		{
-			if ( (CheckInventory("PlasmaRifle")) || 
+			if ( (CheckInventory("DCX_PlasmaRifle")) || 
 				(CheckInventory("DCX_HeavyPlasmaGun")) ||
 				(CheckInventory("H2P_PlasmaTrident")) )
 			{
@@ -95,62 +144,62 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 			
 			if (CheckInventory("H2P_IncendiaryTrident"))
 			{
-				GiveInventory("BFG9000", 1);
+				GiveInventory("DCX_BFG9000", 1);
 			}
 			
 			if (CheckInventory("H2P_RocketLauncher"))
 			{
-				GiveInventory("RocketLauncher", 1);
+				GiveInventory("DCX_RocketLauncher", 1);
 			}
 			
 			TakeInventory("H2P_RocketLauncher", 1);
-			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_PlasmaRifle", 1);
 			TakeInventory("DCX_HeavyPlasmaGun", 1);
 			TakeInventory("H2P_PlasmaTrident", 1);
 			TakeInventory("H2P_IncendiaryTrident", 1);
 		}		
 		else if(StrICmp(levelset, "hp_") == 0)
 		{			
-			if ( (CheckInventory("PlasmaRifle")) || 
+			if ( (CheckInventory("DCX_PlasmaRifle")) || 
 				(CheckInventory("DCX_HeavyPlasmaGun")) ||
 				(CheckInventory("DCX_DZ0PlasmaRifle")) )
 			{
 				GiveInventory("H2P_PlasmaTrident", 1);
 			}
 			
-			if (CheckInventory("BFG9000"))
+			if (CheckInventory("DCX_BFG9000"))
 			{
 				GiveInventory("H2P_IncendiaryTrident", 1);
 			}
 			
-			if (CheckInventory("RocketLauncher"))
+			if (CheckInventory("DCX_RocketLauncher"))
 			{
 				GiveInventory("H2P_RocketLauncher", 1);
 			}
 		
-			TakeInventory("RocketLauncher", 1);
-			TakeInventory("PlasmaRifle", 1);
+			TakeInventory("DCX_RocketLauncher", 1);
+			TakeInventory("DCX_PlasmaRifle", 1);
 			TakeInventory("DCX_HeavyPlasmaGun", 1);
 			TakeInventory("DCX_DZ0PlasmaRifle", 1);
-			TakeInventory("BFG9000", 1);
+			TakeInventory("DCX_BFG9000", 1);
 		}
 		else
 		{		
 			if (CheckInventory("H2P_RocketLauncher"))
 			{
-				GiveInventory("RocketLauncher", 1);
+				GiveInventory("DCX_RocketLauncher", 1);
 			}
 		
 			if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
 				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
 				(CheckInventory("H2P_PlasmaTrident")) )
 			{
-				GiveInventory("PlasmaRifle", 1);
+				GiveInventory("DCX_PlasmaRifle", 1);
 			}
 		
 			if (CheckInventory("H2P_IncendiaryTrident"))
 			{
-				GiveInventory("BFG9000", 1);
+				GiveInventory("DCX_BFG9000", 1);
 			}
 		
 			//TakeInventory("DCX_DoubleBladedChainsaw", 1);
@@ -165,25 +214,24 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 	{
 		if (CheckInventory("DCX_DoubleBladedChainsaw"))
 		{
-			GiveInventory("Chainsaw", 1);
+			GiveInventory("DCX_Chainsaw", 1);
 		}
 		
 		if (CheckInventory("H2P_RocketLauncher"))
 		{
-			GiveInventory("PerkRocketLauncher", 1);
-			GiveInventory("RocketLauncher", 1);
+			GiveInventory("DCX_RocketLauncher", 1);
 		}
 		
 		if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
 			 (CheckInventory("DCX_DZ0PlasmaRifle")) ||
 			 (CheckInventory("H2P_PlasmaTrident")) )
 		{
-			GiveInventory("PlasmaRifle", 1);
+			GiveInventory("DCX_PlasmaRifle", 1);
 		}
 		
 		if (CheckInventory("H2P_IncendiaryTrident"))
 		{
-			GiveInventory("BFG9000", 1);
+			GiveInventory("DCX_BFG9000", 1);
 		}
 		
 		TakeInventory("DCX_DoubleBladedChainsaw", 1);
@@ -196,40 +244,6 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 	}
 	restart;
 	//terminate;
-}
-
-Script "E2M8&E3M8Bossdeath" Enter
-{	
-	if (PlayerNumber() != 0)
-	terminate;
-	
-	if (GameType() == GAME_TITLE_MAP)
-    terminate;
-	
-	str mapName = StrParam(n:PRINTNAME_LEVEL);
-	str episode = StrMid(mapName, 1, 1);
-	str mission = StrMid(mapName, 3, 1);
-	
-	str class = "CyberdemonBoss";
-	
-	if(StrICmp(mapName, "E3M8") == 0)
-		class = "Supermastermind";
-	
-	if ((StrICmp(mapName, "E2M8") == 0) || (StrICmp(mapName, "E3M8") == 0))
-	{
-		While ((ThingCount(T_NONE, 666) > 0) || (ThingCountName(class, 0) > 0)) { delay(1); }
-		
-		if (StrICmp(mapName, "E2M8") == 0) { delay(115); }		
-		if (StrICmp(mapName, "E3M8") == 0) { delay(135); }
-		else { delay(110); }
-		
-		Exit_Normal(0);
-	}
-	else
-	{
-		Terminate;
-	}
-	
 }
 
 Script "LORMap14ScriptingShit" Enter
@@ -247,1359 +261,16 @@ Script "LORMap14ScriptingShit" Enter
 		
 		delay(115);
 		
-		Floor_LowerByValue(666, 8, 25);
+		Floor_LowerToNearest(666, 8);
 	
 		While (ThingCount(T_NONE, 667) > 0) { delay(1); }
 		
 		delay(115);
 		
-		Floor_LowerByValue(667, 8, 32);
+		Floor_LowerToNearest(667, 8);
 		
 	}
 	else { terminate; }
-}
-
-script "Check_Difficulty" (Void)
-{
-	if ((GameSkill () <= 4))
-	{
-		SetResultValue(1);
-		terminate;
-	}
-	
-	if ((GameSkill () == 5))
-	{
-		SetResultValue(2);
-		terminate;
-	}
-}
-
-script "Xtra_Monster_Placements" enter
-{
-	if (PlayerNumber() != 0)
-	terminate;
-	
-	if (GameType() == GAME_TITLE_MAP)
-    terminate;
-	
-	str mapName = StrParam(n:PRINTNAME_LEVEL);
-	str episode = StrMid(mapName, 1, 1);
-	str mission = StrMid(mapName, 3, 1);
-	
-	if (StrICmp(mapName, "TEST") == 0)
-	{
-		if (GetCVar ("dcx_CustomMonsters") ==1)	
-		{
-			Add("DCX_Unmaker",-3072, 192, 270,0,0); 
-			Add("DCX_Unmaker",-3200, 192, 270,0,0); 
-			Add("DCX_Unmaker",-3328, 192, 270,0,0); 
-			Add("DCX_Unmaker",-3456, 192, 270,0,0); 
-			Add("DCX_Unmaker",-3584, 192, 270,0,0); 
-			
-			Add("ID24CalamityBlade",-3072, 256, 270,0,0);
-			Add("ID24CalamityBlade",-3200, 256, 270,0,0);
-			Add("ID24CalamityBlade",-3328, 256, 270,0,0);
-			Add("ID24CalamityBlade",-3456, 256, 270,0,0);
-			Add("ID24CalamityBlade",-3584, 256, 270,0,0);
-			
-			Add("ID24Incinerator",-3072, 320, 270,0,0);
-			Add("ID24Incinerator",-3200, 320, 270,0,0);
-			Add("ID24Incinerator",-3328, 320, 270,0,0);
-			Add("ID24Incinerator",-3456, 320, 270,0,0);
-			Add("ID24Incinerator",-3584, 320, 270,0,0);
-			
-			Add("DCX_HeavyPlasmaGun",-3072, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3200, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3328, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3456, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3584, 384, 270,0,0);
-			
-			Add("DCX_DoubleBladedChainsaw",-3072, 640, 270,0,0);
-			Add("DCX_DoubleBladedChainsaw",-3200, 640, 270,0,0);
-			Add("DCX_DoubleBladedChainsaw",-3328, 640, 270,0,0);
-			Add("DCX_DoubleBladedChainsaw",-3456, 640, 270,0,0);
-			Add("DCX_DoubleBladedChainsaw",-3584, 640, 270,0,0);
-			
-			Add("ID24Fuel",-1664, 192, 270,0,0);
-			Add("ID24Fuel",-1664, 256, 270,0,0);
-			Add("ID24Fuel",-1664, 320, 270,0,0);
-			Add("ID24Fuel",-1664, 384, 270,0,0);
-			Add("ID24Fuel",-1664, 448, 270,0,0);
-			
-			Add("ID24FuelTank",-1536, 192, 270,0,0);
-			Add("ID24FuelTank",-1536, 256, 270,0,0);
-			Add("ID24FuelTank",-1536, 320, 270,0,0);
-			Add("ID24FuelTank",-1536, 384, 270,0,0);
-			Add("ID24FuelTank",-1536, 448, 270,0,0);
-			
-			Add("DCX_Demonkey1",-2464, 192, 270,0,0); 
-			Add("DCX_Demonkey2",-2624, 192, 270,0,0); 
-			Add("DCX_Demonkey3",-2784, 192, 270,0,0); 
-		}
-	}
-	
-	if (StrICmp(mapName, "e1m7") == 0)
-	{
-		Add("ExplosiveBarrel",-1088, -64, 0,0,0);
-	}
-	
-	if (StrICmp(mapName, "map02") == 0)
-	{
-		Add("Shotgunguy",944,912,90,0,0);
-		Add("ExplosiveBarrel",464, 800, 45,0,0);
-	}
-	
-	if (GetCVar ("dcx_D64D2Xtras"))	
-	{
-		if (StrICmp(mapName, "ab_map06") == 0)
-		{
-			Add("DCX_Demonkey1",-1184, 1376,270,0,0);
-		}
-		
-		if (StrICmp(mapName, "ab_map30") == 0)
-		{
-			Add("Backpack",0, -3308,270,0,0);
-		}
-		
-	
-		if ((GameSkill () >= SKILL_HARD))
-		{
-				if (StrICmp(mapName, "ab_map27") == 0)
-				{
-					while (IsDoorClosed(20)) { Delay(10); }
-
-					//wait a couple of seconds
-					Delay(70);
-			
-					//The Only Spiderdemon in doom 64 for doom 2, RIP Bozo.
-					Add("SpiderMastermind",1024,2240,270,0,99);
-				}
-		}	
-	
-	}
-	
-	if ((GameSkill () == 5))
-	{	
-		if (StrICmp(mapName, "e1m1") == 0)
-		{
-			//Add("Doomimp",2976,-4768,90,0,0);
-			//Add("Doomimp",3040,-4768,90,0,0);
-			
-			Add("Demon",1408,-3616,45,0,0);
-			Add("Demon",1408,-2976,315,0,0);
-			
-			//Replace("ChaingunGuy",2272,-2432,180,0,0); //Replaces the Zombieman in the computer room
-			
-			Replace("ChaingunGuy",3056,-3584,90,0,0); //Replaces Zombieman in the toxic zig zag room
-			Add("ChaingunGuy",2944,-3584,90,0,0); //Lonely chaingunner needs a friend.
-			Add("ChaingunGuy",3392,-3072,225,0,0);  //At the end of the secret tunnel with the armor bonuses ;)
-			
-			//Add("Cacodemon",3616,-3456,270,0,0); //In the secret tunnel with the armor bonuses
-			
-			//AddDeco("ColonGibs",1088,-3264,0);
-		}	
-		if (StrICmp(mapName, "e1m2") == 0)
-		{
-			Add("Spectre",-544,896,180,0,0); //In the toxic waste room with the switch to the maze
-			Add("Spectre",-800,1248,270,0,0);
-			
-			//In the Maze
-			Add("Spectre",-2144,-160,0,0,0);			
-			Add("Spectre",-1504,-480,135,0,0);			
-			Add("Spectre",-1952,-544,270,0,0);			
-			Add("Spectre",-1440,-864,45,0,0);			
-			Add("Spectre",-1376,-32,0,0,0);		
-			Add("Spectre",-928,-544,180,0,0);		
-			Add("Spectre",-608,-544,270,0,0);
-			Add("Spectre",-352,-416,180,0,0);
-			Add("Spectre",-352,-416,180,0,0);
-			Add("Spectre",0,-736,90,0,0);
-			Add("Spectre",-288,-1088,90,0,0);
-			
-			Add("ChaingunGuy",0,864,270,0,0); //Begining room with all the zombieman
-			
-			Add("ChaingunGuy",-1535,1375,270,0,0); //By the lfit to the penultimate room
-			
-			Add("ChaingunGuy",2238,1279,225,0,0); //In the secret outdoor area
-			
-			Add("ChaingunGuy",-2080,800,270,0,0); //In the secret outdoor area
-			
-			Add("ChaingunGuy",192,-928,0,0,0); //In the maze, alcove next to backpack secret
-			Add("ChaingunGuy",192,-864,0,0,0); //In the maze, alcove next to backpack secret
-			
-			Add("ChaingunGuy",-1312,2016,180,0,0); //near the end in the dark room the elevator drops into
-			Add("ChaingunGuy",-1312,1952,180,0,0); //near the end in the dark room the elevator drops into
-			
-			Add("ChaingunGuy",-1696,2112,315,0,0); //Behind the doors before exit room
-			Add("ChaingunGuy",-1376,2112,225,0,0); //Behind the doors before exit room
-
-			Add("ChaingunGuy",-512,2240,135,0,0); //exit room
-			
-			Add("Cacodemon",2496,1568,225,0,0); //In the secret outdoor area
-			Add("Cacodemon",2496,-640,135,0,0); //In the secret outdoor area
-			
-			Replace("Cacodemon",-1536,2144,270,0,0); //Penultimate room, Replaces Imp
-			
-			Replace("Cacodemon",-288,2336,135,0,0); //Exit Room, Replaces Imp
-
-			AddDeco("TechLamp2",-336,2288,0); //exit room near the exit switch
-			AddDeco("TechLamp2",-336,2384,0); //exit room near the exit switch
-		}	
-		if (StrICmp(mapName, "e1m3") == 0)
-		{
-			Add("Demon",-1840,-2752,270,0,0);
-			
-			Add("Spectre",-1160,-2696,270,0,0);
-			
-			Add("ChaingunGuy",-3040,-766,270,0,0);
-			
-			Add("ChaingunGuy",-1504,-1759,270,0,0);
-			
-			Replace("ChaingunGuy",-1088,-1152,90,0,0);	//Replace Imp on the ledge
-			
-			Add("ChaingunGuy",-1600,-1536,270,0,0); //circular room before the secret exit
-			Add("ChaingunGuy",-1408,-1536,270,0,0); //circular room before the secret exit
-			Add("ChaingunGuy",-128,-704,90,0,0); //blue key room
-			Add("ChaingunGuy",-64,-704,90,0,0); //blue key room
-			Add("ChaingunGuy",-320,-1792,135,0,0); //room before regular exit with building stairs
-			Add("ChaingunGuy",-320,-1440,225,0,0); //room before regular exit with building stairs
-			
-			Add("Cacodemon",-1216,-768,180,0,0); //green pit with health and switch
-			
-			Add("Cacodemon",-264,-584,270,0,0); //Dark Ambush Room, Replaces the four imps
-			
-			Add("Cacodemon",568,-3064,135,0,0); //By Secret Outdoor area
-			Add("Cacodemon",760,-2880,135,0,0); //By Secret Outdoor area
-			
-			Replace("Cacodemon",256,-1600,180,0,0); //Normal exit
-			
-			while (IsDoorClosed(11)) { Delay(10); }
-			
-			Delay(35);
-			
-			Add("Cacodemon",-112,-504,270,0,99);
-			
-			Add("Spectre",-104,-424,270,0,99);			
-			Add("Spectre",-184,-400,270,0,99);
-		}	
-		if (StrICmp(mapName, "e1m4") == 0)
-		{			
-			Add("Cacodemon",1536, 288,90,0,0); //By the soulsphere in the starting room
-			
-			Add("Cacodemon",-1184, 1296,0,0,0); //Near the Yellow Key window
-			
-			Add("Cacodemon",32, -272,90,0,0); //Lift south of the center area
-			
-			Add("Cacodemon",832, 1920,270,0,0); //Lift to megaarmor
-			Add("Cacodemon",1536, 1920,270,0,0); //Lift to megaarmor
-			
-			Add("Cacodemon",-224, 1760,0,0,0); //"swastika" room
-			Add("Cacodemon",-352, 1760,180,0,0); //"swastika" room
-			
-			Add("Cacodemon",-1536,1888,0,0,0); //Exit room
-			
-			Add("ChaingunGuy",-1408,1280,0,0,0); //Next to the Yellow keycard
-			Add("ChaingunGuy",-1056,1440,270,0,0); //Cage northeast of the Yellow keycard
-			Add("ChaingunGuy",-992,1440,270,0,0); //Cage northeast of the Yellow keycard
-			Add("ChaingunGuy",-32,736,180,0,0); //Blue keycard room
-			Add("ChaingunGuy",-96,576,180,0,0); //Blue keycard room
-			Add("ChaingunGuy",192,640,0,0,0); //Blue keycard room
-			Add("ChaingunGuy",96,704,0,0,0); //Blue keycard room
-			Add("ChaingunGuy",-576,-64,135,0,0); //ashphalt thing just before the maze area
-			Add("ChaingunGuy",-480,0,135,0,0); //ashphalt thing just before the maze area
-			Add("ChaingunGuy",832,1888,315,0,0); //blue room near the starting zone
-			Add("ChaingunGuy",1536,1888,225,0,0); //blue room near the starting zone
-			
-			Add("Stimpack",-64,576,0,0,0); //Blue keycard room
-			Add("Stimpack",736,1504,0,0,0); //blue room near the starting zone
-			
-			Add("Shellbox",-416,1632,180,0,0); //"swastika" room
-		
-			AddDeco("TechLamp",1120,608,0); //metal/gray elevator room near the start
-			AddDeco("TechLamp",1120,928,0); //metal/gray elevator room near the start
-			AddDeco("TechLamp",672,800,0); //metal/gray elevator room near the start
-			AddDeco("TechLamp",672,480,0); //metal/gray elevator room near the start
-		}
-		if (StrICmp(mapName, "e1m4b") == 0)
-		{
-			Replace("ChaingunGuy",1632,-96,90,0,0);
-			Replace("ChaingunGuy",1632,288,270,0,0);
-			
-			Replace("ChaingunGuy",-1056,-1152,90,0,0);
-			Replace("ChaingunGuy",-992,-1152,90,0,0);
-			
-			Replace("ChaingunGuy",736,224,270,0,0);
-			Replace("ChaingunGuy",824,224,270,0,0);
-			Replace("ChaingunGuy",912,224,270,0,0);
-			Replace("ChaingunGuy",992,224,270,0,0);
-			
-			Replace("ChaingunGuy",-816,-464,270,0,0);
-			Replace("ChaingunGuy",-816,-528,270,0,0);
-			
-			Replace("ChaingunGuy",-1120,-608,315,0,0);
-			Replace("ChaingunGuy",-1088,-224,270,0,0);
-			
-			Replace("ChaingunGuy",-1440,-352,0,0,0);
-			
-			Add("ChaingunGuy",-400,704,270,0,0);
-			Add("ChaingunGuy",240,704,270,0,0);
-			
-			Add("ChaingunGuy",1808,0,45,0,0);
-			Add("ChaingunGuy",1808,192,315,0,0);
-			
-			Add("ChaingunGuy",152,-488,315,0,0);
-			
-			Add("Cacodemon",2072,96,180,0,0);
-			
-			Add("Stimpack",-888,-408,270,0,0);
-			Add("Stimpack",-1056,-896,0,0,0);
-		}
-		if (StrICmp(mapName, "e1m5") == 0)
-		{
-			//Replace("DCX_NightmareSpectre",-64,256,270,0,0);
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",288,2128,270,0,0);
-				Replace("DCX_NightmareSpectre",-320,2000,270,0,0);
-				Replace("DCX_NightmareSpectre",896,176,180,0,0);
-			}
-			
-			//Replace("ChaingunGuy",-1376,992,0,0,0);
-			//Replace("ChaingunGuy",-1376,672,0,0,0);
-			//Replace("ChaingunGuy",1072,832,270,0,0);
-			
-			Add("ChaingunGuy",-1200,560,135,0,0); //nukage room with 2 pillars
-			Add("ChaingunGuy",-1200,1104,225,0,0); //nukage room with 2 pillars
-			Add("ChaingunGuy",448,832,180,0,0); //room across from yellow key
-			Add("ChaingunGuy",448,1240,270,0,0); //room across from yellow key, up the stairs
-			Add("ChaingunGuy",0,1856,270,0,0); //dark rooom before exit
-			
-			Add("HellKnight",0,1696,270,0,0); //dark room before exit
-			Add("HellKnight",-472,1912,180,0,0); //dark room before exit
-			Add("HellKnight",480,1912,225,0,0); //dark room before exit
-			
-			while (!IsFloorLevel(1,-200)) { Delay(10); }
-			
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Add("DCX_NightmareSpectre",-1632,608,0,0,99);
-				Add("DCX_NightmareSpectre",-1696,704,0,0,99);
-				Add("DCX_NightmareSpectre",-1696,960,0,0,99);
-				Add("DCX_NightmareSpectre",-1632,1056,0,0,99);
-			}
-			else
-			{
-				Add("Spectre",-1632,608,0,0,99);
-				Add("Spectre",-1696,704,0,0,99);
-				Add("Spectre",-1696,960,0,0,99);
-				Add("Spectre",-1632,1056,0,0,99);
-			}
-		}
-		if (StrICmp(mapName, "e1m6") == 0)
-		{
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",1792,-1360,180,0,0);
-				Replace("DCX_NightmareSpectre",1184,-880,270,0,0);
-				Replace("DCX_NightmareSpectre",1184,-1920,90,0,0);
-				Replace("DCX_NightmareSpectre",656,-1696,0,0,0);			
-				Replace("DCX_NightmareSpectre",-256,1472,270,0,0);
-				Replace("DCX_NightmareSpectre",-1408,960,180,0,0);
-				
-				Add("DCX_NightmareSpectre",2496,-960,180,0,0);
-			}
-			else
-			{
-				Add("Spectre",2496,-960,180,0,0);
-			}
-			
-			Replace("ChaingunGuy",1680,-1824,135,0,0);
-			
-			Add("ChaingunGuy", -272, -768,0,0,0);
-			Add("ChaingunGuy",512, 1424,270,0,0);
-			Add("ChaingunGuy",648, 1392,270,0,0);
-			Add("ChaingunGuy",3200,-1664,45,0,0);
-			
-			Add("ChaingunGuy",1192,-972,270,0,0);
-			Add("ChaingunGuy",1344,-1954,135,0,0);
-			Add("ChaingunGuy",1040,-616,135,0,0); //Yellow Key room
-			Add("ChaingunGuy",1088,-560,135,0,0); //Yellow Key room
-        
-			Add("Hellknight",-896,1216,0,0,0); //stairs room next to nukage room above blue room
-			Add("Hellknight",-896,1336,0,0,0); //stairs room next to nukage room above blue room
-        
-			Add("Cacodemon",-1856,-1728,45,0,0); //the big pit of nukage near the blue key
-			Add("Cacodemon",-1536,-1984,90,0,0); //the big pit of nukage near the blue key		
-		}
-		if (StrICmp(mapName, "e1m7") == 0)
-		{
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",-1504,128,315,0,0);
-				Replace("DCX_NightmareSpectre",192,-192,90,0,0);
-			}
-			Replace("Hellknight",-944,-1088,270,0,0);
-			Add("Hellknight",352,-1792,270,0,0);
-			
-			Add("ChaingunGuy",128,64,90,0,0);
-			Add("ChaingunGuy",256,64,90,0,0);
-			Add("HellKnight",-480,-2080,0,0,0);
-			Add("Hellknight",-1312,-2656,90,0,0);
-			Add("Hellknight",1152,-1664,90,0,0);
-			Add("Hellknight",1280,-1664,90,0,0);
-			Add("Hellknight",1408,-1664,90,0,0);
-			Add("Cacodemon",1088,-1344,90,0,0);
-			Add("Cacodemon",1280,-1344,90,0,0);
-			Add("Cacodemon",1440,-1344,90,0,0);
-			Add("Cacodemon",-384,-1728,270,0,0);
-		
-			//wait for the door that opens when we pick up the red key to open
-			while (IsDoorClosed(12)) { Delay(10); }
-
-			//Then spawn a hell knight
-			Add("HellKnight",-656,-1040,135,0,0);
-		}	
-		if (StrICmp(mapName, "e1m8") == 0)
-		{
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",-128,2288,45,0,0);
-				Replace("DCX_NightmareSpectre",-160,2208,45,0,0);
-				Replace("DCX_NightmareSpectre",992,2208,135,0,0);
-				Replace("DCX_NightmareSpectre",960,2272,135,0,0);
-				Replace("DCX_NightmareSpectre",1232,3280,225,0,0);
-				Replace("DCX_NightmareSpectre",1312,3328,225,0,0);
-				Replace("DCX_NightmareSpectre",416,3936,270,0,0);
-				Replace("DCX_NightmareSpectre",416,4000,270,0,0);
-				Replace("DCX_NightmareSpectre",-128,3200,315,0,0);
-				Replace("DCX_NightmareSpectre",-192,3136,315,0,0);
-			}
-		
-			Add("Medikit",416,2656,0,0,0); //baron of hell chambers
-			//Add("SuperShotgun",416,2464,270,0,0); //red elevator
-
-			//wait until the barons are released
-			while (IsDoorClosed(5)) { Delay(10); }
-
-			//wait a couple of seconds
-			Delay(70);
-
-            Add("HellKnight",416,3008,270,0,99); //baron of hell chambers
-            Add("HellKnight",256,2656,315,0,99); //baron of hell chambers
-            Add("HellKnight",560,2656,225,0,99); //baron of hell chambers
-            Add("HellKnight",64,2752,0,0,99); //baron of hell chambers
-            Add("HellKnight",768,2752,180,0,99); //baron of hell chambers
-		}
-		if (StrICmp(mapName, "e1m8b") == 0)
-		{
-			//Starting Room Interior
-			Add("Cacodemon",28,-128,270,0,0);
-			
-			Add("ChaingunGuy",-472,-488,135,0,0);
-			Replace("ChaingunGuy",-552,-488,90,0,0);
-			
-			Add("ShellBox",-648,-488,180,0,0);
-			
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",336,256,180,0,0);
-				Replace("DCX_NightmareSpectre",184,136,45,0,0);
-			
-				//Lower Toxic Waste	sewer
-				Replace("DCX_NightmareSpectre",272,16,270,0,0);
-				Replace("DCX_NightmareSpectre",-352,-328,90,0,0);
-			}
-			
-			//Starting Room Exterior
-			Add("Cacodemon",-676,-788,315,0,0);
-			
-			//Waste Dump Interior
-			Add("Cacodemon",-1168,-156,0,0,0);
-			
-			//Entrance to vent next to yellow key area
-			Add("Cacodemon",-100,-680,315,0,0);
-			
-			//Outside of Yellow key room
-			Add("ChaingunGuy",608,-784,180,0,0);
-			Add("Medikit",576,-832,180,0,0);
-			Add("ChaingunGuy",608,-880,180,0,0);
-			
-			//Lift to Yellow key switch
-			Replace("ChaingunGuy",1120,-864,180,0,0);
-			Replace("ChaingunGuy",1120,-928,180,0,0);
-			
-			//Red Key Toxic Dump Room
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",-1880,360,0,0,0);
-				Replace("DCX_NightmareSpectre",-1912,248,0,0,0);
-				Replace("DCX_NightmareSpectre",-2224,-192,90,0,0);
-				Replace("DCX_NightmareSpectre",-2056,-184,90,0,0);
-				Replace("DCX_NightmareSpectre",-1472,-96,315,0,0);
-				Replace("DCX_NightmareSpectre",-1448,-192,315,0,0);
-				Replace("DCX_NightmareSpectre",-1472,-288,315,0,0);
-			}
-			
-			Add("ChaingunGuy",-1440,96,270,0,0);
-			Add("ChaingunGuy",-1248,96,270,0,0);
-			Add("ChaingunGuy",-1104,96,270,0,0);
-			
-			//Final Room Exterior
-			Add("ChaingunGuy",-2472,696,315,0,0);
-			Add("ChaingunGuy",-2400,776,315,0,0);
-			
-			Add("Cacodemon",-2356,1264,0,0,0);
-			Add("Cacodemon",-2368,1164,0,0,0);
-			
-			Add("Cacodemon",-2212,100,90,0,0);
-			
-			//Final Room Interior
-			
-			Replace("ChaingunGuy",-2592,1256,270,0,0);
-			Replace("ChaingunGuy",-2792,1112,315,0,0);
-			
-			Add("Cacodemon",-3000,1120,180,0,0);
-			
-			Add("ChaingunGuy",-3584,312,0,0,0);
-			Add("ChaingunGuy",-3584,232,0,0,0);
-			
-			Add("Medikit",-3736,400,315,0,0);
-			
-			Add("RocketBox",-3040,224,270,0,0);
-			
-			//Baron Boss Room
-			Add("HellKnight",-3280,-544,135,0,0);
-			Add("HellKnight",-3272,-608,135,0,0);
-			Add("HellKnight",-3212,-588,135,0,0);
-			Add("HellKnight",-3720,-544,45,0,0);
-			Add("HellKnight",-3688,-600,45,0,0);
-			
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Add("DCX_NightmareSpectre",-3900,-44,315,0,0);
-				Add("DCX_NightmareSpectre",-2980,60,225,0,0);
-				Add("DCX_NightmareSpectre",-2980,-1148,135,0,0);
-			}
-			else
-			{
-				Add("Spectre",-3900,-44,315,0,0);
-				Add("Spectre",-2980,60,225,0,0);
-				Add("Spectre",-2980,-1148,135,0,0);
-			}
-			
-			while (!IsFloorLevel(20,-88)) { Delay(10); }
-			
-			Add("ChaingunGuy",-1924,-732,0,0,99);
-			Add("ChaingunGuy",-1924,-804,0,0,99);
-		}
-		if (StrICmp(mapName, "e1m9") == 0)
-		{
-			Replace("Cacodemon",624,1488,270,0,0);
-			Add("Cacodemon",2464,544,270,0,99);
-			
-			Add("ChaingunGuy",2040,-1308,135,0,0);
-			Replace("ChaingunGuy",2400,96,180,0,0); //pillars where the imps normally stand
-			Replace("ChaingunGuy",2592,160,180,0,0); //pillars where the imps normally stand
-			Replace("ChaingunGuy",2528,-32,180,0,0); //pillars where the imps normally stand
-			Add("HellKnight",2048,64,128,0,0);
-			Add("HellKnight",-128,1344,225,0,0);
-			Add("SuperShotgun",-576,-1312,0,0,0);
-		}
-		
-		if (StrICmp(mapName, "e2m1") == 0)
-		{
-			Add("HellKnight",1024,-160,315,0,0);
-			Add("HellKnight",1184,-160,270,0,0);
-			Add("HellKnight",1088,-256,315,0,0);
-		
-			Add("HellKnight",2240,-1024,90,0,0);
-			Add("HellKnight",2048,-1024,90,0,0);
-		}
-		if (StrICmp(mapName, "e2m2") == 0)
-		{
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",2496,1808,45,0,0);
-				Replace("DCX_NightmareSpectre",720,560,180,0,0);
-				Replace("DCX_NightmareSpectre",1008,4096,315,0,0);
-			}
-			
-			Add("ChaingunGuy",32,3552,90,0,0);
-			Add("ChaingunGuy",544,3040,270,0,0);
-			Add("HellKnight",1088,3072,135,0,0);
-			Add("Stimpaick",1088,3072,135,0,0);
-			Add("HellKnight",1376,1024,90,0,0);
-			Add("HellKnight",640,192,0,0,0);
-			Add("Revenant",-288,-64,0,0,0);
-			Add("Revenant",-288,-128,0,0,0);
-			Add("Revenant",-352,-96,0,0,0);
-			Add("HellKnight",512,-352,180,0,0);
-		}
-		if (StrICmp(mapName, "e2m3") == 0)
-		{
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Replace("DCX_NightmareSpectre",672,-32,90,0,0);
-				Replace("DCX_NightmareSpectre",-864,400,0,0,0);
-				Replace("DCX_NightmareSpectre",1280,112,90,0,0);
-				Replace("DCX_NightmareSpectre",2128,-336,180,0,0);
-				Replace("DCX_NightmareSpectre",-320,1088,270,0,0);
-				Replace("DCX_NightmareSpectre",-448,928,270,0,0);
-				Replace("DCX_NightmareSpectre",2048,704,135,0,0);
-			}
-			
-			Add("Lostsoul",864,-64,270,0,0);
-			
-			Add("Arachnotron",384,96,270,0,0);
-			
-			Add("Cacodemon",320,-384,90,0,0);
-			Add("Cacodemon",-704,416,0,0,0);
-			
-			Add("Hellknight",864,-384,90,0,0);
-			Add("Hellknight",1152,1376,270,0,0);
-			
-			Add("Cacodemon",416,928,90,0,0);
-			Add("Cacodemon",544,928,90,0,0);
-			Add("HellKnight",352,480,270,0,0);
-			Add("Revenant",192,-192,180,0,0);
-			Add("Arachnotron",-320,448,270,0,0);
-			Add("Revenant",-1088,400,0,0,0);
-			Add("Medikit",-1088,352,0,0,0);
-		}
-		if (StrICmp(mapName, "e2m4") == 0)
-		{
-			Add("ChaingunGuy",-928,-1536,0,0,0);
-			Add("ChaingunGuy",-832,-1536,0,0,0);
-			Add("ChaingunGuy",-736,-1536,0,0,0);
-			Add("Mancubus",0,-1152,0,0,0);
-			Add("Revenant",1472,-1792,0,0,0);
-			Add("Revenant",1472,-1856,0,0,0);
-			Add("ChaingunGuy",2496,-1792,270,0,0);
-			Add("ChaingunGuy",2560,-1792,270,0,0);
-			Add("ChaingunGuy",2624,-1792,270,0,0);
-			Add("Arachnotron",1088,-1824,0,0,0);
-			Add("Arachnotron",1088,-1664,0,0,0);
-			Add("Arachnotron",1088,-1984,0,0,0);
-			Add("Cacodemon",-960,-1152,90,0,0);
-			Add("Cacodemon",-960,-1248,90,0,0);
-			Add("Revenant",2176,-2368,90,0,0);
-		}
-		if (StrICmp(mapName, "e2m5") == 0)
-		{
-			Add("Cacodemon",-2048,1600,270,0,0);
-			Add("Cacodemon",256,1280,270,0,0);
-		
-			Add("Cacodemon",-1568,1568,90,0,0);
-			Add("ChaingunGuy",-2592,928,90,0,0);
-			Add("ChaingunGuy",-2592,992,90,0,0);
-			Add("ChaingunGuy",-2944,192,270,0,0);
-			Add("ChaingunGuy",-3200,192,270,0,0);
-			Add("Revenant",-3488,96,0,0,0);
-			Add("Revenant",-3424,96,0,0,0);
-			Add("Fatso",-3072,32,90,0,0);
-
-			while (IsDoorClosed(3)) { Delay(10); }
-
-			Add("Revenant",-3072,-64,270,0,99);
-		}
-		if (StrICmp(mapName, "e2m6") == 0)
-		{	
-			Add("HellKnight",640,1472,270,0,0);
-			Add("HellKnight",832,1472,270,0,0);
-			Add("HellKnight",736,1376,270,0,0);
-			Add("Revenant",864,1376,270,0,0);
-			Add("Revenant",608,1376,270,0,0);
-        
-			//Wait for door leading to exit doors to open up
-			while (IsDoorClosed(2)) { Delay(10); }
-
-			Add("HellKnight",640,1472,270,0,99);
-			Add("HellKnight",640,1376,270,0,99);
-        
-			while (IsDoorClosed(22)) { Delay(10); }
-
-			Add("Revenant",640,1472,270,0,99);
-			Add("Revenant",640,1376,270,0,99);
-			Add("HellKnight",864,1376,270,0,0);
-			Add("HellKnight",608,1376,270,0,0);
-		}
-		if (StrICmp(mapName, "e2m7") == 0)
-		{
-			Add("Fatso",96,1600,270,0,0);
-			Add("Fatso",768,160,180,0,0);
-			Add("Fatso",2080,-64,90,0,0);
-		
-			Add("HellKnight",544,416,90,0,0);
-			Add("HellKnight",416,416,90,0,0);
-			Add("ChaingunGuy",480,-352,90,0,0);
-			Add("ChaingunGuy",352,-352,90,0,0);
-			Add("ChaingunGuy",608,-352,90,0,0);
-			Add("ChaingunGuy",736,-224,180,0,0);
-			Add("ChaingunGuy",736,-96,180,0,0);
-			Add("ChaingunGuy",224,-96,0,0,0);
-			Add("ChaingunGuy",224,-224,0,0,0);
-			Add("Medikit",480,-256,0,0,0);
-			Add("Revenant",1056,-512,90,0,0);
-			Add("Revenant",2360,488,180,0,0);
-			Add("Arachnotron",3480,-224,90,0,0);
-			Add("Arachnotron",3240,-224,90,0,0);
-			Add("Cacodemon",3672,304,135,0,0);
-			Add("Medikit",3816,-296,135,0,0);
-			Add("Revenant",2720,96,180,0,0);
-        
-			while (!IsFloorLevel(1,48)) { Delay(10); }
-
-			Add ("ChaingunGuy",1920,-224,180,0,99);
-			Add ("ChaingunGuy",1920,-128,180,0,99);
-			Add ("ChaingunGuy",1920,-320,180,0,99);
-
-		}
-		
-		/*
-		if (StrICmp(mapName, "e2m8") == 0)
-		{
-			Add("Fatso",-104,440, 270,0,0);
-			Add("Fatso", 80, 408, 270,0,0);
-			Add("Fatso",-1288, -792,0,0,0);
-			Add("Fatso",-1216,-1008,0,0,0);
-			Add("Fatso",-96,-1976, 90,0,0);
-			Add("Fatso",136,-1960, 90,0,0);
-			Add("Fatso",1096,-792,180,0,0);
-			Add("Fatso",1136,-944,180,0,0);
-		}
-		*/
-		
-		if (StrICmp(mapName, "e2m9") == 0)
-		{	
-			Add("RocketBox",960,-384,180,0,0);
-			
-			Add("Hellknight",64,448,270,0,0);
-			Add("Hellknight",736,-384,180,0,0);
-			Add("Hellknight",64,-1184,90,0,0);
-			Add("Hellknight",-672,-384,0,0,0);
-			
-			Add("Cacodemon",1472,-192,225,0,0);
-			Add("Cacodemon",1472,-576,135,0,0);
-			
-			Add("Revenant",2472,-352,180,0,0);
-			Add("Revenant",2536,-352,180,0,0);
-			Add("Revenant",2600,-352,180,0,0);
-			
-			Add("Revenant",2472,-416,180,0,0);
-			Add("Revenant",2536,-416,180,0,0);
-			Add("Revenant",2600,-416,180,0,0);
-		}	
-		if (StrICmp(mapName, "e3m1") == 0)
-		{	
-			//Add("SuperShotgun",-800,1376,0,0,0); 
-			Add("ChaingunGuy",-896,1568,270,0,0); 
-			Add("ChaingunGuy",-704,1568,270,0,0);
-			
-			Add("Demon",-512,-752,315,0,0);
-			
-			Add("Doomimp",-312, -792,315,0,0);
-			Add("Doomimp",-440, -920,315,0,0);
-			Add("Doomimp",-312, -920,315,0,0);
-			Add("Doomimp",-440, -792,315,0,0);
-			
-			Add("Demon",1064,-792,225,0,0);
-			
-			Add("Doomimp",856, -1000,225,0,0);
-			Add("Doomimp",728, -1128,225,0,0);
-			Add("Doomimp",856, -1128,225,0,0);
-			Add("Doomimp",728, -1000,225,0,0);
-			
-			Add("Cacodemon",232,616,315,0,0);
-			
-			while (!IsFloorLevel(8,0)) { Delay(10); } 
-			
-			Add("Hellknight",-800,2184,270,0,99);
-		}
-		if (StrICmp(mapName, "e3m2") == 0)
-		{
-			Add("PainElemental",-96,2304,270,0,0);
-		
-			Add("PainElemental",576,2016,315,0,0);
-			Add("PainElemental",160,1696,315,0,0);
-			Add("HellKnight",128,1792,315,0,0);
-			Add("HellKnight",32,1696,315,0,0);
-			Add("Stimpack",32,1696,315,0,0);
-		}
-		if (StrICmp(mapName, "e3m3") == 0)
-		{			
-			Add("Revenant",-352,-160,270,0,0);
-			Add("Revenant", 696, 280,270,0,0);			
-			Add("Revenant", 576,-928,270,0,0);
-			
-			Add("Hellknight",-160,1136,270,0,0);
-			
-			Add("HellKnight",-480,-288,270,0,0);
-			Add("HellKnight",-128,1104,270,0,0);
-			Add("HellKnight",-352,1248,270,0,0);
-		
-			Add("PainElemental",-1184,-160,0,0,0);
-			Add("Revenant",-384,128,270,0,0);
-			Add("Revenant",-320,128,270,0,0);
-			Add("Arachnotron",-640,544,90,0,0);
-		}
-		if (StrICmp(mapName, "e3m4") == 0)
-		{
-			Add("ChaingunGuy",896,448,180,0,0); 
-			Add("ChaingunGuy",896,384,180,0,0);
-			
-			Add("HellKnight",72,-2440,180,0,0);
-			Add("HellKnight",72,-2572,180,0,0);
-			Add("HellKnight",864,-1540,270,0,0);
-			
-			Add("HellKnight",80,-680,90,0,0);
-			Add("HellKnight",-152,-680,90,0,0);
-			
-			Add("Cacodemon",780,16,270,0,0); 
-			Add("Cacodemon",1240,92,270,0,0);
-		}
-		if (StrICmp(mapName, "e3m5") == 0)
-		{
-			Add("HellKnight",960,320,180,0,0);
-			Add("HellKnight",2016,864,225,0,0);
-			Add("HellKnight",2016,672,135,0,0);
-			
-			Add("Revenant",-320,1632,270,0,0);
-			Add("Revenant",-128,1632,270,0,0);
-			
-			Add("Fatso",-928,288,90,0,0);
-			Add("Fatso",480,288,90,180,0);
-			
-			if (GetCVar ("dcx_CustomMonsters") ==1)	
-			{
-				Add("DCX_NightmareSpectre",-1328,-368,0,0,0); 
-				Add("DCX_NightmareSpectre",-1248,1312,0,0,0); 
-				Add("DCX_NightmareSpectre",-1424,1136,0,0,0);
-			}
-			else
-			{
-				Add("Spectre",-1328,-368,0,0,0); 
-				Add("Spectre",-1248,1312,0,0,0); 
-				Add("Spectre",-1424,1136,0,0,0);
-			}
-			
-			//Add("SuperShotgun",-224,-96,0,0,0); 
-			Add("HellKnight",-384,1280,270,0,0); 
-			Add("HellKnight",-64,1280,270,0,0); 
-			//Add("Megasphere",-224,2240,270,0,0); 
-
-			while (!IsFloorLevel(10,0)) { Delay(10); }
-
-			Add("Fatso",-224,2240,90,0,99); 
-			Add("Revenant",-96,2240,90,0,99); 
-			Add("Revenant",-352,2240,90,0,99); 
-			Add("ArchVile",1024,288,180,0,99);			
-		}
-		if (StrICmp(mapName, "e3m6") == 0)
-		{
-			Add("Fatso",-1152,-1296,0,0,0);
-			
-			Add("Fatso",-224, -160,0,0,0);
-			Add("Arachnotron",1280,-544,0,0,0);
-			Add("Arachnotron", 224, 960,0,0,0);
-			Add("Arachnotron",1408,1184,0,0,0);
-			
-			Add("Fatso",-1152,-1296,0,0,0);
-			
-			//Add("SuperShotgun",-128,192,315,0,0); 
-			while (IsFloorLevel(17,200)) { Delay(10); } 
-			Add("Revenant",-96,1152,180,0,99); 
-			Delay(70);
-			Add("MediKit",-32,1152,180,0,99);
-		}
-		if (StrICmp(mapName, "e3m7") == 0)
-		{
-			Add("HellKnight",1856,-1088,135,0,0);
-			Add("HellKnight",1696,-1472,135,0,0);
-			
-			Add("Baronofhell",1856,-1216,135,0,0);
-			
-			Add("Archvile",-1120,1632,270,0,0);
-			
-			Add("Arachnotron",96,-1056,180,0,0);
-			Add("Arachnotron",1440,-960,90,0,0);
-			Add("Fatso",1440,1280,270,0,0);
-		}
-		
-		/*
-		if (StrICmp(mapName, "e3m8") == 0)
-		{
-			Add("Arachnotron",-384,64,315,0,0);
-			Add("Arachnotron",192,96,270,0,0);
-			Add("Arachnotron",704,0,225,0,0);
-			Add("Arachnotron",544,384,225,0,0);
-			Add("Arachnotron",-288,448,315,0,0);
-			Add("Arachnotron",-192,832,270,0,0);
-			Add("Arachnotron",576,864,270,0,0);
-			Add("Arachnotron",192,1056,270,0,0);
-		}
-		*/
-		
-		if (StrICmp(mapName, "e3m9") == 0)
-		{			
-			Add("SuperShotgun",-672,1376,0,0,0); 
-			Add("ChaingunGuy",-768,1568,270,0,0); 
-			Add("ChaingunGuy",-576,1568,270,0,0);
-			
-			Add("Demon",-384,-752,315,0,0);
-			
-			Add("Doomimp",-312, -792,315,0,0);
-			Add("Doomimp",-184, -792,315,0,0);
-			Add("Doomimp",-320, -912,315,0,0);
-			Add("Doomimp",-184, -920,315,0,0);
-			
-			Add("Demon",1192,-792,225,0,0);
-			
-			Add("Doomimp",856, -1000,225,0,0);
-			Add("Doomimp",984, -1128,225,0,0);
-			Add("Doomimp",856, -1128,225,0,0);
-			Add("Doomimp",984, -1000,225,0,0);
-			
-			Add("Cacodemon",360,616,315,0,0);
-			
-			Add("Hellknight",3712,384,225,0,0);
-			Add("Hellknight",3712,128,135,0,0);
-			
-			Add("Hellknight",3464,288,180,0,0);
-			Add("Hellknight",3464,224,180,0,0);
-			
-			Add("Hellknight",-192,1600,180,0,0);
-			Add("Hellknight",-192,1344,180,0,0);
-			Add("Hellknight",-88,1536,180,0,0);
-			Add("Hellknight",-88,1408,180,0,0);
-			
-			Add("Painelemental",-200,2112,315,0,0);
-			Add("Painelemental",-248,2024,0,0,0);
-			
-			Add("Fatso",-720,3648,270,0,0);
-			Add("Fatso",-568,3648,270,0,0);
-			Add("Fatso",-640,3512,270,0,0);
-			
-			while (!IsFloorLevel(16,0)) { Delay(10); } 
-			
-			Add("Hellknight",-672,2184,270,0,99);
-			
-			while (!IsFloorLevel(12,0)) { Delay(10); } 
-			
-			Add("Archvile",1736,296,315,0,99);
-			
-			Add("Arachnotron",2176,320,0,0,99);
-			
-			Add("Arachnotron",2176,192,0,0,99);
-		}		
-		if (StrICmp(mapName, "e4m1") == 0)
-		{		
-			Add("SuperShotgun",-432,-128,0,0,0); //on the raised platform near the red key
-			Add("Revenant",-1056,-128,0,0,0); //exit room
-			Add("ChaingunGuy",-416,-576,90,0,0); //red key
-			Add("ChaingunGuy",-352,-576,90,0,0); //red key
-			Add("ChaingunGuy",-288,-576,90,0,0); //red key
-			Add("ChaingunGuy",-992,-608,0,0,0); //baron ambush
-			Add("ChaingunGuy",-864,-640,0,0,0); //baron ambush
-			Add("ChaingunGuy",-448,-256,90,0,0); //inside red key bunker near double barrel shotgun
-			Add("Stimpack",-640,-256,90,0,0); //inside red key bunker near double barrel shotgun
-		}
-		if (StrICmp(mapName, "e4m2") == 0)
-		{
-			Add("SuperShotgun",160,256,270,0,0);
-			Add("HellKnight",-544,1312,270,0,0);
-			Add("Arachnotron",-640,512,45,0,0);
-			Add("Arachnotron",-384,352,90,0,0);
-		}
-		if (StrICmp(mapName, "e4m3") == 0)
-		{
-			Add("SuperShotgun",928,992,270,0,0);
-			Add("HellKnight",320,800,270,0,0);
-        
-			while (IsDoorClosed(3)) { Delay(10); }
-		
-			Add("Archvile",1728,-576,135,0,99);
-			Add("Medikit",1728,-576,135,0,99);
-		}
-		if (StrICmp(mapName, "e4m4") == 0)
-		{
-			Add("SuperShotgun",32,-1440,270,0,0);
-			Add("Fatso",160,-544,270,0,0);
-		}
-		if (StrICmp(mapName, "e4m8") == 0)
-		{
-			Add("SuperShotgun",-1664,32,270,0,0);
-		}
-		if (StrICmp(mapName, "e4m9") == 0)
-		{
-			Add("SuperShotgun",128,-192,270,0,0);
-		}
-		if (StrICmp(mapName, "map01") == 0)
-		{
-			Add("Shotgunguy",-112,1216,90,0,0);
-			Add("Shotgunguy",-16,1136,90,0,0);
-			
-			Add("Shotgunguy",352,1376,90,0,0);
-			Add("Shotgunguy",416,1312,90,0,0);
-			
-			Add("Revenant",384,288,0,0,0);
-			Add("Revenant",288,160,0,0,0);
-			Add("Revenant",872,1600,180,0,0);
-			Add("Revenant",560,2600,225,0,0);
-		}
-		if (StrICmp(mapName, "map02") == 0)
-		{
-			Add("Revenant",1920,1144,270,0,0);
-			Add("Shotgunguy",984,1488,270,0,0);
-			Add("Shotgunguy",1216,1520,270,0,0);
-			Add("Spectre",536,1576,90,0,0);
-			Add("Spectre",488,1504,90,0,0);
-			
-			while (!IsFloorLevel(8,-24)) { Delay(10); }
-			
-			Add("Chaingunguy",960,1824,270,0,99);
-			Add("Chaingunguy",1152,1824,270,0,99);
-			
-			
-			while (IsDoorClosed(1)) { Delay(10); }
-			
-			Delay(35);
-			
-			Add("Revenant",1088,1088,270,0,99);
-			Add("Revenant",1280,1088,270,0,99);
-			
-			while (IsDoorClosed(12)) { Delay(10); }
-			
-			Delay(10);
-			
-			Add("Revenant",480,1600,270,0,99);
-			Add("Revenant",544,1600,270,0,99);
-		}
-		if (StrICmp(mapName, "map03") == 0)
-		{
-			Add("Arachnotron",4224,3680,180,0,0);
-			Add("Arachnotron",4224,3040,180,0,0);
-			
-			Add("Fatso",3872,3360,180,0,0);
-			
-			Add("Revenant",3576,3696,180,0,0);
-		}
-		if (StrICmp(mapName, "map04") == 0)
-		{
-			Add("Fatso",-944,576,45,0,0);
-			Add("Fatso",-728,600,90,0,0);
-			
-			Add("Doomimp",-416,608,45,0,0);
-			Add("Doomimp",-352,576,45,0,0);
-			Add("Doomimp",-296,536,45,0,0);
-			
-			Add("Revenant",-480,1696,270,0,0);
-			Add("Revenant",-104,1112,180,0,0);
-			
-			Add("RocketLauncher",-992,384,270,0,0);
-			Add("RocketAmmo",-936,384,270,0,0);
-			Add("RocketAmmo",-992,328,270,0,0);
-		
-			while (IsDoorClosed(16)) { Delay(10); }
-			
-			Add("Revenant",-1824,1440,0,0,99);
-			Add("Revenant",-1824,1184,0,0,99);
-			
-			Add("Chaingunguy",-1248,1376,180,0,99);
-			Add("Chaingunguy",-1248,1248,180,0,99);
-		}
-		if (StrICmp(mapName, "map05") == 0)
-		{	
-			Add("RocketBox",396,280,0,0,0);
-			Add("RocketBox",308,280,0,0,0);
-		
-			Add("SuperShotgun",928,-260,0,0,0);
-		
-			Add("Shotgunguy",768,416,0,0,0);
-			
-			Add("Chaingunguy",-128,208,180,0,0);
-			
-			Add("Revenant",288,-544,90,0,0);
-			Add("Revenant",416,-544,90,0,0);
-			
-			Add("Revenant",1088,304,0,0,0);
-			
-			Add("Arachnotron",1984,-320,180,0,0);
-			
-			Add("Arachnotron",2048,52,180,0,0);
-			Add("Arachnotron",2304,124,180,0,0);
-			Add("Arachnotron",2304,-64,180,0,0);
-						
-			Add("Fatso",384,-792,180,0,0);		
-			
-			Add("Hellknight",896,120,180,0,0);
-			Add("Hellknight",896,8,180,0,0);
-			
-			Add("Hellknight",1632,-832,0,0,0);
-			Add("Hellknight",2660,-1076,225,0,0);			
-			
-			Add("Hellknight",1800,-640,0,0,0);
-			Add("Hellknight",2304,-640,0,0,0);
-			Add("Hellknight",2688,-640,0,0,0);
-			Add("Hellknight",2304,-960,0,0,0);
-			
-			Add("Painelemental",2880,-636,135,0,0);
-			
-			Add("Cacodemon",672,-1440,90,0,0);
-			Add("Cacodemon",224,-1440,90,0,0);
-			Add("Cacodemon",96,-1440,90,0,0);
-			
-			Add("Painelemental",384,-1472,45,0,0);		
-		}
-		if (StrICmp(mapName, "map06") == 0)
-		{
-			
-		}
-		if (StrICmp(mapName, "map07") == 0)
-		{		
-			Add("Cyberdemon",-1584,-1104,45,0,0);
-			Add("Cyberdemon",304,624,225,0,0);
-			
-			Add("Fatso",-320,-224,0,0,0);
-			Add("Fatso",-608,-576,270,0,0);
-			Add("Fatso",-896,-224,180,0,0);
-			Add("Fatso",-608,128,90,0,0);
-			
-			while (!IsFloorLevel(666,32)) { Delay(10); } 
-			
-			Add("Archvile",-768,-208,180,0,99);
-			Add("Archvile",-448,-208,0,0,99);
-			Add("Archvile",-608,0,90,0,99);
-			//Add("Archvile",-608,-336,270,0,99);
-		}
-		if (StrICmp(mapName, "map08") == 0)
-		{
-			Add("Hellknight",872,3808,270,0,0);
-			Add("Hellknight",936,3856,270,0,0);
-			Add("Hellknight",1552,3808,270,0,0);
-			Add("Hellknight",1496,3856,270,0,0);
-			
-			Add("Revenant",664,2384,0,0,0);
-			
-			Add("Cacodemon",3640,1984,45,0,0);
-			Add("Cacodemon",3520,2104,45,0,0);
-			Add("Cacodemon",3520,2576,315,0,0);
-			Add("Cacodemon",3648,2688,315,0,0);
-			
-			while (IsDoorClosed(10)) { Delay(10); }
-			
-			Add("Arachnotron",1944,2720,90,0,99);
-			Add("Arachnotron",2072,2720,90,0,99);
-			Add("Arachnotron",2016,2576,90,0,99);
-			
-			while (IsDoorClosed(9)) { Delay(10); }
-			
-			Delay(200); 
-			
-			Add("Archvile",2872,2808,90,0,99);
-			Add("Archvile",3144,2816,90,0,99);
-		}
-		if (StrICmp(mapName, "map16") == 0)
-		{
-			Add("Cyberdemon",832,1216,45,0,0);
-		}
-		if (StrICmp(mapName, "tn_map28") == 0)
-		{
-			Add("Megasphere",-288,224,270,0,0);
-		}
-		
-		if (StrICmp(mapName, "pl_map32") == 0)
-		{
-			Add("Fatso",-80, 384, 90,0,0);
-			Add("Fatso",80, 384, 45,0,0);
-		}
-		
-		if (GetCVar ("dcx_D64D2Xtras"))	
-		{
-		
-			if (StrICmp(mapName, "ab_map26") == 0)
-			{
-				while (IsDoorClosed(666)) { Delay(10); }
-
-				//wait a couple of seconds
-				Delay(50);
-			
-				Add("SpiderMastermind",-768,-576,0,0,99);
-			}
-		
-			if (StrICmp(mapName, "ab_map27") == 0)
-			{
-				while (IsDoorClosed(20)) { Delay(10); }
-
-				//wait a couple of seconds
-				Delay(70);
-			
-				Add("SpiderMastermind",448,1696,0,0,99);
-			}
-		
-			if (StrICmp(mapName, "ab_map29") == 0)
-			{
-				while (!IsFloorLevel(9,0)) { Delay(10); }
-
-				//wait a couple of seconds
-				Delay(70);
-			
-				Add("SpiderMastermind",720,752,45,0,99);
-			}
-		
-		}
-		
-		terminate;
-	}
-}
-
-function bool IsDoorOpen(int tag)
-{
-    int height = GetSectorCeilingZ(tag,0,0) >> 16;
-    int flr = GetSectorFloorZ(tag,0,0) >> 16;
-    
-    if (height > flr)
-        return 1;
-    return 0;
-}
-
-//Check if the floor of a sector is at a certain value
-function bool IsFloorLevel(int tag, int level)
-{
-    int flr = GetSectorFloorZ(tag,0,0) >> 16;
-    if (flr == level)
-        return 1;
-    return 0;
-}
-
-function bool IsDoorClosed(int tag)
-{
-    return IsDoorOpen(tag) == 0;
-}
-
-function void AddDeco(str class,int x, int y,int object_properties)
-{
-
-	int fixed_x = x << 16;
-	int fixed_y = y << 16;
-    int fixed_z = GetSectorFloorZ(0,x,y);
-
-    //spawn object
-	SpawnForced(class,fixed_x,fixed_y,fixed_z,0,0);
-
-	if (object_properties == 99)
-		SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,0);
-}
-
-function void Add(str class,int x, int y, int angle, int minimum_skill, int object_properties)
-{
-	int byte_angle = 0;
-
-	int fixed_x = x << 16;
-	int fixed_y = y << 16;
-    int fixed_z = GetSectorFloorZ(0,x,y);
-
-	if (angle == 45)
-		byte_angle = 32;
-	else if (angle == 90)
-		byte_angle = 64;
-	else if (angle == 135)
-		byte_angle = 96;
-	else if (angle == 180)
-		byte_angle = 128;
-	else if (angle == 225)
-		byte_angle = 160;
-	else if (angle == 270)
-		byte_angle = 192;
-	else if (angle == 315)
-		byte_angle = 224;
-	else
-		byte_angle = 0;
-
-    //spawn object
-	if (Spawn(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
-    {
-       
-    }
-    else
-    {
-        SetActorProperty(17391,APROP_Ambush,1);
-
-	    if (object_properties == 99)
-		    SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,byte_angle);
-    }
-}
-
-Script "DeleteMe" (void)
-{
-    PrintBold(s:"A replacement object was given to ", s:GetActorClass(0));
-    Thing_Remove(0);
-}
-
-function void Replace(str class, int x, int y, int angle, int minimum_skill, int object_properties)
-{       
-	int byte_angle = 0;
-
-	int fixed_x = x << 16;
-	int fixed_y = y << 16;
-    int fixed_z = GetSectorFloorZ(0,x,y);
-
-	if (angle == 45)
-		byte_angle = 32;
-	else if (angle == 90)
-		byte_angle = 64;
-	else if (angle == 135)
-		byte_angle = 96;
-	else if (angle == 180)
-		byte_angle = 128;
-	else if (angle == 225)
-		byte_angle = 160;
-	else if (angle == 270)
-		byte_angle = 192;
-	else if (angle == 315)
-		byte_angle = 224;
-	else
-		byte_angle = 0;
-
-    //spawn the dummy "replacer" object
-    bool removed = false;
-
-	SpawnForced("DC_Replacer",fixed_x,fixed_y,fixed_z,17399,byte_angle);
-    while (CheckProximity (17399, "Actor", 8.0, 1, CPXF_ANCESTOR|CPXF_SETTARGET))
-    {
-        //We succesfully found the object we are trying to replace, so remove it
-        //Log(s:"We found a ");
-        SetActivator(17399,AAPTR_TARGET);
-        Thing_Remove(0);
-        removed = true;
-    }
-
-    if (removed)
-    {
-        //spawn new object and give it the ambush flag
-	    if (SpawnForced(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)
-        {
-           
-        }
-        else
-        {
-            SetActorProperty(17391,APROP_Ambush,1);
-        }
-    }
-    
-
-	if (object_properties == 99)
-		SpawnForced("TeleportFog",fixed_x,fixed_y,fixed_z,0,byte_angle);
-}
-
-Script "TestTID" (void)
-{
-	Thing_ChangeTID(0,9999);
-	while (true)
-	{
-		SetActivatorToTarget(9999);
-
-		Delay(35);
-	}
 }
 
 function bool IsBrutalDoom(void)

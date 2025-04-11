@@ -1,0 +1,170 @@
+
+Class Stimpack_BFG : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM B -1;
+		Stop;
+	}
+}
+
+Class Medikit_BFG : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI B -1;
+		Stop;
+	}
+}
+
+Class Berserk_BFG : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR B -1 bright;
+		Stop;
+	}
+}
+
+Class Stimpack_Unity : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM C -1;
+		Stop;
+	}
+}
+
+Class Medikit_Unity : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI C -1;
+		Stop;
+	}
+}
+
+Class Berserk_Unity : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR C -1 bright;
+		Stop;
+	}
+}
+
+Class Stimpack_Eternal : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM D -1;
+		Stop;
+	}
+}
+
+Class Medikit_Eternal : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI D -1;
+		Stop;
+	}
+}
+
+Class Berserk_Eternal : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR D -1 bright;
+		Stop;
+	}
+}
+
+Class DCX_Cyankeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class MasterLevelsCompleted : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 5;
+	}
+}
+
+Class AlreadyCompletedInferno : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedTitan : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedCabal : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedTech : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}
+
+Class AlreadyCompletedLost : Inventory
+{
+	Default
+	{
+		+INVENTORY.PERSISTENTPOWER
+		+INVENTORY.UNCLEARABLE
+		+INVENTORY.QUIET
+		+INVENTORY.UNTOSSABLE
+		Inventory.MaxAmount 1;
+	}
+}

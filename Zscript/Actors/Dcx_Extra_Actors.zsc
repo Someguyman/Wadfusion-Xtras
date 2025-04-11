@@ -1,0 +1,924 @@
+
+Class DCX_NightmareImp : Doomimp
+{
+	Default
+	{
+		Bloodcolor "f707ef";
+		RenderStyle "Translucent";
+		Alpha 0.666;
+		Speed 16;
+		PainChance 128;
+		Translation "NightmareImp";
+		HitObituary "$OB_NITIMPHIT";
+		Obituary "$OB_NITIMP";
+		SeeSound "imp2/sight";
+		ActiveSound "imp2/Active";
+		PainSound "Imp2/Pain";
+		DeathSound "imp2/Death";
+		Species "NightmareImp";
+	}
+	States
+	{
+		Spawn:
+			IMP2 AB 10 A_Look;
+			Loop;
+		See:
+			IMP2 AABBCCDD 3 A_Chase;
+			Loop;
+		Melee:
+		Missile:
+			IMP2 EF 8 A_FaceTarget;
+			IMP2 G 6 { A_CustomComboAttack("DCX_NightmareImpBall", 32, 10 * random(1, 6), "imp/melee"); A_FaceTarget(); }
+			Goto See;
+		Pain:
+			IMP2 H 2;
+			IMP2 H 2 A_Pain;
+			Goto See;
+		Death:
+			IMP2 I 8;
+			IMP2 J 8 A_Scream;
+			IMP2 K 6;
+			IMP2 L 6 A_NoBlocking;
+			IMP2 M -1;
+			Stop;
+		XDeath:
+			IMP2 N 5;
+			IMP2 O 5 A_XScream;
+			IMP2 P 5;
+			IMP2 Q 5 A_NoBlocking;
+			IMP2 RST 5;
+			IMP2 U -1;
+			Stop;
+		Raise:
+			IMP2 MLKJI 8;
+			Goto See;
+	}
+}
+
+Class DCX_NightmareImpBall : CacodemonBall 
+{
+	Default
+	{
+		SeeSound "imp/attack2";
+		DeathSound "imp/shotx2";
+		Speed 20;
+		FastSpeed 35;
+		Damage 3;
+	}
+	States
+	{
+		Spawn:
+			BALN AB 4 Bright;
+			Loop;
+		Death:
+			BALN CDE 6 Bright;
+			Stop;
+	}
+}
+
+Class DCX_NightmareSpectre : Demon 
+{
+	Default
+	{
+		SeeSound "demon2/sight";
+		AttackSound "demon2/melee";
+		PainSound "demon2/pain";
+		DeathSound "demon2/death";
+		ActiveSound "demon2/active";
+		Alpha 0.666;
+		Speed 12;
+		//Alpha 0.4;
+		Health 300;
+		+SHADOW
+		//RenderStyle "Subtract";
+		RenderStyle "Translucent";
+		BloodColor "Blue";
+		Obituary "%o was devoured by a nightmare spectre.";
+		Translation "NightmareSpectre";
+		Species "NightmareSpectre";
+	}
+	States
+	{
+		Spawn:
+			NSMS AB 10 A_Look;
+			Loop;
+		See:
+			NSMS AABBCCDD 2 Fast A_Chase;
+			Loop;
+		Melee:
+			NSMS EF 8 Fast A_FaceTarget;
+			NSMS G 8 Fast A_SargAttack;
+			Goto See;
+		Pain:
+			NSMS H 2 Fast;
+			NSMS H 2 Fast A_Pain;
+			Goto See;
+		Death:
+			NSMS I 8;
+			NSMS J 8 A_Scream;
+			NSMS K 4;
+			NSMS L 4 A_NoBlocking;
+			NSMS M 4;
+			NSMS N -1;
+			Stop;
+		Raise:
+			NSMS N 5;
+			NSMS MLKJI 5;
+			Goto See;
+	}
+}
+
+Class DCX_NightmareCacodemon : Cacodemon
+{
+	Default
+	{
+		SeeSound "caco2/sight";
+		PainSound "caco2/pain";
+		DeathSound "caco2/death";
+		ActiveSound "caco2/active";
+		Health 700;
+		//Speed 12;
+		Speed 24;
+		PainChance 96;
+		+SHADOW
+		+NOSPRITESHADOW
+		MissileChanceMult 1.5;
+		//RenderStyle "Add";
+		RenderStyle "Translucent";
+		BloodColor "Orange";
+		Obituary "$OB_NITCACO";
+		HitObituary "$OB_NITCACOHIT";
+		Translation "NightmareCaco";
+		Species "NightmareCacodemon";
+		//Alpha 0.4;
+		Alpha 0.666;
+	}
+	States
+	{
+		Spawn:
+			CCBT A 10 A_Look;
+			Loop;
+		See:
+			CCBT A 3 A_Chase;
+			Loop;
+		Missile:
+			CCBT BC 4 A_FaceTarget;
+			CCBT D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+			CCBT BC 3 A_FaceTarget;
+			CCBT D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+			CCBT BC 3 A_FaceTarget;
+			CCBT D 4 Bright { A_CustomComboAttack("DCX_NightmareCacodemonBall", 32, 10 * random(1, 6), ""); A_FaceTarget(); }
+			Goto See;
+		Pain:
+			CCBT E 3;
+			CCBT E 3 A_Pain;
+			CCBT F 6;
+			Goto See;
+		Death:
+			CCBT G 8;
+			CCBT H 8 A_Scream;
+			CCBT I 8;
+			CCBT J 8;
+			CCBT K 8 A_NoBlocking;
+			CCBT L -1 A_SetFloorClip;
+			Stop;
+		Raise:
+			CCBT L 8 A_UnSetFloorClip;
+			CCBT KJIHG 8;
+			Goto See;
+	}
+}
+
+class DCX_NightmareCacodemonBall : CacodemonBall
+{
+	Default
+	{
+		Radius 6;
+		Height 8;
+		Speed 10;
+		FastSpeed 20;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE
+		+ZDOOMTRANS
+		RenderStyle "Add";
+		Alpha 0.666;
+		SeeSound "caco/attack2";
+		DeathSound "caco/shotx2";
+	}
+	States
+	{
+	Spawn:
+		BLN2 AB 4 BRIGHT;
+		Loop;
+	Death:
+		BLN2 CDE 6 BRIGHT;
+		Stop;
+	}
+}
+
+//for deathmatch type maps only
+
+Class DCX_DM_Marinebot : Actor
+{
+	Default
+	{
+		Health 500;
+		Radius 20;
+		Height 56;
+		Speed 16;
+		Mass 100;
+		PainChance 30;
+		Gibhealth 20;
+		Monster;
+		+FLOORCLIP
+		+AVOIDMELEE
+		+HARMFRIENDS
+		+DOHARMSPECIES
+		+FORCEINFIGHTING
+		+QUICKTORETALIATE
+		+AVOIDHAZARDS
+		+SEEFRIENDLYMONSTERS
+		+TELESTOMP
+		+NOBLOCKMONST
+		+LOOKALLAROUND
+		+ALWAYSTELEFRAG
+		+DROPOFF
+		MissileChanceMult 0.5;
+		//SeeSound "Marine/Sight";
+		ActiveSound "Marine/Active";
+		DeathSound "Marine/Death";
+		PainSound "*pain50";
+		Tag "Deathmatch Marine";
+	}
+	
+	void A_BotProjectileAtk(Class<Actor> spawntype = "plasmaball")
+	{
+		A_SpawnProjectile(spawntype, 32); 
+		A_FaceTarget();
+	}
+	
+	void A_BotHeatWaveATK()
+	{
+		A_Startsound("weapons/calamityblade/shoot", CHAN_WEAPON);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -20.0);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -15.0);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -10.0);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, -5.0);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, 0); 
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, 5.0);
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, 10.0); 
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, 15.0); 
+		A_SpawnProjectile("ID24IncineratorProjectile", 32, 0, 20.0); 
+		A_FaceTarget(); 
+	}
+	
+	Void A_BulletATK()
+	{
+		A_CustomBulletAttack(22.5, 0, 1, random(1,5) * 3, flags: CBAF_NORANDOM); 
+		A_StartSound ("weapons/pistol", CHAN_WEAPON); 
+		A_FaceTarget();
+	}
+	
+	Void A_BotShotgunATK()
+	{
+		 A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM); 
+		 A_StartSound ("weapons/shotgf", CHAN_WEAPON); 
+		 A_FaceTarget();
+	}
+	
+	States
+	{
+		Spawn:
+			PLAY AABBCCDD 2 { A_Look(); A_Wander(); }
+			Loop;
+		See:
+			PLAY AABBCCDD 2 A_Chase;
+			PLAY A 0 { bDROPOFF = False;} 
+			Loop;
+		Melee:
+			goto Melee.DualChainsaw;
+		Melee.Fist:		
+			PLAY E 4 A_FaceTarget;
+			PLAY E 4 A_CustomMeleeAttack(2 * random(1, 10),"*fist");
+			PLAY A 9 A_FaceTarget;
+			Goto See;
+		Melee.Berserk:
+			PLAY E 4 A_FaceTarget;
+			PLAY E 4 A_CustomMeleeAttack(20 * random(1, 10),"*fist");
+			PLAY A 9 A_FaceTarget;
+			Goto See;
+		Melee.Chainsaw:
+			PLAY E 2 A_FaceTarget(); //{ A_Startsound("weapons/sawfull"); A_FaceTarget(); }
+			PLAY E 2 { A_CustomMeleeAttack(2 * random(1, 10),"weapons/sawhit"); A_FaceTarget(); }
+			Goto See;
+		Melee.DualChainsaw:
+			PLAY E 2 { A_CustomMeleeAttack(2 * random(1, 10),"weapons/saw2hit"); A_FaceTarget(); }
+			PLAY E 2 { A_CustomMeleeAttack(2 * random(1, 10),"weapons/saw2hit"); A_FaceTarget(); }
+			Goto See;
+		Missile:
+			PLAY E 0 A_Jump(20, "Missile.Calamity");
+			PLAY E 0 A_Jump(20, "Missile.BFG9000");
+			PLAY E 0 A_Jump(40, "Missile.Rocket");
+			PLAY E 0 A_Jump(100, "Missile.Plasma");
+			PLAY E 0 A_Jump(25, "Missile.SuperShotgun");
+			PLAY E 0 A_Jump(25, "Missile.Flamer");
+			//PLAY E 0 A_Jump(50, "Missile.Shotgun");
+			PLAY E 0 A_Jump(125, "Missile.RapidFire");
+			Goto Missile.Shotgun;
+		Missile.Pistol:
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT A_BulletATK();
+			PLAY E 8 A_FaceTarget;
+			Goto See;
+		Missile.Shotgun:
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT A_BotShotgunATK();
+			PLAY E 10 A_FaceTarget;
+			Goto See;
+		Missile.SuperShotgun:
+			PLAY A 0 A_JumpIfCloser(500,1); //Will only use when up close
+			Goto Missile.Shotgun;
+			PLAY A 0 A_Startsound("Marine/Sight", CHAN_BODY);
+			PLAY AABBCCDDAABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY E 4 A_FaceTarget;
+            PLAY F 4 BRIGHT 
+			{ A_Startsound("weapons/sshotf", CHAN_WEAPON); A_CustomBulletAttack(11.2, 7.1, 20, 3, "Bulletpuff"); A_FaceTarget(); }
+			PLAY E 12 A_FaceTarget;
+			PLAY E 10 { A_FaceTarget(); A_Startsound("weapons/sshoto", CHAN_BODY); }
+			PLAY A 10 { A_FaceTarget(); A_Startsound("weapons/sshotl", CHAN_BODY); }
+			PLAY B 2 { A_FaceTarget(); A_Startsound("weapons/sshotc", CHAN_BODY); }
+			Goto See;
+		Missile.RapidFire:
+			PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+			PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+            PLAY E 2 A_FaceTarget;
+            PLAY F 2 BRIGHT A_BulletATK();
+			Goto See;
+		Missile.Rocket:
+			PLAY A 0 A_JumpIfCloser(100,"Missile.Shotgun"); //Don't use when up close
+			PLAY E 6 A_FaceTarget;
+            PLAY F 6 BRIGHT A_CyberAttack;
+			PLAY E 14 A_FaceTarget;
+			Goto See;
+		Missile.Plasma:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk();
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk();
+		Missile.Plasma.Repeat:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk();
+			PLAY E 0 A_Jump(50, "Missile.Plasma.Repeat");
+			Goto See;
+		Missile.Plasma.Green:
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ArachnotronPlasma");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ArachnotronPlasma");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ArachnotronPlasma");
+			Goto See;
+		Missile.BFG9000:
+			PLAY A 0 A_JumpIfCloser(500,1); //Will only use when up close
+			Goto Missile.Plasma;
+			PLAY E 4 { A_FaceTarget(); A_Startsound("weapons/bfgf", CHAN_BODY); } //weapons/bfgf
+			PLAY AABBCCDDAABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY F 8 BRIGHT A_FaceTarget;
+            PLAY F 6 BRIGHT A_BotProjectileAtk("BFGBall");
+			PLAY E 20 A_FaceTarget;
+			Goto See;
+		Missile.Flamer:
+			PLAY A 0 A_JumpIfCloser(500,1); //Will only use when up close
+			Goto Missile.Shotgun;
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ID24IncineratorFlame");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ID24IncineratorFlame");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ID24IncineratorFlame");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ID24IncineratorFlame");
+			PLAY E 2 A_FaceTarget;
+			PLAY F 1 BRIGHT A_BotProjectileAtk("ID24IncineratorFlame");
+			Goto See;
+		Missile.Calamity:
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY A 0 A_Startsound("weapons/calamityblade/charge", CHAN_BODY);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY AABBCCDD 1 A_Chase(null,null,CHF_DONTIDLE);
+			PLAY F 6 BRIGHT A_BotHeatWaveATK();
+			PLAY E 20 A_FaceTarget;
+			Goto See;
+		Pain:
+			PLAY G 3 A_StopSound(CHAN_BODY);
+			PLAY G 3 A_Pain;
+			Goto See;
+		Death:
+			PLAY H 10 A_StopSound(CHAN_BODY);
+			PLAY I 10 A_Scream;
+			PLAY J 10 A_NoBlocking;
+			PLAY KLM 10;
+			PLAY N -1;
+			Stop;
+		XDeath:
+			PLAY O 5 A_StopSound(CHAN_BODY);
+			PLAY P 5 A_XScream;
+			PLAY Q 5 A_NoBlocking;
+			PLAY RSTUV 5;
+			PLAY W -1;
+			Stop;
+		Raise:
+			PLAY M 5;
+			PLAY LKJIH 5;
+			Goto See ;
+	}
+}
+
+Class DCX_DM_Marinebot_Pistol : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 100;
+		PainChance 200;
+		MissileChanceMult 0.125;
+		Translation "112:127=144:151";
+		Dropitem "Clip";
+		-AVOIDMELEE
+		Tag "Pistol Marine";
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Pistol;
+		Melee:
+			Goto Super::Melee.Fist;
+	}
+}
+
+Class DCX_DM_Marinebot_Shotgun : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 100;
+		PainChance 170;
+		MissileChanceMult 0.5;
+		Translation "112:127=96:111";
+		Dropitem "Shotgun";
+		Tag "Shotgun Marine";
+	}
+	States
+	{
+		Melee:
+		Missile:
+			Goto Super::Missile.Shotgun;
+	}
+}
+
+Class DCX_DM_Marinebot_RapidFire : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 100;
+		MissileChanceMult 0.5;
+		Translation "112:127=32:47";
+		Dropitem "Chaingun";
+		Tag "Chaingun Marine";
+	}
+	States
+	{
+		Melee:
+		Missile:
+			Goto Super::Missile.RapidFire;
+	}
+}
+
+Class DCX_DM_Marinebot_SuperShotgun : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 150;
+		PainChance 200;
+		MissileChanceMult 0.5;
+		Translation "112:127=[63,63,63]:[0,0,0]";
+		Dropitem "SuperShotgun";
+		Tag "SuperShotgun Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.SuperShotgun;
+	}
+}
+
+Class DCX_DM_Marinebot_Rocket : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 200;
+		MissileChanceMult 0.5;
+		Translation "112:127=[162,104,53]:[0,0,0]";
+		Dropitem "RocketLauncher";
+		Tag "RocketLauncher Marine";
+	}
+	States
+	{
+		Missile:
+			Goto Super::Missile.Rocket;
+	}
+}
+
+Class DCX_DM_Marinebot_Plasma : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 90;
+		MissileChanceMult 0.5;
+		Translation "112:127=[70,70,255]:[0,0,64]";
+		Dropitem "Plasmarifle";
+		Tag "PlasmaRifle Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.Plasma;
+	}
+}
+
+Class DCX_DM_Marinebot_BFG9000 : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 20;
+		MissileChanceMult 1.5;
+		Translation "112:127=[0,128,0]:[0,0,0]";
+		Dropitem "BFG9000";
+		Tag "BFG9000 Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			PLAY A 0 A_JumpIfCloser(500,"Missile.Plasma.Green"); //Will only use when up close
+			Goto Missile.BFG9000 + 2;
+			//Goto Super::Missile.BFG9000;
+	}
+}
+
+Class DCX_DM_Marinebot_Flamer : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 90;
+		MissileChanceMult 0.5;
+		Translation "112:127=[255,128,64]:[64,0,0]";
+		Dropitem "ID24Incinerator";
+		Tag "Incinerator Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.Flamer;
+	}
+}
+
+Class DCX_DM_Marinebot_Heatwave : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 500;
+		PainChance 20;
+		MissileChanceMult 1.5;
+		Translation "112:127=[255,0,255]:[34,0,0]";
+		Dropitem "ID24CalamityBlade";
+		Tag "Heatwave Marine";
+	}
+	States
+	{
+		Melee:
+			Stop;
+		Missile:
+			Goto Super::Missile.Calamity;
+	}
+}
+
+Class DCX_DM_Marinebot_Berserk : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 80;
+		MissileChanceMult 2.0;
+		Translation "112:127=[255,0,0]:[64,0,0]";
+		Dropitem "Berserk";
+		Speed 25;
+		-AVOIDMELEE
+		ActiveSound "";
+		Tag "Berserk Marine";
+	}
+	States
+	{
+		Missile:
+			Stop;
+			//Goto Super::Missile.Pistol;
+		Melee:
+			Goto Super::Melee.Berserk;
+	}
+}
+
+Class DCX_DM_Marinebot_Chainsaw : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 200;
+		MissileChanceMult 2.0;
+		Translation "112:127=160:167";
+		Dropitem "Chainsaw";
+		Speed 25;
+		ActiveSound "";
+		-AVOIDMELEE
+		Tag "Chainsaw Marine";
+	}
+	
+	override void PostBeginPlay()
+	{
+		A_StartSound("weapons/sawup",CHAN_7);
+	}
+	
+	override void Tick()  
+	{
+		Super.Tick();
+		if (health > 0 && !isFrozen() && GetAge() % 8 == 0)
+		{
+			A_StartSound("weapons/sawidle", Chan_Body);
+		}
+	}
+	
+	States
+	{
+		Missile:
+			Stop;
+			//Goto Super::Missile.Shotgun;
+		Melee:
+			Goto Super::Melee.Chainsaw;
+	}
+}
+
+Class DCX_DM_Marinebot_DualChainsaw : DCX_DM_Marinebot
+{
+	Default
+	{
+		Health 300;
+		PainChance 200;
+		MissileChanceMult 2.0;
+		Translation "112:127=#[112,138,104]";
+		Dropitem "DCX_DoubleBladedChainsaw";
+		Speed 25;
+		ActiveSound "";
+		-AVOIDMELEE
+		Tag "Dual Chainsaw Marine";
+	}
+	
+	override void PostBeginPlay()
+	{
+		A_StartSound("weapons/saw2up",CHAN_7);
+	}
+	
+	override void Tick()  
+	{
+		Super.Tick();
+		if (health > 0 && !isFrozen() && GetAge() % 8 == 0)
+		{
+			A_StartSound("weapons/saw2idle", Chan_Body);
+		}
+	}
+	
+	States
+	{
+		Missile:
+			Stop;
+			//Goto Super::Missile.Shotgun;
+		Melee:
+			Goto Super::Melee.DualChainsaw;
+	}
+}
+
+Class DCX_DM_MarineBotSpawner : Actor
+{
+	Bool A; //Returns 1 or 0 for succes or fail.
+	Actor B; //Pointer to actor
+	Actor C;
+	Actor D;
+	
+	bool BotBDead;
+	bool BotCDead; 
+	bool BotDDead; 
+	
+	Default
+	{
+		-COUNTKILL
+		+ISMONSTER
+		+NOBLOCKMAP
+		+NOSECTOR
+		+BOSSDEATH
+		+LOOKALLAROUND
+		+NEVERRESPAWN
+	}
+	
+	States
+	{
+		Spawn:
+		See:
+			PLAY A 250;
+			PLAY A 60;
+			PLAY A 5 A_Jumpif(BotDDead == true, "Suicide");
+			TNT1 A 0
+			{
+				String SpawnNames1[4] = {"DCX_DM_Marinebot_Pistol", "DCX_DM_Marinebot_Shotgun", "DCX_DM_Marinebot_RapidFire", "DCX_DM_Marinebot_Chainsaw"};
+				String SpawnNames2[6] = {"DCX_DM_Marinebot_Shotgun", "DCX_DM_Marinebot_RapidFire", "DCX_DM_Marinebot_SuperShotgun", "DCX_DM_Marinebot_Plasma", "DCX_DM_Marinebot_Chainsaw" , "DCX_DM_Marinebot_Berserk"};
+				String SpawnNames3[7] = {"DCX_DM_Marinebot_SuperShotgun", "DCX_DM_Marinebot_Plasma", "DCX_DM_Marinebot_Rocket", "DCX_DM_Marinebot_BFG9000", "DCX_DM_Marinebot_Flamer", "DCX_DM_Marinebot_Heatwave", "DCX_DM_Marinebot_DualChainsaw"};
+				A_SpawnItemEx("TeleportFog",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid);
+				if (BotBDead != True)
+				{ [A,B] = A_SpawnItemEx(SpawnNames1[Random(0,3)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+				else if(BotCDead != True)
+				{ [A,C] = A_SpawnItemEx(SpawnNames2[Random(0,5)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+				else if(BotDDead != True)
+				{ [A,D] = A_SpawnItemEx(SpawnNames3[Random(0,6)],0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+			}
+			Goto WaitUntilDeath;
+		WaitUntilDeath:
+			PLAY A 10;
+			TNT1 A 0
+			{
+				If(B)
+				{
+					if(B.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotBDead != True)
+						{ BotBDead = true; }
+					}
+				}
+				
+				If(C)
+				{
+					if(C.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotCDead != True)
+						{ BotCDead = true; }
+					}
+				}
+				
+				If(D)
+				{
+					if(D.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+					else
+					{
+						if (BotDDead != True)
+						{ BotDDead = true; }
+					}
+				}
+				
+				Return ResolveState(null);				
+			}
+			Goto See+1;
+		Suicide:
+			PLAY N 1 A_Die("Death");
+			Goto Death;
+		Death:
+			PLAY N 30;
+			PLAY N 5 A_NoBlocking;
+			PLAY N 0 A_BossDeath;
+			Stop;
+	}
+}
+
+
+
+Class DCX_Turkey : Actor
+{
+	Default
+	{
+		Health 60;
+		Radius 16;
+		Height 56;
+		Speed 0;
+		PainChance 256;
+		Mass 10000;
+		Monster;
+		//PainSound "imp/pain";
+		//-COUNTKILL
+	}
+	States
+	{
+		Spawn:
+			TROO A 10;
+			TROO A 1 A_StartSound("Turkey/Sight");
+		Idle:
+			TROO AB 30;
+			Loop;
+		Pain:
+			TROO H 2;
+			TROO H 2 A_Pain;
+			Goto Idle;
+		Death:
+			TROO N 5;
+			TROO O 5 A_XScream;
+			TROO P 5;
+			TROO Q 5 A_NoBlocking;
+			TROO RST 5;
+			TROO U 5;
+			Stop;
+	}
+}
+
+Class DCX_TurkeySpawner : Actor
+{
+	Bool A; //Returns 1 or 0 for succes or fail.
+	Actor B; //Pointer to actor
+	
+	bool TurkeyDead;
+	
+	Default
+	{
+		-COUNTKILL
+		+ISMONSTER
+		+NOBLOCKMAP
+		+NOSECTOR
+		+BOSSDEATH
+		+LOOKALLAROUND
+		+NEVERRESPAWN
+	}
+	
+	States
+	{
+		Spawn:
+		See:
+			PLAY A 60;
+			TNT1 A 0
+			{ [A,B] = A_SpawnItemEx("DCX_Turkey",0,0,90,0,0,0,270,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS | 288,0,tid); }
+			Goto WaitUntilDeath;
+		WaitUntilDeath:
+			PLAY A 10;
+			TNT1 A 0
+			{
+				If(B)
+				{
+					if(B.Health > 0)
+					{
+						return ResolveState("WaitUntilDeath");
+					}
+				}
+				
+				Return ResolveState(null);				
+			}
+			Goto See;
+	}
+}
+
+Class LevelEnder : Actor
+{
+	States
+	{
+		Spawn:
+			TNT1 A 35;
+			TNT1 A -1 A_BrainDie;
+			Stop;
+	}
+}

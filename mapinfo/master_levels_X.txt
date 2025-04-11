@@ -1,7 +1,9 @@
 // Misc maps that aren't part of a particular set.
+
 //Includes the fallowing: 
+
 //Tom Mustains master level submssions (Both accepted and rejected, inclusing those that made it into TNT),
-//Tim Wilitz submissions plus an extra promotional wad he designed called "Kick Attack",
+//Tim Wilitz submissions plus an extra promotional wad he designed to advertise kick soda called "Kick Attack",
 //And fixed up versions of the beta Doom 64 maps so they're actually beatable. 
 
 //Might remove later once those that come with the Doom 64 for doom 2 esche lost levels demakes come out.
@@ -17,8 +19,9 @@ defaultmap
 	ResetInventory
 	InterMusic = "D_INTRM3"
 	ExitPic = "MLINTERP"
-	Cluster = 34
+	Cluster = 24
 	compat_invisibility = "1"
+	F1 = "MTLCRE" 
 }
 
 // Tim Willits's Master Levels
@@ -44,9 +47,10 @@ map ML_MAP02 "$ML_CANYON"
 	Music = "$MUSIC_CANYON"
 }
 
-map ML_MAP44 "Boot Assault" //KICK ATTACK
+map ML_MAP44 "$ML_KICK" //KICK ATTACK
 {
 	Next = "ML_MAP45"
+	TitlePatch = "KWILV00"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
 }
@@ -79,6 +83,7 @@ map ML_MAP46 "$THUSTR_17" //Early version of Processing Area from #1DWANGO
 map ML_MAP28 "$ML_TWM01" // reject level
 {
 	Next = "ML_MAP07"
+	TitlePatch = "MWILV06"
 	Music = "$MUSIC_MASTERDEN"
 	Music = "T_MESSAG"
 }
@@ -102,6 +107,7 @@ adddefaultmap
 map ML_MAP47 "Hacked Together" 
 {
 	next = "ML_MAP48"
+	TitlePatch = "LWILV00"
 	sky1 = "SKY1"
 	music = "$MUSIC_HACK2"
 }
@@ -109,6 +115,7 @@ map ML_MAP47 "Hacked Together"
 map ML_MAP48 "Grand Entrance to Hell" //CANYON
 {
 	next = "ML_MAP49"
+	TitlePatch = "LWILV01"
 	sky1 = "SKY1"
 	music = "$MUSIC_HELLCAN"
 }
@@ -116,6 +123,7 @@ map ML_MAP48 "Grand Entrance to Hell" //CANYON
 map ML_MAP49 "Moping in Sarrow" // MEE2
 {
 	next = "ML_MAP50"
+	TitlePatch = "LWILV02"
 	sky1 = "RSKY3"
 	music = "$MUSIC_MEE2"
 }
@@ -123,6 +131,7 @@ map ML_MAP49 "Moping in Sarrow" // MEE2
 map ML_MAP50 "Nightmare Catacombs" //NEWCAT3
 {
 	next = "ML_MAP51"
+	TitlePatch = "LWILV03"
 	Sky1 =  "SKYX5A"
 	music = "$MUSIC_NEWCAT3"
 }
@@ -131,19 +140,13 @@ map ML_MAP51 "Tuff stuff" //TUFF
 {
 	Next = EndGame
 	{
-		Pic = "MLTITTLE"
+		Pic = "MLBOSSBK"
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}
+	TitlePatch = "LWILV04"
 	nointermission
 	NoSoundClipping
 	Sky1 =  "SKYX4A"
 	music = "$MUSIC_TUFF"
-}
-
-Cluster 34
-{
-	music = "$MUSIC_MASTERTXT"
-	pic = "MLINTERP"
-	ExitText = "$M1TEXT" //Due to a lack of any supplmental stuff for any of these, I just use the psx master levels end text for now
 }

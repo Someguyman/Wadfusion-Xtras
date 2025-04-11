@@ -1,0 +1,49 @@
+
+Ghoul/Sight DSGHLSIT
+Ghoul/Active DSGHLACT
+Ghoul/Pain DSGHLPAI
+Ghoul/Death DSGHLDTH
+Ghoul/Shot dsfirsht
+Ghoul/ShotX dsfirxpl
+
+Banshee/See DSBANACT
+Banshee/Active DSBANACT
+Banshee/Pain DSBANPAI
+Banshee/Death DSBANDTH
+
+ShockTrooper/Active DSPPOACT
+ShockTrooper/Pain DSPPOPAI
+ShockTrooper/Death DSPPODTH
+ShockTrooper/Head DSPPOHED
+
+Vassago/sight DSVASSIT
+Vassago/active DSVASACT
+Vassago/attack DSVASATK
+Vassago/pain DSVASPAI
+Vassago/death DSVASDTH
+Vassago/Shot DSINCBRN
+$alias Vassago/ShotX vile/firecrkl
+$Random Vassago/fire { Vassago/fire1 Vassago/fire2 Vassago/fire3 }
+Vassago/fire1 DSINCHT1
+Vassago/fire2 DSINCHT2
+Vassago/fire3 DSINCHT3
+
+Mindweaver/sight DSCSPSIT
+Mindweaver/active DSCSPACT
+$alias Mindweaver/pain Spider/pain
+Mindweaver/death DSCSPDTH
+Mindweaver/walk DSCSPWLK
+$alias Mindweaver/attack Spider/attack
+
+Tyrant/sight DSTYRSIT
+Tyrant/active DSCYBACT
+Tyrant/hoof DSTYRWLK
+$alias Tyrant/pain cyber/pain
+Tyrant/death DSTYRDTH
+
+Lamp/Break DSBREAK
+
+world/Klaxon dsklaxon
+world/PortalOpen dsgatopn
+world/PortalLoop dsgatlop
+world/PortalClose dsgatcls

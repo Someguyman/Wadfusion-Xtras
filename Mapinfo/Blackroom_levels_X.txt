@@ -1,0 +1,39 @@
+// Blackroom warm-up maps
+
+defaultmap
+{
+	Sky1 = "SKY1"
+	SuckTime = 1
+	ExitPic = "$IN_EPI1"
+	InterMusic = "$MUSIC_INTER"
+	BorderTexture = "FLOOR7_2"
+	NoJump
+	NoCrouch
+	Author = "$WF_AU_ROMERO"
+	compat_invisibility = "1"
+	F1 = "D1CRED" 
+}
+
+map E1M4b "$HUSTR_E1M4B"
+{
+	next = "E1M5"
+	Cluster = 30
+	//Music = "$MUSIC_E1M4"
+	Music = "$MUSIC_E1M4B"
+	TitlePatch = "WILV03B"
+	Label = "THE ULTIMATE DOOM, E1M4"
+}
+
+map E1M8b "$HUSTR_E1M8B"
+{
+	Cluster = 31
+	Next = endpic, "UDCRED"
+	TitlePatch = "WILV07B"
+	nointermission
+	nosoundclipping
+	baronspecial
+	specialaction_lowerfloor
+	//Music = "$MUSIC_E1M8"
+	Music = "$MUSIC_E1M8B"
+	Label = "THE ULTIMATE DOOM, E1M8"
+}

@@ -10,55 +10,59 @@ defaultmap
 	Author = "$WF_AU_FLYNN"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "JFINTERP"
-	Cluster = 37
 	Label = "TITAN SERIES"
 	compat_invisibility = "1"
+	F1 = "TSCRED" 
 }
 
-map ML_MAP29 "$ML_MINES" // bonus level
+map ML_MAP29 "$ML_MINES" // Mines of Titan
 {
-	
 	Next = "ML_MAP30"
 	Sky1 = "MSKY4"
+	Cluster = 32
 	TitlePatch = "MWILV28"
 	Music = "$MUSIC_MINES"
 }
 
-map ML_MAP30 "$ML_ANOMALY" // bonus level
+map ML_MAP30 "$ML_ANOMALY" // Titan Anomaly
 {
 	Next = "ML_MAP31"
 	Sky1 = "MSKY5"
+	Cluster = 33
 	TitlePatch = "MWILV29"
 	Music = "$MUSIC_ANOMALY"
 }
 
-map ML_MAP31 "$ML_FARSIDE" // bonus level
+map ML_MAP31 "$ML_FARSIDE" // Farside of Titan
 {
 	Next = "ML_MAP16"
 	Sky1 = "MSKY6"
+	Cluster = 34
 	TitlePatch = "MWILV30"
 	Music = "$MUSIC_FARSIDE"
 }
 
-map ML_MAP16 "$ML_MANOR"
+map ML_MAP16 "$ML_MANOR" // Titan Manor
 {
 	Next = "ML_MAP17"
 	Sky1 = "MSKY3"
+	Cluster = 36
 	TitlePatch = "MWILV15"
 	Music = "$MUSIC_MANOR"
 }
 
-map ML_MAP17 "$ML_TTRAP"
+map ML_MAP17 "$ML_TTRAP" // Trapped On Titan
 {
 	Next = "ML_MAP32"
 	nointermission
 	NoSoundClipping
 	Sky1 = "MSKY3"
+	Cluster = 37
 	TitlePatch = "MWILV16"
 	Music = "$MUSIC_TRAPPED"
 }
 
-map ML_MAP32 "$ML_TROUBLE" // bonus level
+map ML_MAP32 "$ML_TROUBLE" // Trouble On Titan
 {
 	Next = EndGame
 	{
@@ -67,13 +71,7 @@ map ML_MAP32 "$ML_TROUBLE" // bonus level
 		Cast
 	}
 	Sky1 = "MSKY5"
+	Cluster = 35
 	TitlePatch = "MWILV31"
 	Music = "$MUSIC_TROUBLE"
-}
-
-Cluster 37
-{
-	music = "$MUSIC_MASTERTXT"
-	pic = "MLINTERP"
-	ExitText = "$GENERIC_TXT"
 }

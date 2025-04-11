@@ -81,6 +81,7 @@ HUSTR_PSX09 = "Club DOOM";
 
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
 BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
+BONUS_HUMAN = "\c[GOLD]Bonus: \c[RED]One Humanity";
 BONUS_KEXDM = "\c[GOLD]Bonus: \c[RED]DeathMatch Kex";
 BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]Titlescreen Map";
 
@@ -195,6 +196,7 @@ HUSTR_32 = "Grosse";
 HUSTR_33 = "Sewers";
 
 ML_TWM01 = "The Masters Den";
+ML_KICK = "Kick Attack";
 
 MUSIC_E4M1 = "E4M1";
 MUSIC_E4M2 = "E4M2";
@@ -217,6 +219,9 @@ MUSIC_PSX06 = "PSX06";
 MUSIC_PSX07 = "PSX07";
 MUSIC_PSX08 = "PSX08";
 MUSIC_PSX09 = "PSX09";
+
+MUSIC_E1M4B = "E1M4B";
+MUSIC_E1M8B = "E1M8B";
 
 MUSIC_BETRAY = "BETREY";
 
@@ -501,23 +506,23 @@ E4TEXT = "the spider mastermind must have sent forth\n"
 //		 "\n"		 
 //		 "Unless sigil comes out first... ";
 
-E5INTRO = "With the death of the second spider mastermind\n"
+E5INTRO = "With the destruction of the second spider mastermind\n"
 		  "by your hands, your next stop is at the starport\n"
 		  "base where what remains of humanity have gathered.\n"
 		  "\n"
-		  "There you can gear up, join with what remains of\n"
-		  "the forces of earth, and save everyone from the demonic\n"
+		  "There you can gear up, join with the remaining\n"
+		  "human forces, and save everyone from the demonic\n"
 		  "Invaders. You hop into the teleporter in attempt\n"
 		  "to get there before it's too late.\n"
 		  "\n"
 		  "But as you make it though the gateway, everything\n" 
-		  "suddenly glitches out around you. The visions of ruined\n"
+		  "suddenly distorts around you. The visions of ruined\n"
 		  "urban cities at the other end of the portal having turned\n" 
-		  "to deep, dark, caverns and red brimstone.\n"
+		  "to deep, dark, caverns and firey red brimstone.\n"
 		  "\n"
-		  "It appears another fraggin' dark lord from hell\n"
-		  "used his power to drag you into even darker\n"
-		  "shores in an attempt to break you.\n"
+		  "It appears another fraggin' dark force\n"
+		  "used their power to drag you into even darker\n"
+		  "shores of hell in an attempt to break you.\n"
 		  "\n"
 		  "Doesn't matter how far they drag you though, you've been\n"
 		  "through this place and back before and you'll do it again!\n"
@@ -526,22 +531,24 @@ E5INTRO = "With the death of the second spider mastermind\n"
 		  
 //		  Rip and tear may be cheesey, but it was in the original text so I had to.
 
-E6INTRO = "Baphomet's plan to drag you bring you back to hell\n"
-		  "only ended with him realizing why he failed in the\n"
+E6INTRO = "Baphomet's plan to drag you back to hell only\n"
+		  "ended with him realizing why he failed in the\n"
 		  "first place.\n"
 		  "\n"
-		  "Just like before, you've just got done mopping up\n"
+		  "Just like before, you've got done mopping up\n"
 		  "the place with your arsenal and are ready to go\n"
 		  "down into the wormhole and become the savior of earth.\n"
 		  "but once again you fall for another cunning trap,\n"
 		  "set this time by none other then satan himself.\n"
 		  "\n"
-		  "The dimension you are pulled into is more grotesque\n"
-		  "and vile then what you've had been through thus far;\n" 
-		  "filled with hell's most relentless killing machines.\n"
+		  "His evil cackle echos as you are pulled into\n"
+		  "an even more grotesque and vile dimension then what\n" 
+		  "you've had been through thus far; filled with hell's\n" 
+		  "most relentless killing machines.\n"
 		  "\n"
-		  "Now, with the heat really cranked up,\n"
-		  "it's time to really show them your metal!";		  
+		  "Now, with the heat really cranked up, it's time to\n"
+		  "really show them your metal. Satan don't know what'll\n"
+		  "hit him!";
 
 REDEMTION_INTRO =
 "The monsters that stood gaurd of the dreaded\n"
