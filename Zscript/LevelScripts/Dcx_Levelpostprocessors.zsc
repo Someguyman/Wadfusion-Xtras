@@ -152,24 +152,23 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
 			{					
 				if ( mapName == "ab_map06" )
-				{ SetThingEdNum(81, Unmaker); /*Replaces secret plasmagun*/ 
-				addthing(OrangeDemonKey , (-1184, 1376, -999), 0); } /*Adds Demonkey to secret area*/
+					{ SetThingEdNum(81, Unmaker); /*Replaces secret plasmagun*/ 
+					addthing(OrangeDemonKey , (-1184, 1376, -999), 0); } /*Adds Demonkey to secret area*/
 				
 				if ( mapName == "ab_map14" )
-				SetThingEdNum(137, PurpleDemonKey);	/*Replaces the megasphere that stood where it was in doom 64.*/
+					SetThingEdNum(137, PurpleDemonKey);	/*Replaces the megasphere that stood where it was in doom 64.*/
 				
 				if ( mapName == "ab_map32" )
-				SetThingEdNum(106, CyanDemonKey);	//Replaces the megasphere on top of the platform
+					SetThingEdNum(106, CyanDemonKey);	//Replaces the megasphere on top of the platform
 				
 				if ( mapName == "ab_map15" )
-				SetThingEdNum(291, Unmaker);	/*Replaces the bfg in the red key room where the unmaker was in the original doom 64*/
+					SetThingEdNum(291, Unmaker);	/*Replaces the bfg in the red key room where the unmaker was in the original doom 64*/
 				
 				if ( mapName == "ab_map28" )
-				SetThingEdNum(73, Unmaker);	/*Replaces the plasmagun on the secret lift*/
+					SetThingEdNum(73, Unmaker);	/*Replaces the plasmagun on the secret lift*/
 					
 				if ( mapName == "ab_map30" )
-				{ SetThingEdNum(6, Unmaker); /*Replaces the backpack in the penultimate room*/
-				  addthing(BackPack, (0, -3308, -999), 0); } /*Adds backpack in ammo catche room*/
+					Dcx_SpawnThing(Unmaker,( 0, -2464, -999 ), 270, MODES_ALL); //Add Unmaker to penultimate room.
 			}
 			
 			switch (checksum)	
@@ -1420,10 +1419,10 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				{
 					if ( !AllowCustom )
 					{
-						SetThingEdNum(112,2049);
-						SetThingEdNum(113,2049);
+						SetThingEdNum(112,ShellBox);
+						SetThingEdNum(113,ShellBox);
 						
-						addthing(2049, (-192, 3296, -999), 270);
+						Dcx_SpawnThing(ShellBox, (-192, 3296, -999), 270, MODES_ALL|MTF_AMBUSH);
 						
 						SetThingID(8, 666);
 						
@@ -1589,14 +1588,29 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					Break;
 				}
 				
-				case '2A1788BA5331055D5289BE32D5E0CB58': //Ab_MAP29
+				///*
+				case 'BD3496B2DCF40B64EBB0815A87F92610':
 				{
 					if ( AllowCustom )
 					{
-						SetThingEdNum(10, DualCyberdemon);
-						SetThingEdNum(11, DualCyberdemon);
-						SetThingEdNum(376, DualCyberdemon);
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(RocketBox, (-664, -680, -999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(RocketBox, (-872, -680, -999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(RocketBox, (-872, -472, -999), 0, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(RocketBox, (-664, -472, -999), 0, MODES_ALL|MTF_AMBUSH);
+							SetThingEdNum(40, DualCyberdemon);
+						}
 					}
+					break;
+				}
+				//*/
+				
+				case '2A1788BA5331055D5289BE32D5E0CB58': //Ab_MAP29
+				{
+					SetThingEdNum(10, DualCyberdemon);
+					SetThingEdNum(11, DualCyberdemon);
+					SetThingEdNum(376, DualCyberdemon);
 					Break;
 				}			
 			}

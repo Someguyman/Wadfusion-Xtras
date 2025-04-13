@@ -11,6 +11,12 @@ mother/active			dsmothac
 mother/pain				dsmothpn
 mother/death			dsmothdt
 
+//$pitchset PlasmaMKII/Hum 1.2
+PlasmaMKII/Hum dsplaidl
+
+$pitchset Demonkey/Get 0.8
+Demonkey/Get dsgetpow
+
 $random imp2/sight		{ imp2/sight1  imp2/sight2 }
 $random imp2/death		{ imp2/death1  imp2/death2 }
 imp2/sight1	dsbgsit1

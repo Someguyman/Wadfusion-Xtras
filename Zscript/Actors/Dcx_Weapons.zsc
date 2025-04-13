@@ -711,15 +711,19 @@ class DCX_HeavyPlasmaGun : DoomWeapon
 	Ready:
 		PLS2 A 0 A_WeaponReady;
 	ReadyLoop:
+		PLS2 A 0 A_Startsound("PlasmaMKII/Hum", CHAN_WEAPON, CHANF_LOOPING, 0.5, ATTN_NORM);
 		PLS2 AB 3 Bright A_WeaponReady;
 		Loop;
 	Deselect:
+		PLS2 A 0 A_Stopsound(CHAN_WEAPON);
 		PLS2 C 1 A_Lower;
 		Loop;
 	Select:
+		PLS2 A 0 A_Stopsound(CHAN_WEAPON);
 		PLS2 C 1 A_Raise;
 		Loop;
 	Fire:
+		RAIL A 0 A_Stopsound(CHAN_WEAPON);
 		PL2F A 2 Bright A_FireProjectile("DCX_PlasmaBall2",0,1);
 		PL2F B 2 Bright;
 		PL2F A 0 Bright A_ReFire;

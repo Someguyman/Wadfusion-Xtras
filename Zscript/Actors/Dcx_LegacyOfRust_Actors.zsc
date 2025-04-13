@@ -17,6 +17,7 @@ Class DCX_Ghoul : Actor Replaces Deh_Actor_150
 		PainSound "Ghoul/pain";
 		DeathSound "Ghoul/death";
 		ActiveSound "Ghoul/active";
+		Obituary "%o got pestered by a Ghoul";
 	}
 	States
 	{
@@ -95,6 +96,7 @@ Class DCX_Banshee : Actor Replaces Deh_Actor_151
 		PainSound "Banshee/pain";
 		DeathSound "Banshee/death";
 		Tag "Banshee";
+		Obituary "%o tried to hug a Banshee";
 	}
 	States
 	{
@@ -137,6 +139,7 @@ Class DCX_Mindweaver : Arachnotron Replaces Deh_Actor_152
 		DeathSound "Mindweaver/death";
 		ActiveSound "Mindweaver/active";
 		Tag "Mindweaver";
+		Obituary "%o tried mindgames with a Mindweaver";
 	}
 	States
 	{
@@ -195,6 +198,7 @@ Class DCX_ShockTrooper : Actor Replaces Deh_Actor_153
 		ActiveSound "ShockTrooper/Active";
 		DeathSound "ShockTrooper/Death";
 		Tag "Shock Trooper";
+		Obituary "%o got blasted by a Shock Trooper";
 	}
 	
 	Void STrooperBlast()
@@ -326,6 +330,7 @@ Class DCX_Vassago : Actor Replaces Deh_Actor_154
 		PainSound "Vassago/pain";
 		DeathSound "Vassago/death";
 		ActiveSound "Vassago/active";
+		Obituary "%o was toasted by a Vassago";
 	}
 	States
 	{
@@ -478,6 +483,7 @@ Class DCX_Tyrant : Actor Replaces Deh_Actor_155
 		PainSound "Tyrant/pain";
 		DeathSound "Tyrant/death";
 		Tag "Tyrant";
+		Obituary "%o blasted by a Tyrant";
 	}
 	
 	void A_TyrantAttack()

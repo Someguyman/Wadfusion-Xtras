@@ -36,6 +36,18 @@ Singer/Melee DSLSTATK
 Singer/Active DSLSTACT
 Singer/Death DSLSTDTH
 
+SingerN/Sight DSLSTSIT
+SingerN/Pain DSLSPAIN
+SingerN/Melee DSLSTATK
+SingerN/Active DSLSTACT
+SingerN/Death DSLSTDTH
+
+$pitchset SingerN/Sight 0.9
+$pitchset SingerN/Pain 0.9
+$pitchset SingerN/Melee 0.9
+$pitchset SingerN/Active 0.9
+$pitchset SingerN/Death 0.9
+
 wolfss/sight2 DSUSSSE
 
 SuperTurboTurkyPuncher3/Announcer DSSTTP3

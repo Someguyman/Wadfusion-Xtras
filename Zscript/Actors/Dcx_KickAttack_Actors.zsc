@@ -184,6 +184,11 @@ Class Dcx_NightmareSinger : Dcx_LoungeSinger
 	Default
 	{
 		Health 300;
+		SeeSound "SingerN/Sight";
+		AttackSound "SingerN/Melee";
+		PainSound "SingerN/pain";
+		DeathSound "SingerN/death";
+		ActiveSound "SingerN/active";
 		+SHADOW
 		RenderStyle "Subtract";
 		BloodColor "Blue";

@@ -314,7 +314,7 @@ Class DCX_DualCyberdemon : DCX_Cyberdemon
 {
 	Default
 	{
-		Health 8000;
+		Health 5000;
 		Seesound "DualCyber/Sight";
 		Deathsound "DualCyber/Death";
 		Species "DualCyberdemon"; //Can Infight Regular Cyberdemons
@@ -325,7 +325,8 @@ Class DCX_DualCyberdemon : DCX_Cyberdemon
 		+DONTHARMCLASS
 		Mass 10000;
 		Scale 1.1;
-		tag "Dual Cyberdemon";
+		tag "Super Cyberdemon";
+		Obituary "%o witnessed the might of the Super Cyberdemon";
 	}
 	
 	void A_DualRocketAtk(Class<Actor> spawntype = "DCX_DualCyboRocket", double height = 50, double offset = 25)
@@ -409,16 +410,22 @@ Class DCX_Motherdemon : Actor
 {
 	Default
 	{
-		Health 9000;
+		//Health 9000;
+		Health 5000;
 		Radius 40;
 		Height 105;
 		Mass 10000;
-		Speed 25;
-		PainChance 4;
+		//Speed 25;
+		Speed 30;
+		//PainChance 4;
+		PainChance 50;
 		Monster;
 		MinMissileChance 160;
-		MissileChanceMult 0.5;
+		//MissileChanceMult 0.5;
+		MissileChanceMult 0.0625;
+		ReactionTime 8;
 		+BOSS
+		+NOFEAR
 		+FLOORCLIP
 		+NORADIUSDMG
 		+DONTMORPH
@@ -426,21 +433,65 @@ Class DCX_Motherdemon : Actor
 		+FLOAT
 		+NOGRAVITY
 		+NOTELEFRAG
+		+DROPOFF
 		SeeSound "mother/sight";
 		AttackSound "";
 		PainSound "mother/pain";
 		DeathSound "mother/death";
 		ActiveSound "mother/active";
 		Obituary "$OB_MOTHER";
+		Tag "Motherdemon";
 	}
+	
+	void A_RectChase(int targetRange = 600)
+	{
+		if(!target || target.health <= 0 
+		|| !(Distance2D(target) < targetRange
+		&& CheckSight(target, SF_SEEPASTBLOCKEVERYTHING|SF_SEEPASTSHOOTABLELINES)))
+		{
+			A_Chase();
+			return;
+		}
+
+		A_FaceTarget();
+		SetState(meleestate);
+	}
+	
+	Void A_RectAttack(Class<Actor> spawntype = "DCX_RevenantTracer2")
+	{
+		A_FaceTarget();
+		Actor proj;
+		proj = A_SpawnProjectile(spawntype, 40, 30, -90, CMF_AIMDIRECTION|CMF_BADPITCH);// Arm 1
+		if (proj) proj.threshold = int(Round(5 * actor.TICRATE/30.0));
+		proj = A_SpawnProjectile(spawntype, 80, 30, -90, CMF_AIMDIRECTION|CMF_BADPITCH);// Arm 2
+		if (proj) proj.threshold = int(Round(1 * actor.TICRATE/30.0));
+		proj = A_SpawnProjectile(spawntype, 40, -30, 90, CMF_AIMDIRECTION|CMF_BADPITCH);// Arm 3
+		if (proj) proj.threshold = int(Round(5 * actor.TICRATE/30.0));
+		proj = A_SpawnProjectile(spawntype, 80, -30, 90, CMF_AIMDIRECTION|CMF_BADPITCH);// Arm 4
+		if (proj) proj.threshold = int(Round(1 * actor.TICRATE/30.0));
+	}
+	
+	void A_RectGroundFire(Class<Actor> spawntype = "DCX_GroundFire")
+    {
+        A_FaceTarget();
+        A_SpawnProjectile(spawntype, 0, 0, 0, CMF_AIMDIRECTION|CMF_BADPITCH, 0);
+		A_SpawnProjectile(spawntype, 0, 0, -45, CMF_AIMDIRECTION|CMF_BADPITCH, 0);
+		A_SpawnProjectile(spawntype, 0, 0, 45, CMF_AIMDIRECTION|CMF_BADPITCH, 0);
+		A_StartSound(AttackSound, CHAN_BODY);
+    }
+	
 	States
 	{
 		Spawn:
 			MOTH AB 10 A_Look;
 			Loop;
+		//See:
+			//MOTH AAABBBCCCDDD 2 A_Chase;
+			//Loop;
 		See:
-			MOTH AAABBBCCCDDD 2 A_Chase;
+			MOTH AAABBBCCCDDD 3 A_RectChase();
 			Loop;
+		/*
 		Missile:
 			MOTH E 10 A_FaceTarget;
 			MOTH FF 2 Bright A_SkelMissile;
@@ -457,12 +508,31 @@ Class DCX_Motherdemon : Actor
 			MOTH J 8 Bright A_VileAttack;
 			MOTH J 20 Bright;
 			Goto See;
+		*/
+		Melee:
+			MOTH E 4 BRIGHT A_RectGroundFire();
+			MOTH F 4 Bright A_FaceTarget;
+			MOTH G 4 Bright A_FaceTarget;
+			MOTH H 6 Bright A_FaceTarget;	
+			MOTH I 6 BRIGHT A_FaceTarget;
+			MOTH J 10 BRIGHT A_RectAttack();
+			MOTH I 4 Bright;
+			MOTH E 6 Bright;
+		goto see;
+			Goto See;
+		/*
 		Pain:
 			MOTH K 40 A_Pain;
 			MOTH H 4 Bright A_FaceTarget;
 			MOTH I 6 Bright A_FaceTarget;
 			MOTH JJJJ 4 Bright A_PainAttack;
 			Goto See;
+		*/
+		Pain:
+			MOTH K 1;
+			MOTH K 7 A_Pain;
+			MOTH K 18;
+			Goto Melee;
 		Death:
 			MOTH L 1;
 			MOTH L 19 A_Scream;
@@ -475,103 +545,117 @@ Class DCX_Motherdemon : Actor
 	}
 }
 
-Class DCX_Demonkey1 : CustomInventory 
-{
-Default
-{
-	+DONTGIB;
-	Inventory.Amount 1;
-	Inventory.MaxAmount 1;
-	Inventory.InterHubAmount 1;
-	Inventory.PickupMessage "";
-	Inventory.PickupSound "misc/p_pkup";
-}
-	States
-	{
-	Spawn:
-		DKEY O -1 Bright;
-		Loop;
-	Pickup:
-		TNT1 A 0 A_JumpIfInventory("DCX_Orangekeyicon", 1, "Taken");
-		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
-		TNT1 A 0 A_GiveInventory("DCX_Orangekeyicon", 1);
-		TNT1 A 0 A_Print("You have the feeling that it wasn't to be touched...");
-		Stop;
-	Taken:
-		TNT1 A 0;
-		Fail;
-	}
-}
-
-Class DCX_Orangekeyicon : Inventory
+Class DCX_GroundFire : Actor
 {
 	Default
 	{
-	  +INVENTORY.UNDROPPABLE;
-	}	
-}
-
-Class DCX_Demonkey2 : CustomInventory 
-{
-Default
-{
-	+DONTGIB;
-	Inventory.Amount 1;
-	Inventory.MaxAmount 1;
-	Inventory.InterHubAmount 1;
-	Inventory.PickupMessage "";
-	Inventory.PickupSound "misc/p_pkup";
-}
+		Radius 16;
+        Height 64;
+        Speed 20;
+        FastSpeed 40;
+        Damage 5;
+        Projectile;
+		DamageType "ThrustZ";
+        SeeSound "skeleton/attack";
+        DeathSound "fatso/shotx";
+		-RANDOMIZE;
+        +NODECAL;
+        +NODAMAGETHRUST;
+		+NOFRICTION;
+		+FLOORHUGGER;
+		+STEPMISSILE;
+		+USEBOUNCESTATE;
+		+NOFRICTIONBOUNCE;
+		BounceFactor 0.1;
+		BounceType "Classic";
+	}
+	
+	override int DoSpecialDamage (Actor target, int damage, Name damagetype)
+	{
+		if(target && !target.bDONTTHRUST && !target.bISMONSTER && !target.bINVULNERABLE && !target.bNODAMAGE)
+		  {	target.vel.z = 1.0 * 1500 / target.Mass; }
+		target.DamageMobj (null, target, damage, 'Fire');
+		return -1;
+	}
+	
 	States
 	{
-	Spawn:
-		DKEY P -1 Bright;
-		Loop;
-	Pickup:
-		TNT1 A 0 A_JumpIfInventory("DCX_Purplekeyicon", 1, "Taken");
-		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
-		TNT1 A 0 A_GiveInventory("DCX_Purplekeyicon", 1);
-		TNT1 A 0 A_Print("Whatever it is, it doesn't belong in this world...");
-		Stop;
-	Taken:
-		TNT1 A 0;
-		Fail;
+		Spawn:
+			GFIR ABCD 3 BRIGHT A_SpawnItemEx("DCX_GroundFireTrail");
+			loop;
+			
+		Bounce:
+			GFIR A 1 { bUSEBOUNCESTATE = false; }
+			Goto Spawn;
+			
+		Death:
+			GFRX A 6 BRIGHT { bUSEBOUNCESTATE = false; }
+			GFRX B 6 BRIGHT;
+			GFRX C 6 BRIGHT;
+			Stop;
 	}
 }
 
-Class DCX_Purplekeyicon : Inventory
+Class DCX_GroundFireTrail : Actor
 {
 	Default
 	{
-	  +INVENTORY.UNDROPPABLE;
-	}	
+		Radius 16;
+        Height 64;
+        +NOBLOCKMAP;
+        +NOGRAVITY;
+		+FLOORHUGGER;
+        +NOTONAUTOMAP;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 2;
+			GFRE ABCD 4 Bright;
+			Stop;
+	}
 }
 
-Class DCX_Demonkey3 : CustomInventory 
+class DCX_RevenantTracer2 : RevenantTracer
 {
-Default
-{
-	+DONTGIB;
-	Inventory.Amount 1;
-	Inventory.MaxAmount 1;
-	Inventory.InterHubAmount 1;
-	Inventory.PickupMessage "";
-	Inventory.PickupSound "misc/p_pkup";
-}
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 16;
+		Damage 10;
+		Projectile;
+		+SEEKERMISSILE 
+		+RANDOMIZE
+		+ZDOOMTRANS
+		SeeSound "skeleton/attack";
+		DeathSound "skeleton/tracex";
+		RenderStyle "Add";
+	}
+	
+	void A_RectTracer()
+    {
+		if (threshold < 0)
+		{
+			A_Tracer2();
+			A_SpawnItemEx("RevenantTracerSmoke", 0, 0, 0, 0, 0, 0, 0, 128); 
+		}
+		else
+		{
+			threshold--;
+		}
+    }
+	
 	States
 	{
 	Spawn:
-		DKEY C -1 Bright;
+		RMIS AB 2 BRIGHT A_RectTracer();
 		Loop;
-	Pickup:
-		TNT1 A 0 A_JumpIfInventory("DCX_Cyankeyicon", 1, "Taken");
-		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
-		TNT1 A 0 A_GiveInventory("DCX_Cyankeyicon", 1);
-		TNT1 A 0 A_Print("It must do something...");
+	Death:
+		RMIX A 8 BRIGHT;
+		RMIX B 6 BRIGHT;
+		RMIX C 4 BRIGHT;
 		Stop;
-	Taken:
-		TNT1 A 0;
-		Fail;
 	}
 }
 
@@ -851,5 +935,105 @@ Class DCX_MarineBotSpawner : RandomSpawner
         DropItem "DCX_MarineBotBrown";
         DropItem "DCX_MarineBotGrey";
         DropItem "DCX_MarineBotRed";
+	}
+}
+
+Class DCX_Demonkey1 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "Demonkey/Get";
+}
+	States
+	{
+	Spawn:
+		DKEY O -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Orangekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Orangekeyicon", 1);
+		TNT1 A 0 A_Print("You have the feeling that it wasn't to be touched...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Orangekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey2 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "Demonkey/Get";
+}
+	States
+	{
+	Spawn:
+		DKEY P -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Purplekeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Purplekeyicon", 1);
+		TNT1 A 0 A_Print("Whatever it is, it doesn't belong in this world...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
+	}
+}
+
+Class DCX_Purplekeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
+}
+
+Class DCX_Demonkey3 : CustomInventory 
+{
+Default
+{
+	+DONTGIB;
+	Inventory.Amount 1;
+	Inventory.MaxAmount 1;
+	Inventory.InterHubAmount 1;
+	Inventory.PickupMessage "";
+	Inventory.PickupSound "Demonkey/Get";
+}
+	States
+	{
+	Spawn:
+		DKEY C -1 Bright;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_JumpIfInventory("DCX_Cyankeyicon", 1, "Taken");
+		TNT1 A 0 A_GiveInventory("DCX_Demonkeycount", 1);
+		TNT1 A 0 A_GiveInventory("DCX_Cyankeyicon", 1);
+		TNT1 A 0 A_Print("It must do something...");
+		Stop;
+	Taken:
+		TNT1 A 0;
+		Fail;
 	}
 }

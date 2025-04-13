@@ -762,7 +762,7 @@ Lithlaar. In it you will find the Cybo that now is
 known as the lord of Hell and his two Soulguards."
 */
 			  
-OB_MOTHER = "%o witnessed the Motherdemon's power.";
+OB_MOTHER = "%o was obliterated by the Mother of all Demons.";
 OB_NITIMPHIT = "%o was slashed by a Nightmare Imp.";
 OB_NITIMP = "%o was burned by a Nightmare Imp.";
 OB_NITCACOHIT = "%o got too close to a Nightmare Cacodemon.";
