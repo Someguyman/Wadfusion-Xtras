@@ -55,29 +55,35 @@ extend class DCX_Statusbar
 		int cellLow   = 75;
 		int fuelLow   = 37;
 		
-		let readyFist           = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "Fist";
-		let readyChainsaw       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "Chainsaw";
-		let readyPistol         = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "Pistol";
-		let readyShotgun        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "Shotgun";
-		let readySuperShotgun   = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "SuperShotgun";
-		let readyChaingun       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "Chaingun";
-		let readyRocketLauncher = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "RocketLauncher";
-		let readyIncinerator    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "ID24Incinerator";
-		let readyPlasmaRifle    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "PlasmaRifle";
-		let readyHeatwave       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "ID24CalamityBlade";
-		let readyBfg9000        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "BFG9000";
+		let readyFist           = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Fist";
+		let readyChainsaw       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Chainsaw";
+		let readyDualChainsaw   = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_DoubleBladedChainsaw";
+		let readyPistol         = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Pistol";
+		let readyShotgun        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Shotgun";
+		let readySuperShotgun   = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_SuperShotgun";
+		let readyChaingun       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Chaingun";
+		let readyRocketLauncher = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_RocketLauncher";
+		let readyIncinerator    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Incinerator";
+		let readyPlasmaRifle    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_PlasmaRifle";
+		let readyHeavyPlasmaGun = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_HeavyPlasmaGun";
+		let readyHeatwave       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_CalamityBlade";
+		let readyBfg9000        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_BFG9000";
+		let readyUnmaker        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Unmaker";
 		
-		let hasFist           = CPlayer.mo.FindInventory("Fist");
-		let hasChainsaw       = CPlayer.mo.FindInventory("Chainsaw");
-		let hasPistol         = CPlayer.mo.FindInventory("Pistol");
-		let hasShotgun        = CPlayer.mo.FindInventory("Shotgun");
-		let hasSuperShotgun   = CPlayer.mo.FindInventory("SuperShotgun");
-		let hasChaingun       = CPlayer.mo.FindInventory("Chaingun");
-		let hasRocketLauncher = CPlayer.mo.FindInventory("RocketLauncher");
-		let hasIncinerator    = CPlayer.mo.FindInventory("ID24Incinerator");
-		let hasPlasmaRifle    = CPlayer.mo.FindInventory("PlasmaRifle");
-		let hasHeatwave       = CPlayer.mo.FindInventory("ID24CalamityBlade");
-		let hasBfg9000        = CPlayer.mo.FindInventory("BFG9000");
+		let hasFist           = CPlayer.mo.FindInventory("DCX_Fist");
+		let hasChainsaw       = CPlayer.mo.FindInventory("DCX_Chainsaw");
+		let hasDualChainsaw   = CPlayer.mo.FindInventory("DCX_DoubleBladedChainsaw");
+		let hasPistol         = CPlayer.mo.FindInventory("DCX_Pistol");
+		let hasShotgun        = CPlayer.mo.FindInventory("DCX_Shotgun");
+		let hasSuperShotgun   = CPlayer.mo.FindInventory("DCX_SuperShotgun");
+		let hasChaingun       = CPlayer.mo.FindInventory("DCX_Chaingun");
+		let hasRocketLauncher = CPlayer.mo.FindInventory("DCX_RocketLauncher");
+		let hasIncinerator    = CPlayer.mo.FindInventory("DCX_Incinerator");
+		let hasPlasmaRifle    = CPlayer.mo.FindInventory("DCX_PlasmaRifle");
+		let hasHeavyPlasmaGun = CPlayer.mo.FindInventory("DCX_HeavyPlasmaGun");
+		let hasHeatwave       = CPlayer.mo.FindInventory("DCX_CalamityBlade");
+		let hasBfg9000        = CPlayer.mo.FindInventory("DCX_BFG9000");
+		let hasUnmaker        = CPlayer.mo.FindInventory("DCX_Unmaker");
 		
 		let hasBlueCard    = CPlayer.mo.FindInventory("BlueCard");
 		let hasBlueSkull   = CPlayer.mo.FindInventory("BlueSkull");
@@ -387,9 +393,9 @@ extend class DCX_Statusbar
 						hasBerserk ? Font.CR_RED : Font.CR_WHITE, weapInvInactiveAlpha);
 			
 			weapInvPos.X += weapInvPosXIncrement;
-			if ( readyChainsaw )
+			if ( readyChainsaw || readyDualChainsaw)
 				DrawString(mIndexFont, "1", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_GOLD, weapInvAlpha);
-			else if ( hasChainsaw )
+			else if ( hasChainsaw || hasDualChainsaw )
 				DrawString(mIndexFont, "1", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_WHITE, weapInvInactiveAlpha);
 			
 			weapInvPos.X += weapInvPosXIncrement;
@@ -430,12 +436,12 @@ extend class DCX_Statusbar
 			else if ( hasIncinerator )
 				DrawString(mIndexFont, "6", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_WHITE, weapInvInactiveAlpha);
 			
-			if ( ( hasPlasmaRifle || hasBfg9000 ) && ( hasIncinerator || hasHeatwave ) )
+			if ( ( hasPlasmaRifle || hasHeavyPlasmaGun || hasBfg9000 ) && ( hasIncinerator || hasHeatwave ) )
 				weapInvPos.X += weapInvPosXIncrement;
 			
-			if ( readyPlasmaRifle )
+			if ( readyPlasmaRifle || readyHeavyPlasmaGun )
 				DrawString(mIndexFont, "6", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_GOLD, weapInvAlpha);
-			else if ( hasPlasmaRifle )
+			else if ( hasPlasmaRifle || hasHeavyPlasmaGun)
 				DrawString(mIndexFont, "6", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_WHITE, weapInvInactiveAlpha);
 			
 			weapInvPos.X += weapInvPosXIncrement;
@@ -451,6 +457,12 @@ extend class DCX_Statusbar
 				DrawString(mIndexFont, "7", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_GOLD, weapInvAlpha);
 			else if ( hasBfg9000 )
 				DrawString(mIndexFont, "7", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_WHITE, weapInvInactiveAlpha);
+			
+			weapInvPos.X += weapInvPosXIncrement;
+			if ( readyUnmaker )
+				DrawString(mIndexFont, "8", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_GOLD, weapInvAlpha);
+			else if ( hasUnmaker )
+				DrawString(mIndexFont, "8", weapInvPos, DI_SCREEN_RIGHT_BOTTOM, Font.CR_WHITE, weapInvInactiveAlpha);
 		}
 		
 		// Draw keys
@@ -633,3 +645,4 @@ extend class DCX_Statusbar
 		timePos.Y += timePosYIncrement;
 	}
 }
+//

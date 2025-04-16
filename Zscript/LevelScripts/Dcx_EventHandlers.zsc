@@ -720,6 +720,9 @@ class DCX_PerMapReplacementHandler : EventHandler
 			
 				if (e.Replacee == 'LostSoul')
 				e.Replacement = 'DCX_ForgottenSoul';
+				
+				if (e.Replacee == 'Revenant')
+				e.Replacement = 'DCX_DarkRevenant';
 			}
 			
 			if (e.Replacee == 'Meat4')
@@ -771,6 +774,12 @@ class DCX_PerMapReplacementHandler : EventHandler
 				if (e.Replacee == 'GibbedMarineExtra')
 				e.Replacement = 'Cacodemon';
 			}
+		}
+		
+		if ( mapPrefix == "gba" )
+		{
+			if (e.Replacee == 'Deh_Actor_150') //Ghoul
+				e.Replacement = 'Lostsoul';
 		}
 		
 		if ( mapPrefix == "lr_" )

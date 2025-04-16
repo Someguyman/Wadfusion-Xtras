@@ -16,7 +16,7 @@ map E1M10 "$HUSTR_E1M10"
 	Sky1 = "SKY3"
 	TitlePatch = "WILV39"
 	Par = 150
-	Music = "$MUSIC_E2M1"
+	Music = "D_E1M10"
 	ExitPic = "$IN_EPI1"
 	InterMusic = "$MUSIC_INTER"
 	BorderTexture = "FLOOR7_2"

@@ -322,7 +322,8 @@ map E3M7 "$HUSTR_E3M7"
 map E3M8 "$HUSTR_E3M8"
 {
 	LevelNum = 28
-	Next = "endbunny"
+	//Next = "endbunny"
+	next = EndSequence, "Episode3end"
 	TitlePatch = "WILV27"
 	Par = 105
 	Music = "$MUSIC_E3M8"

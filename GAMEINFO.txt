@@ -1,6 +1,5 @@
 STARTUPTYPE = "Hexen"
 STARTUPTITLE = "WadFusion Xtras"
-STARTUPCOLORS = "fc03e8","000000"
+STARTUPCOLORS = "ffdb4d","8a0b00"
 LOADLIGHTS = 0 
-STARTUPSONG = "STARTUP"
 IWAD = "doom_fusion.pk3"

@@ -11,6 +11,9 @@ mother/active			dsmothac
 mother/pain				dsmothpn
 mother/death			dsmothdt
 
+mother/missile	dsskeatk
+$pitchset mother/missile 1.2
+
 //$pitchset PlasmaMKII/Hum 1.2
 PlasmaMKII/Hum dsplaidl
 
@@ -89,6 +92,16 @@ $alias skull/active2 skull/active
 $alias skull/pain2	 skull/pain
 
 $pitchset skull/melee2 0.9
+
+DarkRevenant/Sight dsskesit
+$pitchset DarkRevenant/Sight 0.9
+DarkRevenant/Active dsskeact
+$pitchset DarkRevenant/Active 0.9
+DarkRevenant/death dsskedth
+$pitchset DarkRevenant/death 0.9
+$alias DarkRevenant/pain skeleton/pain
+DarkRevenant/attack	dsskeatk
+$pitchset DarkRevenant/attack 0.9
 
 $pitchshiftrange 4
 weapons/saw2up			dssa2up

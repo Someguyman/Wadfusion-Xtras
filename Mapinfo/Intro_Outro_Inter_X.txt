@@ -75,6 +75,147 @@ map INTER_MLCS ""
 	Music = "D_TITLM2"
 }
 
+Intermission Episode3end
+{
+	Scroller 
+	{
+		Music = "$MUSIC_BUNNY"
+		Background2 = "PFUB2"
+		Background = "PFUB1"
+		InitialDelay = 7
+		ScrollDirection = left
+		Time = 55
+	}
+	
+	Image
+	{
+		Draw = "END0", 108, 68
+		Time = -50
+	}
+	Image
+	{
+		Draw = "END1", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END2", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END3", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END4", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END5", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END6", 108, 68
+		Time = -90
+		Sound = "weapons/chngun"
+	}
+	Wiper 
+	{
+		//Background = "E2ENDINT"
+	} 
+	Image
+	{
+		Background = "E2ENDINT"
+		Time = -1
+		Music = "$MUSIC_E1M7"
+	}
+	Link = Episode3Cast
+}
+
+Intermission Episode3Cast
+{
+	Cast
+	{
+		CastClass = "Zombieman"
+		CastName = "$CC_ZOMBIE"
+		AttackSound = "Missile", 1, "grunt/attack"
+	}
+	Cast
+	{
+		CastClass = "ShotgunGuy"
+		CastName = "$CC_SHOTGUN"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomImp"
+		CastName = "$CC_IMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		CastClass = "Demon"
+		CastName = "$CC_DEMON"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "DCCT_Spectre"
+		CastName = "Spectre"
+		AttackSound = "Melee", 1, "demon/melee"
+	}
+	Cast
+	{
+		CastClass = "LostSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee"
+	}
+	Cast
+	{
+		CastClass = "Cacodemon"
+		CastName = "$CC_CACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		CastClass = "BaronOfHell"
+		CastName = "$CC_BARON"
+		AttackSound = "Missile", 1, "baron/attack"
+	}
+	Cast
+	{
+		CastClass = "Cyberdemon"
+		CastName = "$CC_CYBER"
+		AttackSound = "Missile", 1, "weapons/rocklf"
+		AttackSound = "Missile", 3, "weapons/rocklf"
+		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		CastClass = "SpiderMastermind"
+		CastName = "$CC_SPIDER"
+		AttackSound = "Missile", 1, "spider/attack"
+		AttackSound = "Missile", 2, "spider/attack"
+	}
+	Cast
+	{
+		CastClass = "DoomPlayer"
+		CastName = "The Marine"
+		AttackSound = "Missile", 0, "weapons/shotgf"
+	}
+
+	Link = Episode3Cast
+}
+
 map e4ending ""
 {
 	Cluster = 0
@@ -512,6 +653,13 @@ Intermission Doom64Doom2Cast
 		CastClass = "Archvile"
 		CastName = "$CC_ARCH"
 		AttackSound = "Missile", 1, "vile/start"
+	}
+	Cast
+	{
+		CastClass = "SpiderMastermind"
+		CastName = "$CC_SPIDER"
+		AttackSound = "Missile", 1, "spider/attack"
+		AttackSound = "Missile", 2, "spider/attack"
 	}
 	Cast
 	{

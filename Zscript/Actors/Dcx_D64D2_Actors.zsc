@@ -310,6 +310,123 @@ class DCX_DualPainElemental : PainElemental
 	}
 }
 
+class DCX_DarkRevenant : Revenant
+{
+	Default
+	{
+		Speed 10;
+		//MeleeThreshold 196;
+		MissileChanceMult 0.0625;
+		SeeSound "DarkRevenant/Sight";
+		PainSound "DarkRevenant/pain";
+		DeathSound "DarkRevenant/death";
+		ActiveSound "DarkRevenant/active";
+		HitObituary "$OB_UNDEADHIT";
+		Obituary "$OB_UNDEAD";
+		Tag "Dark Revenant";
+	}
+	
+	Void A_DarkSkelAtk()
+	{
+		A_FaceTarget();
+		A_SpawnProjectile("DCX_D64RevenantTracer",56,-10);
+	}
+	
+	States
+	{
+	Spawn:
+		DRAU AB 10 A_Look;
+		Loop;
+	See:
+		DRAU AABBCCDDEEFF 3 A_Chase;
+		Loop;
+	Melee:
+		DRAU J 6 A_FaceTarget;
+		DRAU J 0 A_SkelWhoosh;
+		DRAU K 6 A_FaceTarget;
+		DRAU L 6 A_SkelFist;
+		Goto See;
+	Missile:
+		DRAU G 0 BRIGHT A_FaceTarget;
+		DRAU G 10 BRIGHT A_FaceTarget;
+		DRAU H 10 BRIGHT A_DarkSkelAtk();
+		DRAU I 10 A_FaceTarget;
+		Goto See;
+	Pain:
+		DRAU M 5;
+		DRAU M 5 A_Pain;
+		Goto See;
+	Death:
+		DRAU NO 8;
+		DRAU P 8 A_Scream;
+		DRAU Q 8 A_NoBlocking;
+		DRAU R 8;
+		DRAU S -1;
+		Stop;
+	Raise:
+		DRAU S 5;
+		DRAU RQPNO 5;
+		Goto See;
+	}
+}
+
+class DCX_D64RevenantTracer : RevenantTracer
+{
+	Default
+	{
+		Radius 11;
+		Height 8;
+		Speed 10;
+		Damage 10;
+		//Projectile;
+		//+SEEKERMISSILE 
+		//+RANDOMIZE
+		//+ZDOOMTRANS
+		SeeSound "DarkRevenant/attack";
+		//DeathSound "skeleton/tracex";
+		RenderStyle "Add";
+		//Threshold 80;
+		//ReactionTime 70;
+	}
+	
+	void A_RectTracer()
+    {
+		if (threshold < 0)
+		{
+			A_Tracer2();
+			A_SpawnItemEx("DCX_D64TracerSmoke", 0, 0, 0, 0, 0, 0, 0, 128); 
+		}
+		else
+		{
+			threshold--;
+		}
+    }
+	
+	States
+	{
+	Spawn:
+		RMIS AB 2 BRIGHT A_RectTracer();
+		//RMIS A 0 A_Countdown();
+		Loop;
+	Death:
+		RMIX A 8 BRIGHT;
+		RMIX B 6 BRIGHT;
+		RMIX C 4 BRIGHT;
+		Stop;
+	}
+}
+
+class DCX_D64TracerSmoke : RevenantTracerSmoke
+{
+	States
+	{	
+	Spawn:
+		TNT1 A 0;
+		PUFF ABABC 4;
+		Stop;
+	}
+}
+
 Class DCX_DualCyberdemon : DCX_Cyberdemon
 {
 	Default
@@ -457,7 +574,7 @@ Class DCX_Motherdemon : Actor
 		SetState(meleestate);
 	}
 	
-	Void A_RectAttack(Class<Actor> spawntype = "DCX_RevenantTracer2")
+	Void A_RectAttack(Class<Actor> spawntype = "DCX_MotherTracer")
 	{
 		A_FaceTarget();
 		Actor proj;
@@ -516,8 +633,8 @@ Class DCX_Motherdemon : Actor
 			MOTH H 6 Bright A_FaceTarget;	
 			MOTH I 6 BRIGHT A_FaceTarget;
 			MOTH J 10 BRIGHT A_RectAttack();
-			MOTH I 4 Bright;
-			MOTH E 6 Bright;
+			MOTH I 8 Bright A_FaceTarget;
+			MOTH E 2 Bright A_FaceTarget;
 		goto see;
 			Goto See;
 		/*
@@ -556,7 +673,7 @@ Class DCX_GroundFire : Actor
         Damage 5;
         Projectile;
 		DamageType "ThrustZ";
-        SeeSound "skeleton/attack";
+        SeeSound "mother/missile";
         DeathSound "fatso/shotx";
 		-RANDOMIZE;
         +NODECAL;
@@ -605,7 +722,8 @@ Class DCX_GroundFireTrail : Actor
         +NOBLOCKMAP;
         +NOGRAVITY;
 		+FLOORHUGGER;
-        +NOTONAUTOMAP;
+		projectile;
+        //+NOTONAUTOMAP;
 	}
 	States
 	{
@@ -616,46 +734,12 @@ Class DCX_GroundFireTrail : Actor
 	}
 }
 
-class DCX_RevenantTracer2 : RevenantTracer
+class DCX_MotherTracer : DCX_D64RevenantTracer
 {
 	Default
 	{
-		Radius 11;
-		Height 8;
-		Speed 16;
-		Damage 10;
-		Projectile;
-		+SEEKERMISSILE 
-		+RANDOMIZE
-		+ZDOOMTRANS
-		SeeSound "skeleton/attack";
-		DeathSound "skeleton/tracex";
-		RenderStyle "Add";
-	}
-	
-	void A_RectTracer()
-    {
-		if (threshold < 0)
-		{
-			A_Tracer2();
-			A_SpawnItemEx("RevenantTracerSmoke", 0, 0, 0, 0, 0, 0, 0, 128); 
-		}
-		else
-		{
-			threshold--;
-		}
-    }
-	
-	States
-	{
-	Spawn:
-		RMIS AB 2 BRIGHT A_RectTracer();
-		Loop;
-	Death:
-		RMIX A 8 BRIGHT;
-		RMIX B 6 BRIGHT;
-		RMIX C 4 BRIGHT;
-		Stop;
+		Speed 18;
+		//Damage 10;
 	}
 }
 

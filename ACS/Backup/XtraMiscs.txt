@@ -1,5 +1,28 @@
-#library "XtraMonsters"
+#library "XtraMisc"
 #include "zcommon.acs"
+
+function bool IsFloorLevel(int tag, int level)
+{
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    if (flr == level)
+        return 1;
+    return 0;
+}
+
+function bool IsDoorOpen(int tag)
+{
+    int height = GetSectorCeilingZ(tag,0,0) >> 16;
+    int flr = GetSectorFloorZ(tag,0,0) >> 16;
+    
+    if (height > flr)
+        return 1;
+    return 0;
+}
+
+function bool IsDoorClosed(int tag)
+{
+    return IsDoorOpen(tag) == 0;
+}
 
 script "ChangeSkyTexture" (void)
 {	
@@ -53,13 +76,22 @@ script "NoIntermission_Script" (void)
 	Terminate;
 }
 
+script "E1M1SEWERSEXIT" (Void)
+{
+	if (IsFloorLevel(6,-149))
+	{
+		Exit_Secret(0);
+		Terminate;
+	}
+}
+
 Script "ClubDoomMusicSwap" (void)
 {
    SetMusic("D_PSX09B", 0);
    Terminate;
 }
 
-Script "ThresholdOPainBossDeath" Enter
+Script "BossdeathScript" Enter
 {	
 	if (PlayerNumber() != 0)
 	terminate;
@@ -68,6 +100,23 @@ Script "ThresholdOPainBossDeath" Enter
 	str episode = StrMid(mapName, 1, 1);
 	str mission = StrMid(mapName, 3, 1);
 	
+	if ( (StrICmp(mapName, "e4m8") == 0) && (GetCVar ("dcx_playstationmaps") >=1) )
+	{
+		int TicDelay = 141;
+		
+		if (ThingCount(T_SPIDERMASTERMIND, 0) == 0)
+		{
+			TicDelay = 48;
+		}
+		
+		While ( (ThingCount(T_HELLKNIGHT , 0) > 0) || (ThingCount(T_SPIDERMASTERMIND , 0) > 0) ) { delay(1); }
+		
+		delay(TicDelay);
+		
+		Floor_LowerToNearest(666, 8);
+		
+		Terminate;
+	}
 	if (StrICmp(mapName, "psx05") == 0)
 	{
 		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
