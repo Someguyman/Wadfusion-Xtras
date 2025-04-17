@@ -18,7 +18,6 @@ map E1M4b "$HUSTR_E1M4B"
 {
 	next = "E1M5"
 	Cluster = 30
-	//Music = "$MUSIC_E1M4"
 	Music = "$MUSIC_E1M4B"
 	TitlePatch = "WILV03B"
 	Label = "THE ULTIMATE DOOM, E1M4"
@@ -33,7 +32,6 @@ map E1M8b "$HUSTR_E1M8B"
 	nosoundclipping
 	baronspecial
 	specialaction_lowerfloor
-	//Music = "$MUSIC_E1M8"
 	Music = "$MUSIC_E1M8B"
 	Label = "THE ULTIMATE DOOM, E1M8"
 }

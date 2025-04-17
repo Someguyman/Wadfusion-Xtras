@@ -83,7 +83,7 @@ map ML_MAP46 "$THUSTR_17" //Early version of Processing Area from #1DWANGO
 map ML_MAP28 "$ML_TWM01" // reject level
 {
 	Next = "ML_MAP07"
-	TitlePatch = "MWILV06"
+	TitlePatch = "MWILV27"
 	Music = "$MUSIC_MASTERDEN"
 	Music = "T_MESSAG"
 }

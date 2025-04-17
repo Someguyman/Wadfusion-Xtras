@@ -99,7 +99,7 @@ map ML_MAP36 "$ML_LETHE" // bonus level - UDTWiD's E4M8
 	Next = EndGame
 	{
 		Pic = "DRBOSSBK"
-		music = "$MUSIC_MASTEREND"
+		music = "D_ENDIN2"
 		Cast
 	}
 	Label = "INFERNO SERIES, Ninth Canto"

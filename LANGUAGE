@@ -1,8 +1,6 @@
 [enu default]
 
-PISTART_TITLE = "Pistol Starter";
-PISTART_TOGGLE = "Enable Pistol Start";
-PISTART_KEEPITEMS_TOGGLE = "Keep Inventory Items";
+CC_DEMON = "Pinky";
 
 WS_AU_ROMERO = "John Romero";
 WS_AU_ROMERO_HALL = "John Romero & Tom Hall";

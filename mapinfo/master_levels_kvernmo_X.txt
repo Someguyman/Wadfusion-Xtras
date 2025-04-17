@@ -30,7 +30,7 @@ map ML_MAP19 "$ML_BLOODSEA"
 	TitlePatch = "MWILV18"
 	Music = "$MUSIC_BLOODSEA"
 	Map07Special
-	//Cluster = 44
+	Cluster = 44
 }
 
 map ML_MAP37 "$ML_FLOOD" // reject level
@@ -38,7 +38,7 @@ map ML_MAP37 "$ML_FLOOD" // reject level
 	Next = "ML_MAP38"
 	TitlePatch = "MWILV36"
 	Music = "$MUSIC_BLOODF"
-	Cluster = 45
+	//Cluster = 45
 }
 
 map ML_MAP38 "$ML_DERELICT" // reject level
@@ -116,7 +116,7 @@ map ML_MAP43 "$ML_THE_EVIL" // reject level
 	Next = EndGame
 	{
 		Pic = "CRBOSSBK"
-		music = "$MUSIC_MASTEREND"
+		music = "D_ENDIN2"
 		Cast
 	}
 	AllowMonsterTelefrags

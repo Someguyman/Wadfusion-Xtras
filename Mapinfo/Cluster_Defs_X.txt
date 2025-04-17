@@ -235,7 +235,8 @@ cluster 26
 {
 	//Flat = "CEIL5_1"
 	Pic = "SIGILINT"
-	Music = "S_INTRO"
+	//Music = "S_INTRO"
+	Music = "D_E5M6"
 	ExitText = "$E5TEXT"
 }
 
@@ -245,7 +246,8 @@ cluster 27
 {
 	//Flat = "FLOOR7_2"
 	Pic = "SIGILIN2"
-	Music = "S2_INTRO"
+	//Music = "S2_INTRO"
+	Music = "D_E6M7"
 	ExitText = "$E6TEXT"
 }
 
@@ -299,7 +301,6 @@ cluster 33
 {
 	EnterText = "$ML4STORY2"
 	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
 	Pic = "JFBOSSBK"
 }
 
@@ -307,7 +308,6 @@ cluster 34
 {
 	EnterText = "$ML4STORY3"
 	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
 	Pic = "JFBOSSBK"
 }
 
@@ -315,7 +315,6 @@ cluster 35
 {
 	EnterText = "$ML4STORY4"
 	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
 	Pic = "JFBOSSBK"
 }
 
@@ -330,120 +329,106 @@ cluster 36
 cluster 37
 {
 	EnterText = "$ML4STORY6"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	Pic = "JFBOSSBK"
 }
 
 cluster 38
 {
 	EnterText = "$ML5STORY1"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 39
 {
 	EnterText = "$ML5STORY2"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 40
 {
 	EnterText = "$ML5STORY3"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 41
 {
 	EnterText = "$ML5STORY4"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 42
 {
 	EnterText = "$ML5STORY5"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 43
 {
 	EnterText = "$ML5STORY6"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "DRBOSSBK"
 }
 
 cluster 44
 {
-	EnterText = "$ML6STORY1"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	//EnterText = "$ML6STORY1" //Bloodsea Keep Intro
+	ExitText = "$ML6STORY2"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 45
 {
 	EnterText = "$ML6STORY2"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 46
 {
 	EnterText = "$ML6STORY3"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 47
 {
 	EnterText = "$ML6STORY4"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 48
 {
 	EnterText = "$ML6STORY5"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 49
 {
 	EnterText = "$ML6STORY6"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 50
 {
 	EnterText = "$ML6STORY7"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
 cluster 51
 {
 	EnterText = "$ML6STORY8"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
@@ -451,8 +436,7 @@ cluster 52
 {
 	EnterText = "$ML6STORY9"
 	ExitText = "$MLEND"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
+	Music = "D_REDM2"
 	pic = "CRBOSSBK"
 }
 
@@ -611,7 +595,7 @@ Cluster 1008 //Redemtion Denied Ending
 Cluster 2015 // Cabal Series
 {
 	ExitText = "$CSTEXT"
-	Music = "D_READM"
+	Music = "D_REDM2"
 	//Flat = "BLOOD1"
 	Pic = "CRBOSSBK"
 }

@@ -84,7 +84,7 @@ Intermission Episode3end
 		Background = "PFUB1"
 		InitialDelay = 7
 		ScrollDirection = left
-		Time = 55
+		Time = 51
 	}
 	
 	Image
@@ -125,7 +125,7 @@ Intermission Episode3end
 	Image
 	{
 		Draw = "END6", 108, 68
-		Time = -90
+		Time = -155
 		Sound = "weapons/chngun"
 	}
 	Wiper 
@@ -145,54 +145,63 @@ Intermission Episode3Cast
 {
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Zombieman"
 		CastName = "$CC_ZOMBIE"
 		AttackSound = "Missile", 1, "grunt/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ShotgunGuy"
 		CastName = "$CC_SHOTGUN"
 		AttackSound = "Missile", 1, "shotguy/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomImp"
 		CastName = "$CC_IMP"
 		AttackSound = "Missile", 2, "imp/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Demon"
 		CastName = "$CC_DEMON"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
-		CastClass = "DCCT_Spectre"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Spectre"
 		CastName = "Spectre"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "LostSoul"
 		CastName = "$CC_LOST"
 		AttackSound = "Missile", 1, "skull/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cacodemon"
 		CastName = "$CC_CACO"
 		AttackSound = "Missile", 1, "caco/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "BaronOfHell"
 		CastName = "$CC_BARON"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cyberdemon"
 		CastName = "$CC_CYBER"
 		AttackSound = "Missile", 1, "weapons/rocklf"
@@ -201,6 +210,7 @@ Intermission Episode3Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "SpiderMastermind"
 		CastName = "$CC_SPIDER"
 		AttackSound = "Missile", 1, "spider/attack"
@@ -208,6 +218,7 @@ Intermission Episode3Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomPlayer"
 		CastName = "The Marine"
 		AttackSound = "Missile", 0, "weapons/shotgf"
@@ -293,48 +304,56 @@ Intermission Jaguarcast
 {
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Zombieman"
 		CastName = "$CC_ZOMBIE"
 		AttackSound = "Missile", 1, "grunt/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ShotgunGuy"
 		CastName = "$CC_SHOTGUN"
 		AttackSound = "Missile", 1, "shotguy/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomImp"
 		CastName = "$CC_IMP"
 		AttackSound = "Missile", 2, "imp/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Demon"
 		CastName = "$CC_DEMON"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "LostSoul"
 		CastName = "$CC_LOST"
 		AttackSound = "Missile", 1, "skull/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cacodemon"
 		CastName = "$CC_CACO"
 		AttackSound = "Missile", 1, "caco/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "BaronOfHell"
 		CastName = "$CC_BARON"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomPlayer"
 		CastName = "The Marine"
 		AttackSound = "Missile", 0, "weapons/shotgf"
@@ -344,27 +363,31 @@ Intermission Jaguarcast
 }
 
 Intermission Doom2cast
-{
+{		
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Zombieman"
 		CastName = "$CC_ZOMBIE"
 		AttackSound = "Missile", 1, "grunt/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ShotgunGuy"
 		CastName = "$CC_SHOTGUN"
 		AttackSound = "Missile", 1, "shotguy/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomImp"
 		CastName = "$CC_IMP"
 		AttackSound = "Missile", 2, "imp/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ChaingunGuy"
 		CastName = "$CC_HEAVY"
 		AttackSound = "Missile", 1, "chainguy/attack"
@@ -373,54 +396,63 @@ Intermission Doom2cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Demon"
 		CastName = "$CC_DEMON"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_Spectre"
 		CastName = "Spectre"
 		AttackSound = "Melee", 1, "spectre/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "LostSoul"
 		CastName = "$CC_LOST"
 		AttackSound = "Missile", 1, "skull/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cacodemon"
 		CastName = "$CC_CACO"
 		AttackSound = "Missile", 1, "caco/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "HellKnight"
 		CastName = "$CC_HELL"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "BaronOfHell"
 		CastName = "$CC_BARON"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 		Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Arachnotron"
 		CastName = "$CC_ARACH"
 		AttackSound = "Missile", 1, "baby/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "PainElemental"
 		CastName = "$CC_PAIN"
 		AttackSound = "Missile", 2, "skull/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Revenant"
 		CastName = "$CC_REVEN"
 		AttackSound = "Missile", 1, "skeleton/attack"
@@ -429,6 +461,7 @@ Intermission Doom2cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Fatso"
 		CastName = "$CC_MANCU"
 		AttackSound = "Missile", 1, "fatso/attack"
@@ -437,12 +470,14 @@ Intermission Doom2cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Archvile"
 		CastName = "$CC_ARCH"
 		AttackSound = "Missile", 1, "vile/start"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "SpiderMastermind"
 		CastName = "$CC_SPIDER"
 		AttackSound = "Missile", 1, "spider/attack"
@@ -450,6 +485,7 @@ Intermission Doom2cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cyberdemon"
 		CastName = "$CC_CYBER"
 		AttackSound = "Missile", 1, "weapons/rocklf"
@@ -458,6 +494,7 @@ Intermission Doom2cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomPlayer"
 		CastName = "Our Hero"
 		AttackSound = "Missile", 0, "weapons/sshotf"
@@ -478,18 +515,21 @@ Intermission Id1Cast
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_150"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Ghoul"
 		CastName = "$ID24_GHOUL"
 		AttackSound = "Missile", 1, "imp/attack"
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_151"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Banshee"
 		CastName = "$ID24_BANSHEE"
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_153"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Shocktrooper"
 		CastName = "$ID24_SHOCKTROOPER"
 		AttackSound = "Missile", 1, "weapons/plasmaf"
 		AttackSound = "Missile", 3, "weapons/plasmaf"
@@ -497,20 +537,23 @@ Intermission Id1Cast
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_152"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Mindweaver"
 		CastName = "$ID24_MINDWEAVER"
 		AttackSound = "Missile", 1, "spider/attack"
 		AttackSound = "Missile", 2, "spider/attack"
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_154"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Vassago"
 		CastName = "$ID24_VASSAGO"
 		AttackSound = "Missile", 1, "monsters/vassago/vasatk"
 	}
 	Cast
 	{
-		CastClass = "Deh_Actor_155"
+		Draw = "M_CAST", 37, 5
+		CastClass = "DCX_Tyrant"
 		CastName = "$ID24_TYRANT"
 		AttackSound = "Missile", 1, "weapons/rocklf"
 		AttackSound = "Missile", 3, "weapons/rocklf"
@@ -518,6 +561,7 @@ Intermission Id1Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomPlayer"
 		CastName = "$CC_HERO"
 		AttackSound = "Missile", 0, "weapons/sshotf"
@@ -542,18 +586,21 @@ Intermission Doom64Doom2Cast
 {
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Zombieman"
 		CastName = "$CC_ZOMBIE"
 		AttackSound = "Missile", 1, "grunt/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ShotgunGuy"
 		CastName = "$CC_SHOTGUN"
 		AttackSound = "Missile", 1, "shotguy/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "ChaingunGuy"
 		CastName = "$CC_HEAVY"
 		AttackSound = "Missile", 1, "chainguy/attack"
@@ -562,78 +609,92 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomImp"
 		CastName = "$CC_IMP"
 		AttackSound = "Missile", 2, "imp/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_NightmareImp"
 		CastName = "$CC_NIMP"
 		AttackSound = "Missile", 2, "imp/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Demon"
 		CastName = "$CC_DEMON"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Spectre"
 		CastName = "$CC_Spectre"
 		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_NightmareSpectre"
 		CastName = "Nightmare Spectre"
 		AttackSound = "Melee", 1, "demon2/melee"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_ForgottenSoul"
 		CastName = "$CC_LOST"
 		AttackSound = "Missile", 1, "skull/melee2"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cacodemon"
 		CastName = "$CC_CACO"
 		AttackSound = "Missile", 1, "caco/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_NightmareCacodemon"
 		CastName = "$CC_NCACO"
 		AttackSound = "Missile", 1, "caco/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "HellKnight"
 		CastName = "$CC_HELL"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "BaronOfHell"
 		CastName = "$CC_BARON"
 		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_DualArachnotron"
 		CastName = "$CC_ARACH"
 		AttackSound = "Missile", 1, "baby/attack2"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_DualPainElemental"
 		CastName = "$CC_PAIN"
 		AttackSound = "Missile", 2, "skull/melee2"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Revenant"
 		CastName = "$CC_REVEN"
 		AttackSound = "Missile", 1, "skeleton/attack"
@@ -642,6 +703,7 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Fatso"
 		CastName = "$CC_MANCU"
 		AttackSound = "Missile", 1, "fatso/attack"
@@ -650,6 +712,7 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Archvile"
 		CastName = "$CC_ARCH"
 		AttackSound = "Missile", 1, "vile/start"
@@ -663,6 +726,7 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "Cyberdemon"
 		CastName = "$CC_CYBER"
 		AttackSound = "Missile", 1, "weapons/rocklf"
@@ -671,6 +735,7 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_DualCyberdemon"
 		CastName = "Super Cyberdemon"
 		AttackSound = "Missile", 1, "weapons/rocklf"
@@ -679,12 +744,14 @@ Intermission Doom64Doom2Cast
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DCX_Motherdemon"
 		CastName = "$CC_MOTHER"
 		AttackSound = "Missile", 1, "fatso/attack"
 	}
 	Cast
 	{
+		Draw = "M_CAST", 37, 5
 		CastClass = "DoomPlayer"
 		CastName = "$CC_HERO"
 		AttackSound = "Missile", 1, "weapons/sshotf"
