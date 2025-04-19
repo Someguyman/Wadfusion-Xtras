@@ -258,8 +258,6 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						
 						SetWallTexture(167,line.front,side.bottom,"BRWNPIP");
 						level.Lines[167].sidedef[0].SetTextureXOffset(Side.bottom,  -40);
-						
-						//BRWNPIP
 					}
 					break;
 				}
@@ -582,12 +580,17 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				
 				case '1BC04D646B32D3A3E411DAF3C1A38FF8': //E2M4
 				{
+				
+					SetSectorTexture(173,0,"BLOOD3");
+					SetSectorTexture(177,0,"BLOOD3");
+					
 					if ( PsxEnabled >= 1 )
 					{											
 						Dcx_SpawnThing(Shotgunner, (-720, 448, -999), 0, MODES_ALL|MTF_AMBUSH);
 						
 						if (skill_level <= 2)
 						{
+							SetThingEdNum(11, Hellknight);
 							Dcx_SpawnThing(Zombieman, (-688 ,608, -999), 0, MODES_ALL|MTF_AMBUSH);
 						}
 						
@@ -604,6 +607,11 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						{
 							SetThingEdNum(80, NightmareImp);
 							SetThingEdNum(81, NightmareImp);
+							
+							Dcx_SpawnThing(Chaingunner, (2400 ,-1568, -999), 270, MODES_ALL);
+							Dcx_SpawnThing(Chaingunner, (2720 ,-1568, -999), 270, MODES_ALL);
+							
+							Dcx_SpawnThing(Fatso, (-192 ,-1152, -999), 0, MODES_ALL);
 						}
 					}
 				
@@ -628,6 +636,9 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 							SetThingEdNum(150, NightmareImp);
 							Dcx_SpawnThing(Painelemental,(-2096,1008,-999),270, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Painelemental,(256,1280,-999),270 ,MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Revenant, (-1056 ,-776, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Revenant, ( -808 ,-768, -999), 270, MODES_ALL|MTF_AMBUSH);
 						}
 					}
 				
@@ -638,6 +649,12 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				{
 					// Removes the extra pinky, now everything will be able to move
 					SetThingEdNum(71,0);
+					
+					if ( TextureChanges )
+					{
+						level.Lines[161].sidedef[0].SetTextureXOffset(Side.mid,  15);
+						SetWallTextureID(161, Line.front, Side.mid, TexMan.CheckForTexture("SW1BRGNC", TexMan.Type_Wall, TexMan.Overridable));
+					}
 					
 					if ( PsxEnabled >= 1 )
 					{					
@@ -667,6 +684,8 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 							Dcx_SpawnThing(Revenant,(-496, 80,-999), 90, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Revenant,(-848, -984,-999), 90, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Revenant,(384, -1336,-999), 180, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Fatso,(-416, 352,-999), 315, MODES_ALL|MTF_AMBUSH);
 						}						
 					}
 					break;
@@ -826,6 +845,9 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					{					
 						SetThingEdNum( 60, NightmareImp);
 						SetThingEdNum( 61, NightmareImp);
+						
+						SetThingEdNum(257, Painelemental);
+						SetThingEdNum(371, Painelemental);
 							
 						if (skill_level >= 2)
 						{
@@ -837,6 +859,12 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 							SetThingEdNum( 252, NightmareImp);
 							SetThingEdNum( 109, NightmareImp);
 							SetThingEdNum( 113, NightmareImp);
+						}
+						
+						if (skill_level >= 2)
+						{
+							Dcx_SpawnThing(Chaingunner, (896, 448, -999), 180, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner, (896, 384, -999), 180, MODES_ALL|MTF_AMBUSH);
 						}
 					}
 					break;
@@ -863,6 +891,9 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						{
 							SetThingEdNum( 4, NightmareSpectre);
 							SetThingEdNum( 5, NightmareSpectre);
+							
+							Dcx_SpawnThing(Hellknight,(-384, 1280, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Hellknight,( -64, 1280, -999), 270, MODES_ALL|MTF_AMBUSH);
 								
 							Dcx_SpawnThing(NightmareSpectre,(-1328,-368,-999),0, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(NightmareSpectre,(-1248,1312,-999),0, MODES_ALL|MTF_AMBUSH);
@@ -902,6 +933,9 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 							SetThingEdNum(264, NightmareCacodemon);
 							
 							Dcx_SpawnThing(Fatso, (-1264, -1336, -999), 315, MODES_ALL);
+							Dcx_SpawnThing(Fatso, (-1024, -640, -999), 135, MODES_ALL);
+							
+							Dcx_SpawnThing(Arachnotron, (1184, 320, -999), 315, MODES_ALL|MTF_AMBUSH);
 						}								
 					}
 					break;
@@ -924,6 +958,27 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					SetLineActivation(657, SPAC_Use);
 					SetLineSpecial(657, Door_Open, 0, 16, 0);
 					
+					if ( TextureChanges )
+					{
+						SetWallTexture(38,line.front,side.mid,"MARBFACE");
+						
+						SetWallTexture(210,line.front,side.mid,"GSTGARG");
+						SetWallTexture(211,line.front,side.mid,"GSTGARG");
+						
+						SetWallTexture(212,line.front,side.mid,"MARBFAC2");
+						SetWallTexture(213,line.front,side.mid,"MARBFAC2");
+						SetWallTexture(219,line.front,side.mid,"MARBFAC2");
+						SetWallTexture(220,line.front,side.mid,"MARBFAC2");
+						
+						SetSectorTexture(59,0,"FLAT10");
+						SetSectorTexture(60,0,"FLAT10");
+						SetSectorTexture(61,0,"FLAT10");
+						
+						SetSectorTexture(68,0,"FLAT10");
+						SetSectorTexture(69,0,"FLAT10");
+						SetSectorTexture(70,0,"FLAT10");
+					}
+					
 					if ( PsxEnabled >= 1 )
 					{
 						if (skill_level >= 2)
@@ -943,6 +998,10 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 							
 							Dcx_SpawnThing(NightmareCacodemon, (-1568, 1104, -999), 0, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(NightmareCacodemon, (-928, 1120, -999), 180, MODES_ALL|MTF_AMBUSH);
+							
+							Dcx_SpawnThing(Arachnotron, (-1120, 544, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Arachnotron, (1440, 352, -999), 270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Arachnotron, (1312, -480, -999), 0, MODES_ALL|MTF_AMBUSH);
 						}
 					}
 					break;
@@ -977,9 +1036,15 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
-				case 'A298A4969323A19F2E01FE2D63A3EEE6': //PSX03B
+				case '421F220FDC6304C994302F76ACBBBFD2': //PSX03B
 				{
 					Dcx_SpawnThing(Supershotgun, (-784, -1976, -999), 0, MODES_ALL);
+					
+					if (skill_level >= 3)
+					{
+						Dcx_SpawnThing(Archvile, (-32, 1600, -999), 0, MODES_ALL);
+						Dcx_SpawnThing(Archvile, ( 32, 1600, -999), 0, MODES_ALL);
+					}
 					break;
 				}
 			
@@ -1046,7 +1111,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 			
-				case 'F6EE16F770AD309D608EA0B1F1E249FC': //e4m3
+				case 'F6EE16F770AD309D608EA0B1F1E249FC': //E4M3
 				{
 					if ( PsxEnabled >= 1 )
 					{
@@ -1076,7 +1141,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
-				case 'AAECADD4D97970AFF702D86FAFAC7D17': //e4m4
+				case 'AAECADD4D97970AFF702D86FAFAC7D17': //E4M4
 				{
 					if ( PsxEnabled >= 1 )
 					{	
@@ -1277,7 +1342,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 			
-				case '2DC939E508AB8EB68AF79D5B60568711': //e4m8
+				case '2DC939E508AB8EB68AF79D5B60568711': //E4M8
 				{
 					SetThingEdNum(137,Shotgunner);
 					SetThingAngle(289,180);
@@ -1496,11 +1561,17 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					if ( PsxEnabled >= 1 )
 					{
 						SetThingEdNum(190, NightmareSpectre);
+						
+											
+						if (skill_level < 2)
+						{
+							SetThingEdNum(29, Arachnotron);
+						}	
 					}
 					break;
 				}
 			
-				case '6b60f37b91309dff1cdf02e5e476210d': //map16
+				case '6b60f37b91309dff1cdf02e5e476210d': //MAP16
 				{
 					if ( PsxEnabled >= 1 )
 					{					
@@ -1535,6 +1606,29 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				{
 					SetLineActivation(43, SPAC_Cross);			
 					SetLineSpecial(43, ACS_Execute, -int('ClubDoomMusicSwap'));
+					break;
+				}
+				
+								
+				case 'E1CFD5C6E60C3B6C30F8B95FC287E9FE': //MAP17
+				{
+					SetSectorTexture(181,0,"FLAT5_5");					
+					SetSectorTexture(182,0,"FLAT5_5");
+					SetSectorTexture(183,0,"FLAT5_5");
+					SetSectorTexture(184,0,"FLAT5_5");
+					
+					if ( PsxEnabled >= 1 )
+					{
+						if (skill_level < 2)
+						{
+							SetThingEdNum(356, NightmareCacodemon);
+						}
+						
+						if (skill_level >= 3)
+						{
+							Dcx_SpawnThing(NightmareCacodemon,(-2272, -1376, -999), 315, MODES_ALL|MTF_AMBUSH);
+						}
+					}
 					break;
 				}
 				

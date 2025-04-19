@@ -26,7 +26,8 @@ map E1M4b "$HUSTR_E1M4B"
 map E1M8b "$HUSTR_E1M8B"
 {
 	Cluster = 31
-	Next = endpic, "UDCRED"
+	//Next = endpic, "UDCRED"
+	Next = "E2M1"
 	TitlePatch = "WILV07B"
 	nointermission
 	nosoundclipping

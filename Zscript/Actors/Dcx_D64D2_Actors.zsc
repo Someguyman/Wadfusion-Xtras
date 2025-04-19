@@ -126,12 +126,12 @@ class DCX_ForgottenSoul : DCX_Lostsoul
 		SKL2 E 3 BRIGHT A_Pain;
 		Goto See;
 	Death:
-		SKL2 F 6 BRIGHT;
-		SKL2 G 6 BRIGHT A_Scream;
-		SKL2 H 6 BRIGHT;
-		SKL2 I 6 BRIGHT A_NoBlocking;
+		SKL2 E 6 BRIGHT;
+		SKL2 F 6 BRIGHT A_Scream;
+		SKL2 G 6 BRIGHT;
+		SKL2 H 6 BRIGHT A_NoBlocking;
+		SKL2 I 6;
 		SKL2 J 6;
-		SKL2 K 6;
 		Stop;
 	}
 }
@@ -421,7 +421,7 @@ class DCX_D64TracerSmoke : RevenantTracerSmoke
 	States
 	{	
 	Spawn:
-		TNT1 A 0;
+		TNT1 A 2;
 		PUFF ABABC 4;
 		Stop;
 	}
@@ -633,8 +633,8 @@ Class DCX_Motherdemon : Actor
 			MOTH H 6 Bright A_FaceTarget;	
 			MOTH I 6 BRIGHT A_FaceTarget;
 			MOTH J 10 BRIGHT A_RectAttack();
-			MOTH I 8 Bright A_FaceTarget;
-			MOTH E 2 Bright A_FaceTarget;
+			MOTH I 10 Bright A_FaceTarget;
+			//MOTH E 2 Bright A_FaceTarget;
 		goto see;
 			Goto See;
 		/*
@@ -685,6 +685,7 @@ Class DCX_GroundFire : Actor
 		+NOFRICTIONBOUNCE;
 		BounceFactor 0.1;
 		BounceType "Classic";
+		//Obituary "$OB_MOTHER";
 	}
 	
 	override int DoSpecialDamage (Actor target, int damage, Name damagetype)

@@ -2,6 +2,7 @@
 class DCX_EventHandler : EventHandler
 {
 	TextureId TITLEPIC;
+	TextureId VICTORY2;
 	TextureId ENDPIC;
 	TextureId DOOMTittle;
 	TextureId UDOOMTittle;
@@ -14,7 +15,9 @@ class DCX_EventHandler : EventHandler
 	override void OnRegister()
 	{
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
+		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("ENDNOT");
+		//ENDPIC = 	   	TexMan.CheckForTexture("ENDPIC");
 		DOOMTittle =   	TexMan.CheckForTexture("OGDtitle");
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
@@ -65,6 +68,10 @@ class DCX_EventHandler : EventHandler
 			if ( mapName == "inter_d1e6" )
 			{
 					Screen.DrawTexture(SIGIL2Tittle, false, 0, 0, DTA_FullScreen, 1);
+			}
+			if ( mapName == "e2ending" )
+			{
+					Screen.DrawTexture(VICTORY2, false, 0, 0, DTA_FullScreen, 1);
 			}
 			if ( mapName == "e4ending" )
 			{
@@ -465,7 +472,7 @@ class DCX_EventHandler : EventHandler
 				level.NextSecretMap =  "PSX01";
 		}
 		
-		if ( mapName == "inter_d1e3" )
+		if ( mapName == "inter_d1e3" ||  mapName == "e2ending" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
 			{	level.NextMap = "PSX02B";	}
@@ -614,7 +621,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			e.Replacement = 'Zombieman';
 		}
 		
-		If(Cvar.getcvar("Health_Cross_Toggle").getint() == 1)
+		If ( Cvar.getcvar("Health_Cross_Toggle").getint() == 1)
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_BFG';

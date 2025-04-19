@@ -85,7 +85,8 @@ map E6M8 "$HUSTR_E6M8"
 {
 	LevelNum = 58
 	//Next = EndPic, "S2CREDIT"
-	Next = EndPic, "SIGILEN2"
+	//Next = EndPic, "SIGILEN2"
+	Next = EndSequence, "Episode6end"
 	TitlePatch = "WILV57"
 	Par = 390
 	nointermission

@@ -35,8 +35,6 @@ extend class DCX_Statusbar
 		let hudId24 = CVar.FindCVar("wf_hud_id24").GetBool();
 		let hudSwapHealthArmor = CVar.FindCVar("wf_hud_swaphealtharmor").GetBool();
 		
-		let isDoom1 = mapName.Left(1) == "e" && mapName.Mid(2, 1) == "m";
-		
 		int ultraWide = CVar.FindCVar("wf_hud_ultrawide").GetInt();
 		if ( CVar.FindCVar("wf_hud_ultrawide_fullscreen").GetBool() && !CVar.FindCVar("vid_fullscreen").GetBool() )
 			ultraWide = 0;
@@ -57,11 +55,35 @@ extend class DCX_Statusbar
 		int cellLow   = 75;
 		int fuelLow   = 37;
 		
-		let hasSuperShotgun   = CPlayer.mo.FindInventory("SuperShotgun");
-		let hasIncinerator    = CPlayer.mo.FindInventory("ID24Incinerator");
-		let hasPlasmaRifle    = CPlayer.mo.FindInventory("PlasmaRifle");
-		let hasHeatwave       = CPlayer.mo.FindInventory("ID24CalamityBlade");
-		let hasBfg9000        = CPlayer.mo.FindInventory("BFG9000");
+		let readyFist           = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Fist";
+		let readyChainsaw       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Chainsaw";
+		let readyDualChainsaw   = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_DoubleBladedChainsaw";
+		let readyPistol         = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Pistol";
+		let readyShotgun        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Shotgun";
+		let readySuperShotgun   = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_SuperShotgun";
+		let readyChaingun       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Chaingun";
+		let readyRocketLauncher = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_RocketLauncher";
+		let readyIncinerator    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Incinerator";
+		let readyPlasmaRifle    = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_PlasmaRifle";
+		let readyHeavyPlasmaGun = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_HeavyPlasmaGun";
+		let readyHeatwave       = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_CalamityBlade";
+		let readyBfg9000        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_BFG9000";
+		let readyUnmaker        = CPlayer.ReadyWeapon && CPlayer.ReadyWeapon.GetClassName() == "DCX_Unmaker";
+		
+		let hasFist           = CPlayer.mo.FindInventory("DCX_Fist");
+		let hasChainsaw       = CPlayer.mo.FindInventory("DCX_Chainsaw");
+		let hasDualChainsaw   = CPlayer.mo.FindInventory("DCX_DoubleBladedChainsaw");
+		let hasPistol         = CPlayer.mo.FindInventory("DCX_Pistol");
+		let hasShotgun        = CPlayer.mo.FindInventory("DCX_Shotgun");
+		let hasSuperShotgun   = CPlayer.mo.FindInventory("DCX_SuperShotgun");
+		let hasChaingun       = CPlayer.mo.FindInventory("DCX_Chaingun");
+		let hasRocketLauncher = CPlayer.mo.FindInventory("DCX_RocketLauncher");
+		let hasIncinerator    = CPlayer.mo.FindInventory("DCX_Incinerator");
+		let hasPlasmaRifle    = CPlayer.mo.FindInventory("DCX_PlasmaRifle");
+		let hasHeavyPlasmaGun = CPlayer.mo.FindInventory("DCX_HeavyPlasmaGun");
+		let hasHeatwave       = CPlayer.mo.FindInventory("DCX_CalamityBlade");
+		let hasBfg9000        = CPlayer.mo.FindInventory("DCX_BFG9000");
+		let hasUnmaker        = CPlayer.mo.FindInventory("DCX_Unmaker");
 		
 		let hasBlueCard    = CPlayer.mo.FindInventory("BlueCard");
 		let hasBlueSkull   = CPlayer.mo.FindInventory("BlueSkull");
@@ -114,19 +136,21 @@ extend class DCX_Statusbar
 		double mapNameAlpha         = CVar.FindCVar("wf_hud_alt_alpha_stats_mapname").GetFloat();
 		
 		// Draw health
-		int hudHealthYOffset = 0;
-		
+		int hudHealthOffset;
 		if ( hudSwapHealthArmor || !altHudHealth )
-			hudHealthYOffset = 27;
+			hudHealthOffset = 27;
+			
+		if ( !altHudArmor )
+			hudHealthOffset = 0;
 		
 		if ( altHudHealth )
 		{
 			if ( !altHudMugshot )
-				DrawImage(hasBerserk ? "PSTRA0" : "MEDIA0", (20 + ultraWide, -10 - hudHealthYOffset),
+				DrawImage(hasBerserk ? "PSTRA0" : "MEDIA0", (20 + ultraWide, -10 - hudHealthOffset),
 						DI_SCREEN_LEFT_BOTTOM, healthAlpha);
 			else
-				DrawTexture(GetMugShot(5), (3 + ultraWide, -35 - hudHealthYOffset),
-						DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+				DrawTexture(GetMugShot(5), (3 + ultraWide, -35 - hudHealthOffset),
+							DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
 			
 			int healthColor =
 				health > maxhealth * 2    ? Font.CR_PURPLE :
@@ -138,7 +162,7 @@ extend class DCX_Statusbar
 				health > maxhealth * 0    ? Font.CR_RED :
 				Font.CR_BLACK;
 			
-			DrawString(mHUDFont, FormatNumber(health, 1), (40 + ultraWide, -25 - hudHealthYOffset),
+			DrawString(mHUDFont, FormatNumber(health, 1), (40 + ultraWide, -25 - hudHealthOffset),
 					DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, healthColor, healthAlpha);
 		}
 		
@@ -156,46 +180,10 @@ extend class DCX_Statusbar
 			
 			if ( armor != null && armor.Amount > 0 )
 			{
-				DrawInventoryIcon(armor, (20 + ultraWide, -37 + hudHealthYOffset),
-						DI_SCREEN_LEFT_BOTTOM, healthAlpha);
-				DrawString(mHUDFont, FormatNumber(armor.Amount, 1), (40 + ultraWide, -52 + hudHealthYOffset),
+				DrawInventoryIcon(armor, (20 + ultraWide, -37 + hudHealthOffset), DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+				DrawString(mHUDFont, FormatNumber(armor.Amount, 1), (40 + ultraWide, -52 + hudHealthOffset),
 						DI_SCREEN_LEFT_BOTTOM|DI_NOSHADOW, armorColor, healthAlpha);
 			}
-		}
-		
-		// Draw keys
-		Vector2 keyInvPos = (-8 - ultraWide, -20);
-		int keyInvPosYIncrement = 8;
-		int ammoInvPosKeysIncrement = 0;
-		
-		if ( !deathmatch && altHudKeys )
-		{
-			if ( hasBlueCard && hasBlueSkull )
-				DrawImage("STKEYS6", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasBlueSkull )
-				DrawImage("STKEYS3", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasBlueCard )
-				DrawImage("STKEYS0", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			
-			keyInvPos.Y += keyInvPosYIncrement;
-			if ( hasYellowCard && hasYellowSkull )
-				DrawImage("STKEYS7", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasYellowSkull )
-				DrawImage("STKEYS4", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasYellowCard )
-				DrawImage("STKEYS1", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			
-			keyInvPos.Y += keyInvPosYIncrement;
-			if ( hasRedCard && hasRedSkull )
-				DrawImage("STKEYS8", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasRedSkull )
-				DrawImage("STKEYS5", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			else if ( hasRedCard )
-				DrawImage("STKEYS2", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			
-			if ( hasBlueCard || hasYellowCard || hasRedCard ||
-					hasBlueSkull || hasYellowSkull || hasRedSkull )
-				ammoInvPosKeysIncrement += 13;
 		}
 		
 		// Draw current ammo
@@ -208,8 +196,8 @@ extend class DCX_Statusbar
 		if ( altHudAmmo )
 		{
 			
-			int ammoType1Low = 0;
-			int ammoType2Low = 0;
+			int ammoType1Low;
+			int ammoType2Low;
 			if ( hasBackpack )
 			{
 				if ( ammotype1 != null )
@@ -228,9 +216,8 @@ extend class DCX_Statusbar
 			int invY = -25;
 			if ( ammotype1 != null )
 			{
-				DrawInventoryIcon(ammotype1, (-14 - ammoInvPosKeysIncrement - ultraWide, -10),
-						DI_SCREEN_RIGHT_BOTTOM, ammoAlpha);
-				DrawString(mHUDFont, FormatNumber(ammotype1.Amount, 1), (-30 - ammoInvPosKeysIncrement - ultraWide, -25),
+				DrawInventoryIcon(ammotype1, (-14 - ultraWide, -10), DI_SCREEN_RIGHT_BOTTOM, ammoAlpha);
+				DrawString(mHUDFont, FormatNumber(ammotype1.Amount, 1), (-30 - ultraWide, -25),
 						DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW,
 						ammotype1.Amount > ammoType1Low ? Font.CR_WHITE : Font.CR_RED, ammoAlpha);
 				invY -= 27;
@@ -238,9 +225,8 @@ extend class DCX_Statusbar
 			
 			if ( ammotype2 != null && ammotype2 != ammotype1 )
 			{
-				DrawInventoryIcon(ammotype2, (-14 - ammoInvPosKeysIncrement - ultraWide, invY + 15),
-						DI_SCREEN_RIGHT_BOTTOM, ammoAlpha);
-				DrawString(mHUDFont, FormatNumber(ammotype2.Amount, 1), (-30 - ammoInvPosKeysIncrement - ultraWide, invY),
+				DrawInventoryIcon(ammotype2, (-14 - ultraWide, invY + 15), DI_SCREEN_RIGHT_BOTTOM, ammoAlpha);
+				DrawString(mHUDFont, FormatNumber(ammotype2.Amount, 1), (-30 - ultraWide, invY),
 						DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW,
 						ammotype2.Amount > ammoType2Low ? Font.CR_WHITE : Font.CR_RED, ammoAlpha);
 				invY -= 27;
@@ -346,14 +332,14 @@ extend class DCX_Statusbar
 		// Draw powerups
 		Vector2 powerupPos = (-18 - ultraWide, -4 + ammoInvPos.Y);
 		int powerupPosYIncrement = 30;
-		int powerupCount = 0;
+		int powerupCount;
 		
 		if ( altHudPowerup )
 		{
 			if ( hasBlurSphere != null )
 			{
 				int blurSphereTime = int(Ceil(double(hasBlurSphere.EffectTics) / GameTicRate));
-				DrawImage("PINSAHUD", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
+				DrawImage("PINSA0", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
 				DrawString(mConFont, FormatNumber(blurSphereTime, 1), (powerupPos.X, powerupPos.Y - 8),
 						DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_CENTER, Font.CR_WHITE, powerupAlpha);
 				powerupPos.Y -= powerupPosYIncrement;
@@ -363,7 +349,7 @@ extend class DCX_Statusbar
 			if ( hasInvulnerabilitySphere != null )
 			{
 				int invulnerabilitySphereTime = int(Ceil(double(hasInvulnerabilitySphere.EffectTics) / GameTicRate));
-				DrawImage("PINVAHUD", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
+				DrawImage("PINVA0", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
 				DrawString(mConFont, FormatNumber(invulnerabilitySphereTime, 1), (powerupPos.X, powerupPos.Y - 8),
 						DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_CENTER, Font.CR_WHITE, powerupAlpha);
 				powerupPos.Y -= powerupPosYIncrement;
@@ -373,7 +359,7 @@ extend class DCX_Statusbar
 			if ( hasInfrared != null )
 			{
 				int infraredTime = int(Ceil(double(hasInfrared.EffectTics) / GameTicRate));
-				DrawImage("PVISAHUD", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
+				DrawImage("PVISA0", powerupPos, DI_SCREEN_RIGHT_BOTTOM, powerupAlpha);
 				DrawString(mConFont, FormatNumber(infraredTime, 1), (powerupPos.X, powerupPos.Y - 8),
 						DI_SCREEN_RIGHT_BOTTOM|DI_TEXT_ALIGN_CENTER, Font.CR_WHITE, powerupAlpha);
 				powerupPos.Y -= powerupPosYIncrement;
@@ -457,7 +443,37 @@ extend class DCX_Statusbar
 			}
 		}
 		
-				Vector2 DemonKeyInvPos = (-94 - ultraWide, -20);
+		// Draw keys
+		Vector2 keyInvPos = (-83 - ultraWide, -20);
+		int keyInvPosYIncrement = 8;
+		
+		if ( !deathmatch && altHudKeys )
+		{
+			if ( hasBlueCard && hasBlueSkull )
+				DrawImage("STKEYS6", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasBlueSkull )
+				DrawImage("STKEYS3", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasBlueCard )
+				DrawImage("STKEYS0", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			
+			keyInvPos.Y += keyInvPosYIncrement;
+			if ( hasYellowCard && hasYellowSkull )
+				DrawImage("STKEYS7", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasYellowSkull )
+				DrawImage("STKEYS4", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasYellowCard )
+				DrawImage("STKEYS1", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			
+			keyInvPos.Y += keyInvPosYIncrement;
+			if ( hasRedCard && hasRedSkull )
+				DrawImage("STKEYS8", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasRedSkull )
+				DrawImage("STKEYS5", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			else if ( hasRedCard )
+				DrawImage("STKEYS2", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+		}
+		
+		Vector2 DemonKeyInvPos = (-94 - ultraWide, -20);
 		int DemonkeyInvPosYIncrement = 8;
 		
 		if ( hasOrangeDemonKey )
@@ -470,10 +486,11 @@ extend class DCX_Statusbar
 		DemonKeyInvPos.Y += DemonkeyInvPosYIncrement;
 		if ( hasCyanDemonKey )
 				DrawImage("STDKEY3", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+			
 		
 		// Draw stats
 		Vector2 statsPos = (4 + ultraWide, -72);
-		int statsPosYIncrement = 0;
+		int statsPosYIncrement;
 		if ( altHudStatsIcons )
 			statsPosYIncrement = 12;
 		else
@@ -606,3 +623,4 @@ extend class DCX_Statusbar
 		timePos.Y += timePosYIncrement;
 	}
 }
+//

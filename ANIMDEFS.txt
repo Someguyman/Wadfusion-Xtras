@@ -79,6 +79,7 @@ switch doom 1  SW1KTK	on pic SW2KTK 	tics 0
 switch doom 1  SW1KVIN	on pic SW2KVIN 	tics 0
 switch doom 1  SW1SKMTL on pic SW2SKMTL tics 0
 switch doom 1  SW1SPFAC on pic SW2SPFAC tics 0
+switch doom 1  SW1BRGNC on pic SW2BRGNC tics 0
 
 texture Silver32
 pic Silver3 tics 8

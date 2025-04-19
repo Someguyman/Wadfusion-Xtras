@@ -234,7 +234,8 @@ cluster 25 // Bad Dream Secret Text
 cluster 26
 {
 	//Flat = "CEIL5_1"
-	Pic = "SIGILINT"
+	//Pic = "SIGILINT"
+	pic = "SIGILEND"
 	//Music = "S_INTRO"
 	Music = "D_E5M6"
 	ExitText = "$E5TEXT"

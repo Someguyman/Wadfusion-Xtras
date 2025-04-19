@@ -84,7 +84,8 @@ map E5M7 "$HUSTR_E5M7"
 map E5M8 "$HUSTR_E5M8"
 {
 	LevelNum = 48
-	Next = EndPic, "SIGILEND"
+	//Next = EndPic, "SIGILEND"	
+	Next = EndSequence, "Episode5end"
 	//Next = EndPic, "SCREDIT"
 	TitlePatch = "WILV47"
 	Par = 300

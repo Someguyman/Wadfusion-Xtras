@@ -99,7 +99,8 @@ map E1M7 "$HUSTR_E1M7"
 map E1M8 "$HUSTR_E1M8"
 {
 	LevelNum = 8
-	Next = endpic, "UDCRED"
+	//Next = endpic, "UDCRED"
+	Next = "E2M1"
 	TitlePatch = "WILV07"
 	Par = 165
 	Music = "$MUSIC_E1M8"
@@ -210,8 +211,8 @@ map E2M7 "$HUSTR_E2M7"
 map E2M8 "$HUSTR_E2M8"
 {
 	LevelNum = 18
-	//Next = endpic, "UDCRED"
-	Next = "EndGame2"
+	//Next = "EndGame2"
+	Next = "e2ending"
 	TitlePatch = "WILV17"
 	Par = 135
 	Music = "$MUSIC_E2M8"
