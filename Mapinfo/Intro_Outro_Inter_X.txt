@@ -112,7 +112,7 @@ Intermission Episode3end
 	Image
 	{
 		Draw = "END0", 108, 68
-		Time = -50
+		Time = -20
 	}
 	Image
 	{
@@ -147,16 +147,13 @@ Intermission Episode3end
 	Image
 	{
 		Draw = "END6", 108, 68
-		Time = -155
+		Time = -185
 		Sound = "weapons/chngun"
 	}
-	Wiper 
-	{
-		//Background = "E2ENDINT"
-	} 
+	Wiper {} 
 	Image
 	{
-		Background = "E2ENDINT"
+		Background = "E3BOSSBK"
 		Time = -1
 		Music = "$MUSIC_E1M7"
 	}
@@ -259,7 +256,6 @@ map e4ending ""
 	NoSoundClipping
 }
 
-///*
 Intermission Episode4end
 {
 	Wiper
@@ -269,7 +265,7 @@ Intermission Episode4end
 	Scroller 
 	{
 		//InitialDelay = 3
-		InitialDelay = 8
+		InitialDelay = 9
 		ScrollTime = -280
 		Background2 = "E4SIGILT"
 		Background = "ENDNOT"
@@ -278,45 +274,38 @@ Intermission Episode4end
 		Music = "D_BUNN2"
 	}
 }
-//*/
-
-/*
-Intermission Episode4end
-{
-	Wiper
-	{
-		WipeType = Crossfade
-	}
-	Image
-	{
-		Music = "$MUSIC_VICTR2"
-		Background = "ENDPIC"
-	}
-}
-*/
 
 Intermission Episode5end
 {
 	Scroller 
 	{
-		Music = "D_E6M8"
+		//Music = "D_E6M8"
+		Music = "D_E5M9"
 		Background2 = "E5ENDINB"
 		Background = "E5ENDINA"
-		//Background = "SIGILEND"
-		//Background2 = "SIGILEN2"
-		InitialDelay = 7
+		InitialDelay = 5
 		ScrollDirection = right
-		//Time = 51
 	}
 }
 
 Intermission Episode6end
 {
+	Scroller 
+	{
+		InitialDelay = 3
+		ScrollTime = -280
+		Background2 = "E6ENDING"
+		Background = "SIGILEN2"
+		ScrollDirection = up
+		music = "D_E6M9"
+		Time = 19
+	}
+	Wiper {} 
 	Image
 	{
-		Background = "SIGILEN2"
+		Background = "SIGILIN2"
 		Time = -1
-		music = "D_E6M9"
+		music = "D_E6M3"
 	}
 	Link = Doom1Cast
 }

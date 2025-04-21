@@ -1,14 +1,21 @@
 /*
 
-1.) Restructer/Reorganize the Acs files so that everything is appropriatly categorized.
+1.) Add CD quality tracks for TNT Evilution.
 
-2.) Reintroduce the playstation monster placements when PSX maps are enabled. 
-	To make up for the loss of total carnage and ultra nightmare.
+2.) Have an option to replace all the midipack music with stock DOOM and DOOM II tracks.
+
+3.) Add playstation monster placements to the jaguar levels on UV.
 	
 	Possible Scope Creep:
 	
 1.) Restore original doom 64 map progression for doom 64 for doom 2.
 	
-2.) Reintroduce hardmode with entire new scripts, But only for ultimate doom and doom 2 initially.
+2.) Reintroduce hardmode with entire new scripts, But only for ultimate Doom and Doom 2 initially.
+
+3.) Redo the multiplayer bot system to be more like actual deathmatch.
+
+4.) Come up with a unique gameplay mode for trial of the jaguar to give it a reason to exist.
+
+5.) Implement the Super Turbo Turkey Punch Arcade Game in e4m9.
 
 */
