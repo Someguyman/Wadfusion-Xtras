@@ -1704,6 +1704,12 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
+				case '910329F84C8ECAF934BB4B785DDD90A7': //ML_MAP01
+				{
+					SetSectorSpecial(254, 0);
+					break;
+				}
+				
 				case '25F93BD6E7B394A6E799421B4202084E' : //ML_MAP33
 				{
 					if ( TextureChanges )
@@ -1834,7 +1840,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				}
 				
 				///*
-				case 'BD3496B2DCF40B64EBB0815A87F92610':
+				case 'BD3496B2DCF40B64EBB0815A87F92610': //ab_map26
 				{
 					if ( AllowCustom )
 					{
