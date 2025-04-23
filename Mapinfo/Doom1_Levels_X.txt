@@ -16,7 +16,6 @@ adddefaultmap
 	ExitPic = "$IN_EPI1"
 }
 
-
 map E1M1 "$HUSTR_E1M1"
 {
 	LevelNum = 1
@@ -99,7 +98,7 @@ map E1M7 "$HUSTR_E1M7"
 map E1M8 "$HUSTR_E1M8"
 {
 	LevelNum = 8
-	//Next = endpic, "UDCRED"
+	//Next = endpic, "D1CRED"
 	Next = "E2M1"
 	TitlePatch = "WILV07"
 	Par = 165

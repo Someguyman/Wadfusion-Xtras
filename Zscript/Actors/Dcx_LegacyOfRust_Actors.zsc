@@ -1,6 +1,6 @@
 //
 
-Class DCX_Ghoul : Actor Replaces Deh_Actor_150
+Class DCX_Ghoul : Actor Replaces ID24Ghoul
 {
 	Default
 	{
@@ -77,7 +77,7 @@ Class DCX_GhoulBall : Actor
 	}
 }
 
-Class DCX_Banshee : Actor Replaces Deh_Actor_151
+Class DCX_Banshee : Actor Replaces ID24Banshee
 {
 	Default
 	{
@@ -126,12 +126,13 @@ Class DCX_Banshee : Actor Replaces Deh_Actor_151
 	}
 }
 
-Class DCX_Mindweaver : Arachnotron Replaces Deh_Actor_152
+Class DCX_Mindweaver : Arachnotron Replaces ID24Mindweaver
 {
 	Default
 	{
 		PainChance 40;
 		ReactionTime 8;
+		Species "Mindweaver";
 		SeeSound "Mindweaver/sight";
 		ActiveSound "Mindweaver/Active";
 		PainSound "Mindweaver/pain";
@@ -183,7 +184,7 @@ Class DCX_Mindweaver : Arachnotron Replaces Deh_Actor_152
 	}
 }
 
-Class DCX_ShockTrooper : Actor Replaces Deh_Actor_153
+Class DCX_ShockTrooper : Actor Replaces ID24PlasmaGuy
 {
 	Default
 	{
@@ -312,7 +313,7 @@ Class DCX_ShockTrooperTorso : Actor
 	}
 }
 
-Class DCX_Vassago : Actor Replaces Deh_Actor_154
+Class DCX_Vassago : Actor Replaces ID24Vassago
 {
 	Default
 	{
@@ -460,7 +461,7 @@ Class DCX_VassagoFlame : Actor
 	}
 }
 
-Class DCX_Tyrant : Actor Replaces Deh_Actor_155
+Class DCX_Tyrant : Actor Replaces ID24Tyrant
 {
 	Default
 	{
@@ -534,12 +535,12 @@ Class DCX_Tyrant : Actor Replaces Deh_Actor_155
 	}
 }
 
-Class DCX_Tyrant_boss_1 : DCX_Tyrant Replaces Deh_Actor_156
+Class DCX_Tyrant_boss_1 : DCX_Tyrant Replaces ID24TyrantBoss1
 {
 
 }
 
-Class DCX_Tyrant_boss_2 : DCX_Tyrant Replaces Deh_Actor_157
+Class DCX_Tyrant_boss_2 : DCX_Tyrant Replaces ID24TyrantBoss2
 {
 
 }

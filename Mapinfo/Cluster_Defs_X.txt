@@ -234,9 +234,7 @@ cluster 25 // Bad Dream Secret Text
 cluster 26
 {
 	//Flat = "CEIL5_1"
-	//Pic = "SIGILINT"
-	pic = "SIGILEND"
-	//Music = "S_INTRO"
+	Pic = "SIGILINT"
 	Music = "D_E5M6"
 	ExitText = "$E5TEXT"
 }
@@ -247,7 +245,6 @@ cluster 27
 {
 	//Flat = "FLOOR7_2"
 	Pic = "SIGILIN2"
-	//Music = "S2_INTRO"
 	Music = "D_E6M7"
 	ExitText = "$E6TEXT"
 }
@@ -276,7 +273,6 @@ cluster 30
 {
 	EnterText = "$E1M4BTEXT"
 	Music = "$MUSIC_VICTOR"
-	//Flat = "$bgflatE1"
 	pic = "E1VICTOR"
 }
 
@@ -285,7 +281,6 @@ cluster 31
 	EnterText = "$E1M8BTEXT"
 	ExitText = "$E1TEXT"
 	Music = "$MUSIC_VICTOR"
-	//Flat = "$bgflatE1"
 	pic = "E1VICTOR"
 }
 

@@ -10,7 +10,7 @@ defaultmap
 	NoIntermission
 	NoSoundClipping
 	AllowRespawn 
-	Sky1 = "SKY1"
+	Sky1 = "DSKY1"
 	ExitPic = "DMVICTOR"
 	SpecialAction = "DCX_DM_MarineBotSpawner", EXIT_NORMAL, 0, 1
 	ResetHealth

@@ -112,16 +112,9 @@ class DCX_EventHandler : EventHandler
         mapPrefix = mapPrefix.MakeLower();
 		String mapName = level.MapName.MakeLower();
 		
-		if ( mapName == "map30" )
-        {
-			Level.ReplaceTextures("ZZZFACE1", "RWDM304",0);
-			Level.ReplaceTextures("ZZZFACE8", "RWDM309",0);
-			Level.ReplaceTextures("ZZZFACE9", "RWDM3010",0);
-		}
-		
 		if ( MapName == "ja_map25" )
 		{
-			Level.ChangeSky(TexMan.CheckForTexture("SKY1",TexMan.Type_Any),TexMan.CheckForTexture("SKY1",TexMan.Type_Any));
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY1",TexMan.Type_Any),TexMan.CheckForTexture("DSKY1",TexMan.Type_Any));
 		}
 	}
 
@@ -397,7 +390,7 @@ class DCX_EventHandler : EventHandler
 		String mapPrefix = level.MapName.Left(3);
 		String mapName = level.MapName.MakeLower();
 		mapPrefix = mapPrefix.MakeLower();
-		if ( SkyName == "SKY3" || MapName == "ja_map17" )
+		if ( SkyName == "DSKY3" || MapName == "ja_map17" )
 		{
 			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
@@ -416,15 +409,20 @@ class DCX_EventHandler : EventHandler
 		
 		if ( mapName.left(2) ~== "E1" || mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
 		{
-			Level.ReplaceTextures("SKY1", "USKY1", 0);
+			Level.ReplaceTextures("DSKY1", "USKY1", 0);
 			Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
 		}
 		
-		if ( SkyName == "SKY2" )
+		if ( SkyName == "DSKY2" )
 		{
-			if (mapName.left(2) ~== "E2" || mapName.left(5) == "cs_e2" || mapName.left(5) == "ch_e2" || mapName.left(5) == "co_e2")
+			if (   mapName.left(2) ~== "E2" 
+				|| mapName.left(5) == "cs_e2" 
+				|| mapName.left(5) == "ch_e2" 
+				|| mapName.left(5) == "co_e2" 
+				|| mapName == "psx01" 
+				|| mapName == "psx01b" )
 			{
-				Level.ReplaceTextures("SKY2", "USKY2", 0);
+				Level.ReplaceTextures("DSKY2", "USKY2", 0);
 				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
 			}
 		}
@@ -783,37 +781,36 @@ class DCX_PerMapReplacementHandler : EventHandler
 			}
 		}
 		
-		if ( mapPrefix == "gba" )
-		{
-			if (e.Replacee == 'Deh_Actor_150') //Ghoul
-				e.Replacement = 'Lostsoul';
-		}
-		
 		if ( mapPrefix == "lr_" )
 		{
 			//Replace the legacy of rust monsters with doom 2 equivilants for certain gameplay mods.
 			
 			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{
-				if (e.Replacee == 'Deh_Actor_150') //Ghoul
+				if (e.Replacee == 'ID24Ghoul') //Ghoul
 				e.Replacement = 'Lostsoul';
 				
-				if (e.Replacee == 'Deh_Actor_151') //Banshee
+				if (e.Replacee == 'ID24Banshee') //Banshee
 				e.Replacement = 'Lostsoul';
 				
-				if (e.Replacee == 'Deh_Actor_152') //Mindweaver
+				if (e.Replacee == 'ID24Mindweaver') //Mindweaver
 				e.Replacement = 'Arachnotron';
 				
-				if (e.Replacee == 'Deh_Actor_153') //ShockTropper
+				if (e.Replacee == 'ID24PlasmaGuy') //ShockTropper
 				e.Replacement = 'Revenant';
 				
-				if (e.Replacee == 'Deh_Actor_154') //Vassago
+				if (e.Replacee == 'ID24Vassago') //Vassago
+				{
+					if ( mapName == "lr_map13" || mapName == "lr_map14" )
+					{ e.Replacement = 'Hellknight'; }
+					else
+					{ e.Replacement = 'Baronofhell'; }
+				}
+				
+				if (e.Replacee == 'ID24Tyrant' || e.Replacee == 'ID24TyrantBoss2') //Tyrant
 				e.Replacement = 'Baronofhell';
 				
-				if (e.Replacee == 'Deh_Actor_155' || e.Replacee == 'Deh_Actor_157') //Tyrant
-				e.Replacement = 'Baronofhell';
-				
-				if (e.Replacee == 'Deh_Actor_156')
+				if (e.Replacee == 'ID24TyrantBoss1')
 				e.Replacement = 'Cyberdemon';
 			}
 		}
@@ -911,6 +908,8 @@ class DCX_MusicHandler : StaticEventHandler
 				S_ChangeMusic(music);
 			}			
 		}
+		
+		
 				
 		if ( (CVar.FindCVar("dcx_3DO_Music").GetBool() ) && (CVar.FindCVar("wf_mus_idkfa").GetBool() != true) && ( mapName.left(3) != "ja_" ) )
 		{

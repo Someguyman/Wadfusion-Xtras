@@ -1,18 +1,22 @@
 -credits-
 
-Master Levels MIDI (Master levels)
+Master Levels MIDI (Master levels).
 
-Plutonia MIDI Pack plus unused midis (Plutonia maps, master level rejects)
+Plutonia MIDI Pack plus unused midis (Plutonia maps, master level rejects).
 
-No Rest For The Living MIDI Pack (NRFTL maps)
+No Rest For The Living MIDI Pack (NRFTL maps).
 
-TNT MIDI Pack (TNT maps) .
+TNT MIDI Pack (TNT maps).
 
-Ultimate MIDI Pack (Doom 1, Thy flesh consumed, Master levels rejects, and doom 64 for doom 2 maps)
+Ultimate MIDI Pack (Doom 1, Thy flesh consumed, Master levels rejects, and doom 64 for doom 2 maps).
 
-.MID The Way Id Did (Doom 2, Master levels rejects, and doom 64 for doom 2 maps)
+.MID The Way Id Did (Doom 2, Master levels rejects, and doom 64 for doom 2 maps).
 
 Thy Flesh Consumed midi (Master levels rejects) - tamara mochaccina.
+
+Titan project (Master levels rejects) - Bloo
+
+ultimidi fix, midtwid2 fix, and betraysewers midis from Pringao friki chalado.
 
 Project Doom remixes (Master level rejects and Doom 64 for doom 2 levels) - silentzorah.
 

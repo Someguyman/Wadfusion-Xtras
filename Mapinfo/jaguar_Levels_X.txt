@@ -14,7 +14,7 @@ defaultmap
 
 adddefaultmap
 {
-	Sky1 = "SKY1"
+	Sky1 = "DSKY1"
 }
 
 //		Episode 1		//
@@ -119,7 +119,7 @@ map JA_MAP25 "$HUSTR_E1M9" //Map 24
 
 adddefaultmap
 {
-	Sky1 = "SKY2"
+	Sky1 = "DSKY2"
 }
 
 map JA_MAP09 "$HUSTR_E2M1"
@@ -216,7 +216,7 @@ map JA_MAP17 "$HUSTR_E2M8" //Map 16
 
 adddefaultmap
 {
-	Sky1 = "SKY3"
+	Sky1 = "DSKY3"
 }
 
 map JA_MAP18 "$HUSTR_E3M1" //Map 17

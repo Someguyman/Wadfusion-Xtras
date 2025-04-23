@@ -23,7 +23,7 @@ map PSX01 "$HUSTR_PSX01"
 	Author = "$WS_AU_MCGEE"
 	Titlepatch = "PXILV00"
 	Label = "THE ULTIMATE DOOM, E2M10"		
-	Sky1 = "SKY2"
+	Sky1 = "DSKY2"
 	Cluster = 2
 	ExitPic = "$IN_EPI2"
 }
@@ -37,7 +37,7 @@ map PSX01B "$HUSTR_PSX01"
 	Author = "Xeebleton (OG by American Mcgee)"
 	Titlepatch = "PXILV00"
 	Label = "THE ULTIMATE DOOM, E2M10"		
-	Sky1 = "SKY2"
+	Sky1 = "DSKY2"
 	Cluster = 2
 	ExitPic = "$IN_EPI2"
 }
@@ -51,7 +51,7 @@ map PSX02 "$HUSTR_PSX02"
 	Author = "Manardo Lenari (OG by American Mcgee)"
 	Titlepatch = "PXILV01"
 	Label = "THE ULTIMATE DOOM, E3M1"
-	Sky1 = "SKY3"
+	Sky1 = "DSKY3"
 	Cluster = 3
 	ExitPic = "$IN_EPI3"
 }
@@ -64,7 +64,7 @@ map PSX02B "$HUSTR_PSX02"
 	Author = "Manardo Lenari (OG by American Mcgee)"
 	Titlepatch = "PXILV01"
 	Label = "THE ULTIMATE DOOM, E3M1"
-	Sky1 = "SKY3"
+	Sky1 = "DSKY3"
 	Cluster = 3
 	ExitPic = "$IN_EPI3"
 }
@@ -78,7 +78,7 @@ map PSX03 "$HUSTR_PSX03"
 	Author = "$WS_AU_MCGEE"
 	Titlepatch = "PXILV02"
 	Label = "THE ULTIMATE DOOM, E3M9"
-	Sky1 = "SKY3"
+	Sky1 = "DSKY3"
 	Cluster = 3
 	ExitPic = "$IN_EPI3"
 }
@@ -92,7 +92,7 @@ map PSX03B "$HUSTR_PSX03"
 	Author = "Manardo Lenari (OG by American Mcgee)"
 	Label = "THE ULTIMATE DOOM, E3M9"
 	Titlepatch = "PXILV02"
-	Sky1 = "SKY3"
+	Sky1 = "DSKY3"
 	Cluster = 3
 	ExitPic = "$IN_EPI3"
 	CyberdemonSpecial

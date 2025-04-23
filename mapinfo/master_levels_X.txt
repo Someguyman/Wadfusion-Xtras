@@ -11,7 +11,7 @@
 
 defaultmap
 {
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	SuckTime = 1
 	NoJump
 	NoCrouch
@@ -60,7 +60,7 @@ map ML_MAP44 "$ML_KICK" //KICK ATTACK
 adddefaultmap
 {
 	Author = "$WF_AU_MUSTAINE"
-	Sky1 = "SKY1"
+	Sky1 = "DSKY1"
 	Label = "Master Levels, Tom Mustaine"
 }
 
@@ -108,7 +108,7 @@ map ML_MAP47 "Hacked Together"
 {
 	next = "ML_MAP48"
 	TitlePatch = "LWILV00"
-	sky1 = "SKY1"
+	sky1 = "DSKY1"
 	music = "$MUSIC_HACK2"
 }
 
@@ -116,7 +116,7 @@ map ML_MAP48 "Grand Entrance to Hell" //CANYON
 {
 	next = "ML_MAP49"
 	TitlePatch = "LWILV01"
-	sky1 = "SKY1"
+	sky1 = "DSKY1"
 	music = "$MUSIC_HELLCAN"
 }
 
@@ -124,7 +124,7 @@ map ML_MAP49 "Moping in Sarrow" // MEE2
 {
 	next = "ML_MAP50"
 	TitlePatch = "LWILV02"
-	sky1 = "RSKY3"
+	sky1 = "SKY3"
 	music = "$MUSIC_MEE2"
 }
 

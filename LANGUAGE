@@ -76,7 +76,6 @@ HUSTR_PSX07 = "Redemption Denied";
 HUSTR_PSX08 = "The Mansion";
 HUSTR_PSX09 = "Club DOOM";
 
-
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
 BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
 BONUS_HUMAN = "\c[GOLD]Bonus: \c[RED]One Humanity";
@@ -101,11 +100,11 @@ ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
 ABLOUTION_EPI02 = "\c[Red]Old Wounds";
 ABLOUTION_EPI03 = "\c[Red]The Absolution";
 
-MASTER_LV01 = "\c[YELLOW]Tim, Tom, Mid Assortment";
-MASTER_LV02 = "\c[YELLOW]KlieTech Series";
-MASTER_LV03 = "\c[YELLOW]Titan Series";
-MASTER_LV04 = "\c[YELLOW]Inferno Series";
-MASTER_LV05 = "\c[YELLOW]Cabal Series";
+MASTER_LV01 = "\c[DARKGREY]Tim, Tom, Mid Assortment";
+MASTER_LV02 = "\c[DARKGREY]KlieTech Series";
+MASTER_LV03 = "\c[DARKGREY]Titan Series";
+MASTER_LV04 = "\c[DARKGREY]Inferno Series";
+MASTER_LV05 = "\c[DARKGREY]Cabal Series";
 
 TNTE_EPI01 = "\c[Orange]The Io Invasion";
 TNTE_EPI02 = "\c[Orange]Nocturnal Io";
