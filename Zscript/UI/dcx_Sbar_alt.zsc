@@ -70,9 +70,14 @@ extend class DCX_Statusbar
 		let hasRedCard     = CPlayer.mo.FindInventory("RedCard");
 		let hasRedSkull    = CPlayer.mo.FindInventory("RedSkull");
 		
+		let hasLevelKey = ( hasBlueCard || hasYellowCard || hasRedCard ||
+							hasBlueSkull || hasYellowSkull || hasRedSkull );
+		
 		let hasOrangeDemonKey     = CPlayer.mo.FindInventory("DCX_Orangekeyicon");
 		let hasPurpleDemonKey     = CPlayer.mo.FindInventory("DCX_Purplekeyicon");
 		let hasCyanDemonKey     = CPlayer.mo.FindInventory("DCX_Cyankeyicon");
+		
+		let hasDemonKey = ( hasOrangeDemonKey || hasPurpleDemonKey || hasCyanDemonKey );
 		
 		let hasBackpack = CPlayer.mo.FindInventory("Backpack");
 		let hasBerserk  = CPlayer.mo.FindInventory("PowerStrength");
@@ -125,8 +130,14 @@ extend class DCX_Statusbar
 				DrawImage(hasBerserk ? "PSTRA0" : "MEDIA0", (20 + ultraWide, -10 - hudHealthYOffset),
 						DI_SCREEN_LEFT_BOTTOM, healthAlpha);
 			else
-				DrawTexture(GetMugShot(5), (3 + ultraWide, -35 - hudHealthYOffset),
-						DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+			{
+				if ( CVar.FindCVar("dcx_MugShotGib").getbool() )
+					DrawTexture(GetMugShot(5, MUGSHOT.xdeathface), (3 + ultraWide, -35 - hudHealthYOffset),
+							DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+				else
+					DrawTexture(GetMugShot(5), (3 + ultraWide, -35 - hudHealthYOffset),
+							DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+			}
 			
 			int healthColor =
 				health > maxhealth * 2    ? Font.CR_PURPLE :
@@ -167,6 +178,13 @@ extend class DCX_Statusbar
 		Vector2 keyInvPos = (-8 - ultraWide, -20);
 		int keyInvPosYIncrement = 8;
 		int ammoInvPosKeysIncrement = 0;
+		int DemonkeyLevelkeyOffset = 0;
+		
+		if ( hasLevelKey )
+			DemonkeyLevelkeyOffset = 9;
+		
+		Vector2 DemonKeyInvPos = (-8 - DemonkeyLevelkeyOffset - ultraWide, -20);
+		int DemonkeyInvPosYIncrement = 8;
 		
 		if ( !deathmatch && altHudKeys )
 		{
@@ -192,10 +210,28 @@ extend class DCX_Statusbar
 				DrawImage("STKEYS5", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
 			else if ( hasRedCard )
 				DrawImage("STKEYS2", keyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-			
-			if ( hasBlueCard || hasYellowCard || hasRedCard ||
-					hasBlueSkull || hasYellowSkull || hasRedSkull )
+		
+			if ( hasOrangeDemonKey )
+				DrawImage("STDKEY1", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+		
+			DemonKeyInvPos.Y += DemonkeyInvPosYIncrement;
+			if ( hasPurpleDemonKey )
+				DrawImage("STDKEY2", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+		
+			DemonKeyInvPos.Y += DemonkeyInvPosYIncrement;
+			if ( hasCyanDemonKey )
+				DrawImage("STDKEY3", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
+				
+						
+			if ( hasLevelKey && hasDemonKey )
+				ammoInvPosKeysIncrement += 17;
+			else if ( hasLevelKey || hasDemonKey )
 				ammoInvPosKeysIncrement += 13;
+				
+			
+			//if ( hasOrangeDemonKey || hasPurpleDemonKey || hasCyanDemonKey )
+				//ammoInvPosKeysIncrement += 13;
+				
 		}
 		
 		// Draw current ammo
@@ -456,20 +492,6 @@ extend class DCX_Statusbar
 				}
 			}
 		}
-		
-				Vector2 DemonKeyInvPos = (-94 - ultraWide, -20);
-		int DemonkeyInvPosYIncrement = 8;
-		
-		if ( hasOrangeDemonKey )
-				DrawImage("STDKEY1", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-		
-		DemonKeyInvPos.Y += DemonkeyInvPosYIncrement;
-		if ( hasPurpleDemonKey )
-				DrawImage("STDKEY2", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
-		
-		DemonKeyInvPos.Y += DemonkeyInvPosYIncrement;
-		if ( hasCyanDemonKey )
-				DrawImage("STDKEY3", DemonKeyInvPos, DI_SCREEN_RIGHT_BOTTOM, keysAlpha);
 		
 		// Draw stats
 		Vector2 statsPos = (4 + ultraWide, -72);

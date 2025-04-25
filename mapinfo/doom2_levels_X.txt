@@ -350,7 +350,8 @@ map MAP29 "$HUSTR_29"
 map MAP30 "$HUSTR_30"
 {
 	Label = "DOOM II HELL ON EARTH, E3M10"
-	Next = "EndGameC"
+	//Next = "EndGameC"
+	Next = EndSequence, "DoomIIEnd"
 	TitlePatch = "CWILV29"
 	Par = 180
 	Music = "$MUSIC_OPENIN"

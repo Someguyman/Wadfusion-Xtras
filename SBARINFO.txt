@@ -1,0 +1,10 @@
+
+mugshot "XDeath"
+{
+	EXPO0 5;
+	EXPO1 5;
+	EXPO2 5;
+	EXPO3 5;
+	EXPO4 5;
+	EXPO5 -1;
+}

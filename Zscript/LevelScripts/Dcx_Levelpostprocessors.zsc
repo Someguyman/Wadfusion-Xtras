@@ -21,8 +21,8 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			String mapName = level.MapName.MakeLower();
 			int skill_level = G_SkillPropertyInt(SKILLP_ACSReturn);
 			
-			int PsxEnabled = CVar.FindCVar("dcx_playstationmaps").Getint();
-			int AllowCustom = CVar.FindCVar("dcx_CustomMonsters").GetBool();
+			int PsxEnabled = CVar.GetCVar("dcx_playstationmaps").Getint();
+			int AllowCustom = CVar.GetCVar("dcx_CustomMonsters").GetBool();
 			int TextureChanges = CVar.FindCVar("dcx_TextureEchancements").GetBool();
 			
 			// Monsters //
@@ -148,7 +148,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			
 			//Adding the unmaker and demonkeys into the doom 64 for doom 2 maps.
 				
-			if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
+			if ( CVar.GetCVar("dcx_D64D2Xtras").GetBool() )
 			{					
 				if ( mapName == "ab_map06" )
 					{ SetThingEdNum(81, Unmaker); /*Replaces secret plasmagun*/ 
@@ -174,7 +174,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			{
 				case 'E43C1797DFD9443D1B4C035327743588': //testmap
 				{
-					if ( CVar.FindCVar("wf_compat_id24_weapons").GetInt() == 1 )
+					if ( CVar.GetCVar("wf_compat_id24_weapons").GetInt() == 1 )
 					{
 						Dcx_SpawnThing(Incenerator,( -3072, 320, -999 ), 0, MODES_ALL);
 						Dcx_SpawnThing(Incenerator,( -3200, 320, -999 ), 0, MODES_ALL);
@@ -201,7 +201,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						Dcx_SpawnThing(GasTank,( -1536, 448, -999 ), 0, MODES_ALL);
 					}
 					
-					if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+					if ( CVar.GetCVar("dcx_CustomMonsters").GetBool() )
 					{
 						Dcx_SpawnThing(OrangeDemonKey,( -2464, 192, -999 ), 0,  MODES_ALL);
 						Dcx_SpawnThing(PurpleDemonKey,( -2624, 192, -999 ), 0,  MODES_ALL);
@@ -239,7 +239,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetThingEdNum(90,Chaingunner);
 					}
 					
-					if ( CVar.FindCVar("wf_compat_xboxsecretexits").GetBool() )
+					if ( CVar.GetCVar("wf_compat_xboxsecretexits").GetBool() )
 					{
 						SetLineActivation(268, 0);
 						SetLineSpecial(268, 0);
@@ -1520,7 +1520,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					Dcx_SpawnThing(Shotgunner, (944, 920, -999), 90, MODES_ALL|MTF_AMBUSH);
 					Dcx_SpawnThing(ExplosiveBarrel, (472, 800, -999), 45, MODES_ALL|MTF_AMBUSH);
 					
-					if ( CVar.FindCVar("wf_compat_xboxsecretexits").GetBool() )
+					if ( CVar.GetCVar("wf_compat_xboxsecretexits").GetBool() )
 					{
 						SetWallTextureID(283, Line.front, Side.mid, TexMan.CheckForTexture("SW1EXIT", TexMan.Type_Wall, TexMan.Overridable));
 					}

@@ -272,11 +272,13 @@ Class DCX_Shotgun : Shotgun Replaces Shotgun
 
 class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 {
+	//int CheckSSGSprite = CVar.FindCVar("ssgtoggle").getint();
+	
 	States
 	{
 	Ready:
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Ready2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Ready3");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 1, "Ready2");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 2, "Ready3");
 		SHT2 A 1 A_WeaponReady;
 		Loop;		
 	Ready2:
@@ -288,8 +290,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 		
 		
 	Deselect:
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Deselect2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Deselect3");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 1, "Deselect2");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 2, "Deselect3");
 		SHT2 A 1 A_Lower;
 		Loop;
 	Deselect2:
@@ -301,8 +303,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 		
 		
 	Select:
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "select2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "select3");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 1, "select2");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 2, "select3");
 		SHT2 A 1 A_Raise;
 		Loop;
 	Select2:
@@ -315,8 +317,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 		
 	Fire:
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "fire2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "fire3");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 1, "fire2");
+		TNT1 A 0 A_JumpIf(CVar.FindCVar("ssgtoggle").getint() == 2, "fire3");
 		SHT2 A 3;
 		SHT2 A 7 A_FireShotgun2;
 		Goto Reload;
@@ -338,8 +340,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 		SHT2 H 6 A_CloseShotgun2;
 		Goto Refirecheck;
 	Refirecheck:
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Refire2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Refire3");
+		TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 1, "Refire2");
+		TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 2, "Refire3");
 		Goto Refire1;
 		
 		
@@ -356,8 +358,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 		
 	Flash:
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Flash");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Flash2");
-		TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Flash3");
+		TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 1, "Flash2");
+		TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 2, "Flash3");
 		SHT2 I 4 Bright A_Light1;
 		SHT2 J 3 Bright A_Light2;
 		Goto LightDone;	
@@ -372,8 +374,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 	
 	
 	Perk_Fire:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Perk_Fire_Psx");
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Perk_Fire_Hybrid");
+			TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 1, "Perk_Fire_Psx");
+			TNT1 A 0 A_JumpIf(Cvar.FindCVar("ssgtoggle").getint() == 2, "Perk_Fire_Hybrid");
 			
 			OGS2 A 3 A_Startsound("weapons/ssg/fire",0);
 			OGS2 B 2 bright offset(0,36)
@@ -411,8 +413,8 @@ class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
 			XTS2 R 2 offset(0,33) A_CloseShotgun2;
 			XTS2 S 2 a_refire;
 	Perk_Fire_end:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 1, "Perk_Fire_End_Psx");
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("ssgtoggle").getint() == 2, "Perk_Fire_End_Hybrid");
+			TNT1 A 0 A_JumpIf(Cvar.findcvar("ssgtoggle").getint() == 1, "Perk_Fire_End_Psx");
+			TNT1 A 0 A_JumpIf(Cvar.findcvar("ssgtoggle").getint() == 2, "Perk_Fire_End_Hybrid");
 			OGS2 A 2 a_refire;
 			OGS2 A 7 a_refire;
 			Goto Ready;
@@ -724,8 +726,16 @@ class DCX_HeavyPlasmaGun : DoomWeapon
 		Loop;
 	Fire:
 		RAIL A 0 A_Stopsound(CHAN_WEAPON);
+				TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
 		PL2F A 2 Bright A_FireProjectile("DCX_PlasmaBall2",0,1);
 		PL2F B 2 Bright;
+		PL2F A 0 Bright A_ReFire;
+		Goto Ready;
+	Perk_Fire:
+		PL2F A 1 Bright offset (0, 37) A_FireProjectile("DCX_PlasmaBall2",0,1);
+		PL2F A 1 Bright offset (0, 35);
+		PL2F B 1 Bright offset (0, 34);
+		PL2F B 1 Bright offset (0, 33);
 		PL2F A 0 Bright A_ReFire;
 		Goto Ready;
 	Flash:

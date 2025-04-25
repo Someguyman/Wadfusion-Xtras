@@ -1,6 +1,6 @@
 /*
 
-1.) Add CD quality tracks for TNT Evilution.
+1.) Add CD quality tracks for regular TNT Evilution and the plutonia midi pack.
 
 2.) Have an option to replace all the midipack music with stock DOOM and DOOM II tracks.
 

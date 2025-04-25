@@ -76,6 +76,7 @@ cluster 8
 	ExitText = "$C4TEXT"
 	Music = "$MUSIC_READ_M"
 	Flat = "$BGFLAT30"
+	pic = "BOSSBACK"
 }
 
 // DOOM II fifth cluster (level 31)
@@ -138,7 +139,8 @@ cluster 15
 {
 	ExitText = "$T4TEXT"
 	Music = "T_READ_M"
-	Flat = "DEM1_6"
+	//Flat = "DEM1_6"
+	pic = "TNTBOS2"
 }
 
 // TNT fifth cluster (level 31)
@@ -192,7 +194,8 @@ cluster 21
 {
 	ExitText = "$P4TEXT"
 	Music = "P_READ_M"
-	Flat = "RROCK04"
+	//Flat = "RROCK04"
+	pic = "PLUBOS2"
 }
 
 // Plutonia fifth cluster (level 31)

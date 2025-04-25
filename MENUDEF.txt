@@ -64,6 +64,12 @@ OptionValue EnchancedMonsters
 	1.0, "\c[GOLD]On"
 }
 
+OptionValue Muggibbers
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
+
 
 AddOptionMenu "OptionsMenu"
 {
@@ -78,6 +84,10 @@ OptionMenu "DCXOptions"
 	StaticText "Graphic options", "Gold"
 	StaticText " "
 	Submenu "Texture Options","DCXSKYOptions"
+	StaticText " "
+	option "Mugshot Gibbing Animation", "dcx_MugShotGib", "Muggibbers"
+	StaticText "When enabled, plays a gibbing animation for the mugshot.", "dark red"
+	StaticText "Note: Leave this off if you are using a custom mugshot.", "dark red"
 	StaticText " "
 	option "Status bar graphic", "HUD_toggle", "HUDtweaks"
 	StaticText "Changes the appearence of the status bar.", "dark red"

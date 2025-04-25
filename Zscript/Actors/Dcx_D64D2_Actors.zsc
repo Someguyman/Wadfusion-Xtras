@@ -8,6 +8,7 @@ class DCX_DualArachnotron : Arachnotron
 		DeathSound "baby/death2";
 		ActiveSound "baby/active2";
 		ReactionTime 5;
+		Species "DualArachnotron";
 	}
 	
 	int userReactionTime;
@@ -83,10 +84,10 @@ class DCX_DualArachnotronPlasma : ArachnotronPlasma
 	States
 	{
 	Spawn:
-		PRED AB 5 BRIGHT;
+		PLSS AB 6 BRIGHT;
 		Loop;
 	Death:
-		PRDX ABCDE 5 BRIGHT;
+		PLSE ABCDE 4 BRIGHT;
 		Stop;
 	}
 }
@@ -315,7 +316,8 @@ class DCX_DarkRevenant : Revenant
 	Default
 	{
 		Speed 10;
-		//MeleeThreshold 196;
+		Health 400;
+		MeleeThreshold 230;
 		MissileChanceMult 0.0625;
 		SeeSound "DarkRevenant/Sight";
 		PainSound "DarkRevenant/pain";
@@ -323,6 +325,7 @@ class DCX_DarkRevenant : Revenant
 		ActiveSound "DarkRevenant/active";
 		HitObituary "$OB_UNDEADHIT";
 		Obituary "$OB_UNDEAD";
+		Species "DarkRevenant";
 		Tag "Dark Revenant";
 	}
 	
@@ -354,8 +357,8 @@ class DCX_DarkRevenant : Revenant
 		Goto See;
 	Pain:
 		DRAU M 5;
-		DRAU M 5 A_Pain;
-		Goto See;
+		DRAU M 8 A_Pain;
+		Goto Missile;
 	Death:
 		DRAU NO 8;
 		DRAU P 8 A_Scream;
@@ -378,15 +381,8 @@ class DCX_D64RevenantTracer : RevenantTracer
 		Height 8;
 		Speed 10;
 		Damage 10;
-		//Projectile;
-		//+SEEKERMISSILE 
-		//+RANDOMIZE
-		//+ZDOOMTRANS
 		SeeSound "DarkRevenant/attack";
-		//DeathSound "skeleton/tracex";
 		RenderStyle "Add";
-		//Threshold 80;
-		//ReactionTime 70;
 	}
 	
 	void A_RectTracer()
@@ -634,7 +630,6 @@ Class DCX_Motherdemon : Actor
 			MOTH I 6 BRIGHT A_FaceTarget;
 			MOTH J 10 BRIGHT A_RectAttack();
 			MOTH I 10 Bright A_FaceTarget;
-			//MOTH E 2 Bright A_FaceTarget;
 		goto see;
 			Goto See;
 		/*

@@ -272,7 +272,8 @@ Intermission Episode4end
 	Scroller 
 	{
 		//InitialDelay = 3
-		InitialDelay = 9
+		//InitialDelay = 9
+		InitialDelay = 7
 		ScrollTime = -280
 		Background2 = "E4SIGILT"
 		Background = "ENDNOT"
@@ -441,6 +442,21 @@ Intermission Jaguarcast
 	}
 
 	Link = Jaguarcast
+}
+
+Intermission DoomIIEnd
+{
+	Wiper
+	{
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Music = "$MUSIC_EVIL"
+		Time = -3
+		Background = "BOSSBACK"
+	}
+	link = Doom2Cast
 }
 
 Intermission Doom2cast

@@ -15,9 +15,11 @@ server int dcx_CabalOrder = 0;
 server int dcx_KlieOrder = 0;
 server int dcx_TitanOrder = 0;
 
-server bool fs_toggle = true;
-server bool dcx_3DO_Music = false;
-server int ssgtoggle = 0;
-server int hud_toggle = 0;
-server int Health_Cross_Toggle = 0;
+User bool fs_toggle = true;
+User bool dcx_3DO_Music = false;
+User int ssgtoggle = 0;
+User int hud_toggle = 0;
+User int Health_Cross_Toggle = 0;
+
+NoSave bool dcx_MugShotGib = false;
 

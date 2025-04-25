@@ -97,6 +97,9 @@ Class DCX_NightmareSpectre : Demon
 		Translation "NightmareSpectre";
 		Species "NightmareSpectre";
 	}
+	
+	
+	
 	States
 	{
 		Spawn:

@@ -292,11 +292,11 @@ class DCX_EventHandler : EventHandler
 		}		
 		else if ( Cvar.getcvar("W3D_Text_toggle").getint() == 3 )
 		{
-			Level.ReplaceTextures("ZZWOLF2", "ZZWOLF1", 0);
-			Level.ReplaceTextures("ZZWOLF3", "ZZWOLF1", 0);
-			Level.ReplaceTextures("ZZWOLF4", "ZZWOLF1", 0);
-			Level.ReplaceTextures("ZZWOLF6", "ZZWOLF5", 0);
-			Level.ReplaceTextures("ZZWOLF7", "ZZWOLF5", 0);
+			Level.ReplaceTextures("ZZWOLF2",   "ZZWOLF1", 0);
+			Level.ReplaceTextures("ZZWOLF3",   "ZZWOLF1", 0);
+			Level.ReplaceTextures("ZZWOLF4",   "ZZWOLF1", 0);
+			Level.ReplaceTextures("ZZWOLF6",   "ZZWOLF5", 0);
+			Level.ReplaceTextures("ZZWOLF7",   "ZZWOLF5", 0);
 			Level.ReplaceTextures("ZZWOLF12", "ZZWOLF11", 0);
 			Level.ReplaceTextures("ZZWOLF13", "ZZWOLF11", 0);			
 		}
@@ -314,10 +314,10 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("CRACKLE4", "64CRACK4", 0);
 			Level.ReplaceTextures("SW1STONE", "SW1BRCOM", 0);
 			Level.ReplaceTextures("SW2STONE", "SW2BRCOM", 0);
-			Level.ReplaceTextures("DEM2_1", "DEM4_1", 0);
-			Level.ReplaceTextures("DEM2_2", "DEM4_2", 0);
-			Level.ReplaceTextures("DEM2_3", "DEM4_3", 0);
-			Level.ReplaceTextures("DEM2_4", "DEM4_4", 0);
+			Level.ReplaceTextures("DEM2_1", 	"DEM4_1", 0);
+			Level.ReplaceTextures("DEM2_2", 	"DEM4_2", 0);
+			Level.ReplaceTextures("DEM2_3", 	"DEM4_3", 0);
+			Level.ReplaceTextures("DEM2_4",	    "DEM4_4", 0);
         }
 	}
 	
@@ -327,24 +327,24 @@ class DCX_EventHandler : EventHandler
 		String mapName = level.MapName.MakeLower();
 		if ( mapName.Left(3) == "ja_" )
 		{
-			Level.ReplaceTextures("FLAT14", "FLOOR5_3", 0);
-			Level.ReplaceTextures("SP_DUDE4", "GSTONE3", 0);
-			Level.ReplaceTextures("CEIL5_1", "SLIME15", 0);
-			Level.ReplaceTextures("FLOOR0_6", "RROCK14", 0);
+			Level.ReplaceTextures("FLAT14",   "FLOOR5_3", 0);
+			Level.ReplaceTextures("SP_DUDE4",  "GSTONE3", 0);
+			Level.ReplaceTextures("CEIL5_1",   "SLIME15", 0);
+			Level.ReplaceTextures("FLOOR0_6",  "RROCK14", 0);
 			Level.ReplaceTextures("FLOOR6_1", "FLOOR6_4", 0);
-			Level.ReplaceTextures("FLOOR6_2", "RROCK17", 0);
-			Level.ReplaceTextures("SW1BRN1", "SW1BRN1A", 0);
-			Level.ReplaceTextures("SW2BRN1", "SW2BRN1A", 0);
-			Level.ReplaceTextures("FLAT4", "RROCK19", 0);
+			Level.ReplaceTextures("FLOOR6_2",  "RROCK17", 0);
+			Level.ReplaceTextures("SW1BRN1",  "SW1BRN1A", 0);
+			Level.ReplaceTextures("SW2BRN1",  "SW2BRN1A", 0);
+			Level.ReplaceTextures("FLAT4",     "RROCK19", 0);
 			Level.ReplaceTextures("COMPSPAN", "COMPSPNJ", 0);
 			Level.ReplaceTextures("COMPTALL", "COMPTALJ", 0);
-			Level.ReplaceTextures("SP_HOT1", "SP_HOTJ", 0);
+			Level.ReplaceTextures("SP_HOT1",   "SP_HOTJ", 0);
 			Level.ReplaceTextures("SW1GSTON", "SW1GSTON", 0);
 			Level.ReplaceTextures("SW2GSTON", "SW2GSTON", 0);
-			Level.ReplaceTextures("SW1HOT", "SW1HOTJ", 0);
-			Level.ReplaceTextures("SW2HOT", "SW2HOTJ", 0);
-			Level.ReplaceTextures("SW1WOOD", "SW1METL", 0);
-			Level.ReplaceTextures("SW2WOOD", "SW2METL", 0);
+			Level.ReplaceTextures("SW1HOT",    "SW1HOTJ", 0);
+			Level.ReplaceTextures("SW2HOT",    "SW2HOTJ", 0);
+			Level.ReplaceTextures("SW1WOOD",   "SW1METL", 0);
+			Level.ReplaceTextures("SW2WOOD",   "SW2METL", 0);
 			Level.ReplaceTextures("BIGDOOR6", "BIGDRJA6", 0);
 			Level.ReplaceTextures("GSTSATYR", "GSATYRJA", 0);
 		}
@@ -355,19 +355,19 @@ class DCX_EventHandler : EventHandler
 		String mapName = level.MapName.MakeLower();
 		if ( (mapName == "psx02b") || (mapName == "psx03b") )
 		{
-			Level.ReplaceTextures("BRNPOIS", "BRNPOIS1", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("BRNPOIS",  "BRNPOIS1", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("NUKEPOIS", "NUKPOIS1", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("BIGDOOR7", "BIGDOR7A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("SHAWN1", "SHAWN1A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("STEP1", "STEP1A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("STEP2", "STEP2A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("STEP3", "STEP3A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("STEP5", "STEP5A", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("SW1BRN1", "SW1BRN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SHAWN1",    "SHAWN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP1", 		"STEP1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP2", 		"STEP2A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP3", 		"STEP3A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("STEP5",      "STEP5A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW1BRN1",  "SW1BRN1A", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW1STARG", "SW1STARA", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW1STONE", "SW1STONA", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW1STON2", "SW1STONB", TexMan.NOT_FLAT);
-			Level.ReplaceTextures("SW2BRN1", "SW2BRN1A", TexMan.NOT_FLAT);
+			Level.ReplaceTextures("SW2BRN1",  "SW2BRN1A", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW2STARG", "SW2STARA", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW2STONE", "SW2STONA", TexMan.NOT_FLAT);
 			Level.ReplaceTextures("SW2STON2", "SW2STONB", TexMan.NOT_FLAT);
@@ -619,7 +619,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			e.Replacement = 'Zombieman';
 		}
 		
-		If ( Cvar.getcvar("Health_Cross_Toggle").getint() == 1)
+		If ( Cvar.findcvar("Health_Cross_Toggle").getint() == 1)
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_BFG';
@@ -630,7 +630,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_BFG';
 		}		
-		else If(Cvar.getcvar("Health_Cross_Toggle").getint() == 2)
+		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 2)
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_unity';
@@ -641,7 +641,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_unity';
 		}
-		else If(Cvar.getcvar("Health_Cross_Toggle").getint() == 3)
+		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 3)
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_eternal';
@@ -709,7 +709,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'DCX_MarineBotSpawner';		
 			}
 			
-			if ( CVar.FindCVar("dcx_D64D2Xtras").GetBool() )
+			if ( CVar.GetCVar("dcx_D64D2Xtras").GetBool() && CVar.GetCVar("dcx_CustomMonsters").GetBool() )
 			{
 				if (e.Replacee == 'Chainsaw')
 				e.Replacement = 'DCX_DoubleBladedChainsaw';
@@ -757,7 +757,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'BurningBarrel')
 			e.Replacement = 'Dcx_Flames';
 			
-			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( CVar.GetCVar("dcx_CustomMonsters").GetBool() )
 			{			
 				if (e.Replacee == 'CommanderKeen')
 				e.Replacement = 'DCX_NightmareImp';
@@ -785,7 +785,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 		{
 			//Replace the legacy of rust monsters with doom 2 equivilants for certain gameplay mods.
 			
-			if ( !CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+			if ( !CVar.GetCVar("dcx_CustomMonsters").GetBool() )
 			{
 				if (e.Replacee == 'ID24Ghoul') //Ghoul
 				e.Replacement = 'Lostsoul';
