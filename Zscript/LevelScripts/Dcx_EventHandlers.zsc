@@ -17,7 +17,6 @@ class DCX_EventHandler : EventHandler
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("ENDNOT");
-		//ENDPIC = 	   	TexMan.CheckForTexture("ENDPIC");
 		DOOMTittle =   	TexMan.CheckForTexture("OGDtitle");
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
@@ -29,8 +28,6 @@ class DCX_EventHandler : EventHandler
 	
 	override void WorldLoaded (WorldEvent e)
 	{
-		if ( CVar.FindCVar("dcx_TextureFixes").GetBool() )
-		{ TextureFixes(); }
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 		{ TextureEnchancements(); }
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
@@ -103,18 +100,6 @@ class DCX_EventHandler : EventHandler
 		{
 			if ( Cvar.getcvar("W3D_Text_toggle").getint() >= 1 )
 			w.SeeSound = "wolfss/sight2";
-		}
-	}
-	
-	void TextureFixes()
-    {
-		String mapPrefix = level.MapName.Left(3);
-        mapPrefix = mapPrefix.MakeLower();
-		String mapName = level.MapName.MakeLower();
-		
-		if ( MapName == "ja_map25" )
-		{
-			Level.ChangeSky(TexMan.CheckForTexture("DSKY1",TexMan.Type_Any),TexMan.CheckForTexture("DSKY1",TexMan.Type_Any));
 		}
 	}
 

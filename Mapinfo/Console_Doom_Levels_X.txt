@@ -157,7 +157,8 @@ adddefaultmap
 
 map PSX07 "$HUSTR_PSX07"
 {
-	Next = "EndGameC"
+	//Next = "EndGameC"
+	Next = EndSequence, "PSXDoomIIEND"
 	Sky1 = "RSKY3"
 	music = "$MUSIC_PSX07"
 	SpecialAction = "Baronofhell", Floor_LowerToLowest, 666, 8

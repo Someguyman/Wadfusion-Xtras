@@ -524,10 +524,10 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				case 'A24FE135D5B6FD427FE27BEF89717A65': //E2M2
 				{
 					Dcx_SpawnThing(ExplosiveBarrel, (2096, 3408, -999), 0, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (96, 4512, -999), 270, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (544, 4512, -999), 270, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (480, 2080, -999), 180, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (1568, 4384, -999), 270, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (96, 4512, -999), 270, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (544, 4512, -999), 270, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (480, 2080, -999), 180, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (1568, 4384, -999), 270, MODES_ALL);
 					
 					if ( PsxEnabled >= 1 )
 					{
@@ -592,8 +592,8 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				
 				case '1BC04D646B32D3A3E411DAF3C1A38FF8': //E2M4
 				{
-					Dcx_SpawnThing(HangingLeg, (-832, -2688, -999), 0, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (1504, -2016, -999), 90, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (-832, -2688, -999), 0, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (1504, -2016, -999), 90, MODES_ALL);
 					
 					SetSectorTexture(173,0,"BLOOD3");
 					SetSectorTexture(177,0,"BLOOD3");
@@ -663,7 +663,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				{
 					// Removes the extra pinky, now everything will be able to move
 					SetThingEdNum(71,0);
-					Dcx_SpawnThing(HangingLeg, (624, 464, -999), 90, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (624, 464, -999), 90, MODES_ALL);
 					
 					if ( TextureChanges )
 					{
@@ -710,8 +710,8 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				case '8590F489879870C098CD7029C3187159': //E2M7
 				{
 					// Removes corpses hanging in the air
-					Dcx_SpawnThing(HangingLeg, (1376, 1888, -999), 270, MODES_ALL);
-					Dcx_SpawnThing(HangingLeg, (416, 32, -999), 0, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (1376, 1888, -999), 270, MODES_ALL);
+					//Dcx_SpawnThing(HangingLeg, (416, 32, -999), 0, MODES_ALL);
 					
 					Dcx_SpawnThing(cell, (928, 336, -999), 0, MODES_ALL);
 					
@@ -1875,6 +1875,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				}
 				
 				case '8C7C674F9EE4D15DF19414A556AE3369' : //ml_map15
+				{
 					if ( TextureChanges ) 
 					{
 						SetWallTexture(27,line.front,side.mid,"DOORBLU2");
@@ -1883,7 +1884,15 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetWallTexture(667,line.front,side.mid,"DOORRED2");
 						SetWallTexture(1108,line.front,side.mid,"DOORRED2");
 					}
-				break;
+					break;
+				}
+				
+				
+				case '8ECBC7855699C6E4C3785FD945C3AAFA' : //Ml_MAP28
+				{
+					SetThingSkills(58, 31);
+					break;
+				}
 				
 				case '75AD07EBOB915DE49DABCC3B9158161D' : //ml_map36
 				{
@@ -1894,12 +1903,6 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetWallTexture(3691,line.front,side.mid,"DOORRED");
 						SetWallTexture(1530,line.front,side.mid,"DOORRED");		
 					}
-					break;
-				}
-				
-				case 'd5f64e02679a81b82006af34a6a8eac3': //pl_map32
-				{
-					SetThingEdNum(515,Fatso);
 					break;
 				}
 				
@@ -1923,6 +1926,21 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					Break;
 				}
 				
+				case '279BB50468FE9F5B36C6D821E4902369': //PL_MAP30
+				{
+					if ( TextureChanges ) 
+					{
+						SetWallTexture(915,line.front,side.mid,"SKSNAKE2");
+					}
+					break;
+				}
+				
+				case 'd5f64e02679a81b82006af34a6a8eac3': //pl_map32
+				{
+					SetThingEdNum(515,Fatso);
+					break;
+				}
+				
 				case 'BD3496B2DCF40B64EBB0815A87F92610': //ab_map26
 				{
 					if ( AllowCustom )
@@ -1941,11 +1959,20 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				
 				case '2A1788BA5331055D5289BE32D5E0CB58': //Ab_MAP29
 				{
-					SetThingEdNum(10, DualCyberdemon);
-					SetThingEdNum(11, DualCyberdemon);
-					SetThingEdNum(376, DualCyberdemon);
+					if ( AllowCustom )
+					{
+						SetThingEdNum(11, DualCyberdemon);
+						
+						if (skill_level >= 3)
+						{
+							SetThingEdNum(10, DualCyberdemon);
+							SetThingEdNum(376, DualCyberdemon);
+						}						
+					}
 					Break;
-				}			
+				}
+				
+				
 			}
 			break;
 		}

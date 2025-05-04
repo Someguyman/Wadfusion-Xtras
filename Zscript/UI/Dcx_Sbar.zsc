@@ -42,6 +42,8 @@ class DCX_Statusbar : BaseStatusBar
 	HUDFont mConFont;
 	HUDFont mSmallFont;
 	
+	//protected native 
+	
 	override void Init()
 	{
 		Super.Init();
@@ -116,14 +118,47 @@ class DCX_Statusbar : BaseStatusBar
 		let x_value = 44;
 		let y_value = 171;
 		
-		if ( CheckHud == 1 )
+				
+		let CheckForPSXHUD = CheckHud == 1
+						  || ( CheckHud == 6
+						  && ( mapName.Left(2) == "e4" 
+					      || mapName.Left(2) == "e5"
+				          || mapName.Left(2) == "e6"
+						  || mapName.Left(2) == "ml"));
+								  
+		let CheckForSaturnHud = CheckHud == 2			
+							 ||(CheckHud == 6
+						     &&(mapName.Left(2) == "nv" 
+							 || mapName.Left(2) == "lr"
+							 || mapName.Left(2) == "fd"));
+		
+		let CheckForJaguarHud = CheckHud == 3
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "ja"
+							 || mapName.Left(2) == "le"));
+							 
+		let CheckForBetaHud = CheckHud == 4
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "eu"
+							 || mapName.Left(2) == "dz"
+							 || mapName.Left(2) == "hp")); 
+							 
+		let CheckForFinalHud = CheckHud == 5
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "tn" 
+							 || mapName.Left(2) == "pl"
+							 || mapName.Left(2) == "tr"
+							 || mapName.Left(2) == "pt"
+							 || mapName.Left(2) == "pg" ));
+		
+		if ( CheckForPSXHUD )
 		{
 			get_font = mPSXfont;
 			DrawImage("PXBAR", (-127, 168), DI_ITEM_OFFSETS);
 			DrawImage("PXTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 			DrawImage("PXTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 		}
-		else if ( CheckHud == 2)
+		else if ( CheckForSaturnHud)
 		{
 			x_value = 43;
 			get_font = mSATfont;
@@ -131,7 +166,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("SATPRCNT", (89, 171), DI_ITEM_OFFSETS);
 			DrawImage("SATPRCNT", (220, 171), DI_ITEM_OFFSETS);
 		}
-		else if ( CheckHud == 3)
+		else if ( CheckForJaguarHud)
 		{
 			y_value = 180;
 			get_font = mJAGFont;
@@ -139,7 +174,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("JATPRCNT", (90, 180), DI_ITEM_OFFSETS);
 			DrawImage("JATPRCNT", (221, 180), DI_ITEM_OFFSETS);
 		}
-		else if ( CheckHud == 4)
+		else if ( CheckForBetaHud )
 		{
 			//y_value = 180;
 			x_value = 41;
@@ -148,7 +183,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("BETPRCNT", (89, 171), DI_ITEM_OFFSETS);
 			DrawImage("BETPRCNT", (219, 171), DI_ITEM_OFFSETS);
 		}
-		else if ( CheckHud == 5)
+		else if ( CheckForFinalHud )
 		{
 			x_value = 42;
 			y_value = 171;
@@ -158,7 +193,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("PTTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 		}
 		else
-		{
+		{				
 			DrawImage("STBARFS", (-128, 168), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (221, 171), DI_ITEM_OFFSETS);
@@ -166,15 +201,15 @@ class DCX_Statusbar : BaseStatusBar
 		
 		if ( ( isId1 && id1WeapSwap ) || id1WeapSwapAlways )
 		{
-			if ( (CheckHud == 1) )
+			if ( (CheckForPSXHUD ) )
 			DrawImage("PXFUEL", (252, 168), DI_ITEM_OFFSETS);
-			else if (CheckHud == 2)
+			else if (CheckForSaturnHud)
 			DrawImage("SAFUEL", (252, 168), DI_ITEM_OFFSETS);
-			else if (CheckHud == 3)
+			else if (CheckForJaguarHud)
 			DrawImage("JAFUEL", (249, 168), DI_ITEM_OFFSETS);
-			else if (CheckHud == 4)
+			else if (CheckForBetaHud)
 			DrawImage("BEFUEL", (249, 168), DI_ITEM_OFFSETS);
-			else if (CheckHud == 5)
+			else if (CheckForFinalHud)
 			DrawImage("PTFUEL", (248, 168), DI_ITEM_OFFSETS);
 			else
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
@@ -235,29 +270,45 @@ class DCX_Statusbar : BaseStatusBar
 		String image;
 		for(int i = 0; i < 6; i++) locks[i] = CPlayer.mo.CheckKeys(i + 1, false, true);
 		
-		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
-
 		String mapName = level.MapName.MakeLower();
+		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		if ( CheckHud == 1)
+		let CheckForPSXHUD = CheckHud == 1
+						  ||(CheckHud == 6
+						  &&(mapName.Left(2) == "e4" 
+					      || mapName.Left(2) == "e5"
+				          || mapName.Left(2) == "e6"
+						  || mapName.Left(2) == "ml"));
+							 
+		let CheckForFinalHud = CheckHud == 5
+							||(CheckHud == 6
+							&&(mapName.Left(2) == "tn" 
+							|| mapName.Left(2) == "pl"
+							|| mapName.Left(2) == "tr"
+							|| mapName.Left(2) == "pt"
+							|| mapName.Left(2) == "pg" ));
+
+		
+		if ( CheckForPSXHUD )
 		{	
 			// key 1
 			if (locks[1] && locks[4]) image = "PXKEYS6";
 			else if (locks[1]) image = "PXKEYS0";
 			else if (locks[4]) image = "PXKEYS3";
-			DrawImage(image, (239, 170), DI_ITEM_OFFSETS);
+			DrawImage(image, (240, 170), DI_ITEM_OFFSETS);
+			//239 170
 			// key 2
 			if (locks[2] && locks[5]) image = "PXKEYS7";
 			else if (locks[2]) image = "PXKEYS1";
 			else if (locks[5]) image = "PXKEYS4";
 			else image = "";
-			DrawImage(image, (239, 180), DI_ITEM_OFFSETS);
+			DrawImage(image, (240, 181), DI_ITEM_OFFSETS);
 			// key 3
 			if (locks[0] && locks[3]) image = "PXKEYS8";
 			else if (locks[0]) image = "PXKEYS2";
 			else if (locks[3]) image = "PXKEYS5";
 			else image = "";
-			DrawImage(image, (239, 190), DI_ITEM_OFFSETS);
+			DrawImage(image, (240, 192), DI_ITEM_OFFSETS);
 		}
 		else
 		{
@@ -265,7 +316,7 @@ class DCX_Statusbar : BaseStatusBar
 			if (locks[1] && locks[4]) image = "STKEYS6";
 			else if (locks[1]) image = "STKEYS0";
 			else if (locks[4]) image = "STKEYS3";
-			if ( CheckHud == 5)
+			if ( CheckForFinalHud )
 			DrawImage(image, (238, 171), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (239, 171), DI_ITEM_OFFSETS);
@@ -274,7 +325,7 @@ class DCX_Statusbar : BaseStatusBar
 			else if (locks[2]) image = "STKEYS1";
 			else if (locks[5]) image = "STKEYS4";
 			else image = "";
-			if ( CheckHud == 5)
+			if ( CheckForFinalHud )
 			DrawImage(image, (238, 181), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (239, 181), DI_ITEM_OFFSETS);
@@ -283,7 +334,7 @@ class DCX_Statusbar : BaseStatusBar
 			else if (locks[0]) image = "STKEYS2";
 			else if (locks[3]) image = "STKEYS5";
 			else image = "";
-			if ( CheckHud == 5)
+			if ( CheckForFinalHud )
 			DrawImage(image, (238, 191), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (239, 191), DI_ITEM_OFFSETS);
@@ -295,7 +346,41 @@ class DCX_Statusbar : BaseStatusBar
 		bool locks[6];
 		String image;
 		
+		String mapName = level.MapName.MakeLower();
+		
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
+		
+		let CheckForPSXHUD = CheckHud == 1
+						  ||(CheckHud == 6
+						  &&(mapName.Left(2) == "e4" 
+					      || mapName.Left(2) == "e5"
+				          || mapName.Left(2) == "e6"
+						  || mapName.Left(2) == "ml"));
+								  
+		let CheckForSaturnHud = CheckHud == 2			
+							 ||(CheckHud == 6
+						     &&(mapName.Left(2) == "nv" 
+							 || mapName.Left(2) == "lr"
+							 || mapName.Left(2) == "fd"));
+		
+		let CheckForJaguarHud = CheckHud == 3
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "ja"
+							 || mapName.Left(2) == "le"));
+							 
+		let CheckForBetaHud = CheckHud == 4
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "eu"
+							 || mapName.Left(2) == "dz"
+							 || mapName.Left(2) == "hp")); 
+							 
+		let CheckForFinalHud = CheckHud == 5
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "tn" 
+							 || mapName.Left(2) == "pl"
+							 || mapName.Left(2) == "tr"
+							 || mapName.Left(2) == "pt"
+							 || mapName.Left(2) == "pg" ));
 		
 		static const Class<Inventory> Demon_keys[] =
 		{
@@ -306,21 +391,27 @@ class DCX_Statusbar : BaseStatusBar
 		
 			if(CPlayer.mo.countinv(Demon_keys[0])) image = "DKICONO";
 			else image = "";
-			if ( CheckHud == 5)
+			if ( CheckForPSXHUD )
+			DrawImage(image, (236, 169), DI_ITEM_OFFSETS);
+			else if ( CheckForFinalHud || CheckForBetaHud )
 			DrawImage(image, (236, 170), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (237, 170), DI_ITEM_OFFSETS);
 		
 			if(CPlayer.mo.countinv(Demon_keys[1])) image = "DKICONP";
 			else image = "";
-			if ( CheckHud == 5)
+			if ( CheckForPSXHUD )
+			DrawImage(image, (236, 179), DI_ITEM_OFFSETS);
+			else if ( CheckForFinalHud || CheckForBetaHud )
 			DrawImage(image, (236, 180), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (237, 180), DI_ITEM_OFFSETS);
 		
 			if(CPlayer.mo.countinv(Demon_keys[2])) image = "DKICONC";
 			else image = "";
-			if ( CheckHud == 5)
+			if ( CheckForPSXHUD )
+			DrawImage(image, (236, 189), DI_ITEM_OFFSETS);
+			else if ( CheckForFinalHud || CheckForBetaHud )
 			DrawImage(image, (236, 190), DI_ITEM_OFFSETS);
 			else
 			DrawImage(image, (237, 190), DI_ITEM_OFFSETS);
@@ -340,11 +431,44 @@ class DCX_Statusbar : BaseStatusBar
 		let hasBfg9000 = CPlayer.mo.FindInventory("BFG9000");
 		let hasIncinerator = CPlayer.mo.FindInventory("ID24Incinerator");
 		let hasHeatwave = CPlayer.mo.FindInventory("ID24CalamityBlade");
-		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		int x_value;
 		int y_value;
 		int x_offset;
 		let get_font = mIndexFont;
+		
+		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
+		
+		let CheckForPSXHUD = CheckHud == 1
+						  || ( CheckHud == 6
+						  && ( mapName.Left(2) == "e4" 
+					      || mapName.Left(2) == "e5"
+				          || mapName.Left(2) == "e6"
+						  || mapName.Left(2) == "ml"));
+								  
+		let CheckForSaturnHud = CheckHud == 2			
+							 ||(CheckHud == 6
+						     &&(mapName.Left(2) == "nv" 
+							 || mapName.Left(2) == "lr"
+							 || mapName.Left(2) == "fd"));
+		
+		let CheckForJaguarHud = CheckHud == 3
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "ja"
+							 || mapName.Left(2) == "le"));
+							 
+		let CheckForBetaHud = CheckHud == 4
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "eu"
+							 || mapName.Left(2) == "dz"
+							 || mapName.Left(2) == "hp")); 
+							 
+		let CheckForFinalHud = CheckHud == 5
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "tn" 
+							 || mapName.Left(2) == "pl"
+							 || mapName.Left(2) == "tr"
+							 || mapName.Left(2) == "pt"
+							 || mapName.Left(2) == "pg" ));
 		
 		// Only show id24 style ammo if the player has both cell and fuel ammo, or if wf_hud_id24 is true
 		if ( CVar.FindCVar("wf_hud_id24").GetBool() ||
@@ -353,27 +477,27 @@ class DCX_Statusbar : BaseStatusBar
 			( !isId1 && id1WeapSwapAlways && cell != null && ( hasPlasmaRifle || hasBfg9000 ) ) ||
 			( !isId1 && !id1WeapSwapAlways && fuel != null && ( hasIncinerator || hasHeatwave ) ) )
 		{
-			if ( CheckHud == 1)
+			if ( CheckForPSXHUD )
 			{	
 				x_value = 290; x_offset = 22; y_value = 169; get_font = mPSXfontS;
 				DrawImage("PXAMMO24", (252, 168), DI_ITEM_OFFSETS);
 			}
-			else if ( CheckHud == 2)
+			else if ( CheckForSaturnHud)
 			{	
 				x_value = 290; x_offset = 22; y_value = 169; get_font = mSATfontS;
 				DrawImage("SAAMMO24", (251, 168), DI_ITEM_OFFSETS);
 			}
-			else if ( CheckHud == 3)
+			else if ( CheckForJaguarHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 170;
 				DrawImage("JAAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
-			else if (CheckHud == 4)
+			else if (CheckForBetaHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
 				DrawImage("BEAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
-			else if (CheckHud == 5)
+			else if (CheckForFinalHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 170; get_font = mPL2fontS;
 				DrawImage("PTAMMO24", (248, 168), DI_ITEM_OFFSETS);
@@ -407,21 +531,21 @@ class DCX_Statusbar : BaseStatusBar
 		}
 		else
 		{
-			if ( (CheckHud == 1) )
+			if ( (CheckForPSXHUD ) )
 			{	
 				x_value = 290; x_offset = 22; y_value = 171;				
 				get_font = mPSXfontS;
 			}
-			else if (CheckHud == 2)
+			else if (CheckForSaturnHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 173;
 				get_font = mSATfontS;
 			}
-			else if (CheckHud == 3)
+			else if (CheckForJaguarHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 172;
 			}
-			else if (CheckHud == 5)
+			else if (CheckForFinalHud)
 			{
 				x_value = 288; x_offset = 26; y_value = 173;
 				get_font = mPL2fontS;
@@ -470,7 +594,39 @@ class DCX_Statusbar : BaseStatusBar
 		String mapName = level.MapName.MakeLower();
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		if ( (CheckHud == 1) )
+		let CheckForPSXHUD = CheckHud == 1
+						|| ( CheckHud == 6
+						&& ( mapName.Left(2) == "e4" 
+						  || mapName.Left(2) == "e5"
+						  || mapName.Left(2) == "e6"
+						  || mapName.Left(2) == "ml"));
+										  
+		let CheckForSaturnHud = CheckHud == 2			
+							 ||(CheckHud == 6
+						     &&(mapName.Left(2) == "nv" 
+							 || mapName.Left(2) == "lr"
+							 || mapName.Left(2) == "fd"));
+		
+		let CheckForJaguarHud = CheckHud == 3
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "ja"
+							 || mapName.Left(2) == "le"));
+							 
+		let CheckForBetaHud = CheckHud == 4
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "eu"
+							 || mapName.Left(2) == "dz"
+							 || mapName.Left(2) == "hp")); 
+							 
+		let CheckForFinalHud = CheckHud == 5
+							 ||(CheckHud == 6
+							 &&(mapName.Left(2) == "tn" 
+							 || mapName.Left(2) == "pl"
+							 || mapName.Left(2) == "tr"
+							 || mapName.Left(2) == "pt"
+							 || mapName.Left(2) == "pg" ));
+		
+		if ( (CheckForPSXHUD ) )
 		{
 			DrawImage("PXARMS", (104, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "PXYSNUM2" : "PXGNUM2", (110, 170), DI_ITEM_OFFSETS);
@@ -480,7 +636,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "PXYSNUM6" : "PXGNUM6", (122, 180), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "PXYSNUM7" : "PXGNUM7", (134, 180), DI_ITEM_OFFSETS);
 		}
-		else if (CheckHud == 2)
+		else if (CheckForSaturnHud)
 		{
 			//SAARMS
 			DrawImage("SAARMS", (103, 168), DI_ITEM_OFFSETS);
@@ -491,7 +647,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "SWYSNUM6" : "TNGNUM6", (121, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "SWYSNUM7" : "TNGNUM7", (133, 182), DI_ITEM_OFFSETS);
 		}
-		else if (CheckHud == 3)
+		else if (CheckForJaguarHud)
 		{
 			DrawImage("JAARMS", (104, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (111, 181), DI_ITEM_OFFSETS);
@@ -501,7 +657,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 191), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 191), DI_ITEM_OFFSETS);
 		}
-		else if (CheckHud == 4)
+		else if (CheckForBetaHud)
 		{
 			DrawImage("BEARMS", (105, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (112, 172), DI_ITEM_OFFSETS);
@@ -511,7 +667,7 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 182), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (134, 182), DI_ITEM_OFFSETS);
 		}
-		else if (CheckHud == 5)
+		else if (CheckForFinalHud)
 		{
 			DrawImage("PTARMS", (104, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "PTYSNUM2" : "PLGNUM2", (111, 172), DI_ITEM_OFFSETS);
@@ -632,6 +788,7 @@ class DCX_Statusbar : BaseStatusBar
 	{
 		bool locks[6];
 		String image;
+							 
 		static const Class<Inventory> Demon_keys[] =
 		{
 			'DCX_Orangekeyicon',

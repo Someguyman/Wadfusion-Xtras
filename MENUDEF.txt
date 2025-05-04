@@ -37,6 +37,7 @@ OptionValue HUDtweaks
 	3.0, "\c[DARK BROWN]Jaguar hud"
 	4.0, "\c[GOLD]BETA 93 hud"
 	5.0, "\c[Yellow]Final DOOM hud"
+	6.0, "\c[Grey]Switch Per Game"
 }
 
 OptionValue DCX_CabalLevelOrder
@@ -117,10 +118,6 @@ OptionMenu "DCXSKYOptions"
 	Title "Texture Options"
 	StaticText " "
 	StaticText "General", "Gold"
-	StaticText " "
-	Option "Texture Fixes", "dcx_TextureFixes", "OnOff"
-	StaticText "Fixes minor texture bugs in the various levels.", "dark red"
-	StaticText "Example: Doom 2 Icon of sin's misalined horn", "dark red"
 	StaticText " "
 	Option "Texture Enchancements", "dcx_TextureEchancements", "OnOff"
 	StaticText "Adds/Replaces various textures in the maps to improve them.", "dark red"

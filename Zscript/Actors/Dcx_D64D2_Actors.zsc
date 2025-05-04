@@ -599,10 +599,10 @@ Class DCX_Motherdemon : Actor
 			MOTH AB 10 A_Look;
 			Loop;
 		//See:
-			//MOTH AAABBBCCCDDD 2 A_Chase;
+			//MOTH AAABBBAAACCC 2 A_Chase;
 			//Loop;
 		See:
-			MOTH AAABBBCCCDDD 3 A_RectChase();
+			MOTH AAABBBAAACCC 3 A_RectChase();
 			Loop;
 		/*
 		Missile:
@@ -623,13 +623,14 @@ Class DCX_Motherdemon : Actor
 			Goto See;
 		*/
 		Melee:
-			MOTH E 4 BRIGHT A_RectGroundFire();
-			MOTH F 4 Bright A_FaceTarget;
-			MOTH G 4 Bright A_FaceTarget;
-			MOTH H 6 Bright A_FaceTarget;	
-			MOTH I 6 BRIGHT A_FaceTarget;
-			MOTH J 10 BRIGHT A_RectAttack();
-			MOTH I 10 Bright A_FaceTarget;
+			MOTH D 4 BRIGHT A_RectGroundFire();
+			MOTH E 4 Bright;
+			MOTH F 4 Bright;
+			MOTH G 6 Bright;	
+			MOTH H 6 BRIGHT A_FaceTarget;
+			MOTH I 12 BRIGHT A_RectAttack();
+			MOTH D 8 Bright;
+			//MOTH A 5 Bright A_FaceTarget;
 		goto see;
 			Goto See;
 		/*
@@ -641,18 +642,18 @@ Class DCX_Motherdemon : Actor
 			Goto See;
 		*/
 		Pain:
-			MOTH K 1;
-			MOTH K 7 A_Pain;
-			MOTH K 18;
+			MOTH J 1;
+			MOTH J 7 A_Pain;
+			MOTH J 18;
 			Goto Melee;
 		Death:
-			MOTH L 1;
-			MOTH L 19 A_Scream;
-			MOTH M 10 A_Fall;
-			MOTH NO 8;
-			MOTH PQRS 6;
-			MOTH T 48;
-			MOTH T -1 A_BossDeath;
+			MOTH K 1;
+			MOTH K 19 A_Scream;
+			MOTH L 10 A_Fall;
+			MOTH MN 8;
+			MOTH OPQR 6;
+			MOTH S 48;
+			MOTH S -1 A_BossDeath;
 			Stop;
 	}
 }

@@ -1,12 +1,13 @@
 
 server bool ns_toggle = false;
 server bool ED_toggle = false;
-server bool dcx_TextureFixes = true;
 server bool dcx_TextureEchancements = true;
 server bool dcx_D64D2Xtras = true;
 server bool dcx_CustomMonsters = true;
 server bool dcx_EnchancesMonsters = true;
 server bool dcx_IntroText = false;
+User bool fs_toggle = true;
+User bool dcx_3DO_Music = false;
 
 server int dcx_SmoothToggle = 0;
 server int dcx_playstationmaps = 1;
@@ -14,9 +15,6 @@ server int W3D_Text_toggle = 0;
 server int dcx_CabalOrder = 0;
 server int dcx_KlieOrder = 0;
 server int dcx_TitanOrder = 0;
-
-User bool fs_toggle = true;
-User bool dcx_3DO_Music = false;
 User int ssgtoggle = 0;
 User int hud_toggle = 0;
 User int Health_Cross_Toggle = 0;

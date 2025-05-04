@@ -391,6 +391,8 @@ class DCX_BossBrain : BossBrain replaces BossBrain
 		String mapName = level.MapName.MakeLower();
 		
 		int Ypos;
+		int Zpos;
+		int Xpos;
 		
 		if( (mapName == "tn_map30") && (CVar.FindCVar("dcx_TextureEchancements").GetBool()) )
 		{

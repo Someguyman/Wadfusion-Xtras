@@ -110,7 +110,7 @@ map JA_MAP25 "$HUSTR_E1M9" //Map 24
 	Next = "JA_MAP04"
 	TitlePatch = "WILV08"
 	Par = 30
-	Sky1 = "SKY3"
+	//Sky1 = "SKY3"
 	Music = "O_E1M9"
 	Label = "JAGUAR DOOM, MAP25"
 }

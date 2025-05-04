@@ -140,7 +140,7 @@ cluster 15
 	ExitText = "$T4TEXT"
 	Music = "T_READ_M"
 	//Flat = "DEM1_6"
-	pic = "TNTBOS2"
+	pic = "BOSSBACK"
 }
 
 // TNT fifth cluster (level 31)
@@ -195,7 +195,7 @@ cluster 21
 	ExitText = "$P4TEXT"
 	Music = "P_READ_M"
 	//Flat = "RROCK04"
-	pic = "PLUBOS2"
+	pic = "BOSSBACK"
 }
 
 // Plutonia fifth cluster (level 31)
@@ -586,7 +586,7 @@ Cluster 1006 // Doom Episode 6
 Cluster 1008 //Redemtion Denied Ending
 {
 	EnterText = lookup, "REDEMTION_INTRO"
-	ExitText = lookup, "REDEMTION_TXT"
+	//ExitText = lookup, "REDEMTION_TXT"
 	music = "$MUSIC_READ_M"
 	Flat = "$bgflat30"
 }

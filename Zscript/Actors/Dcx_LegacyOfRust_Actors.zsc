@@ -17,7 +17,8 @@ Class DCX_Ghoul : Actor Replaces ID24Ghoul
 		PainSound "Ghoul/pain";
 		DeathSound "Ghoul/death";
 		ActiveSound "Ghoul/active";
-		Obituary "%o got pestered by a Ghoul";
+		Obituary "$OB_ID24GHOUL";
+		Tag "$FN_ID24GHOUL";
 	}
 	States
 	{
@@ -95,8 +96,7 @@ Class DCX_Banshee : Actor Replaces ID24Banshee
 		+DONTFALL
 		PainSound "Banshee/pain";
 		DeathSound "Banshee/death";
-		Tag "Banshee";
-		Obituary "%o tried to hug a Banshee";
+		Tag "$FN_ID24BANSHEE";
 	}
 	States
 	{
@@ -139,8 +139,8 @@ Class DCX_Mindweaver : Arachnotron Replaces ID24Mindweaver
 		AttackSound "Mindweaver/attack";
 		DeathSound "Mindweaver/death";
 		ActiveSound "Mindweaver/active";
-		Tag "Mindweaver";
-		Obituary "%o tried mindgames with a Mindweaver";
+		Obituary "$OB_ID24MINDWEAVER";
+		Tag "$FN_ID24MINDWEAVER";
 	}
 	States
 	{
@@ -198,8 +198,8 @@ Class DCX_ShockTrooper : Actor Replaces ID24PlasmaGuy
 		PainSound "ShockTrooper/Pain";
 		ActiveSound "ShockTrooper/Active";
 		DeathSound "ShockTrooper/Death";
-		Tag "Shock Trooper";
-		Obituary "%o got blasted by a Shock Trooper";
+		Obituary "$OB_ID24PLASMAGUY";
+		Tag "$FN_ID24PLASMAGUY";
 	}
 	
 	Void STrooperBlast()
@@ -331,7 +331,8 @@ Class DCX_Vassago : Actor Replaces ID24Vassago
 		PainSound "Vassago/pain";
 		DeathSound "Vassago/death";
 		ActiveSound "Vassago/active";
-		Obituary "%o was toasted by a Vassago";
+		Obituary "$OB_ID24VASSAGO";
+		Tag "$FN_ID24VASSAGO";
 	}
 	States
 	{
@@ -483,8 +484,8 @@ Class DCX_Tyrant : Actor Replaces ID24Tyrant
 		ActiveSound "Tyrant/active";
 		PainSound "Tyrant/pain";
 		DeathSound "Tyrant/death";
-		Tag "Tyrant";
-		Obituary "%o blasted by a Tyrant";
+		Obituary "$OB_ID24TYRANT";
+		Tag "$FN_ID24TYRANT";
 	}
 	
 	void A_TyrantAttack()
