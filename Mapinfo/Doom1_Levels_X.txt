@@ -138,6 +138,8 @@ map E2M1 "$HUSTR_E2M1"
 	Music = "$MUSIC_E2M1"
 	Author = "$WF_AU_PETERSEN_HALL"
 	Label = "THE ULTIMATE DOOM, E2M1"
+	ResetHealth
+	ResetInventory
 }
 
 map E2M2 "$HUSTR_E2M2"
@@ -250,6 +252,8 @@ map E3M1 "$HUSTR_E3M1"
 	Music = "$MUSIC_E3M1"
 	Author = "$WF_AU_PETERSEN"
 	Label = "THE ULTIMATE DOOM, E3M1"
+	ResetHealth
+	ResetInventory
 }
 
 map E3M2 "$HUSTR_E3M2"
@@ -364,6 +368,8 @@ map E4M1 "$HUSTR_E4M1"
 	Music = "$MUSIC_E4M1"
 	Author = "$WF_AU_MCGEE"
 	Label = "THE ULTIMATE DOOM, E4M1"
+	ResetHealth
+	ResetInventory
 }
 
 map E4M2 "$HUSTR_E4M2"

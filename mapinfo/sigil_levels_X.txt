@@ -24,6 +24,8 @@ map E5M1 "$HUSTR_E5M1"
 	TitlePatch = "WILV40"
 	Par = 90
 	Label = "ULTIMATE DOOM, E5M1"
+	ResetHealth
+	ResetInventory
 }
 
 map E5M2 "$HUSTR_E5M2"

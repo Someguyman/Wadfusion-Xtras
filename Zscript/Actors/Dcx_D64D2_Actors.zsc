@@ -523,18 +523,22 @@ Class DCX_Motherdemon : Actor
 {
 	Default
 	{
+		/*Old Stats*/
+		
 		//Health 9000;
+		//Speed 25;
+		//PainChance 4;
+		//MissileChanceMult 0.5;
+		
+		
 		Health 5000;
 		Radius 40;
 		Height 105;
 		Mass 10000;
-		//Speed 25;
 		Speed 30;
-		//PainChance 4;
 		PainChance 50;
 		Monster;
 		MinMissileChance 160;
-		//MissileChanceMult 0.5;
 		MissileChanceMult 0.0625;
 		ReactionTime 8;
 		+BOSS
@@ -598,13 +602,12 @@ Class DCX_Motherdemon : Actor
 		Spawn:
 			MOTH AB 10 A_Look;
 			Loop;
-		//See:
-			//MOTH AAABBBAAACCC 2 A_Chase;
-			//Loop;
+		/*			Old States			*/
+		
+		/*	
 		See:
-			MOTH AAABBBAAACCC 3 A_RectChase();
+			MOTH AAABBBAAACCC 2 A_Chase;
 			Loop;
-		/*
 		Missile:
 			MOTH E 10 A_FaceTarget;
 			MOTH FF 2 Bright A_SkelMissile;
@@ -620,8 +623,18 @@ Class DCX_Motherdemon : Actor
 			MOTH IIII 8 Bright A_FaceTarget;
 			MOTH J 8 Bright A_VileAttack;
 			MOTH J 20 Bright;
+			Goto See;			
+		Pain:
+			MOTH K 40 A_Pain;
+			MOTH H 4 Bright A_FaceTarget;
+			MOTH I 6 Bright A_FaceTarget;
+			MOTH JJJJ 4 Bright A_PainAttack;
 			Goto See;
 		*/
+		
+		See:
+			MOTH AAABBBAAACCC 3 A_RectChase();
+			Loop;
 		Melee:
 			MOTH D 4 BRIGHT A_RectGroundFire();
 			MOTH E 4 Bright;
@@ -630,17 +643,7 @@ Class DCX_Motherdemon : Actor
 			MOTH H 6 BRIGHT A_FaceTarget;
 			MOTH I 12 BRIGHT A_RectAttack();
 			MOTH D 8 Bright;
-			//MOTH A 5 Bright A_FaceTarget;
-		goto see;
 			Goto See;
-		/*
-		Pain:
-			MOTH K 40 A_Pain;
-			MOTH H 4 Bright A_FaceTarget;
-			MOTH I 6 Bright A_FaceTarget;
-			MOTH JJJJ 4 Bright A_PainAttack;
-			Goto See;
-		*/
 		Pain:
 			MOTH J 1;
 			MOTH J 7 A_Pain;
@@ -686,9 +689,15 @@ Class DCX_GroundFire : Actor
 	
 	override int DoSpecialDamage (Actor target, int damage, Name damagetype)
 	{
-		if(target && !target.bDONTTHRUST && !target.bISMONSTER && !target.bINVULNERABLE && !target.bNODAMAGE)
-		  {	target.vel.z = 1.0 * 1500 / target.Mass; }
-		target.DamageMobj (null, target, damage, 'Fire');
+		//Will only apply vertical thrust to those derivative of the playerpawn class.
+		//Much better then having the thrust baked into the player class entity itself.
+		if(target && PlayerPawn(Target) != null && Target.GetClassName() != "PlayerPawn"
+				  && !target.bDONTTHRUST //No brainer.
+				  && !target.bISMONSTER //Backup check just in case something slips past the inital playerpawn check.
+				  && !target.bINVULNERABLE //Note: Will only apply with invulnerability power ups and not when using the god mode cheat.
+				  && !target.bNODAMAGE) //Another no brainer.
+		  {	target.vel.z = 1.0 * 1500 / target.Mass; } //Apply the vertical thust.
+		target.DamageMobj (null, target, damage, 'Fire'); //Do damage.
 		return -1;
 	}
 	
