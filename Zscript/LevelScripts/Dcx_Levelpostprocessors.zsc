@@ -1944,6 +1944,22 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
+				case 'EADCDD8B442CC3F09ED9CD2882F56243': //ab_map07
+				{
+					SetLineActivation(605, 0);
+					SetLineActivation(605, 0);
+					SetWallTextureID(605, Line.front, Side.mid, TexMan.CheckForTexture("TEKLONG", TexMan.Type_Wall, TexMan.Overridable));
+					level.Lines[605].sidedef[0].SetTextureYOffset(Side.mid, 0);
+					level.Lines[605].sidedef[0].SetTextureXOffset(Side.mid, -11);
+					
+					SetLineActivation(605, 0);
+					SetLineActivation(336, 0);
+					SetWallTextureID(336, Line.front, Side.mid, TexMan.CheckForTexture("TEKLONG", TexMan.Type_Wall, TexMan.Overridable));
+					level.Lines[336].sidedef[0].SetTextureYOffset(Side.mid, 0);
+					level.Lines[336].sidedef[0].SetTextureXOffset(Side.mid, -11);
+					break;
+				}
+				
 				case 'BD3496B2DCF40B64EBB0815A87F92610': //ab_map26
 				{
 					if ( AllowCustom )

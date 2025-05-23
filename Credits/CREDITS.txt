@@ -40,5 +40,7 @@ Console Level Remakes - Manardo.
 
 zrrion the insect - Cleaned up Incinerator and Calamity Blade Sprites
 
-Unmaker sprite - [AUTHOR NOT FOUND], edit by [AUTHOR NOT FOUND].
+Unmaker sprite - Zrrion The Insect, edits by [AUTHOR NOT FOUND].
+
+Minor Sound effect fixing project - Coincident.
 

@@ -21,6 +21,7 @@ class DCX_DualArachnotron : Arachnotron
 
     void A_64BspiAttack()
     {
+		A_FaceTarget();
         A_SpawnProjectile("DCX_DualArachnotronPlasma", 28,-11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
         A_SpawnProjectile("DCX_DualArachnotronPlasma", 28, 11, 0, CMF_AIMOFFSET|CMF_BADPITCH);
     }
@@ -51,7 +52,7 @@ class DCX_DualArachnotron : Arachnotron
 	Missile:
 		BSP2 A 15 A_BspiFaceTarget();
 		BSP2 D 3 BRIGHT A_64BspiAttack();
-		BSP2 E 3 BRIGHT;
+		BSP2 E 3 BRIGHT A_FaceTarget();
 		BSP2 E 1 BRIGHT A_64SpidRefire();
 		Goto Missile+1;
 	Pain:
@@ -695,6 +696,7 @@ Class DCX_GroundFire : Actor
 				  && !target.bDONTTHRUST //No brainer.
 				  && !target.bISMONSTER //Backup check just in case something slips past the inital playerpawn check.
 				  && !target.bINVULNERABLE //Note: Will only apply with invulnerability power ups and not when using the god mode cheat.
+				  //&& !target.bGODMODE
 				  && !target.bNODAMAGE) //Another no brainer.
 		  {	target.vel.z = 1.0 * 1500 / target.Mass; } //Apply the vertical thust.
 		target.DamageMobj (null, target, damage, 'Fire'); //Do damage.

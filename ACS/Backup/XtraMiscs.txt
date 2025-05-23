@@ -117,13 +117,25 @@ Script "BossdeathScript" Enter
 		
 		Terminate;
 	}
-	if (StrICmp(mapName, "psx05") == 0)
+	else if (StrICmp(mapName, "psx05") == 0)
 	{
 		While (ThingCount(T_NONE, 666) > 0) { delay(1); }
 		
 		delay(44);
 		
 		Door_Open (666, 64);
+		
+		Terminate;
+	}
+	else if ((StrICmp(mapName, "ab_map07") == 0))
+	{	
+		While ( ThingCount(T_HELLKNIGHT, 0) > 0 || ThingCount(T_CACODEMON, 0) > 0) { delay(1); }
+		
+		delay(48);
+		
+		Floor_LowerToNearest(7, 8);
+		Floor_LowerToNearest(11, 8);
+		Floor_LowerToNearest(12, 8);
 		
 		Terminate;
 	}
