@@ -71,6 +71,12 @@ OptionValue Muggibbers
 	1.0, "\c[GOLD]On"
 }
 
+OptionValue StockMidis
+{
+	0.0, "\c[DARK GREY]Stock Midis"
+	1.0, "\c[GOLD]Unique Midis"
+}
+
 
 AddOptionMenu "OptionsMenu"
 {

@@ -1,4 +1,3 @@
-//
 
 class DCX_BlurSphere : BlurSphere Replaces BlurSphere
 {

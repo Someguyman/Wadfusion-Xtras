@@ -8,6 +8,7 @@ server bool dcx_EnchancesMonsters = true;
 server bool dcx_IntroText = false;
 User bool fs_toggle = true;
 User bool dcx_3DO_Music = false;
+User bool dcx_Stock_Midi = false;
 
 server int dcx_SmoothToggle = 0;
 server int dcx_playstationmaps = 1;

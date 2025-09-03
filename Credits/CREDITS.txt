@@ -1,5 +1,9 @@
 -credits-
 
+
+//		Midis		//
+
+
 Master Levels MIDI (Master levels).
 
 Plutonia MIDI Pack plus unused midis (Plutonia maps, master level rejects).
@@ -26,21 +30,31 @@ TNT and Plutonia Midipack Covers - Davester2296
 
 title screen music (https://www.khinsider.com/midi/n64/doom-64) - Kingdom Hearts Insider.
 
+
+//		Graphics		//
+
+
 Widescreen graphics appreciation thread - intermission and BOSSBACK graphics.
+
+Extended Sigil II Sky - DragonKnightKX.
 
 Thy flesh consumed, sigil 1 & 2, and doom 2 intermission graphics - DevilMyEyes. Edits by Manardo.
 
 Doom Minor Sprite Fix project (Thing sprites as well as the SIGIL and SIGIL II textures).
 
-Nash's colored blood (colored blood).
-
-Tom's Halls (Community Project), Altar of Extraction (PSX01) - Xeebleton. Edits by Manardo.
-
-Console Level Remakes - Manardo.
-
-zrrion the insect - Cleaned up Incinerator and Calamity Blade Sprites
+Cleaned up Incinerator and Calamity Blade Sprites - zrrion the insect.
 
 Unmaker sprite - Zrrion The Insect, edits by [AUTHOR NOT FOUND].
 
+
+//		Misc		//
+
+
+Console Level Remakes - Manardo.
+
+Tom's Halls (Community Project), Altar of Extraction (PSX01) - Xeebleton. Edits by Manardo.
+
 Minor Sound effect fixing project - Coincident.
+
+Nash's colored blood (colored blood).
 

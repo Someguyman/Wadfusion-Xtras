@@ -53,6 +53,8 @@ map TN_MAP04 "$THUSTR_4"
 	TitlePatch = "TWILV03"
 	Music = "T_BETWEE"
 	Author = "$WF_AU_HALDERMAN"
+	Sky1 = "TSKY3"
+	Sky2 = "TSKY1"
 }
 
 map TN_MAP05 "$THUSTR_5"
@@ -336,6 +338,8 @@ map TN_MAP31 "$THUSTR_31"
 	SecretNext = "TN_MAP32"
 	Cluster = 16
 	TitlePatch = "TWILV30"
+	ExitPic = "TNTINTS1"
+	ENTERPic = "TNTINTS1"
 	Music = "T_EVIL"
 	Author = "$WF_AU_DARIO_CASALI"
 }
@@ -346,6 +350,8 @@ map TN_MAP32 "$THUSTR_32"
 	Next = "TN_MAP16"
 	Cluster = 17
 	TitlePatch = "TWILV31"
+	ExitPic = "TNTINTS2"
+	ENTERPic = "TNTINTS2"
 	Music = "T_ULTIMA"
 	Author = "$WF_AU_DARIO_CASALI"
 }

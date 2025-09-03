@@ -90,6 +90,8 @@ map e2ending ""
 	Music = "$MUSIC_VICTOR"
 	NoIntermission
 	NoSoundClipping
+	ResetHealth
+	ResetInventory
 }
 
 Intermission Episode2end

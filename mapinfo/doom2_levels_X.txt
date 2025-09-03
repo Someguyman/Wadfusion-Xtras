@@ -241,8 +241,8 @@ map MAP20 "$HUSTR_20"
 	Par = 150
 	Music = "$MUSIC_MESSAG"
 	Author = "$WF_AU_ROMERO"
-	//nointermission
-	//NoSoundClipping
+	Sky1 = "SKY2"
+	Sky2 = "SKY3"
 }
 
 // Episode 3

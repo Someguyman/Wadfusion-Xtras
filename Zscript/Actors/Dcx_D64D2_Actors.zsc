@@ -1,4 +1,4 @@
-//
+
 class DCX_DualArachnotron : Arachnotron
 {
 	Default
@@ -384,6 +384,7 @@ class DCX_D64RevenantTracer : RevenantTracer
 		Damage 10;
 		SeeSound "DarkRevenant/attack";
 		RenderStyle "Add";
+		threshold 0;
 	}
 	
 	void A_RectTracer()
@@ -1128,4 +1129,12 @@ Default
 		TNT1 A 0;
 		Fail;
 	}
+}
+
+Class DCX_Cyankeyicon : Inventory
+{
+	Default
+	{
+	  +INVENTORY.UNDROPPABLE;
+	}	
 }

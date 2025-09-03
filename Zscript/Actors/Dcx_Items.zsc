@@ -89,14 +89,6 @@ Class Berserk_Eternal : Berserk
 	}
 }
 
-Class DCX_Cyankeyicon : Inventory
-{
-	Default
-	{
-	  +INVENTORY.UNDROPPABLE;
-	}	
-}
-
 Class MasterLevelsCompleted : Inventory
 {
 	Default

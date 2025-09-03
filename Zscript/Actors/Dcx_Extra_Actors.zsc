@@ -832,7 +832,13 @@ Class DCX_DM_MarineBotSpawner : Actor
 	}
 }
 
-
+Class DCX_Wolf3D_Knight_Armor : Actor
+{
+	States
+	{
+		
+	}
+}
 
 Class DCX_Turkey : Actor
 {

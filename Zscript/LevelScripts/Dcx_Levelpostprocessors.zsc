@@ -1657,6 +1657,15 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
+				case '8898F5EC9CBDCD98019A1BC1BF892A8A':
+				{
+					if ( TextureChanges )
+					{
+						SetSectorSpecial(179, 200);
+					}
+					Break;
+				}
+				
 				case '110F84DE041052B59307FAF0293E6BC0': //MAP27
 				{
 					if ( PsxEnabled >= 1 )
@@ -1670,6 +1679,20 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						Dcx_SpawnThing(HellKnight,(1216, -2208, -999), 90, MODES_ALL|MTF_AMBUSH);
 						SetThingFlags(101, 0);
 					}
+					break;
+				}
+				
+				case '84BB2C8ED2343C91136B87F1832E7CA5': //MAP28
+				{
+					SetWallTexture(650,line.back,side.mid,"MIDBARS1");
+					SetWallTexture(651,line.back,side.mid,"MIDBARS1");
+					SetWallTexture(652,line.back,side.mid,"MIDBARS1");
+					
+					level.Lines[651].sidedef[0].SetTextureXOffset(Side.mid, 9);
+					
+					level.Lines[650].sidedef[1].SetTextureXOffset(Side.mid, 25);
+					level.Lines[651].sidedef[1].SetTextureXOffset(Side.mid, 3);
+					level.Lines[652].sidedef[1].SetTextureXOffset(Side.mid, 24);
 					break;
 				}
 				
@@ -1927,6 +1950,19 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetLineSpecial(1253, ACS_Execute, -int('NoIntermission_Script'));
 					}
 					Break;
+				}
+				
+				case '36F32ED4632E036BDE6471162E966031': //TN_MAP04
+				{
+					if ( TextureChanges ) 
+					{
+						SetSectorSpecial(76, 200);
+						SetSectorSpecial(1, 200);
+						SetSectorSpecial(38, 200);
+						SetSectorSpecial(39, 200);
+						SetSectorSpecial(64, 200);
+					}
+					break;
 				}
 				
 				case '279BB50468FE9F5B36C6D821E4902369': //PL_MAP30
