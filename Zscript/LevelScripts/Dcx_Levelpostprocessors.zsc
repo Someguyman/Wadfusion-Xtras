@@ -94,6 +94,8 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			int Cell = 				2047;
 			int CellPack = 	  		  17;
 			int BackPack = 	   		   8;
+			int GreenArmor =		2018;
+			int BlueArmor = 		2019;
 			
 			int GasCan = 			3143;
 			int GasTank = 			3144;
@@ -278,6 +280,16 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 				{
 					if ( PsxEnabled >= 1 )
 					{
+						SetVertex(476, -192, 1024);
+						SetVertex(473, -192, 1152);
+						SetVertex(474, 192, 1152);
+						SetVertex(475, 192, 1024);
+						SetSectorPlane(28, 0, (0,0,0), -32);
+						SetSectorTexture(28, 0, "FLAT19");
+						SetWallTexture(134,line.back,side.top,"COMPSPAN");
+						
+						SetThingXY(43, 0, 1088);
+						
 						if (skill_level >= 2)
 						{
 							Dcx_SpawnThing(DoomImp,( 152, 280, -999 ), 0, MODES_ALL|MTF_AMBUSH);
@@ -285,7 +297,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						
 						if (skill_level >= 3)
 						{
-							Dcx_SpawnThing(Chaingunner,( 0, 864, -999 ), 		270, MODES_ALL|MTF_AMBUSH);
+							Dcx_SpawnThing(Chaingunner,( -128, 1088, -999 ), 	  0, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Chaingunner,( 1248, 1024, -999 ), 	  0, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Chaingunner,( -2088, 1056, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
 							Dcx_SpawnThing(Chaingunner,( -1544, 1368, -999 ), 	270, MODES_ALL|MTF_AMBUSH);
