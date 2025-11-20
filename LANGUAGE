@@ -100,6 +100,8 @@ ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
 ABLOUTION_EPI02 = "\c[Red]Old Wounds";
 ABLOUTION_EPI03 = "\c[Red]The Absolution";
 
+WF_CAMPAIGN_MASTER = "\c[DARKGREY]The Master Levels";
+
 MASTER_LV01 = "\c[DARKGREY]Tim, Tom, Mid Assortment";
 MASTER_LV02 = "\c[DARKGREY]KlieTech Series";
 MASTER_LV03 = "\c[DARKGREY]Titan Series";
@@ -337,37 +339,57 @@ GENERIC_TXT2 =
 "\n"
 "Congratulations!";
 
-E1INTRO = "You're a marine, one of Earth's toughest, \n"
+D1INTRO1 = "THE STORY SO FAR:\n"
+		  "\n"
+		  "You're a marine, one of Earth's toughest,\n"
 		  "hardened in combat and trained for action.\n"
 		  "You have been transferred to Mars, home of\n"
 		  "the Union Aerospace Corporation (U.A.C).\n"
 		  "\n"
-		  "For the last four years the military, its biggest provider,\n"
-		  "has used the remote facilities on Phobos and Deimos\n"
-		  "to conduct researc on inter-dimensional space travel.\n"
-		  "\n"
-		  "A few hours ago, Mars received a garbled message from Phobos.\n"
-		  "'We require immediate military support. Something fraggin' evil\n"
-		  "is coming out of the Gateways! Computer systems have gone berserk!'\n"
-		  "The rest was incoherent. Soon afterwards, Deimos simply vanished\n"
-		  "from the sky.\n"
-		  "Since then, attempts to establish contact\n"
-		  "with either moon have been unsuccessful.\n"
-		  "\n"
-		  "You and your buddies were sent to Phobos. You were ordered to\n"
-		  "secure the perimeter while the rest went inside.\n"
-		  "For several hours, your radio picked up the sounds of combat:\n"
-		  "guns firing, screams, then finally, silence.\n"
-		  "Seems your buddies are dead.\n"
-		  "\n"
-		  "Things aren't looking too good. All the heavy weapons were taken\n"
-		  "by the assault team leaving you with only a pistol.\n"
-		  "Securing your helmet, you exit the landing pod.\n"
-		  "\n"
-		  "As you walk through the main entrance, you hear animal-like growls\n"
-		  "echoing throughout the distant corridors. They know you're here.\n"
-		  "\n"
-		  "There's no turning back now.";
+		  "For the last four years the military, its biggest\n"
+		  "provider, has used the remote facilities on Phobos\n"
+		  "and Deimos to conduct research on inter-dimensional\n" 
+		  "space travel.";
+		  
+
+D1INTRO2 = "THE INCITING INCIDENT:\n"
+		   "\n"
+		   "A few hours ago, Mars received a\n" 
+		   "garbled message from Phobos. 'We require\n"
+		   "immediate military support. Something fraggin'\n" 
+		   "evil is coming out of the Gateways! Computer\n"
+		   "systems have gone berserk!' The rest was\n" 
+		   "incoherent. Soon afterwards, Deimos simply\n" 
+		   "vanished from the sky.\n"
+		   "\n"
+		   "Since then, attempts to establish contact with\n"
+		   "either moon base have been unsuccessful.";
+
+D1INTRO3 = "TRUE HORRORS AWAIT:\n"
+		   "\n"
+		   "You and your buddies were sent\n"
+		   "to Phobos. You were ordered to\n"
+		   "secure the perimeter while the rest\n"
+		   "went inside.\n"
+		   "\n"
+		   "For several hours, your radio picked up\n"
+		   "the sounds of combat: guns firing, screams,\n"
+		   "then finally, silence. Seems your buddies\n" 
+		   "are dead.";
+
+D1INTRO4 = "IT'S UP TO YOU:\n"
+		   "\n"
+		   "Things aren't looking too good.\n"
+		   "All the heavy weapons were taken\n"
+		   "by the assault team leaving you with\n" 
+		   "only a pistol. Securing your helmet,\n" 
+		   "you exit the landing pod.\n"
+		   "\n"
+		   "As you walk through the main entrance,\n" 
+		   "you hear animal-like growls echoing throughout\n" 
+		   "the distant corridors. They know you're here.\n"
+		   "\n"
+		   "There's no turning back now.";
 		  
 //From psx doom ce. Not the most visually appealing solution ever but it'll do for now.
 
@@ -839,6 +861,49 @@ MUSIC_D64MAP32 = "crystl";
 MUSIC_D64MAP33 = "map33";
 
 //New intermission texts
+IN_C0P1 = 
+	"The Past...\n"
+	"\n"
+	"Your fatigue was enormous, the price for\n" 
+	"encountering pure evil. Hell was a place no\n" 
+	"mortal was meant to experience. Stupid military\n"
+	"doctors: their tests and treatments were of\n" 
+	"little help.\n" 
+	"In the end, what did it matter - it was all\n"
+	"classified and sealed. The nightmares continued.\n"
+	"Demons, so many Demons; relentless, pouring through.";
+	
+IN_C0P2 = 
+	"Far Away...\n"
+	"\n"
+	"The planetary policy was clear. An absolute\n"
+	"quarantine was guaranteed by apocalyptic levels\n"
+	"of radiation. The empty dark corridors stand motionless,\n"
+	"abandoned. The installations sealed.";
+
+IN_C0P3 = 
+	"The Present...\n"
+	"\n"
+	"A long forgotten relay satellite barely executing,\n"
+	"decayed by years of bombarding neutrons, activates\n"
+	"and sends its final message to Earth. The satellite's\n"
+	"message was horrific, from the planetary void there\n"
+	"came energy signatures unlike anything sampled before.\n"
+	"\n"
+	"The classified archives are opened. The military episodes\n"
+	"code named \"DOOM\" were not actually completed. A single\n"
+	"entity with vast rejuvenation powers, masked by the extreme\n"
+	"radiation levels, escaped detection. In its crippled state,\n"
+	"it systematically altered decaying dead carnage back into\n"
+	"corrupted living tissue.\n"
+	"\n"
+	"The mutations are devastating. The Demons have returned\n"
+	"even stronger and more vicious than before. As the only\n"
+	"experienced survivor of the DOOM episode, your commission\n"
+	"is re-activated. Your assignment is clear:\n"
+	"\n"
+	"MERCILESS EXTERMINATION!";
+
 IN_C1A =
 	"Your bloodthirsty scream shatters the\n"
 	"teleport haze.\n"
