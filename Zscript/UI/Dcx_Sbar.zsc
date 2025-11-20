@@ -41,6 +41,7 @@ class DCX_Statusbar : BaseStatusBar
 	
 	HUDFont mConFont;
 	HUDFont mSmallFont;
+	HUDFont mSmallFontMono;
 	
 	//protected native 
 	
@@ -50,7 +51,6 @@ class DCX_Statusbar : BaseStatusBar
 		SetSize(32, 320, 200);
 
 		// Create the font used for the fullscreen HUD
-		//Font fnt = "FDFONT_PSX";
 		Font fnt = "HUDFONT_DOOM";
 		mHUDFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft, 1, 1);
 		fnt = "INDEXFONT_DOOM";
@@ -71,10 +71,12 @@ class DCX_Statusbar : BaseStatusBar
 		mPL2font = HUDFont.Create("FDFONT_PLUTONIA2");
 		mPL2fontS = HUDFont.Create("FDFONT_SPLUTONIA2");
 		
+		// Create the font used for WadFusion's alternate fullscreen HUD
 		fnt = "CONFONT";
 		mConFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter);
 		fnt = "SMALLFONT";
-		mSmallFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter);
+		mSmallFont = HUDFont.Create(fnt, 0, Mono_Off);
+		mSmallFontMono = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellCenter);
 	}
 	
 	void Checklevel (double TicFrac)
@@ -114,6 +116,7 @@ class DCX_Statusbar : BaseStatusBar
 		let isId1 = mapName.Left(3) == "lr_";
 		let id1WeapSwap = CVar.GetCVar("wf_compat_id24_weapons").GetInt() == 1;
 		let id1WeapSwapAlways = CVar.GetCVar("wf_compat_id24_weapons").GetInt() >= 2;
+		let hudId24Compat = CVar.FindCVar("wf_compat_id24_hud").GetBool();
 		let get_font = mHUDFont;
 		let x_value = 44;
 		let y_value = 171;
