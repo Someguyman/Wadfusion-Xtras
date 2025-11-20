@@ -26,7 +26,7 @@ include mapinfo/Bonus_Misc_Maps_X.txt
 gameinfo 
 {
 	PlayerClasses = "DCX_Player"
-	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler" //, "DCX_NightmareMonsterHandler"
+	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler", "DCX_StaticHandler" //, "DCX_NightmareMonsterHandler"
     infopage = "CREDIT"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
