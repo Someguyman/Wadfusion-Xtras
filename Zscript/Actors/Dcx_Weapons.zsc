@@ -3,10 +3,10 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 {
 	Default
 	{
-		+NOMENU
-		Player.StartItem "Clip", 50;
+		//+NOMENU
 		Player.StartItem "DCX_Pistol";
 		Player.StartItem "DCX_Fist";
+		Player.StartItem "Clip", 50;
 		Player.WeaponSlot 1, "DCX_Fist", "DCX_Chainsaw", "DCX_DoubleBladedChainsaw";
 		Player.WeaponSlot 2, "DCX_Pistol";
 		Player.WeaponSlot 3, "DCX_Shotgun", "DCX_SuperShotgun";
@@ -18,7 +18,7 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 	}
 }
 
-class DCX_Fist : Fist Replaces Fist
+class DCX_Fist : Fist
 {
 	States
 	{
@@ -271,9 +271,7 @@ Class DCX_Shotgun : Shotgun Replaces Shotgun
 }
 
 class DCX_SuperShotgun : SuperShotgun Replaces SuperShotgun
-{
-	//int CheckSSGSprite = CVar.FindCVar("ssgtoggle").getint();
-	
+{	
 	States
 	{
 	Ready:
