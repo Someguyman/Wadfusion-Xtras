@@ -2,7 +2,7 @@
 
 defaultmap
 {
-	Cluster = 27
+	//Cluster = 27
 	Sky1 = "SKY6"
 	SuckTime = 1
 	// the music is intentionally set to something invalid,

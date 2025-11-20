@@ -12,7 +12,6 @@ defaultmap
 adddefaultmap
 {
 	Sky1 = "SKY1"
-	Cluster = 1
 	ExitPic = "$IN_EPI1"
 }
 
@@ -99,7 +98,8 @@ map E1M8 "$HUSTR_E1M8"
 {
 	LevelNum = 8
 	//Next = endpic, "D1CRED"
-	Next = "E2M1"
+	//Next = "E2M1"
+	Next = EndSequence, "Doom1_Ep1_Fusion"
 	TitlePatch = "WILV07"
 	Par = 165
 	Music = "$MUSIC_E1M8"
@@ -125,7 +125,7 @@ map E1M9 "$HUSTR_E1M9"
 adddefaultmap
 {
 	Sky1 = "SKY2"
-	Cluster = 2
+	//Cluster = 2
 	ExitPic = "$IN_EPI2"
 }
 
@@ -213,7 +213,7 @@ map E2M8 "$HUSTR_E2M8"
 {
 	LevelNum = 18
 	//Next = "EndGame2"
-	Next = "e2ending"
+	Next = EndSequence, "Doom1_Ep2_Fusion"
 	TitlePatch = "WILV17"
 	Par = 135
 	Music = "$MUSIC_E2M8"
@@ -326,8 +326,7 @@ map E3M7 "$HUSTR_E3M7"
 map E3M8 "$HUSTR_E3M8"
 {
 	LevelNum = 28
-	//Next = "endbunny"
-	next = EndSequence, "Episode3end"
+	Next = "endbunny"
 	TitlePatch = "WILV27"
 	Par = 105
 	Music = "$MUSIC_E3M8"
@@ -353,7 +352,8 @@ map E3M9 "$HUSTR_E3M9"
 adddefaultmap
 {
 	Sky1 = "SKY4"
-	Cluster = 4
+	//Still need the cluster for my little intermission hack in e4m8
+	Cluster = 4 
 	ExitPic = "$IN_EPI4"
 	F1 = "UDCRED" 
 	InterMusic = "$MUSIC_INTEREP4"
@@ -444,7 +444,7 @@ map E4M7 "$HUSTR_E4M7"
 map E4M8 "$HUSTR_E4M8"
 {
 	LevelNum = 38
-	Next = "EndGame4"
+	Next = EndSequence, "Doom1_Ep4_Fusion"
 	TitlePatch = "WILV37"
 	Par = 360
 	Music = "$MUSIC_E4M8"

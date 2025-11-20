@@ -375,7 +375,7 @@ map MAP31 "$HUSTR_31"
 	TitlePatch = "CWILV30"
 	Par = 120
 	Music = "$MUSIC_EVIL"
-	Enterpic = "$in_d2eW"
+	//Enterpic = "$in_d2eW"
 	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
 }
@@ -388,7 +388,7 @@ map MAP32 "$HUSTR_32"
 	TitlePatch = "CWILV31"
 	Par = 30
 	Music = "$MUSIC_ULTIMA"
-	Enterpic = "$in_d2eW"
+	//Enterpic = "$in_d2eW"
 	Exitpic = "$in_d2eW"
 	Author = "$WF_AU_PETERSEN"
 }

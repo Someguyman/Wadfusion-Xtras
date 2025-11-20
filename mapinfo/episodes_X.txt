@@ -2,98 +2,42 @@
 
 clearepisodes
 
-episode WF_NEWGAME
-{
-	Name = "WadFusion New Game Hack"
-	Optional
-}
-
-/*
-episode E1M1
+episode WF_NEWGAME_E1M1
 {
 	Name = "$DOOM1_EPI01"
 	PicName = "M_EPI1"
 	Optional
 }
 
-episode E2M1
+episode WF_NEWGAME_E2M1
 {
 	Name = "$DOOM1_EPI02"
 	PicName = "M_EPI2"
 	Optional
 }
 
-episode E3M1
+episode WF_NEWGAME_E3M1
 {
 	Name = "$DOOM1_EPI03"
 	PicName = "M_EPI3"
 	Optional
 }
 
-episode E4M1
+episode WF_NEWGAME_E4M1
 {
 	Name = "$UDOOM_EPI04"
 	PicName = "M_EPI4"
 	Optional
 }
 
-episode E5M1
+episode WF_NEWGAME_E5M1
 {
 	Name = "$UDOOM_EPI05"
 	PicName = "M_EPI5"
 	Optional
 }
 
-episode E6M1
-{
-	Name = "$UDOOM_EPI06"
-	PicName = "M_EPI6"
-	Optional
-}
-
-episode MAP01
-{
-	Name = "$DOOM2_EPI01"
-	Optional
-}
-*/
-
-episode INTER_D1E1
-{
-	Name = "$DOOM1_EPI01"
-	PicName = "M_EPI1"
-	Optional
-}
-
-episode INTER_D1E2
-{
-	Name = "$DOOM1_EPI02"
-	PicName = "M_EPI2"
-	Optional
-}
-
-episode INTER_D1E3
-{
-	Name = "$DOOM1_EPI03"
-	PicName = "M_EPI3"
-	Optional
-}
-
-episode INTER_D1E4
-{
-	Name = "$UDOOM_EPI04"
-	PicName = "M_EPI4"
-	Optional
-}
-
-episode INTER_D1E5
-{
-	Name = "$UDOOM_EPI05"
-	PicName = "M_EPI5"
-	Optional
-}
-
-episode INTER_D1E6
+episode WF_NEWGAME_E6M1
 {
 	Name = "$UDOOM_EPI06"
 	PicName = "M_EPI6"
@@ -112,45 +56,40 @@ episode GBA_DM1
 	Optional
 }
 
-episode OneHumanity
-{
-	Name = "$BONUS_HUMAN"
-	Optional
-}
-
-episode INTER_D2E1
+episode WF_NEWGAME_MAP01
 {
 	Name = "$DOOM2_EPI01"
+	PicName = "M_HELL"
 	Optional
 }
 
-episode MAP12
+episode WF_NEWGAME_MAP12
 {
 	Name = "$DOOM2_EPI02"
 	Optional
 }
 
-episode MAP21
+episode WF_NEWGAME_MAP21
 {
 	Name = "$DOOM2_EPI03"
 	Optional
 }
 
-episode NV_MAP01
+episode WF_NEWGAME_NV_MAP01
 {
 	Name = "$DOOM2_EPI04"
 	PicName = "M_NOREST"
 	Optional
 }
 
-episode LR_MAP01
+episode WF_NEWGAME_LR_MAP01
 {
 	Name = "$DOOM2_EPI05"
 	PicName = "M_XEPI1"
 	Optional
 }
 
-episode LR_MAP08
+episode WF_NEWGAME_LR_MAP08
 {
 	Name = "$DOOM2_EPI06"
 	PicName = "M_XEPI2"
@@ -163,19 +102,25 @@ episode DM_MAP01
 	Optional
 }
 
-episode AB_MAP01
+episode OneHumanity
+{
+	Name = "$BONUS_HUMAN"
+	Optional
+}
+
+episode WF_NEWGAME_AB_MAP01
 {
 	Name = "$ABLOUTION_EPI01"
 	Optional
 }
 
-episode AB_MAP12
+episode WF_NEWGAME_AB_MAP12
 {
 	Name = "$ABLOUTION_EPI02"
 	Optional
 }
 
-episode AB_MAP21
+episode WF_NEWGAME_AB_MAP21
 {
 	Name = "$ABLOUTION_EPI03"
 	Optional
@@ -187,81 +132,44 @@ episode AB_MAP33
 	Optional
 }
 
-episode ML_MAP01
+episode WF_NEWGAME_ML_MAP01
 {
-	Name = "$MASTER_LV01"
-	PicName = "M_MASTR1"
+	Name = "$WF_CAMPAIGN_MASTER"
+	PicName = "M_MASTER"
 	Optional
 }
 
-episode ML_MAP22
-{
-	Name = "$MASTER_LV02"
-	PicName = "M_MASTR2"
-	Optional
-}
-
-episode ML_MAP29
-{
-	Name = "$MASTER_LV03"
-	PicName = "M_MASTR4"
-	Optional
-}
-
-episode ML_MAP33
-{
-	Name = "$MASTER_LV04"
-	PicName = "M_MASTR5"
-	Optional
-}
-
-/*
-episode ML_MAP37
-{
-	Name = "$MASTER_LV05"
-	PicName = "M_MASTR6"
-	Optional
-}
-*/
-
-episode INTER_MLCS
-{
-	Name = "$MASTER_LV05"
-	PicName = "M_MASTR6"
-	Optional
-}
-
-episode TN_MAP01
+episode WF_NEWGAME_TN_MAP01
 {
 	Name = "$TNTE_EPI01"
 	Optional
 }
 
-episode TN_MAP12
+episode WF_NEWGAME_TN_MAP12
 {
 	Name = "$TNTE_EPI02"
 	Optional
 }
 
-episode TN_MAP21
+episode WF_NEWGAME_TN_MAP21
 {
 	Name = "$TNTE_EPI03"
 	Optional
 }
 
-episode PL_MAP01
+episode WF_NEWGAME_PL_MAP01
 {
 	Name = "$PLUTONIA_EPI01"
 	Optional
 }
 
-episode PL_MAP12
+episode WF_NEWGAME_PL_MAP12
 {
 	Name = "$PLUTONIA_EPI02"
 	Optional
 }
 
-episode PL_MAP21
+episode WF_NEWGAME_PL_MAP21
 {
 	Name = "$PLUTONIA_EPI03"
 	Optional

@@ -31,51 +31,6 @@ adddefaultmap
 	Music = "D_INTRO"
 }
 
-Map INTER_D1E1 ""
-{
-	Cluster = 1001
-	Next = "E1M1"
-}
-
-Map INTER_D1E2 ""
-{
-	Cluster = 1002
-	Next = "E2M1"
-}
-
-Map INTER_D1E3 ""
-{
-	Cluster = 1003
-	Next = "E3M1"
-}
-
-Map INTER_D1E4 ""
-{
-	Cluster = 1004
-	Next = "E4M1"
-	Music = "D_INTR2"
-}
-
-Map INTER_D1E5 ""
-{
-	Cluster = 1005
-	Next = "E5M1"
-	Music = "S_INTRO"
-}
-
-Map INTER_D1E6 ""
-{
-	Cluster = 1006
-	Next = "E6M1"
-	Music = "S2_INTRO"
-}
-
-map INTER_D2E1 ""
-{
-	Next = "Map01"
-	//Music = "S_INTRO"
-}
-
 map INTER_MLCS ""
 {
 	Cluster = 2015
@@ -170,6 +125,49 @@ Intermission Episode3end
 	Link = Doom1Cast
 }
 
+intermission Doom1_Intro
+{
+	TextScreen
+	{
+		Text = "$D1INTRO1"
+		Background = "DMVICTOR"
+		Music = "$MUSIC_VICTOR"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO3"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO4"
+	}
+	/*
+	
+	TextScreen
+	{
+		Text = "$D1INTRO5"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO6"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO7"
+	}
+	
+	*/
+}
+
 Intermission Doom1Cast
 {
 	Cast
@@ -259,13 +257,13 @@ Intermission Doom1Cast
 map e4ending ""
 {
 	Cluster = 0
-	Next = EndSequence, "Episode4end"
+	Next = EndSequence, "Doom1_Ep4_Fusion"
 	Music = "D_BUNN2"
 	NoIntermission
 	NoSoundClipping
 }
 
-Intermission Episode4end
+Intermission Doom1_Ep4_Fusion
 {
 	Wiper
 	{
@@ -282,7 +280,23 @@ Intermission Episode4end
 		ScrollDirection = down
 		//Music = "$MUSIC_VICTR2"
 		Music = "D_BUNN2"
-		Time = 60
+		Time = 51
+	}
+	Image
+	{
+		Draw = "M_CONT", 39, 5
+		Time = -127
+	}
+	Wiper
+	{
+		Draw = "M_CONT", 39, 5
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Draw = "M_CONT", 39, 5
+		Background = "TITLES1"
+		Time = -185
 	}
 	Wiper {} 
 	Image
@@ -294,8 +308,16 @@ Intermission Episode4end
 	Link = Doom1Cast
 }
 
-Intermission Episode5end
+Intermission Doom1_Ep5_Fusion
 {
+	TextScreen
+	{
+		Text = "$E5TEXT"
+		Background = "SIGILINT"
+		//Music = "$MUSIC_VICTOR"
+		Music = "D_E5M6"
+	}
+	Wiper {}
 	Scroller 
 	{
 		Music = "D_E5M9"
@@ -303,7 +325,23 @@ Intermission Episode5end
 		Background = "E5ENDINA"
 		InitialDelay = 5
 		ScrollDirection = right
-		Time = 60
+		Time = 41
+	}
+	Image
+	{
+		Draw = "M_CNC2", 39, 5
+		Time = -80
+	}
+	Wiper
+	{
+		Draw = "M_CNC2", 39, 5
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Draw = "M_CNC2", 39, 5
+		Background = "S62TITLE"
+		Time = -185
 	}
 	Wiper {} 
 	Image
@@ -315,8 +353,15 @@ Intermission Episode5end
 	Link = Doom1Cast
 }
 
-Intermission Episode6end
+Intermission Doom1_Ep6_Fusion
 {
+	TextScreen
+	{
+		Text = "$E6TEXT"
+		Background = "$FLOOR7_2", 1
+		Music = "$MUSIC_VICTOR"
+	}
+	Wiper {}
 	Scroller 
 	{
 		InitialDelay = 3
@@ -325,12 +370,54 @@ Intermission Episode6end
 		Background = "SIGILEN2"
 		ScrollDirection = up
 		music = "D_E6M9"
-		Time = 60
+		Time = 27
+	}
+		
+	Image
+	{
+		Draw = "END0", 108, 68
+		Time = -20
+	}
+	Image
+	{
+		Draw = "END1", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END2", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END3", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END4", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END5", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END6", 108, 68
+		Time = -200
+		Sound = "weapons/chngun"
 	}
 	Wiper {} 
 	Image
 	{
-		Background = "SIGILIN2"
+		Background = "TITLES2"
 		Time = -1
 		music = "D_E6M3"
 	}
@@ -448,10 +535,7 @@ Intermission Jaguarcast
 
 Intermission DoomIIEnd
 {
-	Wiper
-	{
-		WipeType = Crossfade
-	}
+	Wiper{}
 	Image
 	{
 		Music = "$MUSIC_EVIL"
@@ -634,6 +718,26 @@ Intermission D64Inter_Cast
 		music = "$MUSIC_D64END"
 	}
 	Link = Doom64Doom2Cast
+}
+
+Intermission Absolution_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_C0P1"
+		Background = "D64bossb"
+		music = "$MUSIC_D64END"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P3"
+	}
 }
 
 Intermission Doom64Doom2Cast

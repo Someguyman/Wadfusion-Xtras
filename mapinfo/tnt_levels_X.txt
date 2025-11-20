@@ -135,6 +135,7 @@ adddefaultmap
 {
 	Cluster = 14
 	Sky1 = "TSKY2"
+	ExitPic = "TNTINTR2"
 }
 
 map TN_MAP12 "$THUSTR_12"
@@ -226,6 +227,7 @@ adddefaultmap
 {
 	Cluster = 15
 	Sky1 = "TSKY3"
+	ExitPic = "TNTINTR3"
 }
 
 map TN_MAP21 "$THUSTR_21"
