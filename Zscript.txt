@@ -1,6 +1,7 @@
 version "4.14.1"
 
 #include "Zscript/LevelScripts/Dcx_Levelpostprocessors.zsc"
+#include "Zscript/LevelScripts/DCX_StaticEventHandler.zsc"
 #include "Zscript/LevelScripts/Dcx_EventHandlers.zsc"
 
 #include "Zscript/Actors/Dcx_BaseDoom_Actors.zsc"
