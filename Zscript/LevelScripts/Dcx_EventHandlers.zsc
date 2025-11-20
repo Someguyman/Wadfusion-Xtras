@@ -1,6 +1,8 @@
 
 class DCX_EventHandler : EventHandler
 {
+
+	/*
 	TextureId TITLEPIC;
 	TextureId VICTORY2;
 	TextureId ENDPIC;
@@ -26,46 +28,12 @@ class DCX_EventHandler : EventHandler
 		CabalEnd =  	TexMan.CheckForTexture("CRBOSSBK");
 	}
 	
-	override void WorldLoaded (WorldEvent e)
-	{
-		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
-		{ TextureEnchancements(); }
-		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
-		{ DCXskyreplacement(); }
-		
-		CabalLevelOrder(); 
-		
-		Doom64Doom2Replacements();
-		JaguarDoomReplacements();
-		PSX0BRepalcements();		
-		Wolfenstein3DTextures();
-		BlankMapTransitions();
-		BasePSXMapTextures();
-		
-	}
-	
 	override void RenderOverlay (RenderEvent e)
 	{
 		// draw an overlay of the titlepic when changing replaced levels
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
 			string mapName = Level.MapName.MakeLower();
-			if ( mapName == "inter_d1e1" || mapName == "inter_d1e2" || mapName == "inter_d1e3" )
-			{
-					Screen.DrawTexture(DOOMTittle, false, 0, 0, DTA_FullScreen, 1);
-			}
-			if ( mapName == "inter_d1e4" )
-			{
-					Screen.DrawTexture(UDOOMTittle, false, 0, 0, DTA_FullScreen, 1);
-			}
-			if ( mapName == "inter_d1e5" )
-			{
-					Screen.DrawTexture(SIGILTittle, false, 0, 0, DTA_FullScreen, 1);
-			}
-			if ( mapName == "inter_d1e6" )
-			{
-					Screen.DrawTexture(SIGIL2Tittle, false, 0, 0, DTA_FullScreen, 1);
-			}
 			if ( mapName == "e2ending" )
 			{
 					Screen.DrawTexture(VICTORY2, false, 0, 0, DTA_FullScreen, 1);
@@ -83,6 +51,25 @@ class DCX_EventHandler : EventHandler
 					Screen.DrawTexture(CabalTitle, false, 0, 0, DTA_FullScreen, 1);
 			}
 		}
+	}
+	*/
+	
+	override void WorldLoaded (WorldEvent e)
+	{
+		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
+		{ TextureEnchancements(); }
+		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
+		{ DCXskyreplacement(); }
+		
+		CabalLevelOrder(); 
+		
+		Doom64Doom2Replacements();
+		JaguarDoomReplacements();
+		PSX0BRepalcements();		
+		Wolfenstein3DTextures();
+		BlankMapTransitions();
+		BasePSXMapTextures();
+		
 	}
 	
 	override void WorldTick()
@@ -389,8 +376,11 @@ class DCX_EventHandler : EventHandler
 		if (mapName == "tn_map26")
 		Level.ReplaceTextures("RROCK04", "RROCK05", 0);
 			
-		if ( mapName == "tn_map31" || mapName == "tn_map32" )
+		if ( mapName == "tn_map31")
 		Level.ChangeSky(TexMan.CheckForTexture("SKY4",TexMan.Type_Any),TexMan.CheckForTexture("SKY4",TexMan.Type_Any));
+		
+		if ( mapName == "tn_map32" )
+		Level.ChangeSky(TexMan.CheckForTexture("TSKYS",TexMan.Type_Any),TexMan.CheckForTexture("TSKYS",TexMan.Type_Any));
 		
 		if ( mapName.left(2) ~== "E1" || mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
 		{
