@@ -31,13 +31,22 @@ OptionValue PsxMaps
 
 OptionValue HUDtweaks
 {
-	0.0, "\c[GREY]Default hud"
+	0.0, "\c[GREY]PC Hud \c[Dark Grey](Default)"
 	1.0, "\c[DARK GREY]Playstation hud"
 	2.0, "\c[WHITE]Sega Saturn hud"
 	3.0, "\c[DARK BROWN]Jaguar hud"
 	4.0, "\c[GOLD]BETA 93 hud"
 	5.0, "\c[Yellow]Final DOOM hud"
-	6.0, "\c[Grey]Switch Per Game"
+	6.0, "\c[PURPLE]Doom 64 For Doom 2 hud"
+	7.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
+}
+
+OptionValue D64HudTweaks
+{
+	0.0, "\c[TAN]StarTan \c[Dark Grey](Default)"
+	1.0, "\c[ICE]Metal"
+	2.0, "\c[OLIVE]Hellbar 1 \c[Dark Grey](No Flesh)"
+	3.0, "\c[OLIVE]Hellbar 2 \c[Brick](With Flesh)"
 }
 
 OptionValue DCX_CabalLevelOrder
@@ -98,6 +107,9 @@ OptionMenu "DCXOptions"
 	StaticText " "
 	option "Status bar graphic", "HUD_toggle", "HUDtweaks"
 	StaticText "Changes the appearence of the status bar.", "dark red"
+	StaticText " "
+	option "Doom 64 For Doom 2 Hud", "AB_hud_toggle", "D64HudTweaks"
+	StaticText "Select which hud to use for the D64D2 levels", "dark red"
 	StaticText " "
 	option "$OPTIONS_SSG", "ssgtoggle", "SSGtweaks"
 	StaticText "Toggles the sprite the super shotgun uses to ether the PSX version or a vanilla hybird style.", "dark red"
