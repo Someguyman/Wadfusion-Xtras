@@ -445,7 +445,7 @@ class DCX_EventHandler : EventHandler
 				level.NextSecretMap =  "PSX01";
 		}
 		
-		if ( mapName == "inter_d1e3" ||  mapName == "e2ending" )
+		if ( mapName == "wf_newgame_e3m1" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
 			{	level.NextMap = "PSX02B";	}
