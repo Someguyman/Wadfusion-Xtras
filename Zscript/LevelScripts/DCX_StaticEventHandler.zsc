@@ -15,7 +15,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 			FullRunStory(); // wf_fullrun.zs in wadfusion.pk3
 
 		DCX_NewGameIntro();
-		DCX_IntermissionStory(); // wf_story.zs in wadfusion.pk3
+		DCX_IntermissionStory();
 		
 		FullRunMultiplayerTakeStuff(); // wf_story.zs in wadfusion.pk3
 	}
@@ -23,7 +23,31 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 	override void RenderOverlay(RenderEvent e)
 	{
 		DCX_NewGameTitlePic();
-		DCX_FullRunMultiplayer();
+		FullRunMultiplayer();
+	}
+	
+		override void WorldUnloaded(WorldEvent e)
+	{
+		// force pistol start on half of the master levels.
+		// this is needed to support switching between the xaser order,
+		// in which they should have pistol starts,
+		// and the rejects order, in which they shouldn't
+		if ( CVar.FindCVar("wf_compat_pistolstart").GetBool() )
+		{
+			if ( !CVar.FindCVar("wf_map_mlr").GetBool() )
+			{
+				if ( Level.NextMap == "ml_map10" || Level.NextMap == "ml_map11" ||
+					 Level.NextMap == "ml_map12" || Level.NextMap == "ml_map13" ||
+					 Level.NextMap == "ml_map14" || Level.NextMap == "ml_map15" || 
+					 Level.NextMap == "ml_map18" || Level.NextMap == "ml_map20" )
+				{
+					ForcePistolStart();
+				}
+			}
+		}
+		
+		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
+			Dcx_FullRun(); // wf_fullrun.zs
 	}
 	
 	ui void DCX_NewGameTitlePic()
@@ -36,6 +60,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 			TextureId titlePic = TexMan.CheckForTexture("TITLEPIC");
 			TextureId titleD1 = TexMan.CheckForTexture("TITLED1");
 			TextureId titleUD = TexMan.CheckForTexture("TITLEUD");
+			TextureId titleJA = TexMan.CheckForTexture("TITLEJA");
 			TextureId titleS1 = TexMan.CheckForTexture("TITLES1");
 			TextureId titleS2 = TexMan.CheckForTexture("TITLES2");
 			TextureId titleD2 = TexMan.CheckForTexture("TITLED2");
@@ -64,6 +89,8 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 						Screen.DrawTexture(titleS1, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "e6m1" )
 						Screen.DrawTexture(titleS2, false, 0, 0, DTA_FullScreen, 1);
+					else if ( nextMap == "ja_map01" )
+						Screen.DrawTexture(titleJA, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "map01" || nextMap == "map12" || nextMap == "map21")
 						Screen.DrawTexture(titleD2, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "ml_map01" )
@@ -114,6 +141,8 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 						S_ChangeMusic("d_intr2", 0, false);
 					else if ( nextMap == "e5m1" )
 						PlaySigilIntroMusic();
+					else if ( nextMap == "ja_map01" )
+						S_ChangeMusic("O_INTRO", 0, false);
 					else if ( nextMap == "e6m1" )
 						PlaySigil2IntroMusic();
 					else if ( nextMap == "map01" || nextMap == "map12" || nextMap == "map21" )
@@ -148,6 +177,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 				 nextMap != "e4m1" && 
 				 nextMap != "map12" &&
 				 nextMap != "map21" &&
+				 nextMap != "ja_map01" &&
 				 nextMap != "ml_map01" && 
 				 nextMap != "lr_map08" &&
 				 nextMap != "tn_map12" &&
@@ -162,17 +192,6 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		}
 		else
 			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
-	}
-	
-	ui void DCX_FullRunMultiplayer()
-	{
-		string mapName = Level.MapName.MakeLower();
-		
-		if ( mapName == "wf_story" )
-		{
-			if ( fullRunFinished && multiplayer )
-				Screen.DrawText(smallfont, Font.CR_UNTRANSLATED, 1, 1, "$WF_FULLRUN_END_MULTIPLAYER", DTA_320x200, true);
-		}
 	}
 	
 	void DCX_IntermissionStory()
@@ -243,6 +262,533 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 						Level.ChangeLevel(nextMap, 0, CHANGELEVEL_NOINTERMISSION);
 				}
 			}
+		}
+	}
+	
+	void Dcx_FullRun()
+	{
+		int fullRun = CVar.FindCVar("wf_fullrun").GetInt();
+		int fullRunCast = CVar.FindCVar("wf_fullrun_cast").GetBool();
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
+		let titlePic = CVar.FindCVar("wf_compat_titlepics").GetBool();
+		string mapName = Level.MapName.MakeLower();
+		
+		// set which intermission to play at the end of an episode
+		if ( fullRun >= 1 && fullRun <= 3 )
+		{
+			if ( mapName == "e1m8" || mapName == "e1m8b" )
+				intermission = "Doom1_Ep1_Fusion_FullRun";
+			if ( mapName == "e2m8" )
+				intermission = "Doom1_Ep2_Fusion_FullRun";
+			if ( mapName == "e3m8" )
+				intermission = "Inter_Bunny_Fusion_FullRun";
+			if ( mapName == "e4m8" )
+				intermission = "Doom1_Ep4_Fusion_FullRun";
+			if ( mapName == "e5m8" )
+				intermission = "Doom1_Ep5_Fusion_FullRun";
+			if ( mapName == "e6m8" )
+				intermission = "Doom1_Ep6_Fusion_FullRun";
+			if ( mapName == "map30" )
+			{
+				if ( fullRunCast )
+					intermission = "Inter_Cast_Fusion_FullRun";
+				else
+					intermission = "Doom2_End_Fusion_FullRun_NoCast";
+			}
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+			{
+				if ( fullRunCast )
+					intermission = "MasterLevels_End_Fusion_FullRun";
+				else
+					intermission = "MasterLevels_End_Fusion_FullRun_NoCast";
+			}
+			if ( mapName == "nv_map08" )
+			{
+				if ( fullRunCast )
+					intermission = "Inter_Cast_Fusion_FullRun_NoCredits";
+				else
+					intermission = "Doom2_End_Fusion_FullRun_NoCast_NoCredits";
+			}
+			if ( mapName == "lr_map07" )
+				intermission = "Id1_Ep1_Fusion_FullRun";
+			if ( mapName == "lr_map14" )
+			{
+				if ( fullRunCast )
+					intermission = "Id1Cast_Fusion_FullRun";
+				else
+					intermission = "Id1_End_Fusion_FullRun_NoCast";
+			}
+			if ( mapName == "tn_map30" )
+			{
+				if ( fullRunCast )
+					intermission = "Inter_Cast_Tnt_Fusion_FullRun";
+				else
+					intermission = "Tnt_End_Fusion_FullRun_NoCast";
+			}
+			if ( mapName == "pl_map30" )
+			{
+				if ( fullRunCast )
+					intermission = "Inter_Cast_Plutonia_Fusion_FullRun";
+				else
+					intermission = "Plutonia_End_Fusion_FullRun_NoCast";
+			}
+		}
+		// play a vanilla or vanilla-esque intermission if fullrun is off
+		else
+		{
+			if ( mapName == "e1m8" || mapName == "e1m8b" )
+				intermission = "Doom1_Ep1_Fusion_FullRun_Off";
+			if ( mapName == "e2m8" )
+				intermission = "Doom1_Ep2_Fusion_FullRun_Off";
+			if ( mapName == "e3m8" )
+				intermission = "Inter_Bunny_Fusion_FullRun_Off";
+			if ( mapName == "e4m8" )
+				intermission = "Doom1_Ep4_Fusion_FullRun_Off";
+			if ( mapName == "e5m8" )
+				intermission = "Doom1_Ep5_Fusion_FullRun_Off";
+			if ( mapName == "e6m8" )
+				intermission = "Doom1_Ep6_Fusion_FullRun_Off";
+			if ( mapName == "map30" )
+				intermission = "Inter_Cast";
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+				intermission = "MasterLevels_End"; // also needed for xaser order
+			if ( mapName == "nv_map08" )
+				intermission = "Inter_Cast";
+			if ( mapName == "lr_map07" )
+				intermission = "Id1_Ep1_Fusion_FullRun_Off";
+			if ( mapName == "lr_map14" )
+				intermission = "Id1Cast";
+			if ( mapName == "tn_map30" )
+				intermission = "Inter_Cast_Tnt";
+			if ( mapName == "pl_map30" )
+				intermission = "Inter_Cast_Plutonia";
+		}
+		
+		// set which map to switch to at the end of a full run episode
+		if ( fullRun == 1 )
+		{
+			if ( mapName == "e1m8" || mapName == "e1m8b" )
+				nextMap = "e2m1";
+			if ( mapName == "e2m8" )
+			{
+				if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				{	NextMap = "PSX02B";	}
+				else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				{	NextMap = "PSX02";	}
+				else
+				{	NextMap = "e3m1"; }
+			}
+			if ( mapName == "e3m8" )
+			{
+				if ( Wads.CheckNumForFullName("maps/e4m1.wad") != -1 )
+					nextMap = "wf_newgame_e4m1";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "e4m8" )
+			{
+				if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "e5m8" )
+			{
+				if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "e6m8" )
+			{
+				if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "map30" )
+			{
+				if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+			{
+				if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "nv_map08" )
+			{
+				if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "lr_map07" )
+			{
+				nextMap = "lr_map08";
+			}
+			if ( mapName == "lr_map14" )
+			{
+				if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "tn_map30" )
+			{
+				if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else
+					FullRunEnd();
+			}
+			if ( mapName == "pl_map30" )
+				FullRunEnd();
+		}
+		if ( fullRun == 2 )
+		{
+			if ( mapName == "e1m8" || mapName == "e1m8b" )
+				nextMap = "e2m1";
+			if ( mapName == "e2m8" )
+			{
+				if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				{	NextMap = "PSX02B";	}
+				else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				{	NextMap = "PSX02";	}
+				else
+				{	NextMap = "e3m1"; }
+			}
+			if ( mapName == "e3m8" )
+				if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/e4m1.wad") != -1 )
+					nextMap = "wf_newgame_e4m1";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "map30" )
+				if ( Wads.CheckNumForFullName("maps/e4m1.wad") != -1 )
+					nextMap = "wf_newgame_e4m1";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e4m8" )
+				if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+				if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "tn_map30" )
+				if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "pl_map30" )
+				if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "nv_map08" )
+				if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e5m8" )
+				if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e6m8" )
+				if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "lr_map07" )
+				nextMap = "lr_map08";
+			if ( mapName == "lr_map14" )
+				FullRunEnd();
+		}
+		if ( fullRun == 3 )
+		{
+			if ( mapName == "e1m8" || mapName == "e1m8b" )
+				nextMap = "e2m1";
+			if ( mapName == "e2m8" )
+			{
+				if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				{	NextMap = "PSX02B";	}
+				else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				{	NextMap = "PSX02";	}
+				else
+				{	NextMap = "e3m1"; }
+			}
+			if ( mapName == "e3m8" )
+				if ( Wads.CheckNumForFullName("maps/e4m1.wad") != -1 )
+					nextMap = "wf_newgame_e4m1";
+				else if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e4m8" )
+				if ( Wads.CheckNumForFullName("maps/e5m1.wad") != -1 )
+					nextMap = "wf_newgame_e5m1";
+				else if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e5m8" )
+				if ( Wads.CheckNumForFullName("maps/e6m1.wad") != -1 )
+					nextMap = "wf_newgame_e6m1";
+				else if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "e6m8" )
+				if ( Wads.CheckNumForFullName("maps/map01.wad") != -1 )
+					nextMap = "wf_newgame_map01";
+				else if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "map30" )
+				if ( Wads.CheckNumForFullName("maps/nv_map01.wad") != -1 )
+					nextMap = "wf_newgame_nv_map01";
+				else if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "nv_map08" )
+				if ( Wads.CheckNumForFullName("maps/ml_map01.wad") != -1 )
+					nextMap = "wf_newgame_ml_map01";
+				else if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+				if ( Wads.CheckNumForFullName("maps/tn_map01.wad") != -1 )
+					nextMap = "wf_newgame_tn_map01";
+				else if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "tn_map30" )
+				if ( Wads.CheckNumForFullName("maps/pl_map01.wad") != -1 )
+					nextMap = "wf_newgame_pl_map01";
+				else if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "pl_map30" )
+				if ( Wads.CheckNumForFullName("maps/lr_map01.wad") != -1 )
+					nextMap = "wf_newgame_lr_map01";
+				else
+					FullRunEnd();
+			if ( mapName == "lr_map07" )
+				nextMap = "lr_map08";
+			if ( mapName == "lr_map14" )
+				FullRunEnd();
 		}
 	}
 }
