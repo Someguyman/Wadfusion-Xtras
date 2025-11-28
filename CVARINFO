@@ -18,6 +18,7 @@ server int dcx_KlieOrder = 0;
 server int dcx_TitanOrder = 0;
 User int ssgtoggle = 0;
 User int hud_toggle = 0;
+User int AB_hud_toggle = 0;
 User int Health_Cross_Toggle = 0;
 
 NoSave bool dcx_MugShotGib = false;
