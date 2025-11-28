@@ -42,32 +42,32 @@ class DCX_DualArachnotron : Arachnotron
 	States
 	{
 	Spawn:
-		BSP2 AB 10 A_Look;
+		64AR AB 10 A_Look;
 		Loop;
 	See:
-		BSP2 A 20;
-		BSP2 A 3 A_64BabyMetal();
-		BSP2 ABBCCBB 3 A_Chase;
+		64AR A 20;
+		64AR A 3 A_64BabyMetal();
+		64AR ABBCCBB 3 A_Chase;
 		Goto See+1;
 	Missile:
-		BSP2 A 15 A_BspiFaceTarget();
-		BSP2 D 3 BRIGHT A_64BspiAttack();
-		BSP2 E 3 BRIGHT A_FaceTarget();
-		BSP2 E 1 BRIGHT A_64SpidRefire();
+		64AR A 15 A_BspiFaceTarget();
+		64AR D 3 BRIGHT A_64BspiAttack();
+		64AR E 3 BRIGHT A_FaceTarget();
+		64AR E 1 BRIGHT A_64SpidRefire();
 		Goto Missile+1;
 	Pain:
-		BSP2 F 3;
-		BSP2 F 3 A_Pain;
+		64AR F 3;
+		64AR F 3 A_Pain;
 		Goto See+1;
 	Death:
-		BSP2 G 20 A_Scream;
-		BSP2 H 7 A_NoBlocking;
-		BSP2 IJK 7;
-		BSP2 L -1 A_BossDeath;
+		64AR G 20 A_Scream;
+		64AR H 7 A_NoBlocking;
+		64AR IJK 7;
+		64AR L -1 A_BossDeath;
 		Stop;
     Raise:
-		BSP2 L 5;
-		BSP2 KJIHG 5;
+		64AR L 5;
+		64AR KJIHG 5;
 		Goto See+1;
 	}
 }
