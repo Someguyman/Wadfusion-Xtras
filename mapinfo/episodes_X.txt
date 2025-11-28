@@ -44,7 +44,7 @@ episode WF_NEWGAME_E6M1
 	Optional
 }
 
-episode JA_MAP01
+episode WF_NEWGAME_JA_MAP01
 {
 	Name = "$BONUS_JAGUAR"
 	Optional
