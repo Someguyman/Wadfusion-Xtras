@@ -452,7 +452,7 @@ Intermission D64D2Map33End
 {
 	Image
 	{
-		Background = "D64title"
+		Background = "TITLEAB"
 		music = "$MUSIC_D64MAP33"
 	}
 }
