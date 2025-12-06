@@ -602,19 +602,19 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 			Goto LightDone;
 
 		Perk_Fire:	
-			PKRL A 2;
-			PKRL A 4 A_GunFlash("Perk_Flash");
+			MISG A 2;
+			MISG A 4 A_GunFlash("Perk_Flash");
 			PKRL B 2;
 			PKRL D 3 A_FireMissile;
 			PKRL C 3;
 			PKRL BE 2;
 			PKRL FG 1;
-			PKRL A 0 A_ReFire;
+			MISG A 0 A_ReFire;
 			Goto Ready;		
 		Perk_Flash:
 			PKRF A 3 Bright A_Light1;
 			PKRF B 2 Bright;
-			PKRF C 2 Bright A_Light2;
+			MISF B 2 Bright A_Light2;
 			PKRF DE 3 Bright;
 			Goto LightDone;
 	}
@@ -828,10 +828,10 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 			BFGP J 1 bright offset (0, 35);
 			BFGP J 1 bright offset (0, 35);
 			BFGP J 1 bright offset (0, 35);
-			BFGG B 3 offset (0, 34);
+			BFGG B 3 offset(0, 34);
 			BFGG B 2 A_ReFire;	
-			BFGG A 3 offset (0, 33);
-			BFGG A 15;
+			BFGG A 3 offset(0, 33);
+			BFGG A 15 offset(0, 32);
 			goto Ready;
 
 		Perk_Flash:
