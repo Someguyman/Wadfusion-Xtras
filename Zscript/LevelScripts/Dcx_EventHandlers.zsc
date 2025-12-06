@@ -445,6 +445,9 @@ class DCX_EventHandler : EventHandler
 				level.NextSecretMap =  "PSX01";
 		}
 		
+		//
+		//if ( level.NextMap == "e3m1" )
+		/*
 		if ( mapName == "wf_newgame_e3m1" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
@@ -454,6 +457,7 @@ class DCX_EventHandler : EventHandler
 			else
 			{	level.NextMap = "e3m1";		}
 		}
+		*/
 		
 		if ( mapName == "e3m6" )
 		{

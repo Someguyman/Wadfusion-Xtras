@@ -26,6 +26,22 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		FullRunMultiplayer();
 	}
 	
+	void Dcx_NewGameChangeLevel()
+	{
+		string mapName = Level.MapName.MakeLower();
+		if ( mapName.Left(10) == "wf_newgame" )
+			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
+		if ( mapName == "wf_newgame_e3m1" )
+		{
+			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+			{	Level.ChangeLevel("psx02b", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION); }
+			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+			{	Level.ChangeLevel("psx02", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);	}
+			else
+			{	Level.ChangeLevel("e3m1", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);		}
+		}
+	}
+	
 		override void WorldUnloaded(WorldEvent e)
 	{
 		// force pistol start on half of the master levels.
@@ -160,10 +176,10 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 					else if ( nextMap == "ab_map01" || nextMap == "ab_map12" || nextMap == "ab_map21" )
 						S_ChangeMusic("D_TITLEA", 0, false);
 					else
-						NewGameChangeLevel();
+						Dcx_NewGameChangeLevel();
 				}
 				else
-					NewGameChangeLevel();
+					Dcx_NewGameChangeLevel();
 			}
 		}
 	}
