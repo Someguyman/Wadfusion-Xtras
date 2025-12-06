@@ -74,7 +74,7 @@ class DCX_Chainsaw : Chainsaw Replaces Chainsaw
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Ready");
 		SAWG C 4 { A_startsound("weapons/sawidle", 7, CHANF_DEFAULT, 1.0); A_WeaponReady(); }
 		SAWG D 4 A_WeaponReady(); 
-		Goto Ready+3;
+		Goto Ready+1;
 	Deselect:
 		TNT1 A 0 A_StopSound(7);
 		TNT1 A 0 A_startsound("weapons/sawidle", 7, CHANF_DEFAULT, 1.0);
@@ -118,7 +118,7 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 		Weapon.Kickback 0;
 		Weapon.SelectionOrder 2200;
 		Weapon.UpSound "weapons/saw2up";
-		Weapon.ReadySound "weapons/saw2idle";
+		//Weapon.ReadySound "weapons/saw2idle";
 		//Weapon.Slotnumber 1;
 		Inventory.PickupMessage "A UAC Dual chainsaw?  About damn time!";
 		Obituary "%o was mowed twice-over by %k's chainsaw.";
@@ -129,8 +129,12 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 	States
 	{
 		Ready:
-			SAW2 CD 4 A_WeaponReady();
-			Loop;
+			TNT1 A 0 { A_StopSound(6); A_StopSound(7); A_StopSound(1); }
+			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Ready");
+			//SAW2 CD 4 A_WeaponReady();
+			SAW2 C 4 { A_startsound("weapons/saw2idle", 7, CHANF_DEFAULT, 1.0); A_WeaponReady(); }
+			SAW2 D 4 { A_WeaponReady(); A_WeaponOffset(0,33); }
+			Goto Ready+1;
 		Deselect:
 			SAW2 C 1 A_Lower();
 		Loop;
@@ -138,8 +142,29 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 			SAW2 C 1 A_Raise();
 			Loop;
 		Fire:
+			TNT1 A 0 A_StopSound(7);
+			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
 			SAW2 AB 2 A_Saw("weapons/saw2full","weapons/saw2hit");
 			SAW2 B 0 A_ReFire();
+			Goto Ready;
+			
+		Perk_Ready:
+			SAW2 C 2 { A_startsound("weapons/saw2idle", 7, CHANF_DEFAULT, 1.0); A_WeaponReady(); A_WeaponOffset(0,33); }
+			SAW2 D 2 { A_WeaponReady(); A_WeaponOffset(0,34); }
+			SAW2 C 2 { A_WeaponReady(); A_WeaponOffset(0,33); }
+			SAW2 D 2 A_WeaponReady();
+			Goto Ready;
+		
+		Perk_Fire:
+			saw2 A 1 offset(0,36) A_Saw("weapons/saw2full","weapons/saw2hit");
+			saw2 A 1 offset(-1,34);
+			saw2 B 1 offset(0,35) A_Saw("weapons/saw2full","weapons/saw2hit");
+			saw2 B 1 offset(1,33);
+			saw2 A 1 offset(0,36) A_Saw("weapons/saw2full","weapons/saw2hit");
+			saw2 A 1 offset(-1,34);
+			saw2 B 1 offset(0,37) A_Saw("weapons/saw2full","weapons/saw2hit");
+			saw2 B 1 offset(1,34);
+			saw2 A 2 A_ReFire;
 			Goto Ready;
 		Spawn:
 			2SAW A -1;
@@ -488,13 +513,15 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			Loop;
 		Fire:
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
-			CHGG AB 4 A_FireCGun;
-			CHGG B 0 A_ReFire;
+		Fire.Loop:
+			CHGG A 0 A_GunFlash("Flash");
+			CHGG AB 4 { A_FireBullets(5.6, 0, 1, 5, "BulletPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
+			CHGG B 0 A_ReFire("Fire.Loop");
 			Goto Ready;
 		Flash:
-			CHGF A 5 Bright A_Light1;
-			Goto LightDone;
-			CHGF B 5 Bright A_Light2;
+			CHGF A 4 Bright A_Light1;
+			//Goto LightDone;
+			CHGF B 4 Bright A_Light2;
 			Goto LightDone;
 			
 		Perk_Ready:
@@ -507,7 +534,7 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			PKCG A 1 A_Raise;
 			Loop;
 		Perk_Fire:
-			PKCG A 1 offset(0,38)
+			PKCG A 1 
 			{
 				A_Startsound("weapons/chngun", CHAN_WEAPON);
 				A_GunFlash("Perk_Flash");
@@ -554,15 +581,12 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 	States
 	{
 		Ready:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Ready");
 			MISG A 1 A_WeaponReady;
 			Loop;
 		Deselect:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Deselect");
 			MISG A 1 A_Lower;
 			Loop;
 		Select:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Select");
 			MISG A 1 A_Raise;
 			Loop;
 		Fire:
@@ -576,16 +600,7 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 			MISF B 4 Bright;
 			MISF CD 4 Bright A_Light2;
 			Goto LightDone;
-			
-		Perk_Ready:
-			PKRL A 1 A_WeaponReady;
-			Goto Ready;
-		Perk_Deselect:
-			PKRL A 1 A_Lower;
-			Loop;
-		Perk_Select:
-			PKRL A 1 A_Raise;
-			Loop;
+
 		Perk_Fire:	
 			PKRL A 2;
 			PKRL A 4 A_GunFlash("Perk_Flash");
@@ -767,15 +782,12 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 	States
 	{
 		Ready:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Ready");
 			BFGG A 1 A_WeaponReady;
 			Loop;
 		Deselect:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Delect");
 			BFGG A 1 A_Lower;
 			Loop;
 		Select:
-			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Select");
 			BFGG A 1 A_Raise;
 			Loop;
 		Fire:
@@ -795,37 +807,31 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 			BFGG B 0 A_Light0;
 			BFGG B 20 A_ReFire;
 			Goto Ready;
-
-		Perk_Ready:
-			BFGP A 1 A_WeaponReady;
-			Goto Ready;
-		Perk_Deselect:
-			BFGP A 1 A_Lower;
-			Loop;
-		Perk_Select:
-			BFGP A 1 A_Raise;
-			Loop;
 		
 		Perk_Fire: 
-			BFGP J 4 A_BFGSound;
-			BFGP AJAJ 3;
-			BFGP AJ 2;
-			BFGP KB 1 bright;
+			BFGG B 4 bright A_BFGSound;
+			BFGG A 3 bright;
+			BFGG B 3 bright;
+			BFGG A 3 bright;
+			BFGG B 3 bright;
+			BFGG A 2 bright;
+			BFGG B 2 bright;
+			BFGP AB 1 bright;
 			BFGP C 1 bright A_GunFlash("Perk_Flash");
-			BFGx A 1 bright;
-			BFGP DEF 2 bright;
-			BFGP G 2 bright A_FireBFG;
-			tnt1 a 0 a_refire;
+			BFGP D 1 bright;
+			BFGP EFG 2 bright;
+			BFGP H 2 bright A_FireBFG;
+			TNT1 a 0 a_refire;
 
-			BFGP H 1 bright offset (0, 37);
-			BFGP H 1 bright offset (0, 37);
-			BFGP I 1 bright offset (0, 35);
-			BFGP I 1 bright offset (0, 35);
-			BFGP I 1 bright offset (0, 35);
-			BFGP J 3 offset (0, 34);
-			BFGP J 2 A_ReFire;	
-			BFGP A 3 offset (0, 33);
-			BFGP A 15;
+			BFGP I 1 bright offset (0, 37);
+			BFGP I 1 bright offset (0, 37);
+			BFGP J 1 bright offset (0, 35);
+			BFGP J 1 bright offset (0, 35);
+			BFGP J 1 bright offset (0, 35);
+			BFGG B 3 offset (0, 34);
+			BFGG B 2 A_ReFire;	
+			BFGG A 3 offset (0, 33);
+			BFGG A 15;
 			goto Ready;
 
 		Perk_Flash:
