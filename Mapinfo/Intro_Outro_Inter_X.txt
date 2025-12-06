@@ -725,7 +725,7 @@ Intermission Absolution_Intro
 	TextScreen
 	{
 		Text = "$IN_C0P1"
-		Background = "D64bossb"
+		Background = "D64INTRO"
 		music = "$MUSIC_D64END"
 	}
 	
