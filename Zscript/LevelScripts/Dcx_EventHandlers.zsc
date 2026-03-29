@@ -143,8 +143,8 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("SILVER3",   "SILVER32",0);
 		}
 		
-		if ( mapName.left(2) ~== "E3" )
-		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
+		//if ( mapName.left(2) ~== "E3" )
+		//Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
 		
 		//TNT Textures
 		if ( mapPrefix == "tn_" || mapPrefix == "fd_" || mapName.left(6) == "fd_dmm")
