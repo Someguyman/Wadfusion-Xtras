@@ -62,7 +62,7 @@ Intermission Episode2end
 	}
 }
 
-Intermission Episode3end
+Intermission Inter_Bunny_Fusion_FullRun_Off
 {
 	Scroller 
 	{
@@ -148,24 +148,6 @@ intermission Doom1_Intro
 	{
 		Text = "$D1INTRO4"
 	}
-	/*
-	
-	TextScreen
-	{
-		Text = "$D1INTRO5"
-	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO6"
-	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO7"
-	}
-	
-	*/
 }
 
 Intermission Doom1Cast
@@ -257,28 +239,34 @@ Intermission Doom1Cast
 map e4ending ""
 {
 	Cluster = 0
-	Next = EndSequence, "Doom1_Ep4_Fusion"
-	Music = "D_BUNN2"
+	Next = EndSequence, "Doom1_Ep4_Fusion_Alt"
+	Music = "$MUSIC_VICTR2"
 	NoIntermission
 	NoSoundClipping
 }
 
-Intermission Doom1_Ep4_Fusion
+intermission Doom1_Ep4_Fusion_Alt
 {
-	Wiper
+	Wiper { WipeType = Crossfade }
+	Link = Doom1_Ep4_Fusion_FullRun_Off
+}
+
+Intermission Doom1_Ep4_Fusion_FullRun_Off
+{
+	TextScreen
 	{
-		WipeType = Crossfade
+		Text = "$E4TEXT"
+		Background = "E4VICTOR"
+		Music = "$MUSIC_VICTR2"
 	}
+	Wiper {}
 	Scroller 
 	{
-		//InitialDelay = 3
-		//InitialDelay = 9
-		InitialDelay = 7
+		InitialDelay = 8
 		ScrollTime = -280
 		Background2 = "E4SIGILT"
 		Background = "ENDNOT"
 		ScrollDirection = down
-		//Music = "$MUSIC_VICTR2"
 		Music = "D_BUNN2"
 		Time = 51
 	}
@@ -308,13 +296,12 @@ Intermission Doom1_Ep4_Fusion
 	Link = Doom1Cast
 }
 
-Intermission Doom1_Ep5_Fusion
+Intermission Doom1_Ep5_Fusion_FullRun_Off
 {
 	TextScreen
 	{
 		Text = "$E5TEXT"
 		Background = "SIGILINT"
-		//Music = "$MUSIC_VICTOR"
 		Music = "D_E5M6"
 	}
 	Wiper {}
@@ -346,20 +333,20 @@ Intermission Doom1_Ep5_Fusion
 	Wiper {} 
 	Image
 	{
-		Background = "SIGILEND"
+		Background = "TITLES2"
 		Time = -1
 		music = "D_E5M7"
 	}
 	Link = Doom1Cast
 }
 
-Intermission Doom1_Ep6_Fusion
+Intermission Doom1_Ep6_Fusion_FullRun_Off
 {
 	TextScreen
 	{
 		Text = "$E6TEXT"
-		Background = "$FLOOR7_2", 1
-		Music = "$MUSIC_VICTOR"
+		Background = "SIGILIN2"
+		Music = "D_E6M7"
 	}
 	Wiper {}
 	Scroller 
@@ -417,7 +404,7 @@ Intermission Doom1_Ep6_Fusion
 	Wiper {} 
 	Image
 	{
-		Background = "TITLES2"
+		Background = "SIGILIN2"
 		Time = -1
 		music = "D_E6M3"
 	}
