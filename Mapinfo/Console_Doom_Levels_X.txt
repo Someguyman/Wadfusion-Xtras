@@ -48,7 +48,7 @@ map PSX02 "$HUSTR_PSX02"
 	next = "E3M2"
 	Music = "$MUSIC_PSX02"
 	//Music = "$MUSIC_E3M1"
-	Author = "Manardo Lenari (OG by American Mcgee)"
+	Author = "$WS_AU_MCGEE"
 	Titlepatch = "PXILV01"
 	Label = "THE ULTIMATE DOOM, E3M1"
 	Sky1 = "DSKY3"
@@ -114,24 +114,23 @@ map PSX04 "$HUSTR_PSX04"
 	Titlepatch = "PXILV03"
 	Label = "THE ULTIMATE DOOM, E4M10"
 	Sky1 = "SKY4"
-	Cluster = 4
+	Cluster = 0
 	ExitPic = "$IN_EPI4"
 }
 
 map PSX05 "$HUSTR_PSX05"
 {
-	Next = "EndGame4"
+	Next = EndSequence, "Doom1_Ep4_Fusion_ALT"
 	NoIntermission
 	NoSoundClipping
 	cyberdemonspecial
 	specialaction_opendoor
-	secretnext = "PSX05"
 	Author = "$WS_AU_MIDWAY"
 	Music = "$MUSIC_PSX05"
 	Titlepatch = "PXILV04"
 	Label = "THE ULTIMATE DOOM, E4M11"
 	Sky1 = "SKY4"
-	Cluster = 4
+	Cluster = 0
 	ExitPic = "$IN_EPI4"
 }
 
@@ -145,7 +144,7 @@ map PSX06 "$HUSTR_PSX06"
 	Titlepatch = "PXILV05"
 	Label = "THE ULTIMATE DOOM, E4M12"
 	Sky1 = "SKY4"
-	Cluster = 4
+	Cluster = 0
 	ExitPic = "$IN_EPI4"
 }
 
