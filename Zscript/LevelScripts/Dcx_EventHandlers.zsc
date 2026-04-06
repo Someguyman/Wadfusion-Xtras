@@ -2,7 +2,7 @@
 class DCX_EventHandler : EventHandler
 {
 
-	/*
+	///*
 	TextureId TITLEPIC;
 	TextureId VICTORY2;
 	TextureId ENDPIC;
@@ -18,7 +18,7 @@ class DCX_EventHandler : EventHandler
 	{
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
-		ENDPIC = 	   	TexMan.CheckForTexture("ENDNOT");
+		ENDPIC = 	   	TexMan.CheckForTexture("E4VICTOR");
 		DOOMTittle =   	TexMan.CheckForTexture("OGDtitle");
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
@@ -52,7 +52,7 @@ class DCX_EventHandler : EventHandler
 			}
 		}
 	}
-	*/
+	//*/
 	
 	override void WorldLoaded (WorldEvent e)
 	{
