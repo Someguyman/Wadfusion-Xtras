@@ -120,7 +120,7 @@ map PSX04 "$HUSTR_PSX04"
 
 map PSX05 "$HUSTR_PSX05"
 {
-	Next = EndSequence, "Doom1_Ep4_Fusion_ALT"
+	Next = EndSequence, "Doom1_Ep4_Fusion_FullRun_Off"
 	NoIntermission
 	NoSoundClipping
 	cyberdemonspecial
