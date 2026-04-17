@@ -31,18 +31,9 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		string mapName = Level.MapName.MakeLower();
 		if ( mapName.Left(10) == "wf_newgame" )
 			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
-		if ( mapName == "wf_newgame_e3m1" )
-		{
-			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
-			{	Level.ChangeLevel("psx02b", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION); }
-			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
-			{	Level.ChangeLevel("psx02", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);	}
-			else
-			{	Level.ChangeLevel("e3m1", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);		}
-		}
 	}
 	
-		override void WorldUnloaded(WorldEvent e)
+	override void WorldUnloaded(WorldEvent e)
 	{
 		// force pistol start on half of the master levels.
 		// this is needed to support switching between the xaser order,
@@ -145,7 +136,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 				if ( !fullRunNewGame )
 					Level.StartIntermission("WadFusionNewGame", FSTATE_INLEVELNOWIPE);
 				
-				if ( mapName != "wf_newgame" )
+				if ( mapName != "wf_newgame")
 					nextMap = mapName.Mid(11);
 				
 				if ( CVar.FindCVar("wf_compat_titlepics").GetBool() )
@@ -210,6 +201,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		else
 			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
 	}
+	
 	
 	void DCX_IntermissionStory()
 	{

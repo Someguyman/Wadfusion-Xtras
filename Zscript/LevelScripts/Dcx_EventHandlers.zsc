@@ -19,7 +19,7 @@ class DCX_EventHandler : EventHandler
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("E4VICTOR");
-		DOOMTittle =   	TexMan.CheckForTexture("OGDtitle");
+		DOOMTittle =   	TexMan.CheckForTexture("E3ENDINT");
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
 		SIGIL2Tittle =  TexMan.CheckForTexture("S62TITLE");
@@ -37,18 +37,28 @@ class DCX_EventHandler : EventHandler
 			if ( mapName == "e2ending" )
 			{
 					Screen.DrawTexture(VICTORY2, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
 			}
 			if ( mapName == "e4ending" )
 			{
 					Screen.DrawTexture(ENDPIC, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
 			}
 			if ( mapName == "cabalend" )
 			{
 					Screen.DrawTexture(CabalEnd, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
 			}			
 			if ( mapName == "inter_mlcs" )
 			{
 					Screen.DrawTexture(CabalTitle, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
+			}
+			
+			if ( mapName == "e3m1" && CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
+			{
+					Screen.DrawTexture(DOOMTittle, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
 			}
 		}
 	}
@@ -436,6 +446,14 @@ class DCX_EventHandler : EventHandler
 		//All these here toggle weather or not you play the console maps in the base campain.
 		
 		String mapName = level.MapName.MakeLower();
+		
+		if ( mapName == "e3m1" ) // Thanks domyoji81!
+        {
+          if (CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+               Level.ChangeLevel("psx02b",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		  if (CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+               Level.ChangeLevel("psx02",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+        } 
 		
 		if ( mapName == "e2m7" )
 		{
@@ -1068,6 +1086,14 @@ class DCX_MusicHandler : StaticEventHandler
 				music = "d_bunny";
 				
 			S_ChangeMusic(music);
+			}
+			
+			if ( mapName == "e3m1" && CVar.GetCvar("dcx_playstationmaps").getint() > 0 )
+			{
+				if ( music == "d_e3m1" )
+					music = "d_psx02";
+				
+				S_ChangeMusic(music);
 			}
 		}
 	}
