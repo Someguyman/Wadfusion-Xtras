@@ -113,6 +113,7 @@ extend class DCX_Statusbar
 		
 		let altHudMugshot         = CVar.FindCVar("wf_hud_alt_mugshot").GetInt() >= 2;
 		let altHudMugshotReplace  = CVar.FindCVar("wf_hud_alt_mugshot").GetInt() == 1;
+		let altHudMugshotGib      = CVar.FindCVar("dcx_MugShotGib").GetBool();
 		let altHudHealth          = CVar.FindCVar("wf_hud_alt_health").GetBool();
 		let altHudArmor           = CVar.FindCVar("wf_hud_alt_armor").GetBool();
 		let altHudAmmo            = CVar.FindCVar("wf_hud_alt_ammo").GetBool();
@@ -157,7 +158,7 @@ extend class DCX_Statusbar
 			if ( !altHudMugshotReplace )
 				DrawImage(hasBerserk ? "PSTRA0" : "MEDIA0", (20 + ultraWide, -10 - hudHealthYOffset), DI_SCREEN_LEFT_BOTTOM, healthAlpha);
 			else
-				DrawTexture(GetMugShot(5), (3 + ultraWide, -35 - hudHealthYOffset), DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
+				DrawTexture(GetMugShot(5, MUGSHOT.xdeathface), (3 + ultraWide, -35 - hudHealthYOffset), DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
 			
 			let healthColor =
 				health > maxhealth * 2    ? Font.CR_PURPLE :
@@ -176,9 +177,9 @@ extend class DCX_Statusbar
 		if ( !altHudHealth && !altHudArmor )
 			hudMugshotXOffset = 81;
 		
-		if ( altHudMugshot )
-			DrawTexture(GetMugShot(5), (84 - hudMugshotXOffset + ultraWide, -35), DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);
-		
+		if ( altHudMugshot)
+			DrawTexture(GetMugShot(5, MUGSHOT.xdeathface), (84 - hudMugshotXOffset + ultraWide, -35), DI_ITEM_OFFSETS|DI_SCREEN_LEFT_BOTTOM, healthAlpha);	
+
 		// Draw armor
 		if ( altHudArmor )
 		{

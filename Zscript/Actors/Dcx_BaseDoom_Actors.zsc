@@ -76,6 +76,7 @@ class DCX_LostSoul : LostSoul replaces LostSoul
 	Default
 	{
 		-COUNTKILL
+        Health 60;
 	}
 }
 
@@ -152,6 +153,13 @@ class DCX_Arachnotron : Arachnotron Replaces Arachnotron
 
 class DCX_Mancubus : Fatso Replaces Fatso
 {
+
+	Default
+	{
+		-COUNTKILL
+		DropItem "RocketAmmo";
+	}
+	
 	Void A_Menablanablah1()
 	{
 		If( Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1 )

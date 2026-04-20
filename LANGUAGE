@@ -407,33 +407,21 @@ E1TEXT = "Once you beat the big badasses and\n"
 		
 //Edited to remove the advertisement for episode 2 and 3. Makes it more cohesive that way.
 
-D1INTRO5 ="THE STORY SO FAR:\n"
+E2INTRO = "After you cleaned up most of the Phobos base\n"
+		  "and triumphed over the Bruiser Brothers at the anomaly,\n"
+		  "you hoped to catch a ride back home,\n"
+		  "take a well deserved rest with your pet rabbit\n"
+		  "by your side.\n"
 		  "\n"
-		  "After you wiped out most of the Phobos base\n"
-		  "and triumphed over the Bruiser Brothers at the\n"
-		  "epicenter of the anomaly, the reality around you\n"
-		  "began to gave way. With the walls of the twisted arena\n"
-		  "melting down like the sorched flesh of your enemies to\n"
-		  "reveal the exterior.\n"
-		  "\n"
-		  "You were hoping to catch a ride back home.\n"
-		  "Take a well deserved rest with your pet rabbit\n"
-		  "by your side on back earth, in spite of your punishment.";
-		  
-D1INTRO6 ="AN ANOMALY AWAITS YOU:\n"
-		  "\n"
-		  "Instead, what you find in front of you is a bizarre alien\n"
+		  "Instead, what you find in front of you is a bizarre\n"
 		  "altar that irradiates some kind of unknown wicked energy.\n"
 		  "You approach with extreme caution but before you\n"
-		  "knew it, you get draged right in.\n"
-		  "/n"
-		  "The evil spirits' screeching pierces your mind as you\n"
-		  "feel your body being torn inside out. You black out.";
-
-D1INTRO6 ="THE NIGHTMARE GOES ON:\n"
+		  "know it, you get sucked right in. The evil spirits'\n"
+		  "screeching pierces your mind as you feel your body\n"
+		  "being torn inside out. You black out.\n"
 		  "\n"
 		  "You awake from the nightmare, alive yet stripped down\n"
-		  "with only your lucky handgun once again.\n"
+		  "with only your handgun once again.\n"
 		  "Upon furher assassment, you realize that you're at the lost\n"
 		  "Deimos base which disappeared hours ago.\n"
 		  "Now reeking of rotten corpses and contaminated blood.\n"
@@ -500,7 +488,7 @@ E4INTRO = "Having brought an end to the hell the\n"
 		  "faint smokey scent coming from somewhere distant.\n"
 		  "To your Horror, the source is a nearby city in flames.\n"
 		  "Surrouding the catastrophe are familiar structers\n" 
-		  "that erupted up from hell\n"
+		  "plucked straight from hell iself.\n"
 		  "\n"
 		  "Worst of all, near the outskirts of the city\n"
 		  "sits the head of your pet rabbit, Daisy,\n"
@@ -600,7 +588,7 @@ REDEMTION_TXT =
 "What had once ruled all hellspawn and oversaw\n"
 "the entire earth invasion, are now piles of visceral\n"
 "and metal ash by your boots. The temple of the\n"
-"damned, which took place This gruesome battle,\n"
+"irredeemable, which took place This gruesome battle,\n"
 "now serves as a reminder to all demon kind that you\n"
 "are not to be messed with.\n"
 "\n"
@@ -978,6 +966,207 @@ IN_S2 =
 	"No nightmare could have\n"
 	"prepared you for this...";
 
+// Intermissions from That Guy!
+
+IN_TR1 =
+		  "With the death of the Demon-Spitter, the army of the damned\n"
+		  "loses their gateway to our world, and they slowly evaporate\n"
+		  "around you, writhing with screams of agony.\n"
+		  "\n"
+		  "Then, everything is silent, and the hellish red sky and\n"
+		  "the stench of sulfur fade away almost as if nothing had ever happened at all.\n";
+
+IN_TR2 =
+		  "Have you won? Is this another victory for mankind?\n"
+		  "\n"
+		  "No, something isn't right, there's a blue glow coming from the\n"
+		  "inside of the Demon-Spitter's head.\n"
+		  "\n"
+		  "You crawl into the now exposed brain and find a\n"
+		  "mix of technology and organic material fused so\n"
+		  "that you can't tell where one stops and the other begins.\n"
+		  "\n"
+		  "The glow is coming from a nearby computer panel.\n"
+		  "A look of horror spreads across your face as you realize what has happened:\n"
+		  "by killing the Demon-Spitter, you have activated some sort of locating device.\n"
+		  "\n"
+		  "Now an even bigger fleet of ships full of demons is on its way to Io.\n";
+	
+IN_TR3 =
+		  "The yearly supply ship from Mars is still weeks away from your position.\n"
+		  "\n"
+		  "Looks like you're the only one standing between the demons and Earth\n"
+		  "\n"
+		  "There's no way for you to make a stand at the now completely destroyed\n"
+		  "UAC base,so you head for a nearby thermal power station that\n"
+		  "taps into one of Io's many active volcanoes.\n"
+		  "\n"
+		  "Since it's several miles' walk, you need to travel light.\n"
+		  "\n"
+		  "Looks like you'll only be taking your pistol for protection,\n"
+		  "but hopefully you'll resupply on weapons before the demons arrive.\n";
+	
+IN_TR4 =
+		  "Hours later, you find yourself at the walls of the power station.\n"
+		  "Suddenly you hear rumbling from above,and a great explosion fills\n"
+		  "the sky as the moon Ganymede explodes into several pieces.\n"
+		  "\n"
+		  "Once the dust clears, you see a great skull where the moon used to be.\n"
+		  "A fleet of hell ships materialize from the skull.\n"
+		  "Most of the ships head on a course for Earth,\n"
+		  "but one heads directly for your position.\n"
+		  "So much for finding weapons before they arrive.\n"
+		  "\n"
+		  "It's up to you to make it to the Communications Center before\n"
+		  "the demons destroy the satellite array so that you can send a\n"
+		  "message to Earth warning humanity of its impending Doom.\n"
+		  "\n"
+		  "Good luck, marine.\n";
+
+IN_PT1 =
+         "After the failure of the Quantum Accelerator technology that brought\n"
+         "the Earth to a second onslaught from Hell's denizens, interplanetary court\n"
+         "cases showed the UAC's lack of ethics managing Gateway technology, so the\n"
+         "corporation was divested of asse,ts and many of its surviving officials\n"
+         "were sentenced to years of prison.\n"
+         "\n"
+         "The corporation's substantial assets\n"
+         "were assigned to the newly formed Union Aerospace Armed Forces,\n"
+         "a multi-planetary security force in charge of\n"
+         "keeping Hell from ever reaching our dimension again.\n";
+
+IN_PT2 =
+         "To pursue its commitment, the UAAF developed a series of Hallion\n"
+         "Colliders, devices that would supplant the ineffective Quantum\n"
+         "Accelerators, ensuring that all interstellar teleportation would from\n"
+         "then on remain isolated from any Gates of Hell. This project came under\n"
+         "close scrutiny of the press, which dubbed it \"Plutonia 2\" in reference\n"
+         "to the previous experiment.\n";
+
+IN_PT3 =
+         "For some time, things seemed well, but eventually the UAAF, by far the\n"
+         "greatest military force known to man, came under conflict with various\n"
+         "colonies which accused the institution of overstepping its bounds and\n"
+         "misusing its authority.\n"
+         "\n"
+         "This led to the recent state of interstellar\n"
+         "guerrilla warfare and political plotting that has destabilized the UAAF,\n"
+         "splitting it into various factions jockeying for power.\n";
+         
+IN_PT4 =
+         "Your Situation...\n"
+         "\n"
+         "\n"
+         "After your successful mission to destroy the Quantum Accelerators and\n"
+         "once again baffle the forces of Hell, you were accepted as one of the\n"
+         "architects of the UAAF, but were eventually forced to renounce your chair\n"
+         "in its committee after the use of excessive force was alleged in a dispute\n"
+         "within an ex-UAC colony you were supervising. It wasn't really your thing,\n"
+         "anyway. Too much paperwork.\n";
+
+IN_PT5 =
+         "The worsening situation, however, did concern\n"
+         "you, and you used your newly gained freedom from responsibility to play a\n"
+         "role in solving some of the disputes the increasing rivalries produced.\n"
+         "When things went out of control you proposed a plan, Operation Kick-ass,\n"
+         "to correct the situation, but it was blocked when your public image was\n"
+         "damaged by opponents, particularly with the much publicized study stating\n"
+         "that repeated use of the UAC Berserk, Medikit and Stimpack brands of\n"
+         "medical supplies could cause psychosis and paranoia in users who had\n"
+         "already been through severe trauma. This has left you ostracized from\n"
+         "the political arena, unable to intervene in a diplomatic way.\n";
+
+IN_PT6 =
+         "EVIL UNLEASHED!\n"
+         "\n"
+         "\n"
+         "With you out of the picture, the political climate became even more\n"
+         "turbulent. One day, news arrived that Hell's minions were back, invading\n"
+         "parts of the Earth! Allegations and accusations flew to and fro as groups\n"
+         "and factions blamed sabotage, espionage or the UAAF itself for unleashing\n"
+         "the terrors once more. The guerrilla warfare became all-out war of all\n"
+         "sorts; human against human, human against hellish monster, and even\n"
+         "monster against monster.\n";
+
+IN_PT7 =
+         "As everyone knows by now, you aren't one to sit by as all Hell breaks\n"
+         "loose. The world has forgotten you, but you know you'll regret what will\n"
+         "happen if you don't act now. You holster your trusty pistol, the only\n"
+         "weapon you've been allowed to keep, and head off to the teleporter that\n"
+         "will lead you to the Amazonian jungle, where you judge it will be easiest\n"
+         "to infiltrate enemy lines.\n";
+
+IN_PG1 =
+        "Four years have passed since Earth marine forces won the war against\n"
+		"the Hellian aggressors. You are a cadet marine who has been called upon to serve\n"
+		"in the UAC strike force while they continue running controlled gateway\n"
+		"experiments at their Earth headquarters.\n"
+		"Arriving at the main gate on your first day of service, you notice that\n"
+		"things don't seem to be running normally at the UAC headquarters.\n" 
+		"\n"
+		"You pull out your service handgun, and enter the main gate suspecting the worst.\n"
+		"\n"
+		"Little do you know, but you are about to embark on a journey to the\n"
+		"overseers' world, the dawn of a new battle on another plane of existence.\n"
+		"\n"
+		"Hopefully, you have what it takes to clean out the alien world,\n"
+		"and find the portal leading to the plane of hell itself, hopefully,\n"
+		"you can find and destroy PERDITIONS GATE.\n";
+
+IN_LE1 =
+		  "You're the lone occupant aboard a\n"
+		  "utilitarian deep space probe returning to Earth.\n"
+		  "\n"
+		  "Your six-month reconnaissance mission of the outer\n"
+		  "Solar System is over and you're finally headed back home.";
+
+IN_LE2 =
+		  "Lying motionless, seemingly lifeless,\n"
+		  "in the cryogenic glass and metal chamber,\n"
+		  "you resemble a techno-mummy in display.\n"
+		  "\n"
+		  "Only the readouts and blinking panel lights\n"
+		  "reveal there is indeed a heartbeat, though its rate\n"
+		  "crawls at a tenth of its normal resting state.\n"
+		  "\n"
+		  "When you put your head down in the comfy cushion of the\n"
+		  "cryogenic chamber and took a deep, prolonged breath,\n"
+		  "you knew two months would pass before you would\n"
+		  "open your eyes again, at which time you would be approaching\n"
+		  "the lunar space station.\n";
+	
+IN_LE3 =
+		  "\"Then I'm headed for the mountains,\"\n"
+		  "you told yourself, giving in to the\n"
+		  "overwhelming feeling of elation induced by the chambers' gases.\n"
+		  "\n"
+		  "But fate had other plans for you.\n";
+	
+IN_LE4 =
+		  "As your probe enters the large nether region between Mars and Jupiter,\n"
+		  "coming within a few thousand miles from the asteroid belt,\n"
+		  "the navigation system eases the ship into a complete stop.\n"
+		  "\n"
+		  "A chain reaction of commands and\n"
+		  "subroutines restores breathable air in the cabin.\n"
+		  "\n"
+		  "Meanwhile, the chemicals in the chamber self-adjust\n"
+		  "to normalize your metabolism.\n"
+		  "As consciousness returns and the\n"
+		  "clouds of deep sleep begin to dissipate, You see\n"
+		  "yourself headed for the mountains. But you're still dreaming.\n";
+
+IN_LE5 =
+		  "Any premature feeling of euphoria is swiftly squelched\n"
+		  "as the seal of the cryo-chamber breaks open.\n"
+		  "\n"
+		  "The high-pitched shrill you hear is an\n"
+		  "unmistakable distress code signal.\n"
+		  "\n"
+		  "With a last click on the keyboard, the course for Io is set.\n"
+		  "You don't know what evil awaits you, but you're sure\n"
+		  "the mountains of Earth will have to wait just a little bit longer.\n";
+   
 
 // Cast list
 CC_ZOMBIE = "ZOMBIEMAN";

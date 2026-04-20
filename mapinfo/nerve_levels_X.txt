@@ -16,7 +16,7 @@ map NV_MAP01 "$NHUSTR_1"
 {
 	Label = "DOOM II HELL ON EARTH, E4M1"
 	Next = "NV_MAP02"
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "NWILV00"
 	Par = 75
 	music = "$MUSIC_NERVE01"
@@ -27,7 +27,7 @@ map NV_MAP02 "$NHUSTR_2"
 {
 	Label = "DOOM II HELL ON EARTH, E4M2"
 	Next = "NV_MAP03"
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "NWILV01"
 	Par = 105
 	music = "$MUSIC_NERVE02"
@@ -38,7 +38,7 @@ map NV_MAP03 "$NHUSTR_3"
 {
 	Label = "DOOM II HELL ON EARTH, E4M3"
 	Next = "NV_MAP04"
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "NWILV02"
 	Par = 120
 	music = "$MUSIC_NERVE03"
@@ -50,7 +50,7 @@ map NV_MAP04 "$NHUSTR_4"
 	Label = "DOOM II HELL ON EARTH, E4M4"
 	Next = "NV_MAP05"
 	SecretNext = "NV_MAP09"
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "NWILV03"
 	Par = 105
 	music = "$MUSIC_NERVE04"
@@ -61,7 +61,7 @@ map NV_MAP05 "$NHUSTR_5"
 {
 	Label = "DOOM II HELL ON EARTH, E4M5"
 	Next = "NV_MAP06"
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 	TitlePatch = "NWILV04"
 	Par = 210
 	music = "$MUSIC_NERVE05"
@@ -72,7 +72,7 @@ map NV_MAP06 "$NHUSTR_6"
 {
 	Label = "DOOM II HELL ON EARTH, E4M6"
 	Next = "NV_MAP07"
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 	TitlePatch = "NWILV05"
 	Par = 105
 	music = "$MUSIC_NERVE06"
@@ -83,7 +83,7 @@ map NV_MAP07 "$NHUSTR_7"
 {
 	Label = "DOOM II HELL ON EARTH, E4M7"
 	Next = "NV_MAP08"
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 	TitlePatch = "NWILV06"
 	Par = 165
 	music = "$MUSIC_NERVE07"
@@ -93,9 +93,10 @@ map NV_MAP07 "$NHUSTR_7"
 
 map NV_MAP08 "$NHUSTR_8"
 {
-	next = EndSequence, "Nerve_Cast"
+	Next= "EndGameC"
+	//next = EndSequence, "Nerve_Cast"
 	Label = "DOOM II HELL ON EARTH, E4M8"
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 	TitlePatch = "NWILV07"
 	Par = 105
 	music = "$MUSIC_NERVE08"
@@ -108,7 +109,7 @@ map NV_MAP09 "$NHUSTR_9"
 {
 	Label = "DOOM II HELL ON EARTH, E4M9"
 	Next = "NV_MAP05"
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "NWILV08"
 	Par = 135
 	music = "$MUSIC_NERVE09"
@@ -121,7 +122,7 @@ Intermission Nerve_Cast
 	{
 		Background = "INTERNV"
 		Time = -1
-		music = "$MUSIC_NERVE09"
+		music = "D_TORTURE"
 	}
 	Link = Doom2Cast
 }

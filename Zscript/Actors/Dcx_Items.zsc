@@ -89,6 +89,36 @@ Class Berserk_Eternal : Berserk
 	}
 }
 
+Class Stimpack_rpg : Stimpack 
+{
+	States
+	{
+	Spawn:
+		STIM E -1;
+		Stop;
+	}
+}
+
+Class Medikit_rpg : Medikit 
+{
+	States
+	{
+	Spawn:
+		MEDI E -1;
+		Stop;
+	}
+}
+
+Class Berserk_rpg : Berserk 
+{
+	States
+	{
+	Spawn:
+		PSTR E -1 bright;
+		Stop;
+	}
+}
+
 Class MasterLevelsCompleted : Inventory
 {
 	Default
@@ -158,5 +188,22 @@ Class AlreadyCompletedLost : Inventory
 		+INVENTORY.QUIET
 		+INVENTORY.UNTOSSABLE
 		Inventory.MaxAmount 1;
+	}
+}
+
+
+class DCX_JAGHealthbonus : Healthbonus
+{
+	Default
+	{
+	   Inventory.Amount 2;
+	}
+}
+
+class DCX_JAGArmorbonus : Armorbonus
+{
+	Default
+	{
+	   Armor.Saveamount 2;
 	}
 }

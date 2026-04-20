@@ -172,7 +172,7 @@ map JA_MAP13 "$HUSTR_E2M5"
 	Label = "JAGUAR DOOM, MAP13"
 }
 
-map JA_MAP14 "$HUSTR_E2M5b" //Extramap.wad
+map JA_MAP14 "$HUSTR_PSX01" //Extramap.wad
 {
 	LevelNum = 14
 	Next = "JA_MAP15"

@@ -12,7 +12,6 @@ map E1M10 "$HUSTR_E1M10"
 {
 	LevelNum = 10
 	Next = "E1M2"
-	Cluster = 1
 	Sky1 = "SKY3"
 	TitlePatch = "WILV39"
 	Par = 150
@@ -22,17 +21,18 @@ map E1M10 "$HUSTR_E1M10"
 	BorderTexture = "FLOOR7_2"
 	Author = "$WF_AU_CALVIN_BLANSHINE"
 	Label = "THE ULTIMATE DOOM, E1M10"
+	F1 = "D1CRED"
 }
 
 map MAP33 "$HUSTR_33"
 {
 	Next = "MAP03"
-	Cluster = 5
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	TitlePatch = "CWILV32"
 	Par = 120
 	Music = "D_BETREY"
 	Author = "$WF_AU_BUKOWSKI"
 	Exitpic = "$in_d2e1"
 	Label = "DOOM II HELL ON EARTH, E1M12"
+	F1 = "CREDIT"
 }

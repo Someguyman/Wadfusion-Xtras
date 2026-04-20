@@ -26,7 +26,7 @@ include mapinfo/Bonus_Misc_Maps_X.txt
 gameinfo 
 {
 	PlayerClasses = "DCX_Player"
-	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler", "DCX_StaticHandler" //, "DCX_NightmareMonsterHandler"
+	AddEventHandlers = "DCX_EventHandler", "DCX_BloodHandler", "DCX_PerMapReplacementHandler", "DCX_MusicHandler", "DCX_StaticHandler", "DCX_UOEventHandler" //X_NightmareMonsterHandler"
     infopage = "CREDIT"
     drawreadthis = true
     StatusBarClass = "DCX_Statusbar"
@@ -52,3 +52,110 @@ DoomEdNums
 	712 = DCX_TurkeySpawner
 	7734 = DCX_DM_MarineBotSpawner
 }
+
+/*
+
+ClearSkills
+
+skill baby
+{
+	ACSReturn = "1"
+	AutoUseHealth
+	AmmoFactor = 2
+	DamageFactor = 0.5
+	EasyBossBrain
+	SpawnFilter = Baby
+	PicName = "M_JKILL"
+	Name = "$SKILL_BABY"
+	Key = "i"
+}
+
+skill easy
+{
+	ACSReturn = "2"
+	EasyBossBrain
+	SpawnFilter = Easy
+	PicName = "M_ROUGH"
+	Name = "$SKILL_EASY"
+	Key = "h"
+}
+
+skill normal
+{
+	ACSReturn = "3"
+	SpawnFilter = Normal
+	PicName = "M_HURT"
+	Key = "h"
+	Name = "$SKILL_NORMAL"
+	DefaultSkill
+}
+
+skill hard
+{
+	ACSReturn = "4"
+	SpawnFilter = Hard
+	PicName = "M_ULTRA"
+	Name = "$SKILL_HARD"
+	Key = "u"
+}
+
+skill Superhard
+{
+	ACSReturn = "5"
+	SpawnFilter = Hard
+	PicName = "M_ULTRP"
+	Name = "Total Carnage"
+	MustConfirm = ", press y to continue"
+	SpawnMulti
+	MustConfirm = "Stronger foes appear sooner to tear you to shreds, press y to begin the slaughter"
+	Key = "+"
+	//DefaultSkill
+}
+
+skill Massacre
+{
+	ACSReturn = "4"
+	SpawnFilter = Hard
+	PicName = "M_UHOLY"
+	AmmoFactor = 0.5
+	DamageFactor = 2
+	HealthFactor = 0.6
+	//FastMonsters
+	Name = "Unholy Massacre!"
+	MustConfirm = "Little to no ammo and the monsters will make you their bitch, press y to continue"
+	Key = "m"
+}
+
+skill nightmare
+{
+	ACSReturn = "4"
+	AmmoFactor = 2
+	FastMonsters
+	InstantReaction
+	DisableCheats
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_NMARE"
+	Name = "$SKILL_NIGHTMARE"
+	MustConfirm
+	Key = "n"
+}
+
+skill UltraNightmare
+{
+	ACSReturn = "5"
+	SpawnMulti
+	FastMonsters
+	InstantReaction
+	DisableCheats
+	DamageFactor = 2
+	HealthFactor = 0.6
+	RespawnTime = 12
+	SpawnFilter = Nightmare
+	PicName = "M_ULTNM"
+	Name = "ULTRA NIGHTMARE"
+	MustConfirm = "You Will Suffer, Press N"
+	Key = "n"
+}
+
+*/

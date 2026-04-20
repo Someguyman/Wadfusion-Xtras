@@ -73,23 +73,47 @@ Intermission Inter_Bunny_Fusion_FullRun_Off
 		ScrollDirection = left
 		Time = 51
 	}
+	
 	Image
 	{
-		Draw = "M_CNT3", 52, 5
-		Time = -73
+		Draw = "END0", 108, 68
+		Time = -20
 	}
-	Wiper { WipeType = Crossfade }
 	Image
 	{
-		Draw = "M_CNT3", 52, 5
-		Background = "E4INTINT"
-		Time = -73
+		Draw = "END1", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
 	}
-	Wiper {} 
 	Image
 	{
-		Background = "D1CRED"
-		Time = -85
+		Draw = "END2", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END3", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END4", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END5", 108, 68
+		Time = -5
+		Sound = "weapons/chngun"
+	}
+	Image
+	{
+		Draw = "END6", 108, 68
+		Time = -185
+		Sound = "weapons/chngun"
 	}
 	Wiper {} 
 	Image
@@ -124,6 +148,129 @@ intermission Doom1_Intro
 	{
 		Text = "$D1INTRO4"
 	}
+	/*
+	
+	TextScreen
+	{
+		Text = "$D1INTRO5"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO6"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO7"
+	}
+	
+	*/
+}
+
+intermission Doom2_Intro
+{
+	TextScreen
+	{
+		Text = "$D2INTRO1"
+		Background = "$GRNROCK", 1
+		Music = "$MUSIC_READ_M"
+	}
+	
+	TextScreen
+	{
+		Text = "$D2INTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$D2INTRO3"
+	}
+	
+	TextScreen
+	{
+		Text = "$D2INTRO4"
+	}
+	
+	TextScreen
+	{
+		Text = "$D2INTRO5"
+	}
+	
+	/*
+	
+	TextScreen
+	{
+		Text = "$D1INTRO5"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO6"
+	}
+	
+	TextScreen
+	{
+		Text = "$D1INTRO7"
+	}
+	
+	*/
+}
+
+intermission Nerve_Intro
+{
+	TextScreen
+	{
+		Text = "$NVINTRO"
+		Background = "$GRNROCK", 1
+		Music = "D_NRFTLX"
+	}
+}
+
+intermission Tnt_Intro
+{
+	TextScreen
+	{
+		Text = "$TNINTRO1"
+		Background = "$GRNROCK", 1
+		Music = "T_READ_M"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO3"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO4"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO5"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO6"
+	}
+	
+	TextScreen
+	{
+		Text = "$TNINTRO7"
+	}
+	/*
+	TextScreen
+	{
+		Text = "$TNINTRO8"
+	}
+	*/
 }
 
 Intermission Doom1Cast
@@ -205,7 +352,7 @@ Intermission Doom1Cast
 	{
 		Draw = "M_CAST", 39, 5
 		CastClass = "DoomPlayer"
-		CastName = "The Marine"
+		CastName = "$CC_HERO"
 		AttackSound = "Missile", 0, "weapons/shotgf"
 	}
 
@@ -238,13 +385,13 @@ Intermission Doom1_Ep4_Fusion_FullRun_Off
 	Wiper {}
 	Scroller 
 	{
-		InitialDelay = 9
+		InitialDelay = 8
 		ScrollTime = -280
 		Background2 = "E4SIGILT"
 		Background = "ENDNOT"
 		ScrollDirection = down
 		Music = "D_BUNN2"
-		Time = 52
+		Time = 51
 	}
 	Image
 	{
@@ -260,13 +407,7 @@ Intermission Doom1_Ep4_Fusion_FullRun_Off
 	{
 		Draw = "M_CONT", 39, 5
 		Background = "TITLES1"
-		Time = -100
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "UDCRED"
-		Time = -85
+		Time = -185
 	}
 	Wiper {} 
 	Image
@@ -284,6 +425,7 @@ Intermission Doom1_Ep5_Fusion_FullRun_Off
 	{
 		Text = "$E5TEXT"
 		Background = "SIGILINT"
+		//Music = "$MUSIC_VICTOR"
 		Music = "D_E5M6"
 	}
 	Wiper {}
@@ -309,19 +451,13 @@ Intermission Doom1_Ep5_Fusion_FullRun_Off
 	Image
 	{
 		Draw = "M_CNC2", 39, 5
+		Background = "S62TITLE"
+		Time = -185
+	}
+	Wiper {} 
+	Image
+	{
 		Background = "TITLES2"
-		Time = -100
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "SCREDIT"
-		Time = -85
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "SIGILEND"
 		Time = -1
 		music = "D_E5M7"
 	}
@@ -342,7 +478,7 @@ Intermission Doom1_Ep6_Fusion_FullRun_Off
 		InitialDelay = 3
 		ScrollTime = -280
 		Background2 = "E6ENDING"
-		Background = "SIGILEN2"
+        Background = "SIGILIN2"
 		ScrollDirection = up
 		music = "D_E6M9"
 		Time = 27
@@ -386,19 +522,13 @@ Intermission Doom1_Ep6_Fusion_FullRun_Off
 	Image
 	{
 		Draw = "END6", 108, 68
-		Time = -100
+		Time = -200
 		Sound = "weapons/chngun"
 	}
 	Wiper {} 
 	Image
 	{
-		Background = "S2CREDIT"
-		Time = -85
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "SIGILIN2"
+		Background = "TITLES2"
 		Time = -1
 		music = "D_E6M3"
 	}
@@ -698,7 +828,7 @@ Intermission D64Inter_Cast
 		Time = -1
 		music = "$MUSIC_D64END"
 	}
-	Link = Doom64Doom2Cast
+	Link = D64Cast
 }
 
 Intermission Absolution_Intro
@@ -721,58 +851,119 @@ Intermission Absolution_Intro
 	}
 }
 
-Intermission Doom64Doom2Cast
+Intermission LostEpisode_Intro
 {
-	Cast
+	TextScreen
 	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "Zombieman"
-		CastName = "$CC_ZOMBIE"
-		AttackSound = "Missile", 1, "grunt/attack"
+		Text = "$IN_LE1"
+		Background = "$bgflat06", 1
+		music = "LE_VICTOR"
 	}
-	Cast
+	
+	TextScreen
 	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "ShotgunGuy"
-		CastName = "$CC_SHOTGUN"
-		AttackSound = "Missile", 1, "shotguy/attack"
+		Text = "$IN_LE2"
 	}
-	Cast
+	
+	TextScreen
 	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "ChaingunGuy"
-		CastName = "$CC_HEAVY"
-		AttackSound = "Missile", 1, "chainguy/attack"
-		AttackSound = "Missile", 2, "chainguy/attack"
-		AttackSound = "Missile", 3, "chainguy/attack"
+		Text = "$IN_LE3"
 	}
-	Cast
+	
+	TextScreen
 	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DoomImp"
-		CastName = "$CC_IMP"
-		AttackSound = "Missile", 2, "imp/attack"
+		Text = "$IN_LE4"
 	}
+	
+	TextScreen
+	{
+		Text = "$IN_LE5"
+	}
+}
+
+Intermission TNTR_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_TR1"
+		Background = "INTERPIC"
+		music = "$MUSIC_TNRTEXT"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR4"
+	}
+}
+
+Intermission PT2_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_PT1"
+		Background = "INTERPI3"
+		music = "$MUSIC_PL2TEXT"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT4"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT5"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT6"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT7"
+	}	
+}
+
+Intermission PG_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_PG1"
+		Background = "$bgflat11", 1
+		music = "$MUSIC_PERTEXT"
+	}	
+}
+
+Intermission D64Cast
+{
 	Cast
 	{
 		Draw = "M_CAST", 39, 5
 		CastClass = "DCX_NightmareImp"
 		CastName = "$CC_NIMP"
 		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "Demon"
-		CastName = "$CC_DEMON"
-		AttackSound = "Melee", 1, "demon/melee"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "Spectre"
-		CastName = "$CC_Spectre"
-		AttackSound = "Melee", 1, "demon/melee"
 	}
 	Cast
 	{
@@ -791,30 +982,9 @@ Intermission Doom64Doom2Cast
 	Cast
 	{
 		Draw = "M_CAST", 39, 5
-		CastClass = "Cacodemon"
-		CastName = "$CC_CACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
 		CastClass = "DCX_NightmareCacodemon"
 		CastName = "$CC_NCACO"
 		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "HellKnight"
-		CastName = "$CC_HELL"
-		AttackSound = "Missile", 1, "baron/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "BaronOfHell"
-		CastName = "$CC_BARON"
-		AttackSound = "Missile", 1, "baron/attack"
 	}
 	Cast
 	{
@@ -842,35 +1012,99 @@ Intermission Doom64Doom2Cast
 	Cast
 	{
 		Draw = "M_CAST", 39, 5
-		CastClass = "Fatso"
-		CastName = "$CC_MANCU"
-		AttackSound = "Missile", 1, "fatso/attack"
-		AttackSound = "Missile", 4, "fatso/attack"
-		AttackSound = "Missile", 7, "fatso/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "Archvile"
-		CastName = "$CC_ARCH"
-		AttackSound = "Missile", 1, "vile/start"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "SpiderMastermind"
-		CastName = "$CC_SPIDER"
-		AttackSound = "Missile", 1, "spider/attack"
-		AttackSound = "Missile", 2, "spider/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "Cyberdemon"
-		CastName = "$CC_CYBER"
+		CastClass = "DCX_DualCyberdemon"
+		CastName = "Super Cyberdemon"
 		AttackSound = "Missile", 1, "weapons/rocklf"
 		AttackSound = "Missile", 3, "weapons/rocklf"
 		AttackSound = "Missile", 5, "weapons/rocklf"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_Motherdemon"
+		CastName = "$CC_MOTHER"
+		AttackSound = "Missile", 1, "fatso/attack"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DoomPlayer"
+		CastName = "$CC_HERO"
+		AttackSound = "Missile", 1, "weapons/sshotf"
+	}
+}
+
+intermission Id1_End_Fusion_FullRun_NoCast
+{
+	Image
+	{
+		Background = "BOSSLR"
+		Music = "D_DEJAVU"
+	}
+	Wiper {}
+	Image
+	{
+		Background = "CREDITLR"
+	}
+}
+Intermission D64Cast_Fusion_FullRun
+{
+	Image
+	{
+		Background = "D64bossb"
+		Time = -1
+		music = "$MUSIC_D64END"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_NightmareImp"
+		CastName = "$CC_NIMP"
+		AttackSound = "Missile", 2, "imp/attack"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_NightmareSpectre"
+		CastName = "Nightmare Spectre"
+		AttackSound = "Melee", 1, "demon2/melee"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_ForgottenSoul"
+		CastName = "$CC_LOST"
+		AttackSound = "Missile", 1, "skull/melee2"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_NightmareCacodemon"
+		CastName = "$CC_NCACO"
+		AttackSound = "Missile", 1, "caco/attack"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_DualArachnotron"
+		CastName = "$CC_ARACH"
+		AttackSound = "Missile", 1, "baby/attack2"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_DualPainElemental"
+		CastName = "$CC_PAIN"
+		AttackSound = "Missile", 2, "skull/melee2"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DCX_DarkRevenant"
+		CastName = "$CC_REVEN"
+		AttackSound = "Missile", 1, "skeleton/attack"
+		AttackSound = "Melee", 1, "skeleton/swing"
+		AttackSound = "Melee", 3, "skeleton/melee"
 	}
 	Cast
 	{
@@ -895,5 +1129,5 @@ Intermission Doom64Doom2Cast
 		CastName = "$CC_HERO"
 		AttackSound = "Missile", 1, "weapons/sshotf"
 	}
-	Link = Doom64Doom2Cast
+	Link = D64Cast
 }

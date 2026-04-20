@@ -6,7 +6,14 @@ Pointer wiurh0 wiurh1
 Spots
 {
 	MAP31 150 94
+	CO_MAP31 150 94
+	CH_MAP31 150 94
+	CS_MAP31 150 94
 	MAP32 35 70
+	CO_MAP32 35 70
+	CH_MAP32 35 70
+	CS_MAP32 35 70
+
 }
 Animation -53 0 11
 {

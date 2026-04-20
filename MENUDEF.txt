@@ -1,3 +1,11 @@
+OptionValue MOCOnOffToggle
+{
+	0.0, "Off"
+	1.0, "Standard"
+	2.0, "Hardcore"
+	3.0, "Overkill"
+}
+
 
 OptionValue SSGtweaks
 {
@@ -20,6 +28,7 @@ OptionValue HealthCrossTweaks
 	1.0, "BFG edition (\cgPill\c-)"
 	2.0, "Unity Port (Green Cross \cd+\c-)"
 	3.0, "Doom Eternal (White Inverted Cross \cg|\cj+\cg|\c-)"
+	4.0, "DOOM RPG (Yellow Cross \c[Yellow]+\c-)"
 }
 
 OptionValue PsxMaps
@@ -27,6 +36,13 @@ OptionValue PsxMaps
 	0.0, "Off"
 	1.0, "Originals"
 	2.0, "Remakes"
+}
+
+OptionValue JagBonuses
+{
+	0.0, "\c[Grey]Default"
+	1.0, "\c[Red]1 (PC-Like)"
+	2.0, "\c[Blue]2 (Console-Like)"
 }
 
 OptionValue HUDtweaks
@@ -38,7 +54,9 @@ OptionValue HUDtweaks
 	4.0, "\c[GOLD]BETA 93 hud"
 	5.0, "\c[Yellow]Final DOOM hud"
 	6.0, "\c[PURPLE]Doom 64 For Doom 2 hud"
-	7.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
+	7.0, "\c[RED]TNT: Revilution"
+	8.0, "\c[GREEN]Kick Attack"
+	9.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
 }
 
 OptionValue D64HudTweaks
@@ -86,6 +104,11 @@ OptionValue StockMidis
 	1.0, "\c[GOLD]Unique Midis"
 }
 
+OptionValue WolfGun
+{
+	0.0, "\c[DARK GREY]Off"
+	1.0, "\c[GOLD]On"
+}
 
 AddOptionMenu "OptionsMenu"
 {
@@ -154,8 +177,19 @@ OptionMenu "DCXGameplayOptions"
 	StaticText "When enabled, you will be able to acess the maps from the playstation version", "dark red"
 	StaticText "The remakes option lets you play those maps in the style of the PC ones", "dark red"
 	StaticText " "
+	Option "Maps of Chaos Toggle", "DCX_MOC_toggle", "MOCOnOffToggle"
+	StaticText "When enabled, Replaces original doom episodes and doom II with the maps of chaos versions", "dark red"
+	StaticText " "
 	Option "$OPTIONS_W3D", "W3D_Text_toggle", "Wolf3DTextureTweaks"
 	StaticText "Alters the Wolfenstein 3D textures, enenmies, and music found in Doom 2's secret maps.", "dark red"
+	StaticText " "
+	Option "Health & Armour Bonuses:", "dcx_jagbonuses", "JagBonuses", "dcx_CustomMonsters", 0
+	StaticText "Changes the amount of Health & Armor Bonuses the player recieves.", "dark red"
+	StaticText "Default will only apply double amounts to the Jaguar Maps.", "dark red"
+	StaticText "Off if Disable Custom Monsters is set to true.", "dark red"
+	Option "Machine Gun in secret maps:", "otg_wolfrifle", "wolfgun", "dcx_CustomMonsters", 0
+	StaticText "Replaces chainguns in MAP31 and MAP32 of DOOM II with the machine gun from Wolfenstein 3D.", "dark red"
+	StaticText "Off if Disable Custom Monsters is set to true.", "dark red"
 	StaticText " "
 	Option "Cabal Level Order", "dcx_CabalOrder", "DCX_CabalLevelOrder"
 	StaticText "Configures the level order of the cabal series of maps.", "dark red"

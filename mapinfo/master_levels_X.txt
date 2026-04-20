@@ -42,17 +42,18 @@ map ML_MAP01 "$ML_ATTACK"
 
 map ML_MAP02 "$ML_CANYON"
 {
-	Next = "ML_MAP44"
+	Next = "ML_MAP28"
 	TitlePatch = "MWILV01"
 	Music = "$MUSIC_CANYON"
 }
 
-map ML_MAP44 "$ML_KICK" //KICK ATTACK
+map KA_MAP "$ML_KICK" //KICK ATTACK
 {
-	Next = "ML_MAP45"
+	Next = EndSequence, "JAGUAR DOOM,_Cast"
 	TitlePatch = "KWILV00"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
+	F1 = "KACRED"
 }
 
 // Tom Mustaines's Master Levels
@@ -60,7 +61,7 @@ map ML_MAP44 "$ML_KICK" //KICK ATTACK
 adddefaultmap
 {
 	Author = "$WF_AU_MUSTAINE"
-	Sky1 = "DSKY1"
+	Sky1 = "SKY1"
 	Label = "Master Levels, Tom Mustaine"
 }
 

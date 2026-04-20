@@ -13,8 +13,7 @@ defaultmap
 
 adddefaultmap
 {
-	Cluster = 5
-	Sky1 = "RSKY1"
+	Sky1 = "SKY1"
 	Exitpic = "$in_d2e1"
 }
 
@@ -145,7 +144,7 @@ map MAP11 "$HUSTR_11"
 adddefaultmap
 {
 	Cluster = 7
-	Sky1 = "RSKY2"
+	Sky1 = "SKY2"
 	Exitpic = "$in_d2e2"
 	//Enterpic = "$in_d2e2"
 }
@@ -250,7 +249,7 @@ map MAP20 "$HUSTR_20"
 adddefaultmap
 {
 	Cluster = 8
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 	//Enterpic = "$in_d2e3"
 	Exitpic = "$in_d2e3"
 }
@@ -349,7 +348,7 @@ map MAP30 "$HUSTR_30"
 {
 	Label = "DOOM II HELL ON EARTH, E3M10"
 	//Next = "EndGameC"
-	Next = EndSequence, "DoomIIEnd"
+	Next = "EndGameC"
 	TitlePatch = "CWILV29"
 	Par = 180
 	Music = "$MUSIC_OPENIN"
@@ -361,7 +360,7 @@ map MAP30 "$HUSTR_30"
 
 adddefaultmap
 {
-	Sky1 = "RSKY3"
+	Sky1 = "SKY3"
 }
 
 // Secret maps

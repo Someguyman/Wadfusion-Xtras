@@ -19,7 +19,7 @@ class DCX_EventHandler : EventHandler
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("E4VICTOR");
-		DOOMTittle =   	TexMan.CheckForTexture("E3ENDINT");
+		DOOMTittle =   	TexMan.CheckForTexture("TITLED1"); // why the double t AAAAAAAAAAA
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
 		SIGIL2Tittle =  TexMan.CheckForTexture("S62TITLE");
@@ -52,12 +52,6 @@ class DCX_EventHandler : EventHandler
 			if ( mapName == "inter_mlcs" )
 			{
 					Screen.DrawTexture(CabalTitle, false, 0, 0, DTA_FullScreen, 1);
-					Level.SetFrozen(true);
-			}
-			
-			if ( mapName == "e3m1" && CVar.GetCvar("dcx_playstationmaps").getint() >= 1 )
-			{
-					Screen.DrawTexture(DOOMTittle, false, 0, 0, DTA_FullScreen, 1);
 					Level.SetFrozen(true);
 			}
 		}
@@ -153,8 +147,8 @@ class DCX_EventHandler : EventHandler
 			Level.ReplaceTextures("SILVER3",   "SILVER32",0);
 		}
 		
-		//if ( mapName.left(2) ~== "E3" )
-		//Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
+		if ( mapName.left(2) ~== "E3" )
+		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
 		
 		//TNT Textures
 		if ( mapPrefix == "tn_" || mapPrefix == "fd_" || mapName.left(6) == "fd_dmm")
@@ -214,7 +208,7 @@ class DCX_EventHandler : EventHandler
 		if ( mapName == "map32" )
 		Level.ReplaceTextures("MIDGRATE", "ZZWOLF15A", 0);
 		
-		if ( mapName == "ml_map44" )
+		if ( mapName == "ka_map" )
 		{
 			Level.ReplaceTextures("BRONZE1", "KABRON1", 0);
 			Level.ReplaceTextures("BROWN1", "KABWN1", 0);
@@ -372,7 +366,7 @@ class DCX_EventHandler : EventHandler
 		String mapPrefix = level.MapName.Left(3);
 		String mapName = level.MapName.MakeLower();
 		mapPrefix = mapPrefix.MakeLower();
-		if ( SkyName == "DSKY3" || MapName == "ja_map17" )
+		if ( SkyName == "DSKY3" || MapName == "ja_map17" || mapName == "e2m8" )
 		{
 			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
@@ -392,7 +386,7 @@ class DCX_EventHandler : EventHandler
 		if ( mapName == "tn_map32" )
 		Level.ChangeSky(TexMan.CheckForTexture("TSKYS",TexMan.Type_Any),TexMan.CheckForTexture("TSKYS",TexMan.Type_Any));
 		
-		if ( mapName.left(2) ~== "E1" || mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
+		if ( mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
 		{
 			Level.ReplaceTextures("DSKY1", "USKY1", 0);
 			Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
@@ -400,12 +394,9 @@ class DCX_EventHandler : EventHandler
 		
 		if ( SkyName == "DSKY2" )
 		{
-			if (   mapName.left(2) ~== "E2" 
-				|| mapName.left(5) == "cs_e2" 
+			if (   mapName.left(5) == "cs_e2" 
 				|| mapName.left(5) == "ch_e2" 
-				|| mapName.left(5) == "co_e2" 
-				|| mapName == "psx01" 
-				|| mapName == "psx01b" )
+				|| mapName.left(5) == "co_e2" )
 			{
 				Level.ReplaceTextures("DSKY2", "USKY2", 0);
 				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
@@ -435,7 +426,7 @@ class DCX_EventHandler : EventHandler
 	void BlankMapTransitions()
 	{
 		string mapName = Level.MapName.MakeLower();
-		if ( mapName.left(6) == "inter_" || mapName == "e4ending" )
+		if ( mapName.left(6) == "wf_newgame_" || mapName == "e4ending")
 		{
 				Level.StartSlideShow("BlankMapTransitions");
 		}
@@ -447,14 +438,6 @@ class DCX_EventHandler : EventHandler
 		
 		String mapName = level.MapName.MakeLower();
 		
-		if ( mapName == "e3m1" ) // Thanks domyoji81!
-        {
-          if (CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
-               Level.ChangeLevel("psx02b",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
-		  if (CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
-               Level.ChangeLevel("psx02",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
-        } 
-		
 		if ( mapName == "e2m7" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
@@ -463,20 +446,13 @@ class DCX_EventHandler : EventHandler
 				level.NextSecretMap =  "PSX01";
 		}
 		
-		//
-		//if ( level.NextMap == "e3m1" )
-		/*
-		if ( mapName == "wf_newgame_e3m1" )
-		{
-			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
-			{	level.NextMap = "PSX02B";	}
-			else if ( CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
-			{	level.NextMap = "PSX02";	}
-			else
-			{	level.NextMap = "e3m1";		}
-		}
-		*/
-		
+		if ( mapName == "e3m1" ) // Thanks domyoji81!
+        {
+          if (CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+               Level.ChangeLevel("psx02b",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		  if (CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+               Level.ChangeLevel("psx02",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+        } 
 		if ( mapName == "e3m6" )
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
@@ -615,7 +591,25 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Wolfensteinss')
 			e.Replacement = 'Zombieman';
 		}
-		
+
+	    If ( CVar.FindCVar("dcx_CustomMonsters").GetBool() &&  Cvar.findcvar("DCX_JAGBonuses").getint() == 2)
+		{
+			if (e.Replacee == 'HealthBonus')
+			e.Replacement = 'DCX_JAGHealthbonus';
+			
+			if (e.Replacee == 'ArmorBonus')
+			e.Replacement = 'DCX_JAGArmorbonus';
+		}
+
+		else If ( Cvar.findcvar("DCX_JAGBonuses").getint() == 1 )
+		{
+			if (e.Replacee == 'DCX_JAGHealthbonus')
+			e.Replacement = 'Healthbonus';
+			
+			if (e.Replacee == 'DCX_JAGArmorbonus')
+			e.Replacement = 'Armorbonus';
+		}
+
 		If ( Cvar.findcvar("Health_Cross_Toggle").getint() == 1)
 		{
 			if (e.Replacee == 'Stimpack')
@@ -649,8 +643,19 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_eternal';
 		}
+		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 4)
+		{
+			if (e.Replacee == 'Stimpack')
+			e.Replacement = 'Stimpack_rpg';
+			
+			if (e.Replacee == 'Medikit')
+			e.Replacement = 'Medikit_rpg';
+			
+			if (e.Replacee == 'Berserk')
+			e.Replacement = 'Berserk_rpg';
+		}
 		
-		if ( mapName == "ml_map44")
+		if ( mapName == "ka_map")
 		{
 			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{
@@ -697,6 +702,27 @@ class DCX_PerMapReplacementHandler : EventHandler
 			
 			}
 		}
+
+		if ( mapName == "map31" || mapName == "map32")
+		{
+			if ( CVar.findcvar("otg_wolfrifle").getint() == 1 && CVar.GetCVar("dcx_CustomMonsters").GetBool() )			{
+			//Machine Gun Woohooo!
+			if (e.Replacee == 'Chaingun')
+			{
+				e.Replacement = 'Keyboard_Machinegun';
+			}
+			
+			}
+		}
+
+		if ( mapPrefix == "ja_" && Cvar.findcvar("DCX_JAGBonuses").getint() == 0 && CVar.FindCVar("dcx_CustomMonsters").GetBool() )
+		{
+			if (e.Replacee == 'HealthBonus')
+			e.Replacement = 'DCX_JAGHealthbonus';
+			
+			if (e.Replacee == 'ArmorBonus')
+			e.Replacement = 'DCX_JAGArmorbonus';	
+			}
 		
 		if ( mapPrefix == "ab_" )
 		{

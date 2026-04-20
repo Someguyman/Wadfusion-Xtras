@@ -2,7 +2,7 @@
 
 defaultmap
 {
-	Sky1 = "DSKY1"
+	Sky1 = "SKY1"
 	SuckTime = 1
 	ExitPic = "$IN_EPI1"
 	InterMusic = "$MUSIC_INTER"
@@ -25,14 +25,15 @@ map E1M4b "$HUSTR_E1M4B"
 
 map E1M8b "$HUSTR_E1M8B"
 {
-	Cluster = 31
 	//Next = endpic, "UDCRED"
-	Next = "E2M1"
-	TitlePatch = "WILV07B"
-	nointermission
-	nosoundclipping
-	baronspecial
-	specialaction_lowerfloor
+	Next = EndSequence, "Doom1_Ep1_Fusion"
+	Cluster = 31
+	TitlePatch = "WILV07B", 1
+	NoIntermission
+	E1M8Special
+	BaronSpecial
+	SpecialAction_LowerFloor
+	NoSoundClipping
 	Music = "$MUSIC_E1M8B"
 	Label = "THE ULTIMATE DOOM, E1M8"
 }
