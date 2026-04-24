@@ -72,9 +72,15 @@ intermission Doom1_Ep2_Fusion_FullRun_Off
 
 intermission Inter_Pic2_Fusion_FullRun
 {
-	Image
+	Scroller 
 	{
-		Background = "@2"
+		Music = "$MUSIC_VICTOR"
+		Background2 = "D1E2END2"
+		Background = "D1E2END1"
+		InitialDelay = 6
+		ScrollDirection = down
+		ScrollTime = -280
+		Time = 25
 	}
 }
 

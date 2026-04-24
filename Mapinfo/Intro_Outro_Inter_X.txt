@@ -4,9 +4,6 @@
 
 Defaultmap
 {
-	//ResetHealth 
-	//ResetItems
-	//ResetInventory
 	NoIntermission
 	compat_invisibility = "1"
 }
@@ -51,14 +48,15 @@ map e2ending ""
 
 Intermission Episode2end
 {
-	Wiper
-	{
-		WipeType = Crossfade
-	}
-	Image
+	Scroller 
 	{
 		Music = "$MUSIC_VICTOR"
-		Background = "VICTORY2"
+		Background2 = "D1E2END2"
+		Background = "D1E2END1"
+		InitialDelay = 2
+		ScrollDirection = down
+		ScrollTime = -280
+		Time = 31
 	}
 }
 
