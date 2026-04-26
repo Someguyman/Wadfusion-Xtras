@@ -19,7 +19,7 @@ defaultmap
 	ResetInventory
 	InterMusic = "D_INTRM3"
 	ExitPic = "MLINTERP"
-	Cluster = 24
+	//Cluster = 24
 	compat_invisibility = "1"
 	F1 = "MTLCRE" 
 }
@@ -49,10 +49,11 @@ map ML_MAP02 "$ML_CANYON"
 
 map KA_MAP "$ML_KICK" //KICK ATTACK
 {
-	Next = EndSequence, "JAGUAR DOOM,_Cast"
+	Next = EndSequence, "Jaguarcast"
 	TitlePatch = "KWILV00"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
+	Label = "Kick Attack!"
 	F1 = "KACRED"
 }
 
