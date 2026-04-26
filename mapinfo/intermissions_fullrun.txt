@@ -86,11 +86,27 @@ intermission Inter_Pic2_Fusion_FullRun
 
 intermission Inter_Pic2_Fusion_FullRun_Off
 {
+	Scroller 
+	{
+		Music = "$MUSIC_VICTOR"
+		Background2 = "D1E2END2"
+		Background = "D1E2END1"
+		InitialDelay = 6
+		ScrollDirection = down
+		ScrollTime = -280
+		Time = 25
+	}
+	Wiper {}
+	Link = Credit_Pic2_Fusion_FullRun_Off
+}
+
+intermission Credit_Pic2_Fusion_FullRun_Off
+{
 	Image
 	{
-		Background = "@2"
+		Background = "Creditd1"
 	}
-	Link = Inter_Pic2_Fusion_FullRun_Off
+	Link = Credit_Pic2_Fusion_FullRun_Off
 }
 
 // Doom Episode 3
@@ -112,17 +128,41 @@ intermission Inter_Bunny_Fusion_FullRun
 
 intermission Inter_Bunny_Fusion_FullRun_Off
 {
-	Scroller
+	Scroller 
 	{
-		ScrollDirection = Left
-		Background = "PFUB1"
-		Background2 = "PFUB2"
 		Music = "$MUSIC_BUNNY"
-		InitialDelay = -230
-		Scrolltime = -640
-		Time = -1130
+		Background2 = "PFUB2"
+		Background = "PFUB1"
+		InitialDelay = 7
+		ScrollDirection = left
+		Time = 51
 	}
-	Link = TheEnd_Fusion_FullRun_Off
+	Image
+	{
+		Draw = "M_CNT3", 52, 5
+		Time = -73
+	}
+	Wiper { WipeType = Crossfade }
+	Image
+	{
+		Draw = "M_CNT3", 52, 5
+		Background = "E4INTINT"
+		Time = -73
+	}
+	Wiper {} 
+	Image
+	{
+		Background = "CREDIT"
+		Time = -85
+	}
+	Wiper {} 
+	Image
+	{
+		Background = "E3BOSSBK"
+		Time = -1
+		Music = "$MUSIC_E1M7"
+	}
+	Link = Doom1Cast
 }
 
 intermission TheEnd_Fusion_FullRun
@@ -233,13 +273,48 @@ intermission TheEnd_Fusion_FullRun_OffB
 
 // Doom Episode 4
 
+///*
+map e4ending "The End"
+{
+	//Cluster = 0
+	Next = EndSequence, "Doom1_Ep4_Fusion"
+	Music = "$MUSIC_VICTR2"
+	NoIntermission
+	NoSoundClipping
+}
+//*/
+
+intermission Doom1_Ep4_Fusion
+{
+	TextScreen
+	{
+		Text = "$E4TEXT"
+		Background = "INTER_E4"
+		Music = "$MUSIC_VICTR2"
+	}
+	Wiper {}
+	Link = Inter_Pic3
+}
+
+intermission Doom1_Ep4_Fusion_Fullrun_Alt
+{
+	Wiper { WipeType = Crossfade }
+	Link = Doom1_Ep4_Fusion_FullRun
+}
+
+intermission Doom1_Ep4_Fusion_Fullrun_Alt_Off
+{
+	Wiper { WipeType = Crossfade }
+	Link = Doom1_Ep4_Fusion_FullRun_Off
+}
+
 intermission Doom1_Ep4_Fusion_FullRun
 {
 	TextScreen
 	{
 		Text = "$E4TEXT"
-		Background = "$bgflatE4", 1
-		Music = "$MUSIC_VICTOR"
+		Background = "INTER_E4"
+		Music = "$MUSIC_VICTR2"
 	}
 	Wiper {}
 	Image
@@ -258,8 +333,8 @@ intermission Doom1_Ep4_Fusion_FullRun_Off
 	TextScreen
 	{
 		Text = "$E4TEXT"
-		Background = "$bgflatE4", 1
-		Music = "$MUSIC_VICTOR"
+		Background = "INTER_E4"
+		Music = "$MUSIC_VICTR2"
 	}
 	Wiper {}
 	Link = Inter_Pic3_Fusion_FullRun_Off
@@ -267,11 +342,46 @@ intermission Doom1_Ep4_Fusion_FullRun_Off
 
 intermission Inter_Pic3_Fusion_FullRun_Off
 {
+	Scroller 
+	{
+		InitialDelay = 9
+		ScrollTime = -280
+		Background2 = "E4SIGILT"
+		Background = "ENDNOT"
+		ScrollDirection = down
+		Music = "D_BUNN2"
+		Time = 52
+	}
 	Image
 	{
-		Background = "@3"
+		Draw = "M_CONT", 39, 5
+		Time = -127
 	}
-	Link = Inter_Pic3_Fusion_FullRun_Off
+	Wiper
+	{
+		Draw = "M_CONT", 39, 5
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Draw = "M_CONT", 39, 5
+		Background = "TITLES1"
+		Time = -100
+	}
+	Wiper {} 
+	Image
+	{
+		Background = "UDCRED"
+		Time = -85
+	}
+	Wiper {} 
+	Image
+	{
+		Background = "E4INTINT"
+		Time = -1
+		music = "D_E4M4"
+	}
+	Link = Doom1Cast
 }
 
 // Sigil
@@ -301,11 +411,43 @@ intermission Doom1_Ep5_Fusion_FullRun_Off
 	TextScreen
 	{
 		Text = "$E5TEXT"
-		Background = "$FLOOR7_2", 1
-		Music = "$MUSIC_VICTOR"
+		Background = "SIGILINT"
+		Music = "D_E5M6"
 	}
 	Wiper {}
-	Link = Sigil_Interpic_Fusion_FullRun_Off
+	Scroller 
+	{
+		Music = "D_E5M9"
+		Background2 = "E5ENDINB"
+		Background = "E5ENDINA"
+		InitialDelay = 5
+		ScrollDirection = right
+		Time = 41
+	}
+	Image
+	{
+		Draw = "M_CNC2", 39, 5
+		Time = -80
+	}
+	Wiper
+	{
+		Draw = "M_CNC2", 39, 5
+		WipeType = Crossfade
+	}
+	Image
+	{
+		Draw = "M_CNC2", 39, 5
+		Background = "S62TITLE"
+		Time = -185
+	}
+	Wiper {} 
+	Image
+	{
+		Background = "TITLES2"
+		Time = -1
+		music = "D_E5M7"
+	}
+	Link = Doom1Cast
 }
 
 intermission Sigil_Interpic_Fusion_FullRun_Off

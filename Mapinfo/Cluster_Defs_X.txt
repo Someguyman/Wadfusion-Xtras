@@ -5,8 +5,8 @@ cluster 1
 {
 	ExitText = "$E1TEXT"
 	Music = "$MUSIC_VICTOR"
-	Flat = "$bgflatE1"
-	pic = "E1VICTOR"
+	//Flat = "$bgflatE1"
+	pic = "E1ENDINT"
 }
 
 // DOOM Episode 2
@@ -15,9 +15,9 @@ cluster 2
 {
 	ExitText = "$E2TEXT"
 	Music = "$MUSIC_VICTOR"
-	Flat = "$bgflatE3"
-	pic = "INTER_E4"
-	//Pic = "E2ENDINT"
+	//Flat = "$bgflatE3"
+	//pic = "INTER_E4"
+	Pic = "E2ENDINT"
 }
 
 // DOOM Episode 3
@@ -26,7 +26,7 @@ cluster 3
 {
 	ExitText = "$E3TEXT"
 	Music = "$MUSIC_VICTOR"
-	Flat = "$bgflatE2"
+	//Flat = "$bgflatE2"
 	pic = "E3ENDINT"
 }
 
@@ -36,8 +36,8 @@ cluster 4
 {
 	ExitText = "$E4TEXT"
 	Music = "$MUSIC_VICTR2"
-	Flat = "$bgflatE4"
-	pic = "E4VICTOR"
+	//Flat = "$bgflatE4"
+	pic = "INTER_E4"
 }
 
 // DOOM II first cluster (up thru level 6)

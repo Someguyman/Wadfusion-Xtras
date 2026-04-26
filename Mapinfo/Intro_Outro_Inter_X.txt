@@ -35,17 +35,6 @@ map INTER_MLCS ""
 	Music = "D_TITLM2"
 }
 
-map e2ending ""
-{
-	Cluster = 0
-	Next = "E3M1"
-	Music = "$MUSIC_VICTOR"
-	NoIntermission
-	NoSoundClipping
-	ResetHealth
-	ResetInventory
-}
-
 Intermission Episode2end
 {
 	Scroller 
@@ -58,69 +47,6 @@ Intermission Episode2end
 		ScrollTime = -280
 		Time = 31
 	}
-}
-
-Intermission Inter_Bunny_Fusion_FullRun_Off
-{
-	Scroller 
-	{
-		Music = "$MUSIC_BUNNY"
-		Background2 = "PFUB2"
-		Background = "PFUB1"
-		InitialDelay = 7
-		ScrollDirection = left
-		Time = 51
-	}
-	
-	Image
-	{
-		Draw = "END0", 108, 68
-		Time = -20
-	}
-	Image
-	{
-		Draw = "END1", 108, 68
-		Time = -5
-		Sound = "weapons/chngun"
-	}
-	Image
-	{
-		Draw = "END2", 108, 68
-		Time = -5
-		Sound = "weapons/chngun"
-	}
-	Image
-	{
-		Draw = "END3", 108, 68
-		Time = -5
-		Sound = "weapons/chngun"
-	}
-	Image
-	{
-		Draw = "END4", 108, 68
-		Time = -5
-		Sound = "weapons/chngun"
-	}
-	Image
-	{
-		Draw = "END5", 108, 68
-		Time = -5
-		Sound = "weapons/chngun"
-	}
-	Image
-	{
-		Draw = "END6", 108, 68
-		Time = -185
-		Sound = "weapons/chngun"
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "E3BOSSBK"
-		Time = -1
-		Music = "$MUSIC_E1M7"
-	}
-	Link = Doom1Cast
 }
 
 intermission Doom1_Intro
@@ -146,25 +72,31 @@ intermission Doom1_Intro
 	{
 		Text = "$D1INTRO4"
 	}
-	/*
-	
-	TextScreen
-	{
-		Text = "$D1INTRO5"
-	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO6"
-	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO7"
-	}
-	
-	*/
 }
+
+intermission Sigil_Intro
+{
+	TextScreen
+	{
+		Text = "$E5INTRO1"
+		Background = "SIGILINT"
+		//Music = "$MUSIC_VICTOR"
+		Music = "D_E5M6"
+	}
+	TextScreen
+	{
+		Text = "$E5INTRO2"
+	}
+	TextScreen
+	{
+		Text = "$E5INTRO3"
+	}
+		TextScreen
+	{
+		Text = "$E5INTRO4"
+	}
+}
+
 
 intermission Doom2_Intro
 {
@@ -357,66 +289,6 @@ Intermission Doom1Cast
 	Link = Doom1Cast
 }
 
-map e4ending ""
-{
-	Cluster = 0
-	Next = EndSequence, "Doom1_Ep4_Fusion_Alt"
-	Music = "$MUSIC_VICTR2"
-	NoIntermission
-	NoSoundClipping
-}
-
-intermission Doom1_Ep4_Fusion_Alt
-{
-	Wiper { WipeType = Crossfade }
-	Link = Doom1_Ep4_Fusion_FullRun_Off
-}
-
-Intermission Doom1_Ep4_Fusion_FullRun_Off
-{
-	TextScreen
-	{
-		Text = "$E4TEXT"
-		Background = "E4VICTOR"
-		Music = "$MUSIC_VICTR2"
-	}
-	Wiper {}
-	Scroller 
-	{
-		InitialDelay = 8
-		ScrollTime = -280
-		Background2 = "E4SIGILT"
-		Background = "ENDNOT"
-		ScrollDirection = down
-		Music = "D_BUNN2"
-		Time = 51
-	}
-	Image
-	{
-		Draw = "M_CONT", 39, 5
-		Time = -127
-	}
-	Wiper
-	{
-		Draw = "M_CONT", 39, 5
-		WipeType = Crossfade
-	}
-	Image
-	{
-		Draw = "M_CONT", 39, 5
-		Background = "TITLES1"
-		Time = -185
-	}
-	Wiper {} 
-	Image
-	{
-		Background = "E4INTINT"
-		Time = -1
-		music = "D_E4M4"
-	}
-	Link = Doom1Cast
-}
-
 Intermission Doom1_Ep5_Fusion_FullRun_Off
 {
 	TextScreen
@@ -533,7 +405,7 @@ Intermission Doom1_Ep6_Fusion_FullRun_Off
 	Link = Doom1Cast
 }
 
-map CabalEND ""
+map CabalEND "The End"
 {
 	Cluster = 0
 	next = EndSequence, "Cabal_Cast"
@@ -1052,80 +924,6 @@ Intermission D64Cast_Fusion_FullRun
 		Background = "D64bossb"
 		Time = -1
 		music = "$MUSIC_D64END"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_NightmareImp"
-		CastName = "$CC_NIMP"
-		AttackSound = "Missile", 2, "imp/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_NightmareSpectre"
-		CastName = "Nightmare Spectre"
-		AttackSound = "Melee", 1, "demon2/melee"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_ForgottenSoul"
-		CastName = "$CC_LOST"
-		AttackSound = "Missile", 1, "skull/melee2"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_NightmareCacodemon"
-		CastName = "$CC_NCACO"
-		AttackSound = "Missile", 1, "caco/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_DualArachnotron"
-		CastName = "$CC_ARACH"
-		AttackSound = "Missile", 1, "baby/attack2"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_DualPainElemental"
-		CastName = "$CC_PAIN"
-		AttackSound = "Missile", 2, "skull/melee2"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_DarkRevenant"
-		CastName = "$CC_REVEN"
-		AttackSound = "Missile", 1, "skeleton/attack"
-		AttackSound = "Melee", 1, "skeleton/swing"
-		AttackSound = "Melee", 3, "skeleton/melee"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_DualCyberdemon"
-		CastName = "Super Cyberdemon"
-		AttackSound = "Missile", 1, "weapons/rocklf"
-		AttackSound = "Missile", 3, "weapons/rocklf"
-		AttackSound = "Missile", 5, "weapons/rocklf"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DCX_Motherdemon"
-		CastName = "$CC_MOTHER"
-		AttackSound = "Missile", 1, "fatso/attack"
-	}
-	Cast
-	{
-		Draw = "M_CAST", 39, 5
-		CastClass = "DoomPlayer"
-		CastName = "$CC_HERO"
-		AttackSound = "Missile", 1, "weapons/sshotf"
 	}
 	Link = D64Cast
 }
