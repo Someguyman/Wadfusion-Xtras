@@ -18,11 +18,9 @@ class DCX_EventHandler : EventHandler
 	{
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
-		ENDPIC = 	   	TexMan.CheckForTexture("E4VICTOR");
-		DOOMTittle =   	TexMan.CheckForTexture("TITLED1"); // why the double t AAAAAAAAAAA
+		ENDPIC = 	   	TexMan.CheckForTexture("INTER_E4");
+		DOOMTittle =   	TexMan.CheckForTexture("TITLED1"); // why the double t AAAAAAAAAAA //yes =)
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
-		SIGILTittle =   TexMan.CheckForTexture("SI6TITLE");
-		SIGIL2Tittle =  TexMan.CheckForTexture("S62TITLE");
 		DOOM2Tittle =  	TexMan.CheckForTexture("DM2title");
 		CabalTitle =  	TexMan.CheckForTexture("CSTITLE");
 		CabalEnd =  	TexMan.CheckForTexture("CRBOSSBK");
@@ -34,14 +32,9 @@ class DCX_EventHandler : EventHandler
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
 			string mapName = Level.MapName.MakeLower();
-			if ( mapName == "e2ending" )
+			if ( mapName == "wf_d1e4_ending" )
 			{
-					Screen.DrawTexture(VICTORY2, false, 0, 0, DTA_FullScreen, 1);
-					Level.SetFrozen(true);
-			}
-			if ( mapName == "e4ending" )
-			{
-					Screen.DrawTexture(ENDPIC, false, 0, 0, DTA_FullScreen, 1);
+					//Screen.DrawTexture(ENDPIC, false, 0, 0, DTA_FullScreen, 1);
 					Level.SetFrozen(true);
 			}
 			if ( mapName == "cabalend" )
@@ -426,7 +419,7 @@ class DCX_EventHandler : EventHandler
 	void BlankMapTransitions()
 	{
 		string mapName = Level.MapName.MakeLower();
-		if ( mapName.left(6) == "wf_newgame_" || mapName == "e4ending")
+		if ( mapName.left(6) == "wf_newgame_" )
 		{
 				Level.StartSlideShow("BlankMapTransitions");
 		}
