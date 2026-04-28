@@ -44,18 +44,6 @@ episode WF_NEWGAME_E6M1
 	Optional
 }
 
-episode WF_NEWGAME_JA_MAP01
-{
-	Name = "$BONUS_JAGUAR"
-	Optional
-}
-
-episode GBA_DM1
-{
-	Name = "$BONUS_GBADM"
-	Optional
-}
-
 episode WF_NEWGAME_MAP01
 {
 	Name = "$DOOM2_EPI01"
@@ -96,18 +84,6 @@ episode WF_NEWGAME_LR_MAP08
 	Optional
 }
 
-episode DM_MAP01
-{
-	Name = "$BONUS_KEXDM"
-	Optional
-}
-
-episode OneHumanity
-{
-	Name = "$BONUS_HUMAN"
-	Optional
-}
-
 episode WF_NEWGAME_AB_MAP01
 {
 	Name = "$ABLOUTION_EPI01"
@@ -123,12 +99,6 @@ episode WF_NEWGAME_AB_MAP12
 episode WF_NEWGAME_AB_MAP21
 {
 	Name = "$ABLOUTION_EPI03"
-	Optional
-}
-
-episode AB_MAP33
-{
-	Name = "$BONUS_TITLE"
 	Optional
 }
 
@@ -172,5 +142,35 @@ episode WF_NEWGAME_PL_MAP12
 episode WF_NEWGAME_PL_MAP21
 {
 	Name = "$PLUTONIA_EPI03"
+	Optional
+}
+
+episode WF_NEWGAME_KA_MAP
+{
+	Name = "$BONUS_KICKATTACK"
+	Optional
+}
+
+episode OneHumanity
+{
+	Name = "$BONUS_HUMAN"
+	Optional
+}
+
+episode AB_MAP33
+{
+	Name = "$BONUS_TITLE"
+	Optional
+}
+
+episode GBA_DM1
+{
+	Name = "$BONUS_GBADM"
+	Optional
+}
+
+episode DM_MAP01
+{
+	Name = "$BONUS_KEXDM"
 	Optional
 }

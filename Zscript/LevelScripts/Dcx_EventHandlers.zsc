@@ -6,6 +6,7 @@ class DCX_EventHandler : EventHandler
 	TextureId TITLEPIC;
 	TextureId VICTORY2;
 	TextureId ENDPIC;
+	TextureId E3TEXT;
 	TextureId DOOMTittle;
 	TextureId UDOOMTittle;
 	TextureId SIGILTittle;
@@ -19,6 +20,7 @@ class DCX_EventHandler : EventHandler
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("INTER_E4");
+		E3TEXT = 		TexMan.CheckForTexture("E3ENDINT");
 		DOOMTittle =   	TexMan.CheckForTexture("TITLED1"); // why the double t AAAAAAAAAAA //yes =)
 		UDOOMTittle =  	TexMan.CheckForTexture("ULDtitle");
 		DOOM2Tittle =  	TexMan.CheckForTexture("DM2title");
@@ -28,13 +30,21 @@ class DCX_EventHandler : EventHandler
 	
 	override void RenderOverlay (RenderEvent e)
 	{
+		int resX = Screen.GetWidth();
+		int resY = Screen.GetHeight();
+		
 		// draw an overlay of the titlepic when changing replaced levels
+		
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
 			string mapName = Level.MapName.MakeLower();
 			if ( mapName == "wf_d1e4_ending" )
 			{
-					//Screen.DrawTexture(ENDPIC, false, 0, 0, DTA_FullScreen, 1);
+					Level.SetFrozen(true);
+			}
+			if ( mapName == "e3m1" && CVar.GetCvar("dcx_playstationmaps").getint() > 0 )
+			{
+					Screen.DrawTexture(E3TEXT, false, 0, 0, DTA_FullScreen, 1);
 					Level.SetFrozen(true);
 			}
 			if ( mapName == "cabalend" )

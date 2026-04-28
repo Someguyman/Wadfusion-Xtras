@@ -282,7 +282,7 @@ map JA_MAP23 "$HUSTR_E3M7" //Map 22
 map JA_MAP24 "$HUSTR_E3M8" //Map 23
 {
 	LevelNum = 24
-	next = EndSequence, "JAGUAR DOOM,_Cast"
+	next = EndSequence, "Jaguarcast"
 	TitlePatch = "WILV27"
 	Par = 30
 	Music = "O_E1M8"

@@ -313,7 +313,7 @@ intermission Doom1_Ep4_Fusion_FullRun
 	TextScreen
 	{
 		Text = "$E4TEXT"
-		Background = "INTER_E4"
+		Background = "E4VICTOR"
 		Music = "$MUSIC_VICTR2"
 	}
 	Wiper {}

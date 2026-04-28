@@ -13,8 +13,6 @@ defaultmap
 {
 	Sky1 = "SKY1"
 	SuckTime = 1
-	NoJump
-	NoCrouch
 	ResetHealth
 	ResetInventory
 	InterMusic = "D_INTRM3"
@@ -45,16 +43,6 @@ map ML_MAP02 "$ML_CANYON"
 	Next = "ML_MAP28"
 	TitlePatch = "MWILV01"
 	Music = "$MUSIC_CANYON"
-}
-
-map KA_MAP "$ML_KICK" //KICK ATTACK
-{
-	Next = EndSequence, "Jaguarcast"
-	TitlePatch = "KWILV00"
-	music = "$MUSIC_KICKATK"
-	Author = "$WS_AU_WILLITS_COLA"
-	Label = "Kick Attack!"
-	F1 = "KACRED"
 }
 
 // Tom Mustaines's Master Levels

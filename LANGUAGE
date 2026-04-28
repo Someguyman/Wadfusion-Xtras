@@ -76,11 +76,12 @@ HUSTR_PSX07 = "Redemption Denied";
 HUSTR_PSX08 = "The Mansion";
 HUSTR_PSX09 = "Club DOOM";
 
-BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
-BONUS_GBADM = "\c[GOLD]Bonus: \c[RED]DeathMatch Gba";
+BONUS_KICKATTACK = "\c[GOLD]Bonus: \c[DarkGreen]Kick Attack";
 BONUS_HUMAN = "\c[GOLD]Bonus: \c[RED]One Humanity";
-BONUS_KEXDM = "\c[GOLD]Bonus: \c[RED]DeathMatch Kex";
-BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]Titlescreen Map";
+BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]64 Title Map";
+BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";
+BONUS_GBADM = "\c[DARKRED]DM: \c[RED]DeathMatch Gba";
+BONUS_KEXDM = "\c[DARKRED]DM: \c[RED]DeathMatch Kex";
 
 DOOM1_EPI01 = "\c[RED]Knee-Deep in the Dead";
 DOOM1_EPI02 = "\c[RED]The Shores of Hell";
@@ -195,7 +196,7 @@ HUSTR_32 = "Grosse";
 HUSTR_33 = "Sewers";
 
 ML_TWM01 = "The Masters Den";
-ML_KICK = "Kick Attack";
+ML_KICK = "Kick Attack!";
 
 MUSIC_E4M1 = "E4M1";
 MUSIC_E4M2 = "E4M2";

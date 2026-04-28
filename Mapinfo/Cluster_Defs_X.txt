@@ -46,8 +46,8 @@ cluster 5
 {
 	ExitText = "$C1TEXT"
 	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT06"
-
+	//Flat = "$BGFLAT06"
+	pic = "INTERPIC"
 }
 
 // DOOM II second cluster (up thru level 11)
@@ -56,7 +56,8 @@ cluster 6
 {
 	ExitText = "$C2TEXT"
 	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT11"
+	//Flat = "$BGFLAT11"
+	pic = "INTER_E4"
 
 }
 
@@ -66,7 +67,7 @@ cluster 7
 {
 	ExitText = "$C3TEXT"
 	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT20"
+	pic = "INTERPI3"
 }
 
 // DOOM II fourth cluster (up thru level 30)
@@ -75,7 +76,7 @@ cluster 8
 {
 	ExitText = "$C4TEXT"
 	Music = "$MUSIC_READ_M"
-	Flat = "$BGFLAT30"
+	//Flat = "$BGFLAT30"
 	pic = "BOSSTEXT"
 }
 
@@ -258,7 +259,8 @@ cluster 28
 {
 	ExitText = "$INTERTEXT_ID1_E1"
 	Music = "D_SHORES"
-	Flat = "SLIME20"
+	pic = "INTERLR"
+	//Flat = "SLIME20"
 }
 
 // LOR Episode 2 cluster
@@ -267,7 +269,7 @@ cluster 29
 {
 	ExitText = "$INTERTEXT_ID1_E2"
 	Music = "D_SHORES"
-	Flat = "FLOOR9_2"
+	pic = "INTERLR"
 }
 
 // Blackroom Clusters

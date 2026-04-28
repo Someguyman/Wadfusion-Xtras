@@ -131,7 +131,6 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 		Ready:
 			TNT1 A 0 { A_StopSound(6); A_StopSound(7); A_StopSound(1); }
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Ready");
-			//SAW2 CD 4 A_WeaponReady();
 			SAW2 C 4 { A_startsound("weapons/saw2idle", 7, CHANF_DEFAULT, 1.0); A_WeaponReady(); }
 			SAW2 D 4 { A_WeaponReady(); A_WeaponOffset(0,33); }
 			Goto Ready+1;

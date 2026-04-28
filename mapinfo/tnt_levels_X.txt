@@ -122,7 +122,6 @@ map TN_MAP11 "$THUSTR_11"
 {
 	Label = "T.N.T EVILUTION, E1M11"
 	Next = "TN_MAP12"
-	//Next = endpic, "TNCRED"
 	TitlePatch = "TWILV10"
 	Music = "T_STLKS2"
 	Author = "$WF_AU_JOHNSON"
@@ -134,7 +133,7 @@ adddefaultmap
 {
 	Cluster = 14
 	Sky1 = "SKY2"
-	ExitPic = "TNTINTR2"
+	ExitPic = "INTR2TN"
 }
 
 map TN_MAP12 "$THUSTR_12"
@@ -226,7 +225,7 @@ adddefaultmap
 {
 	Cluster = 15
 	Sky1 = "SKY3"
-	ExitPic = "TNTINTR3"
+	ExitPic = "INTR3TN"
 }
 
 map TN_MAP21 "$THUSTR_21"
@@ -339,8 +338,8 @@ map TN_MAP31 "$THUSTR_31"
 	SecretNext = "TN_MAP32"
 	Cluster = 16
 	TitlePatch = "TWILV30"
-	ExitPic = "TNTINTS1"
-	ENTERPic = "TNTINTS1"
+	ExitPic = "INTRS1TN"
+	//ENTERPic = "TNTINTS1"
 	Music = "T_EVIL"
 	Author = "$WF_AU_DARIO_CASALI"
 }
@@ -351,8 +350,7 @@ map TN_MAP32 "$THUSTR_32"
 	Next = "TN_MAP16"
 	Cluster = 17
 	TitlePatch = "TWILV31"
-	ExitPic = "TNTINTS2"
-	ENTERPic = "TNTINTS2"
+	ExitPic = "INTRS2TN"
 	Music = "T_ULTIMA"
 	Author = "$WF_AU_DARIO_CASALI"
 }

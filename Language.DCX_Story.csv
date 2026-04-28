@@ -86,20 +86,20 @@ E1TEXT = "Once you beat the big badasses and\n"
 		
 //Edited to remove the advertisement for episode 2 and 3. Makes it more cohesive that way.
 
-E2INTRO = "After you cleaned up most of the Phobos base\n"
+E2INTRO1 = "After you cleaned up most of the Phobos base\n"
 		  "and triumphed over the Bruiser Brothers at the anomaly,\n"
 		  "you hoped to catch a ride back home,\n"
 		  "take a well deserved rest with your pet rabbit\n"
-		  "by your side.\n"
-		  "\n"
-		  "Instead, what you find in front of you is a bizarre\n"
+		  "by your side.";
+		  
+E2INTRO2 = "Instead, what you find in front of you is a bizarre\n"
 		  "altar that irradiates some kind of unknown wicked energy.\n"
 		  "You approach with extreme caution but before you\n"
 		  "know it, you get sucked right in. The evil spirits'\n"
 		  "screeching pierces your mind as you feel your body\n"
-		  "being torn inside out. You black out.\n"
-		  "\n"
-		  "You awake from the nightmare, alive yet stripped down\n"
+		  "being torn inside out. You black out.";
+
+E2INTRO3 = "You awake from the nightmare, alive yet stripped down\n"
 		  "with only your handgun once again.\n"
 		  "Upon furher assassment, you realize that you're at the lost\n"
 		  "Deimos base which disappeared hours ago.\n"
@@ -126,22 +126,22 @@ E2TEXT = "You've done it! The hideous cyber-\n"
 		
 //Same reason as episode 1.
 
-E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
+E3INTRO1 = "With the lord cyberdemon that overlooked the lost\n"
 		  "Deimos base, turned viscous human torcher grounds,\n"
 		  "been reduced to nothing but a pair of bloody metal hooves,\n"
 		  "you gloat to yourself with nothing but a savage\n"
 		  "grin on your face. Your buddies have seemingly\n"
-		  "been avenged.\n"
-		  "\n"
-		  "However, this feeling of victory soon goes hollow.\n"
+		  "been avenged.";
+
+E3INTRO2 = "However, this feeling of victory soon goes hollow.\n"
 		  "You felt the beast wasn't acting on it's own accord.\n"
 		  "Suddenly, you felt an evil presence like none before\n"
 		  "lurking around in the outskirts. Perhaps this greater evil was\n"
 		  "the one puppetering that abomination. You leave the tower and\n"
 		  "persue it to the very edge of deimos to find the horrible truth.\n"
-		  "That the base now floats above the depths of hell itself!\n"
-		  "\n"
-		  "Staring down at it only makes you angrier, while you never\n"
+		  "That the base now floats above the depths of hell itself!";
+		  
+E3INTRO3 = "Staring down at it only makes you angrier, while you never\n"
 		  "heard anyone escape from hell before, you'll be sure that the\n"
 		  "bastards regret ever crossing you! After securing an empty pod,\n"
 		  "you quickly rappel down to the burning inferno below,\n"
@@ -152,7 +152,7 @@ E3INTRO = "With the lord cyberdemon that overlooked the lost\n"
 
 //Another original text by me. Like what I did perviously, it's the episode 2 text with more detail.
 
-E4INTRO = "Having brought an end to the hell the\n"
+E4INTRO1 = "Having brought an end to the hell the\n"
 		  "spidermastermind and it's army had brought to\n"
 		  "the moon bases, a hidden doorway opens nearby.\n"
 		  "It appears that hell has finally let up, as\n" 
@@ -160,16 +160,16 @@ E4INTRO = "Having brought an end to the hell the\n"
 		  "the grassy hills of earth with flowers and wild\n" 
 		  "rabbits frolocing through. It appears you finally\n" 
 		  "got what you wanted since disposing of the\n" 
-		  "assholes on phobos.\n"
-		  "\n"
-		  "As you take off your helmet to take a breath\n"
+		  "assholes on phobos.";
+
+E4INTRO2 = "As you take off your helmet to take a breath\n"
 		  "of fresh air in god knows how long, you sense a\n"
 		  "faint smokey scent coming from somewhere distant.\n"
 		  "To your Horror, the source is a nearby city in flames.\n"
 		  "Surrouding the catastrophe are familiar structers\n" 
-		  "plucked straight from hell iself.\n"
-		  "\n"
-		  "Worst of all, near the outskirts of the city\n"
+		  "plucked straight from hell iself.\n";
+
+E4INTRO3 = "Worst of all, near the outskirts of the city\n"
 		  "sits the head of your pet rabbit, Daisy,\n"
 		  "Mounted on a pike in a form mochery by the invaders.\n"
 		  "At that moment you curse under your breath\n"
@@ -234,29 +234,65 @@ E5INTRO4 =
 //Taken from the existing story text with some details altered to match cannon better
 //Ex: episode 4 being set on earth and not in hell or a weird inbetween pocket dimention.
 
-E6INTRO = 
+E6INTRO1 = 
 "Baphomet's plan to drag you back to hell only\n"
 "ended with him realizing why he failed in the\n"
 "first place.\n"
 "\n"
 "Just like before, you've got done mopping up\n"
 "the place with your arsenal and are ready to go\n"
-"down into the wormhole and become the savior of earth.\n"
+"down into the wormhole and become the savior of earth.";
 
-
+E6INTRO2 =
 "but once again you fall for another cunning trap,\n"
 "set this time by none other then satan himself.\n"
 "\n"
 "His evil cackle echos as you are pulled into\n"
 "an even more grotesque and vile dimension then what\n" 
 "you've had been through thus far; filled with hell's\n" 
-"most relentless killing machines.\n"
-"\n"
+"most relentless killing machines.";
+
+E6INTRO3 =
 "Doesn't matter how far they drag you though, time\n"
 "and time again they have underestimated your sheer\n"
 "power.\n"
 "\n"
 "time to show satan your metal!";
+
+D2INTRO1 =
+"The Story Continues...\n"
+"\n"
+"Back at last. After so many weeks\n"
+"of hard fighting, you've returned home\n"
+"Damn! The city ahead is on fire. Packs\n" 
+"of refugees are fleeing the flaming\n" 
+"metropolis. Hell, not again!";
+
+D2INTRO2 =
+"You can feel it. It's all starting\n"
+"again, just like in space. First, people\n"
+"are taken over, turned into cannibal\n"
+"Things. Then the real horror starts, the\n"
+"deformed monstrosities from Outside. But\n"
+"now it's on Earth!";	
+
+D2INTRO3 =
+"Unfortunately, Earth's only ground\n"
+"spaceport has just been taken over by\n"
+"the demons. They've instituted a sort of\n"
+"force field -- a flame barrier -- over\n"
+"the port; no ships can land or take off.\n"
+"You gotta go back into action. If you\n"
+"win, you might be able to turn off the\n"
+"barrier, so that the ships can leave.";
+
+D2INTRO4 =
+"Something hisses with rage from the\n"
+"steel tunnels ahead. They know you're\n"
+"here. They have no pity, no mercy, take\n"
+"no quarter, and crave none. They're the\n"
+"perfect enemy, in a way. No one's left\n"
+"but you. You... and Them.";
 
 REDEMTION_INTRO =
 "The monsters that stood gaurd of the dreaded\n"
@@ -272,7 +308,6 @@ REDEMTION_INTRO =
 "to fight head.\n"
 "\n"
 "It's all or nothing now!";
-
 		  
 REDEMTION_TXT = 
 "What had once ruled all hellspawn and oversaw\n"
@@ -290,6 +325,24 @@ REDEMTION_TXT =
 "after all the rebuilding efforts are done.\n" 
 "\n"
 "As the hero to all of this, you deserve it...";
+
+NVINTRO1 =
+"The Return...\n"
+"\n"
+"Hell's forces have seemingly been\n"
+"vanquished. The military is succesfully\n"
+"fighting back against whatever remnants\n"
+"of the invasion are left.";
+
+NVINTRO2 =
+"During your vacation, you receive an\n"
+"urgent notice. A portal to a pocket\n"
+"dimension of Hell has opened, and\n"
+"inside, a Cyberdemon is building an army\n"
+"of demons for his own personal use!\n"
+"\n"
+"You must travel there, and end this\n"
+"threat before it is too late.";
 
 
 MANSIONTXT = "hidden away the debris of the city lies\n"
@@ -472,48 +525,193 @@ known as the lord of Hell and his two Soulguards."
 
 //New intermission texts
 
+TNINTRO1 = 		"The Story So Far\n"
+				"\n"
+				"Though all the top management of the UAC\n"
+				"were dead, the corporation survived, now\n"
+				"under government supervision. The UAC\n"
+				"continued its experiments under vastly\n"
+				"increased safety measures.\n"
+				"\n"
+				"The UAC's base was set up on one of the\n"
+				"moons of Jupiter, hoping that the\n"
+				"increased distance would enhance Earth's\n"
+				"safety if something went wrong. Marines\n"
+				"were stationed at the base, ready for\n"
+				"anything.";
+
+TNINTRO2 = 		"The Invasion\n"
+				"\n"
+				"Soon after the UAC opened its first\n"
+				"Gate, the minions of Hell made their\n"
+				"first attack. However, The United States\n"
+				"Space Marine Corps was prepared for such\n"
+				"an event, and they poured molten death\n"
+				"into the hordes of Hell. Set up in\n"
+				"defensive positions around the gate, the\n"
+				"marines were able to slaughter the\n"
+				"monsters by the hundreds.\n"
+				"\n"
+				"Hell had failed.";
+				
+TNINTRO3 = 		"The research went on, more boldly, and\n"
+				"less cautiously. All the marines\n"
+				"received the Silver Star from a grateful\n"
+				"government. The defensive positions were\n"
+				"strengthened, and the marines watched\n"
+				"closely for another attempt, all their\n"
+				"attention drawn inward toward the Gates.\n"
+				"\n"
+				"They were looking in the wrong\n"
+				"direction.";
+				
+TNINTRO4 = "The Rain of Monsters\n"
+		    "\n"
+		    "Months after the Gate incident, the\n"
+		    "yearly supply ship came ahead of time.\n"
+		    "The ship was coming from the wrong\n"
+		    "direction. It never landed. Instead, it\n"
+		    "hovered over the base, miles in the air.";
+			
+TNINTRO5 =	"The ship could not have come from Earth.\n"
+		    "It was huge, kilometers long, and was\n"
+		    "built of bone, steel, flesh, corruption,\n"
+		    "and death. Hideous demons poured out,\n"
+		    "plunging to the ground and blanketing\n"
+		    "the entire base with their throbbing,\n"
+		    "pulsing bodies. The marines' defenses,\n"
+		    "set up to prevent an attack from the\n"
+		    "direction of the Gate, were worthless.\n"
+		    "\n"
+		    "Once more, the surviving humans were\n"
+		    "left as zombified brain-dead\n"
+		    "monstrosities.";
+
+TNINTRO6 = 		"It's Up To You... Again\n"
+				"\n"
+				"Only one man escaped death or\n"
+				"zombification. The marine commander.\n"
+				"You. You weren't at the base when the\n"
+				"skies opened and devastation poured from\n"
+				"the stars.\n"
+				"\n"
+				"Hot-footing it back to the base, you saw\n"
+				"it all and realized what had happened in\n"
+				"a flash. The demon ship still floated\n"
+				"above the infested base.";
+				
+TNINTRO7 =
+"Unlike the ancient Samurai, who chose to\n"
+"die with their men, you cocked your\n"
+"pistol. You were going to kill for your\n"
+"men. And if you died trying, well, you\n"
+"were going to die anyway, some day.";
+				
+PLINTRO1 = 
+"The Story So Far\n"
+"\n"
+"After Hell's invasion of Earth, the\n"
+"United States took steps to prevent it\n"
+"from recurring. The old UAC corporation\n"
+"was refounded, under completely new\n"
+"management, and sent to research how to\n"
+"prevent such an incursion from happening\n"
+"ever again.\n"
+"\n"
+"The new UAC began working on Quantum\n"
+"Accelerator Devices, intended to close\n"
+"interdimensional Gates at a distance.";
+
+PLINTRO2 = 
+"The Terror\n"
+"\n"
+"One day, a Gate opened in the heart of\n"
+"the research complex. The Quantum\n"
+"Accelerator Device performed perfectly\n"
+"in its maiden test -- the invasion Gate\n"
+"was closed instantly and permanently.\n"
+"\n"
+"The next day, a ring of seven Gates\n"
+"opened throughout the base. The Quantum\n"
+"Accelerator began putting out the Gates,\n"
+"and within an hour, six were closed. The\n"
+"marines fought like mad dogs, but were\n"
+"finally pulled down by the enemies'\n"
+"claws.";
+
+E5_INTROTIT3 = 
+"The Task\n"
+"\n"
+"The Quantum Accelerator and its\n"
+"prototypes are deep inside the ravaged\n"
+"complex. The government has ordered all\n"
+"marines to the site at once.\n"
+"\n"
+"You suited up, grabbed a pistol, and\n"
+"raced your pickup truck to the complex.\n"
+"When you arrived, flashes of light,\n"
+"howls, and chanting could be heard from\n"
+"the interior. Corpses were scattered\n"
+"everywhere.";
+
+E5_INTROTXT4 = 
+"You know that within an hour or two, an\n"
+"entire division of marines will arrive\n"
+"to assault the base with full artillery\n"
+"and air support. You also know that they\n"
+"will be too late. They will be plucked\n"
+"from the sky by floating terrors, melted\n"
+"by diabolic fireballs, blasted to\n"
+"shreds. In an hour or two, the\n"
+"monstrosities inside will be prepared,\n"
+"once more, to take on the world.\n"
+"\n"
+"It's up to you. Alone.";
+
 IN_C0P1 = 
-	"The Past...\n"
-	"\n"
-	"Your fatigue was enormous, the price for\n" 
-	"encountering pure evil. Hell was a place no\n" 
-	"mortal was meant to experience. Stupid military\n"
-	"doctors: their tests and treatments were of\n" 
-	"little help.\n" 
-	"In the end, what did it matter - it was all\n"
-	"classified and sealed. The nightmares continued.\n"
-	"Demons, so many Demons; relentless, pouring through.";
+"The Past...\n"
+"\n"
+"Your fatigue was enormous, the price for\n" 
+"encountering pure evil. Hell was a place no\n" 
+"mortal was meant to experience. Stupid military\n"
+"doctors: their tests and treatments were of\n" 
+"little help.\n" 
+"In the end, what did it matter - it was all\n"
+"classified and sealed. The nightmares continued.\n"
+"Demons, so many Demons; relentless, pouring through.";
 	
 IN_C0P2 = 
-	"Far Away...\n"
-	"\n"
-	"The planetary policy was clear. An absolute\n"
-	"quarantine was guaranteed by apocalyptic levels\n"
-	"of radiation. The empty dark corridors stand motionless,\n"
-	"abandoned. The installations sealed.";
+"Far Away...\n"
+"\n"
+"The planetary policy was clear. An absolute\n"
+"quarantine was guaranteed by apocalyptic levels\n"
+"of radiation. The empty dark corridors stand motionless,\n"
+"abandoned. The installations sealed.";
 
 IN_C0P3 = 
-	"The Present...\n"
-	"\n"
-	"A long forgotten relay satellite barely executing,\n"
-	"decayed by years of bombarding neutrons, activates\n"
-	"and sends its final message to Earth. The satellite's\n"
-	"message was horrific, from the planetary void there\n"
-	"came energy signatures unlike anything sampled before.\n"
-	"\n"
-	"The classified archives are opened. The military episodes\n"
-	"code named \"DOOM\" were not actually completed. A single\n"
-	"entity with vast rejuvenation powers, masked by the extreme\n"
-	"radiation levels, escaped detection. In its crippled state,\n"
-	"it systematically altered decaying dead carnage back into\n"
-	"corrupted living tissue.\n"
-	"\n"
-	"The mutations are devastating. The Demons have returned\n"
-	"even stronger and more vicious than before. As the only\n"
-	"experienced survivor of the DOOM episode, your commission\n"
-	"is re-activated. Your assignment is clear:\n"
-	"\n"
-	"MERCILESS EXTERMINATION!";
+"The Present...\n"
+"\n"
+"A long forgotten relay satellite barely executing,\n"
+"decayed by years of bombarding neutrons, activates\n"
+"and sends its final message to Earth. The satellite's\n"
+"message was horrific, from the planetary void there\n"
+"came energy signatures unlike anything sampled before.";
+	
+IN_C0P4 = 
+"The classified archives are opened. The military episodes\n"
+"code named \"DOOM\" were not actually completed. A single\n"
+"entity with vast rejuvenation powers, masked by the extreme\n"
+"radiation levels, escaped detection. In its crippled state,\n"
+"it systematically altered decaying dead carnage back into\n"
+"corrupted living tissue.";
+
+IN_C0P5 = 
+"The mutations are devastating. The Demons have returned\n"
+"even stronger and more vicious than before. As the only\n"
+"experienced survivor of the DOOM episode, your commission\n"
+"is re-activated. Your assignment is clear:\n"
+"\n"
+"MERCILESS EXTERMINATION!";
 
 IN_C1A =
 	"Your bloodthirsty scream shatters the\n"
@@ -779,3 +977,59 @@ IN_LE5 =
 		  "With a last click on the keyboard, the course for Io is set.\n"
 		  "You don't know what evil awaits you, but you're sure\n"
 		  "the mountains of Earth will have to wait just a little bit longer.\n";
+		  
+KAINTRO1 =
+"The Kicker...\n"
+"\n"
+"You're a veteran Quality Control Manager at\n"
+"a Kick bottling plant. Your world is one of\n"
+"suits and ties, tests and reports, but above\n"
+"all making sure that every bottle of Kick that\n" 
+"hits the streets is a brain-mashing brew of\n" 
+"nitro-driven fizz.";
+
+KAINTRO2 =
+"You are not having a good day.\n"
+"\n"
+"The line has been shut down and you pulled\n" 
+"the cord. You didn't need a spectrometer to\n"
+"know that something was wrong - this batch\n"
+"was weak, it did nothing for mouth or mind.\n"
+"It lacked, well. . . Kick.";
+
+KAINTRO3 =
+"Troubles Abew...\n"
+"\n"
+"So you, with loosened tie and your jacket\n" 
+"on a hook were crawling through passageways\n" 
+"trying to find the problem. Storage tanks,\n"
+"feeder pipes, filling nozzles, just what you\n" 
+"expected. . .but wait.  What's that?  Out of a\n"
+"newly cut scar on the side of an otherwise\n"
+"pristine wall came a crudely fashioned pipe.\n"  
+"Clumsily welded to a major feeder main,\n" 
+"it disappeared into the darkness.";
+
+KAINTRO4 =
+"Punching a small hole in the pipe with a\n" 
+"screwdriver, the liquid that dripped to the\n" 
+"ground confirmed what you already feared  - it\n"
+"was Alpine Spew. Someone was using Alpine Spew\n" 
+"to take the kick out of Kick!  You could already\n" 
+"hear them echoing up from below:  Surfer Mutants\n" 
+"with Flattops shouting \"Hey Dude!\" The screams\n" 
+"of flying two liter bottles with teeth so sharp\n" 
+"they'd tear you apart faster than the Spew itself.\n"  
+"And most chilling, the taunts of a musty old lounge\n" 
+"singer: \"C'mere baby. . .\"  It sounded like he\n" 
+"wanted your career to be over too.";
+
+KAINTRO5 =
+"Pain was in dew...\n"
+"\n"
+"Something had to be done and you were the man\n" 
+"to do it.  Tie off, armed only with the pistol\n" 
+"from your desk and a can of Kick you crawled into\n"
+"the inky abyss. \n" 
+"\n"
+"It was time to Kick some Alpine ass. . .";

@@ -54,7 +54,7 @@ intermission Doom1_Intro
 	TextScreen
 	{
 		Text = "$D1INTRO1"
-		Background = "DMVICTOR"
+		Background = "E1VICTOR"
 		Music = "$MUSIC_VICTOR"
 	}
 	
@@ -74,13 +74,71 @@ intermission Doom1_Intro
 	}
 }
 
+intermission Doom1_Intro_2
+{
+	TextScreen
+	{
+		Text = "$E2INTRO1"
+		Background = "E2VICTOR"
+		Music = "$MUSIC_VICTOR"
+	}
+	
+	TextScreen
+	{
+		Text = "$E2INTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$E2INTRO3"
+	}
+}
+
+intermission Doom1_Intro_3
+{
+	TextScreen
+	{
+		Text = "$E3INTRO1"
+		Background = "E3ENDINT"
+		Music = "$MUSIC_VICTOR"
+	}
+	
+	TextScreen
+	{
+		Text = "$E3INTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$E3INTRO3"
+	}
+	//Wiper { WipeType = crossfade }
+}
+
+Intermission Doom_Intro_4
+{
+	TextScreen
+	{
+		Text = "$E4INTRO1"
+		Background = "E4VICTOR"
+		Music = "$MUSIC_INTEREP4"
+	}
+	TextScreen
+	{
+		Text = "$E4INTRO2"
+	}
+	TextScreen
+	{
+		Text = "$E4INTRO3"
+	}
+}
+
 intermission Sigil_Intro
 {
 	TextScreen
 	{
 		Text = "$E5INTRO1"
 		Background = "SIGILINT"
-		//Music = "$MUSIC_VICTOR"
 		Music = "D_E5M6"
 	}
 	TextScreen
@@ -97,13 +155,30 @@ intermission Sigil_Intro
 	}
 }
 
+intermission Sigil2_Intro
+{
+	TextScreen
+	{
+		Text = "$E6INTRO1"
+		Background = "SIGILIN2"
+		Music = "D_E6M7"
+	}
+	TextScreen
+	{
+		Text = "$E6INTRO2"
+	}
+	TextScreen
+	{
+		Text = "$E6INTRO3"
+	}
+}
 
 intermission Doom2_Intro
 {
 	TextScreen
 	{
 		Text = "$D2INTRO1"
-		Background = "$GRNROCK", 1
+		Background = "INTERPIC"
 		Music = "$MUSIC_READ_M"
 	}
 	
@@ -121,39 +196,54 @@ intermission Doom2_Intro
 	{
 		Text = "$D2INTRO4"
 	}
-	
+}
+
+intermission Doom2_Intro_2
+{
 	TextScreen
 	{
-		Text = "$D2INTRO5"
+		Text = "$C2TEXT"
+		Background = "INTER_E4"
+		Music = "$MUSIC_READ_M"
 	}
-	
-	/*
-	
+}
+
+intermission Doom2_Intro_3
+{
 	TextScreen
 	{
-		Text = "$D1INTRO5"
+		Text = "$C3TEXT"
+		Background = "INTERPI3"
+		Music = "$MUSIC_READ_M"
 	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO6"
-	}
-	
-	TextScreen
-	{
-		Text = "$D1INTRO7"
-	}
-	
-	*/
 }
 
 intermission Nerve_Intro
 {
 	TextScreen
 	{
-		Text = "$NVINTRO"
-		Background = "$GRNROCK", 1
+		Text = "$NVINTRO1"
+		Background = "INTERNV"
 		Music = "D_NRFTLX"
+	}
+	TextScreen
+	{
+		Text = "$NVINTRO2"
+	}
+}
+
+intermission Id1_Intro
+{
+	TextScreen
+	{
+		Text = "$ID1INTRO1"
+		Background = "INTERLR"
+		Music = "D_SHORES"
+	}
+	
+	TextScreen
+	{
+		Text = "$ID1INTRO2"
 	}
 }
 
@@ -162,7 +252,7 @@ intermission Tnt_Intro
 	TextScreen
 	{
 		Text = "$TNINTRO1"
-		Background = "$GRNROCK", 1
+		Background = "TNINTRO"
 		Music = "T_READ_M"
 	}
 	
@@ -195,12 +285,207 @@ intermission Tnt_Intro
 	{
 		Text = "$TNINTRO7"
 	}
-	/*
+}
+
+intermission Plutonia_Intro
+{
 	TextScreen
 	{
-		Text = "$TNINTRO8"
+		Text = "$PLINTRO1"
+		Background = "$GRNROCK", 1
+		Music = "P_READ_M"
 	}
-	*/
+	
+	TextScreen
+	{
+		Text = "$PLINTRO2"
+	}
+	
+	TextScreen
+	{
+		Text = "$PLINTRO3"
+	}
+	
+	TextScreen
+	{
+		Text = "$PLINTRO4"
+	}
+	
+	TextScreen
+	{
+		Text = "$PLINTRO5"
+	}
+	
+	TextScreen
+	{
+		Text = "$PLINTRO6"
+	}
+	
+	TextScreen
+	{
+		Text = "$PLINTRO7"
+	}
+}
+
+Intermission Absolution_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_C0P1"
+		Background = "D64INTRO"
+		music = "$MUSIC_D64END"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P4"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_C0P5"
+	}
+}
+
+Intermission LostEpisode_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_LE1"
+		Background = "$bgflat06", 1
+		music = "LE_VICTOR"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_LE2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_LE3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_LE4"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_LE5"
+	}
+}
+
+Intermission TNTR_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_TR1"
+		Background = "INTERPIC"
+		music = "$MUSIC_TNRTEXT"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_TR4"
+	}
+}
+
+Intermission PT2_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_PT1"
+		Background = "INTERPI3"
+		music = "$MUSIC_PL2TEXT"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT2"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT3"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT4"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT5"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT6"
+	}
+	
+	TextScreen
+	{
+		Text = "$IN_PT7"
+	}	
+}
+
+Intermission PG_Intro
+{
+	TextScreen
+	{
+		Text = "$IN_PG1"
+		Background = "$bgflat11", 1
+		music = "$MUSIC_PERTEXT"
+	}	
+}
+
+Intermission KA_Intro
+{
+	TextScreen
+	{
+		Text = "$KAINTRO1"
+		Background = "$NUKAGE1", 1
+		Music = "D_READ_M"
+	}
+	TextScreen
+	{
+		Text = "$KAINTRO2"
+	}
+	TextScreen
+	{
+		Text = "$KAINTRO3"
+	}
+	TextScreen
+	{
+		Text = "$KAINTRO4"
+	}
+	TextScreen
+	{
+		Text = "$KAINTRO5"
+	}
 }
 
 Intermission Doom1Cast
@@ -435,6 +720,15 @@ Intermission D64D2Map33End
 	{
 		Background = "TITLEAB"
 		music = "$MUSIC_D64MAP33"
+	}
+}
+
+Intermission KickAtkCredits
+{
+	Image
+	{
+		Background = "KACRED"
+		//music = "$MUSIC_D64MAP33"
 	}
 }
 
@@ -699,131 +993,6 @@ Intermission D64Inter_Cast
 		music = "$MUSIC_D64END"
 	}
 	Link = D64Cast
-}
-
-Intermission Absolution_Intro
-{
-	TextScreen
-	{
-		Text = "$IN_C0P1"
-		Background = "D64INTRO"
-		music = "$MUSIC_D64END"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_C0P2"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_C0P3"
-	}
-}
-
-Intermission LostEpisode_Intro
-{
-	TextScreen
-	{
-		Text = "$IN_LE1"
-		Background = "$bgflat06", 1
-		music = "LE_VICTOR"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_LE2"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_LE3"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_LE4"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_LE5"
-	}
-}
-
-Intermission TNTR_Intro
-{
-	TextScreen
-	{
-		Text = "$IN_TR1"
-		Background = "INTERPIC"
-		music = "$MUSIC_TNRTEXT"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_TR2"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_TR3"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_TR4"
-	}
-}
-
-Intermission PT2_Intro
-{
-	TextScreen
-	{
-		Text = "$IN_PT1"
-		Background = "INTERPI3"
-		music = "$MUSIC_PL2TEXT"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT2"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT3"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT4"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT5"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT6"
-	}
-	
-	TextScreen
-	{
-		Text = "$IN_PT7"
-	}	
-}
-
-Intermission PG_Intro
-{
-	TextScreen
-	{
-		Text = "$IN_PG1"
-		Background = "$bgflat11", 1
-		music = "$MUSIC_PERTEXT"
-	}	
 }
 
 Intermission D64Cast

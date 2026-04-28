@@ -390,74 +390,45 @@ Class DCX_VassagoFlame : Actor
 			VFLM AB 4 Bright;
 			loop;
 		death:
-			VFLM C 4 bright
-			{
-				bNOGRAVITY = False;
-				A_ChangeLinkFlags(false);
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
+			VFLM C 4 bright A_VassagoExplode();
 			VFLM D 4 bright;
 			VFLM E 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
+		death.loop:	
+			VFLM F 4 bright A_VassagoBurn(); //1
 			VFLM G 4 bright;
 			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);			
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);			
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
-			VFLM G 4 bright;
-			VFLM H 4 bright;
-			VFLM F 4 bright
-			{
-				A_StartSound("Vassago/fire");
-				A_Explode(10,130);				
-			}
+			VFLM H 0 bright A_VassagoRepeat();
+			Loop;
+		Death.Continued:			
+			VFLM F 4 bright A_VassagoBurn(); //8			
 			VFLM J 4 bright;
 			VFLM K 4 bright;
 			VFLM L 4 bright A_Explode(10,130);
 			VFLM MNOPQ 4 bright;
 			stop;
+	}
+	
+	int i;
+	
+	Void A_VassagoExplode()
+	{
+		bNOGRAVITY = False;
+		A_ChangeLinkFlags(false);
+		A_StartSound("Vassago/fire");
+		A_Explode(10,130);
+		i = 8;
+	}
+	
+	Void A_VassagoBurn()
+	{
+		A_StartSound("Vassago/fire");
+		A_Explode(10,130);	
+	}
+	
+	Void A_VassagoRepeat()
+	{
+		if (i == 0) SetStateLabel("Death.Continued");
+        i--;
 	}
 }
 

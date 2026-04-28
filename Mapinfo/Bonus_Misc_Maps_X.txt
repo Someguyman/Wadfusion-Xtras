@@ -1,9 +1,17 @@
 defaultmap
 {
 	SuckTime = 1
-	NoJump
-	NoCrouch
 	compat_invisibility = "1"
+}
+
+map KA_MAP "$ML_KICK" //KICK ATTACK
+{
+	Sky1 = "SKY1"
+	Next = EndSequence, "Jaguarcast"
+	TitlePatch = "KWILV00"
+	music = "$MUSIC_KICKATK"
+	Author = "$WS_AU_WILLITS_COLA"
+	Label = "Bonus"
 }
 
 //Won't be included in the mod for now
