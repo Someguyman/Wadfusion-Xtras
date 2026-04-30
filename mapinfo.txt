@@ -8,7 +8,6 @@ include mapinfo/Doom2_levels_X.txt
 include mapinfo/Console_Doom_Levels_X.txt
 include mapinfo/Xbox_levels_X.txt
 include mapinfo/Master_levels_X.txt
-include mapinfo/Master_levels_christen_X.txt
 include mapinfo/Master_levels_flynn_X.txt
 include mapinfo/Master_levels_anderson_X.txt
 include mapinfo/Master_levels_kvernmo_X.txt
@@ -17,6 +16,7 @@ include mapinfo/Tnt_levels_X.txt
 include mapinfo/Id1_levels_X.txt
 include mapinfo/Plutonia_levels_X.txt
 include mapinfo/Absolution_X.txt
+include mapinfo/Beta_64_levels_X.txt
 include mapinfo/GbaDeathMatch_Levels_X.txt
 include mapinfo/Iddm1_levels_X.txt
 include mapinfo/Intro_Outro_Inter_X.txt
