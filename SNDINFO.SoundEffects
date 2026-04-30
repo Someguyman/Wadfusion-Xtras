@@ -1,4 +1,6 @@
 
+Player/KickedTheBucket kapldeth
+
 $musicalias D_READM D_TITLEM
 
 $alias cyber/walk spider/walk
@@ -6,6 +8,9 @@ $alias cyber/walk spider/walk
 Marine/Sight dstant2
 $Random Marine/Death { *death *xdeath }
 Marine/Active dstaunt
+
+Kicked/Rocket KALAUNC
+$limit Kicked/Rocket 0
 
 $Random Surfer1/Sight { Surfer1/Sight1 Surfer1/Sight2 }
 Surfer1/Sight1 DSSMSIT1

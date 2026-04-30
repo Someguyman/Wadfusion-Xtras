@@ -10,11 +10,24 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 		Player.WeaponSlot 1, "DCX_Fist", "DCX_Chainsaw", "DCX_DoubleBladedChainsaw";
 		Player.WeaponSlot 2, "DCX_Pistol";
 		Player.WeaponSlot 3, "DCX_Shotgun", "DCX_SuperShotgun";
-		Player.WeaponSlot 4, "DCX_Chaingun", "Keyboard_MachineGun";
+		Player.WeaponSlot 4, "Keyboard_MachineGun", "DCX_Chaingun";
 		Player.WeaponSlot 5, "H2P_RocketLauncher", "DCX_Rocketlauncher";
 		Player.WeaponSlot 6, "DCX_Incinerator", "H2P_PlasmaTrident", "DCX_PlasmaRifle", "DCX_HeavyPlasmaGun", "DCX_DZ0PlasmaRifle";
 		Player.WeaponSlot 7, "DCX_CalamityBlade", "H2P_IncendiaryTrident", "DCX_BFG9000";
 		Player.WeaponSlot 8, "DCX_Unmaker";
+	}
+}
+
+class KICKEDPuff : Bulletpuff
+{
+	States
+	{
+	Spawn:
+		PUFK A 4 Bright;
+		PUFK B 4;
+	Melee:
+		PUFK CD 4;
+		Stop;
 	}
 }
 
@@ -231,7 +244,7 @@ class DCX_Pistol : Pistol Replaces Pistol
 		Loop;
 	KICK_Fire:
 		KW02 A 4;
-		KW02 B 6 A_FirePistol;
+		KW02 B 6 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/pistol", CHAN_WEAPON); }
 		KW02 C 4;
 		KW02 B 5 A_ReFire;
 		Goto Ready;
@@ -297,7 +310,6 @@ Class DCX_Shotgun : Shotgun Replaces Shotgun
 		SHTG A 7 A_ReFire;
 		Goto Ready;
 	Flash:
-		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Flash");
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Flash");
 		SHTF A 4 Bright A_Light1;
 		SHTF B 3 Bright A_Light2;
@@ -314,7 +326,7 @@ Class DCX_Shotgun : Shotgun Replaces Shotgun
 		Loop;
 	KICK_Fire:
 		KW03 A 3;
-		KW03 A 7 A_FireShotgun;
+		KW03 A 7 A_FireKICKgun();
 		KW03 BC 5;
 		KW03 D 4;
 		KW03 CB 5;
@@ -368,6 +380,13 @@ Class DCX_Shotgun : Shotgun Replaces Shotgun
 	KICK_Spawn:
 		KW03 G -1;
 		Stop;
+	}
+	
+	action void A_FireKICKgun()
+	{
+		A_FireBullets(5.6, 0, 7, 5, "KICKEDPuff");
+		A_StartSound("weapons/shotgf", CHAN_WEAPON);
+		A_GunFlash("KICK_Flash");
 	}
 }
 
@@ -665,7 +684,7 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			Loop;
 		KICK_Fire:
 			KW04 A 0 A_GunFlash("Flash");
-			KW04 AB 4 { A_FireBullets(5.6, 0, 1, 5, "BulletPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
+			KW04 AB 4 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
 			KW04 B 0 A_ReFire("KICK_Fire");
 			Goto Ready;
 		KICK_Flash:
@@ -707,7 +726,6 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 			MISG B 0 A_ReFire;
 			Goto Ready;
 		Flash:
-			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Flash");
 			MISF A 3 Bright A_Light1;
 			MISF B 4 Bright;
 			MISF CD 4 Bright A_Light2;
@@ -723,9 +741,9 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 			KW05 A 1 A_Raise;
 			Loop;
 		KICK_Fire:
-			KW05 A 3 A_GunFlash;
+			KW05 A 3 A_GunFlash("Kick_Flash");
 			KW05 B 5;
-			KW05 B 12 A_FireMissile;
+			KW05 B 12 A_FireProjectile("Dcx_KickRocket");
 			KW05 B 0 A_ReFire;
 			Goto Ready;
 		KICK_Flash:
@@ -761,6 +779,22 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 	}
 }
 
+class DCX_KICKRocket : Rocket
+{
+	Default
+	{ SeeSound "Kicked/Rocket"; }
+	States
+	{
+	Spawn:
+		MISK A 1 Bright;
+		Loop;
+	Death:
+		MISK B 8 Bright A_Explode;
+		MISK C 6 Bright;
+		MISK D 4 Bright;
+		Stop;
+	}
+}
 
 class DCX_PlasmaRifle : PlasmaRifle Replaces PlasmaRifle
 {
@@ -905,7 +939,23 @@ class DCX_PlasmaRifle : PlasmaRifle Replaces PlasmaRifle
 			
 		}
 		
-		SpawnPlayerMissile ("PlasmaBall");
+		if (Level.MapName.MakeLower() == "ka_map")
+			SpawnPlayerMissile ("DCX_KickPlasma");
+		else
+			SpawnPlayerMissile ("PlasmaBall");
+	}
+}
+
+Class DCX_KickPlasma : PlasmaBall
+{
+	States
+	{
+	Spawn:
+		KICP AB 6 Bright;
+		Loop;
+	Death:
+		KICX ABCDE 4 Bright;
+		Stop;
 	}
 }
 
