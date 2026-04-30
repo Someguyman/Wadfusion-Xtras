@@ -55,7 +55,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			int Tyrant = 			3012;
 			int Vassago = 			3011;
 			
-			int NightmareImp = 	 	 685;
+			int NightmareImp = 	 Doomimp; //685; 
 			int NightmareSpectre = 	 697;
 			int NightmareCacodemon = 686;
 			
