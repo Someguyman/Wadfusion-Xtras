@@ -81,6 +81,8 @@ map ML_MAP07 "$ML_PARADOX"
 	Author = "$WF_AU_MUSTAINES"
 }
 
+// Christen Klie's levels
+
 adddefaultmap
 {
 	Author = "$WF_AU_KLIE"
