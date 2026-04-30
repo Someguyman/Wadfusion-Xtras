@@ -1,5 +1,5 @@
 
-class DCX_EventHandler : EventHandler
+class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 {
 
 	///*
@@ -7,6 +7,7 @@ class DCX_EventHandler : EventHandler
 	TextureId VICTORY2;
 	TextureId ENDPIC;
 	TextureId E3TEXT;
+	TextureId INTERPIC;
 	TextureId DOOMTittle;
 	TextureId UDOOMTittle;
 	TextureId SIGILTittle;
@@ -18,6 +19,7 @@ class DCX_EventHandler : EventHandler
 	override void OnRegister()
 	{
 		TITLEPIC = 	   	TexMan.CheckForTexture("TITLEPIC");
+		INTERPIC = 		TexMan.CheckForTexture("INTERPIC");
 		VICTORY2 =		TexMan.CheckForTexture("VICTORY2");
 		ENDPIC = 	   	TexMan.CheckForTexture("INTER_E4");
 		E3TEXT = 		TexMan.CheckForTexture("E3ENDINT");
@@ -30,6 +32,7 @@ class DCX_EventHandler : EventHandler
 	
 	override void RenderOverlay (RenderEvent e)
 	{
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
 		int resX = Screen.GetWidth();
 		int resY = Screen.GetHeight();
 		
@@ -40,6 +43,11 @@ class DCX_EventHandler : EventHandler
 			string mapName = Level.MapName.MakeLower();
 			if ( mapName == "wf_d1e4_ending" )
 			{
+					Level.SetFrozen(true);
+			}
+			if ( mapName == "masterhub" && !rejects )
+			{
+					Screen.DrawTexture(INTERPIC, false, 0, 0, DTA_FullScreen, 1);
 					Level.SetFrozen(true);
 			}
 			if ( mapName == "e3m1" && CVar.GetCvar("dcx_playstationmaps").getint() > 0 )
@@ -63,12 +71,64 @@ class DCX_EventHandler : EventHandler
 	
 	override void WorldLoaded (WorldEvent e)
 	{
+		int texSwapAll = CVar.FindCVar("wf_compat_texswap_all").GetInt();
+		
+		// wf_tex_swap.zs
+		// replace conflicting textures based on which map is loaded
+		if ( CVar.FindCVar("wf_compat_texswap_d1").GetBool() && texSwapAll <= 0 )
+			DoDoom1TextureReplacements();
+		if ( CVar.FindCVar("wf_compat_texswap_fd").GetBool() && texSwapAll <= 0 )
+			DoFinalDoomTextureReplacements();
+		if ( CVar.FindCVar("wf_compat_texswap_id1").GetBool() && texSwapAll <= 0 )
+			DoId1TextureReplacements();
+		if ( CVar.FindCVar("wf_compat_texswap_ml").GetBool() && texSwapAll <= 0 )
+			DoMasterLevelsTextureReplacements();
+		
+		// temporary fix for the exit sector sky in the kex version of map20
+		// should be removed when gzdoom adds support for skydefs
+		if ( CVar.FindCVar("wf_compat_mapfixes").GetBool() )
+		{
+			string mapName = Level.MapName.MakeLower();
+			if ( mapName == "map20" )
+				Level.ReplaceTextures("F_RSKY3", "F_SKY1", TexMan.NOT_WALL);
+		}
+		
+		// wf_tex_swap_all.zs
+		// force texture replacement on all levels
+		// this feature mostly exists for compatibility with doom 1 and final doom mods
+		// these disable the regular texture replacements
+		// each texture replacement can be toggled individually, in case a mod needs to replace some of them
+		switch ( texSwapAll )
+		{
+			case 1:  DoTextureReplacementsAllDoom1();      break;
+			case 2:  DoTextureReplacementsAllTnt();        break;
+			case 3:  DoTextureReplacementsAllPlutonia();   break;
+			case 4:  DoTextureReplacementsAllId1();        break;
+			case 5:  DoTextureReplacementsAllMlKlie();     break;
+			case 6:  DoTextureReplacementsAllMlAnderson(); break;
+			case 7:  DoTextureReplacementsAllMlFlynn();    break;
+			case 8:  DoTextureReplacementsAllMlrMines();   break;
+			case 9:  DoTextureReplacementsAllMlrAnomaly(); break;
+			case 10: DoTextureReplacementsAllMlrFarside(); break;
+			case 11: DoTextureReplacementsAllMlrTrouble(); break;
+			case 12: DoTextureReplacementsAllMlrUdtwid();  break;
+		}
+		
+		if ( CVar.FindCVar("wf_compat_changemusic").GetBool() )
+		{
+			// wf_music_sigil.zs
+			// Sigil's map music should be left undefined in MAPINFO,
+			// that way the music playback gets initiated by the script,
+			// without potentially playing the wrong music for one tick
+			PlaySigilMusic();
+		}
+		
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 		{ TextureEnchancements(); }
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
 		{ DCXskyreplacement(); }
 		
-		CabalLevelOrder(); 
+		//CabalLevelOrder(); 
 		
 		Doom64Doom2Replacements();
 		JaguarDoomReplacements();
@@ -83,12 +143,37 @@ class DCX_EventHandler : EventHandler
 	{
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
-			ConsoleLevelReplacement();	
+			ConsoleLevelReplacement();
+			
+			// replace e1m8 or e1m4 with the maps that Romero authored
+			// as a warm-up exercise for the cancelled game Blackroom
+			DoBlackroomMapReplacements();
+			
+			// wf_masterlevels.zs
+			// add the reject levels to the master levels mapset
+			DCX_AddMasterLevelsRejects();
 		}
 	}
 	
 	override void WorldThingSpawned(worldEvent e)
 	{
+		// increase the spiderdemon's health from 3000 to 9000 in Sigil 2
+		int sigil2SpiderBoss = CVar.FindCVar("wf_compat_sigil2spiderboss").GetInt();
+		string mapPrefix = Level.MapName.Left(3).MakeLower();
+		if ( ( sigil2SpiderBoss == 1 && mapPrefix == "e6m" ) || sigil2SpiderBoss >= 2 )
+			DoSigil2SpiderBossBuff(e);
+		
+		// override gzdoom's transparency render style for id24 actors
+		if ( CVar.FindCVar("wf_id24trans").GetBool() )
+			DoId24ActorTransparency(e);
+		
+		// don't count spawned enemies e.g. icon of sin summons
+		if ( CVar.FindCVar("wf_compat_killcountfix").GetBool() )
+		{
+			if ( Level.MapTime > 0 )
+				RevertKillCounter(e);
+		}
+		
 		let w = Wolfensteinss(e.thing);
 		if (w)
 		{
@@ -389,15 +474,16 @@ class DCX_EventHandler : EventHandler
 		if ( mapName == "tn_map32" )
 		Level.ChangeSky(TexMan.CheckForTexture("TSKYS",TexMan.Type_Any),TexMan.CheckForTexture("TSKYS",TexMan.Type_Any));
 		
-		if ( mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
+		if ( mapName.left(2) == "e1" || mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
 		{
 			Level.ReplaceTextures("DSKY1", "USKY1", 0);
 			Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
 		}
 		
-		if ( SkyName == "DSKY2" )
+		if ( SkyName == "DSKY2" ) //dunno why this was removed
 		{
-			if (   mapName.left(5) == "cs_e2" 
+			if (   mapName.left(2) == "e2"
+				|| mapName.left(5) == "cs_e2" 
 				|| mapName.left(5) == "ch_e2" 
 				|| mapName.left(5) == "co_e2" )
 			{
@@ -439,9 +525,15 @@ class DCX_EventHandler : EventHandler
 	{
 		//All these here toggle weather or not you play the console maps in the base campain.
 		
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
 		String mapName = level.MapName.MakeLower();
 		
-		if ( mapName == "e2m7" )
+		if ( mapName == "masterhub" && !rejects )
+		{
+			Level.ChangeLevel("ml_map01",0,CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		}
+		
+		if ( mapName == "e2m7" ) // Adds alter of extraction as a secret map
 		{
 			if ( CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
 				level.NextSecretMap = "PSX01B";
@@ -478,6 +570,299 @@ class DCX_EventHandler : EventHandler
 			else
 				level.NextMap = "map30";
 		}
+	}
+	
+	void DCX_AddMasterLevelsRejects() //Modify this so that when rejects are disabled, that the master levels episode takes you to the normal master levels campaign.
+	{
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
+		let rejectsStory = CVar.FindCVar("wf_map_mlr_story").GetBool();
+		string mapName = Level.MapName.MakeLower();
+		
+		if ( mapName == "ml_map02" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map28";
+			else
+				Level.NextMap = "ml_map03";
+		}
+		
+		if ( mapName == "ml_map03" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map25";
+			else
+				Level.NextMap = "ml_map04";
+		}
+		
+		if ( mapName == "ml_map04" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map08";
+			else
+				Level.NextMap = "ml_map05";
+		}
+		
+		if ( mapName == "ml_map05" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map23";
+			else
+				Level.NextMap = "ml_map06";
+		}
+		
+		//ML_MAP06
+		if ( mapName == "ml_map06" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map05";
+			else
+				Level.NextMap = "ml_map07";
+		}
+		
+		if ( mapName == "ml_map07" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map22";
+			else
+				Level.NextMap = "ml_map08";
+		}
+		
+		if ( mapName == "ml_map08" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map24";
+			else
+				Level.NextMap = "ml_map09";
+		}
+		
+		if ( mapName == "ml_map09" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map26";
+			else
+				Level.NextMap = "ml_map10";
+		}
+		
+		if ( mapName == "ml_map10" )
+		{
+			if ( !rejects )
+				Level.NextMap = "ml_map11";
+		}
+		
+		if ( mapName == "ml_map11" )
+		{
+			if ( !rejects )
+				Level.NextMap = "ml_map12";
+		}
+		
+		/*
+		if ( mapName == "ml_map02" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map45";
+			else
+				Level.NextMap = "ml_map03";
+		}
+		if ( mapName == "ml_map06" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map08";
+			else
+				Level.NextMap = "ml_map07";
+		}
+		if ( mapName == "ml_map09" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map22";
+			else
+				Level.NextMap = "ml_map10";
+		}
+		if ( mapName == "ml_map07" )
+		{
+			if ( rejects )
+			{
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map29";
+				else
+					Level.NextMap = "ml_map29";
+			}
+			else
+				Level.NextMap = "ml_map08";
+		}
+		if ( mapName == "ml_map17" )
+		{
+			if ( rejects )
+			{
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map33";
+				else
+					Level.NextMap = "ml_map33";
+			}
+			else
+				Level.NextMap = "ml_map18";
+		}
+		if ( mapName == "ml_map15" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map35";
+			else
+				Level.NextMap = "ml_map16";
+		}
+		if ( mapName == "ml_map19" )
+		{
+			if ( rejects )
+			{
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map37";
+				else
+					Level.NextMap = "ml_map37";
+			}
+			else
+				Level.NextMap = "ml_map20";
+		}
+		if ( mapName == "ml_map20" )
+		{
+			if ( rejects )
+				Level.NextMap = "ml_map40";
+			else
+				Level.NextMap = "wf_story";
+		}
+		if ( mapName == "ml_map18" || mapName == "ml_map21" )
+		{
+			if ( rejects )
+			{
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map41";
+				else
+					Level.NextMap = "ml_map41";
+			}
+			else
+				Level.NextMap = "ml_map19";
+		}
+		if ( mapName == "ml_map10" )
+		{
+			if ( rejects )
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map43";
+				else
+					Level.NextMap = "ml_map43";
+			else
+				Level.NextMap = "ml_map11";
+		}
+		
+		if ( mapName == "ml_map29" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map30";
+			else
+				Level.NextMap = "ml_map30";
+		}
+		if ( mapName == "ml_map30" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map31";
+			else
+				Level.NextMap = "ml_map31";
+		}
+		if ( mapName == "ml_map31" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map32";
+			else
+				Level.NextMap = "ml_map32";
+		}
+		if ( mapName == "ml_map32" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map16";
+			else
+				Level.NextMap = "ml_map16";
+		}
+		if ( mapName == "ml_map16" )
+		{
+			if ( rejects && rejectsStory )
+				Level.NextMap = "wf_story_ml_map17";
+			else
+				Level.NextMap = "ml_map17";
+		}
+		if ( mapName == "ml_map33" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map34";
+			else
+				Level.NextMap = "ml_map34";
+		}
+		if ( mapName == "ml_map34" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map11";
+			else
+				Level.NextMap = "ml_map11";
+		}
+		if ( mapName == "ml_map11" )
+		{
+			if ( rejects && rejectsStory )
+				Level.NextMap = "wf_story_ml_map12";
+			else
+				Level.NextMap = "ml_map12";
+		}
+		if ( mapName == "ml_map12" )
+		{
+			if ( rejects && rejectsStory )
+				Level.NextMap = "wf_story_ml_map13";
+			else
+				Level.NextMap = "ml_map13";
+		}
+		if ( mapName == "ml_map14" )
+		{
+			if ( rejects && rejectsStory )
+				Level.NextMap = "wf_story_ml_map15";
+			else
+				Level.NextMap = "ml_map15";
+		}
+		if ( mapName == "ml_map36" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map19";
+			else
+				Level.NextMap = "ml_map19";
+		}
+		if ( mapName == "ml_map37" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map38";
+			else
+				Level.NextMap = "ml_map38";
+		}
+		if ( mapName == "ml_map39" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map20";
+			else
+				Level.NextMap = "ml_map20";
+		}
+		if ( mapName == "ml_map40" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map18";
+			else
+				Level.NextMap = "ml_map18";
+		}
+		if ( mapName == "ml_map41" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map42";
+			else
+				Level.NextMap = "ml_map42";
+		}
+		if ( mapName == "ml_map42" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map10";
+			else
+				Level.NextMap = "ml_map10";
+		}
+		*/
 	}
 	
 	
