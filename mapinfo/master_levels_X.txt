@@ -15,11 +15,9 @@ defaultmap
 	SuckTime = 1
 	ResetHealth
 	ResetInventory
-	InterMusic = "D_INTRM3"
+	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "MLINTERP"
-	//Cluster = 24
 	compat_invisibility = "1"
-	F1 = "MTLCRE" 
 }
 
 // Tim Willits's Master Levels
@@ -59,14 +57,12 @@ map ML_MAP45 "$THUSTR_1" //Early version of System Control from DWANGO6
 	Next = "ML_MAP46"
 	TitlePatch = "TWILV00"
 	Music = "T_STLKS3"
-	Author = "$WF_AU_MUSTAINE"
 }
 
 map ML_MAP46 "$THUSTR_17" //Early version of Processing Area from #1DWANGO
 {
 	Next = "ML_MAP28"
 	TitlePatch = "TWILV16"
-	Author = "$WF_AU_MUSTAINE"
 	Music = "D_PROCESS"
 }
 
@@ -75,58 +71,107 @@ map ML_MAP28 "$ML_TWM01" // reject level
 	Next = "ML_MAP07"
 	TitlePatch = "MWILV27"
 	Music = "$MUSIC_MASTERDEN"
-	//Music = "T_MESSAG"
 }
 
 map ML_MAP07 "$ML_PARADOX"
 {
-	Next = "ML_MAP47"
+	Next = "ML_MAP22"
 	TitlePatch = "MWILV06"
 	Music = "$MUSIC_PARADOX"
 	Author = "$WF_AU_MUSTAINES"
 }
 
-//		Beta Doom 64 Maps		//
-
 adddefaultmap
 {
-	Author = "$WS_AU_MIDWAY"
-	Label = "Master Levels, Midway"
+	Author = "$WF_AU_KLIE"
+	Sky1 = "SKY1"
+	Label = "Master Levels, Christen Klie"
 }
 
-map ML_MAP47 "Hacked Together" 
+map ML_MAP22 "$ML_CPU" // reject level
 {
-	next = "ML_MAP48"
-	TitlePatch = "LWILV00"
-	sky1 = "DSKY1"
-	music = "$MUSIC_HACK2"
+	Next = "ML_MAP06"
+	TitlePatch = "MWILV21"
+	Music = "$MUSIC_CPU"
 }
 
-map ML_MAP48 "Grand Entrance to Hell" //CANYON
+map ML_MAP06 "$ML_SUBSPACE"
 {
-	next = "ML_MAP49"
-	TitlePatch = "LWILV01"
-	sky1 = "DSKY1"
-	music = "$MUSIC_HELLCAN"
+	Next = "ML_MAP05"
+	TitlePatch = "MWILV05"
+	Music = "$MUSIC_SUBSPACE"
 }
 
-map ML_MAP49 "Moping in Sarrow" // MEE2
+map ML_MAP05 "$ML_COMBINE"
 {
-	next = "ML_MAP50"
-	TitlePatch = "LWILV02"
-	sky1 = "SKY3"
-	music = "$MUSIC_MEE2"
+	Next = "ML_MAP23"
+	Sky1 = "MSKY1"
+	TitlePatch = "MWILV04"
+	Music = "$MUSIC_COMBINE"
 }
 
-map ML_MAP50 "Nightmare Catacombs" //NEWCAT3
+map ML_MAP23 "$ML_DEVICE1" // reject level
 {
-	next = "ML_MAP51"
-	TitlePatch = "LWILV03"
-	Sky1 =  "SKYX5A"
-	music = "$MUSIC_NEWCAT3"
+	Next = "ML_MAP04"
+	TitlePatch = "MWILV22"
+	Music = "$MUSIC_DEVICEONE"
 }
 
-map ML_MAP51 "Tuff stuff" //TUFF
+map ML_MAP04 "$ML_FISTULA"
+{
+	Next = "ML_MAP08"
+	Sky1 = "MSKY1"
+	TitlePatch = "MWILV03"
+	Music = "$MUSIC_FISTULA"
+}
+
+map ML_MAP08 "$ML_SUBTERRA"
+{
+	Next = "ML_MAP24"
+	TitlePatch = "MWILV07"
+	Music = "$MUSIC_SUBTERRA"
+}
+
+map ML_MAP24 "$ML_DMZ" // reject level
+{
+	Next = "ML_MAP03"
+	TitlePatch = "MWILV23"
+	Music = "$MUSIC_DMZ"
+}
+
+map ML_MAP03 "$ML_CATWALK"
+{
+	//Next = "ML_MAP25"
+	Next = "ML_MAP25"
+	TitlePatch = "MWILV02"
+	Music = "$MUSIC_CATWALK"
+}
+
+map ML_MAP25 "$ML_FURY" // reject level
+{
+	Next = "ML_MAP09"
+	TitlePatch = "MWILV24"
+	Music = "$MUSIC_FURY"
+	Sky1 = "SKY4"
+}
+
+map ML_MAP09 "$ML_GARRISON"
+{
+	Next = "ML_MAP26"
+	TitlePatch = "MWILV08"
+	Music = "$MUSIC_GARRISON"
+	Sky1 = "SKY4"
+}
+
+map ML_MAP26 "$ML_EINSIDE" // reject level
+{
+	Next = "ML_MAP27"
+	Sky1 = "PSKY3"
+	TitlePatch = "MWILV25"
+	Music = "$MUSIC_ENEMY"
+}
+
+map ML_MAP27 "$ML_HIVE" // reject level
 {
 	Next = EndGame
 	{
@@ -134,9 +179,9 @@ map ML_MAP51 "Tuff stuff" //TUFF
 		music = "$MUSIC_MASTEREND"
 		Cast
 	}
-	TitlePatch = "LWILV04"
+	Sky1 = "PSKY3"
+	TitlePatch = "MWILV26"
+	Music = "$MUSIC_HIVE"
 	nointermission
 	NoSoundClipping
-	Sky1 =  "SKYX4A"
-	music = "$MUSIC_TUFF"
 }
