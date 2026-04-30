@@ -102,7 +102,7 @@ episode WF_NEWGAME_AB_MAP21
 	Optional
 }
 
-episode WF_NEWGAME_ML_MAP01
+episode WF_NEWGAME_MASTERHUB
 {
 	Name = "$WF_CAMPAIGN_MASTER"
 	PicName = "M_MASTER"
