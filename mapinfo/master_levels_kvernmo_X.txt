@@ -1,15 +1,5 @@
 // Master Levels for Doom 2 maps - Sverre André Kvernmo's CABAL
 
-//Due to the stark difference between the order presented in the text files 
-//vs the order kvernmo later made for the works of the masters mod,
-//I've decided to make the map order a toggle so that you can choose
-//the order in which you want to play these. 
-
-//As a result, I have removed the next level parts from most of the maps
-//in the mapinfo.
-
-//Might change it later if it ever causes any mod compatibility issues.
-
 defaultmap
 {
 	Sky1 = "SKY3"
@@ -17,11 +7,11 @@ defaultmap
 	NoJump
 	NoCrouch
 	Author = "$WF_AU_KVERNMO"
-	InterMusic = "$MUSIC_MASTERIN2"
+	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "CRINTERP"
 	Label = "CABAL SERIES"
 	compat_invisibility = "1"
-	F1 = "CSCRED" 
+	//F1 = "CSCRED" 
 }
 
 map ML_MAP19 "$ML_BLOODSEA"
@@ -30,7 +20,7 @@ map ML_MAP19 "$ML_BLOODSEA"
 	TitlePatch = "MWILV18"
 	Music = "$MUSIC_BLOODSEA"
 	Map07Special
-	Cluster = 44
+	//Cluster = 44
 }
 
 map ML_MAP37 "$ML_FLOOD" // reject level
@@ -47,7 +37,7 @@ map ML_MAP38 "$ML_DERELICT" // reject level
 	TitlePatch = "MWILV37"
 	Music = "$MUSIC_DERELICT"
 	Author = "$WF_AU_KVERNMO_HYNE"
-	Cluster = 46
+	//Cluster = 46
 }
 
 map ML_MAP39 "$ML_WATCHTWR" // reject level
@@ -66,7 +56,7 @@ map ML_MAP20 "$ML_MEPHISTO"
 	Music = "$MUSIC_MEPHISTO"
 	AllowMonsterTelefrags
 	Map07Special
-	Cluster = 47
+	//Cluster = 47
 }
 
 map ML_MAP40 "$ML_TODEATH" // reject level
@@ -82,7 +72,7 @@ map ML_MAP18 "$ML_TEETH"
 	SecretNext = "ML_MAP21"
 	TitlePatch = "MWILV17"
 	Music = "$MUSIC_TEETH"
-	Cluster = 48
+	//Cluster = 48
 }
 
 map ML_MAP41 "$ML_ARENA" // reject level
@@ -90,7 +80,7 @@ map ML_MAP41 "$ML_ARENA" // reject level
 	Next = "ML_MAP42"
 	TitlePatch = "MWILV40"
 	Music = "$MUSIC_ABOUTTO"
-	Cluster = 49
+	//Cluster = 49
 }
 
 map ML_MAP42 "$ML_STORM" // reject level
@@ -98,7 +88,7 @@ map ML_MAP42 "$ML_STORM" // reject level
 	Next = "ML_MAP10"
 	TitlePatch = "MWILV41"
 	music = "$MUSIC_EYESTORM"
-	Cluster = 50
+	//Cluster = 50
 }
 
 map ML_MAP10 "$ML_BLACKTWR"
@@ -106,7 +96,7 @@ map ML_MAP10 "$ML_BLACKTWR"
 	Next = "ML_MAP43"
 	TitlePatch = "MWILV09"
 	Music = "$MUSIC_BLACKTWR"
-	Cluster = 51
+	//Cluster = 51
 }
 
 map ML_MAP43 "$ML_THE_EVIL" // reject level
@@ -120,13 +110,13 @@ map ML_MAP43 "$ML_THE_EVIL" // reject level
 		Cast
 	}
 	AllowMonsterTelefrags
-	Cluster = 52
+	//Cluster = 52
 }
 
 map ML_MAP21 "$ML_TEETH_SECRET"
 {
 	Next = "ML_MAP41"
-	Cluster = 25
+	//Cluster = 25
 	TitlePatch = "MWILV20"
 	Music = "$MUSIC_NIGHTMARE"
 }
