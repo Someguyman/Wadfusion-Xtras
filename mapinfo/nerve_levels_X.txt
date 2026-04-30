@@ -9,7 +9,7 @@ defaultmap
 	NoJump
 	NoCrouch
 	compat_invisibility = "1"
-	F1 = "NVCRED"
+	//F1 = "NVCRED"
 }
 
 map NV_MAP01 "$NHUSTR_1"
