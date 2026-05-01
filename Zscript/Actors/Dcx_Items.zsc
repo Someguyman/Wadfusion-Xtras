@@ -119,6 +119,193 @@ Class Berserk_rpg : Berserk
 	}
 }
 
+Class Stimpack_Kick : Stimpack 
+{
+	States
+	{
+	Spawn:
+		KAMK A -1;
+		Stop;
+	}
+}
+
+Class Medikit_Kick : Medikit
+{
+	States
+	{
+	Spawn:
+		KAMK B -1;
+		Stop;
+	}
+}
+
+class Clip_Kick : Clip
+{
+	States
+	{
+	Spawn:
+		KAAM A -1;
+		Stop;
+	}
+}
+
+class ClipBox_Kick : ClipBox
+{
+	States
+	{
+	Spawn:
+		KAAM B -1;
+		Stop;
+	}
+}
+
+class Shell_Kick : Shell
+{
+	States
+	{
+	Spawn:
+		KAAM C -1;
+		Stop;
+	}
+}
+
+class ShellBox_Kick : ShellBox
+{
+	States
+	{
+	Spawn:
+		KAAM D -1;
+		Stop;
+	}
+}
+
+class RocketAmmo_Kick : RocketAmmo
+{
+	States
+	{
+	Spawn:
+		KAAM E -1;
+		Stop;
+	}
+}
+
+class RocketBox_Kick : RocketBox
+{
+	States
+	{
+	Spawn:
+		KAAM F -1;
+		Stop;
+	}
+}
+
+class Cell_Kick : Cell
+{
+	States
+	{
+	Spawn:
+		KAAM G -1;
+		Stop;
+	}
+}
+
+class CellPack_Kick : CellPack
+{
+	States
+	{
+	Spawn:
+		KAAM H -1;
+		Stop;
+	}
+}
+
+class BlueCard_Kick : CustomInventory
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTBLUECARD";
+		Tag "$TAG_BLUECARD";
+	}
+	States
+	{
+	Spawn:
+		KAKY A 10;
+		KAKY B 10 bright;
+		loop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("BlueCard");
+		Stop;
+	}
+}
+
+class YellowCard_Kick : CustomInventory
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTYELWCARD";
+		Tag "$TAG_YELLOWCARD";
+	}
+	States
+	{
+	Spawn:
+		KAKY C 10;
+		KAKY D 10 bright;
+		loop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("YellowCard");
+		Stop;
+	}
+}
+
+class RedCard_Kick : CustomInventory
+{
+	Default
+	{
+		Inventory.Pickupmessage "$GOTREDCARD";
+		Tag "$TAG_REDCARD";
+	}
+	States
+	{
+	Spawn:
+		KAKY E 10;
+		KAKY F 10 bright;
+		loop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("RedCard");
+		Stop;
+	}
+}
+
+Class KickSodaCan : HealthBonus
+{
+	States
+	{
+	Spawn:
+		SODA ABCDCB 6;
+		Loop;
+	}
+}
+
+Class KickArmorBonus : ArmorBonus
+{
+	States
+	{
+	Spawn:
+		KAB2 ABCDCB 6;
+		Loop;
+	}
+}
+
+Class SoulSphere_Kick : SoulSphere
+{
+	States
+	{
+	Spawn:
+		KSOL ABCDCB 6 Bright;
+		Loop;
+	}
+}
+
 Class MasterLevelsCompleted : Inventory
 {
 	Default

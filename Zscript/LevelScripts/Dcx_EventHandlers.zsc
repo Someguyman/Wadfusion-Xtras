@@ -505,9 +505,9 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			
 		if ( (mapPrefix == "nv_") )
 		{
-			if ( (mapName == "nv_map01") || (mapName == "nv_map02") || (mapName == "nv_map09") )
+			if ( (mapName == "nv_map01") || (mapName == "nv_map02") || (mapName == "nv_map03") || (mapName == "nv_map09") )
 			{
-				Level.ChangeSky(TexMan.CheckForTexture("RSKY2",TexMan.Type_Any),TexMan.CheckForTexture("RSKY2",TexMan.Type_Any));
+				Level.ChangeSky(TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any),TexMan.CheckForTexture("RSKY2",TexMan.Type_Any));
 			}
 		}		
 	}
@@ -998,7 +998,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			e.Replacement = 'Armorbonus';
 		}
 
-		If ( Cvar.findcvar("Health_Cross_Toggle").getint() == 1)
+		If ((Cvar.findcvar("Health_Cross_Toggle").getint() == 1))
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_BFG';
@@ -1009,7 +1009,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_BFG';
 		}		
-		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 2)
+		else If((Cvar.findcvar("Health_Cross_Toggle").getint() == 2))
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_unity';
@@ -1020,7 +1020,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_unity';
 		}
-		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 3)
+		else If((Cvar.findcvar("Health_Cross_Toggle").getint() == 3))
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_eternal';
@@ -1031,7 +1031,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 			if (e.Replacee == 'Berserk')
 			e.Replacement = 'Berserk_eternal';
 		}
-		else If(Cvar.findcvar("Health_Cross_Toggle").getint() == 4)
+		else If((Cvar.findcvar("Health_Cross_Toggle").getint() == 4))
 		{
 			if (e.Replacee == 'Stimpack')
 			e.Replacement = 'Stimpack_rpg';
@@ -1047,6 +1047,58 @@ class DCX_PerMapReplacementHandler : EventHandler
 		{
 			if ( CVar.FindCVar("dcx_CustomMonsters").GetBool() )
 			{
+			
+			if (e.Replacee == 'Stimpack')
+				e.Replacement = 'Stimpack_kick';
+			
+			if (e.Replacee == 'Medikit')
+				e.Replacement = 'Medikit_kick';
+				
+			if (e.Replacee == 'Clip')
+				e.Replacement = 'Clip_kick';
+			
+			if (e.Replacee == 'ClipBox')
+				e.Replacement = 'ClipBox_kick';
+				
+			if (e.Replacee == 'Shell')
+				e.Replacement = 'Shell_kick';
+			
+			if (e.Replacee == 'Shellbox')
+				e.Replacement = 'ShellBox_kick';
+				
+			if (e.Replacee == 'RocketAmmo')
+				e.Replacement = 'RocketAmmo_kick';
+			
+			if (e.Replacee == 'RocketBox')
+				e.Replacement = 'RocketBox_kick';
+				
+			if (e.Replacee == 'Cell')
+				e.Replacement = 'Cell_kick';
+				
+			if (e.Replacee == 'CellPack')
+				e.Replacement = 'CellPack_kick';
+				
+			if (e.Replacee == 'BlueCard')
+				e.Replacement = 'BlueCard_Kick';
+				
+			if (e.Replacee == 'YellowCard')
+				e.Replacement = 'YellowCard_kick';
+				
+			if (e.Replacee == 'RedCard')
+				e.Replacement = 'RedCard_Kick';
+				
+			//KickSodaCan
+			if (e.Replacee == 'HealthBonus')
+				e.Replacement = 'KickSodaCan';
+			
+			//KickArmorBonus
+			if (e.Replacee == 'ArmorBonus')
+				e.Replacement = 'KickArmorBonus';
+			
+			//SoulSphere_Kick
+			if (e.Replacee == 'SoulSphere')
+				e.Replacement = 'SoulSphere_Kick';
+
 			//Doomimp
 			if (e.Replacee == 'Doomimp')
 			{
@@ -1231,6 +1283,9 @@ class DCX_PerMapReplacementHandler : EventHandler
 	override void CheckReplacee (ReplacedEvent e)
 	{		
 		String mapName = level.MapName.MakeLower();
+		
+		if (e.Replacement == 'DCX_DualArachnotron')
+		e.Replacee = 'Arachnotron';
 		
 		if (e.Replacement == 'DCX_DualArachnotron')
 		e.Replacee = 'Arachnotron';
