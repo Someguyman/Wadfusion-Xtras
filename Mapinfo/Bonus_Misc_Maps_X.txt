@@ -14,15 +14,6 @@ map KA_MAP "$ML_KICK" //KICK ATTACK
 	Label = "Bonus"
 }
 
-//Won't be included in the mod for now
-//since it's something you have to pay for and
-//it's to support the ukraine red cross organization.
-//If you want this level as a part of the set
-//then you have to obtain it yourself, rename 
-//it to "OneHumanity", then open the mod
-//with slade and put the wad into the
-//"maps" folder and then save the change.
-
 Map OneHumanity "One Humanity"
 {
 	Sky1 = "SKY6"

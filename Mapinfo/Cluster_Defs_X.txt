@@ -15,8 +15,6 @@ cluster 2
 {
 	ExitText = "$E2TEXT"
 	Music = "$MUSIC_VICTOR"
-	//Flat = "$bgflatE3"
-	//pic = "INTER_E4"
 	Pic = "E2ENDINT"
 }
 
@@ -217,6 +215,7 @@ cluster 23
 	Flat = "RROCK02"
 }
 
+/*
 // Master Levels clusters
 
 cluster 24 // PSX Master Level Text
@@ -262,6 +261,7 @@ cluster 28
 	pic = "INTERLR"
 	//Flat = "SLIME20"
 }
+*/
 
 // LOR Episode 2 cluster
 
@@ -287,158 +287,6 @@ cluster 31
 	ExitText = "$E1TEXT"
 	Music = "$MUSIC_VICTOR"
 	pic = "E1VICTOR"
-}
-
-// Master Levels Rejects clusters
-
-cluster 32
-{
-	EnterText = "$ML4STORY1"
-	Music = "$MUSIC_READ_M"
-	Pic = "JFBOSSBK"
-}
-
-cluster 33
-{
-	EnterText = "$ML4STORY2"
-	Music = "$MUSIC_READ_M"
-	Pic = "JFBOSSBK"
-}
-
-cluster 34
-{
-	EnterText = "$ML4STORY3"
-	Music = "$MUSIC_READ_M"
-	Pic = "JFBOSSBK"
-}
-
-cluster 35
-{
-	EnterText = "$ML4STORY4"
-	Music = "$MUSIC_READ_M"
-	Pic = "JFBOSSBK"
-}
-
-cluster 36
-{
-	EnterText = "$ML4STORY5"
-	Music = "$MUSIC_READ_M"
-	//Flat = "$BGFLAT06"
-	Pic = "JFBOSSBK"
-}
-
-cluster 37
-{
-	EnterText = "$ML4STORY6"
-	Music = "D_REDM2"
-	Pic = "JFBOSSBK"
-}
-
-cluster 38
-{
-	EnterText = "$ML5STORY1"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 39
-{
-	EnterText = "$ML5STORY2"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 40
-{
-	EnterText = "$ML5STORY3"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 41
-{
-	EnterText = "$ML5STORY4"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 42
-{
-	EnterText = "$ML5STORY5"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 43
-{
-	EnterText = "$ML5STORY6"
-	Music = "D_REDM2"
-	pic = "DRBOSSBK"
-}
-
-cluster 44
-{
-	//EnterText = "$ML6STORY1" //Bloodsea Keep Intro
-	ExitText = "$ML6STORY2"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 45
-{
-	EnterText = "$ML6STORY2"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 46
-{
-	EnterText = "$ML6STORY3"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 47
-{
-	EnterText = "$ML6STORY4"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 48
-{
-	EnterText = "$ML6STORY5"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 49
-{
-	EnterText = "$ML6STORY6"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 50
-{
-	EnterText = "$ML6STORY7"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 51
-{
-	EnterText = "$ML6STORY8"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
-}
-
-cluster 52
-{
-	EnterText = "$ML6STORY9"
-	ExitText = "$MLEND"
-	Music = "D_REDM2"
-	pic = "CRBOSSBK"
 }
 
 //	Console Doom Clusters
@@ -530,73 +378,4 @@ Cluster 1000
 	//			"1956 - 2018"	
 	//Music = "O_E1M8"
 	//pic = "DMVICTOR"
-}
-
-//	Intro Clusters
-
-Cluster 1001 // Doom Episode 1
-{
-	ExitText = "$E1INTRO"
-	Music = "$MUSIC_VICTOR"
-	//pic = "E1VICTOR"
-	//Flat = "$bgflatE1"
-	Pic = "DMVICTOR"
-}
-
-Cluster 1002 // Doom Episode 2
-{
-	ExitText = "$E2INTRO"
-	Music = "$MUSIC_VICTOR"
-	Pic = "INTERPIC"
-	//Flat = "$bgflatE3"
-	pic = "E1VICTOR"
-}
-
-Cluster 1003 // Doom Episode 3
-{
-	ExitText = "$E3INTRO"
-	Music = "$MUSIC_VICTOR"
-	//Flat = "$bgflatE2"
-	//pic = "INTER_E4"
-	pic = "INTERPI3"
-}
-
-Cluster 1004 // Doom Episode 4
-{
-	ExitText = "$E4INTRO"
-	Music = "$MUSIC_VICTR2"
-	Pic = "E4INTINT"
-}
-
-Cluster 1005 // Doom Episode 5
-{
-	ExitText = "$E5INTRO"
-	Music = "D_E5M6"
-	//Music = "S_INTER"
-	Pic = "SIGILINT"
-}
-
-Cluster 1006 // Doom Episode 6
-{
-	ExitText = "$E6INTRO"
-	Music = "D_E6M7"
-	//Music = "S2_INTER"
-	//Flat = "FLOOR7_2"
-	Pic = "SIGILIN2"
-}
-
-Cluster 1008 //Redemtion Denied Ending
-{
-	EnterText = lookup, "REDEMTION_INTRO"
-	//ExitText = lookup, "REDEMTION_TXT"
-	music = "$MUSIC_READ_M"
-	Flat = "$bgflat30"
-}
-
-Cluster 2015 // Cabal Series
-{
-	ExitText = "$CSTEXT"
-	Music = "D_REDM2"
-	//Flat = "BLOOD1"
-	Pic = "CRBOSSBK"
 }

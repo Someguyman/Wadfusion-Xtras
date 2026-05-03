@@ -4,9 +4,6 @@ defaultmap
 	compat_invisibility = "1"
 	InterMusic = "$MUSIC_INTER"
 	BorderTexture = "FLOOR7_2"
-	NoJump
-	NoCrouch
-	F1 = "D1CRED" 
 }
 
 adddefaultmap

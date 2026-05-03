@@ -6,8 +6,6 @@ defaultmap
 	SuckTime = 1
 	ExitPic = "INTERNV"
 	InterMusic = "$MUSIC_NERVEINTER"
-	NoJump
-	NoCrouch
 	compat_invisibility = "1"
 	//F1 = "NVCRED"
 }

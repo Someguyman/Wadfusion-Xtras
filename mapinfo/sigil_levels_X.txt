@@ -10,8 +10,6 @@ defaultmap
 	InterMusic = NULL
 	ExitPic = "$IN_EPI5"
 	BorderTexture = "FLOOR7_2"
-	NoJump
-	NoCrouch
 	Author = "$WF_AU_ROMERO"
 	compat_invisibility = "1"
 	F1 = "SCREDIT" 

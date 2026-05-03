@@ -5,8 +5,6 @@ defaultmap
 	SuckTime = 1
 	ExitPic = "INTERLR"
 	InterMusic = "X_DM2INT"
-	NoJump
-	NoCrouch
 	// Compatibility options
 	compat_anybossdeath = 0
 	compat_checkswitchrange = 0
@@ -42,7 +40,7 @@ map LR_MAP99 "$XHUSTR_99"
 
 adddefaultmap
 {
-	Cluster = 28
+	//Cluster = 28
 	ExitPic = "XWIMAP0"
 	EnterPic = "$XWINTER0"
 }

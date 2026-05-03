@@ -3,7 +3,6 @@ class DCX_Player : Doomplayer Replaces Doomplayer
 {
 	Default
 	{
-		//+NOMENU
 		Player.StartItem "DCX_Pistol";
 		Player.StartItem "DCX_Fist";
 		Player.StartItem "Clip", 50;
@@ -145,8 +144,6 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 		Weapon.Kickback 0;
 		Weapon.SelectionOrder 2200;
 		Weapon.UpSound "weapons/saw2up";
-		//Weapon.ReadySound "weapons/saw2idle";
-		//Weapon.Slotnumber 1;
 		Inventory.PickupMessage "A UAC Dual chainsaw?  About damn time!";
 		Obituary "%o was mowed twice-over by %k's chainsaw.";
 		Decal "BulletChip";

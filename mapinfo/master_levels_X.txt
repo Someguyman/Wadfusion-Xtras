@@ -3,8 +3,8 @@
 //Includes the fallowing: 
 
 //Tom Mustains master level submssions (Both accepted and rejected, inclusing those that made it into TNT),
-//Tim Wilitz submissions plus an extra promotional wad he designed to advertise kick soda called "Kick Attack",
-//And fixed up versions of the beta Doom 64 maps so they're actually beatable. 
+//Tim Wilitz submissions
+//And Chris klye's maps (Both Accepted and rejected)
 
 //Might remove later once those that come with the Doom 64 for doom 2 esche lost levels demakes come out.
 //Can always make it toggleable like the two tnt maps in here.
@@ -143,7 +143,6 @@ map ML_MAP24 "$ML_DMZ" // reject level
 
 map ML_MAP03 "$ML_CATWALK"
 {
-	//Next = "ML_MAP25"
 	Next = "ML_MAP25"
 	TitlePatch = "MWILV02"
 	Music = "$MUSIC_CATWALK"

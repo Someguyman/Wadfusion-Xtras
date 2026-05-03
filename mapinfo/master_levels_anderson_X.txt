@@ -6,8 +6,6 @@ defaultmap
 {
 	Sky1 = "SKY1"
 	SuckTime = 1
-	NoJump
-	NoCrouch
 	Author = "$WF_AU_ANDERSON"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "DRINTERP"
@@ -35,7 +33,6 @@ map ML_MAP11 "$ML_VIRGIL"
 {
 	Label = "INFERNO SERIES, Third Canto"
 	Next = "ML_MAP12"
-	//Cluster = 40
 	TitlePatch = "MWILV10"
 	Music = "$MUSIC_VIRGIL"
 }
@@ -44,7 +41,6 @@ map ML_MAP12 "$ML_MINOS"
 {
 	Label = "INFERNO SERIES, Fourth Canto"
 	Next = "ML_MAP13"
-	//Cluster = 41
 	TitlePatch = "MWILV11"
 	Music = "$MUSIC_MINO"
 }
@@ -53,7 +49,6 @@ map ML_MAP13 "$ML_NESSUS"
 {
 	Label = "INFERNO SERIES, Fifth Canto"
 	Next = "ML_MAP14"
-	//Cluster = 42
 	TitlePatch = "MWILV12"
 	Music = "$MUSIC_NESSUS"
 	Map07Special
@@ -63,7 +58,6 @@ map ML_MAP14 "$ML_GERYON"
 {
 	Label = "INFERNO SERIES, Sixth Canto"
 	Next = "ML_MAP15"
-	//Cluster = 43
 	TitlePatch = "MWILV13"
 	Music = "$MUSIC_GREYON"
 }

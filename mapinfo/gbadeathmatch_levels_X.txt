@@ -5,8 +5,6 @@ defaultmap
 	SuckTime = 1
 	InterMusic = "$MUSIC_INTER"
 	BorderTexture = "FLOOR7_2"
-	NoJump
-	NoCrouch
 	NoIntermission
 	NoSoundClipping
 	AllowRespawn 

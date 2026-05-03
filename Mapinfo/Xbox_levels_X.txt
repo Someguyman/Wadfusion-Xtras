@@ -3,8 +3,6 @@
 defaultmap
 {
 	SuckTime = 1
-	NoJump
-	NoCrouch
 	compat_invisibility = "1"
 }
 

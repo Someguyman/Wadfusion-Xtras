@@ -5,8 +5,6 @@
 
 defaultmap
 {
-	nocrouch
-	nojump
 	forcenoskystretch
 	compat_crossdropoff = "1"
 	compat_dehhealth = "1"
@@ -414,6 +412,7 @@ map AB_MAP33 lookup "ABHUSTR_33"
 	Next = endsequence, "D64D2Map33End"
 	sky1 = "SKY6TALL", 0.1
 	music = "$MUSIC_D64MAP33"
+	Cluster = 0
 	nointermission
 	nosoundclipping
 }
