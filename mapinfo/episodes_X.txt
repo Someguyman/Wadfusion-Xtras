@@ -145,6 +145,12 @@ episode WF_NEWGAME_PL_MAP21
 	Optional
 }
 
+episode WF_NEWGAME_JA_MAP01
+{
+	Name = "$BONUS_JAGUAR"
+	Optional
+}
+
 episode WF_NEWGAME_KA_MAP
 {
 	Name = "$BONUS_KICKATTACK"
