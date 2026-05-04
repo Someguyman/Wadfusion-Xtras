@@ -1,0 +1,5 @@
+#include "texdefs/Xtras.txt"
+#include "texdefs/D64D2.txt"
+#include "texdefs/Jaguar.txt"
+#include "texdefs/Kick.txt"
+

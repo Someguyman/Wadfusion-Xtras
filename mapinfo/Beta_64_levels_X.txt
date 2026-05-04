@@ -12,7 +12,7 @@ defaultmap
 	ExitPic = "MLINTERP"
 	compat_invisibility = "1"
 	Author = "$WS_AU_MIDWAY"
-	Label = "Master Levels, Midway"
+	Label = "The Master Levels"
 }
 
 map ML_MAP47 "Hacked Together" 

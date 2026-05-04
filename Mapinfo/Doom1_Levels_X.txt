@@ -94,8 +94,6 @@ map E1M7 "$HUSTR_E1M7"
 map E1M8 "$HUSTR_E1M8"
 {
 	LevelNum = 8
-	//Next = endpic, "D1CRED"
-	//Next = "E2M1"
 	Next = EndSequence, "Doom1_Ep1_Fusion"
 	TitlePatch = "WILV07"
 	Par = 165

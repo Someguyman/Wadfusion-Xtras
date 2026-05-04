@@ -4,18 +4,18 @@
 
 defaultmap
 {
-	Sky1 = "SKY1"
+	Sky1 = "MSKY1"
 	SuckTime = 1
 	Author = "$WF_AU_ANDERSON"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "DRINTERP"
 	compat_invisibility = "1"
-	F1 = "ISCRED" 
+	Label = "The Master Levels"
 }
 
 map ML_MAP33 "$ML_DANTES" // bonus level
 {
-	Label = "INFERNO SERIES, First Canto"
+	
 	Next = "ML_MAP34"
 	TitlePatch = "MWILV32"
 	Music = "$MUSIC_DANTE"
@@ -23,7 +23,6 @@ map ML_MAP33 "$ML_DANTES" // bonus level
 
 map ML_MAP34 "$ML_ACHERON" // bonus level
 {
-	Label = "INFERNO SERIES, Second Canto"
 	Next = "ML_MAP11"
 	TitlePatch = "MWILV33"
 	Music = "$MUSIC_ACHERON"
@@ -31,7 +30,6 @@ map ML_MAP34 "$ML_ACHERON" // bonus level
 
 map ML_MAP11 "$ML_VIRGIL"
 {
-	Label = "INFERNO SERIES, Third Canto"
 	Next = "ML_MAP12"
 	TitlePatch = "MWILV10"
 	Music = "$MUSIC_VIRGIL"
@@ -39,7 +37,6 @@ map ML_MAP11 "$ML_VIRGIL"
 
 map ML_MAP12 "$ML_MINOS"
 {
-	Label = "INFERNO SERIES, Fourth Canto"
 	Next = "ML_MAP13"
 	TitlePatch = "MWILV11"
 	Music = "$MUSIC_MINO"
@@ -47,7 +44,6 @@ map ML_MAP12 "$ML_MINOS"
 
 map ML_MAP13 "$ML_NESSUS"
 {
-	Label = "INFERNO SERIES, Fifth Canto"
 	Next = "ML_MAP14"
 	TitlePatch = "MWILV12"
 	Music = "$MUSIC_NESSUS"
@@ -56,7 +52,6 @@ map ML_MAP13 "$ML_NESSUS"
 
 map ML_MAP14 "$ML_GERYON"
 {
-	Label = "INFERNO SERIES, Sixth Canto"
 	Next = "ML_MAP15"
 	TitlePatch = "MWILV13"
 	Music = "$MUSIC_GREYON"
@@ -64,15 +59,14 @@ map ML_MAP14 "$ML_GERYON"
 
 map ML_MAP15 "$ML_VESPERAS"
 {
-	Label = "INFERNO SERIES, Seventh Canto"
 	Next = "ML_MAP35"
 	TitlePatch = "MWILV14"
+	//Sky1 = "SKY4"
 	Music = "$MUSIC_VESPERAS"
 }
 
 map ML_MAP35 "$ML_CHIRON" // diplicate of E4M7
 {
-	Label = "INFERNO SERIES, Eighth Canto"
 	Next = "ML_MAP36"
 	Sky1 = "SKY4"
 	TitlePatch = "MWILV34"
@@ -82,13 +76,7 @@ map ML_MAP35 "$ML_CHIRON" // diplicate of E4M7
 
 map ML_MAP36 "$ML_LETHE" // bonus level - UDTWiD's E4M8
 {
-	Next = EndGame
-	{
-		Pic = "DRBOSSBK"
-		music = "D_ENDIN2"
-		Cast
-	}
-	Label = "INFERNO SERIES, Ninth Canto"
+	Next = EndSequence, "MasterLevels_End"
 	Sky1 = "SKY4"
 	TitlePatch = "MWILV35"
 	Par = 105

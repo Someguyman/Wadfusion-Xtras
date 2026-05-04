@@ -18,6 +18,7 @@ defaultmap
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "MLINTERP"
 	compat_invisibility = "1"
+	Label = "The Master Levels"
 }
 
 // Tim Willits's Master Levels
@@ -25,7 +26,6 @@ defaultmap
 adddefaultmap
 {
 	Author = "$WF_AU_WILLITS_CHASAR"
-	Label = "Master Levels, Tim Willits"
 }
 
 map ML_MAP01 "$ML_ATTACK"
@@ -49,7 +49,6 @@ adddefaultmap
 {
 	Author = "$WF_AU_MUSTAINE"
 	Sky1 = "SKY1"
-	Label = "Master Levels, Tom Mustaine"
 }
 
 map ML_MAP45 "$THUSTR_1" //Early version of System Control from DWANGO6 
@@ -87,7 +86,6 @@ adddefaultmap
 {
 	Author = "$WF_AU_KLIE"
 	Sky1 = "SKY1"
-	Label = "Master Levels, Christen Klie"
 }
 
 map ML_MAP22 "$ML_CPU" // reject level
@@ -115,6 +113,7 @@ map ML_MAP05 "$ML_COMBINE"
 map ML_MAP23 "$ML_DEVICE1" // reject level
 {
 	Next = "ML_MAP04"
+	Sky1 = "MSKY1"
 	TitlePatch = "MWILV22"
 	Music = "$MUSIC_DEVICEONE"
 }
@@ -153,7 +152,6 @@ map ML_MAP25 "$ML_FURY" // reject level
 	Next = "ML_MAP09"
 	TitlePatch = "MWILV24"
 	Music = "$MUSIC_FURY"
-	Sky1 = "SKY4"
 }
 
 map ML_MAP09 "$ML_GARRISON"
@@ -161,26 +159,18 @@ map ML_MAP09 "$ML_GARRISON"
 	Next = "ML_MAP26"
 	TitlePatch = "MWILV08"
 	Music = "$MUSIC_GARRISON"
-	Sky1 = "SKY4"
 }
 
 map ML_MAP26 "$ML_EINSIDE" // reject level
 {
 	Next = "ML_MAP27"
-	Sky1 = "PSKY3"
 	TitlePatch = "MWILV25"
 	Music = "$MUSIC_ENEMY"
 }
 
 map ML_MAP27 "$ML_HIVE" // reject level
 {
-	Next = EndGame
-	{
-		Pic = "MLBOSSBK"
-		music = "$MUSIC_MASTEREND"
-		Cast
-	}
-	Sky1 = "PSKY3"
+	Next = EndSequence, "MasterLevels_End"
 	TitlePatch = "MWILV26"
 	Music = "$MUSIC_HIVE"
 	nointermission

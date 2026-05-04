@@ -72,6 +72,8 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 	override void WorldLoaded (WorldEvent e)
 	{
 		int texSwapAll = CVar.FindCVar("wf_compat_texswap_all").GetInt();
+		int  renderMode  = CVar.FindCVar("vid_rendermode").GetInt();
+		bool skyEnable   = CVar.FindCVar("uw_sky_enable").GetBool();
 		
 		// wf_tex_swap.zs
 		// replace conflicting textures based on which map is loaded
@@ -92,7 +94,6 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			if ( mapName == "map20" )
 				Level.ReplaceTextures("F_RSKY3", "F_SKY1", TexMan.NOT_WALL);
 		}
-		
 		// wf_tex_swap_all.zs
 		// force texture replacement on all levels
 		// this feature mostly exists for compatibility with doom 1 and final doom mods
@@ -123,6 +124,8 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			PlaySigilMusic();
 		}
 		
+		if ( skyEnable )
+		{ TallSkyReplacements(); }
 		if ( CVar.FindCVar("dcx_TextureEchancements").GetBool() )
 		{ TextureEnchancements(); }
 		if ( CVar.FindCVar("fs_toggle").GetBool() ) 
@@ -181,9 +184,49 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			w.SeeSound = "wolfss/sight2";
 		}
 	}
+	
+	void TallSkyReplacements()
+	{
+			String SkyName = TexMan.GetName(level.skytexture1);
+			String mapPrefix = level.MapName.Left(3);
+			mapPrefix = mapPrefix.MakeLower();
+			String mapName = level.MapName.MakeLower();
+			
+			if ( SkyName == "DSKY1" )
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY1TALL"), TexMan.CheckForTexture("DSKY1TALL"));
+			if ( SkyName == "DSKY2" )
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY2TALL"), TexMan.CheckForTexture("DSKY2TALL"));
+			if ( SkyName == "DSKY3" )
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY3TALL"), TexMan.CheckForTexture("DSKY3TALL"));
+			if ( SkyName == "SKY4" )
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY4TALL"), TexMan.CheckForTexture("SKY4TALL"));
+			if ( SkyName == "SKY1" )
+			Level.ChangeSky(TexMan.CheckForTexture("RSKY1TALL"), TexMan.CheckForTexture("SKY1TALL"));
+			if ( SkyName == "SKY2" )
+			Level.ChangeSky(TexMan.CheckForTexture("RSKY2TALL"), TexMan.CheckForTexture("SKY2TALL"));
+			if ( SkyName == "SKY3" )
+			Level.ChangeSky(TexMan.CheckForTexture("RSKY3TALL"), TexMan.CheckForTexture("SKY3TALL"));
+			if ( SkyName == "MSKY1" )
+			Level.ChangeSky(TexMan.CheckForTexture("rsky6tal"), TexMan.CheckForTexture("rsky6tal"));
+			if ( SkyName == "TSKY1" )
+			Level.ChangeSky(TexMan.CheckForTexture("TSKY1TALL"), TexMan.CheckForTexture("TSKY1TALL"));
+			if ( SkyName == "TSKY2" )
+			Level.ChangeSky(TexMan.CheckForTexture("TSKY2TALL"), TexMan.CheckForTexture("TSKY2TALL"));
+			if ( SkyName == "TSKY3" )
+			Level.ChangeSky(TexMan.CheckForTexture("TSKY3TALL"), TexMan.CheckForTexture("TSKY3TALL"));
+			if ( SkyName == "PSKY1" )
+			Level.ChangeSky(TexMan.CheckForTexture("PSKY1TALL"), TexMan.CheckForTexture("PSKY1TALL"));
+			if ( SkyName == "PSKY2" )
+			Level.ChangeSky(TexMan.CheckForTexture("PSKY2TALL"), TexMan.CheckForTexture("PSKY2TALL"));
+			if ( SkyName == "PSKY3" )
+			Level.ChangeSky(TexMan.CheckForTexture("PSKY3TALL"), TexMan.CheckForTexture("PSKY3TALL"));
+			//rsky6tal
+	}
 
     void TextureEnchancements()
     {
+		bool skyEnable   = CVar.FindCVar("uw_sky_enable").GetBool();
+		String SkyName = TexMan.GetName(level.skytexture1);
         String mapPrefix = level.MapName.Left(3);
         mapPrefix = mapPrefix.MakeLower();
 		String mapName = level.MapName.MakeLower();
@@ -191,7 +234,6 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		if ( mapName == "map30" )
         {
 			Level.ReplaceTextures("RROCK08", "F_SKY1",0);			
-			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
 		
 		//Animated Computer Textures
@@ -235,8 +277,68 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			Level.ReplaceTextures("SILVER3",   "SILVER32",0);
 		}
 		
-		if ( mapName.left(2) ~== "E3" )
-		Level.ReplaceTextures("SW1SKIN", 	"SW1SNAK1",0);
+		if ( (mapName == "ml_map19") 
+		  || (mapName == "ml_map37") 
+		  || (mapName == "ml_map38") 
+		  || (mapName == "ml_map39")
+		  || (mapName == "ml_map20")
+		  || (mapName == "ml_map40"))
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("PSKY2",TexMan.Type_Any),TexMan.CheckForTexture("PSKY2",TexMan.Type_Any));
+			if ( skyEnable )
+			{ TallSkyReplacements(); }
+		}
+		
+		if ( (mapName == "ml_map41")
+		  || (mapName == "ml_map42"))
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("DSKY3",TexMan.Type_Any),TexMan.CheckForTexture("DSKY3",TexMan.Type_Any));
+			if ( skyEnable )
+			{ TallSkyReplacements(); }
+		}
+		
+		if ( SkyName == "DSKY1" )
+		{
+			if (   mapName.left(2) == "e1" 
+				|| mapName.left(5) == "cs_e1" 
+				|| mapName.left(5) == "ch_e1" 
+				|| mapName.left(5) == "co_e1" )
+			{
+				Level.ReplaceTextures("DSKY1", "USKY1", 0);
+				Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
+			}
+		}
+		
+		if ( SkyName == "DSKY2" )
+		{
+			if (   mapName.left(2) == "e2"
+				|| mapName.left(5) == "cs_e2" 
+				|| mapName.left(5) == "ch_e2" 
+				|| mapName.left(5) == "co_e2" )
+			{
+				Level.ReplaceTextures("DSKY2", "USKY2", 0);
+				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
+			}
+		}
+		
+		if ( SkyName == "DSKY3" && ( mapPrefix != "e3m" && CVar.FindCVar("fs_toggle").GetBool() == true ))
+		{
+			Level.ReplaceTextures("DSKY3", "USKY3", 0);
+			Level.ChangeSky(TexMan.CheckForTexture("USKY3",TexMan.Type_Any),TexMan.CheckForTexture("USKY3",TexMan.Type_Any));
+		}
+		
+		if ( (mapName == "ml_map10") || (mapName == "ml_map43") )
+		Level.ChangeSky(TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any),TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any));
+		
+		if ( mapName == "tn_map31")
+		{
+			Level.ChangeSky(TexMan.CheckForTexture("SKY4",TexMan.Type_Any),TexMan.CheckForTexture("SKY4",TexMan.Type_Any));
+			if ( skyEnable )
+			{ TallSkyReplacements(); }
+		}
+		
+		if ( mapName == "tn_map32" )
+		Level.ChangeSky(TexMan.CheckForTexture("TSKYS",TexMan.Type_Any),TexMan.CheckForTexture("TSKYS",TexMan.Type_Any));
 		
 		//TNT Textures
 		if ( mapPrefix == "tn_" || mapPrefix == "fd_" || mapName.left(6) == "fd_dmm")
@@ -454,7 +556,13 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		String mapPrefix = level.MapName.Left(3);
 		String mapName = level.MapName.MakeLower();
 		mapPrefix = mapPrefix.MakeLower();
-		if ( SkyName == "DSKY3" || MapName == "ja_map17" || mapName == "e2m8" )
+		
+		if( SkyName == "SKY3TALS" )
+		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
+		if( SkyName == "SKY3ATAS" )
+		Level.ChangeSky(TexMan.CheckForTexture("SKYX5A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX5A",TexMan.Type_Any));
+		
+		if ( MapPrefix == "e3m" || MapName == "ja_map17" || mapName == "e2m8" )
 		{
 			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
@@ -467,47 +575,19 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		
 		if (mapName == "tn_map26")
 		Level.ReplaceTextures("RROCK04", "RROCK05", 0);
-			
-		if ( mapName == "tn_map31")
-		Level.ChangeSky(TexMan.CheckForTexture("SKY4",TexMan.Type_Any),TexMan.CheckForTexture("SKY4",TexMan.Type_Any));
-		
-		if ( mapName == "tn_map32" )
-		Level.ChangeSky(TexMan.CheckForTexture("TSKYS",TexMan.Type_Any),TexMan.CheckForTexture("TSKYS",TexMan.Type_Any));
-		
-		if ( mapName.left(2) == "e1" || mapName.left(5) == "cs_e1" || mapName.left(5) == "ch_e1" || mapName.left(5) == "co_e1" )
-		{
-			Level.ReplaceTextures("DSKY1", "USKY1", 0);
-			Level.ChangeSky(TexMan.CheckForTexture("USKY1",TexMan.Type_Any),TexMan.CheckForTexture("USKY1",TexMan.Type_Any));
-		}
-		
-		if ( SkyName == "DSKY2" ) //dunno why this was removed
-		{
-			if (   mapName.left(2) == "e2"
-				|| mapName.left(5) == "cs_e2" 
-				|| mapName.left(5) == "ch_e2" 
-				|| mapName.left(5) == "co_e2" )
-			{
-				Level.ReplaceTextures("DSKY2", "USKY2", 0);
-				Level.ChangeSky(TexMan.CheckForTexture("USKY2",TexMan.Type_Any),TexMan.CheckForTexture("USKY2",TexMan.Type_Any));
-			}
-		}
 		
 		if ( (mapName == "ml_map10") || (mapName == "ml_map43") )
 		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
-		
-		if ( (mapPrefix == "ab_") )
-		{
-			if( SkyName == "SKY3TALS" )
-			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
-			if( SkyName == "SKY3ATAS" )
-			Level.ChangeSky(TexMan.CheckForTexture("SKYX5A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX5A",TexMan.Type_Any));
-		}
 			
 		if ( (mapPrefix == "nv_") )
 		{
-			if ( (mapName == "nv_map01") || (mapName == "nv_map02") || (mapName == "nv_map03") || (mapName == "nv_map09") )
+			if ( (mapName == "nv_map01") || (mapName == "nv_map02") )
 			{
-				Level.ChangeSky(TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any),TexMan.CheckForTexture("RSKY2",TexMan.Type_Any));
+				Level.ChangeSky(TexMan.CheckForTexture("RSKYA2",TexMan.Type_Any),TexMan.CheckForTexture("RSKYA2",TexMan.Type_Any));
+			}
+			if ( (mapName == "nv_map03") || (mapName == "nv_map04") || (mapName == "nv_map09") )
+			{
+				Level.ChangeSky(TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any),TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any));
 			}
 		}		
 	}
@@ -653,6 +733,37 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		{
 			if ( !rejects )
 				Level.NextMap = "ml_map12";
+		}
+		
+		if ( mapName == "ml_map19" )
+		{
+			if ( rejects )
+			{
+				if ( rejectsStory )
+					Level.NextMap = "wf_story_ml_map38";
+				else
+					Level.NextMap = "ml_map38";
+			}
+			else
+				Level.NextMap = "ml_map20";
+		}
+		
+		if ( mapName == "ml_map17" || mapName == "ml_map27" || mapName == "ml_map36" )
+		{
+			Level.NextMap = "wf_story";
+		}
+		
+		if ( mapName == "ml_map37" )
+		{
+			Level.NextMap = "ml_map39";
+		}
+		
+		if ( mapName == "ml_map38" )
+		{
+			if ( rejectsStory )
+				Level.NextMap = "wf_story_ml_map37";
+			else
+				Level.NextMap = "ml_map37";
 		}
 		
 		/*

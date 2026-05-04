@@ -223,7 +223,6 @@ class DCX_Pistol : Pistol Replaces Pistol
 		PISG B 5 A_ReFire;
 		Goto Ready;
 	Flash:
-		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Flash");
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Flash");
 		PISF A 7 Bright A_Light1;
 		Goto LightDone;
@@ -241,7 +240,7 @@ class DCX_Pistol : Pistol Replaces Pistol
 		Loop;
 	KICK_Fire:
 		KW02 A 4;
-		KW02 B 6 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/pistol", CHAN_WEAPON); }
+		KW02 B 6 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/pistol", CHAN_WEAPON); A_GunFlash("KICK_Flash"); }
 		KW02 C 4;
 		KW02 B 5 A_ReFire;
 		Goto Ready;
@@ -615,7 +614,6 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			CHGG B 0 A_ReFire("Fire.Loop");
 			Goto Ready;
 		Flash:
-			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Flash");
 			CHGF A 4 Bright A_Light1;
 			//Goto LightDone;
 			CHGF B 4 Bright A_Light2;
@@ -680,8 +678,7 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			KW04 A 1 A_Raise;
 			Loop;
 		KICK_Fire:
-			KW04 A 0 A_GunFlash("Flash");
-			KW04 AB 4 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
+			KW04 AB 4 { A_FireBullets(5.6, 0, 1, 5, "KICKEDPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); A_GunFlash("KICK_Flash"); }
 			KW04 B 0 A_ReFire("KICK_Fire");
 			Goto Ready;
 		KICK_Flash:

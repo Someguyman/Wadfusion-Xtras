@@ -22,7 +22,6 @@ defaultmap
 	compat_teleport = 0
 	compat_useblocking = 0
 	compat_invisibility = "1"
-	F1 = "CREDITLR" 
 }
 
 // Test map
@@ -40,7 +39,6 @@ map LR_MAP99 "$XHUSTR_99"
 
 adddefaultmap
 {
-	//Cluster = 28
 	ExitPic = "XWIMAP0"
 	EnterPic = "$XWINTER0"
 }

@@ -25,3 +25,7 @@ User int Health_Cross_Toggle = 0;
 
 NoSave bool dcx_MugShotGib = false;
 
+user bool uw_sky_enable = true;
+//user bool uw_sky_animated = true;
+//user bool uw_sky_cap = false;
+

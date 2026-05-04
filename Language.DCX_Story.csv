@@ -525,6 +525,21 @@ known as the lord of Hell and his two Soulguards."
 
 //New intermission texts
 
+MASTERINT = 
+"Dare Survive...\n"
+"\n"
+"The nightmare continues with the same\n"
+"acid drenched, hell spawned horror of\n"
+"the original invasion. There is life\n"
+"after death, unfortunately.\n"
+"\n"
+"Every step you take may be your last.\n"
+"If it looks too easy, it probably isn't.\n"
+"You might as well forget about seeing\n"
+"the light of day. Ever again.\n"
+"\n"
+"You're doomed.";
+
 TNINTRO1 = 		"The Story So Far\n"
 				"\n"
 				"Though all the top management of the UAC\n"
@@ -587,18 +602,19 @@ TNINTRO5 =	"The ship could not have come from Earth.\n"
 		    "left as zombified brain-dead\n"
 		    "monstrosities.";
 
-TNINTRO6 = 		"It's Up To You... Again\n"
-				"\n"
-				"Only one man escaped death or\n"
-				"zombification. The marine commander.\n"
-				"You. You weren't at the base when the\n"
-				"skies opened and devastation poured from\n"
-				"the stars.\n"
-				"\n"
-				"Hot-footing it back to the base, you saw\n"
-				"it all and realized what had happened in\n"
-				"a flash. The demon ship still floated\n"
-				"above the infested base.";
+TNINTRO6 = 		
+"It's Up To You... Again\n"
+"\n"
+"Only one man escaped death or\n"
+"zombification. The marine commander.\n"
+"You. You weren't at the base when the\n"
+"skies opened and devastation poured from\n"
+"the stars.\n"
+"\n"
+"Hot-footing it back to the base, you saw\n"
+"it all and realized what had happened in\n"
+"a flash. The demon ship still floated\n"
+"above the infested base.";
 				
 TNINTRO7 =
 "Unlike the ancient Samurai, who chose to\n"

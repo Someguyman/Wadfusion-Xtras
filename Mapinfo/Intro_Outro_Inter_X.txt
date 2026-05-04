@@ -218,6 +218,16 @@ intermission Doom2_Intro_3
 	}
 }
 
+intermission Masterb_intro
+{
+	TextScreen
+	{
+		Text = "$MASTERINT"
+		music = "$MUSIC_MASTERTXT"
+		Background = "MLINTERP"
+	}
+}
+
 intermission Nerve_Intro
 {
 	TextScreen

@@ -224,6 +224,7 @@ cluster 24 // PSX Master Level Text
 	music = "$MUSIC_MASTERTXT"
 	pic = "MLINTERP"
 }
+*/
 
 cluster 25 // Bad Dream Secret Text
 {
@@ -231,6 +232,8 @@ cluster 25 // Bad Dream Secret Text
 	music = "$MUSIC_MASTERTXT"
 	pic = "MLINTERP"
 }
+
+/*
 
 // Sigil 1 cluster
 

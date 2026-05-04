@@ -75,6 +75,8 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 			TextureId titleD2 = TexMan.CheckForTexture("TITLED2");
 			TextureId titleML = TexMan.CheckForTexture("TITLEML");
 			TextureId titleCA = TexMan.CheckForTexture("TITLECA");
+			TextureId titleIN = TexMan.CheckForTexture("TITLEIN");
+			TextureId titleTI = TexMan.CheckForTexture("TITLETI");
 			TextureId titleNV = TexMan.CheckForTexture("TITLENV");
 			TextureId titleLR = TexMan.CheckForTexture("TITLELR");
 			TextureId titleTN = TexMan.CheckForTexture("TITLETN");
@@ -119,6 +121,10 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 						Screen.DrawTexture(titleML, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "ml_map19" )
 						Screen.DrawTexture(titleCA, false, 0, 0, DTA_FullScreen, 1);
+					else if ( nextMap == "ml_map33" )
+						Screen.DrawTexture(titleIN, false, 0, 0, DTA_FullScreen, 1);
+					else if ( nextMap == "ml_map29" )
+						Screen.DrawTexture(titleTI, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "nv_map01" )
 						Screen.DrawTexture(titleNV, false, 0, 0, DTA_FullScreen, 1);
 					else if ( nextMap == "ka_map" )
@@ -190,7 +196,11 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 					else if ( nextMap == "ml_map01" || nextMap == "masterhub" )
 						S_ChangeMusic("D_TITLEM", 0, false);
 					else if ( nextMap == "ml_map19" )
-						S_ChangeMusic("D_TITLM2", 0, false);
+						S_ChangeMusic("D_BLACKTWR", 0, false);
+					else if ( nextMap == "ml_map33" )
+						S_ChangeMusic("D_CHIRON", 0, false);
+					else if ( nextMap == "ml_map29" )
+						S_ChangeMusic("D_ANOMALY", 0, false);
 					else if ( nextMap == "nv_map01" )
 						S_ChangeMusic("D_NRFTLT", 0, false);
 					else if ( nextMap == "ka_map" )
@@ -222,9 +232,11 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 	
 	void DCX_NewGameChangeLevelInput() // Does nothing lmao!
 	{
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
+		
 		if ( CVar.FindCVar("wf_intros").GetBool() )
 		{
-			if ( nextMap != "masterhub" && nextMap != "lr_map08" && nextMap != "ja_map01"  && nextMap != "tn_map12"  && nextMap != "tn_map21" && nextMap != "pl_map12" && nextMap != "pl_map21" && nextMap != "ab_map12" && nextMap != "ab_map21" && nextMap != "dz_map01" && nextMap != "dz_map12" && nextMap != "dz_map21" && nextMap != "tr_map01" && nextMap != "tr_map12" && nextMap != "tr_map21" )
+			if ( ( nextMap != "masterhub" && rejects) && nextMap != "lr_map08" && nextMap != "ja_map01"  && nextMap != "tn_map12"  && nextMap != "tn_map21" && nextMap != "pl_map12" && nextMap != "pl_map21" && nextMap != "ab_map12" && nextMap != "ab_map21" && nextMap != "dz_map01" && nextMap != "dz_map12" && nextMap != "dz_map21" && nextMap != "tr_map01" && nextMap != "tr_map12" && nextMap != "tr_map21" )
 				Level.ChangeLevel("wf_story", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
 			else
 				Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
@@ -239,8 +251,13 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		
 		if ( mapName.Left(8) == "wf_story" )
 		{
+			//Masterb_intro
+			
 			if ( nextMap == "ml_map19" )
 					intermission = "MasterLevels_Map19";
+			
+			if ( nextMap == "ml_map01" )
+					intermission = "Masterb_intro";
 					
 			if ( mapName.Mid(9, 6) != "ml_map" )
 			{
@@ -434,8 +451,14 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 				intermission = "Doom1_Ep6_Fusion_FullRun_Off";
 			if ( mapName == "map30" )
 				intermission = "Inter_Cast";
-			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43" )
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43")
 				intermission = "MasterLevels_End"; // also needed for xaser order
+			if ( mapName == "ml_map27" )
+				intermission = "MasterLevels_End";
+			if ( mapName == "ml_map17" && rejects )
+				intermission = "MasterLevels_End";
+			if ( mapName == "ml_map36" )
+				intermission = "MasterLevels_End";
 			if ( mapName == "nv_map08" )
 				intermission = "Nerve_Cast";
 			if ( mapName == "lr_map07" )

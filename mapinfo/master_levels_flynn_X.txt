@@ -9,7 +9,7 @@ defaultmap
 	Author = "$WF_AU_FLYNN"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "JFINTERP"
-	Label = "TITAN SERIES"
+	Label = "The Master Levels"
 	compat_invisibility = "1"
 }
 
@@ -54,13 +54,9 @@ map ML_MAP17 "$ML_TTRAP" // Trapped On Titan
 
 map ML_MAP32 "$ML_TROUBLE" // Trouble On Titan
 {
-	Next = EndGame
-	{
-		Pic = "JFBOSSBK"
-		music = "$MUSIC_MASTEREND"
-		Cast
-	}
-	//Cluster = 35
+	Next = EndSequence, "MasterLevels_End"
+	nointermission
+	NoSoundClipping
 	TitlePatch = "MWILV31"
 	Music = "$MUSIC_TROUBLE"
 }

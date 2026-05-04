@@ -23,7 +23,6 @@ map E1M4b "$HUSTR_E1M4B"
 
 map E1M8b "$HUSTR_E1M8B"
 {
-	//Next = endpic, "UDCRED"
 	Next = EndSequence, "Doom1_Ep1_Fusion"
 	Cluster = 31
 	TitlePatch = "WILV07B", 1
