@@ -738,8 +738,69 @@ Intermission KickAtkCredits
 	Image
 	{
 		Background = "KACRED"
-		//music = "$MUSIC_D64MAP33"
+		Time = -100
 	}
+	Wiper {}
+	Link = KickAtkBG
+}
+
+Intermission KickAtkBG
+{
+	Image
+	{
+		Background = "3DOINTER"
+		Music = "$MUSIC_EVIL"
+		Time = -3
+	}
+	Link = Kickedcast
+}
+
+Intermission Kickedcast
+{
+		Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "Dcx_SurferMutant2"
+		CastName = "Yellow Surfer Mutant"
+		AttackSound = "Missile", 1, "shotguy/attack"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "Dcx_SurferMutant1"
+		CastName = "Red Surfer Mutant"
+		AttackSound = "Missile", 2, "Spewball/Shot"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "dcx_LoungeSinger"
+		CastName = "Musty Lounge Singer"
+		AttackSound = "Melee", 1, "Singer/melee"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "Dcx_BottleOfSpew"
+		CastName = "Man Eating Spew Bottle"
+		AttackSound = "Missile", 1, "skull/melee"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "Dcx_GiantCanOfSpew"
+		CastName = "Can Of Alpine Spew"
+		AttackSound = "Missile", 1, "spider/attack"
+		AttackSound = "Missile", 2, "spider/attack"
+	}
+	Cast
+	{
+		Draw = "M_CAST", 39, 5
+		CastClass = "DoomPlayer"
+		CastName = "Our Hero"
+		AttackSound = "Missile", 0, "weapons/shotgf"
+	}
+	Link = Kickedcast
 }
 
 //		Ending Credits		//

@@ -1,3 +1,4 @@
+
 defaultmap
 {
 	SuckTime = 1
@@ -7,8 +8,9 @@ defaultmap
 map KA_MAP "$ML_KICK" //KICK ATTACK
 {
 	Sky1 = "SKY1"
-	Next = EndSequence, "Jaguarcast"
+	Next = EndSequence, "KickAtkCredits" 
 	TitlePatch = "KWILV00"
+	InterMusic = "$MUSIC_MASTERINT"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
 	Label = "Bonus"

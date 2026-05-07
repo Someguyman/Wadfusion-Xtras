@@ -47,6 +47,14 @@ SingerN/Melee DSLSTATK
 SingerN/Active DSLSTACT
 SingerN/Death DSLSTDTH
 
+CanOSpew/Sight DSSPEWST
+CanOSpew/Active DSSMACT
+CanOSpew/Pain DSSMPAIN
+
+$pitchset CanOSpew/Sight 0.6
+$pitchset CanOSpew/Active 0.6
+$pitchset CanOSpew/Pain 0.6
+
 $pitchset SingerN/Sight 0.9
 $pitchset SingerN/Pain 0.9
 $pitchset SingerN/Melee 0.9

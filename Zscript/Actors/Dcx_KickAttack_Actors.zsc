@@ -37,10 +37,10 @@ Class Dcx_SurferMutant1 : Doomimp
 		SFM1 H 2 A_Pain;
 		Goto See;
 	Death:
-		SFM1 I 8;
-		SFM1 J 8 A_Scream;
-		SFM1 K 6;
-		SFM1 L 6 A_NoBlocking;
+		SFM1 I 5;
+		SFM1 J 5 A_Scream;
+		SFM1 K 5;
+		SFM1 L 5 A_NoBlocking;
 		SFM1 M -1;
 		Stop;
 	XDeath:
@@ -135,7 +135,7 @@ Class Dcx_LoungeSinger : Demon
 		PainSound "Singer/pain";
 		DeathSound "Singer/death";
 		ActiveSound "Singer/active";
-		Obituary "%o was sung to death by a Lounge Singer";
+		Obituary "%o was sung to death by a Musty Lounge Singer";
 		Tag "Lounge Singer";
 	}
 	States
@@ -199,7 +199,7 @@ Class Dcx_BottleOfSpew : Lostsoul
 {
 	Default
 	{
-		Obituary "%o was eaten by a bottle of Spew";
+		Obituary "%o was eaten by a canibalistic bottle of Spew";
 		Tag "Bottle of Alpine Spew^tm";
 		DeathSound "Spewball/ShotX";
 	}
@@ -235,7 +235,10 @@ Class Dcx_GiantCanOfSpew : SpiderMastermind
 {
 	Default
 	{
-		Obituary "%o was downed by a can of Alpine Spew^tm";
+		SeeSound "CanOSpew/Sight";
+		ActiveSound "CanOSpew/Active";
+		PainSound "CanOSpew/Pain";
+		Obituary "%o was downed by a giant can of Alpine Spew^tm";
 		Tag "Giant can of Alpine Spew";
 	}
 	States
