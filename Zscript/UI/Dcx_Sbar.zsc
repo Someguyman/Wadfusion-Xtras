@@ -298,7 +298,7 @@ class DCX_Statusbar : BaseStatusBar
 			else if (CheckForTNTR)
 			DrawImage("TNTRFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else if (CheckForKickAttack)
-			DrawImage("SAFUEL", (252, 168), DI_ITEM_OFFSETS);
+			DrawImage("KAFUEL", (252, 168), DI_ITEM_OFFSETS);
 			else 
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -375,6 +375,10 @@ class DCX_Statusbar : BaseStatusBar
 							 &&(mapName.Left(2) == "pl"
 							 || mapName.Left(2) == "pt"
 							 || mapName.Left(2) == "pg" ));
+							 
+		let CheckForKickAttack = CheckHud == 8
+							||( DynamicHUDEnabled
+							&&( mapName.Left(2) == "ka"));
 		
 		if ( CheckForPSXHUD )
 		{	
@@ -396,6 +400,21 @@ class DCX_Statusbar : BaseStatusBar
 			else if (locks[3]) image = "PXKEYS5";
 			else image = "";
 			DrawImage(image, (240, 192), DI_ITEM_OFFSETS);
+		}
+		else if ( CheckForKickAttack )
+		{
+			// key 1
+			if (locks[1] || locks[4]) image = "KAKEYS0";
+			else image = "";
+			DrawImage(image, (238, 170), DI_ITEM_OFFSETS);
+			// key 2
+			if (locks[2] && locks[5]) image = "KAKEYS1";
+			else image = "";
+			DrawImage(image, (238, 180), DI_ITEM_OFFSETS);
+			// key 3
+			if (locks[0] && locks[3]) image = "KAKEYS2";
+			else image = "";
+			DrawImage(image, (238, 190), DI_ITEM_OFFSETS);
 		}
 		else
 		{
@@ -626,8 +645,8 @@ class DCX_Statusbar : BaseStatusBar
 			
 			else if (CheckForKickAttack)
 			{
-				x_value = 288; x_offset = 26; y_value = 170;
-				DrawImage("PTAMMO24", (248, 168), DI_ITEM_OFFSETS);
+				x_value = 288; x_offset = 26; y_value = 169;
+				DrawImage("KAAMMO24", (248, 168), DI_ITEM_OFFSETS);
 			}
 			
 			else if (CheckForAbsolution)
