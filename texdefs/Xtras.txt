@@ -807,10 +807,24 @@ WallTexture "DSKY1TALL", 1024, 680
 	Patch "SKY1BE", 0, 540
 }
 
+WallTexture "USKY1TALL", 1024, 680
+{
+	Patch "USKY1B", 0, 0
+	Patch "USKY1F", 0, 0
+	Patch "USKY1BE", 0, 540
+}
+
 WallTexture "DSKY2TALL", 1024, 680
 {
 	Patch "SKY2B", 0, 0
 	Patch "SKY2F", 0, 0
+	Patch "SKY2BE", 0, 540
+}
+
+WallTexture "USKY2TALL", 1024, 680
+{
+	Patch "SKY2B", 0, 0
+	Patch "SKY2FA", 0, 0
 	Patch "SKY2BE", 0, 540
 }
 
@@ -819,6 +833,13 @@ WallTexture "DSKY3TALL", 1024, 680
 	Patch "SKY3B", 0, 0
 	Patch "SKY3F", 0, 0
 	Patch "SKY3BE", 0, 540
+}
+
+WallTexture "USKY3TALL", 1024, 680
+{
+	Patch "RSKY3W", 0, 0
+	Patch "RSKY3E", 0, 540
+	Patch "SKY3F", 0, 0
 }
 
 WallTexture "DSKY4TALL", 1024, 680
