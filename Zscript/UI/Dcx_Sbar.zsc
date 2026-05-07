@@ -298,7 +298,7 @@ class DCX_Statusbar : BaseStatusBar
 			else if (CheckForTNTR)
 			DrawImage("TNTRFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else if (CheckForKickAttack)
-			DrawImage("KAFUEL", (252, 168), DI_ITEM_OFFSETS);
+			DrawImage("KAFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else 
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -646,7 +646,7 @@ class DCX_Statusbar : BaseStatusBar
 			else if (CheckForKickAttack)
 			{
 				x_value = 288; x_offset = 26; y_value = 169;
-				DrawImage("KAAMMO24", (248, 168), DI_ITEM_OFFSETS);
+				DrawImage("KAAMMO24", (249, 168), DI_ITEM_OFFSETS);
 			}
 			
 			else if (CheckForAbsolution)
