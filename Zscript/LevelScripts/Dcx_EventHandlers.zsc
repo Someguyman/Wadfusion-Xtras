@@ -1207,7 +1207,7 @@ class DCX_PerMapReplacementHandler : EventHandler
 				e.Replacement = 'DCX_DoubleBladedChainsaw';
 			
 				if (e.Replacee == 'Plasmarifle')
-				e.Replacement = 'DCX_HeavyPlasmaGun';
+				e.Replacement = 'DCX_PlasmaRifleMKII';
 				
 				if (e.Replacee == 'Arachnotron')
 				e.Replacement = 'DCX_Dualarachnotron';

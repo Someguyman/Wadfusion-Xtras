@@ -167,108 +167,39 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 		{
 			TakeInventory("DCX_Chainsaw", 1);
 		}
-			
-		if(StrICmp(levelset, "ab_") == 0)
-		{	
-			if ( (CheckInventory("DCX_PlasmaRifle")) || 
-				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
-				(CheckInventory("H2P_PlasmaTrident")) )
-			{
-				GiveInventory("DCX_HeavyPlasmaGun", 1);
-			}
 		
-			if (CheckInventory("H2P_IncendiaryTrident"))
-			{
-				GiveInventory("DCX_BFG9000", 1);
-			}
-			
-			if (CheckInventory("H2P_RocketLauncher"))
-			{
-				GiveInventory("DCX_RocketLauncher", 1);
-			}
-			
-		
-			TakeInventory("H2P_RocketLauncher", 1);
-			TakeInventory("DCX_PlasmaRifle", 1);
-			TakeInventory("DCX_DZ0PlasmaRifle", 1);
-			TakeInventory("H2P_PlasmaTrident", 1);
-			TakeInventory("H2P_IncendiaryTrident", 1);
-		}
-		else if(StrICmp(levelset, "dz_") == 0)
+		if (CheckInventory("DCX_PlasmaRifleMKII"))
 		{
-			if ( (CheckInventory("DCX_PlasmaRifle")) || 
-				(CheckInventory("DCX_HeavyPlasmaGun")) ||
-				(CheckInventory("H2P_PlasmaTrident")) )
-			{
-				GiveInventory("DCX_DZ0PlasmaRifle", 1);
-			}
-			
-			if (CheckInventory("H2P_IncendiaryTrident"))
-			{
-				GiveInventory("DCX_BFG9000", 1);
-			}
-			
-			if (CheckInventory("H2P_RocketLauncher"))
-			{
-				GiveInventory("DCX_RocketLauncher", 1);
-			}
-			
-			TakeInventory("H2P_RocketLauncher", 1);
 			TakeInventory("DCX_PlasmaRifle", 1);
-			TakeInventory("DCX_HeavyPlasmaGun", 1);
-			TakeInventory("H2P_PlasmaTrident", 1);
-			TakeInventory("H2P_IncendiaryTrident", 1);
-		}		
-		else if(StrICmp(levelset, "hp_") == 0)
-		{			
-			if ( (CheckInventory("DCX_PlasmaRifle")) || 
-				(CheckInventory("DCX_HeavyPlasmaGun")) ||
-				(CheckInventory("DCX_DZ0PlasmaRifle")) )
-			{
-				GiveInventory("H2P_PlasmaTrident", 1);
-			}
-			
-			if (CheckInventory("DCX_BFG9000"))
-			{
-				GiveInventory("H2P_IncendiaryTrident", 1);
-			}
-			
-			if (CheckInventory("DCX_RocketLauncher"))
-			{
-				GiveInventory("H2P_RocketLauncher", 1);
-			}
-		
-			TakeInventory("DCX_RocketLauncher", 1);
-			TakeInventory("DCX_PlasmaRifle", 1);
-			TakeInventory("DCX_HeavyPlasmaGun", 1);
-			TakeInventory("DCX_DZ0PlasmaRifle", 1);
-			TakeInventory("DCX_BFG9000", 1);
 		}
-		else
-		{		
-			if (CheckInventory("H2P_RocketLauncher"))
+			
+		if ( (StrICmp(levelset, "ab_") == 0) || (StrICmp(levelset, "dz_") == 0) )
+		{	
+			if (CheckInventory("DCX_PlasmaRifle"))
 			{
-				GiveInventory("DCX_RocketLauncher", 1);
+				GiveInventory("DCX_PlasmaRifleMKII", 1);
 			}
+			
+			if (StrICmp(levelset, "ab_") == 0)
+			{
+				if (CheckInventory("DCX_Chainsaw"))
+				{
+					GiveInventory("DCX_DoubleBladedChainsaw", 1);
+				}
+				TakeInventory("DCX_Chainsaw", 1);
+			}
+			
+			TakeInventory("DCX_PlasmaRifle", 1);
+		}
 		
-			if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
-				(CheckInventory("DCX_DZ0PlasmaRifle")) ||
-				(CheckInventory("H2P_PlasmaTrident")) )
+		if ( (StrICmp(levelset, "hp_") == 0) || (StrICmp(levelset, "ka_") == 0) )
+		{		
+			if (CheckInventory("DCX_PlasmaRifleMKII"))
 			{
 				GiveInventory("DCX_PlasmaRifle", 1);
 			}
-		
-			if (CheckInventory("H2P_IncendiaryTrident"))
-			{
-				GiveInventory("DCX_BFG9000", 1);
-			}
-		
-			//TakeInventory("DCX_DoubleBladedChainsaw", 1);
-			TakeInventory("H2P_RocketLauncher", 1);
-			TakeInventory("DCX_HeavyPlasmaGun", 1);
-			TakeInventory("H2P_PlasmaTrident", 1);
-			TakeInventory("DCX_DZ0PlasmaRifle", 1);
-			TakeInventory("H2P_IncendiaryTrident", 1);
+			
+			TakeInventory("DCX_PlasmaRifleMKII", 1);
 		}
 	}
 	else 
@@ -278,29 +209,13 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 			GiveInventory("DCX_Chainsaw", 1);
 		}
 		
-		if (CheckInventory("H2P_RocketLauncher"))
-		{
-			GiveInventory("DCX_RocketLauncher", 1);
-		}
-		
-		if ( (CheckInventory("DCX_HeavyPlasmaGun")) || 
-			 (CheckInventory("DCX_DZ0PlasmaRifle")) ||
-			 (CheckInventory("H2P_PlasmaTrident")) )
+		if (CheckInventory("DCX_PlasmaRifleMKII"))
 		{
 			GiveInventory("DCX_PlasmaRifle", 1);
 		}
 		
-		if (CheckInventory("H2P_IncendiaryTrident"))
-		{
-			GiveInventory("DCX_BFG9000", 1);
-		}
-		
 		TakeInventory("DCX_DoubleBladedChainsaw", 1);
-		TakeInventory("H2P_RocketLauncher", 1);
-		TakeInventory("DCX_HeavyPlasmaGun", 1);
-		TakeInventory("H2P_PlasmaTrident", 1);
-		TakeInventory("DCX_DZ0PlasmaRifle", 1);
-		TakeInventory("H2P_IncendiaryTrident", 1);
+		TakeInventory("DCX_PlasmaRifleMKII", 1);
 		TakeInventory("DCX_Unmaker", 1);
 	}
 	restart;

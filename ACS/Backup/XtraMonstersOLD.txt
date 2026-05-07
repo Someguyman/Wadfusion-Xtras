@@ -67,11 +67,11 @@ script "Xtra_Monster_Placements" enter
 			Add("Incinerator",-3456, 320, 270,0,0);
 			Add("Incinerator",-3584, 320, 270,0,0);
 			
-			Add("DCX_HeavyPlasmaGun",-3072, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3200, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3328, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3456, 384, 270,0,0);
-			Add("DCX_HeavyPlasmaGun",-3584, 384, 270,0,0);
+			Add("DCX_PlasmaRifleMKII",-3072, 384, 270,0,0);
+			Add("DCX_PlasmaRifleMKII",-3200, 384, 270,0,0);
+			Add("DCX_PlasmaRifleMKII",-3328, 384, 270,0,0);
+			Add("DCX_PlasmaRifleMKII",-3456, 384, 270,0,0);
+			Add("DCX_PlasmaRifleMKII",-3584, 384, 270,0,0);
 			
 			Add("DCX_DoubleBladedChainsaw",-3072, 640, 270,0,0);
 			Add("DCX_DoubleBladedChainsaw",-3200, 640, 270,0,0);

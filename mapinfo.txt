@@ -40,7 +40,7 @@ DoomEdNums
 	3146 = ID24CalamityBlade
 	
 	255 = DCX_DoubleBladedChainsaw
-	256 = DCX_HeavyPlasmaGun
+	256 = DCX_PlasmaRifleMKII
 	666 = DCX_Unmaker
 	667 = DCX_Demonkey1
 	668 = DCX_Demonkey2
