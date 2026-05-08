@@ -55,7 +55,8 @@ cluster 6
 	ExitText = "$C2TEXT"
 	Music = "$MUSIC_READ_M"
 	//Flat = "$BGFLAT11"
-	pic = "INTER_E4"
+	//pic = "INTER_E4"
+	pic = "INTERPIC"
 
 }
 
@@ -65,7 +66,8 @@ cluster 7
 {
 	ExitText = "$C3TEXT"
 	Music = "$MUSIC_READ_M"
-	pic = "INTERPI3"
+	//pic = "INTERPI3"
+	pic = "INTERPIC"
 }
 
 // DOOM II fourth cluster (up thru level 30)
@@ -75,7 +77,8 @@ cluster 8
 	ExitText = "$C4TEXT"
 	Music = "$MUSIC_READ_M"
 	//Flat = "$BGFLAT30"
-	pic = "BOSSTEXT"
+	pic = "INTERPIC"
+	//pic = "BOSSTEXT"
 }
 
 // DOOM II fifth cluster (level 31)
@@ -102,7 +105,8 @@ cluster 11
 {
 	ExitText = "$NERVETEXT"
 	music = "$MUSIC_NERVETEXT"
-	Flat = "SLIME16"
+	pic = "INTERPI3"
+	//Flat = "SLIME16"
 }
 
 // TNT first cluster (up thru level 6)

@@ -296,7 +296,10 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			{ TallSkyReplacements(); }
 		}
 		if ( (mapName == "ml_map10") || (mapName == "ml_map43") )
-		Level.ChangeSky(TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any),TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any));
+			Level.ChangeSky(TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any),TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any));
+		
+		if ( (mapName == "tn_map25") || (mapName == "tn_map26") || (mapName == "tn_map27") || (mapName == "tn_map28") )
+			Level.ChangeSky(TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any),TexMan.CheckForTexture("SKY3TALS",TexMan.Type_Any));
 		
 		if ( SkyName == "DSKY1" )
 		{
@@ -333,6 +336,14 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			if ( skyEnable )
 			{ TallSkyReplacements(); }
 		}
+				
+		if ( (mapPrefix == "nv_") )
+		{
+			if ( (mapName == "nv_map01") || (mapName == "nv_map02") )
+			{
+				Level.ChangeSky(TexMan.CheckForTexture("RSKY2",TexMan.Type_Any),TexMan.CheckForTexture("RSKY2",TexMan.Type_Any));
+			}
+		}	
 		
 		if ( mapName == "tn_map31")
 		{
@@ -350,6 +361,12 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			Level.ReplaceTextures("FIRELAV2", "BFALL2", 0);
 			Level.ReplaceTextures("FIRELAV3", "BFALL3", 0);
 		}
+		
+		if ( mapname == "e3m7" || mapname == "cs_e3m7" || mapname == "ch_e3m7" || mapname == "co_e3m7" )
+			Level.ReplaceTextures("CEIL4_2", "F_SKY1", 0);
+		
+		if (mapName == "tn_map26")
+			Level.ReplaceTextures("RROCK04", "RROCK05", 0);
 		
 		/*
 		if ( mapName == "map31" )
@@ -473,29 +490,11 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		}
 			
-		if ( mapname == "e3m7" || mapname == "cs_e3m7" || mapname == "ch_e3m7" || mapname == "co_e3m7" )
-		Level.ReplaceTextures("CEIL4_2", "F_SKY1", 0);
-			
 		if ( (mapName == "tn_map25") || (mapName == "tn_map26") || (mapName == "tn_map27") || (mapName == "tn_map28") )
 		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
 		
-		if (mapName == "tn_map26")
-		Level.ReplaceTextures("RROCK04", "RROCK05", 0);
-		
 		if ( (mapName == "ml_map10") || (mapName == "ml_map43") )
-		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));
-			
-		if ( (mapPrefix == "nv_") )
-		{
-			if ( (mapName == "nv_map01") || (mapName == "nv_map02") )
-			{
-				Level.ChangeSky(TexMan.CheckForTexture("RSKYA2",TexMan.Type_Any),TexMan.CheckForTexture("RSKYA2",TexMan.Type_Any));
-			}
-			if ( (mapName == "nv_map03") || (mapName == "nv_map04") || (mapName == "nv_map09") )
-			{
-				Level.ChangeSky(TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any),TexMan.CheckForTexture("RSKYA1",TexMan.Type_Any));
-			}
-		}		
+		Level.ChangeSky(TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any),TexMan.CheckForTexture("SKYX4A",TexMan.Type_Any));	
 	}
 	
 	void Wolfenstein3DTextures()
