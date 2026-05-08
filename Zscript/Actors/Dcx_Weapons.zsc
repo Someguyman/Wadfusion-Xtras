@@ -215,8 +215,10 @@ class DCX_Pistol : Pistol Replaces Pistol
 		PISG A 1 A_Raise;
 		Loop;
 	Fire:
+		PISG B 0 Offset(0,32) A_WeaponOffset(0,0,WOF_INTERPOLATE|WOF_KEEPY);
 		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Fire");
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 		PISG A 4;
 		PISG B 6 A_FirePistol;
 		PISG C 4;
@@ -224,9 +226,23 @@ class DCX_Pistol : Pistol Replaces Pistol
 		Goto Ready;
 	Flash:
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Flash");
+		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "DZ0_Flash");
 		PISF A 7 Bright A_Light1;
 		Goto LightDone;
+		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "DZ0_Flash");
 		PISF A 7 Bright A_Light1;
+		Goto LightDone;
+			
+	DZ0_Fire:
+		PISG B 0 Offset(0,32) A_WeaponOffset(0,0,WOF_INTERPOLATE|WOF_KEEPY);
+		PISG C 2 Offset(0,50);
+		PISG E 6 Offset(3,45) { A_FireBullets(5.6, 0, 1, 5); A_Startsound("weapons/pistol", CHAN_WEAPON); A_GunFlash("DZ0_Flash"); }
+		PISG D 4 Offset(2,32);
+		PISG B 4 Offset(1,45) A_ReFire;
+		Goto Ready;
+	
+	DZ0_Flash:
+		PISF B 3 Bright A_Light1;
 		Goto LightDone;
 		
 	KICK_Ready:
