@@ -57,7 +57,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			
 			int NightmareImp = 	 Doomimp; //685; 
 			int NightmareSpectre = 	 697;
-			int NightmareCacodemon = 686;
+			int NightmareCacodemon = Cacodemon; //686
 			
 			int DualCyberdemon = 	 687;
 			
@@ -65,7 +65,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 			{
 				NightmareImp = 	 		   Doomimp;
 				NightmareSpectre = 	  SpectreDemon;
-				NightmareCacodemon = Painelemental;
+				NightmareCacodemon = 	 Cacodemon;
 				DualCyberdemon =	    Cyberdemon;
 			}
 			
@@ -1669,7 +1669,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 					break;
 				}
 				
-				case '8898F5EC9CBDCD98019A1BC1BF892A8A':
+				case '8898F5EC9CBDCD98019A1BC1BF892A8A': //???
 				{
 					if ( TextureChanges )
 					{
@@ -1780,13 +1780,11 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetThingID(8, 666);
 						
 						SetThingID(473, 667);
-						//SetThingEdNum(473, Cyberdemon);
 						
 						SetThingID(474, 667);
 						SetThingEdNum(474, Cyberdemon);
 						
 						SetThingID(475, 667);
-						//SetThingEdNum(475, Cyberdemon);
 						SetThingID(476, 667);
 						SetThingID(477, 667);
 						SetThingID(478, 667);
@@ -1796,9 +1794,7 @@ class WadfusionXtras_PostProcessor : LevelPostProcessor
 						SetThingID(483, 667);
 						
 						SetThingID(491, 667);
-						//SetThingEdNum(491, Cyberdemon);
 						SetThingID(493, 667);
-						//SetThingEdNum(493, Cyberdemon);
 						SetThingID(494, 667);
 						SetThingID(495, 667);
 						SetThingID(496, 667);

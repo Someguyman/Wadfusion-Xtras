@@ -931,3 +931,13 @@ Class LevelEnder : Actor
 			Stop;
 	}
 }
+
+Class DCX_OFF_Column : Column
+{
+	States
+	{
+		Spawn:
+			COLX A -1;
+			Loop;
+	}
+}
