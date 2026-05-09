@@ -1003,6 +1003,7 @@ class DCX_PlasmaRifle : PlasmaRifle Replaces PlasmaRifle
 		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Fire");
 		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "hp_"), "H2P_Fire");
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "d0_Fire");
 		PLSG A 3 A_FirePlasma;
 		PLSG B 20 A_ReFire;
 		Goto Ready;
@@ -1050,6 +1051,24 @@ class DCX_PlasmaRifle : PlasmaRifle Replaces PlasmaRifle
 		TNT1 A 4 Bright A_Light1;
 		STOP;
 		
+	DZ0_Fire:
+		TNT1 A 3 { A_FireProjectile("PlasmaBall",0,1); A_GunFlash("DZ0_Flash"); }
+		PLSG A 0 A_ReFire;
+		PLSG B 16 Offset(0,32) A_GunFlash("Flash.Stop");
+		PLSG B 3 Offset(6,38);
+		TNT1 A 0 Offset(1,36) A_WeaponOffset(0,36,WOF_INTERPOLATE);
+		PLSG A 1 Offset(1,36) A_WeaponOffset(0,36,WOF_INTERPOLATE); 
+		PLSG AAAAAA 1 Offset(0,32) A_WeaponReady(WRF_NOBOB);
+		Goto Ready;
+	DZ0_Flash:
+		PLSF A 1 Bright A_Light1;
+		PLSF B 1 Bright A_Light1;
+		PLSF A 1 Bright A_Light1;
+		PLGN D 1 Bright A_Light1;
+		Goto LightDone;
+	Flash.Stop:
+		Goto LightDone;
+	
 	KICK_Ready:
 		KW06 C 1 A_WeaponReady;
 		Loop;
