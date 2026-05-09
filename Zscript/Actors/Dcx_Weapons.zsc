@@ -52,11 +52,20 @@ class DCX_Fist : Fist
 	Fire:
 		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), 2);
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 		PUNG B 4;
 		PUNG C 4 A_Punch;
 		PUNG D 5;
 		PUNG C 4;
 		PUNG B 5 A_ReFire;
+		Goto Ready;
+		
+	DZ0_Fire:
+		PUNG A 0;
+		PUNG D 8 A_Punch;
+		PUNG C 3;
+		PUNG B 6;
+		PUNG A 3 A_ReFire;
 		Goto Ready;
 	
 	KICK_Ready:
@@ -111,6 +120,7 @@ class DCX_Chainsaw : Chainsaw Replaces Chainsaw
 		Loop;
 	Fire:
 		TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+		TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 		TNT1 A 0 A_StopSound(7);
 		SAWG AB 4 A_Saw;
 		SAWG B 0 A_ReFire;
@@ -120,6 +130,12 @@ class DCX_Chainsaw : Chainsaw Replaces Chainsaw
 		TNT1 A 0 A_startsound("weapons/sawidle", 7, CHANF_LOOPING, 1.0);
 		saws CDEF 2 A_WeaponReady;
 		Goto Ready;
+		
+	DZ0_Fire:
+		SAWG A 2 offset(0,32) A_Saw;
+		SAWG B 1 offset(0,34) A_Light0;
+		SAWG A 0 offset(0,32) A_ReFire;
+		Goto Ready;	
 		
 	Perk_Fire:
 		TNT1 A 0 A_startsound("weapons/sawfull", 7, CHANF_LOOPING);
@@ -167,9 +183,16 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 		Fire:
 			TNT1 A 0 A_StopSound(7);
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 			SAW2 AB 2 A_Saw("weapons/saw2full","weapons/saw2hit");
 			SAW2 B 0 A_ReFire();
 			Goto Ready;
+			
+		DZ0_Fire:
+			SAW2 A 1 offset(0,32) A_Saw("weapons/saw2full","weapons/saw2hit");
+			SAW2 B 1 offset(0,34) A_Light0;
+			SAW2 A 0 offset(0,32) A_ReFire;
+			Goto Ready;	
 			
 		Perk_Ready:
 			SAW2 C 2 { A_startsound("weapons/saw2idle", 7, CHANF_DEFAULT, 1.0); A_WeaponReady(); A_WeaponOffset(0,33); }
@@ -238,7 +261,8 @@ class DCX_Pistol : Pistol Replaces Pistol
 		PISG C 2 Offset(0,50);
 		PISG E 6 Offset(3,45) { A_FireBullets(5.6, 0, 1, 5); A_Startsound("weapons/pistol", CHAN_WEAPON); A_GunFlash("DZ0_Flash"); }
 		PISG D 4 Offset(2,32);
-		PISG B 4 Offset(1,45) A_ReFire;
+		SHTG A 0 Offset(1,45) A_WeaponOffset(0,0,WOF_INTERPOLATE|WOF_KEEPY);
+		PISG B 4 Offset(0,45) A_ReFire;
 		Goto Ready;
 	
 	DZ0_Flash:
@@ -682,6 +706,7 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 		Fire:
 			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Fire");
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 		Fire.Loop:
 			CHGG A 0 A_GunFlash("Flash");
 			CHGG AB 4 { A_FireBullets(5.6, 0, 1, 5, "BulletPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
@@ -689,8 +714,18 @@ Class DCX_Chaingun : Chaingun Replaces Chaingun
 			Goto Ready;
 		Flash:
 			CHGF A 4 Bright A_Light1;
-			//Goto LightDone;
 			CHGF B 4 Bright A_Light2;
+			Goto LightDone;
+			
+		DZ0_Fire:
+			CHGG A 0 A_GunFlash("DZ0_Flash");
+			CHGG A 2 { A_FireBullets(5.6, 0, 1, 5, "BulletPuff"); A_Startsound("weapons/chngun", CHAN_WEAPON); }
+			CHGG B 2 A_Light0;
+			CHGG B 0 A_ReFire();
+			Goto Ready;
+		DZ0_Flash:
+			CHGF A 3 Bright A_Light1;
+			CHGF B 1 Bright A_Light0;
 			Goto LightDone;
 			
 		Perk_Ready:
@@ -794,12 +829,24 @@ class DCX_RocketLauncher : RocketLauncher Replaces RocketLauncher
 			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "hp_"), "H2P_Fire");
 			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower() == "ka_map"), "Kick_Fire");
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 			MISG B 8 A_GunFlash;
 			MISG B 12 A_FireMissile;
 			MISG B 0 A_ReFire;
 			Goto Ready;
 		Flash:
 			MISF A 3 Bright A_Light1;
+			MISF B 4 Bright;
+			MISF CD 4 Bright A_Light2;
+			Goto LightDone;
+		
+		DZ0_Fire:
+			MISG A 4 A_GunFlash("DZ0_Flash");
+			MISG B 16 A_FireMissile;
+			MISG B 0 A_ReFire("DZ0_Fire");
+			Goto Ready;
+		DZ0_Flash:
+			MISF E 4 Bright A_Light1;
 			MISF B 4 Bright;
 			MISF CD 4 Bright A_Light2;
 			Goto LightDone;
@@ -1218,6 +1265,7 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 		Fire:
 			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "hp_"), "h2p_Fire");
 			TNT1 A 0 A_JumpIf(Cvar.getcvar("DCX_SmoothToggle").getint() == 1, "Perk_Fire");
+			TNT1 A 0 A_JumpIf((Level.MapName.MakeLower().left(3) == "dz_"), "DZ0_Fire");
 			BFGG A 20 A_BFGsound;
 			BFGG B 10 A_GunFlash;
 			BFGG B 10 A_FireBFG;
@@ -1233,6 +1281,17 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 			BFGG B 0 A_Light0;
 			BFGG B 20 A_ReFire;
 			Goto Ready;
+			
+		DZ0_Fire:
+			BFGG B 22 A_StartSound("DZBFG9000/Fire", CHAN_WEAPON);
+			BFGG B 8 A_GunFlash("DZ0_Flash");
+			BFGG B 10 A_FireBFG;
+			BFGG B 20 A_ReFire;
+			Goto Ready;
+		DZ0_Flash:
+			BFGF A 6 Bright A_Light1;
+			BFGF B 6 Bright A_Light2;
+			Goto LightDone;
 			
 		h2p_Ready:
 			h2bf A 1 A_WeaponReady;

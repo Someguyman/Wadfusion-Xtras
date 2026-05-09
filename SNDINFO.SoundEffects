@@ -65,6 +65,8 @@ wolfss/sight2 DSUSSSE
 misc/machgun  machgun
 misc/ALMGUNUP ALMGUNUP
 
+DZBFG9000/Fire DZBFG
+
 SuperTurboTurkyPuncher3/Announcer DSSTTP3
 Turkey/Sight DSTURKEY
 
@@ -94,6 +96,7 @@ world/lavsiz2			dslvsiz2
 world/lavasizzlesmall		dslavsml
 //world/thunder			dsthun
 
+Blank/NoSound DSNONE
 
 $volume world/watersplash 0.6 
 $volume dssplash 0.6 

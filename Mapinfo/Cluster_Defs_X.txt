@@ -115,7 +115,7 @@ cluster 12
 {
 	ExitText = "$T1TEXT"
 	Music = "T_READ_M"
-	Flat = "FLAT5_7"
+	Pic = "TNINTRO"
 }
 
 // TNT second cluster (up thru level 11)
@@ -124,7 +124,7 @@ cluster 13
 {
 	ExitText = "$T2TEXT"
 	Music = "T_READ_M"
-	Flat = "FLOOR5_1"
+	Pic = "TNINTRO"
 }
 
 // TNT third cluster (up thru level 20)
@@ -133,7 +133,7 @@ cluster 14
 {
 	ExitText = "$T3TEXT"
 	Music = "T_READ_M"
-	Flat = "FLAT5_3"
+	Pic = "TNINTRO"
 }
 
 // TNT fourth cluster (up thru level 30)
@@ -143,7 +143,7 @@ cluster 15
 	ExitText = "$T4TEXT"
 	Music = "T_READ_M"
 	//Flat = "DEM1_6"
-	pic = "TNTBOS2"
+	Pic = "TNINTRO"
 }
 
 // TNT fifth cluster (level 31)
@@ -152,7 +152,7 @@ cluster 16
 {
 	EnterText = "$T5TEXT"
 	Music = "T_READ_M"
-	Flat = "MFLR8_2"
+	Pic = "TNINTRO"
 }
 
 // TNT sixth cluster (level 32)
@@ -161,7 +161,7 @@ cluster 17
 {
 	EnterText = "$T6TEXT"
 	Music = "T_READ_M"
-	Flat = "FLAT5_2"
+	Pic = "TNINTRO"
 }
 
 // Plutonia first cluster (up thru level 6)
