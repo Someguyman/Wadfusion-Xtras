@@ -2062,8 +2062,8 @@ class Keyboard_MachineGun : DoomWeapon
       Weapon.AmmoUse 1;
       Weapon.AmmoGive 32;
       Weapon.AmmoType "Clip";
-  	  Weapon.SlotPriority 2;
-      Weapon.Slotnumber 4;
+  	  //Weapon.SlotPriority 2;
+      //Weapon.Slotnumber 4;
 	  Inventory.pickupsound "misc/ALMGUNUP";
       Inventory.Pickupmessage "You've got the Machine Gun, Get Psyched!";
       Obituary "%o got too psyched from %k's Machine Gun bullets.";

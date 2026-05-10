@@ -203,7 +203,7 @@ intermission Doom2_Intro_2
 	TextScreen
 	{
 		Text = "$C2TEXT"
-		Background = "INTER_E4"
+		Background = "INTERPIC"
 		Music = "$MUSIC_READ_M"
 	}
 }
@@ -213,7 +213,7 @@ intermission Doom2_Intro_3
 	TextScreen
 	{
 		Text = "$C3TEXT"
-		Background = "INTERPI3"
+		Background = "INTERPIC"
 		Music = "$MUSIC_READ_M"
 	}
 }

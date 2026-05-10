@@ -848,6 +848,13 @@ WallTexture "DSKY4TALL", 1024, 680
 	Patch "SKY4E", 0, 540
 }
 
+Texture "DSKY6S", 1024, 680
+{
+	YScale 1.0
+	Patch "SKY6U", 0, -140
+	Patch "SKY6U", 0, 540
+}
+
 WallTexture "RSKY1TALL", 1024, 680
 {
 	Patch "RSKY1W", 0, 0
@@ -864,6 +871,41 @@ WallTexture "RSKY3TALL", 1024, 680
 {
 	Patch "RSKY3W", 0, 0
 	Patch "RSKY3E", 0, 540
+}
+
+Texture "MSKY1S", 1024, 680
+{
+	YScale 1.0
+	Patch "MSKY1U", 0, -140
+	Patch "MSKY1U", 0, 540
+}
+
+Texture "MSKY2S", 1024, 680
+{
+	YScale 1.0
+	Patch "MSKY2U", 0, -140
+	Patch "MSKY2U", 0, 540
+}
+
+Texture "MSKY3S", 1024, 680
+{
+	YScale 1.0
+	Patch "MSKY3U", 0, -140
+	Patch "MSKY3U", 0, 540
+}
+
+Texture "MSKY4S", 1024, 680
+{
+	YScale 1.0
+	Patch "MSKY4U", 0, -140
+	Patch "MSKY4U", 0, 540
+}
+
+Texture "MSKY5S", 1024, 680
+{
+	YScale 1.0
+	Patch "MSKY5U", 0, -140
+	Patch "MSKY5U", 0, 540
 }
 
 WallTexture "TSKY1TALL", 1024, 680

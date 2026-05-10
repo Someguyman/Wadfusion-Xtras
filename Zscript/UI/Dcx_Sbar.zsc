@@ -38,6 +38,8 @@ class DCX_Statusbar : BaseStatusBar
 	HUDFont mPL2font;
 	HUDFont mPL2fontS;
 	
+	HUDFont mPERDGfont;
+	
 	HUDFont mTNTRfontSG;
 	HUDFont mTNTRfontS;
 	InventoryBarState diparms;
@@ -79,6 +81,8 @@ class DCX_Statusbar : BaseStatusBar
 		
 		mPL2font = HUDFont.Create("FDFONT_PLUTONIA2");
 		mPL2fontS = HUDFont.Create("FDFONT_SPLUTONIA2");
+		
+		mPERDGfont = HUDFont.Create("FDFONT_PERDG");
 		
 		mTNTRfontSG = HUDFont.Create("FDFONT_SGTNTR");
 		mTNTRfontS = HUDFont.Create("FDFONT_STNTR");
@@ -139,13 +143,14 @@ class DCX_Statusbar : BaseStatusBar
 		let x_value = 44;
 		let y_value = 171;
 		
-		let DynamicHUDEnabled = CheckHud == 9;
+		let DynamicHUDEnabled = CheckHud == 10;
 				
 		let CheckForPSXHUD = CheckHud == 1
 						  || ( DynamicHUDEnabled
 						  && ( mapName.Left(2) == "e4" 
 					      || mapName.Left(2) == "e5"
 				          || mapName.Left(2) == "e6"
+						  || mapName == "onehumanity"
 						  || mapName.Left(2) == "ml"));
 								  
 		let CheckForSaturnHud = CheckHud == 2			
@@ -162,18 +167,19 @@ class DCX_Statusbar : BaseStatusBar
 		let CheckForBetaHud = CheckHud == 4
 							 ||( DynamicHUDEnabled
 							 &&( mapName.Left(2) == "eu"
-							 || mapName.Left(2) == "dz"
+							 
 							 || mapName.Left(2) == "hp")); 
 							 
 		let CheckForFinalHud = CheckHud == 5
 							 ||( DynamicHUDEnabled
 							 &&(mapName.Left(2) == "pl"
-							 || mapName.Left(2) == "pt"
-							 || mapName.Left(2) == "pg" ));
+							 || mapName.Left(2) == "pt" ));
 							 
 		let CheckForAbsolution = CheckHud == 6
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ab"));
+							&&( mapName.Left(2) == "ab"
+							 || mapName.Left(2) == "dz" ));
+									
 							
         let CheckForTNTR = CheckHud == 7
 							||( DynamicHUDEnabled
@@ -182,7 +188,11 @@ class DCX_Statusbar : BaseStatusBar
 
         let CheckForKickAttack = CheckHud == 8
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ka"));							
+							&&( mapName.Left(2) == "ka"));	
+							
+		let CheckForPerdG = CheckHud == 9
+							||( DynamicHUDEnabled
+							&&( mapName.Left(2) == "pg"));
 							
 							
 		int AbsoluationHud = Cvar.Findcvar("AB_hud_toggle").getint();
@@ -239,6 +249,14 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("KABAR", (-267, 168), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 			DrawImage("STTPRCNT", (221, 171), DI_ITEM_OFFSETS);
+		}
+		else if ( CheckForPerdG )
+		{
+			//mPERDGfont
+			get_font = mPERDGfont;
+			DrawImage("PGBAR", (-83, 168), DI_ITEM_OFFSETS);
+			DrawImage("PGTPRCNT", (90, 171), DI_ITEM_OFFSETS);
+			DrawImage("PGTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 		}
 		else if ( CheckForAbsolution )
 		{
@@ -299,6 +317,8 @@ class DCX_Statusbar : BaseStatusBar
 			DrawImage("TNTRFUEL", (249, 168), DI_ITEM_OFFSETS);
 			else if (CheckForKickAttack)
 			DrawImage("KAFUEL", (249, 168), DI_ITEM_OFFSETS);
+			else if ( CheckForPerdG )
+			DrawImage("PGFUEL", (248, 168), DI_ITEM_OFFSETS);
 			else 
 			DrawImage("STFUEL", (249, 168), DI_ITEM_OFFSETS);
 			//PXFUEL
@@ -361,13 +381,14 @@ class DCX_Statusbar : BaseStatusBar
 		String mapName = level.MapName.MakeLower();
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		let DynamicHUDEnabled = CheckHud == 9;
+		let DynamicHUDEnabled = CheckHud == 10;
 				
 		let CheckForPSXHUD = CheckHud == 1
 						  || ( DynamicHUDEnabled
 						  && ( mapName.Left(2) == "e4" 
 					      || mapName.Left(2) == "e5"
 				          || mapName.Left(2) == "e6"
+						  || mapName == "onehumanity"
 						  || mapName.Left(2) == "ml"));								
 							 
 		let CheckForFinalHud = CheckHud == 5
@@ -456,13 +477,14 @@ class DCX_Statusbar : BaseStatusBar
 		
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		let DynamicHUDEnabled = CheckHud == 9;
+		let DynamicHUDEnabled = CheckHud == 10;
 				
 		let CheckForPSXHUD = CheckHud == 1
 						  || ( DynamicHUDEnabled
 						  && ( mapName.Left(2) == "e4" 
 					      || mapName.Left(2) == "e5"
 				          || mapName.Left(2) == "e6"
+						  || mapName == "onehumanity"
 						  || mapName.Left(2) == "ml"));
 								  
 		let CheckForSaturnHud = CheckHud == 2			
@@ -479,18 +501,18 @@ class DCX_Statusbar : BaseStatusBar
 		let CheckForBetaHud = CheckHud == 4
 							 ||( DynamicHUDEnabled
 							 &&( mapName.Left(2) == "eu"
-							 || mapName.Left(2) == "dz"
+							 
 							 || mapName.Left(2) == "hp")); 
 							 
 		let CheckForFinalHud = CheckHud == 5
 							 ||( DynamicHUDEnabled
 							 &&( mapName.Left(2) == "pl"
-							 || mapName.Left(2) == "pt"
-							 || mapName.Left(2) == "pg" ));
+							 || mapName.Left(2) == "pt"));
 							 
 		let CheckForAbsolution = CheckHud == 6
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ab"));
+							&&( mapName.Left(2) == "ab"
+							 || mapName.Left(2) == "dz"));
 							
         let CheckForTNTR = CheckHud == 7
 							||( DynamicHUDEnabled
@@ -500,6 +522,10 @@ class DCX_Statusbar : BaseStatusBar
         let CheckForKickAttack = CheckHud == 8
 							||( DynamicHUDEnabled
 							&&( mapName.Left(2) == "ka"));	
+							
+		let CheckForPerdG = CheckHud == 9
+							||( DynamicHUDEnabled
+							&&( mapName.Left(2) == "pg"));
 		
 		static const Class<Inventory> Demon_keys[] =
 		{
@@ -557,13 +583,14 @@ class DCX_Statusbar : BaseStatusBar
 		
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		let DynamicHUDEnabled = CheckHud == 9;
+		let DynamicHUDEnabled = CheckHud == 10;
 				
 		let CheckForPSXHUD = CheckHud == 1
 						  || ( DynamicHUDEnabled
 						  && ( mapName.Left(2) == "e4" 
 					      || mapName.Left(2) == "e5"
 				          || mapName.Left(2) == "e6"
+						  || mapName == "onehumanity"
 						  || mapName.Left(2) == "ml"));
 								  
 		let CheckForSaturnHud = CheckHud == 2			
@@ -580,18 +607,18 @@ class DCX_Statusbar : BaseStatusBar
 		let CheckForBetaHud = CheckHud == 4
 							 ||( DynamicHUDEnabled
 							 &&( mapName.Left(2) == "eu"
-							 || mapName.Left(2) == "dz"
+							 
 							 || mapName.Left(2) == "hp")); 
 							 
 		let CheckForFinalHud = CheckHud == 5
 							 ||( DynamicHUDEnabled
 							 &&( mapName.Left(2) == "pl"
-							 || mapName.Left(2) == "pt"
-							 || mapName.Left(2) == "pg" ));
+							 || mapName.Left(2) == "pt"));
 							 
 		let CheckForAbsolution = CheckHud == 6
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ab"));
+							&&( mapName.Left(2) == "ab"
+							 || mapName.Left(2) == "dz"));
 							
         let CheckForTNTR = CheckHud == 7
 							||( DynamicHUDEnabled
@@ -600,7 +627,11 @@ class DCX_Statusbar : BaseStatusBar
 
         let CheckForKickAttack = CheckHud == 8
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ka"));	
+							&&( mapName.Left(2) == "ka"));
+							
+		let CheckForPerdG = CheckHud == 9
+							||( DynamicHUDEnabled
+							&&( mapName.Left(2) == "pg"));
 							
 		int AbsoluationHud = Cvar.Findcvar("AB_hud_toggle").getint();
 		
@@ -641,6 +672,12 @@ class DCX_Statusbar : BaseStatusBar
 			{
 				x_value = 288; x_offset = 26; y_value = 170; get_font = mTNTRfontS;
 				DrawImage("TNAMMO24", (248, 168), DI_ITEM_OFFSETS);
+			}
+			
+			else if (CheckForPerdG)
+			{
+				x_value = 288; x_offset = 26; y_value = 169;
+				DrawImage("PGAMMO24", (248, 168), DI_ITEM_OFFSETS);
 			}
 			
 			else if (CheckForKickAttack)
@@ -785,13 +822,14 @@ class DCX_Statusbar : BaseStatusBar
 		String mapName = level.MapName.MakeLower();
 		int CheckHud = Cvar.Findcvar("hud_toggle").getint();
 		
-		let DynamicHUDEnabled = CheckHud == 9;
+		let DynamicHUDEnabled = CheckHud == 10;
 				
 		let CheckForPSXHUD = CheckHud == 1
 						  || ( DynamicHUDEnabled
 						  && ( mapName.Left(2) == "e4" 
 					      || mapName.Left(2) == "e5"
 				          || mapName.Left(2) == "e6"
+						  || mapName == "onehumanity"
 						  || mapName.Left(2) == "ml"));
 								  
 		let CheckForSaturnHud = CheckHud == 2			
@@ -807,19 +845,18 @@ class DCX_Statusbar : BaseStatusBar
 							 
 		let CheckForBetaHud = CheckHud == 4
 							 ||( DynamicHUDEnabled
-							 &&( mapName.Left(2) == "eu"
-							 || mapName.Left(2) == "dz"
+							 &&( mapName.Left(2) == "eu"	 
 							 || mapName.Left(2) == "hp")); 
 							 
 		let CheckForFinalHud = CheckHud == 5
 							 ||( DynamicHUDEnabled
 							 &&(mapName.Left(2) == "pl"
-							 || mapName.Left(2) == "pt"
-							 || mapName.Left(2) == "pg" ));
+							 || mapName.Left(2) == "pt"));
 							 
 		let CheckForAbsolution = CheckHud == 6
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ab"));
+							&&( mapName.Left(2) == "ab"
+							 || mapName.Left(2) == "dz" ));
 							
         let CheckForTNTR = CheckHud == 7
 							||( DynamicHUDEnabled
@@ -828,7 +865,11 @@ class DCX_Statusbar : BaseStatusBar
 
         let CheckForKickAttack = CheckHud == 8
 							||( DynamicHUDEnabled
-							&&( mapName.Left(2) == "ka"));	
+							&&( mapName.Left(2) == "ka"));
+							
+		let CheckForPerdG = CheckHud == 9
+							||( DynamicHUDEnabled
+							&&( mapName.Left(2) == "pg"));
 							
 		int AbsoluationHud = Cvar.Findcvar("AB_hud_toggle").getint();
 		
@@ -896,6 +937,16 @@ class DCX_Statusbar : BaseStatusBar
 		else if (CheckForKickAttack)
 		{
 			DrawImage("KAARMS", (104, 168), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (111, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (123, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (135, 172), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (123, 182), DI_ITEM_OFFSETS);
+			DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 182), DI_ITEM_OFFSETS);
+		}
+		else if (CheckForPerdG)
+		{
+			DrawImage("PGARMS", (104, 168), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (111, 172), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (123, 172), DI_ITEM_OFFSETS);
 			DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (135, 172), DI_ITEM_OFFSETS);

@@ -56,7 +56,8 @@ OptionValue HUDtweaks
 	6.0, "\c[PURPLE]Doom 64 For Doom 2 hud"
 	7.0, "\c[RED]TNT: Revilution"
 	8.0, "\c[GREEN]Kick Attack"
-	9.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
+	9.0, "\c[brick]Perditions Gate"
+	10.0, "\c[Grey]Dynamic Hud \c[Dark Grey](Switch Per Game)"
 }
 
 OptionValue D64HudTweaks
