@@ -233,7 +233,6 @@ intermission Nerve_Intro
 	TextScreen
 	{
 		Text = "$NVINTRO1"
-		//Background = "INTERNV" INTERPI3
 		Background = "INTERPI3" 
 		Music = "D_NRFTLX"
 	}

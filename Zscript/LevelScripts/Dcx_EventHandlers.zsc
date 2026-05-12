@@ -303,7 +303,7 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		
 		if ( SkyName == "DSKY1" )
 		{
-			if (   mapName.left(2) == "e1" 
+			if (   mapName.left(2) == "e1"
 				|| mapName.left(5) == "cs_e1" 
 				|| mapName.left(5) == "ch_e1" 
 				|| mapName.left(5) == "co_e1" )
