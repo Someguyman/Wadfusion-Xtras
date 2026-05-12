@@ -49,6 +49,8 @@ function void Add(str class,int x, int y, int angle, int minimum_skill, int obje
 		byte_angle = 224;
 	else
 		byte_angle = 0;
+		
+	Thing_Hate(class, 0, 4);
 
     //spawn object
 	if (Spawn(class,fixed_x,fixed_y,fixed_z,17391,byte_angle) == 0)

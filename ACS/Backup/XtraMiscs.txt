@@ -154,23 +154,33 @@ Script "WeaponManagement" Enter //Used to clean up inventory if you gave yoursel
 	str levelset = StrMid(mapName, 0, 3);
 	str levelset2 = StrMid(mapName, 0, 6);
 	
-	if(StrICmp(mapName, "TEST") == 0)
-	{
-		terminate;
-	}
-	
 	delay(1);
 	
 	if(GetCVar ("dcx_CustomMonsters") ==1)
 	{
-		if (CheckInventory("DCX_DoubleBladedChainsaw"))
+		if(StrICmp(mapName, "TEST") == 0)
 		{
-			TakeInventory("DCX_Chainsaw", 1);
-		}
+			if (CheckInventory("DCX_Chainsaw") && !CheckInventory("DCX_DoubleBladedChainsaw"))
+			{
+				GiveInventory("DCX_DoubleBladedChainsaw", 1);
+			}
 		
-		if (CheckInventory("DCX_PlasmaRifleMKII"))
+			if (CheckInventory("DCX_PlasmaRifle") && !CheckInventory("DCX_PlasmaRifleMKII"))
+			{
+				GiveInventory("DCX_PlasmaRifleMKII", 1);
+			}
+		}
+		else
 		{
-			TakeInventory("DCX_PlasmaRifle", 1);
+			if (CheckInventory("DCX_DoubleBladedChainsaw"))
+			{
+				TakeInventory("DCX_Chainsaw", 1);
+			}
+		
+			if (CheckInventory("DCX_PlasmaRifleMKII"))
+			{
+				TakeInventory("DCX_PlasmaRifle", 1);
+			}
 		}
 			
 		if ( (StrICmp(levelset, "ab_") == 0) || (StrICmp(levelset, "dz_") == 0) )

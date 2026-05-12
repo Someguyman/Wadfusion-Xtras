@@ -164,6 +164,7 @@ Class DCX_DoubleBladedChainsaw : DoomWeapon
 		Obituary "%o was mowed twice-over by %k's chainsaw.";
 		Decal "BulletChip";
 		+WEAPON.MELEEWEAPON
+		+WEAPON.CHEATNOTWEAPON
 	}
 
 	States
@@ -1158,14 +1159,15 @@ class DCX_PlasmaRifleMKII : DoomWeapon
 		Weapon.AmmoGive 40;
 		//Weapon.Slotnumber 6;
 		Weapon.AmmoType "Cell";
-		Inventory.PickupMessage "You Got The MK II PlasmaRifle";
+		Inventory.PickupMessage "You Got The MK II PlasmaRifle!";
 		Tag "PlasmaRifle MK II";
+		+WEAPON.CHEATNOTWEAPON
 	}
 	
 	Action Void A_FirePlasmaDZ()
 	{
 		A_GunFlash("Flash"); 
-		A_FireProjectile("DCX_PlasmaBallDZ",0,1,0);
+		A_FireProjectile("DCX_PlasmaballDZ",0,1,0);
 	}
 		
 	States
@@ -1237,6 +1239,16 @@ class DCX_PlasmaRifleMKII : DoomWeapon
 	}
 }
 
+class DCX_PlasmaballDZ : Plasmaball
+{
+	Default { SeeSound "Plasma/DoomZero"; }
+}
+
+class DCX_ArachnotronPlasmaDZ : ArachnotronPlasma
+{
+	Default { SeeSound "Plasma/DoomZero"; }
+}
+
 class DCX_PlasmaBall2 : PlasmaBall
 {
 	Default
@@ -1255,16 +1267,19 @@ class DCX_PlasmaBall2 : PlasmaBall
 	}
 }
 
-class DCX_PlasmaBallDZ : PlasmaBall
-{
-	Default { SeeSound "Plasma/DoomZero"; }
-}
-
 class DCX_BFG9000 : BFG9000 Replaces BFG9000
 {
 	Action Void A_H2PFireBFG()
 	{
 		A_FireProjectile("H2P_BFGBall",0,1,0,0,0); 
+	}
+	
+	action void A_BFGsound()
+	{
+		if (Level.MapName.MakeLower().left(3) == "dz_" || Level.MapName.MakeLower().left(3) == "d1_")
+			A_StartSound("DZBFG9000/Fire", CHAN_WEAPON); 
+		else
+			A_StartSound("weapons/bfgf", CHAN_WEAPON);
 	}
 	
 	States
@@ -1302,7 +1317,7 @@ class DCX_BFG9000 : BFG9000 Replaces BFG9000
 			Goto Ready;
 			
 		DZ0_Fire:
-			BFGG B 22 A_StartSound("DZBFG9000/Fire", CHAN_WEAPON);
+			BFGG B 22 A_BFGsound();
 			BFGG B 8 A_GunFlash("DZ0_Flash");
 			BFGG B 10 A_FireBFG;
 			BFGG B 20 A_ReFire;
