@@ -77,6 +77,7 @@ HUSTR_PSX08 = "The Mansion";
 HUSTR_PSX09 = "Club DOOM";
 
 BONUS_KICKATTACK = "\c[GOLD]Bonus: \c[DarkGreen]Kick Attack";
+BONUS_LORTESTMAP = "\c[GOLD]Bonus: \c[RED]L.O.R test map";
 BONUS_HUMAN = "\c[GOLD]Bonus: \c[RED]One Humanity";
 BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]64 Title Map";
 BONUS_JAGUAR = "\c[GOLD]Bonus: \c[RED]Trial of the Jaguar";

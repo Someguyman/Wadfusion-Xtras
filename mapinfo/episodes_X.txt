@@ -163,6 +163,12 @@ episode OneHumanity
 	Optional
 }
 
+episode LR_MAP99
+{
+	Name = "$BONUS_LORTESTMAP"
+	Optional
+}
+
 episode AB_MAP33
 {
 	Name = "$BONUS_TITLE"
