@@ -31,6 +31,6 @@ map MAP33 "$HUSTR_33"
 	Music = "D_BETREY"
 	Author = "$WF_AU_BUKOWSKI"
 	Exitpic = "$in_d2e1"
-	Label = "DOOM II HELL ON EARTH, E1M12"
+	Label = "DOOM II HELL ON EARTH"
 	F1 = "CREDIT"
 }

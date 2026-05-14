@@ -170,7 +170,8 @@ cluster 18
 {
 	ExitText = "$P1TEXT"
 	Music = "P_READ_M"
-	Flat = "GRNROCK"
+	pic = "PLTEXT"
+	//Flat = "GRNROCK"
 }
 
 // Plutonia second cluster (up thru level 11)
@@ -179,7 +180,8 @@ cluster 19
 {
 	ExitText = "$P2TEXT"
 	Music = "P_READ_M"
-	Flat = "FLOOR5_2"
+	pic = "PLTEXT"
+	//Flat = "FLOOR5_2"
 }
 
 // Plutonia third cluster (up thru level 20)
@@ -188,7 +190,8 @@ cluster 20
 {
 	ExitText = "$P3TEXT"
 	Music = "P_READ_M"
-	Flat = "BLOOD1"
+	pic = "PLTEXT"
+	//Flat = "BLOOD1"
 }
 
 // Plutonia fourth cluster (up thru level 30)
@@ -197,8 +200,9 @@ cluster 21
 {
 	ExitText = "$P4TEXT"
 	Music = "P_READ_M"
+	pic = "PLTEXT"
 	//Flat = "RROCK04"
-	pic = "BOSSTEXT"
+	//pic = "BOSSTEXT"
 }
 
 // Plutonia fifth cluster (level 31)

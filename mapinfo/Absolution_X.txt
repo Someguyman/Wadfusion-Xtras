@@ -39,7 +39,7 @@ adddefaultmap
 
 map AB_MAP01 lookup "ABHUSTR_1"
 {
-	Label = "ABSOLUTION, E1M1"
+	Label = "THE ABSOLUTION MAP01"
 	TitlePatch = "AWILV00"
 	next = "AB_MAP02"
 	secretnext = "AB_MAP02B"
@@ -49,7 +49,7 @@ map AB_MAP01 lookup "ABHUSTR_1"
 
 map AB_MAP02 lookup "ABHUSTR_2"
 {
-	Label = "ABSOLUTION, E1M2"
+	Label = "THE ABSOLUTION MAP02"
 	TitlePatch = "AWILV01"
 	next = "AB_MAP03"
 	secretnext = "AB_MAP03"
@@ -59,7 +59,7 @@ map AB_MAP02 lookup "ABHUSTR_2"
 
 map AB_MAP03 lookup "ABHUSTR_3"
 {
-	Label = "ABSOLUTION, E1M3"
+	Label = "THE ABSOLUTION MAP03"
 	TitlePatch = "AWILV02"
 	next = "AB_MAP04"
 	secretnext = "AB_MAP04"
@@ -70,7 +70,7 @@ map AB_MAP03 lookup "ABHUSTR_3"
 
 map AB_MAP04 lookup "ABHUSTR_4"
 {
-	Label = "ABSOLUTION, E1M4"
+	Label = "THE ABSOLUTION MAP04"
 	TitlePatch = "AWILV03"
 	next = "AB_MAP05"
 	secretnext = "AB_MAP05"
@@ -80,7 +80,7 @@ map AB_MAP04 lookup "ABHUSTR_4"
 
 map AB_MAP05 lookup "ABHUSTR_5"
 {
-	Label = "ABSOLUTION, E1M5"
+	Label = "THE ABSOLUTION MAP05"
 	TitlePatch = "AWILV04"
 	next = "AB_MAP06"
 	secretnext = "AB_MAP06"
@@ -90,7 +90,7 @@ map AB_MAP05 lookup "ABHUSTR_5"
 
 map AB_MAP06 lookup "ABHUSTR_6"
 {
-	Label = "ABSOLUTION, E1M6"
+	Label = "THE ABSOLUTION MAP06"
 	TitlePatch = "AWILV05"
 	next = "AB_MAP07"
 	secretnext = "AB_MAP07"
@@ -106,7 +106,7 @@ adddefaultmap
 
 map AB_MAP07 lookup "ABHUSTR_7"
 {
-	Label = "ABSOLUTION, E1M7"
+	Label = "THE ABSOLUTION MAP07"
 	TitlePatch = "AWILV06"
 	next = "AB_MAP08"
 	secretnext = "AB_MAP08"
@@ -117,7 +117,7 @@ map AB_MAP07 lookup "ABHUSTR_7"
 
 map AB_MAP08 lookup "ABHUSTR_8"
 {
-	Label = "ABSOLUTION, E1M8"
+	Label = "THE ABSOLUTION MAP08"
 	TitlePatch = "AWILV07"
 	next = "AB_MAP09"
 	secretnext = "AB_MAP09"
@@ -127,7 +127,7 @@ map AB_MAP08 lookup "ABHUSTR_8"
 
 map AB_MAP09 lookup "ABHUSTR_9"
 {
-	Label = "ABSOLUTION, E1M9"
+	Label = "THE ABSOLUTION MAP09"
 	TitlePatch = "AWILV08"
 	titlepatch = "CWILV08"
 	next = "AB_MAP10"
@@ -138,7 +138,7 @@ map AB_MAP09 lookup "ABHUSTR_9"
 
 map AB_MAP10 lookup "ABHUSTR_10"
 {
-	Label = "ABSOLUTION, E1M10"
+	Label = "THE ABSOLUTION MAP10"
 	TitlePatch = "AWILV09"
 	next = "AB_MAP11"
 	secretnext = "AB_MAP11"
@@ -149,7 +149,7 @@ map AB_MAP10 lookup "ABHUSTR_10"
 
 map AB_MAP11 lookup "ABHUSTR_11"
 {
-	Label = "ABSOLUTION, E1M11"
+	Label = "THE ABSOLUTION MAP11"
 	TitlePatch = "AWILV10"
 	next = "AB_MAP12"
 	secretnext = "AB_MAP12"
@@ -167,7 +167,7 @@ adddefaultmap
 
 map AB_MAP12 lookup "ABHUSTR_12"
 {
-	Label = "ABSOLUTION, E2M1"
+	Label = "THE ABSOLUTION MAP12"
 	TitlePatch = "AWILV11"
 	next = "AB_MAP13"
 	secretnext = "AB_MAP13"
@@ -177,7 +177,7 @@ map AB_MAP12 lookup "ABHUSTR_12"
 
 map AB_MAP13 lookup "ABHUSTR_13"
 {
-	Label = "ABSOLUTION, E2M2"
+	Label = "THE ABSOLUTION MAP13"
 	TitlePatch = "AWILV12"
 	next = "AB_MAP14"
 	secretnext = "AB_MAP14"
@@ -189,7 +189,7 @@ map AB_MAP13 lookup "ABHUSTR_13"
 
 map AB_MAP14 lookup "ABHUSTR_14"
 {
-	Label = "ABSOLUTION, E2M3"
+	Label = "THE ABSOLUTION MAP14"
 	TitlePatch = "AWILV13"
 	next = "AB_MAP15"
 	secretnext = "AB_MAP15"
@@ -202,7 +202,7 @@ map AB_MAP14 lookup "ABHUSTR_14"
 
 map AB_MAP15 lookup "ABHUSTR_15"
 {
-	Label = "ABSOLUTION, E2M4"
+	Label = "THE ABSOLUTION MAP15"
 	TitlePatch = "AWILV14"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP31"
@@ -214,7 +214,7 @@ map AB_MAP15 lookup "ABHUSTR_15"
 
 map AB_MAP16 lookup "ABHUSTR_16"
 {
-	Label = "ABSOLUTION, E2M5"
+	Label = "THE ABSOLUTION MAP16"
 	TitlePatch = "AWILV15"
 	next = "AB_MAP17"
 	secretnext = "AB_MAP17"
@@ -224,7 +224,7 @@ map AB_MAP16 lookup "ABHUSTR_16"
 
 map AB_MAP17 lookup "ABHUSTR_17"
 {
-	Label = "ABSOLUTION, E2M6"
+	Label = "THE ABSOLUTION MAP17"
 	TitlePatch = "AWILV16"
 	next = "AB_MAP18"
 	secretnext = "AB_MAP18"
@@ -236,7 +236,7 @@ map AB_MAP17 lookup "ABHUSTR_17"
 
 map AB_MAP18 lookup "ABHUSTR_18"
 {
-	Label = "ABSOLUTION, E2M7"
+	Label = "THE ABSOLUTION MAP18"
 	TitlePatch = "AWILV17"
 	next = "AB_MAP19"
 	secretnext = "AB_MAP19"
@@ -246,7 +246,7 @@ map AB_MAP18 lookup "ABHUSTR_18"
 
 map AB_MAP19 lookup "ABHUSTR_19"
 {
-	Label = "ABSOLUTION, E2M8"
+	Label = "THE ABSOLUTION MAP19"
 	TitlePatch = "AWILV18"
 	next = "AB_MAP20"
 	secretnext = "AB_MAP20"
@@ -256,7 +256,7 @@ map AB_MAP19 lookup "ABHUSTR_19"
 
 map AB_MAP20 lookup "ABHUSTR_20"
 {
-	Label = "ABSOLUTION, E2M9"
+	Label = "THE ABSOLUTION MAP20"
 	TitlePatch = "AWILV19"
 	next = "AB_MAP21"
 	secretnext = "AB_MAP21"
@@ -275,7 +275,7 @@ adddefaultmap
 
 map AB_MAP21 lookup "ABHUSTR_21"
 {
-	Label = "ABSOLUTION, E3M1"
+	Label = "THE ABSOLUTION MAP21"
 	TitlePatch = "AWILV20"
 	next = "AB_MAP22"
 	secretnext = "AB_MAP22"
@@ -287,7 +287,7 @@ map AB_MAP21 lookup "ABHUSTR_21"
 
 map AB_MAP22 lookup "ABHUSTR_22"
 {
-	Label = "ABSOLUTION, E3M2"
+	Label = "THE ABSOLUTION MAP22"
 	TitlePatch = "AWILV21"
 	next = "AB_MAP23"
 	secretnext = "AB_MAP23"
@@ -297,7 +297,7 @@ map AB_MAP22 lookup "ABHUSTR_22"
 
 map AB_MAP23 lookup "ABHUSTR_23"
 {
-	Label = "ABSOLUTION, E3M3"
+	Label = "THE ABSOLUTION MAP23"
 	TitlePatch = "AWILV22"
 	next = "AB_MAP24"
 	secretnext = "AB_MAP24"
@@ -307,7 +307,7 @@ map AB_MAP23 lookup "ABHUSTR_23"
 
 map AB_MAP24 lookup "ABHUSTR_24"
 {
-	Label = "ABSOLUTION, E3M4"
+	Label = "THE ABSOLUTION MAP24"
 	TitlePatch = "AWILV23"
 	next = "AB_MAP25"
 	secretnext = "AB_MAP25"
@@ -317,7 +317,7 @@ map AB_MAP24 lookup "ABHUSTR_24"
 
 map AB_MAP25 lookup "ABHUSTR_25"
 {
-	Label = "ABSOLUTION, E3M5"
+	Label = "THE ABSOLUTION MAP25"
 	TitlePatch = "AWILV24"
 	next = "AB_MAP26"
 	secretnext = "AB_MAP26"
@@ -327,7 +327,7 @@ map AB_MAP25 lookup "ABHUSTR_25"
 
 map AB_MAP26 lookup "ABHUSTR_26"
 {
-	Label = "ABSOLUTION, E3M6"
+	Label = "THE ABSOLUTION MAP26"
 	TitlePatch = "AWILV25"
 	next = "AB_MAP27"
 	secretnext = "AB_MAP27"
@@ -339,7 +339,7 @@ map AB_MAP26 lookup "ABHUSTR_26"
 
 map AB_MAP27 lookup "ABHUSTR_27"
 {
-	Label = "ABSOLUTION, E3M7"
+	Label = "THE ABSOLUTION MAP27"
 	TitlePatch = "AWILV26"
 	next = "AB_MAP28"
 	secretnext = "AB_MAP28"
@@ -349,7 +349,7 @@ map AB_MAP27 lookup "ABHUSTR_27"
 
 map AB_MAP28 lookup "ABHUSTR_28"
 {
-	Label = "ABSOLUTION, E3M8"
+	Label = "THE ABSOLUTION MAP28"
 	TitlePatch = "AWILV27"
 	next = "AB_MAP29"
 	secretnext = "AB_MAP29"
@@ -359,7 +359,7 @@ map AB_MAP28 lookup "ABHUSTR_28"
 
 map AB_MAP29 lookup "ABHUSTR_29"
 {
-	Label = "ABSOLUTION, E3M9"
+	Label = "THE ABSOLUTION MAP29"
 	TitlePatch = "AWILV28"
 	next = "AB_MAP30"
 	secretnext = "AB_MAP30"
@@ -371,9 +371,9 @@ map AB_MAP29 lookup "ABHUSTR_29"
 
 map AB_MAP30 lookup "ABHUSTR_30"
 {
-	Label = "ABSOLUTION, E3M10"
+	Label = "THE ABSOLUTION MAP30"
 	TitlePatch = "AWILV29"
-	Next = EndSequence, "D64Cast"
+	Next = EndSequence, "D64Inter_Cast"
 	sky1 = "SKY3ATAS"
 	NoIntermission
 	NoSoundClipping
@@ -385,7 +385,7 @@ map AB_MAP30 lookup "ABHUSTR_30"
 
 map AB_MAP31 lookup "ABHUSTR_31"
 {
-	Label = "ABSOLUTION, E2M10"
+	Label = "THE ABSOLUTION MAP31"
 	TitlePatch = "AWILV30"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP32"
@@ -396,7 +396,7 @@ map AB_MAP31 lookup "ABHUSTR_31"
 
 map AB_MAP32 lookup "ABHUSTR_32"
 {
-	Label = "ABSOLUTION, E2M11"
+	Label = "THE ABSOLUTION MAP32"
 	TitlePatch = "AWILV31"
 	next = "AB_MAP16"
 	secretnext = "AB_MAP16"

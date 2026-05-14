@@ -5,6 +5,35 @@ defaultmap
 	compat_invisibility = "1"
 }
 
+// Test map
+
+map LR_MAP99 "$XHUSTR_99"
+{
+	ExitPic = "INTERLR"
+	InterMusic = "X_DM2INT"
+	// Compatibility options
+	compat_anybossdeath = 0
+	compat_checkswitchrange = 0
+	compat_floormove = 0
+	compat_light = 0
+	compat_mbfmonstermove = 0
+	compat_multiexit = 0
+	compat_nodoorlight = 0
+	compat_nombf21 = 0
+	compat_pointonline = 0
+	compat_pushwindow = 0
+	compat_railing = 0
+	compat_shortTex = 0
+	compat_stairs = 0
+	compat_teleport = 0
+	compat_useblocking = 0
+	Label = "LEGACY OF RUST, TEST MAP"
+	Next = "LR_MAP99"
+	Sky1 =  "SKYX2"
+	Music = "D_BLANK"
+	Author = "$WF_AU_ID1TEST"
+}
+
 map KA_MAP "$ML_KICK" //KICK ATTACK
 {
 	Sky1 = "SKY1"

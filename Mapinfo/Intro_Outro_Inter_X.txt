@@ -302,7 +302,7 @@ intermission Plutonia_Intro
 	TextScreen
 	{
 		Text = "$PLINTRO1"
-		Background = "$GRNROCK", 1
+		Background = "PLTEXT"
 		Music = "P_READ_M"
 	}
 	
@@ -427,7 +427,7 @@ Intermission PT2_Intro
 	TextScreen
 	{
 		Text = "$IN_PT1"
-		Background = "INTERPI3"
+		Background = "p2interp"
 		music = "$MUSIC_PL2TEXT"
 	}
 	
@@ -1142,6 +1142,7 @@ Intermission D64Cast
 		CastName = "$CC_HERO"
 		AttackSound = "Missile", 1, "weapons/sshotf"
 	}
+	Link = D64Cast
 }
 
 intermission Id1_End_Fusion_FullRun_NoCast

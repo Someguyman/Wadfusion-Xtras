@@ -9,7 +9,7 @@ defaultmap
 	Author = "$WF_AU_FLYNN"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "JFINTERP"
-	Label = "The Master Levels"
+	Label = "THE MASTER LEVELS"
 	compat_invisibility = "1"
 }
 

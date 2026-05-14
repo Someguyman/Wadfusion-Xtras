@@ -7,7 +7,7 @@ defaultmap
 	Author = "$WF_AU_KVERNMO"
 	InterMusic = "$MUSIC_MASTERINT"
 	ExitPic = "CRINTERP"
-	Label = "The Master Levels"
+	Label = "THE MASTER LEVELS"
 	compat_invisibility = "1"
 }
 
