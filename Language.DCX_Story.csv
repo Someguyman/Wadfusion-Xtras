@@ -1049,3 +1049,15 @@ KAINTRO5 =
 "the inky abyss. \n" 
 "\n"
 "It was time to Kick some Alpine ass. . .";
+
+TITAN_END =
+    "\n\n\n\n\n\n\n"
+    "Jim Flynn\n"
+    "~1952 - 2018\n\n"
+    "Rest in Peace.";
+
+INFERNO_END =
+    "\n\n\n\n\n\n\n"
+    "John \"Dr. Sleep\" Anderson\n"
+    "1956 - 2018\n\n"
+    "Rest in Peace.";

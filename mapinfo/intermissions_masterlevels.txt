@@ -87,7 +87,7 @@ intermission MasterLevels_End_Map32
 {
 	TextScreen
 	{
-		Text = "James F. Flynn, Jim - Rest In Peace,\n 1951 - 2018"
+		Text = "$TITAN_END"
 		music = "$MUSIC_MASTERTXT"
 		Background = "JFINTERP"
 	}
@@ -172,7 +172,7 @@ intermission MasterLevels_End_Map36
 {
 	TextScreen
 	{
-		Text = "John W. Anderson, Dr. Sleep - Rest In Peace,\n 1956 - 2018"
+		Text = "$INFERNO_END"
 		Music = "$MUSIC_GREYON"
 		Background = "DRINTERP"
 	}
