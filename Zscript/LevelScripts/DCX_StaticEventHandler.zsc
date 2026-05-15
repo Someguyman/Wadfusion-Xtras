@@ -196,7 +196,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 					else if ( nextMap == "ml_map01" || nextMap == "masterhub" )
 						S_ChangeMusic("D_TITLEM", 0, false);
 					else if ( nextMap == "ml_map19" )
-						S_ChangeMusic("D_BLACKTWR", 0, false);
+						S_ChangeMusic("D_TITLM2", 0, false);
 					else if ( nextMap == "ml_map33" )
 						S_ChangeMusic("D_CHIRON", 0, false);
 					else if ( nextMap == "ml_map29" )
@@ -255,9 +255,15 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 			
 			if ( nextMap == "ml_map19" )
 					intermission = "MasterLevels_Map19";
+					
+			if ( nextMap == "ml_map29" )
+					intermission = "MasterLevels_Map29";
 			
 			if ( nextMap == "ml_map01" )
 					intermission = "Masterb_intro";
+					
+			if ( nextMap == "ml_map33" )
+					intermission = "MasterLevels_Map33";
 					
 			if ( mapName.Mid(9, 6) != "ml_map" )
 			{
@@ -451,14 +457,14 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 				intermission = "Doom1_Ep6_Fusion_FullRun_Off";
 			if ( mapName == "map30" )
 				intermission = "Inter_Cast";
-			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map43")
+			if ( ( mapName == "ml_map20" && !rejects ) || mapName == "ml_map27")
 				intermission = "MasterLevels_End"; // also needed for xaser order
-			if ( mapName == "ml_map27" )
-				intermission = "MasterLevels_End";
-			if ( mapName == "ml_map17" && rejects )
-				intermission = "MasterLevels_End";
+			if ( mapName == "ml_map32" && rejects )
+				intermission = "MasterLevels_End_Map32";
 			if ( mapName == "ml_map36" )
-				intermission = "MasterLevels_End";
+				intermission = "MasterLevels_End_Map36";
+			if ( mapName == "ml_map43" )
+				intermission = "MasterLevels_End_Map43";
 			if ( mapName == "nv_map08" )
 				intermission = "Nerve_Cast";
 			if ( mapName == "lr_map07" )

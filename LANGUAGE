@@ -102,13 +102,7 @@ ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
 ABLOUTION_EPI02 = "\c[Red]Old Wounds";
 ABLOUTION_EPI03 = "\c[Red]The Absolution";
 
-WF_CAMPAIGN_MASTER = "\c[DARKGREY]The Master Levels";
-
-MASTER_LV01 = "\c[DARKGREY]Tim, Tom, Mid Assortment";
-MASTER_LV02 = "\c[DARKGREY]KlieTech Series";
-MASTER_LV03 = "\c[DARKGREY]Titan Series";
-MASTER_LV04 = "\c[DARKGREY]Inferno Series";
-MASTER_LV05 = "\c[DARKGREY]Cabal Series";
+WF_CAMPAIGN_MASTER = "\c[DARKGREY]Works of the Masters";
 
 TNTE_EPI01 = "\c[Orange]The Io Invasion";
 TNTE_EPI02 = "\c[Orange]Nocturnal Io";

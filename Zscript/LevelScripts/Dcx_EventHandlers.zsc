@@ -708,7 +708,6 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 				Level.NextMap = "ml_map06";
 		}
 		
-		//ML_MAP06
 		if ( mapName == "ml_map06" )
 		{
 			if ( rejects )
@@ -753,6 +752,14 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 				Level.NextMap = "ml_map12";
 		}
 		
+		if ( mapName == "ml_map17" )
+		{
+			if ( !rejects )
+				Level.NextMap = "ml_map18";
+			else
+				Level.NextMap = "wf_story_ml_map32";
+		}
+		
 		if ( mapName == "ml_map19" )
 		{
 			if ( rejects )
@@ -766,9 +773,14 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 				Level.NextMap = "ml_map20";
 		}
 		
-		if ( mapName == "ml_map17" || mapName == "ml_map27" || mapName == "ml_map36" )
+		if ( mapName == "ml_map32" || mapName == "ml_map27" || mapName == "ml_map36" )
 		{
 			Level.NextMap = "wf_story";
+		}
+		
+		if ( mapName == "ml_map31" )
+		{
+			Level.NextMap = "wf_story_ml_map16";
 		}
 		
 		if ( mapName == "ml_map37" )

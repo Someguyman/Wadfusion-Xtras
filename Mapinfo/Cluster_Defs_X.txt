@@ -6,7 +6,7 @@ cluster 1
 	ExitText = "$E1TEXT"
 	Music = "$MUSIC_VICTOR"
 	//Flat = "$bgflatE1"
-	pic = "E1ENDINT"
+	pic = "E1VICTOR"
 }
 
 // DOOM Episode 2
@@ -15,7 +15,7 @@ cluster 2
 {
 	ExitText = "$E2TEXT"
 	Music = "$MUSIC_VICTOR"
-	Pic = "E2ENDINT"
+	Pic = "E2VICTOR"
 }
 
 // DOOM Episode 3
@@ -78,7 +78,14 @@ cluster 8
 	Music = "$MUSIC_READ_M"
 	//Flat = "$BGFLAT30"
 	pic = "INTERPIC"
-	//pic = "BOSSTEXT"
+}
+
+cluster 1008
+{
+	EnterText = "$REDEMTION_INTRO"
+	//EXITText = "$REDEMTION_INTRO"
+	Music = "$MUSIC_READ_M"
+	pic = "INTERPIC"
 }
 
 // DOOM II fifth cluster (level 31)
@@ -106,7 +113,6 @@ cluster 11
 	ExitText = "$NERVETEXT"
 	music = "$MUSIC_NERVETEXT"
 	pic = "INTERPI3"
-	//Flat = "SLIME16"
 }
 
 // TNT first cluster (up thru level 6)
@@ -211,7 +217,8 @@ cluster 22
 {
 	EnterText = "$P5TEXT"
 	Music = "P_READ_M"
-	Flat = "SLIME14"
+	pic = "PLTEXT"
+	//Flat = "SLIME14"
 }
 
 // Plutonia sixth cluster (level 32)
@@ -220,7 +227,8 @@ cluster 23
 {
 	EnterText = "$P6TEXT"
 	Music = "P_READ_M"
-	Flat = "RROCK02"
+	pic = "PLTEXT"
+	//Flat = "RROCK02"
 }
 
 /*

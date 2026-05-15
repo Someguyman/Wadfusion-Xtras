@@ -8,7 +8,7 @@ defaultmap
 	ResetInventory
 	Author = "$WF_AU_FLYNN"
 	InterMusic = "$MUSIC_MASTERINT"
-	ExitPic = "JFINTERP"
+	ExitPic = "MLINTERP"
 	Label = "THE MASTER LEVELS"
 	compat_invisibility = "1"
 }
@@ -30,7 +30,6 @@ map ML_MAP30 "$ML_ANOMALY" // Titan Anomaly
 map ML_MAP31 "$ML_FARSIDE" // Farside of Titan
 {
 	Next = "ML_MAP16"
-	//Cluster = 34
 	TitlePatch = "MWILV30"
 	Music = "$MUSIC_FARSIDE"
 }
@@ -38,7 +37,6 @@ map ML_MAP31 "$ML_FARSIDE" // Farside of Titan
 map ML_MAP16 "$ML_MANOR" // Titan Manor
 {
 	Next = "ML_MAP17"
-	//Cluster = 36
 	TitlePatch = "MWILV15"
 	Music = "$MUSIC_MANOR"
 }
@@ -46,8 +44,6 @@ map ML_MAP16 "$ML_MANOR" // Titan Manor
 map ML_MAP17 "$ML_TTRAP" // Trapped On Titan
 {
 	Next = "ML_MAP32"
-	nointermission
-	NoSoundClipping
 	TitlePatch = "MWILV16"
 	Music = "$MUSIC_TRAPPED"
 }

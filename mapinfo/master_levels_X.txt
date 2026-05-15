@@ -6,9 +6,6 @@
 //Tim Wilitz submissions
 //And Chris klye's maps (Both Accepted and rejected)
 
-//Might remove later once those that come with the Doom 64 for doom 2 esche lost levels demakes come out.
-//Can always make it toggleable like the two tnt maps in here.
-
 defaultmap
 {
 	Sky1 = "SKY1"

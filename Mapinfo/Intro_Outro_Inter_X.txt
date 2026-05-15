@@ -54,7 +54,7 @@ intermission Doom1_Intro
 	TextScreen
 	{
 		Text = "$D1INTRO1"
-		Background = "E1VICTOR"
+		Background = "E1ENDINT"
 		Music = "$MUSIC_VICTOR"
 	}
 	
@@ -112,7 +112,6 @@ intermission Doom1_Intro_3
 	{
 		Text = "$E3INTRO3"
 	}
-	//Wiper { WipeType = crossfade }
 }
 
 Intermission Doom_Intro_4
@@ -223,7 +222,8 @@ intermission Masterb_intro
 	TextScreen
 	{
 		Text = "$MASTERINT"
-		music = "$MUSIC_MASTERTXT"
+		//music = "$MUSIC_MASTERTXT"
+		Music = "D_REDM2"
 		Background = "MLINTERP"
 	}
 }
@@ -700,30 +700,6 @@ Intermission Doom1_Ep6_Fusion_FullRun_Off
 	Link = Doom1Cast
 }
 
-map CabalEND "The End"
-{
-	Cluster = 0
-	next = EndSequence, "Cabal_Cast"
-	music = "$MUSIC_MASTEREND"
-	NoIntermission
-	NoSoundClipping
-}
-
-Intermission Cabal_Cast
-{
-	Wiper
-	{
-		WipeType = Crossfade
-	}
-	Image
-	{
-		Background = "CRBOSSBK"
-		Time = -2
-		music = "$MUSIC_MASTEREND"
-	}
-	Link = Doom2Cast
-}
-
 Intermission D64D2Map33End
 {
 	Image
@@ -897,16 +873,12 @@ Intermission PSXDoomIIEND
 	{
 		music = "$MUSIC_READ_M"
 		Background = "BOSSBACK"
-		Text = "$REDEMTION_TXT"
-	}
-	Wiper
-	{
-		WipeType = Crossfade
+		Text = "$GENERIC_TXT2"
 	}
 	Image
 	{
 		Music = "$MUSIC_EVIL"
-		Time = -3
+		Time = -6
 		Background = "BOSSBACK"
 	}
 	link = Doom2Cast

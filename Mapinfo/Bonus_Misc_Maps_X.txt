@@ -42,7 +42,7 @@ map KA_MAP "$ML_KICK" //KICK ATTACK
 	InterMusic = "$MUSIC_MASTERINT"
 	music = "$MUSIC_KICKATK"
 	Author = "$WS_AU_WILLITS_COLA"
-	Label = "Bonus"
+	Label = "DOOM & DOOM II, BONUS"
 }
 
 Map OneHumanity "One Humanity"
@@ -56,7 +56,7 @@ Map OneHumanity "One Humanity"
 	Author = "$WF_AU_ROMERO"
 	Music = "D_E6M4"
 	Par = 144
-	Label = "Bonus"
+	Label = "DOOM II: HELL ON EARTH, BONUS"
 }
 
 map TURKIES "Super Turbo Turky Puncher 3!"
@@ -82,6 +82,6 @@ Map Masterhub "Master Levels Hub"
 	nointermission
 	nosoundclipping
 	sky1 = "MASTERSKY"
-	Label = "Hub"
+	Label = "HUB"
 	Cluster = 0
 }
