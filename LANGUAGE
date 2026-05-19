@@ -76,7 +76,7 @@ HUSTR_PSX07 = "Redemption Denied";
 HUSTR_PSX08 = "The Mansion";
 HUSTR_PSX09 = "Club DOOM";
 
-BONUS_KICKATTACK = "\c[GOLD]Bonus: \c[DarkGreen]Kick Attack";
+BONUS_KICKATTACK = "\c[GOLD]Bonus: \c[RED]Kick Attack";
 BONUS_LORTESTMAP = "\c[GOLD]Bonus: \c[RED]L.O.R test map";
 BONUS_HUMAN = "\c[GOLD]Bonus: \c[RED]One Humanity";
 BONUS_TITLE = "\c[GOLD]Bonus: \c[RED]64 Title Map";
@@ -94,6 +94,7 @@ UDOOM_EPI06 = "\c[RED]SI6IL II";
 DOOM2_EPI01 = "\c[RED]Subterranean Starport";
 DOOM2_EPI02 = "\c[RED]Into The City";
 DOOM2_EPI03 = "\c[RED]Hell Incarnate";
+DOOM2_FULL = "\c[RED]Hell On Earth";
 DOOM2_EPI04 = "\c[RED]No Rest for the Living";
 DOOM2_EPI05 = "\c[RED]The Vulcan Abyss";
 DOOM2_EPI06 = "\c[RED]Counterfeit Eden";
@@ -102,15 +103,18 @@ ABLOUTION_EPI01 = "\c[Red]U.A.C Extermination";
 ABLOUTION_EPI02 = "\c[Red]Old Wounds";
 ABLOUTION_EPI03 = "\c[Red]The Absolution";
 
-WF_CAMPAIGN_MASTER = "\c[DARKGREY]Works of the Masters";
+//WF_CAMPAIGN_MASTER = "\c[DARKGREY]Masters Levels";
+WF_CAMPAIGN_MASTER = "\c[RED]The Masters Levels";
 
 TNTE_EPI01 = "\c[Orange]The Io Invasion";
 TNTE_EPI02 = "\c[Orange]Nocturnal Io";
 TNTE_EPI03 = "\c[Orange]Hell On Io";
+TNTE_FULL = "\c[RED]T.N.T Evilution";
 
 PLUTONIA_EPI01 = "\c[DarkGreen]Jungle Assault";
 PLUTONIA_EPI02 = "\c[DarkGreen]The Blood Tides";
 PLUTONIA_EPI03 = "\c[DarkGreen]Devil Hive";
+PLUTONIA_FULL = "\c[RED]The Plutonia Experiment";
 
 OPTIONS_SSG = "\c[RED]Super shotgun sprite:";
 OPTIONS_MED = "\c[RED]Health Pack Appearence:";
