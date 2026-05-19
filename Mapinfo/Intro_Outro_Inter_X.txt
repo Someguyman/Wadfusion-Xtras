@@ -54,7 +54,7 @@ intermission Doom1_Intro
 	TextScreen
 	{
 		Text = "$D1INTRO1"
-		Background = "E1ENDINT"
+		Background = "E1VICTOR"
 		Music = "$MUSIC_VICTOR"
 	}
 	

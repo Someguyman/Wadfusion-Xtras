@@ -6,7 +6,6 @@ defaultmap
 	ExitPic = "INTERTN"
 	InterMusic = "T_DM2INT"
 	compat_invisibility = "1"
-	F1 = "TNCRED" 
 }
 
 // Episode 1 Part 1
@@ -331,8 +330,7 @@ map TN_MAP31 "$THUSTR_31"
 	SecretNext = "TN_MAP32"
 	Cluster = 16
 	TitlePatch = "TWILV30"
-	ExitPic = "INTRS1TN"
-	//ENTERPic = "TNTINTS1"
+	ExitPic = "INTS1TN"
 	Music = "T_EVIL"
 	Author = "$WF_AU_DARIO_CASALI"
 }
@@ -343,7 +341,7 @@ map TN_MAP32 "$THUSTR_32"
 	Next = "TN_MAP16"
 	Cluster = 17
 	TitlePatch = "TWILV31"
-	ExitPic = "INTRS2TN"
+	ExitPic = "INTS2TN"
 	Music = "T_ULTIMA"
 	Author = "$WF_AU_DARIO_CASALI"
 }

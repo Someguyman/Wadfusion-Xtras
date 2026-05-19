@@ -44,6 +44,7 @@ episode WF_NEWGAME_E6M1
 	Optional
 }
 
+/*
 episode WF_NEWGAME_MAP01
 {
 	Name = "$DOOM2_EPI01"
@@ -60,6 +61,21 @@ episode WF_NEWGAME_MAP12
 episode WF_NEWGAME_MAP21
 {
 	Name = "$DOOM2_EPI03"
+	Optional
+}
+*/
+
+episode WF_NEWGAME_MAP01
+{
+	Name = "$DOOM2_FULL"
+	PicName = "M_HELL"
+	Optional
+}
+
+episode MASTERHUB
+{
+	Name = "$WF_CAMPAIGN_MASTER"
+	PicName = "M_MASTER"
 	Optional
 }
 
@@ -84,6 +100,7 @@ episode WF_NEWGAME_LR_MAP08
 	Optional
 }
 
+/*
 episode WF_NEWGAME_AB_MAP01
 {
 	Name = "$ABLOUTION_EPI01"
@@ -101,14 +118,9 @@ episode WF_NEWGAME_AB_MAP21
 	Name = "$ABLOUTION_EPI03"
 	Optional
 }
+*/
 
-episode WF_NEWGAME_MASTERHUB
-{
-	Name = "$WF_CAMPAIGN_MASTER"
-	PicName = "M_MASTER"
-	Optional
-}
-
+/*
 episode WF_NEWGAME_TN_MAP01
 {
 	Name = "$TNTE_EPI01"
@@ -142,6 +154,25 @@ episode WF_NEWGAME_PL_MAP12
 episode WF_NEWGAME_PL_MAP21
 {
 	Name = "$PLUTONIA_EPI03"
+	Optional
+}
+*/
+
+episode WF_NEWGAME_TN_MAP01
+{
+	Name = "$TNTE_FULL"
+	Optional
+}
+
+episode WF_NEWGAME_PL_MAP01
+{
+	Name = "$PLUTONIA_FULL"
+	Optional
+}
+
+episode WF_NEWGAME_AB_MAP01
+{
+	Name = "$ABLOUTION_EPI03"
 	Optional
 }
 
