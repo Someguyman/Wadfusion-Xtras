@@ -203,16 +203,17 @@ E4TEXT = "the spider mastermind must have sent forth\n"
 E5INTRO1 =
 "THE STORY SO FAR:\n\n" 	  
 "Having killed the spider mastermind and most\n"
-"of the initial horde that stood guard of the\n" 
-"final teleporter on earth, your next stop is\n" 
+"of the initial horde on earth that stood guard\n" 
+"of the centeral teleporter, your next stop is\n" 
 "the Central U.A.C Star port—where what's left\n" 
 "of civilization remains.\n";
 
 E5INTRO2 =
 "NEXT STOP, HELL ON EARTH:\n\n" 
-"You must save mankind from the remining demons\n"
-"that are causing unimaginable carnage in our cities.\n" 
-"With big guns in hand,you make haste for the teleporter.\n";
+"You must save mankind from the remaining\n"
+"demons that are causing unimaginable carnage\n"
+"there. With big guns in hand,you make haste\n" 
+"for the teleporter.\n";
 
 E5INTRO3 =
 "A GREAT EVIL INTERFERES:\n\n" 
@@ -220,7 +221,7 @@ E5INTRO3 =
 "as the Baphomet, glitched the final teleporter\n"
 "with his hidden sigil. Its eldritch power drags\n"
 "you to a darker part of hell that's nothing like\n"
-"where you've been before\n";
+"where you've been before.\n";
 
 E5INTRO4 =
 "ADMIST BLOOD RED DARKNESS:\n\n" 
@@ -229,7 +230,7 @@ E5INTRO4 =
 "evil, confront any grand harbingers of Satan, and\n"
 "then return to earth to become its savior.\n"
 "\n"
-"Rip & Tear!"; //Bleh.
+"In Short, Rip & Tear!"; //Bleh.
 
 //Taken from the existing story text with some details altered to match cannon better
 //Ex: episode 4 being set on earth and not in hell or a weird inbetween pocket dimention.
@@ -263,7 +264,7 @@ D2INTRO1 =
 "The Story Continues...\n"
 "\n"
 "Back at last. After so many weeks\n"
-"of hard fighting, you've returned home\n"
+"of hard fighting, you've returned home.\n"
 "Damn! The city ahead is on fire. Packs\n" 
 "of refugees are fleeing the flaming\n" 
 "metropolis. Hell, not again!";
@@ -274,7 +275,7 @@ D2INTRO2 =
 "are taken over, turned into cannibal\n"
 "Things. Then the real horror starts, the\n"
 "deformed monstrosities from Outside. But\n"
-"now it's on Earth!";	
+"now it's here!";	
 
 D2INTRO3 =
 "Unfortunately, Earth's only ground\n"
