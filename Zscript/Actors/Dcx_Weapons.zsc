@@ -2084,6 +2084,7 @@ class Keyboard_MachineGun : DoomWeapon
       Obituary "%o got too psyched from %k's Machine Gun bullets.";
 	  Weapon.MinSelectionAmmo1 3;
       Tag "Machine Gun";
+	  +WEAPON.CHEATNOTWEAPON
 	}
 	
   States
@@ -2100,15 +2101,15 @@ class Keyboard_MachineGun : DoomWeapon
   Fire:
     RIFL A 1;
     RIFL B 0  A_FireBullets (5.6, 0, 1, 5, "BulletPuff");
-    RIFL B 0  A_PlaySound("misc/machgun", CHAN_WEAPON);
+    RIFL B 0  A_StartSound("misc/machgun", CHAN_WEAPON);
     RIFL B 3  A_GunFlash;
     RIFL C 1;
     RIFL B 0  A_FireBullets (5.6, 0, 1, 5, "BulletPuff");
-    RIFL B 0  A_PlaySound("misc/machgun", CHAN_WEAPON);
+    RIFL B 0  A_StartSound("misc/machgun", CHAN_WEAPON);
     RIFL B 3  A_GunFlash;
     RIFL C 1;
     RIFL B 0  A_FireBullets (5.6, 0, 1, 5, "BulletPuff");
-    RIFL B 0  A_PlaySound("misc/machgun", CHAN_WEAPON);
+    RIFL B 0  A_StartSound("misc/machgun", CHAN_WEAPON);
     RIFL B 3  A_GunFlash;
     RIFL C 1;
     Goto Ready;

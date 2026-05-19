@@ -3,6 +3,8 @@ version "4.15.1"
 #include "Zscript/LevelScripts/Dcx_Levelpostprocessors.zsc"
 #include "Zscript/LevelScripts/DCX_StaticEventHandler.zsc"
 #include "Zscript/LevelScripts/Dcx_EventHandlers.zsc"
+#include "Zscript/LevelScripts/Dcx_LevelScript.zsc"
+#include "Zscript/LevelScripts/Dcx_Textures.zsc"
 
 #include "Zscript/Actors/Dcx_BaseDoom_Actors.zsc"
 #include "Zscript/Actors/Dcx_D64D2_Actors.zsc"
