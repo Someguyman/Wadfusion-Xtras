@@ -139,6 +139,16 @@ Class Medikit_Kick : Medikit
 	}
 }
 
+Class Berserk_Kick : Berserk
+{
+	States
+	{
+	Spawn:
+		KAMK C -1;
+		Stop;
+	}
+}
+
 class Clip_Kick : Clip
 {
 	States

@@ -166,6 +166,9 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			if (e.Replacee == 'Medikit')
 				e.Replacement = 'Medikit_kick';
 				
+			if (e.Replacee == 'Berserk')
+				e.Replacement = 'Berserk_kick';
+				
 			if (e.Replacee == 'Clip')
 				e.Replacement = 'Clip_kick';
 			
