@@ -51,25 +51,8 @@ script "NoIntermission_Script" (void)
 	
 	if( (StrICmp(mapName, "e4m8") == 0) || (StrICmp(mapName, "psx05") == 0) )
 	{
-		ChangeLevel("WF_D1E4_ENDING",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
+		ChangeLevel("wf_story",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
 		Terminate;
-	}
-	
-	if(GetCVar ("dcx_CabalOrder") == 2)
-	{
-		if(StrICmp(mapName, "ml_map42") == 0)
-		{
-			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
-			Terminate;
-		}
-	}
-	else
-	{
-		if(StrICmp(mapName, "ml_map43") == 0)
-		{
-			ChangeLevel("CabalEND",0,CHANGELEVEL_KEEPFACING|CHANGELEVEL_NOINTERMISSION|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_RESETINVENTORY,-1);
-			Terminate;
-		}
 	}
 	
 	Exit_Normal(0);
