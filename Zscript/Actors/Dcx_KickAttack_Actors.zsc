@@ -175,7 +175,8 @@ Class Dcx_SpectreSinger : Dcx_LoungeSinger
 	{
 		+SHADOW
 		RenderStyle "OptFuzzy";
-		Alpha 0.5;
+		Translation "SpectreColor";
+		Alpha 0.3;
 	}
 }
 

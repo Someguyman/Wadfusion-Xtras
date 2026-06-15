@@ -2073,6 +2073,7 @@ class Keyboard_MachineGun : DoomWeapon
 {
   Default
     {
+	  scale 0.65;
       Weapon.SelectionOrder 1900;
       Weapon.AmmoUse 1;
       Weapon.AmmoGive 32;

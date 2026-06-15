@@ -229,9 +229,9 @@ Class DCX_ShockTrooper : Actor Replaces ID24PlasmaGuy
 			}
 			PPOS F 2 bright Fast STrooperBlast();
 			PPOS E 4 Fast;
-			PPOS F 2 bright Fast  STrooperBlast();
+			PPOS F 2 bright Fast STrooperBlast();
 			PPOS E 4 Fast;
-			PPOS F 2 bright Fast  STrooperBlast();
+			PPOS F 2 bright Fast STrooperBlast();
 			PPOS E 4 Fast A_SetTranslation("None");
 			goto see;
 		pain:

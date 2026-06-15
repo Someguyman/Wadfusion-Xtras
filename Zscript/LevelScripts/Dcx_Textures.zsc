@@ -258,7 +258,7 @@ Extend Class DCX_EventHandler
 			Level.ReplaceTextures("TYIRONSM", "TYIRONSM2", 0);
 			Level.ReplaceTextures("DOGRMSC", 	"DOGRMC2", 0);
 			Level.ReplaceTextures("DOGRID", 	 "DOGRI2", 0);
-			Level.ReplaceTextures("DORED", 		 "DORED2", 0);
+			//Level.ReplaceTextures("DORED", 		 "DORED2", 0);
 			Level.ReplaceTextures("DOPUNK4",	 "DOPNK42",0);
 			Level.ReplaceTextures("DOGLDIR", 	 "DOGLDI2",0);
 			Level.ReplaceTextures("PNK4EXIT",	"PK4EXIT2",0);

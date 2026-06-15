@@ -23,7 +23,7 @@ User int hud_toggle = 0;
 User int AB_hud_toggle = 0;
 User int Health_Cross_Toggle = 0;
 
-User bool KICK_Toggle = true;
+server bool KICK_Toggle = true;
 
 NoSave bool dcx_MugShotGib = false;
 

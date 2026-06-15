@@ -61,6 +61,33 @@ class DCX_ChaingunGuy : ChaingunGuy Replaces ChaingunGuy
 	}		
 }
 
+class DCX_WolfensteinSS : WolfensteinSS Replaces WolfensteinSS
+{
+	Default
+	{
+		//Dropitem "Keyboard_MachineGun";
+	}
+	States
+	{
+	Missile:
+		SSWV E 10 A_FaceTarget;
+		SSWV F 10 A_FaceTarget;
+		CPOS A 0 A_Jumpif((Cvar.getcvar("DCX_EnchancesMonsters").getint() == 1 || Level.MapName.MakeLower().left(3) == "dz_"), "Missle.Enchanced");
+		SSWV G 4 BRIGHT A_CPosAttack;
+		SSWV F 6 A_FaceTarget;
+		SSWV G 4 BRIGHT A_CPosAttack;
+		SSWV F 1 A_CPosRefire;
+		Goto Missile+1;
+	Missile.Enchanced:
+		SSWV G 2 BRIGHT A_CPosAttack;
+		SSWV F 8 A_FaceTarget;
+		SSWV G 2 BRIGHT A_CPosAttack;
+		SSWV F 2 A_FaceTarget;
+		SSWV F 1 A_CPosRefire;
+		Goto Missile+1;
+	}
+}
+
 class DCX_Spectre : Spectre replaces Spectre
 {
 	default

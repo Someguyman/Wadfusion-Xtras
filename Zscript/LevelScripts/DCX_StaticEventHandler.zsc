@@ -3,7 +3,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 	override void NetworkProcess(ConsoleEvent e)
 	{
 		if (e.Name ~== "NewGameChangeLevelInputEvent")
-			DCX_NewGameChangeLevelInput(); // wf_newgame.zs
+			 DCX_NewGameChangeLevelInput(); // wf_newgame.zs
 		
 		if (e.Name ~== "IntermissionStoryEvent")
 			Level.StartIntermission(intermission, FSTATE_INLEVELNOWIPE);
@@ -12,7 +12,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 	override void WorldTick()
 	{
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
-			FullRunStory(); // wf_fullrun.zs in wadfusion.pk3
+			DCX_FullRunStory(); // wf_fullrun.zs in wadfusion.pk3
 
 		DCX_NewGameIntro();
 		DCX_IntermissionStory();
@@ -226,21 +226,6 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 		}
 	}
 	
-	void DCX_NewGameChangeLevelInput() // Does nothing lmao!
-	{
-		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
-		
-		if ( CVar.FindCVar("wf_intros").GetBool() )
-		{
-			if ( ( nextMap != "masterhub" && rejects) && nextMap != "lr_map08" && nextMap != "ja_map01"  && nextMap != "tn_map12"  && nextMap != "tn_map21" && nextMap != "pl_map12" && nextMap != "pl_map21" && nextMap != "ab_map12" && nextMap != "ab_map21" && nextMap != "dz_map01" && nextMap != "dz_map12" && nextMap != "dz_map21" && nextMap != "tr_map01" && nextMap != "tr_map12" && nextMap != "tr_map21" )
-				Level.ChangeLevel("wf_story", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
-			else
-				Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
-		}
-		else
-			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
-		}
-
 	void DCX_IntermissionStory()
 	{
 		string mapName = Level.MapName.MakeLower();
@@ -297,7 +282,7 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 				else if ( nextMap == "le_e1m1" )
 					intermission = "LostEpisode_Intro";
 				else if ( Nextmap == "ka_map" )
-					intermission = "KA_Intro";
+					intermission = "ka_Intro";
 				
 				StoryStartIntermission();
 				
@@ -339,6 +324,64 @@ class DCX_StaticHandler : WadFusionStaticHandler Replaces WadFusionStaticHandler
 						Level.ChangeLevel(nextMap, 0, CHANGELEVEL_NOINTERMISSION);
 				}
 			}
+		}
+	}
+	
+	void DCX_NewGameChangeLevelInput() // Does nothing lmao!
+	{
+		if ( CVar.FindCVar("wf_intros").GetBool() )
+		{
+			if ( nextMap == "e1m1" ||
+				 nextMap == "e2m1" ||
+				 nextMap == "e3m1" ||
+				 nextMap == "e4m1" ||
+				 nextMap == "e5m1" ||
+				 nextMap == "e6m1" ||
+				 nextMap == "le_e1m1" ||
+				 nextMap == "eu_map01" ||
+				 nextMap == "map01" ||
+				 nextMap == "nv_map01" ||
+				 nextMap == "lr_map01" ||
+				 nextMap == "tn_map01" ||
+				 nextMap == "tr_map01" ||
+				 nextMap == "pl_map01" ||
+				 nextMap == "pt_map01" ||
+				 nextMap == "ab_map01" || 
+				 nextMap == "dz_map01" )
+				Level.ChangeLevel("wf_story", 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
+			else
+				Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
+		}
+		else
+			Level.ChangeLevel(nextMap, 0, CHANGELEVEL_RESETINVENTORY|CHANGELEVEL_RESETHEALTH|CHANGELEVEL_NOINTERMISSION);
+	}
+	
+	void DCX_FullRunStory()
+	{
+		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
+		string mapName = Level.MapName.MakeLower();
+		
+		if ( mapName == "e1m8" ||
+			 mapName == "e1m8b" ||
+			 mapName == "e2m8" ||
+			 mapName == "e3m8" ||
+			 mapName == "e4m8" ||
+			 mapName == "e5m8" ||
+			 mapName == "e6m8" ||
+			 mapName == "eu_map08" ||
+			 mapName == "map30" ||
+			 ( mapName == "ml_map20" && !rejects ) || // also needed for xaser order
+			 mapName == "ml_map43" ||
+			 mapName == "nv_map08" ||
+			 mapName == "lr_map07" ||
+			 mapName == "lr_map14" ||
+			 mapName == "tn_map30" ||
+			 mapName == "tr_map30" ||
+			 mapName == "pl_map30" || 
+			 mapName == "pt_map30" ||
+			 mapName == "ab_map30" )
+		{
+			Level.NextMap = "wf_story";
 		}
 	}
 	

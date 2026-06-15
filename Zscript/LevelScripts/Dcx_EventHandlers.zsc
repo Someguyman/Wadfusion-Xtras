@@ -1,7 +1,7 @@
 
 class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 {
-
+	//KICK_Toggle
 	///*
 	TextureId TITLEPIC;
 	TextureId VICTORY2;
@@ -41,10 +41,6 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
 			string mapName = Level.MapName.MakeLower();
-			if ( mapName == "wf_d1e4_ending" )
-			{
-					Level.SetFrozen(true);
-			}
 			if ( mapName == "masterhub" && !rejects )
 			{
 					Screen.DrawTexture(INTERPIC, false, 0, 0, DTA_FullScreen, 1);
@@ -224,11 +220,19 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			{
 				e.Replacement = 'Dcx_SurferMutant2';
 			}
+			
 			//Demon
 			if (e.Replacee == 'Demon')
 			{
 				e.Replacement = 'Dcx_LoungeSinger';
 			}
+			
+			//Spectre
+			if (e.Replacee == 'Spectre')
+			{
+				e.Replacement = 'Dcx_SpectreSinger';
+			}
+			
 			//LostSoul
 			if (e.Replacee == 'LostSoul')
 			{
@@ -304,8 +308,8 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 				if (e.Replacee == 'LostSoul')
 				e.Replacement = 'DCX_ForgottenSoul';
 				
-				if (e.Replacee == 'Revenant')
-				e.Replacement = 'DCX_DarkRevenant';
+				//if (e.Replacee == 'Revenant')
+				//e.Replacement = 'DCX_DarkRevenant';
 			}
 			
 			if (e.Replacee == 'Meat4')
@@ -489,8 +493,6 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 	{
 		if ( CVar.FindCVar("wf_compat_nextmap").GetBool() )
 		{
-			LevelReplacement();
-			
 			// replace e1m8 or e1m4 with the maps that Romero authored
 			// as a warm-up exercise for the cancelled game Blackroom
 			DoBlackroomMapReplacements();
@@ -498,6 +500,7 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 			// wf_masterlevels.zs
 			// add the reject levels to the master levels mapset
 			DCX_AddMasterLevelsRejects();
+			LevelReplacement();
 		}
 	}
 	
@@ -539,6 +542,15 @@ class DCX_EventHandler : WadFusionHandler replaces WadFusionHandler
 		
 		let rejects = CVar.FindCVar("wf_map_mlr").GetBool();
 		String mapName = level.MapName.MakeLower();
+		
+		if ( mapName == "wf_newgame_e3m1" )
+		{
+			 if (CVar.GetCvar("dcx_playstationmaps").getint() == 2 )
+				Level.NextMap = "psx02b";
+			 if (CVar.GetCvar("dcx_playstationmaps").getint() == 1 )
+				Level.NextMap = "psx02";
+
+		}
 		
 		if ( mapName == "masterhub" && !rejects )
 		{

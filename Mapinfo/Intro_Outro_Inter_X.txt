@@ -120,7 +120,7 @@ Intermission Doom_Intro_4
 	{
 		Text = "$E4INTRO1"
 		Background = "INTER_E4"
-		Music = "$MUSIC_INTEREP4"
+		Music = "$MUSIC_VICTR2"
 	}
 	TextScreen
 	{
